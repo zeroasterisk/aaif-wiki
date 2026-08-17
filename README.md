@@ -1,5 +1,8 @@
 # AAIF Wiki (`aaif-wiki`)
 
+> **⚠️ Personal Hobby Project** — This is an independent, personal project by [Alan Blount](https://github.com/zeroasterisk). It is **not affiliated with, endorsed by, or supported by any employer, company, or organization**. No warranty; use at your own risk.
+
+
 > **Autonomous OKF v0.2 knowledge engine for the Agentic AI Foundation**
 
 [![Standard: OKF v0.2](https://img.shields.io/badge/standard-OKF%20v0.2-blue.svg)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
