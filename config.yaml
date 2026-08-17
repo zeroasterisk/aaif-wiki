@@ -1,0 +1,60 @@
+# AAIF Wiki Configuration
+# Architecture inspired by Open Knowledge Format (OKF v0.2) and langchain-ai/openwiki
+
+project:
+  name: "AAIF Knowledge Wiki"
+  organization: "aaif"
+  bundle_root: "wiki"
+  event_store: "raw/events"
+
+curator:
+  model: "gemini-3.7-flash"
+  iteration_budget: 15
+  compaction_threshold: 40
+  temperature: 0.2
+
+temporal:
+  host: "localhost:7233"
+  namespace: "default"
+  task_queue: "aaif-wiki-queue"
+  retry_policy:
+    initial_interval_seconds: 2
+    backoff_coefficient: 2.0
+    maximum_interval_seconds: 60
+    maximum_attempts: 5
+
+sources:
+  github:
+    org: "aaif"
+    repositories:
+      - "wg-security-and-privacy"
+      - "wg-observability-and-traceability"
+      - "wg-workflows-and-process-integration"
+      - "ws-taxonomy-landscape"
+      - "wg-governance-risk-and-regulatory"
+      - "wg-agentic-commerce"
+      - "wg-accuracy-and-reliability"
+      - "wg-identity-and-trust"
+      - "technical-committee"
+      - "foundation"
+      - "community-events"
+      - "project-proposals"
+      - "working-group-proposals"
+      - "public-agents"
+      - "aaif-landscape"
+    doc_extensions:
+      - ".md"
+      - ".markdown"
+      - ".yaml"
+      - ".yml"
+    include_open_prs: true
+
+exporters:
+  gist:
+    enabled: true
+    public: true
+  visualizer:
+    enabled: true
+    output_dir: "wiki"
+  openviking:
+    enabled: false  # P2 target
