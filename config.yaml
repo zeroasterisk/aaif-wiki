@@ -1,31 +1,67 @@
 # AAIF Wiki Configuration
-# Architecture inspired by Open Knowledge Format (OKF v0.2) and langchain-ai/openwiki
+# Single source of truth for tunables. ADRs reference these values rather than
+# restating literals -- restated literals drift.
 
 project:
   name: "AAIF Knowledge Wiki"
   organization: "aaif"
-  bundle_root: "wiki"
-  event_store: "raw/events"
+  bundle_root: "wiki"       # canonical OKF v0.2 bundle (committed)
+  event_store: "raw/events" # append-only event log (committed)
+  cache_dir: "raw/cache"    # git mirrors + API cache (gitignored, disposable)
+  index_db: "raw/index.db"  # derived read model (gitignored, rebuildable)
+  dist_dir: "dist"          # build artifacts (gitignored)
 
 curator:
+  # Gemini 3.7 Flash, released 2026-08-13. The Flash line is moving on a ~3-week
+  # cadence (3.5 -> 3.6 -> 3.7), so this pin is a decision with a review date, not
+  # a fossil: revisit quarterly. Pinned rather than aliased so that replay and the
+  # `generated.by` provenance refer to the model that actually produced the text.
   model: "gemini-3.7-flash"
+  fallback_model: "gemini-flash-latest"
+  vertex:
+    project: null           # null -> ADC / GOOGLE_CLOUD_PROJECT
+    location: "global"
   iteration_budget: 15
-  compaction_threshold: 40
+  # MUST stay below iteration_budget or the compactor can never fire.
+  compaction_threshold: 10
   temperature: 0.2
+  # Introductory pricing, USD per 1M tokens. Approximate by design; drives budget.
+  usd_per_1m_input: 0.75
+  usd_per_1m_output: 3.75
 
-temporal:
-  host: "localhost:7233"
-  namespace: "default"
-  task_queue: "aaif-wiki-queue"
+# Hard ceilings. Iteration budgets bound a single batch; these bound the run.
+# Breach aborts with partial progress, which is safe because the event store
+# makes resumption cheap.
+budget:
+  max_usd_per_run: 25.0
+  max_tokens_per_run: 20000000
+  max_concepts_per_run: 100
+  hard_usd_ceiling: 200.0
+
+# ADR-002. `local` by default. Switching to `temporal` is a config change, not a
+# rewrite, because activities are Temporal-compatible by construction.
+orchestrator:
+  backend: "local"          # local | temporal
+  checkpoint_path: "raw/.checkpoint.json"
   retry_policy:
     initial_interval_seconds: 2
     backoff_coefficient: 2.0
     maximum_interval_seconds: 60
     maximum_attempts: 5
+  # Only read when backend == temporal
+  host: "localhost:7233"
+  namespace: "default"
+  task_queue: "aaif-wiki-queue"
 
 sources:
   github:
     org: "aaif"
+    # Discover from the org API rather than hardcoding: AAIF is actively adding
+    # repos, and silently missing a new working group would defeat the purpose.
+    discover_repos: true
+    exclude_repos:
+      - ".github"
+    # Fallback if discovery fails.
     repositories:
       - "wg-security-and-privacy"
       - "wg-observability-and-traceability"
@@ -47,14 +83,41 @@ sources:
       - ".markdown"
       - ".yaml"
       - ".yml"
+    # We need what landed AND what is in flight; WGs do not all work the same way.
+    # Anything not merged yields status: draft.
     include_open_prs: true
+    include_issues: true
+    include_discussions: true
+    max_items_per_repo: 25
+
+# ADR-009. The curator never writes to main.
+publish:
+  enabled: true
+  branch_prefix: "wiki/update"
+  auto_merge: false         # true = merge without a human reviewer
+  base_branch: "main"
+  review_records: "raw/reviews"
 
 exporters:
   gist:
-    enabled: true
+    enabled: false          # only human-reviewed concepts are ever published
     public: true
   visualizer:
     enabled: true
-    output_dir: "wiki"
-  openviking:
-    enabled: false  # P2 target
+    output_dir: "dist"      # NOT wiki/ -- build artifacts stay out of the bundle
+  openviking_enabled: false # ADR-006: considered, not adopted
+
+# ADR-007 outbound half. Inbound half lives in curator prompt fencing.
+trust:
+  link_allowlist:
+    - "github.com"
+    - "raw.githubusercontent.com"
+    - "aaif.io"
+    - "www.aaif.io"
+    - "linuxfoundation.org"
+    - "www.linuxfoundation.org"
+  forbidden_patterns:
+    - "/google/(bin|src)/"
+    - "\\bgoogle3\\b"
+    - "file:///"
+    - "\\b[A-Za-z0-9._%+-]+@google\\.com\\b"

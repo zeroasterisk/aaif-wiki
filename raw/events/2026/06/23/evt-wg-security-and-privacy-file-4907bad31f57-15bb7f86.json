@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-4907bad31f57-15bb7f86",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "deliverables/taxonomy.md",
+  "title": "taxonomy.md",
+  "timestamp": "2026-06-23T10:06:27-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/deliverables/taxonomy.md",
+  "summary": "updates",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "3a3d0ef5367e0beb6aafa56908ae277a73f133e0",
+      "path": "deliverables/taxonomy.md",
+      "blob_sha": "15bb7f862ee38f1bb70aa50a033e2e9ec4679276",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

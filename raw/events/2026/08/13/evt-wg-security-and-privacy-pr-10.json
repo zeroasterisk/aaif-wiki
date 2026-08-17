@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-10",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#10",
+  "title": "July 2026 Monthly Report — WG Security & Privacy (SPAA)",
+  "timestamp": "2026-08-13T11:57:16Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/10",
+  "summary": "This PR adds the July 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\r\n\r\n### Month at a glance\r\n\r\n- The Threat Modeling Gap Analysis ([#8](https://github.com/aaif/wg-security-and-privacy/pull/8)) and the Best Practices Guide f...",
+  "pointers": [],
+  "inline_text": "This PR adds the July 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\r\n\r\n### Month at a glance\r\n\r\n- The Threat Modeling Gap Analysis ([#8](https://github.com/aaif/wg-security-and-privacy/pull/8)) and the Best Practices Guide first draft ([#9](https://github.com/aaif/wg-security-and-privacy/pull/9)) were posted as PRs on GitHub.\r\n- The Best Practices workstream held its first meeting, and the Design Patterns Catalog structure was completed and shared for review.\r\n- The WG agreed to align on the security and privacy terms in the unified taxonomy spreadsheet before the cross-WG taxonomy effort takes them up.\r\n- Meeting attendance averaged about 30 across the two July meetings, holding steady against June.\r\n\r\n### Decision requested from the TC\r\n\r\nThe WG requests a decision on formalizing collaboration with external groups such as OWASP, AARM, and MCP ACS. This ask carries over from the June report, and the WG continues unofficial collaboration until those relationships are formalized. Please respond in this PR so the decision can be actioned.\r\n\r\n### Risks worth flagging\r\n\r\nBlack Hat and DEF CON run the first week of August, and a large share of the membership will spend that week at the conferences. Expect a dip in attendance and workstream pace, including at the 2026-08-04 meeting.",
+  "labels": []
+}

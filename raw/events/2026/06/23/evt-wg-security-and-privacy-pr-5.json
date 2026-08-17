@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#5",
+  "title": "Add workstreams area with per-workstream README overviews",
+  "timestamp": "2026-06-23T14:03:44Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/5",
+  "summary": "### Summary\r\nIntroduce a new `workstreams/` directory that establishes the Security and Privacy WG's workstreams. Each workstream gets a README documenting its purpose, scope, and leads/contributors so the group's structure and ownership are recorded in the repo.\r\n\r\n### Changes\r\n...",
+  "pointers": [],
+  "inline_text": "### Summary\r\nIntroduce a new `workstreams/` directory that establishes the Security and Privacy WG's workstreams. Each workstream gets a README documenting its purpose, scope, and leads/contributors so the group's structure and ownership are recorded in the repo.\r\n\r\n### Changes\r\n- Add a `workstreams/` directory with one subfolder and README per workstream.\r\n- **Threat Modeling** (`threat-modeling/`): gap analysis of existing AI threat frameworks (CSA MAESTRO, OWASP, NIST AI RMF) against agentic-specific threats; framed as the most near-term WG-led deliverable that feeds the two technical workstreams below.\r\n- **Design Patterns Catalog** (`design-patterns/`): reusable secure/privacy patterns in a problem/context/solution/trade-offs format; sequenced after threat modeling.\r\n- **Best Practices Guide** (`best-practices/`): higher-level builder guidance plus a curated set of external references; pairs with the patterns catalog.\r\n- **Cross-WG Review Checklist** (`review-checklist/`): lightweight process for reviewing other AAIF WGs' deliverables through a security and privacy lens, with initial review targets.\r\n- **Taxonomy** (`taxonomy/`): documented as merged into the cross-WG AAIF Taxonomy/Landscape effort, with the SP WG delegates listed and a link to the 2026-06-09 meeting notes.\r\n- Each README captures purpose, topic areas/scope, and Leads + Contributors tables.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-12",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#12",
+  "title": "Review Identity & Trust Scope and identify overlaps",
+  "timestamp": "2026-08-03T17:16:41Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/12",
+  "summary": "Review Identity & Trust Scope and identify overlaps to create Cross-workgroup checklist items",
+  "pointers": [],
+  "inline_text": "Review Identity & Trust Scope and identify overlaps to create Cross-workgroup checklist items",
+  "labels": []
+}

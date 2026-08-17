@@ -4,7 +4,7 @@
 **Accepted**
 
 ## Context
-The Agentic AI Foundation (AAIF) encompasses 15 repositories, 8 working groups, and dozens of active RFCs and pull requests. Traditional knowledge management approaches (flat document folders, monolithic vector databases, or proprietary notebook silos) suffer from:
+The Agentic AI Foundation (AAIF) encompasses 15 repositories, 7 working groups plus 1 cross-group workstream (Taxonomy and Landscape), and dozens of active RFCs and pull requests. Traditional knowledge management approaches (flat document folders, monolithic vector databases, or proprietary notebook silos) suffer from:
 1. **Opaque Retrieval**: Black-box vector search cannot distinguish between historical drafts, active proposals, and merged standards.
 2. **Context Fragmentation**: Cross-cutting concepts (e.g. Attested Runtime in Security vs. Cross-Boundary Tracing in Observability) lack explicit relationships.
 3. **High Maintenance Friction**: Manual documentation quickly becomes stale, while automated dumping produces noise.
@@ -43,7 +43,15 @@ We adopt **Open Knowledge Format (OKF v0.2)** as the canonical knowledge represe
    ---
    ```
 3. **Explicit Graph Linking**:
-   Relationships between concepts are declared via relative Markdown links: `[Attested Isolated Runtime](/architectures/attested-isolated-runtime.md)`. These links form the edges of the compiled `graph.json`.
+   Relationships between concepts are declared via **true relative** Markdown links:
+   `[Attested Isolated Runtime](../architectures/attested-isolated-runtime.md)`.
+   Root-absolute links (`/architectures/...`) are forbidden: they resolve incorrectly on
+   GitHub Pages project sub-paths, in Obsidian, and in any nested-bundle consumer.
+   These links form the edges of the compiled graph.
+
+   > Note: OKF v0.2 has **no typed-relationship field** (typed edges remain an open upstream
+   > proposal). Any edge typing emitted by this project is a producer extension and MUST be
+   > namespaced so downstream consumers do not mistake it for standard OKF.
 4. **Body Structure**:
    Documents use conventional headings (`# Overview`, `# Architecture / Specification`, `# Lifecycle History`, `# References`).
 

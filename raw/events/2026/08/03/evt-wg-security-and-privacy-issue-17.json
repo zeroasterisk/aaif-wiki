@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-17",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#17",
+  "title": "Review Accuracy & Reliability WG Scope and identify overlaps",
+  "timestamp": "2026-08-03T17:18:12Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/17",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

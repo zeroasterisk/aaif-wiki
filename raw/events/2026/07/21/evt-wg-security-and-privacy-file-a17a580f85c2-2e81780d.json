@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "reporting/2026-06-report.md",
+  "title": "2026-06-report.md",
+  "timestamp": "2026-07-21T10:11:53-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/2026-06-report.md",
+  "summary": "Add June 2026 monthly report for Security & Privacy WG (#7)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "3a3d0ef5367e0beb6aafa56908ae277a73f133e0",
+      "path": "reporting/2026-06-report.md",
+      "blob_sha": "2e81780d3b12dbe644832c8094d12bc15abff414",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

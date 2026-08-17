@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-8",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#8",
+  "title": "Create Agentic AI Threat Modeling Gap Analysis (Draft v0.1).md",
+  "timestamp": "2026-08-17T15:27:31Z",
+  "author": "flucktemberg-sap",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/8",
+  "summary": "Here's the initial gap analysis on threat modeling for Agentic AI.\r\n\r\nThis serves as basis information for those participating in the sub-workgroup",
+  "pointers": [],
+  "inline_text": "Here's the initial gap analysis on threat modeling for Agentic AI.\r\n\r\nThis serves as basis information for those participating in the sub-workgroup",
+  "labels": []
+}

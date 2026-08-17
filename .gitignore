@@ -32,8 +32,24 @@ ENV/
 *.secret
 *.key
 
-# Raw Cache & Temporal Local DB
+# Raw cache & derived state.
+# NOTE: this asymmetry is deliberate and load-bearing. `raw/events/` IS committed --
+# it is the immutable event log that ADR-003 replays from, and `raw/reviews/` is
+# committed because it is the eval corpus (ADR-008). Everything below is derived
+# and disposable: delete it and the tool rebuilds it from the event store.
+# NB: git has no trailing-comment support in .gitignore -- a comment on the same
+# line becomes part of the pattern. Keep comments on their own lines.
+
+# shallow git mirrors + HTTP response cache
 raw/cache/
+# derived SQLite read model (rebuild: aaif-wiki index --rebuild)
+raw/index.db
+# per-run resume checkpoint
+raw/.checkpoint.json
+# legacy cursor; superseded by a store-derived cursor
+raw/.state.json
+# build artifacts (graph.json, digests)
+dist/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal

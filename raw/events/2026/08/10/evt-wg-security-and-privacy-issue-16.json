@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-16",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#16",
+  "title": "Review SPAA sub-workgroups Scope to minimize the overlaps",
+  "timestamp": "2026-08-10T17:20:54Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/16",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

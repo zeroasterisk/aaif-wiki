@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-14",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#14",
+  "title": "Review Workflows & Integrations WG Scope and identify overlaps",
+  "timestamp": "2026-08-03T17:17:23Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/14",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

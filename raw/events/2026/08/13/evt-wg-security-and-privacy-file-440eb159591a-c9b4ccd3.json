@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-440eb159591a-c9b4ccd3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "reporting/README.md",
+  "title": "README.md",
+  "timestamp": "2026-08-13T07:57:15-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/README.md",
+  "summary": "July 2026 Monthly Report — WG Security & Privacy (SPAA) (#10)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "3a3d0ef5367e0beb6aafa56908ae277a73f133e0",
+      "path": "reporting/README.md",
+      "blob_sha": "c9b4ccd394da51e0fada01996ac54d0be010f2e9",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

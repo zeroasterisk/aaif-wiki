@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-e24f19bec4ac-f8906e55",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/best-practices/README.md",
+  "title": "README.md",
+  "timestamp": "2026-06-23T10:03:40-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/workstreams/best-practices/README.md",
+  "summary": "Add workstreams area with per-workstream README overviews (#5)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "3a3d0ef5367e0beb6aafa56908ae277a73f133e0",
+      "path": "workstreams/best-practices/README.md",
+      "blob_sha": "f8906e55c7d8479a08f4193e594f906666b10b08",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

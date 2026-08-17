@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#7",
+  "title": "Add June 2026 monthly report for Security & Privacy WG",
+  "timestamp": "2026-07-21T14:11:59Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/7",
+  "summary": "### Summary\r\nAdd the working group's first monthly TC report, covering June 2026, and index it in the reporting README. The report records the shift from formation into execution across the five workstreams.\r\n\r\n### Changes\r\n- Add `reporting/2026-06-report.md` with the June 2026 r...",
+  "pointers": [],
+  "inline_text": "### Summary\r\nAdd the working group's first monthly TC report, covering June 2026, and index it in the reporting README. The report records the shift from formation into execution across the five workstreams.\r\n\r\n### Changes\r\n- Add `reporting/2026-06-report.md` with the June 2026 report: five workstreams stood up with confirmed leads and per-workstream READMEs, the Taxonomy of Terms moved to the cross-WG AAIF Taxonomy/Landscape initiative, and the Threat Modeling Gap Analysis and Best Practices Guide produced first drafted content.\r\n- Capture standing items for the TC: member-availability risk, rescheduled deliverable dates, next month's focus, and charter KPI status (adoption, quality, community, timeliness).\r\n- Raise a TC decision request on the scope and posture of external collaboration with OWASP, AARM, and MCP ACS.\r\n- Update `reporting/README.md` to replace the \"no reports yet\" placeholder with the first report row (2026-06) and a one-line summary.\r\n\r\n### Testing\r\n- Documentation-only change with no automated tests. Suggest verifying the relative links to the June meeting notes and the workstreams area resolve from the rendered report.\r\n\r\n### Notes for Reviewers\r\n- Please confirm the rescheduled deliverable dates and the framing of the external-collaboration decision are accurate before this goes to the TC.\r\n- The report references PR #5 for the workstreams area; verify that attribution is correct.",
+  "labels": []
+}

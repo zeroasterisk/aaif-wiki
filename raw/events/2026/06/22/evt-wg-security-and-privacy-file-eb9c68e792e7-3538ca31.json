@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-eb9c68e792e7-3538ca31",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "meeting-notes/AGENTS.md",
+  "title": "AGENTS.md",
+  "timestamp": "2026-06-22T09:15:52-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/meeting-notes/AGENTS.md",
+  "summary": "Update agents.md",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "3a3d0ef5367e0beb6aafa56908ae277a73f133e0",
+      "path": "meeting-notes/AGENTS.md",
+      "blob_sha": "3538ca311d2a0d2b63d4d53ac064c17b68b9b832",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

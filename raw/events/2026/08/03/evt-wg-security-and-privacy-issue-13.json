@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-13",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#13",
+  "title": "Review Observability & Tracing WG Scope and identify overlaps",
+  "timestamp": "2026-08-03T17:17:07Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/13",
+  "summary": "Review Observability & Tracing WG Scope and identify overlaps",
+  "pointers": [],
+  "inline_text": "Review Observability & Tracing WG Scope and identify overlaps",
+  "labels": []
+}

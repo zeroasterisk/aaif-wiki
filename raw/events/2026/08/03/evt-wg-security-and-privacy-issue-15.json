@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-15",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#15",
+  "title": "Review Agentic Commerce WG Scope and identify overlaps",
+  "timestamp": "2026-08-03T17:17:33Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/15",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}
