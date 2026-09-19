@@ -195,6 +195,9 @@ class ResolutionEvidence(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     rationale: str
     flags: list[str] = Field(default_factory=list)
+    tokens_in: int = 0
+    tokens_out: int = 0
+    estimated_usd: float = 0.0
 
 
 class Mutation(BaseModel):
@@ -252,6 +255,7 @@ class CurateResult(BaseModel):
     halted_reason: str | None = None
     jev_stats: dict[str, Any] = Field(default_factory=dict)
     exceptions: list[Mutation] = Field(default_factory=list)
+    resolution_stats: dict[str, Any] = Field(default_factory=dict)
 
 
 class ValidationIssue(BaseModel):

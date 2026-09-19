@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 
 env:
-  GOOGLE_CLOUD_PROJECT: alanblount-demo
+  GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
   GOOGLE_CLOUD_LOCATION: global
   JEV_ENABLED: "true"
 
@@ -37,6 +37,9 @@ jobs:
 
       - name: Install
         run: uv sync --extra dev
+
+      - name: Require Google Cloud project variable
+        run: test -n "$GOOGLE_CLOUD_PROJECT" || { echo "Set repository variable GOOGLE_CLOUD_PROJECT"; exit 1; }
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

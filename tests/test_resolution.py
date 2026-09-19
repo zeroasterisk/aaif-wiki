@@ -26,7 +26,7 @@ def test_duplicate_is_queued_but_mutation_survives():
 
 
 def test_stable_from_open_source_is_evidence_not_blocker():
-    mutation = Mutation(action="update", slug="taxonomy/x", concept=Concept(type="Term", title="x", description="x", status=ConceptStatus.STABLE))
+    mutation = Mutation(action="update", slug="taxonomy/x", source_event_ids=["e1"], concept=Concept(type="Term", title="x", description="x", status=ConceptStatus.STABLE))
     result, exceptions = resolve_mutations([mutation], [event()], [DeterministicContextLayer(set())], 0.65)
     assert result[0] is mutation
     assert "stable-from-unsettled-source" in exceptions[0].exception_reasons
@@ -51,3 +51,53 @@ def test_human_resolution_becomes_training_signal(tmp_path):
     record = json.loads(path.read_text())
     assert record["status"] == "resolved"
     assert record["training_signal"]["label"] == "update existing node"
+
+
+def test_unrelated_open_event_does_not_flag_stable_mutation():
+    cited = event(Lifecycle.MERGED)
+    unrelated = RawEvent(
+        event_id="e2",
+        source_type=SourceType.ISSUE,
+        lifecycle=Lifecycle.OPEN,
+        repository="aaif/x",
+        reference_id="2",
+        title="unrelated",
+        timestamp=datetime.now(UTC),
+    )
+    mutation = Mutation(
+        action="update",
+        slug="taxonomy/x",
+        source_event_ids=["e1"],
+        concept=Concept(
+            type="Term", title="x", description="x", status=ConceptStatus.STABLE
+        ),
+    )
+    _, exceptions = resolve_mutations(
+        [mutation], [cited, unrelated], [DeterministicContextLayer(set())], 0.65
+    )
+    assert not exceptions
+
+
+def test_downstream_resolution_clears_prior_flags():
+    from aaif_wiki.models import ResolutionEvidence
+
+    class Resolved:
+        name = "custom-resolver"
+
+        def resolve(self, mutation, events):
+            return ResolutionEvidence(
+                layer=self.name,
+                outcome="resolved",
+                confidence=0.9,
+                rationale="duplicate merged into the existing target",
+                flags=[],
+            )
+
+    mutation = Mutation(action="create", slug="taxonomy/x")
+    _, exceptions = resolve_mutations(
+        [mutation],
+        [],
+        [DeterministicContextLayer({"taxonomy/x"}), Resolved()],
+        0.65,
+    )
+    assert not exceptions

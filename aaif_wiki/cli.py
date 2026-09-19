@@ -210,7 +210,11 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
         record = pub.write_review_record(cfg, mutations, branch, run_id)
         sha = pub.commit_paths(
             cfg.root,
-            [cfg.project.bundle_root, cfg.publish.review_records],
+            [
+                cfg.project.bundle_root,
+                cfg.publish.review_records,
+                cfg.resolution.exceptions_dir,
+            ],
             f"feat(wiki): automated update {run_id}\n\n{len(mutations)} mutation(s). "
             f"All concepts are draft/unverified pending human review (ADR-009).",
         )
@@ -219,6 +223,7 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
             pub._git(cfg.root, "checkout", original)
             return
         console.print(f"committed {sha[:8]} on [bold]{branch}[/bold] (review record: {record.name})")
+        pub.push_branch(cfg.root, branch)
 
         ok, detail = pub.open_pull_request(
             cfg, branch,

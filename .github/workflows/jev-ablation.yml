@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 env:
-  GOOGLE_CLOUD_PROJECT: alanblount-demo
+  GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
   GOOGLE_CLOUD_LOCATION: global
 
 jobs:
@@ -29,6 +29,9 @@ jobs:
 
       - run: uv python install 3.11
       - run: uv sync --extra dev
+
+      - name: Require Google Cloud project variable
+        run: test -n "$GOOGLE_CLOUD_PROJECT" || { echo "Set repository variable GOOGLE_CLOUD_PROJECT"; exit 1; }
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

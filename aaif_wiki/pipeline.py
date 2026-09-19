@@ -114,7 +114,8 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
         return event.inline_text
 
     existing = load_bundle(cfg.bundle_dir)
-    curator = Curator(cfg.curator, cfg.budget, BudgetState())
+    budget = BudgetState()
+    curator = Curator(cfg.curator, cfg.budget, budget)
     result = curator.curate(events, existing, rehydrate=rehydrate)
 
     # Jev is advisory and optional. It classifies typed proposals after the
@@ -136,15 +137,30 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
         # Increasing-fidelity Vertex layers share the curator's established
         # credential/project path. Missing credentials become queue evidence.
         if "vertex-fast" in configured:
-            layers.append(VertexResolutionLayer("vertex-fast", cfg.curator.fallback_model, cfg.curator))
+            layers.append(
+                VertexResolutionLayer(
+                    "vertex-fast", cfg.curator.fallback_model, cfg.curator, cfg.budget, budget
+                )
+            )
         if "vertex-deep" in configured:
-            layers.append(VertexResolutionLayer("vertex-deep", cfg.curator.model, cfg.curator))
+            layers.append(
+                VertexResolutionLayer(
+                    "vertex-deep", cfg.curator.model, cfg.curator, cfg.budget, budget
+                )
+            )
     result.mutations, result.exceptions = resolve_mutations(
         result.mutations,
         events,
         layers,
         cfg.resolution.exception_confidence_threshold,
     )
+    evidence = [item for mutation in result.mutations for item in mutation.resolution_evidence]
+    result.resolution_stats = {
+        "calls": sum(item.layer.startswith("vertex-") for item in evidence),
+        "tokens_in": sum(item.tokens_in for item in evidence),
+        "tokens_out": sum(item.tokens_out for item in evidence),
+        "usd": sum(item.estimated_usd for item in evidence),
+    }
     return result
 
 
@@ -344,6 +360,7 @@ async def run_pipeline(
         "issues": [],
         "exceptions": 0,
         "exception_files": [],
+        "resolution": {"calls": 0, "tokens_in": 0, "tokens_out": 0, "usd": 0.0},
     }
     if not curate or not pending:
         return summary
@@ -369,6 +386,10 @@ async def run_pipeline(
             summary["jev"][key] = summary["jev"].get(key, 0) + result.jev_stats.get(key, 0)
         if result.jev_stats.get("average_latency_ms"):
             summary["jev"]["average_latency_ms"] = result.jev_stats["average_latency_ms"]
+        for key in ("calls", "tokens_in", "tokens_out", "usd"):
+            summary["resolution"][key] += result.resolution_stats.get(key, 0)
+        summary["tokens"] += result.resolution_stats.get("tokens_in", 0) + result.resolution_stats.get("tokens_out", 0)
+        summary["usd"] += result.resolution_stats.get("usd", 0.0)
         if result.mutations:
             all_mutations.extend(result.mutations)
             # Persist last-resort exceptions, but never block mechanical apply.

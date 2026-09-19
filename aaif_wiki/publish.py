@@ -130,6 +130,11 @@ def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
     return "\n".join(lines)
 
 
+def push_branch(root: Path, branch: str) -> None:
+    """Publish the local branch before asking GitHub to create a PR."""
+    _git(root, "push", "-u", "origin", branch)
+
+
 def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[bool, str]:
     """Open a PR via the gh CLI. Degrades to instructions when gh is unavailable."""
     probe = subprocess.run(["gh", "auth", "status"], capture_output=True, text=True)

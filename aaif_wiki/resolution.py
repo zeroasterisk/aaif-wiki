@@ -15,7 +15,8 @@ from pathlib import Path
 from typing import Protocol
 
 from .config import Config
-from .models import Mutation, RawEvent, ResolutionEvidence
+from .models import BudgetState, Mutation, RawEvent, ResolutionEvidence
+from .orchestration.local import BudgetExceeded
 
 
 class ResolutionLayer(Protocol):
@@ -33,6 +34,7 @@ class DeterministicContextLayer:
         self.existing_slugs = existing_slugs
 
     def resolve(self, mutation: Mutation, events: list[RawEvent]) -> ResolutionEvidence:
+        events = [event for event in events if event.event_id in mutation.source_event_ids]
         facts: list[str] = []
         flags: list[str] = []
         if mutation.action == "create" and mutation.slug in self.existing_slugs:
@@ -55,10 +57,12 @@ class DeterministicContextLayer:
 class VertexResolutionLayer:
     """Model-backed resolver using the application's existing Vertex path."""
 
-    def __init__(self, name: str, model: str, cfg):
+    def __init__(self, name: str, model: str, cfg, budget_limits, budget: BudgetState):
         self.name = name
         self.model = model
         self.cfg = cfg
+        self.budget_limits = budget_limits
+        self.budget = budget
         self._client = None
 
     def _get_client(self):
@@ -81,6 +85,7 @@ class VertexResolutionLayer:
     def resolve(self, mutation: Mutation, events: list[RawEvent]) -> ResolutionEvidence:
         from google.genai import types
 
+        events = [event for event in events if event.event_id in mutation.source_event_ids]
         payload = {
             "proposal": mutation.model_dump(mode="json", exclude={"resolution_evidence"}),
             "sources": [e.model_dump(mode="json") for e in events],
@@ -109,12 +114,27 @@ class VertexResolutionLayer:
             ),
         )
         data = json.loads(response.text or "{}")
+        usage = getattr(response, "usage_metadata", None)
+        tokens_in = int(getattr(usage, "prompt_token_count", 0) or 0)
+        tokens_out = int(getattr(usage, "candidates_token_count", 0) or 0)
+        estimated_usd = (
+            (tokens_in / 1e6) * self.cfg.usd_per_1m_input
+            + (tokens_out / 1e6) * self.cfg.usd_per_1m_output
+        )
+        self.budget.tokens_used += tokens_in + tokens_out
+        self.budget.usd_spent += estimated_usd
+        breach = self.budget.would_breach(self.budget_limits)
+        if breach:
+            raise BudgetExceeded(breach)
         return ResolutionEvidence(
             layer=self.name,
             outcome=data["outcome"],
             confidence=max(0.0, min(1.0, float(data["confidence"]))),
             rationale=str(data["rationale"])[:1000],
             flags=[str(flag) for flag in data.get("flags", [])][:20],
+            tokens_in=tokens_in,
+            tokens_out=tokens_out,
+            estimated_usd=estimated_usd,
         )
 
 
@@ -144,6 +164,20 @@ def resolve_mutations(
     for mutation in mutations:
         mutation.resolution_evidence = []
         for layer in layers:
+            prior = mutation.resolution_evidence[-1] if mutation.resolution_evidence else None
+            is_model_layer = isinstance(layer, VertexResolutionLayer)
+            jev_needs_resolution = bool(
+                mutation.jev
+                and (
+                    mutation.jev.mutation_kind == "conflict"
+                    or mutation.jev.confidence < confidence_threshold
+                )
+            )
+            if is_model_layer:
+                if not prior or (prior.outcome == "clear" and not jev_needs_resolution):
+                    continue
+                if layer.name == "vertex-deep" and prior.outcome == "resolved" and prior.confidence >= confidence_threshold:
+                    continue
             try:
                 evidence = layer.resolve(mutation, events)
             except Exception as exc:  # noqa: BLE001 - autonomy requires fail-open enrichment
@@ -156,7 +190,12 @@ def resolve_mutations(
                 )
             mutation.resolution_evidence.append(evidence)
 
-        flags = {flag for e in mutation.resolution_evidence for flag in e.flags}
+        flags: set[str] = set()
+        for evidence in mutation.resolution_evidence:
+            if evidence.outcome == "resolved":
+                flags.clear()
+            elif evidence.outcome in {"flagged", "error"}:
+                flags.update(evidence.flags)
         low_confidence = bool(mutation.jev and mutation.jev.confidence < confidence_threshold)
         model_conflict = bool(mutation.jev and mutation.jev.mutation_kind == "conflict")
         resolver_error = any(e.outcome == "error" for e in mutation.resolution_evidence)
