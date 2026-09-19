@@ -183,6 +183,8 @@ class JevAssessment(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     model: str = "jev-latest"
     latency_ms: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
 
 
 class ResolutionEvidence(BaseModel):

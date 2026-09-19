@@ -1,0 +1,66 @@
+name: Jev rendering ablation
+
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: Runs per arm (1-5)
+        required: true
+        default: "5"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+
+permissions:
+  contents: read
+
+env:
+  GOOGLE_CLOUD_PROJECT: alanblount-demo
+  GOOGLE_CLOUD_LOCATION: global
+
+jobs:
+  ablation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - run: uv python install 3.11
+      - run: uv sync --extra dev
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_VERTEX_SERVICE_ACCOUNT_JSON }}
+
+      - name: Run both arms from identical snapshots
+        env:
+          JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+        run: |
+          uv run aaif-wiki ablate-jev --runs "${{ inputs.runs }}" --output-dir ablation-artifacts
+          cat ablation-artifacts/summary.json
+
+      - name: Write run summary
+        if: always()
+        run: |
+          if test -f ablation-artifacts/summary.json; then
+            {
+              echo '## Jev rendering ablation'
+              echo '```json'
+              jq 'del(.records)' ablation-artifacts/summary.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Ablation did not produce summary.json. Check the run log.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload raw evidence and rendered outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-rendering-ablation-${{ github.run_id }}
+          path: ablation-artifacts/
+          if-no-files-found: error
+          retention-days: 30

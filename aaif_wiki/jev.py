@@ -171,6 +171,8 @@ class JevClient:
             confidence=confidence,
             model=str(response.get("model") or self.cfg.model),
             latency_ms=latency_ms,
+            input_tokens=int((response.get("usage") or {}).get("input_tokens", 0)),
+            output_tokens=int((response.get("usage") or {}).get("output_tokens", 0)),
         )
 
 

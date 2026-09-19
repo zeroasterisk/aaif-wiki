@@ -254,6 +254,18 @@ def validate() -> None:
     raise typer.Exit(0 if result.ok else 1)
 
 
+@app.command("ablate-jev")
+def ablate_jev(
+    output_dir: Path = typer.Option(Path("ablation-artifacts"), help="Evidence output directory"),
+    runs: int = typer.Option(5, min=1, max=5, help="Runs per arm"),
+) -> None:
+    """Render identical snapshots with Jev off/on and save raw evidence."""
+    from .ablation import run_ablation
+
+    summary = run_ablation(get_config(), output_dir, runs=runs)
+    console.print(json.dumps({k: v for k, v in summary.items() if k != "records"}, indent=2))
+
+
 @app.command("eval-jev")
 def eval_jev() -> None:
     """Evaluate stored Jev assessments against committed human labels."""
