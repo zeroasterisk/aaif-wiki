@@ -29,6 +29,19 @@ curator:
   usd_per_1m_input: 0.75
   usd_per_1m_output: 3.75
 
+# Optional advisory classifier for typed mutation proposals. The API key is read
+# only from JEV_API_KEY. JEV_ENABLED overrides `enabled` for one run.
+# Disabled means no request, no credential requirement, and the original
+# deterministic validation + human-review pipeline runs unchanged.
+jev:
+  enabled: false
+  endpoint: "https://api.typesafe.ai/v1/systemone"
+  model: "jev-latest"
+  confidence_threshold: 0.65
+  timeout_seconds: 20
+  maximum_attempts: 3
+  retry_backoff_seconds: 1
+
 # Hard ceilings. Iteration budgets bound a single batch; these bound the run.
 # Breach aborts with partial progress, which is safe because the event store
 # makes resumption cheap.

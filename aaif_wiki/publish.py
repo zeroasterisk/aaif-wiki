@@ -78,6 +78,7 @@ def write_review_record(cfg: Config, mutations: list[Mutation], branch: str, run
                 "slug": m.slug,
                 "rationale": m.rationale,
                 "source_event_ids": m.source_event_ids,
+                "jev_assessment": json.loads(m.jev.model_dump_json()) if m.jev else None,
                 "proposed_concept": (
                     json.loads(m.concept.model_dump_json()) if m.concept else None
                 ),
@@ -102,12 +103,20 @@ def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
         f"- model: `{stats.get('model', 'n/a')}`",
         f"- tokens: {stats.get('tokens', 0):,}",
         f"- estimated cost: ${stats.get('usd', 0.0):.4f}",
+        f"- Jev: {stats.get('jev', {}).get('assessed', 0)} assessed / "
+        f"{stats.get('jev', {}).get('abstained', 0)} abstained / "
+        f"{stats.get('jev', {}).get('failures', 0)} failed",
         "",
         "### Proposed changes",
         "",
     ]
     for m in mutations:
         lines.append(f"- **{m.action}** `{m.slug}` — {m.rationale}")
+        if m.jev:
+            lines.append(
+                f"  - Jev: {m.jev.mutation_kind}, target `{m.jev.target_node}`, "
+                f"confidence {m.jev.confidence:.2f}, {m.jev.decision}"
+            )
         if m.source_event_ids:
             lines.append(f"  - sources: {', '.join(f'`{s}`' for s in m.source_event_ids[:6])}")
     lines += [

@@ -254,6 +254,17 @@ def validate() -> None:
     raise typer.Exit(0 if result.ok else 1)
 
 
+@app.command("eval-jev")
+def eval_jev() -> None:
+    """Evaluate stored Jev assessments against committed human labels."""
+    import json
+
+    from .eval_jev import evaluate_review_records
+
+    cfg = get_config()
+    console.print(json.dumps(evaluate_review_records(cfg.reviews_dir), indent=2))
+
+
 @app.command()
 def export(
     target: str = typer.Argument("graph", help="graph | digest"),

@@ -25,6 +25,19 @@ still `Proposed` pending a full bootstrap. See [the architecture review](docs/de
 
 ---
 
+## Optional Jev mutation assessment
+
+The GitHub/OKF pipeline stays deterministic by default. To add advisory Jev
+classification for typed mutation proposals, set `JEV_ENABLED=true` and provide
+`JEV_API_KEY` at runtime. Jev classifies mutation kind and target, scores
+provenance and review priority, and abstains below the configured confidence
+threshold. If it is disabled, unconfigured, or unavailable, the pipeline
+continues unchanged. It never replaces OKF validation or human-only promotion.
+
+Committed review records retain the assessment. Add `human_label` entries while
+closing reviews, then run `uv run aaif-wiki eval-jev` to measure coverage and
+agreement. See [ADR-011](docs/design/ADR-011-optional-jev-mutation-assessment.md).
+
 ## What it actually does
 
 ```

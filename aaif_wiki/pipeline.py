@@ -115,7 +115,15 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
 
     existing = load_bundle(cfg.bundle_dir)
     curator = Curator(cfg.curator, cfg.budget, BudgetState())
-    return curator.curate(events, existing, rehydrate=rehydrate)
+    result = curator.curate(events, existing, rehydrate=rehydrate)
+
+    # Jev is advisory and optional. It classifies typed proposals after the
+    # curator boundary; deterministic validation and human promotion stay intact.
+    from .jev import assess_mutations
+
+    result.mutations, jev_stats = assess_mutations(result.mutations, events, existing, cfg.jev)
+    result.jev_stats = jev_stats
+    return result
 
 
 @activity("apply_mutations", retry=LOCAL_RETRY)
@@ -309,6 +317,7 @@ async def run_pipeline(
         "tokens": 0,
         "usd": 0.0,
         "model": "",
+        "jev": {"enabled": cfg.jev.is_enabled(), "attempted": 0, "failures": 0, "abstained": 0},
         "applied": 0,
         "issues": [],
     }
@@ -332,6 +341,10 @@ async def run_pipeline(
         summary["tokens"] += result.tokens_in + result.tokens_out
         summary["usd"] += result.usd
         summary["model"] = result.model or summary["model"]
+        for key in ("attempted", "assessed", "failures", "abstained"):
+            summary["jev"][key] = summary["jev"].get(key, 0) + result.jev_stats.get(key, 0)
+        if result.jev_stats.get("average_latency_ms"):
+            summary["jev"]["average_latency_ms"] = result.jev_stats["average_latency_ms"]
         if result.mutations:
             all_mutations.extend(result.mutations)
             applied = await orchestrator.execute("apply_mutations", result)
