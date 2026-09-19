@@ -42,6 +42,18 @@ jev:
   maximum_attempts: 3
   retry_backoff_seconds: 1
 
+# Autonomous semantic-resolution ladder. The deterministic layer always runs.
+# Vertex layers use the curator's existing Vertex credentials when implemented;
+# unavailable or failing model layers are evidence, never a pipeline blocker.
+resolution:
+  enabled: true
+  layers:
+    - "deterministic-context"
+    - "vertex-fast"
+    - "vertex-deep"
+  exception_confidence_threshold: 0.65
+  exceptions_dir: "raw/exceptions"
+
 # Hard ceilings. Iteration budgets bound a single batch; these bound the run.
 # Breach aborts with partial progress, which is safe because the event store
 # makes resumption cheap.

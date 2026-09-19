@@ -159,6 +159,8 @@ class JevClient:
         confidence = min(confidences) if confidences else 0.0
         target_choice = target.get("choice", "new_node")
         target_node = targets.get(target_choice, mutation.slug)
+        # Compatibility signal only. Enrichment never gates application; the
+        # escalation ladder decides what belongs in the durable exceptions queue.
         decision = "pass" if confidence >= self.cfg.confidence_threshold else "abstain"
         return JevAssessment(
             decision=decision,
@@ -178,7 +180,7 @@ def assess_mutations(
     existing: dict[str, Concept],
     cfg: JevCfg,
 ) -> tuple[list[Mutation], dict[str, Any]]:
-    """Attach advisory assessments without making Jev a pipeline dependency."""
+    """Enrich proposals without making Jev a pipeline dependency or gate."""
     if not cfg.is_enabled():
         return mutations, {"enabled": False, "attempted": 0, "failures": 0, "abstained": 0}
     if not cfg.api_key():

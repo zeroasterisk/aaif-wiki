@@ -123,6 +123,28 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
 
     result.mutations, jev_stats = assess_mutations(result.mutations, events, existing, cfg.jev)
     result.jev_stats = jev_stats
+
+    # Semantic resolution is layered and fail-open. Available model-backed
+    # layers can be added here without changing the application contract.
+    from .resolution import DeterministicContextLayer, VertexResolutionLayer, resolve_mutations
+
+    layers = []
+    if cfg.resolution.enabled:
+        configured = set(cfg.resolution.layers)
+        if "deterministic-context" in configured:
+            layers.append(DeterministicContextLayer(set(existing)))
+        # Increasing-fidelity Vertex layers share the curator's established
+        # credential/project path. Missing credentials become queue evidence.
+        if "vertex-fast" in configured:
+            layers.append(VertexResolutionLayer("vertex-fast", cfg.curator.fallback_model, cfg.curator))
+        if "vertex-deep" in configured:
+            layers.append(VertexResolutionLayer("vertex-deep", cfg.curator.model, cfg.curator))
+    result.mutations, result.exceptions = resolve_mutations(
+        result.mutations,
+        events,
+        layers,
+        cfg.resolution.exception_confidence_threshold,
+    )
     return result
 
 
@@ -320,6 +342,8 @@ async def run_pipeline(
         "jev": {"enabled": cfg.jev.is_enabled(), "attempted": 0, "failures": 0, "abstained": 0},
         "applied": 0,
         "issues": [],
+        "exceptions": 0,
+        "exception_files": [],
     }
     if not curate or not pending:
         return summary
@@ -347,6 +371,12 @@ async def run_pipeline(
             summary["jev"]["average_latency_ms"] = result.jev_stats["average_latency_ms"]
         if result.mutations:
             all_mutations.extend(result.mutations)
+            # Persist last-resort exceptions, but never block mechanical apply.
+            from .resolution import write_exceptions
+
+            exception_files = write_exceptions(cfg, f"run-{datetime.now(UTC).strftime('%Y%m%dT%H%M%S%fZ')}", result.exceptions)
+            summary["exceptions"] += len(exception_files)
+            summary["exception_files"].extend(str(p.relative_to(cfg.root)) for p in exception_files)
             applied = await orchestrator.execute("apply_mutations", result)
             summary["applied"] += applied.checked
 

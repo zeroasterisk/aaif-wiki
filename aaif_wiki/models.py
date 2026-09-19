@@ -173,9 +173,9 @@ class Concept(BaseModel):
 
 
 class JevAssessment(BaseModel):
-    """Advisory Jev score attached to a proposal; never a promotion grant."""
+    """Advisory Jev enrichment attached to a proposal."""
 
-    decision: str  # pass | abstain
+    decision: str  # retained for wire compatibility; never gates application
     mutation_kind: str  # new_concept | update | relation | conflict | no_op
     target_node: str
     provenance_score: float = Field(ge=0.0, le=1.0)
@@ -183,6 +183,16 @@ class JevAssessment(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     model: str = "jev-latest"
     latency_ms: int = 0
+
+
+class ResolutionEvidence(BaseModel):
+    """One resolver layer's auditable contribution."""
+
+    layer: str
+    outcome: str  # clear | flagged | resolved | error
+    confidence: float = Field(ge=0.0, le=1.0)
+    rationale: str
+    flags: list[str] = Field(default_factory=list)
 
 
 class Mutation(BaseModel):
@@ -199,6 +209,8 @@ class Mutation(BaseModel):
     rationale: str = ""
     source_event_ids: list[str] = Field(default_factory=list)
     jev: JevAssessment | None = None
+    resolution_evidence: list[ResolutionEvidence] = Field(default_factory=list)
+    exception_reasons: list[str] = Field(default_factory=list)
 
 
 # --------------------------------------------------------------------------
@@ -237,6 +249,7 @@ class CurateResult(BaseModel):
     model: str = ""
     halted_reason: str | None = None
     jev_stats: dict[str, Any] = Field(default_factory=dict)
+    exceptions: list[Mutation] = Field(default_factory=list)
 
 
 class ValidationIssue(BaseModel):

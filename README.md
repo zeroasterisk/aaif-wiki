@@ -25,18 +25,19 @@ still `Proposed` pending a full bootstrap. See [the architecture review](docs/de
 
 ---
 
-## Optional Jev mutation assessment
+## Optional Jev enrichment and autonomous resolution
 
-The GitHub/OKF pipeline stays deterministic by default. To add advisory Jev
-classification for typed mutation proposals, set `JEV_ENABLED=true` and provide
-`JEV_API_KEY` at runtime. Jev classifies mutation kind and target, scores
-provenance and review priority, and abstains below the configured confidence
-threshold. If it is disabled, unconfigured, or unavailable, the pipeline
-continues unchanged. It never replaces OKF validation or human-only promotion.
+The GitHub/OKF pipeline stays deterministic by default. `JEV_ENABLED=true` plus
+`JEV_API_KEY` adds advisory kind, target, provenance, priority and confidence
+metadata to typed proposals. Jev is not a gate. Missing credentials or service
+failures leave the original mutation intact.
 
-Committed review records retain the assessment. Add `human_label` entries while
-closing reviews, then run `uv run aaif-wiki eval-jev` to measure coverage and
-agreement. See [ADR-011](docs/design/ADR-011-optional-jev-mutation-assessment.md).
+An autonomous escalation ladder then records deterministic context and can call
+pluggable Vertex resolvers at increasing fidelity. Everything continues to
+best-effort apply; deterministic OKF validation is the only hard gate. Remaining
+uncertainty is appended to `raw/exceptions/` for later batch review without
+parking ingestion. Human resolutions become structured training signals. See
+[ADR-012](docs/design/ADR-012-autonomous-resolution-and-exceptions.md).
 
 ## What it actually does
 
@@ -55,15 +56,16 @@ GitHub (files · open PRs · issues)
           ▼  validate_bundle       deterministic · no LLM · CI-gating
           │
           ▼  publish (optional)
-   branch → Pull Request → human review → status: stable + verified[]
+   branch → Pull Request → CI/auto-merge; exceptions accumulate separately
 ```
 
 Four ideas do most of the work:
 
 - **The event log is the source of truth; the wiki is a projection.** Change the
   prompt, re-derive. Nothing is lost because nothing is overwritten in place.
-- **Nothing is published without a human.** Every generated concept is
-  `status: draft` and unverified. Only a human review promotes it to `stable`.
+- **Automation does not wait for a human.** Generated concepts remain explicit
+  about machine provenance and lifecycle. Semantic exceptions accumulate for
+  last-resort review while deterministic validation remains blocking.
   Machine claims about a Linux Foundation body do not get to publish themselves.
 - **Ingested text is untrusted.** Anyone can open a PR on a public repo. Third-party
   content is fenced as data, never followed as instructions, and cannot reach the
