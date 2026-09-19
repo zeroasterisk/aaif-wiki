@@ -119,7 +119,7 @@ sources:
 publish:
   enabled: true
   branch_prefix: "wiki/update"
-  auto_merge: false         # true = merge without a human reviewer
+  auto_merge: true          # merge automatically after deterministic CI passes
   base_branch: "main"
   review_records: "raw/reviews"
 

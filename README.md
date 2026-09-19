@@ -39,6 +39,13 @@ uncertainty is appended to `raw/exceptions/` for later batch review without
 parking ingestion. Human resolutions become structured training signals. See
 [ADR-012](docs/design/ADR-012-autonomous-resolution-and-exceptions.md).
 
+## Weekly unattended refresh
+
+`.github/workflows/weekly-refresh.yml` runs the incremental pipeline every week,
+opens a PR as an audit record, and requests auto-merge after deterministic CI
+passes. See [the one-time setup](docs/operations-weekly-refresh.md) for the Vertex
+and optional Jev secrets plus repository workflow permissions.
+
 ## What it actually does
 
 ```

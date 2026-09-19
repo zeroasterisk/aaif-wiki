@@ -147,3 +147,14 @@ def test_pipeline_activities_satisfy_the_temporal_contract():
     }
     for name in REGISTRY.names():
         ActivityRegistry.check_contract(REGISTRY.get(name))
+
+
+def test_weekly_refresh_workflow_preserves_pr_and_requests_auto_merge():
+    from pathlib import Path
+
+    workflow = Path(".github/workflows/weekly-refresh.yml").read_text()
+    assert 'cron: "17 9 * * 1"' in workflow
+    assert "uv run aaif-wiki ingest --mode incremental --fresh --publish" in workflow
+    assert "GCP_VERTEX_SERVICE_ACCOUNT_JSON" in workflow
+    assert "contents: write" in workflow
+    assert "pull-requests: write" in workflow

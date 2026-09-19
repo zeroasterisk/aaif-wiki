@@ -154,8 +154,10 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
         return False, f"gh pr create failed: {proc.stderr.strip()}"
     url = proc.stdout.strip()
     if cfg.publish.auto_merge:
-        subprocess.run(
+        merge = subprocess.run(
             ["gh", "pr", "merge", "--auto", "--squash", url],
             cwd=str(cfg.root), capture_output=True, text=True,
         )
+        if merge.returncode != 0:
+            return False, f"PR opened at {url}, but auto-merge request failed: {merge.stderr.strip()}"
     return True, url
