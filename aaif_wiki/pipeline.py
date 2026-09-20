@@ -194,6 +194,9 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
             continue
         if mutation.concept:
             mutation.concept.slug = mutation.slug
+            # All generated concepts in the bundle are draft until human review (ADR-009)
+            if not mutation.concept.verified:
+                mutation.concept.status = ConceptStatus.DRAFT
             write_concept(cfg.bundle_dir, mutation.concept)
             applied += 1
 

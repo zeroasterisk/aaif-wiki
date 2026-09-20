@@ -118,26 +118,33 @@ class GitHubConnector:
     # -- git mirror -----------------------------------------------------
     def sync_repo(self, repo: str) -> Path | None:
         """Maintain a shallow local mirror. This is the offline replay cache."""
+        import os
+
         dest = self.repo_cache / repo
-        url = f"https://github.com/{self.cfg.org}/{repo}.git"
+        token = self.cfg.token()
+        if token:
+            url = f"https://x-access-token:{token}@github.com/{self.cfg.org}/{repo}.git"
+        else:
+            url = f"https://github.com/{self.cfg.org}/{repo}.git"
+        env = {**os.environ, "GIT_TERMINAL_PROMPT": "0"}
         try:
             if dest.exists():
                 subprocess.run(
                     ["git", "-C", str(dest), "fetch", "--depth", "50", "--quiet", "origin"],
-                    check=True, capture_output=True, timeout=180,
+                    check=True, capture_output=True, timeout=120, env=env,
                 )
                 head = subprocess.run(
                     ["git", "-C", str(dest), "rev-parse", "FETCH_HEAD"],
-                    check=True, capture_output=True, text=True, timeout=30,
+                    check=True, capture_output=True, text=True, timeout=30, env=env,
                 ).stdout.strip()
                 subprocess.run(
                     ["git", "-C", str(dest), "reset", "--hard", head, "--quiet"],
-                    check=True, capture_output=True, timeout=60,
+                    check=True, capture_output=True, timeout=60, env=env,
                 )
             else:
                 subprocess.run(
                     ["git", "clone", "--depth", "50", "--quiet", url, str(dest)],
-                    check=True, capture_output=True, timeout=300,
+                    check=True, capture_output=True, timeout=60, env=env,
                 )
             return dest
         except (subprocess.CalledProcessError, subprocess.TimeoutExpired):

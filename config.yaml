@@ -141,6 +141,9 @@ trust:
     - "www.aaif.io"
     - "linuxfoundation.org"
     - "www.linuxfoundation.org"
+    - "eclipse.dev"
+    - "wireshark.org"
+    - "kernel.org"
   forbidden_patterns:
     - "/google/(bin|src)/"
     - "\\bgoogle3\\b"

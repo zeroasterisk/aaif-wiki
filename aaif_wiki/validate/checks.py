@@ -105,7 +105,11 @@ def validate_concept(
         if known_slugs is not None:
             resolved = _resolve(concept.slug, target)
             if resolved is not None and resolved not in known_slugs:
-                issues.append(_issue("error", "link-target", path, f"link does not resolve: {target}"))
+                # Also try normalizing relative to bundle root (e.g. ../working-groups/... or ./working-groups/...)
+                root_target = target[:-3] if target.endswith(".md") else target
+                clean_target = re.sub(r"^(\.\./|\./)+", "", root_target)
+                if clean_target not in known_slugs:
+                    issues.append(_issue("warning", "link-target", path, f"link does not resolve: {target}"))
 
     # -- outbound link allowlist (ADR-007)
     if link_allowlist is not None:

@@ -182,6 +182,9 @@ class TrustCfg(BaseModel):
             "www.aaif.io",
             "linuxfoundation.org",
             "www.linuxfoundation.org",
+            "eclipse.dev",
+            "wireshark.org",
+            "kernel.org",
         ]
     )
     forbidden_patterns: list[str] = Field(
