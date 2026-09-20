@@ -78,6 +78,7 @@ def write_review_record(cfg: Config, mutations: list[Mutation], branch: str, run
                 "slug": m.slug,
                 "rationale": m.rationale,
                 "source_event_ids": m.source_event_ids,
+                "jev_assessment": json.loads(m.jev.model_dump_json()) if m.jev else None,
                 "proposed_concept": (
                     json.loads(m.concept.model_dump_json()) if m.concept else None
                 ),
@@ -102,12 +103,20 @@ def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
         f"- model: `{stats.get('model', 'n/a')}`",
         f"- tokens: {stats.get('tokens', 0):,}",
         f"- estimated cost: ${stats.get('usd', 0.0):.4f}",
+        f"- Jev: {stats.get('jev', {}).get('assessed', 0)} assessed / "
+        f"{stats.get('jev', {}).get('abstained', 0)} abstained / "
+        f"{stats.get('jev', {}).get('failures', 0)} failed",
         "",
         "### Proposed changes",
         "",
     ]
     for m in mutations:
         lines.append(f"- **{m.action}** `{m.slug}` — {m.rationale}")
+        if m.jev:
+            lines.append(
+                f"  - Jev: {m.jev.mutation_kind}, target `{m.jev.target_node}`, "
+                f"confidence {m.jev.confidence:.2f}, {m.jev.decision}"
+            )
         if m.source_event_ids:
             lines.append(f"  - sources: {', '.join(f'`{s}`' for s in m.source_event_ids[:6])}")
     lines += [
@@ -121,6 +130,11 @@ def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
     return "\n".join(lines)
 
 
+def push_branch(root: Path, branch: str) -> None:
+    """Publish the local branch before asking GitHub to create a PR."""
+    _git(root, "push", "-u", "origin", branch)
+
+
 def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[bool, str]:
     """Open a PR via the gh CLI. Degrades to instructions when gh is unavailable."""
     probe = subprocess.run(["gh", "auth", "status"], capture_output=True, text=True)
@@ -131,6 +145,15 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
             f"Run: gh pr create --base {cfg.publish.base_branch} --head {branch} "
             f"--title {title!r} --body-file -",
         )
+    # Ensure branch is pushed to remote before opening PR
+    push = subprocess.run(
+        ["git", "-C", str(cfg.root), "push", "-u", "origin", branch],
+        capture_output=True,
+        text=True,
+    )
+    if push.returncode != 0:
+        return False, f"git push failed: {push.stderr.strip()}"
+
     proc = subprocess.run(
         [
             "gh", "pr", "create",
@@ -145,8 +168,18 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
         return False, f"gh pr create failed: {proc.stderr.strip()}"
     url = proc.stdout.strip()
     if cfg.publish.auto_merge:
-        subprocess.run(
+        merge = subprocess.run(
             ["gh", "pr", "merge", "--auto", "--squash", url],
             cwd=str(cfg.root), capture_output=True, text=True,
         )
+        if merge.returncode != 0:
+            # Fall back to direct squash merge if --auto is rejected (e.g. no branch protection checks required)
+            clean_status = any(hint in merge.stderr.lower() for hint in ["clean status", "no required status checks", "not configured"])
+            if clean_status:
+                merge = subprocess.run(
+                    ["gh", "pr", "merge", "--squash", url],
+                    cwd=str(cfg.root), capture_output=True, text=True,
+                )
+            if merge.returncode != 0:
+                return False, f"PR opened at {url}, but auto-merge request failed: {merge.stderr.strip()}"
     return True, url

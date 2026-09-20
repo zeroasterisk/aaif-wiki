@@ -114,8 +114,54 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
         return event.inline_text
 
     existing = load_bundle(cfg.bundle_dir)
-    curator = Curator(cfg.curator, cfg.budget, BudgetState())
-    return curator.curate(events, existing, rehydrate=rehydrate)
+    budget = BudgetState()
+    curator = Curator(cfg.curator, cfg.budget, budget)
+    result = curator.curate(events, existing, rehydrate=rehydrate)
+
+    # Jev is advisory and optional. It classifies typed proposals after the
+    # curator boundary; deterministic validation and human promotion stay intact.
+    from .jev import assess_mutations
+
+    result.mutations, jev_stats = assess_mutations(result.mutations, events, existing, cfg.jev)
+    result.jev_stats = jev_stats
+
+    # Semantic resolution is layered and fail-open. Available model-backed
+    # layers can be added here without changing the application contract.
+    from .resolution import DeterministicContextLayer, VertexResolutionLayer, resolve_mutations
+
+    layers = []
+    if cfg.resolution.enabled:
+        configured = set(cfg.resolution.layers)
+        if "deterministic-context" in configured:
+            layers.append(DeterministicContextLayer(set(existing)))
+        # Increasing-fidelity Vertex layers share the curator's established
+        # credential/project path. Only attach if Vertex project is configured.
+        if "vertex-fast" in configured and cfg.curator.vertex.resolved_project():
+            layers.append(
+                VertexResolutionLayer(
+                    "vertex-fast", cfg.curator.fallback_model, cfg.curator, cfg.budget, budget
+                )
+            )
+        if "vertex-deep" in configured and cfg.curator.vertex.resolved_project():
+            layers.append(
+                VertexResolutionLayer(
+                    "vertex-deep", cfg.curator.model, cfg.curator, cfg.budget, budget
+                )
+            )
+    result.mutations, result.exceptions = resolve_mutations(
+        result.mutations,
+        events,
+        layers,
+        cfg.resolution.exception_confidence_threshold,
+    )
+    evidence = [item for mutation in result.mutations for item in mutation.resolution_evidence]
+    result.resolution_stats = {
+        "calls": sum(item.layer.startswith("vertex-") for item in evidence),
+        "tokens_in": sum(item.tokens_in for item in evidence),
+        "tokens_out": sum(item.tokens_out for item in evidence),
+        "usd": sum(item.estimated_usd for item in evidence),
+    }
+    return result
 
 
 @activity("apply_mutations", retry=LOCAL_RETRY)
@@ -129,6 +175,15 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
         problems = validate_mutation(mutation)
         if problems:
             issues.extend(problems)
+            continue
+        # Unresolved exceptions and conflicts are queued to raw/exceptions
+        # for manual review and withheld from the canonical bundle.
+        if mutation.exception_reasons:
+            log.info(
+                "withholding mutation %s from bundle due to exceptions: %s",
+                mutation.slug,
+                mutation.exception_reasons,
+            )
             continue
         if mutation.action == "deprecate":
             existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
@@ -309,8 +364,12 @@ async def run_pipeline(
         "tokens": 0,
         "usd": 0.0,
         "model": "",
+        "jev": {"enabled": cfg.jev.is_enabled(), "attempted": 0, "failures": 0, "abstained": 0},
         "applied": 0,
         "issues": [],
+        "exceptions": 0,
+        "exception_files": [],
+        "resolution": {"calls": 0, "tokens_in": 0, "tokens_out": 0, "usd": 0.0},
     }
     if not curate or not pending:
         return summary
@@ -332,8 +391,22 @@ async def run_pipeline(
         summary["tokens"] += result.tokens_in + result.tokens_out
         summary["usd"] += result.usd
         summary["model"] = result.model or summary["model"]
+        for key in ("attempted", "assessed", "failures", "abstained"):
+            summary["jev"][key] = summary["jev"].get(key, 0) + result.jev_stats.get(key, 0)
+        if result.jev_stats.get("average_latency_ms"):
+            summary["jev"]["average_latency_ms"] = result.jev_stats["average_latency_ms"]
+        for key in ("calls", "tokens_in", "tokens_out", "usd"):
+            summary["resolution"][key] += result.resolution_stats.get(key, 0)
+        summary["tokens"] += result.resolution_stats.get("tokens_in", 0) + result.resolution_stats.get("tokens_out", 0)
+        summary["usd"] += result.resolution_stats.get("usd", 0.0)
         if result.mutations:
             all_mutations.extend(result.mutations)
+            # Persist last-resort exceptions, but never block mechanical apply.
+            from .resolution import write_exceptions
+
+            exception_files = write_exceptions(cfg, f"run-{datetime.now(UTC).strftime('%Y%m%dT%H%M%S%fZ')}", result.exceptions)
+            summary["exceptions"] += len(exception_files)
+            summary["exception_files"].extend(str(p.relative_to(cfg.root)) for p in exception_files)
             applied = await orchestrator.execute("apply_mutations", result)
             summary["applied"] += applied.checked
 

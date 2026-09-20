@@ -25,6 +25,27 @@ still `Proposed` pending a full bootstrap. See [the architecture review](docs/de
 
 ---
 
+## Optional Jev enrichment and autonomous resolution
+
+The GitHub/OKF pipeline stays deterministic by default. `JEV_ENABLED=true` plus
+`JEV_API_KEY` adds advisory kind, target, provenance, priority and confidence
+metadata to typed proposals. Jev is not a gate. Missing credentials or service
+failures leave the original mutation intact.
+
+An autonomous escalation ladder then records deterministic context and can call
+pluggable Vertex resolvers at increasing fidelity. Everything continues to
+best-effort apply; deterministic OKF validation is the only hard gate. Remaining
+uncertainty is appended to `raw/exceptions/` for later batch review without
+parking ingestion. Human resolutions become structured training signals. See
+[ADR-012](docs/design/ADR-012-autonomous-resolution-and-exceptions.md).
+
+## Weekly unattended refresh
+
+`.github/workflows/weekly-refresh.yml` runs the incremental pipeline every week,
+opens a PR as an audit record, and requests auto-merge after deterministic CI
+passes. See [the one-time setup](docs/operations-weekly-refresh.md) for the Vertex
+and optional Jev secrets plus repository workflow permissions.
+
 ## What it actually does
 
 ```
@@ -42,16 +63,17 @@ GitHub (files · open PRs · issues)
           ▼  validate_bundle       deterministic · no LLM · CI-gating
           │
           ▼  publish (optional)
-   branch → Pull Request → human review → status: stable + verified[]
+   branch → Pull Request → CI/auto-merge; exceptions accumulate separately
 ```
 
 Four ideas do most of the work:
 
 - **The event log is the source of truth; the wiki is a projection.** Change the
   prompt, re-derive. Nothing is lost because nothing is overwritten in place.
-- **Nothing is published without a human.** Every generated concept is
-  `status: draft` and unverified. Only a human review promotes it to `stable`.
-  Machine claims about a Linux Foundation body do not get to publish themselves.
+- **Automation does not wait for a human, but invariants are hard.** Clean mutations
+  apply and auto-merge with explicit machine provenance and lifecycle. Semantic
+  conflicts and deterministic invariant violations are withheld from the bundle and
+  accumulate in `raw/exceptions/` for human review.
 - **Ingested text is untrusted.** Anyone can open a PR on a public repo. Third-party
   content is fenced as data, never followed as instructions, and cannot reach the
   filesystem except through a validated, typed mutation.

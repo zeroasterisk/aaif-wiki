@@ -62,6 +62,36 @@ class CuratorCfg(BaseModel):
             )
 
 
+class JevCfg(BaseModel):
+    """Optional advisory mutation assessment. Disabled keeps the old path exact."""
+
+    enabled: bool = False
+    endpoint: str = "https://api.typesafe.ai/v1/systemone"
+    model: str = "jev-latest"
+    confidence_threshold: float = Field(default=0.65, ge=0.0, le=1.0)
+    timeout_seconds: float = 20.0
+    maximum_attempts: int = 3
+    retry_backoff_seconds: float = 1.0
+
+    def is_enabled(self) -> bool:
+        value = os.environ.get("JEV_ENABLED")
+        if value is None:
+            return self.enabled
+        return value.strip().lower() in {"1", "true", "yes", "on"}
+
+    def api_key(self) -> str | None:
+        return os.environ.get("JEV_API_KEY")
+
+
+class ResolutionCfg(BaseModel):
+    """Autonomous escalation ladder; model layers are optional and pluggable."""
+
+    enabled: bool = True
+    layers: list[str] = Field(default_factory=lambda: ["deterministic-context", "vertex-fast", "vertex-deep"])
+    exception_confidence_threshold: float = Field(default=0.65, ge=0.0, le=1.0)
+    exceptions_dir: str = "raw/exceptions"
+
+
 class BudgetCfg(BaseModel):
     max_usd_per_run: float = 25.0
     max_tokens_per_run: int = 20_000_000
@@ -167,6 +197,8 @@ class TrustCfg(BaseModel):
 class Config(BaseModel):
     project: ProjectCfg = Field(default_factory=ProjectCfg)
     curator: CuratorCfg = Field(default_factory=CuratorCfg)
+    jev: JevCfg = Field(default_factory=JevCfg)
+    resolution: ResolutionCfg = Field(default_factory=ResolutionCfg)
     budget: BudgetCfg = Field(default_factory=BudgetCfg)
     orchestrator: OrchestratorCfg = Field(default_factory=OrchestratorCfg)
     sources: SourcesCfg = Field(default_factory=SourcesCfg)
@@ -200,6 +232,10 @@ class Config(BaseModel):
     @property
     def reviews_dir(self) -> Path:
         return self.root / self.publish.review_records
+
+    @property
+    def exceptions_dir(self) -> Path:
+        return self.root / self.resolution.exceptions_dir
 
 
 def load_config(path: Path | None = None) -> Config:

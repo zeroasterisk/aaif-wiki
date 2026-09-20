@@ -210,7 +210,11 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
         record = pub.write_review_record(cfg, mutations, branch, run_id)
         sha = pub.commit_paths(
             cfg.root,
-            [cfg.project.bundle_root, cfg.publish.review_records],
+            [
+                cfg.project.bundle_root,
+                cfg.publish.review_records,
+                cfg.resolution.exceptions_dir,
+            ],
             f"feat(wiki): automated update {run_id}\n\n{len(mutations)} mutation(s). "
             f"All concepts are draft/unverified pending human review (ADR-009).",
         )
@@ -228,6 +232,12 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
         console.print(f"[green]PR: {detail}[/green]" if ok else f"[yellow]{detail}[/yellow]")
     except Exception as exc:  # noqa: BLE001
         console.print(f"[red]publish failed:[/red] {exc}")
+    finally:
+        try:
+            if pub.current_branch(cfg.root) != original:
+                pub._git(cfg.root, "checkout", original)
+        except Exception:  # noqa: BLE001
+            pass
 
 
 @app.command()
@@ -252,6 +262,29 @@ def validate() -> None:
     if result.ok:
         console.print("[green]OK[/green]")
     raise typer.Exit(0 if result.ok else 1)
+
+
+@app.command("ablate-jev")
+def ablate_jev(
+    output_dir: Path = typer.Option(Path("ablation-artifacts"), help="Evidence output directory"),
+    runs: int = typer.Option(5, min=1, max=5, help="Runs per arm"),
+) -> None:
+    """Render identical snapshots with Jev off/on and save raw evidence."""
+    from .ablation import run_ablation
+
+    summary = run_ablation(get_config(), output_dir, runs=runs)
+    console.print(json.dumps({k: v for k, v in summary.items() if k != "records"}, indent=2))
+
+
+@app.command("eval-jev")
+def eval_jev() -> None:
+    """Evaluate stored Jev assessments against committed human labels."""
+    import json
+
+    from .eval_jev import evaluate_review_records
+
+    cfg = get_config()
+    console.print(json.dumps(evaluate_review_records(cfg.reviews_dir), indent=2))
 
 
 @app.command()

@@ -1,0 +1,60 @@
+name: Weekly wiki refresh
+
+on:
+  schedule:
+    # Monday 09:17 UTC. Off the hour to avoid the GitHub Actions scheduling spike.
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
+  GOOGLE_CLOUD_LOCATION: global
+  JEV_ENABLED: "true"
+
+concurrency:
+  group: weekly-wiki-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install
+        run: uv sync --extra dev
+
+      - name: Require Google Cloud project variable
+        run: test -n "$GOOGLE_CLOUD_PROJECT" || { echo "Set repository variable GOOGLE_CLOUD_PROJECT"; exit 1; }
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_VERTEX_SERVICE_ACCOUNT_JSON }}
+
+      - name: Configure GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
+        run: gh auth status
+
+      - name: Refresh, validate, and open auto-merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
+          JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+        run: |
+          uv run aaif-wiki ingest --mode incremental --fresh --publish
+          uv run aaif-wiki validate
