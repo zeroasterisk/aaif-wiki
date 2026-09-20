@@ -145,6 +145,15 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
             f"Run: gh pr create --base {cfg.publish.base_branch} --head {branch} "
             f"--title {title!r} --body-file -",
         )
+    # Ensure branch is pushed to remote before opening PR
+    push = subprocess.run(
+        ["git", "-C", str(cfg.root), "push", "-u", "origin", branch],
+        capture_output=True,
+        text=True,
+    )
+    if push.returncode != 0:
+        return False, f"git push failed: {push.stderr.strip()}"
+
     proc = subprocess.run(
         [
             "gh", "pr", "create",

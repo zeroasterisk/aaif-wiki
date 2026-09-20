@@ -40,7 +40,8 @@ class DeterministicContextLayer:
         if mutation.action == "create" and mutation.slug in self.existing_slugs:
             flags.append("duplicate-create")
             facts.append(f"target `{mutation.slug}` already exists")
-        unsettled = [e.event_id for e in events if e.lifecycle.value != "merged"]
+        source_events = [e for e in events if e.event_id in mutation.source_event_ids] if mutation.source_event_ids else events
+        unsettled = [e.event_id for e in source_events if e.lifecycle.value != "merged"]
         if unsettled:
             facts.append(f"{len(unsettled)} source event(s) are not merged")
             if mutation.concept and mutation.concept.status.value == "stable":
@@ -85,10 +86,10 @@ class VertexResolutionLayer:
     def resolve(self, mutation: Mutation, events: list[RawEvent]) -> ResolutionEvidence:
         from google.genai import types
 
-        events = [event for event in events if event.event_id in mutation.source_event_ids]
+        source_events = [e for e in events if e.event_id in mutation.source_event_ids] if mutation.source_event_ids else events
         payload = {
             "proposal": mutation.model_dump(mode="json", exclude={"resolution_evidence"}),
-            "sources": [e.model_dump(mode="json") for e in events],
+            "sources": [e.model_dump(mode="json") for e in source_events],
             "instruction": (
                 "Resolve semantic conflicts best-effort. Return whether the proposal is clear, "
                 "flagged, or resolved; confidence 0..1; concise rationale; and machine-readable flags."
@@ -190,12 +191,12 @@ def resolve_mutations(
                 )
             mutation.resolution_evidence.append(evidence)
 
-        flags: set[str] = set()
-        for evidence in mutation.resolution_evidence:
-            if evidence.outcome == "resolved":
-                flags.clear()
-            elif evidence.outcome in {"flagged", "error"}:
-                flags.update(evidence.flags)
+        # If a downstream layer successfully resolved the mutation, clear earlier flags
+        has_resolved = any(e.outcome == "resolved" for e in mutation.resolution_evidence)
+        if has_resolved:
+            flags: set[str] = set()
+        else:
+            flags = {flag for e in mutation.resolution_evidence if e.outcome in {"flagged", "error"} for flag in e.flags}
         low_confidence = bool(mutation.jev and mutation.jev.confidence < confidence_threshold)
         model_conflict = bool(mutation.jev and mutation.jev.mutation_kind == "conflict")
         resolver_error = any(e.outcome == "error" for e in mutation.resolution_evidence)

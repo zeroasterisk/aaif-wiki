@@ -135,14 +135,14 @@ async def curate_concepts(req: CurateRequest) -> CurateResult:
         if "deterministic-context" in configured:
             layers.append(DeterministicContextLayer(set(existing)))
         # Increasing-fidelity Vertex layers share the curator's established
-        # credential/project path. Missing credentials become queue evidence.
-        if "vertex-fast" in configured:
+        # credential/project path. Only attach if Vertex project is configured.
+        if "vertex-fast" in configured and cfg.curator.vertex.resolved_project():
             layers.append(
                 VertexResolutionLayer(
                     "vertex-fast", cfg.curator.fallback_model, cfg.curator, cfg.budget, budget
                 )
             )
-        if "vertex-deep" in configured:
+        if "vertex-deep" in configured and cfg.curator.vertex.resolved_project():
             layers.append(
                 VertexResolutionLayer(
                     "vertex-deep", cfg.curator.model, cfg.curator, cfg.budget, budget
@@ -175,6 +175,15 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
         problems = validate_mutation(mutation)
         if problems:
             issues.extend(problems)
+            continue
+        # Unresolved exceptions and conflicts are queued to raw/exceptions
+        # for manual review and withheld from the canonical bundle.
+        if mutation.exception_reasons:
+            log.info(
+                "withholding mutation %s from bundle due to exceptions: %s",
+                mutation.slug,
+                mutation.exception_reasons,
+            )
             continue
         if mutation.action == "deprecate":
             existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
