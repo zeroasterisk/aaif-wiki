@@ -28,8 +28,25 @@ class GitError(RuntimeError):
 
 
 def _git(root: Path, *args: str, check: bool = True) -> str:
+    import os
+
+    env = {
+        **os.environ,
+        "GIT_AUTHOR_NAME": os.environ.get("GIT_AUTHOR_NAME", "github-actions[bot]"),
+        "GIT_AUTHOR_EMAIL": os.environ.get(
+            "GIT_AUTHOR_EMAIL", "github-actions[bot]@users.noreply.github.com"
+        ),
+        "GIT_COMMITTER_NAME": os.environ.get("GIT_COMMITTER_NAME", "github-actions[bot]"),
+        "GIT_COMMITTER_EMAIL": os.environ.get(
+            "GIT_COMMITTER_EMAIL", "github-actions[bot]@users.noreply.github.com"
+        ),
+    }
     proc = subprocess.run(
-        ["git", "-C", str(root), *args], capture_output=True, text=True, timeout=120
+        ["git", "-C", str(root), *args],
+        capture_output=True,
+        text=True,
+        timeout=120,
+        env=env,
     )
     if check and proc.returncode != 0:
         raise GitError(f"git {' '.join(args)} failed: {proc.stderr.strip()}")

@@ -144,6 +144,7 @@ trust:
     - "eclipse.dev"
     - "wireshark.org"
     - "kernel.org"
+    - "oceanbase.io"
   forbidden_patterns:
     - "/google/(bin|src)/"
     - "\\bgoogle3\\b"
