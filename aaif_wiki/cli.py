@@ -233,6 +233,12 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
         console.print(f"[green]PR: {detail}[/green]" if ok else f"[yellow]{detail}[/yellow]")
     except Exception as exc:  # noqa: BLE001
         console.print(f"[red]publish failed:[/red] {exc}")
+    finally:
+        try:
+            if pub.current_branch(cfg.root) != original:
+                pub._git(cfg.root, "checkout", original)
+        except Exception:  # noqa: BLE001
+            pass
 
 
 @app.command()
