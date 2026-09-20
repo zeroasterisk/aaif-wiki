@@ -4,11 +4,15 @@ import asyncio
 import json
 from datetime import UTC, datetime
 
+import pytest
+
 from aaif_wiki.config import Config
 from aaif_wiki.models import (
+    BudgetState,
     Concept,
     ConceptStatus,
     CurateResult,
+    JevAssessment,
     Lifecycle,
     Mutation,
     RawEvent,
@@ -16,9 +20,11 @@ from aaif_wiki.models import (
     SourceType,
 )
 from aaif_wiki.okf import load_bundle
+from aaif_wiki.orchestration.local import BudgetExceeded
 from aaif_wiki.pipeline import apply_mutations
 from aaif_wiki.resolution import (
     DeterministicContextLayer,
+    VertexResolutionLayer,
     resolve_exception,
     resolve_mutations,
     write_exceptions,
@@ -71,25 +77,88 @@ def test_multi_event_batch_filters_sources_per_mutation():
     assert m2 in exceptions
 
 
-def test_resolved_outcome_clears_flagged_issues():
-    class ResolvingLayer:
+def test_deterministic_flags_are_sticky_and_cannot_be_cleared_by_model_layer():
+    class ModelResolver:
         name = "resolver"
         def resolve(self, mutation, events):
             return ResolutionEvidence(
                 layer=self.name,
                 outcome="resolved",
-                confidence=0.9,
-                rationale="Conflict resolved by updating existing node",
+                confidence=0.95,
+                rationale="Model attempts to resolve duplicate create",
                 flags=[],
             )
 
     mutation = Mutation(action="create", slug="taxonomy/x", source_event_ids=["e1"])
     det_layer = DeterministicContextLayer({"taxonomy/x"})
-    result, exceptions = resolve_mutations([mutation], [event()], [det_layer, ResolvingLayer()], 0.65)
+    result, exceptions = resolve_mutations([mutation], [event()], [det_layer, ModelResolver()], 0.65)
+
+    assert result[0] is mutation
+    # Deterministic flag 'duplicate-create' CANNOT be cleared by a model outcome
+    assert "duplicate-create" in mutation.exception_reasons
+    assert mutation in exceptions
+
+
+def test_downstream_resolution_clears_prior_model_flags():
+    class FlaggingModelLayer:
+        name = "model-1"
+        def resolve(self, mutation, events):
+            return ResolutionEvidence(
+                layer=self.name,
+                outcome="flagged",
+                confidence=0.5,
+                rationale="Uncertain semantic connection",
+                flags=["semantic-ambiguity"],
+            )
+
+    class ResolvingModelLayer:
+        name = "model-2"
+        def resolve(self, mutation, events):
+            return ResolutionEvidence(
+                layer=self.name,
+                outcome="resolved",
+                confidence=0.9,
+                rationale="Resolved semantic connection",
+                flags=[],
+            )
+
+    mutation = Mutation(action="create", slug="taxonomy/y", source_event_ids=["e1"])
+    result, exceptions = resolve_mutations([mutation], [event()], [FlaggingModelLayer(), ResolvingModelLayer()], 0.65)
 
     assert result[0] is mutation
     assert exceptions == []
     assert mutation.exception_reasons == []
+
+
+def test_jev_is_strictly_advisory_and_does_not_withhold_mutations():
+    # Low confidence or conflict in Jev does NOT add to exception_reasons
+    low_jev = JevAssessment(
+        decision="abstain",
+        mutation_kind="conflict",
+        target_node="taxonomy/x",
+        provenance_score=0.2,
+        review_priority=0.8,
+        confidence=0.4,
+    )
+    mutation = Mutation(action="create", slug="taxonomy/x", source_event_ids=["e1"], jev=low_jev)
+    result, exceptions = resolve_mutations([mutation], [event(lifecycle=Lifecycle.MERGED)], [DeterministicContextLayer(set())], 0.65)
+
+    assert exceptions == []
+    assert mutation.exception_reasons == []
+    assert mutation.jev == low_jev
+
+
+def test_budget_exceeded_precheck_halts_resolution():
+    cfg = Config()
+    budget = BudgetState(tokens_used=19_999_999)
+    layer = VertexResolutionLayer("vertex-fast", "gemini-flash", cfg.curator, cfg.budget, budget)
+
+    # would_breach will trip if tokens exceed max_tokens_per_run
+    layer.budget.tokens_used = cfg.budget.max_tokens_per_run + 100
+    mutation = Mutation(action="create", slug="taxonomy/x", source_event_ids=["e1"])
+
+    with pytest.raises(BudgetExceeded):
+        layer.resolve(mutation, [event()])
 
 
 def test_apply_mutations_withholds_conflicted_mutations(tmp_path, monkeypatch):
@@ -135,16 +204,22 @@ def test_layer_failure_queues_and_continues():
 
 def test_human_resolution_becomes_training_signal(tmp_path):
     cfg = Config(root=tmp_path)
-    mutation = Mutation(action="create", slug="taxonomy/x", exception_reasons=["duplicate-create"])
+    mutation = Mutation(
+        action="create",
+        slug="taxonomy/x",
+        concept=Concept(type="Term", title="X", description="x", body="# X"),
+        exception_reasons=["duplicate-create"],
+    )
     path = write_exceptions(cfg, "run-1", [mutation])[0]
     resolve_exception(path, "update existing node", "human:zeroasterisk")
     record = json.loads(path.read_text())
     assert record["status"] == "resolved"
+    assert record["proposed_concept"]["title"] == "X"
     assert record["training_signal"]["label"] == "update existing node"
 
 
 def test_unrelated_open_event_does_not_flag_stable_mutation():
-    cited = event(Lifecycle.MERGED)
+    cited = event(event_id="e1", lifecycle=Lifecycle.MERGED)
     unrelated = RawEvent(
         event_id="e2",
         source_type=SourceType.ISSUE,
@@ -164,30 +239,5 @@ def test_unrelated_open_event_does_not_flag_stable_mutation():
     )
     _, exceptions = resolve_mutations(
         [mutation], [cited, unrelated], [DeterministicContextLayer(set())], 0.65
-    )
-    assert not exceptions
-
-
-def test_downstream_resolution_clears_prior_flags():
-    from aaif_wiki.models import ResolutionEvidence
-
-    class Resolved:
-        name = "custom-resolver"
-
-        def resolve(self, mutation, events):
-            return ResolutionEvidence(
-                layer=self.name,
-                outcome="resolved",
-                confidence=0.9,
-                rationale="duplicate merged into the existing target",
-                flags=[],
-            )
-
-    mutation = Mutation(action="create", slug="taxonomy/x")
-    _, exceptions = resolve_mutations(
-        [mutation],
-        [],
-        [DeterministicContextLayer({"taxonomy/x"}), Resolved()],
-        0.65,
     )
     assert not exceptions

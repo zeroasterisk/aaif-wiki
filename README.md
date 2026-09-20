@@ -70,10 +70,10 @@ Four ideas do most of the work:
 
 - **The event log is the source of truth; the wiki is a projection.** Change the
   prompt, re-derive. Nothing is lost because nothing is overwritten in place.
-- **Automation does not wait for a human.** Generated concepts remain explicit
-  about machine provenance and lifecycle. Semantic exceptions accumulate for
-  last-resort review while deterministic validation remains blocking.
-  Machine claims about a Linux Foundation body do not get to publish themselves.
+- **Automation does not wait for a human, but invariants are hard.** Clean mutations
+  apply and auto-merge with explicit machine provenance and lifecycle. Semantic
+  conflicts and deterministic invariant violations are withheld from the bundle and
+  accumulate in `raw/exceptions/` for human review.
 - **Ingested text is untrusted.** Anyone can open a PR on a public repo. Third-party
   content is fenced as data, never followed as instructions, and cannot reach the
   filesystem except through a validated, typed mutation.

@@ -22,11 +22,12 @@ records, which explains why there is no history of resolved conflicts.
    the existing Vertex path (`vertex-fast`, then `vertex-deep`).
 3. Every layer emits `ResolutionEvidence`: layer, outcome, confidence,
    rationale and flags. Evidence is stored with the proposal.
-4. The original mutation proceeds through deterministic OKF validation and
-   best-effort apply even when semantic concerns remain. Deterministic
-   validation is the only hard gate.
-5. Unresolved, low-confidence, conflicting or resolver-error cases are appended
-   to `raw/exceptions/YYYY/MM/DD/*.json`. The queue never pauses ingestion.
+4. Deterministic invariant violations and unresolved conflicts are withheld from
+   the canonical bundle, preventing automated runs from corrupting `main`.
+5. Withheld mutations and unresolved cases are appended to
+   `raw/exceptions/YYYY/MM/DD/*.json` alongside the full proposed concept. Clean
+   mutations proceed to bundle application and auto-merge. The queue never pauses
+   ingestion.
 6. A later human resolution updates the exception with actor/time and a
    structured `training_signal` pair. This is refinement data for prompts,
    golden cases and future resolvers.

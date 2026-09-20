@@ -173,5 +173,13 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
             cwd=str(cfg.root), capture_output=True, text=True,
         )
         if merge.returncode != 0:
-            return False, f"PR opened at {url}, but auto-merge request failed: {merge.stderr.strip()}"
+            # Fall back to direct squash merge if --auto is rejected (e.g. no branch protection checks required)
+            clean_status = any(hint in merge.stderr.lower() for hint in ["clean status", "no required status checks", "not configured"])
+            if clean_status:
+                merge = subprocess.run(
+                    ["gh", "pr", "merge", "--squash", url],
+                    cwd=str(cfg.root), capture_output=True, text=True,
+                )
+            if merge.returncode != 0:
+                return False, f"PR opened at {url}, but auto-merge request failed: {merge.stderr.strip()}"
     return True, url

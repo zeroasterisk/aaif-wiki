@@ -48,11 +48,13 @@ jobs:
 
       - name: Configure GitHub CLI
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
         run: gh auth status
 
       - name: Refresh, validate, and open auto-merge PR
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
           JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
-        run: uv run aaif-wiki ingest --mode incremental --fresh --publish
+        run: |
+          uv run aaif-wiki ingest --mode incremental --fresh --publish
+          uv run aaif-wiki validate

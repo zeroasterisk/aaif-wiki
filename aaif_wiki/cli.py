@@ -223,7 +223,6 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
             pub._git(cfg.root, "checkout", original)
             return
         console.print(f"committed {sha[:8]} on [bold]{branch}[/bold] (review record: {record.name})")
-        pub.push_branch(cfg.root, branch)
 
         ok, detail = pub.open_pull_request(
             cfg, branch,

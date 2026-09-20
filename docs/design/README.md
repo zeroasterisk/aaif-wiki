@@ -19,8 +19,9 @@ This directory contains the canonical Architecture Decision Records for the **AA
 | **[ADR-007](ADR-007-modular-exporters-and-privacy.md)** | Pluggable Exporters & Trust Boundary | **Accepted** | Canonical bundle + exporters, generic bundle-agnostic OKF MCP server, untrusted-input fencing, outbound leak guard and link allowlist |
 | **[ADR-008](ADR-008-evaluation-and-quality-gates.md)** | Evaluation, Golden Sets & Deterministic Quality Gates | **Proposed** | Blocking no-LLM validators (schema, links, provenance, orphans, OKF conformance, status, tiers) plus advisory golden-set regression |
 | **[ADR-009](ADR-009-human-in-the-loop-publication.md)** | Human-in-the-Loop Publication via Pull Request | **Accepted** | No direct writes to `main`, `draft`/`stable` and `verified` lifecycle, configurable auto-merge, structured review records as an eval corpus |
-| **[ADR-012](ADR-012-autonomous-resolution-and-exceptions.md)** | Autonomous resolution and exceptions | **Proposed** | Layered best-effort semantic resolution, non-blocking durable exceptions, human labels as training signal |
 | **[ADR-010](ADR-010-project-positioning-and-attribution.md)** | Project Positioning, Disclaimers & Attribution | **Accepted** | Unofficial/not-endorsed disclaimers, canonical upstream links, per-repository license detection and attribution, donation path via AAIF `project-proposals` |
+| **[ADR-011](ADR-011-optional-jev-mutation-assessment.md)** | Optional Advisory Jev Mutation Assessment | **Proposed** | Optional advisory classifier for typed proposals (kind, target, priority, confidence); fail-open and strictly metadata; reproducible offline eval harness |
+| **[ADR-012](ADR-012-autonomous-resolution-and-exceptions.md)** | Autonomous Resolution Ladder & Durable Exceptions | **Proposed** | Layered best-effort semantic resolution, deterministic invariants gate bundle application, durable exception queue for human review, structured training signal |
 
 ## Reviews
 

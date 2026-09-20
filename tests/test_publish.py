@@ -8,7 +8,7 @@ from aaif_wiki import publish
 from aaif_wiki.cli import _publish
 from aaif_wiki.config import Config
 from aaif_wiki.models import Concept, Mutation
-from aaif_wiki.publish import open_pull_request
+from aaif_wiki.publish import commit_paths, open_pull_request
 
 
 def test_push_branch_tracks_remote(monkeypatch, tmp_path):
@@ -67,6 +67,48 @@ def test_open_pull_request_fails_if_git_push_fails(tmp_path, monkeypatch):
     assert "git push failed" in err
 
 
+def test_open_pull_request_auto_merge_fallback_on_clean_status(tmp_path, monkeypatch):
+    cfg = Config(root=tmp_path)
+    cfg.publish.auto_merge = True
+
+    commands = []
+
+    def fake_run(cmd, *args, **kwargs):
+        commands.append(cmd)
+        mock_proc = MagicMock()
+        if cmd[:3] == ["gh", "pr", "merge"] and "--auto" in cmd:
+            mock_proc.returncode = 1
+            mock_proc.stderr = "Pull request is in clean status"
+        else:
+            mock_proc.returncode = 0
+            mock_proc.stdout = "https://github.com/zeroasterisk/aaif-wiki/pull/42\n"
+            mock_proc.stderr = ""
+        return mock_proc
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    ok, url = open_pull_request(cfg, "wiki/update-123", "title", "body")
+
+    assert ok is True
+    # Verify fallback direct squash merge was attempted
+    assert any(cmd[:3] == ["gh", "pr", "merge"] and "--squash" in cmd and "--auto" not in cmd for cmd in commands)
+
+
+def test_commit_paths_tolerates_missing_and_empty_directories(tmp_path):
+    # Only "wiki" exists, "raw/exceptions" and "raw/reviews" do not exist
+    (tmp_path / "wiki").mkdir(parents=True)
+    (tmp_path / "wiki" / "term.md").write_text("# Test")
+
+    # Should not raise exception
+    paths = ["wiki", "raw/exceptions", "nonexistent"]
+    # In a git repo
+    subprocess.run(["git", "init", "-b", "main"], cwd=str(tmp_path), capture_output=True)
+    subprocess.run(["git", "config", "user.name", "tester"], cwd=str(tmp_path), capture_output=True)
+    subprocess.run(["git", "config", "user.email", "test@test.com"], cwd=str(tmp_path), capture_output=True)
+
+    sha = commit_paths(tmp_path, paths, "test commit")
+    assert sha is not None
+
+
 def test_publish_stages_bundle_reviews_and_exceptions(tmp_path, monkeypatch):
     cfg = Config(root=tmp_path)
     cfg.project.bundle_root = "wiki"
@@ -86,7 +128,6 @@ def test_publish_stages_bundle_reviews_and_exceptions(tmp_path, monkeypatch):
         return "c0ffee12345"
 
     monkeypatch.setattr("aaif_wiki.publish.commit_paths", fake_commit_paths)
-    monkeypatch.setattr("aaif_wiki.publish.push_branch", lambda root, branch: None)
     monkeypatch.setattr(
         "aaif_wiki.publish.open_pull_request",
         lambda cfg, branch, title, body: (True, "https://github.com/pr/1"),
