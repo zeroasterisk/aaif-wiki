@@ -18,9 +18,138 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 
 # Sections
 
+## governance
+
+- [Code of Conduct](governance/code-of-conduct.md) — Code of conduct governing participation across Agentic AI Foundation committees, working groups, events, and community spaces. _(draft, unverified)_
+- [Project Lifecycle Policy](governance/project-lifecycle.md) — Intake process, review criteria, stage progression (Sandbox, Growth, Impact, Emeritus), and annual review rules for open source projects in the AAIF. _(draft, unverified)_
+- [Project Proposal Process](governance/project-proposal-process.md) — Operating procedure defining the 6-step workflow, engagement bar, automated intake agent, and onboarding process for AAIF project submissions. _(draft, unverified)_
+- [Technical Committee (TC)](governance/technical-committee.md) — Technical governing body of the Agentic AI Foundation overseeing technical vision, standards, and stage progression. _(draft, unverified)_
+- [Working Group Submission Guidelines](governance/wg-submission-guidelines.md) — Intake process, review criteria, status lifecycle, and voting rules for proposing new Working Groups within the Agentic AI Foundation. _(draft, unverified)_
+- [Working Group Reporting](governance/working-group-reporting.md) — Standardized monthly reporting cadence, pull request workflow, and template structure for AAIF working groups. _(draft, unverified)_
+
+## guidelines
+
+- [AAIF Blog Guidelines](guidelines/blog-guidelines.md) — Editorial policies, contributor eligibility criteria, and submission workflow for publishing on the Agentic AI Foundation blog. _(draft, unverified)_
+- [AAIF Brand Guidelines](guidelines/brand-guidelines.md) — Design system specifications, typography rules, color tokens, and asset usage policies for AAIF visual identity across web and OOXML office documents. _(draft, unverified)_
+- [Case Study Guidelines](guidelines/case-study-guidelines.md) — Guidelines and qualification criteria for AAIF member organizations submitting written and webinar implementation case studies. _(draft, unverified)_
+- [External Collaboration Policy](guidelines/external-collaboration-policy.md) — Guidelines defining the scope, posture, and approval process for AAIF Working Groups engaging with external standards bodies and industry groups. _(draft, unverified)_
+- [AAIF Agentic AI Landscape Inclusion Criteria](guidelines/landscape-inclusion-criteria.md) — Rules governing which projects, organizations, and software are eligible for inclusion in the AAIF Agentic AI Landscape. _(draft, unverified)_
+- [Social Media Governance and Guidelines](guidelines/social-media-guidelines.md) — Policies governing the content strategy, tone, submission process, and usage guidelines for official Agentic AI Foundation social media channels. _(draft, unverified)_
+
+## landscape
+
+- [Interactive map categorizing agent runtimes, protocols, security guardrails, observability, commerce](landscape/aaif-landscape.md) — Interactive map categorizing agent runtimes, protocols, security guardrails, observability, commerce _(draft, unverified)_
+
+## methodology
+
+- [AAIF Announcement Post Skill](methodology/aaif-announcement-post-skill.md) — Operational agent skill for drafting concise LinkedIn launch and RSVP announcement posts for AAIF events with mandatory legal footers. _(draft, unverified)_
+- [AAIF Attendee Reminder Skill](methodology/aaif-attendee-reminder-skill.md) — Operational agent skill for generating logistics-focused pre-event reminder notifications sent to registered RSVPs before AAIF events. _(draft, unverified)_
+- [AAIF Audit Slack Skill](methodology/aaif-audit-slack-skill.md) — Operational agent skill for evaluating Slack workspace coverage, organizer channel access, and topic dormancy across AAIF chapters. _(draft, unverified)_
+- [AAIF Backup Skill](methodology/aaif-backup-skill.md) — Operational agent skill for creating timestamped, immutable local backups of AAIF community operations data prior to mutations. _(draft, unverified)_
+- [AAIF Carousel Copy Skill](methodology/aaif-carousel-copy-skill.md) — Operational agent skill for generating 6-slide LinkedIn carousel copy and managing export workflows for AAIF event promotion. _(draft, unverified)_
+- [AAIF Chapter Provisioning Skill](methodology/aaif-chapter-provisioning-skill.md) — Automated methodology for provisioning chapters, synchronizing intake decisions, and enforcing report-first write gates across community records. _(draft, unverified)_
+- [AAIF Clean Data Skill](methodology/aaif-clean-data-skill.md) — Operational agent skill for scanning, validating, and normalizing intake data with diff proposals and provenance logging. _(draft, unverified)_
+- [AAIF Community Pulse Skill](methodology/aaif-community-pulse-skill.md) — Operational agent skill for synthesizing biweekly community updates across Slack, Google Drive, and Luma with privacy-safe redaction and synthetic fixtures. _(draft, unverified)_
+- [AAIF Create Chapter Skill](methodology/aaif-create-chapter-skill.md) — Operational agent skill for provisioning, rebranding, geolocating, and maintaining AAIF city chapter workspaces and presentation decks. _(draft, unverified)_
+- [AAIF Create Event Skill](methodology/aaif-create-event-skill.md) — Operational agent skill for creating AAIF events by cloning template tracker sections, calculating phase task schedules, and provisioning Luma event pages. _(draft, unverified)_
+- [AAIF Create Online Series Skill](methodology/aaif-create-online-series-skill.md) — Operational agent skill for provisioning recurring AAIF online event series in Google Drive by cloning TemplateSeries and rebranding assets. _(draft, unverified)_
+- [AAIF Day-of Slides Skill](methodology/aaif-dayof-slides-skill.md) — Operational agent skill for compiling event tracker metadata into standardized slide decks for AAIF day-of-event presentations. _(draft, unverified)_
+- [AAIF Event Status Skill](methodology/aaif-event-status-skill.md) — Operational agent skill for querying overdue and upcoming tasks and Luma registration statistics across AAIF chapter and online series trackers. _(draft, unverified)_
+- [Operational agent skill for resolving and tracking community member identities across platforms](methodology/aaif-identity-resolution-skill.md) — Methodology for accurately mapping community member identities between intake forms, Slack accounts, and Drive access lists, accounting for email normalization issues. _(draft, unverified)_
+- [AAIF Luma Description Skill](methodology/aaif-luma-description-skill.md) — Operational agent skill for drafting structured Luma event page descriptions including audience targeting, agendas, and policy disclosures. _(draft, unverified)_
+- [AAIF Recap Post Skill](methodology/aaif-recap-post-skill.md) — Operational agent skill for composing post-event wrap-up posts featuring key takeaways without hallucination. _(draft, unverified)_
+- [AAIF Reference Architecture Skill](methodology/aaif-reference-architecture-skill.md) — A structured process and tool used by the AAIF Observability and Traceability WG to generate reference architecture assessments for AI/agent technologies. _(draft, unverified)_
+- [AAIF Speaker Bio Skill](methodology/aaif-speaker-bio-skill.md) — Operational agent skill for drafting concise speaker bios and summaries while preventing PII exposure. _(draft, unverified)_
+- [AAIF Speaker Invite Skill](methodology/aaif-speaker-invite-skill.md) — Operational agent skill for drafting concise, builder-to-builder speaker outreach messages and direct inquiries for AAIF events. _(draft, unverified)_
+- [AAIF Sync Badges Skill](methodology/aaif-sync-badges-skill.md) — Operational agent skill for generating, restyling, and synchronizing AAIF chapter organizer badge assets in per-chapter Google Drive folders. _(draft, unverified)_
+- [AAIF Sync Chapters Skill](methodology/aaif-sync-chapters-skill.md) — Operational agent skill for synchronizing intake decisions across the chapters list, About documents, chapter CRMs, Drive permissions, and Slack channels under strict approval gates. _(draft, unverified)_
+- [AAIF Taxonomy Contributions Skill](methodology/aaif-taxonomy-contributions-skill.md) — Agent skill guiding automated and manual routing, validation, schema conformity, and issue drafting for ws-taxonomy-landscape contributions. _(draft, unverified)_
+- [AAIF Triage Intake Skill](methodology/aaif-triage-intake-skill.md) — Operational agent skill for reviewing, categorizing, and triaging community intake submissions while defending against prompt injections in untrusted form fields. _(draft, unverified)_
+- [AAIF Update Event Skill](methodology/aaif-update-event-skill.md) — Operational agent skill for modifying AAIF event details, recomputing task due dates, tracking stale marketing assets, and synchronizing Luma pages. _(draft, unverified)_
+- [Agent Observability Use Cases](methodology/agent-observability-use-cases.md) — Catalog of operational, debugging, safety, and governance use cases defining cross-cutting telemetry and evidence requirements for agentic systems. _(draft, unverified)_
+- [Agentic Use Case Classification Framework](methodology/agentic-use-case-classification.md) — Classification framework and evidentiary methodology for cataloging production agentic workflows and execution structures. _(draft, unverified)_
+- [Agentic AI Workflow Orchestration Patterns Comparison](methodology/agentic-workflow-orchestration-patterns.md) — Comparative synthesis of agentic AI workflow orchestration patterns, complexity tiers, and selection criteria across cloud and model providers. _(draft, unverified)_
+- [Community Events Skill Evaluation Framework](methodology/community-events-skill-evals.md) — Two-arm evaluation methodology for AAIF community event skills measuring activation triggers, neighbor disambiguation, and safety compliance. _(draft, unverified)_
+- [Issue Analysis Skill](methodology/issue-analysis-skill.md) — A structured agent skill methodology for classifying GitHub issues, forming root-cause hypotheses, and proposing maintainer actions while mitigating prompt injection. _(draft, unverified)_
+- [Job-Oriented Workflow Reference Architectures](methodology/job-oriented-reference-architectures.md) — Framework organizing workflow reference architectures around practitioner operational jobs, reusable patterns, and validation scenarios. _(draft, unverified)_
+- [Reference Architecture Use-Case Validation Methodology](methodology/reference-architecture-validation.md) — Evaluation framework and review workflow for assessing the architectural fit of reference architectures against documented use cases. _(draft, unverified)_
+- [Taxonomy Curation and Disambiguation Protocol](methodology/taxonomy-curation-protocol.md) — Structured methodology defining term admission criteria, conflict resolution, and the Paired Contrast Disambiguation Protocol for the AAIF Taxonomy. _(draft, unverified)_
+- [Workflow Architecture Principles](methodology/workflow-architecture-principles.md) — Eight shared architectural principles guiding the composition of patterns, capability roles, and execution boundaries in agentic workflow reference architectures. _(draft, unverified)_
+- [Workflow Design Specification](methodology/workflow-design-specification.md) — A formal, machine-readable specification and design methodology for defining agentic workflows across deterministic and autonomous execution modes. _(draft, unverified)_
+
+## patterns
+
+- [Attested Isolated Runtime](patterns/attested-isolated-runtime.md) — Security design pattern isolating policy enforcement and evidence signing inside a hardware TEE while keeping dynamic agent execution outside the trust boundary. _(draft, unverified)_
+- [Bounded Convergence Loop](patterns/bounded-convergence-loop.md) — Workflow design pattern safely iterating agent tasks within explicit budget and scope constraints until verified by a deterministic gate or terminating in a defined non-success state. _(draft, unverified)_
+- [Deterministic Acceptance Gate](patterns/deterministic-acceptance-gate.md) — Workflow design pattern evaluating candidate results against explicit, repeatable checks and declared scope constraints rather than model self-assessment. _(draft, unverified)_
+- [Durable Wait](patterns/durable-wait.md) — Workflow pattern converting physical thread or process blocking into logical persisted state records surviving process restarts and deploys. _(draft, unverified)_
+- [Human Approval Gate](patterns/human-approval-gate.md) — Workflow pattern requiring an identified human principal to explicitly authorize an immutable proposal before execution of a protected effect. _(draft, unverified)_
+- [Proposal/Execution Split](patterns/proposal-execution-split.md) — Workflow design pattern separating non-deterministic agent proposal generation from deterministic, workflow-controlled side-effect execution. _(draft, unverified)_
+
+## project
+
+- [A2A (Agent-to-Agent)](project/a2a.md) — Agent-to-agent interoperability protocol and specification enabling structured communication and signed identity verification between autonomous agents. _(draft, unverified)_
+- [agentgateway](project/agentgateway.md) — Traffic mediation, policy enforcement, and observability gateway for MCP and A2A agent communications. _(draft, unverified)_
+- [agents-cli](project/agents-cli.md) — A proposed command-line interface project suggested for donation to the AAIF, intended for inclusion in the Agentic AI Landscape. _(draft, unverified)_
+- [.agents Folder](project/agents-folder.md) — A proposed project suggested for donation to the AAIF, intended for inclusion in the Agentic AI Landscape. _(draft, unverified)_
+- [Public Agents Repository](project/public-agents.md) — AAIF repository for sharing public, reusable agent resources and standardized agent skills. _(draft, unverified)_
+- [Submission Analyser](project/submission-analyser.md) — Headless CI-invoked Flue 2.0 agent automating prompt-injection-resilient GitHub issue analysis with multi-model fallback and external publishing. _(draft, unverified)_
+
+## reference-architectures
+
+- [Agent to MCP Server Boundary](reference-architectures/agent-mcp-server-boundary.md) — Cross-boundary telemetry model and gap analysis for agent client interactions with Model Context Protocol (MCP) servers. _(draft, unverified)_
+- [Agent to Tool CLI Boundary](reference-architectures/agent-tool-cli-boundary.md) — Observability architecture and context propagation model for agent runtimes executing local command-line interface subprocesses. _(draft, unverified)_
+- [Agent Trace Specification](reference-architectures/agent-trace.md) — Reference architecture for the Agent Trace open specification enabling line-level code attribution from AI coding agents. _(draft, unverified)_
+- [AMD ROCm Profiling Reference Architecture](reference-architectures/amd-rocprofiler.md) — Reference architecture for AMD roctracer, rocprofiler, and rocprofiler-sdk GPU kernel dispatch tracing and Matrix Core hardware counter collection. _(draft, unverified)_
+- [Bounded Autonomous Remediation Reference Architecture](reference-architectures/bounded-autonomous-remediation.md) — Reference architecture enabling autonomous iteration and bounded remediation under independent deterministic acceptance gates and explicit budget controls. _(draft, unverified)_
+- [Common Trace Format (CTF) Reference Architecture](reference-architectures/ctf.md) — Reference architecture for the Common Trace Format binary trace encoding optimized for zero-copy write paths and self-describing metadata. _(draft, unverified)_
+- [Datadog Reference Architecture](reference-architectures/datadog.md) — Reference architecture assessing Datadog APM, agent telemetry collection, and LLM Observability for AI agent pipelines and infrastructure. _(draft, unverified)_
+- [FTrace Kernel Function Tracing](reference-architectures/ftrace.md) — Reference architecture for Linux FTrace kernel function tracing, tracefs filesystem interface, and dynamic NOP-to-call patching. _(draft, unverified)_
+- [Reference Architecture: Goose](reference-architectures/goose.md) — Reference architecture for Goose, an open-source general-purpose AI agent runtime with built-in telemetry, security scanning, and protocol extensibility. _(draft, unverified)_
+- [Reference Architecture: GPU Driver Tracing for AI Acceleration](reference-architectures/gpu-driver-tracing.md) — Reference architecture for tracing GPU kernel dispatch, tensor core utilization, memory transfers, and multi-GPU communication across hardware vendors. _(draft, unverified)_
+- [Reference Architecture: Langfuse](reference-architectures/langfuse.md) — Reference architecture for Langfuse LLM observability backend capturing hierarchical execution traces, token costs, and generation evaluations. _(draft, unverified)_
+- [Linux Driver Tracing Reference Architecture](reference-architectures/linux-driver-tracing.md) — Reference architecture detailing Linux kernel device driver observability via dev_dbg, dynamic debug, TRACE_EVENT, debugfs, and subsystem-specific tooling. _(draft, unverified)_
+- [Linux perf Reference Architecture](reference-architectures/linux-perf.md) — Reference architecture for Linux perf hardware-assisted profiling, PMU counter measurement, and kernel tracepoint sampling. _(draft, unverified)_
+- [Linux Kernel Tracing Comparison (LTTng, perf, FTrace)](reference-architectures/linux-tracing-comparison.md) — Comparative assessment of LTTng, perf, and FTrace across overhead, interfaces, and observability dimensions for system infrastructure. _(draft, unverified)_
+- [LTTng Kernel Tracing Reference Architecture](reference-architectures/lttng-kernel-tracing.md) — Reference architecture for Linux Trace Toolkit: next generation (LTTng) kernel tracing via lock-free per-CPU ring buffers and CTF event serialization. _(draft, unverified)_
+- [LTTng-UST Reference Architecture](reference-architectures/lttng-ust.md) — Reference architecture for LTTng Userspace Tracing (LTTng-UST) providing lock-free shared-memory ring buffer tracing for applications. _(draft, unverified)_
+- [NVIDIA Nsight Reference Architecture](reference-architectures/nvidia-nsight.md) — Reference architecture for NVIDIA Nsight profiling tools (Nsight Systems and Nsight Compute) across GPU timeline tracing and kernel hardware counter analysis. _(draft, unverified)_
+- [OpenTelemetry for AI Agent Infrastructure](reference-architectures/opentelemetry.md) — Reference architecture for OpenTelemetry telemetry collection, processing, and gen_ai semantic conventions across AI agent workflows. _(draft, unverified)_
+- [PostHog Agent Telemetry Reference Architecture](reference-architectures/posthog.md) — Reference architecture evaluating PostHog Capture API ingestion for agent behavioral telemetry, product analytics, and PII sanitization. _(draft, unverified)_
+- [PyTorch Profiler Reference Architecture](reference-architectures/pytorch-profiler.md) — Reference architecture for capturing tensor operations and GPU kernel execution traces via PyTorch Profiler into Chrome Trace format. _(draft, unverified)_
+- [Single-Agent Human Approval Reference Architecture](reference-architectures/single-agent-human-approval.md) — Reference architecture ensuring protected actions only execute following explicit human review and authorization of immutable proposals. _(draft, unverified)_
+- [TMLL Reference Architecture](reference-architectures/tmll.md) — Reference architecture for Trace-Server Machine Learning Library applying anomaly detection to Trace Compass outputs via Model Context Protocol. _(draft, unverified)_
+- [Eclipse Trace Compass Reference Architecture](reference-architectures/trace-compass.md) — Reference architecture for Eclipse Trace Compass multi-format trace analysis, state-system interval indexing, and Trace Server Protocol integration. _(draft, unverified)_
+- [Wireshark Reference Architecture](reference-architectures/wireshark.md) — Reference architecture for Wireshark deep packet inspection, modular protocol dissection, and PCAPNG/JSON trace capture. _(draft, unverified)_
+
+## specification
+
+- [Agent Action Capsule](specification/agent-action-capsule.md) — A structured data format and mechanism serving as a middle layer between regulations and agent actions, recording dispatch, outcome, and verification status. _(draft, unverified)_
+- [Agent Behavior Trace Model Shared Contract](specification/agent-behavior-trace-model-contract.md) — Specification defining the identity entities, structural relationships, turn boundaries, and interpretation invariants for agent behavior telemetry. _(draft, unverified)_
+- [AAIF Taxonomy Glossary Schema (SKOS-Lite)](specification/taxonomy-glossary-schema.md) — Formal data schema specification for entries in the AAIF shared vocabulary, defining required fields, constraints, and the status of deferred hierarchical fields. _(draft, unverified)_
+
+## taxonomy
+
+- [Core Workflow Terms](taxonomy/core-workflow-terms.md) — Standardized vocabulary and foundational concepts defining activities, workflow execution, control flow, business tasks, and state transitions. _(draft, unverified)_
+- [Human Curated](taxonomy/human-curated.md) — Taxonomy definition establishing the human-review assurance signal for vetted dataset and catalog entries. _(draft, unverified)_
+- [Human in the Loop (HITL)](taxonomy/human-in-the-loop.md) — Taxonomy standard defining synchronous human intervention checkpoints required before an agent executes protected actions. _(draft, unverified)_
+- [Identity and Trust Terms](taxonomy/identity-and-trust-terms.md) — Standardized taxonomy vocabulary defining Trust, Identifier, Attestation, and Delegation across agentic runtimes. _(draft, unverified)_
+- [Meta-harness](taxonomy/meta-harness.md) — Taxonomy definition and scope note for meta-harnesses orchestrating and composing lower-level agent execution harnesses. _(draft, unverified)_
+
 ## working-groups
 
-- [Security and Privacy Working Group](working-groups/security-and-privacy.md) — AAIF working group establishing security and privacy threat models, shared taxonomies, design patterns, and cross-discipline review mechanisms across agentic AI systems. _(draft, unverified)_
+- [Accuracy and Reliability Working Group](working-groups/accuracy-and-reliability.md) — AAIF working group establishing standards, terminology, benchmarks, and enterprise gap analysis for agent accuracy, robustness, and operational reliability. _(draft, unverified)_
+- [Agentic Commerce Working Group](working-groups/agentic-commerce.md) — AAIF working group cataloging, aligning, and harmonizing open specifications and reference architectures across autonomous commercial interactions. _(draft, unverified)_
+- [Governance, Risk, and Regulatory Working Group](working-groups/governance-risk-and-regulatory.md) — AAIF working group mapping global AI policies, standards, and regulatory frameworks to technical agent requirements and gap analyses. _(draft, unverified)_
+- [Identity and Trust Working Group](working-groups/identity-and-trust.md) — AAIF working group establishing vendor-neutral standards, reference architectures, and viewpoints for agent identity, attestation, authentication, and delegated authority. _(draft, unverified)_
+- [Observability and Traceability Working Group](working-groups/observability-and-traceability.md) — AAIF working group standardizing agent telemetry models, trace context propagation, behavior trace models, and vendor-neutral observability practices. _(draft, unverified)_
+- [AAIF working group establishing open threat models, security control frameworks, design patterns, an](working-groups/security-and-privacy.md) — AAIF working group establishing open threat models, security control frameworks, design patterns, and a shared taxonomy to advance security and privacy across the agentic AI ecosystem. _(draft, unverified)_
+- [Security and Privacy Best Practices Workstream](working-groups/sp-best-practices.md) — Workstream of the Security and Privacy WG delivering the Agentic AI Security Best Practices guide and feature matrix across people, process, and technology. _(draft, unverified)_
+- [Workstream of the Security and Privacy WG curating reusable design patterns for secure and privacy-r](working-groups/sp-design-patterns.md) — Workstream of the Security and Privacy WG curating reusable design patterns for secure and privacy-respecting agentic systems, including kill-switch and memory-related patterns. _(draft, unverified)_
+- [Security & Privacy: Review Checklist Workstream](working-groups/sp-review-checklist.md) — Defines a lightweight checklist and review process for evaluating security and privacy considerations across AAIF working group deliverables. _(draft, unverified)_
+- [Security & Privacy: Threat Modeling Workstream](working-groups/sp-threat-modeling.md) — Evaluates existing AI threat frameworks against agentic-specific threats and develops comprehensive threat modeling frameworks. _(draft, unverified)_
+- [Taxonomy and Landscape Workstream](working-groups/taxonomy-and-landscape.md) — Cross-working-group AAIF initiative curating unified terminology (Taxonomy) and planning the ecosystem market map (Landscape). _(draft, unverified)_
+- [Workflows and Process Integration Working Group](working-groups/workflows-and-process-integration.md) — AAIF working group standardizing shared workflow models, execution semantics, state persistence, architectural principles, and human-in-the-loop integration patterns. _(draft, unverified)_
 
 # References
 
