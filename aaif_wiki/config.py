@@ -194,6 +194,7 @@ class TrustCfg(BaseModel):
             "oceanbase.io",
             "spdx.github.io",
             "posthog.com",
+            "amd.com",
         ]
     )
     forbidden_patterns: list[str] = Field(

@@ -147,6 +147,7 @@ trust:
     - "oceanbase.io"
     - "spdx.github.io"
     - "posthog.com"
+    - "amd.com"
   forbidden_patterns:
     - "/google/(bin|src)/"
     - "\\bgoogle3\\b"

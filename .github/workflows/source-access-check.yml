@@ -1,0 +1,28 @@
+name: Source access check
+
+# Verifies GH_SOURCE_TOKEN_AAIF can read every aaif org repo (incl. private).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe private source repos
+        env:
+          TOKEN: ${{ secrets.GH_SOURCE_TOKEN_AAIF }}
+        run: |
+          test -n "$TOKEN" || { echo "::error::GH_SOURCE_TOKEN_AAIF is empty"; exit 1; }
+          fail=0
+          for r in working-group-chairs project-radar; do
+            if GIT_TERMINAL_PROMPT=0 timeout 30 git ls-remote "https://x-access-token:${TOKEN}@github.com/aaif/${r}.git" HEAD >/dev/null 2>&1; then
+              echo "OK $r"
+            else
+              echo "::error::NO ACCESS $r"; fail=1
+            fi
+          done
+          exit $fail
