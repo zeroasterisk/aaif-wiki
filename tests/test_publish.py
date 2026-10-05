@@ -146,3 +146,19 @@ def test_weekly_workflow_uses_project_variable():
     workflow = Path(".github/workflows/weekly-refresh.yml").read_text()
     assert "${{ vars.GOOGLE_CLOUD_PROJECT }}" in workflow
     assert "GOOGLE_CLOUD_PROJECT: alanblount-demo" not in workflow
+
+
+def test_pr_body_capped_under_github_limit():
+    from types import SimpleNamespace
+
+    from aaif_wiki.publish import pr_body
+
+    muts = [
+        SimpleNamespace(action="create", slug=f"concept-{i}", rationale="x" * 400,
+                        jev=None, source_event_ids=[f"evt-{i}"])
+        for i in range(400)
+    ]
+    body = pr_body(muts, "RUN", {})
+    assert len(body) < 65536
+    assert "truncated" in body and "raw/reviews/RUN.json" in body
+    assert body.rstrip().endswith("No content was injected by text inside an ingested PR or issue")

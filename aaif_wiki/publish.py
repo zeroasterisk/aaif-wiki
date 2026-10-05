@@ -108,6 +108,28 @@ def write_review_record(cfg: Config, mutations: list[Mutation], branch: str, run
     return path
 
 
+# GitHub rejects PR bodies over 65536 chars; leave room for the checklist.
+PR_BODY_BUDGET = 60_000
+
+
+def _cap_lines(lines: list[str], total: int, run_id: str) -> list[str]:
+    out: list[str] = []
+    size = 0
+    shown = 0
+    for line in lines:
+        if size + len(line) + 1 > PR_BODY_BUDGET:
+            out.append(
+                f"\n_…truncated: {total - shown} more mutation(s). Full list in "
+                f"`raw/reviews/{run_id}.json`._"
+            )
+            return out
+        out.append(line)
+        size += len(line) + 1
+        if line.startswith("- **"):
+            shown += 1
+    return out
+
+
 def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
     lines = [
         "## Automated wiki update",
@@ -136,6 +158,7 @@ def pr_body(mutations: list[Mutation], run_id: str, stats: dict) -> str:
             )
         if m.source_event_ids:
             lines.append(f"  - sources: {', '.join(f'`{s}`' for s in m.source_event_ids[:6])}")
+    lines = _cap_lines(lines, len(mutations), run_id)
     lines += [
         "",
         "### Reviewer checklist",

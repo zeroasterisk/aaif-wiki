@@ -192,6 +192,7 @@ class TrustCfg(BaseModel):
             "wireshark.org",
             "kernel.org",
             "oceanbase.io",
+            "spdx.github.io",
         ]
     )
     forbidden_patterns: list[str] = Field(
