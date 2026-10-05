@@ -58,6 +58,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT || github.token }}
           JEV_API_KEY: ${{ secrets.JEV_API_KEY }}
+          AAIF_SOURCES_TOKEN: ${{ secrets.GH_SOURCE_TOKEN_AAIF }}
         run: |
           uv run aaif-wiki ingest --mode incremental --fresh --publish
           uv run aaif-wiki validate

@@ -138,7 +138,13 @@ class GitHubCfg(BaseModel):
     max_items_per_repo: int = 25
 
     def token(self) -> str | None:
-        return os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        # Sources live in the aaif org; a fine-grained token scoped there takes
+        # precedence over the workflow token (which cannot read aaif private repos).
+        return (
+            os.environ.get("AAIF_SOURCES_TOKEN")
+            or os.environ.get("GITHUB_TOKEN")
+            or os.environ.get("GH_TOKEN")
+        )
 
 
 class SourcesCfg(BaseModel):
