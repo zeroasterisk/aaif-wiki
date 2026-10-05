@@ -224,10 +224,12 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
             return
         console.print(f"committed {sha[:8]} on [bold]{branch}[/bold] (review record: {record.name})")
 
+        errors = [i for i in summary.get("issues", []) if i.get("severity") == "error"]
         ok, detail = pub.open_pull_request(
             cfg, branch,
             f"wiki: automated update {run_id}",
             pub.pr_body(mutations, run_id, summary),
+            allow_merge=not errors,
         )
         console.print(f"[green]PR: {detail}[/green]" if ok else f"[yellow]{detail}[/yellow]")
     except Exception as exc:  # noqa: BLE001

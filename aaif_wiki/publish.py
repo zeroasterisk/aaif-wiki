@@ -175,7 +175,9 @@ def push_branch(root: Path, branch: str) -> None:
     _git(root, "push", "-u", "origin", branch)
 
 
-def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[bool, str]:
+def open_pull_request(
+    cfg: Config, branch: str, title: str, body: str, *, allow_merge: bool = True
+) -> tuple[bool, str]:
     """Open a PR via the gh CLI. Degrades to instructions when gh is unavailable."""
     probe = subprocess.run(["gh", "auth", "status"], capture_output=True, text=True)
     if probe.returncode != 0:
@@ -207,15 +209,23 @@ def open_pull_request(cfg: Config, branch: str, title: str, body: str) -> tuple[
     if proc.returncode != 0:
         return False, f"gh pr create failed: {proc.stderr.strip()}"
     url = proc.stdout.strip()
+    if cfg.publish.auto_merge and not allow_merge:
+        return True, f"{url} (not merged: validation errors need human review)"
     if cfg.publish.auto_merge:
         merge = subprocess.run(
             ["gh", "pr", "merge", "--auto", "--squash", url],
             cwd=str(cfg.root), capture_output=True, text=True,
         )
         if merge.returncode != 0:
-            # Fall back to direct squash merge if --auto is rejected (e.g. no branch protection checks required)
-            clean_status = any(hint in merge.stderr.lower() for hint in ["clean status", "no required status checks", "not configured"])
-            if clean_status:
+            # Fall back to a direct squash merge when --auto is rejected: no required
+            # checks, or auto-merge disabled in repo settings.
+            hints = [
+                "clean status",
+                "no required status checks",
+                "not configured",
+                "auto merge is not allowed",
+            ]
+            if any(hint in merge.stderr.lower() for hint in hints):
                 merge = subprocess.run(
                     ["gh", "pr", "merge", "--squash", url],
                     cwd=str(cfg.root), capture_output=True, text=True,

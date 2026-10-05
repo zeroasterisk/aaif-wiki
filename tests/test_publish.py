@@ -162,3 +162,39 @@ def test_pr_body_capped_under_github_limit():
     assert len(body) < 65536
     assert "truncated" in body and "raw/reviews/RUN.json" in body
     assert body.rstrip().endswith("No content was injected by text inside an ingested PR or issue")
+
+
+def _merge_harness(tmp_path, monkeypatch, auto_stderr):
+    cfg = Config(root=tmp_path)
+    cfg.publish.auto_merge = True
+    commands = []
+
+    def fake_run(cmd, *args, **kwargs):
+        commands.append(cmd)
+        proc = MagicMock()
+        if cmd[:3] == ["gh", "pr", "merge"] and "--auto" in cmd:
+            proc.returncode, proc.stderr = 1, auto_stderr
+        else:
+            proc.returncode, proc.stderr = 0, ""
+            proc.stdout = "https://github.com/zeroasterisk/aaif-wiki/pull/42\n"
+        return proc
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    return cfg, commands
+
+
+def test_auto_merge_disabled_in_repo_falls_back_to_squash(tmp_path, monkeypatch):
+    cfg, commands = _merge_harness(
+        tmp_path, monkeypatch,
+        "GraphQL: Auto merge is not allowed for this repository (enablePullRequestAutoMerge)",
+    )
+    ok, _ = open_pull_request(cfg, "wiki/update-1", "t", "b")
+    assert ok is True
+    assert ["gh", "pr", "merge", "--squash", "https://github.com/zeroasterisk/aaif-wiki/pull/42"] in commands
+
+
+def test_validation_errors_block_merge(tmp_path, monkeypatch):
+    cfg, commands = _merge_harness(tmp_path, monkeypatch, "")
+    ok, detail = open_pull_request(cfg, "wiki/update-1", "t", "b", allow_merge=False)
+    assert ok is True and "not merged" in detail
+    assert not any(c[:3] == ["gh", "pr", "merge"] for c in commands)

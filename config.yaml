@@ -146,6 +146,7 @@ trust:
     - "kernel.org"
     - "oceanbase.io"
     - "spdx.github.io"
+    - "posthog.com"
   forbidden_patterns:
     - "/google/(bin|src)/"
     - "\\bgoogle3\\b"
