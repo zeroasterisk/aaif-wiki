@@ -18,9 +18,134 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 
 # Sections
 
+## architectures
+
+- [Bounded Autonomous Remediation](architectures/bounded-autonomous-remediation.md) — Reference architecture for autonomously resolving bounded business tasks using deterministic acceptance gates and structured activity workflows. _(draft, unverified)_
+- [Single-Agent Human Approval Architecture](architectures/single-agent-human-approval.md) — Reference architecture establishing an enforceable human approval gate between an agent proposal and downstream execution. _(draft, unverified)_
+
+## governance
+
+- [Technical Committee](governance/technical-committee.md) — The technical governing body of the Agentic AI Foundation overseeing technical standards, working groups, and project lifecycle management. _(draft, unverified)_
+
+## guidelines
+
+- [Agent Plugin Portability](guidelines/agent-plugin-portability.md) — Standards for packaging portable agent plugins, resolving skill root paths, and structuring progressive disclosure between SKILL.md and WORKFLOW.md. _(draft, unverified)_
+- [Agentic AI Security Best Practices](guidelines/agentic-ai-security-best-practices.md) — Technical guidance consolidating practical security controls across secrets elimination, in-loop policy enforcement, and pre-execution interception hooks for AI agents. _(draft, unverified)_
+- [Blog Guidelines](guidelines/blog-guidelines.md) — Editorial standards, eligibility rules, and intake submission workflows for the Agentic AI Foundation blog. _(draft, unverified)_
+- [Agentic AI Foundation Brand Guidelines](guidelines/brand-guidelines.md) — Visual, typographic, and design asset standards governing Agentic AI Foundation digital assets, event collateral, and official marks. _(draft, unverified)_
+- [Reference Architecture Use-Case Validation Guide](guidelines/reference-architecture-validation.md) — Methodology and evaluation criteria for validating whether real-world use cases architecturally align with reference architectures. _(draft, unverified)_
+- [Social Media Guidelines](guidelines/social-media-guidelines.md) — Governance policies, voice standards, and content submission channels for official Agentic AI Foundation social media accounts. _(draft, unverified)_
+- [Workflow Architecture Principles](guidelines/workflow-architecture-principles.md) — Eight core design principles governing the composition of capability roles, boundary controls, and patterns in AAIF workflow reference architectures. _(draft, unverified)_
+- [Working Group Submission Guidelines](guidelines/working-group-submission-guidelines.md) — Intake workflows, Technical Committee voting rules, and lifecycle status labels for establishing new AAIF Working Groups. _(draft, unverified)_
+
+## patterns
+
+- [Approval Checkpoint](patterns/approval-checkpoint.md) — Runtime governance pattern binding approval records to exact execution payloads and tracking decision, execution, and confirmation states independently. _(draft, unverified)_
+- [Attested Isolated Runtime Pattern](patterns/attested-isolated-runtime.md) — Architectural pattern isolating policy enforcement and evidence signing within hardware-attested boundaries while keeping untrusted agent execution external. _(draft, unverified)_
+- [Autonomy Graduation](patterns/autonomy-graduation.md) — Operational progression model transitioning agent oversight from strict approval gates to exception-based escalation and full autonomy as reliability matures. _(draft, unverified)_
+- [Bounded Convergence Loop](patterns/bounded-convergence-loop.md) — Architectural pattern safely iterating an agent-driven task within explicit budget limits until a deterministic acceptance gate passes or a safe terminal outcome occurs. _(draft, unverified)_
+- [Deterministic Acceptance Gate](patterns/deterministic-acceptance-gate.md) — Architectural pattern evaluating candidate agent outputs against explicit, repeatable checks and scope rules rather than model self-assessment. _(draft, unverified)_
+- [Durable Wait](patterns/durable-wait.md) — Architectural pattern converting blocking process waits into persisted, discoverable state records that survive host restarts and resume upon correlated external events. _(draft, unverified)_
+- [Hard Constraint Human-in-the-Loop Gate](patterns/hard-constraint-gate.md) — Architectural pattern mandating human execution or sign-off due to immutable regulatory, legal, or policy requirements rather than agent confidence deficits. _(draft, unverified)_
+- [Human Approval Gate](patterns/human-approval-gate.md) — Workflow pattern requiring an authorized human to explicitly approve an immutable proposal before a boundary action is executed. _(draft, unverified)_
+- [Kill Switch](patterns/kill-switch.md) — Architectural control plane pattern establishing an independent out-of-band mechanism to immediately halt agent execution, sever network access, and invalidate credentials. _(draft, unverified)_
+- [Proposal-Execution Split Pattern](patterns/proposal-execution-split.md) — Architectural pattern enforcing authorization and attribution at protected boundaries by separating untrusted proposal generation from privileged execution. _(draft, unverified)_
+
+## policies
+
+- [Case Study Guidelines](policies/case-study-guidelines.md) — Submission guidelines for AAIF member case studies highlighting tangible business impact from open agentic AI standards. _(draft, unverified)_
+- [Code of Conduct](policies/code-of-conduct.md) — Community standards, expected behaviors, and enforcement scope for participants across Agentic AI Foundation activities and committee meetings. _(draft, unverified)_
+- [Project Lifecycle Policy](policies/project-lifecycle-policy.md) — Governance framework defining admission requirements, stage progressions (Sandbox, Growth, Impact, Emeritus), and annual reviews for AAIF projects. _(draft, unverified)_
+- [Project Proposal Process](policies/project-proposal-process.md) — Operating procedure defining project proposal intake, contribution agreements, and voting stages across the Technical Committee and Governing Board. _(draft, unverified)_
+
+## resources
+
+- [Agent to MCP Server Boundary Deep-Dive](resources/agent-mcp-server-boundary.md) — Observability reference matrix and telemetry propagation model analyzing the protocol boundary between MCP clients and MCP servers. _(draft, unverified)_
+- [Agent-to-Tool CLI Boundary Architecture](resources/agent-tool-cli-boundary.md) — Observability reference architecture and telemetry propagation matrix for AI agents invoking local CLI subprocess tools. _(draft, unverified)_
+- [Agentic AI Landscape](resources/agentic-ai-landscape.md) — Interactive ecosystem and architecture map tracking agent runtimes, protocols, security guardrails, and global regulatory frameworks. _(draft, unverified)_
+- [Agentic Use Case Classification and Inventory](resources/agentic-use-case-classification.md) — Taxonomy schema, evidentiary standard, and empirical inventory categorizing production agentic workflows across triggers, oversight, and architectural patterns. _(draft, unverified)_
+- [Agentic AI Workflow Patterns Comparison](resources/agentic-workflow-patterns-comparison.md) — Comparative taxonomy and operational analysis evaluating agentic workflow orchestration patterns, complexity tiers, and agency levels across major AI ecosystems. _(draft, unverified)_
+- [AMD ROCm Profiling Stack](resources/amd-rocprofiler.md) — Open-source GPU kernel dispatch tracing and hardware counter profiling architecture for AMD Instinct accelerators across HIP, HSA, and CDNA architectures. _(draft, unverified)_
+- [bpftrace](resources/bpftrace.md) — Reference architecture for bpftrace providing high-level dynamic kernel and userspace instrumentation via LLVM-compiled BPF bytecode. _(draft, unverified)_
+- [Common Trace Format (CTF) Reference Architecture](resources/common-trace-format.md) — Reference architecture for the Common Trace Format (CTF) binary specification, TSDL metadata syntax, and zero-copy packet layout. _(draft, unverified)_
+- [Community Events Eval Suite](resources/community-events-eval-suite.md) — Empirical evaluation suite using two-arm comparative execution and automated graders to benchmark agent skill routing and execution. _(draft, unverified)_
+- [Container Orchestration Tracing](resources/container-orchestration-tracing.md) — Reference architecture evaluating container scheduling layers, cgroup CPU bandwidth throttling, and namespace tracepoints across orchestration platforms. _(draft, unverified)_
+- [ContextForge](resources/context-forge.md) — Open-source registry and gateway proxy federating MCP, A2A, and REST/gRPC interfaces with centralized governance and discovery. _(draft, unverified)_
+- [Cross-Boundary Observability Model](resources/cross-boundary-observability-model.md) — Three-layer coordination model analyzing telemetry propagation, context hand-offs, and observability gaps across LLM primitives, protocols, and infrastructure. _(draft, unverified)_
+- [Datadog AI Agent Observability](resources/datadog.md) — Reference architecture evaluating Datadog LLM Observability, APM distributed tracing, and infrastructure monitoring for AI agent platforms. _(draft, unverified)_
+- [DTrace Dynamic Tracing Architecture](resources/dtrace.md) — Reference architecture assessing DTrace's provider-based dynamic instrumentation, verified D intermediate format (DIF) virtual machine, and zero-disabled-overhead kernel tracing. _(draft, unverified)_
+- [Falco](resources/falco.md) — Reference architecture evaluating Falco runtime security detection across kernel syscall streams, container metadata, and audit events. _(draft, unverified)_
+- [FTrace Reference Architecture](resources/ftrace.md) — Reference architecture for Linux kernel-internal function tracing and event recording via tracefs and dynamic NOP patching. _(draft, unverified)_
+- [Goose Agent Runtime](resources/goose.md) — Open-source general-purpose AI agent framework providing local multi-turn execution, tool invocation, permission guardrails, and telemetry export. _(draft, unverified)_
+- [GPU Driver Tracing for AI Acceleration](resources/gpu-ai-tracing.md) — Cross-vendor reference architecture capturing tensor core activity, kernel dispatch, memory transfers, and multi-GPU interconnects across NVIDIA, AMD, and Intel hardware. _(draft, unverified)_
+- [HPC Binary and Instruction Tracing Tools](resources/hpc-tracing-tools.md) — Reference architecture evaluating dynamic binary instrumentation and post-mortem visualization across CPU (Intel PIN), GPU (AMD Luthier), and OTF2 traces (Vampir). _(draft, unverified)_
+- [Langfuse Reference Architecture](resources/langfuse.md) — Reference architecture for Langfuse as an LLM observability backend capturing hierarchical agent execution traces, spans, and generations via batch ingestion APIs. _(draft, unverified)_
+- [Linux Driver Tracing Reference Architecture](resources/linux-driver-tracing.md) — Reference architecture covering Linux device driver instrumentation mechanisms including dynamic debug, TRACE_EVENT macros, debugfs, and devcoredump. _(draft, unverified)_
+- [Linux perf Reference Architecture](resources/linux-perf.md) — Reference architecture for Linux perf covering hardware PMU sampling, kernel tracepoints, and perf_events subsystem analysis. _(draft, unverified)_
+- [LTTng Kernel Tracing Reference Architecture](resources/lttng-kernel.md) — Reference architecture for LTTng kernel tracing via lock-free per-CPU ring buffers and Common Trace Format generation. _(draft, unverified)_
+- [LTTng-UST Userspace Tracing Reference Architecture](resources/lttng-ust.md) — Reference architecture for LTTng-UST lock-free userspace tracing using compiled tracepoints and shared-memory ring buffers. _(draft, unverified)_
+- [MCP Gateway & Registry](resources/mcp-gateway-registry.md) — Centralized control plane and discovery catalog providing authentication, access control, and registry federation for MCP servers, agents, and skills _(draft, unverified)_
+- [MPI and OpenMP Unified Tracing](resources/mpi-openmp-tracing.md) — Reference architecture for unified HPC tracing of MPI inter-process communication and OpenMP threading via PMPI, OMPT, and Score-P OTF2 binaries. _(draft, unverified)_
+- [Neo4j Agent Memory](resources/neo4j-agent-memory.md) — Open-source graph-native persistent memory framework structuring short-term conversations, POLE+O long-term knowledge, and reasoning decision traces. _(draft, unverified)_
+- [NVIDIA Nsight Reference Architecture](resources/nvidia-nsight.md) — Reference architecture for GPU profiling across AI workloads using Nsight Systems timeline tracing and Nsight Compute kernel profiling. _(draft, unverified)_
+- [OpenEnv](resources/openenv.md) — Unified execution environment framework for agentic reinforcement learning exposing Gymnasium-style APIs and MCP tool interfaces. _(draft, unverified)_
+- [OpenSandbox](resources/opensandbox.md) — Open-source general-purpose sandbox platform providing lifecycle APIs, in-sandbox command daemons, and container/microVM runtimes for agent execution. _(draft, unverified)_
+- [OpenTelemetry for AI Agents](resources/opentelemetry.md) — Reference architecture for vendor-neutral agent telemetry collection, OTLP pipelines, and gen_ai semantic conventions. _(draft, unverified)_
+- [PostHog Agent Telemetry Integration](resources/posthog.md) — Open-source product analytics and behavioral event capture backend for privacy-preserving AI agent telemetry and session tracking. _(draft, unverified)_
+- [Prismor](resources/prismor.md) — Self-hosted runtime control plane and proxy intercepting agent tool calls to enforce policy-as-code and audit logging. _(draft, unverified)_
+- [Processor Tracing (Intel PT, ARM ETM, AMD IBS)](resources/processor-tracing.md) — Reference architecture evaluating hardware processor tracing (Intel PT, ARM ETM, AMD IBS/BRS) for cycle-accurate control flow reconstruction and micro-architectural analysis. _(draft, unverified)_
+- [Public Agent Skills](resources/public-agent-skills.md) — Repository of modular procedural agent skills, orchestrator workflows, and deterministic automation engines for community operations and governance. _(draft, unverified)_
+- [PyTorch Profiler Reference Architecture](resources/pytorch-profiler.md) — Reference architecture documenting PyTorch Profiler instrumentation across Python dispatch, ATen backend, and GPU kernel execution. _(draft, unverified)_
+- [Spector Memory Engine](resources/spector.md) — Open-source cognitive memory engine and MCP server providing multi-tier state retention, decay scoring, and namespace isolation for AI agents. _(draft, unverified)_
+- [Submission Analyser](resources/submission-analyser.md) — Headless GitHub Actions agent utilizing Copilot inference and dry-run canary pipelines to triage and evaluate foundation submissions. _(draft, unverified)_
+- [sysdig](resources/sysdig.md) — Reference architecture for open-source sysdig capturing kernel syscalls, enriching container context, and replaying system traces. _(draft, unverified)_
+- [Trace-Server Machine Learning Library (TMLL)](resources/tmll.md) — Python analysis library and Model Context Protocol server applying machine learning pipelines and anomaly detection to Trace Compass telemetry for AI agents. _(draft, unverified)_
+- [Eclipse Trace Compass](resources/trace-compass.md) — Multi-format offline trace analysis and visualization framework correlating kernel, userspace, GPU, and PyTorch operator timelines via state systems. _(draft, unverified)_
+- [Tracy Frame Profiler](resources/tracy.md) — Reference architecture evaluating Tracy's compile-time RAII zone instrumentation, call-stack sampling, and live TCP streaming client-server frame profiling. _(draft, unverified)_
+- [Virtualization and Hypervisor Tracing](resources/virtualization-tracing.md) — Reference architecture analyzing hypervisor scheduling, stolen time timestamp distortion, and host-level KVM, Xen, and VFIO tracepoint observability. _(draft, unverified)_
+- [Weft Coordination Protocol and Agent Hooks Core](resources/weft-coordination-protocol.md) — Vendor-neutral hook interoperability layer and real-time edit coordination protocol preventing concurrent agent merge conflicts via ordered event logs and diagnostics. _(draft, unverified)_
+- [Wireshark Network Analysis Reference Architecture](resources/wireshark.md) — Reference architecture for Wireshark packet capture, dumpcap privilege separation, dissector trees, and structured export formats. _(draft, unverified)_
+
+## skills
+
+- [Community Event Operations Skills](skills/community-event-operations.md) — Modular operational skills providing intake data cleaning, proposal-based data normalization, and role gate synchronization for AAIF community operations. _(draft, unverified)_
+- [Issue Analysis Skill](skills/issue-analysis.md) — Modular agent skill providing structured GitHub issue triage, rubric evaluation, and report drafting without repository write access. _(draft, unverified)_
+- [Taxonomy Contributions Skill](skills/taxonomy-contributions.md) — Modular agent skill providing automated routing, pre-drafting validation, and schema compliance for AAIF taxonomy and landscape submissions. _(draft, unverified)_
+
+## standards
+
+- [Agent Behavior Trace Model](standards/agent-behavior-trace-model.md) — Open telemetry and behavioral trace specification defining agent turn boundaries, causal execution links, and test kits for evidence-grade verification. _(draft, unverified)_
+- [Agent Client Protocol](standards/agent-client-protocol.md) — Open standard for communication between code editors or IDEs and AI coding agents over JSON-RPC or HTTP/WebSocket. _(draft, unverified)_
+- [Agent Network Protocol](standards/agent-network-protocol.md) — Open communication protocol stack utilizing Decentralized Identifiers (DIDs) for cross-platform agent identity, secure messaging, and semantic discovery. _(draft, unverified)_
+- [Agent Skills](standards/agent-skills.md) — Open file-based packaging format and progressive disclosure standard for extending AI agents with procedural knowledge, scripts, and domain workflows. _(draft, unverified)_
+- [Agent Trace Specification](standards/agent-trace.md) — Open specification and reference architecture for line-level AI code attribution tracing in version-controlled repositories. _(draft, unverified)_
+- [Evidence Record Specification](standards/evidence-record-spec.md) — Testable JSON Schema and interchange data model encoding agent observation sources, verification vantages, E0-E4 integrity grades, and claim reconciliation. _(draft, unverified)_
+- [Open Responses](standards/open-responses.md) — Vendor-neutral specification and conformance suite standardizing language model request, response, streaming, and tool-call APIs. _(draft, unverified)_
+- [TRACE Specification](standards/trace.md) — Open standard and JSON Schema for signed agent execution records supporting verifiable software, hardware-attested, and transparency-anchored evidence. _(draft, unverified)_
+
+## taxonomy
+
+- [Agent Swarm](taxonomy/agent-swarm.md) — Universal taxonomy term defining a group of subagents working cooperatively or independently toward a shared objective. _(draft, unverified)_
+- [Agent-to-Agent](taxonomy/agent-to-agent.md) — Universal taxonomy term defining direct communication, task delegation, and coordination interactions occurring between autonomous agents. _(draft, unverified)_
+- [AI Agent Bill of Materials](taxonomy/ai-agent-bill-of-materials.md) — Machine-readable inventory defining the foundation models, harness software, tools, and third-party dependencies comprising an AI agent system. _(draft, unverified)_
+- [Evidence-Strength Labels](taxonomy/evidence-strength-labels.md) — Two-axis appraisal vocabulary categorizing identity, delegation, and consent claims by assertion source, chain composition, and verification depth. _(draft, unverified)_
+- [Hallucination](taxonomy/hallucination.md) — Universal taxonomy term defining a facially plausible detail or assertion in AI output that lacks evidential support or ground-truth basis. _(draft, unverified)_
+- [Model](taxonomy/model.md) — Universal taxonomy term defining a computational artifact capable of reading and generating structured and unstructured representations. _(draft, unverified)_
+- [Prompt](taxonomy/prompt.md) — Universal taxonomy term defining the explicit input instructions and contextual data provided to a model to steer its output or behavior. _(draft, unverified)_
+- [Subagent](taxonomy/subagent.md) — Universal taxonomy term defining an agent spawned by an existing agent without inherent inheritance of identity or permissions. _(draft, unverified)_
+- [Tool](taxonomy/tool.md) — Universal taxonomy term defining an external function, API, or service an agent may call to retrieve data or perform an action. _(draft, unverified)_
+- [Workflow Primitives](taxonomy/workflow-primitives.md) — Standardized vocabulary of modular workflow building blocks, boundary contracts, and handoff specifications for single- and multi-agent reference architectures. _(draft, unverified)_
+
 ## working-groups
 
-- [Security and Privacy Working Group](working-groups/security-and-privacy.md) — AAIF working group establishing security and privacy threat models, shared taxonomies, design patterns, and cross-discipline review mechanisms across agentic AI systems. _(draft, unverified)_
+- [Accuracy and Reliability Working Group](working-groups/accuracy-and-reliability.md) — AAIF technical working group establishing measurement standards, reliability surveys, benchmark inventories, and evaluation frameworks for AI agents. _(draft, unverified)_
+- [Agentic Commerce Working Group](working-groups/agentic-commerce.md) — AAIF technical working group cataloging and harmonizing open specifications, protocols, buyer capacity models, and record retention requirements for agentic commerce. _(draft, unverified)_
+- [Governance, Risk, and Regulatory Working Group](working-groups/governance-risk-and-regulatory.md) — AAIF technical working group establishing open schemas, reference architectures, and tracking frameworks for regulatory compliance, risk controls, and verifiable auditability. _(draft, unverified)_
+- [Identity and Trust Working Group](working-groups/identity-and-trust.md) — AAIF working group advancing vendor-neutral standards, reference architectures, and trust models for agent identity, delegation, and attestation. _(draft, unverified)_
+- [Observability and Traceability Working Group](working-groups/observability-and-traceability.md) — AAIF technical working group defining behavioral tracing models, cross-boundary telemetry standards, and OpenTelemetry conformance for AI agents. _(draft, unverified)_
+- [Security and Privacy Working Group](working-groups/security-and-privacy.md) — AAIF technical working group establishing open threat models, security best practice guides, and runtime security design patterns for AI agents. _(draft, unverified)_
+- [Taxonomy and Landscape Workstream](working-groups/taxonomy-and-landscape.md) — Horizontal AAIF technical initiative governing cross-domain taxonomy curation, SKOS-Lite vocabularies, and ecosystem mapping across Foundation working groups. _(draft, unverified)_
+- [Workflows and Process Integration Working Group](working-groups/workflows-and-process-integration.md) — AAIF technical working group defining reference architectures, execution profiles, and workflow orchestration patterns for single- and multi-agent systems. _(draft, unverified)_
 
 # References
 
