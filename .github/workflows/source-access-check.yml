@@ -20,9 +20,16 @@ jobs:
           fail=0
           for r in working-group-chairs project-radar; do
             if GIT_TERMINAL_PROMPT=0 timeout 30 git ls-remote "https://x-access-token:${TOKEN}@github.com/aaif/${r}.git" HEAD >/dev/null 2>&1; then
-              echo "OK $r"
+              echo "OK $r contents"
             else
-              echo "::error::NO ACCESS $r"; fail=1
+              echo "::error::NO ACCESS $r contents"; fail=1
             fi
+            # The ingest also lists PRs and issues via REST; fine-grained tokens need
+            # separate "Pull requests" and "Issues" read permissions for these.
+            for ep in pulls issues; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer $TOKEN" \
+                "https://api.github.com/repos/aaif/${r}/${ep}?state=all&per_page=1")
+              if [ "$code" = "200" ]; then echo "OK $r $ep"; else echo "::error::NO ACCESS $r $ep (HTTP $code)"; fail=1; fi
+            done
           done
           exit $fail
