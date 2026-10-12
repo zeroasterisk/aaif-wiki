@@ -148,6 +148,7 @@ trust:
     - "spdx.github.io"
     - "posthog.com"
     - "amd.com"
+    - "github.ai"
   forbidden_patterns:
     - "/google/(bin|src)/"
     - "\\bgoogle3\\b"

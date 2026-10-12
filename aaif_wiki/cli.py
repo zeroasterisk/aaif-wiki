@@ -226,11 +226,18 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
         console.print(f"committed {sha[:8]} on [bold]{branch}[/bold] (review record: {record.name})")
 
         errors = [i for i in summary.get("issues", []) if i.get("severity") == "error"]
+        # CI-equivalent gate: validate exactly what was committed, in a clean
+        # worktree. Catches files the run used but never committed (e.g. events).
+        committed_errors = pub.validate_committed(cfg, sha)
+        if committed_errors:
+            console.print(f"[red]{len(committed_errors)} error(s) in committed tree[/red]")
+            for msg in committed_errors[:10]:
+                console.print(f"  [red]x[/red] {msg}")
         ok, detail = pub.open_pull_request(
             cfg, branch,
             f"wiki: automated update {run_id}",
             pub.pr_body(mutations, run_id, summary),
-            allow_merge=not errors,
+            allow_merge=not errors and not committed_errors,
         )
         console.print(f"[green]PR: {detail}[/green]" if ok else f"[yellow]{detail}[/yellow]")
     except Exception as exc:  # noqa: BLE001

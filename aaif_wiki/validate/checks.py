@@ -20,7 +20,7 @@ from ..models import Concept, Mutation, ValidateResult, ValidationIssue
 from ..okf import PROFILE_REQUIRED, SPEC_REQUIRED, extract_links, is_root_absolute, load_bundle
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:[-/][a-z0-9]+)*$")
-URL_RE = re.compile(r"https?://[^\s<>()\[\]\"']+")
+URL_RE = re.compile(r"https?://[^\s<>()\[\]\"'`]+")
 
 
 def _issue(severity: str, check: str, path: str, message: str) -> ValidationIssue:
