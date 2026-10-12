@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-15",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#15",
+  "title": "Add Proofable authority-at-dispatch evidence review to the agenda",
+  "timestamp": "2026-10-09T15:23:21Z",
+  "author": "chrisjleal",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/15",
+  "summary": "# Add Proofable authority-at-dispatch evidence review to the agenda\n\nAdds one entry to the presentation queue in `AGENDA.md`, in the same form as the Vector\nwalkthrough entry (PR #8).\n\nIt proposes a short review of Proofable's authority-at-dispatch implementation evidence, which\n...",
+  "pointers": [],
+  "inline_text": "# Add Proofable authority-at-dispatch evidence review to the agenda\n\nAdds one entry to the presentation queue in `AGENDA.md`, in the same form as the Vector\nwalkthrough entry (PR #8).\n\nIt proposes a short review of Proofable's authority-at-dispatch implementation evidence, which\nwas shared as an implementation input on issue #13. The intended outcome is a decision on where\nthe evidence belongs in the group's work (Use Cases, Reference Architecture, or Attestation and\nEvidence), not a standards proposal.\n\nEvidence it points to:\n\n- Immutable packet: `proofable/docs` commit `9851059`,\n  `public/evidence/aaif/authority-at-dispatch/2026-10-08/`.\n- Independent code-based appraisal: `probityai/agent-evidence-observer` PR #88.\n- Discussion: `aaif/wg-identity-and-trust` issue #13.\n\nScope is stated in the entry: implementation input only; author-operated evidence with no\nindependent witness, and no AAIF conformance or independent-execution claim.\n\nNo other file is changed.",
+  "labels": []
+}

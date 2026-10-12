@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-public-agents-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/public-agents",
+  "reference_id": "PR#4",
+  "title": "Update AAIF blog guidelines skill",
+  "timestamp": "2026-10-02T13:51:20Z",
+  "author": "steveaaif",
+  "url": "https://github.com/aaif/public-agents/pull/4",
+  "summary": "Adds sentence case, US English, source guidance, and editorial consistency checks to the AAIF blog guidelines skill.",
+  "pointers": [],
+  "inline_text": "Adds sentence case, US English, source guidance, and editorial consistency checks to the AAIF blog guidelines skill.",
+  "labels": []
+}

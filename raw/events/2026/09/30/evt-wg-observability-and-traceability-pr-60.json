@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-60",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#60",
+  "title": "docs: revise the trace model execution plan to put evidence first",
+  "timestamp": "2026-09-30T16:55:49Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/60",
+  "summary": "## Summary\n\nProposes a revised execution plan for the Agent Behavior Trace Model, for discussion at the September 30 WG meeting.\n\n- **Why:** a survey of the major coding agents and agent SDKs found OpenTelemetry support highly inconsistent, even among implementations that claim t...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nProposes a revised execution plan for the Agent Behavior Trace Model, for discussion at the September 30 WG meeting.\n\n- **Why:** a survey of the major coding agents and agent SDKs found OpenTelemetry support highly inconsistent, even among implementations that claim the same GenAI conventions. Starting the September reference implementation pointed the same way. So the plan starts from evidence of what agents actually emit.\n- **Phases:** replaces the nine parallel tasks with four phases (agree, evidence, interpret, contribute). Each phase starts from what the previous one found, and a shared register of observed gaps is the central artifact.\n- **Dimension coverage:** adds a table stating what milestone 1 models, enables, and defers for each of the charter's three dimensions, answering the review question on #48. Milestone 1 is not complete coverage of the behavioral model.\n- **Reference implementation:** Goose, AAIF's own agent with an existing OpenTelemetry integration.\n- **OpenTelemetry:** adds a shortlist of likely proposals, mapped to existing discussions, each to be confirmed with captured evidence first.\n- **Timeline:** a first-cut draft in October, and publication by end of November.\n\n## Related Issue\n\nUpdates #12 and #39 (execution plan). Responds to the review on #48.\n\n## Review Notes\n\n- Is the dimension coverage table right?\n- Does the four-phase order work, and which agent should be second?\n- The trace-model issues will be updated to match once the WG agrees this plan.\n\nSuggested review window, if different from the defaults: 1 week (living document). The status line will be updated with the meeting outcome.\n\n## Follow-ups\n\n- Update issues #40–#47 and open the new ones (milestone 1 scope, second-agent baseline, gap register, milestone 2 deferrals).\n- Link the agent and SDK survey and the Goose baseline once they're shared.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

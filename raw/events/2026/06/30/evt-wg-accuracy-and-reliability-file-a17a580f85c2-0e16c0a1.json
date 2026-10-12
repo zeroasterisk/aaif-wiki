@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-a17a580f85c2-0e16c0a1",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "reporting/2026-06-report.md",
+  "title": "2026-06-report.md",
+  "timestamp": "2026-06-30T12:19:38+02:00",
+  "author": "Casper Nielsen",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/reporting/2026-06-report.md",
+  "summary": "fix: update D-refs",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "10bc173f00e45d93a8f7038cb0c36a89e3219565",
+      "path": "reporting/2026-06-report.md",
+      "blob_sha": "0e16c0a176d9522383d78bef1f9f6777b064f920",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

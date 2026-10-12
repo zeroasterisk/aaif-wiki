@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#6",
+  "title": "Update community contributor guidelines in blog policy",
+  "timestamp": "2026-09-13T19:48:38Z",
+  "author": "salaboy",
+  "url": "https://github.com/aaif/foundation/pull/6",
+  "summary": "Adding AAIF Ambassadors",
+  "pointers": [],
+  "inline_text": "Adding AAIF Ambassadors",
+  "labels": []
+}

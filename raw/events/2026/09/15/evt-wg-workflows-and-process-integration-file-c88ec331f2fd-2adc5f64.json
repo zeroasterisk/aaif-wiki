@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/docs/ra-use-case-validation-guide.md",
+  "title": "ra-use-case-validation-guide.md",
+  "timestamp": "2026-09-15T16:19:55-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/ra-use-case-validation-guide.md",
+  "summary": "Add RA use-case validation guide (#35)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/docs/ra-use-case-validation-guide.md",
+      "blob_sha": "2adc5f640e6a486dc16c2b906e3ccd200201bf41",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

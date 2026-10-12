@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-440eb159591a-01f77049",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "reporting/README.md",
+  "title": "README.md",
+  "timestamp": "2026-09-22T10:22:46+01:00",
+  "author": "Gala",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/reporting/README.md",
+  "summary": "Merge branch 'main' into reporting/august-2026",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "reporting/README.md",
+      "blob_sha": "01f770491c605278cb496de396c38162503a0543",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

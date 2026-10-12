@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/README.md",
+  "title": "README.md",
+  "timestamp": "2026-08-28T22:42:47-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md",
+  "summary": "Add bounded autonomous remediation reference architecture (#26)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/README.md",
+      "blob_sha": "702c4424191bc9ca97deddcd469294e6fbf5d374",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

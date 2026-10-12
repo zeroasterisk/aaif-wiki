@@ -1,42 +1,49 @@
 ---
 type: working-group
 title: Workflows and Process Integration Working Group
-description: AAIF technical working group defining reference architectures, execution
-  profiles, and workflow orchestration patterns for single- and multi-agent systems.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/55
+description: Technical working group defining shared workflow models, common terminology,
+  execution profiles, and production use-case taxonomies.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
 tags:
-- working-group
+- governance
+- working-groups
 - workflows
-- architecture
 - orchestration
-- multi-agent
+- use-cases
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:24:45.883098+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:13:00.577812+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-issue-55
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/55
-  author: mzagar
-  last_modified: '2026-10-10T01:10:11+00:00'
+- id: evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
+  author: Jodee Varney
+  last_modified: '2026-10-01T07:35:55-07:00'
+- id: evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/use-case-inventory.md
+  author: Jodee Varney
+  last_modified: '2026-10-01T07:35:55-07:00'
+- id: evt-wg-workflows-and-process-integration-pr-41
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/41
+  author: jodeev
+  last_modified: '2026-10-01T14:35:56+00:00'
 ---
 
 # Overview
 
-The Workflows and Process Integration Working Group defines architectural patterns, orchestration contracts, and reference architectures for integrating autonomous and human-supervised AI agents into business processes [^evt-wg-workflows-and-process-integration-issue-55].
-
-The group operates under the oversight of the [Technical Committee](../governance/technical-committee.md).
+The Workflows and Process Integration Working Group defines shared agentic workflow models, standard orchestration terminology, execution profiles, and reference architectures across the Agentic AI Foundation[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]. Its focus centers on analyzing how autonomous agents transition between task states, coordinate across system boundaries, and interact with human oversight in production environments[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc].
 
 # Architecture / Specification
 
-### Active Reference Architectures and Deliverables
+The working group drives several core technical tracks:
 
-- **Single-Agent Patterns**: Reference architectures including [Single Agent Human Approval](../architectures/single-agent-human-approval.md) and [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md).
-- **Parallel Multi-Agent Research and Merge**: Reference architecture focused on coordinating parallel, independent agent workers performing research or subtask execution followed by a centralized results merge, decoupled from direct peer-to-peer agent communication [^evt-wg-workflows-and-process-integration-issue-55].
-- **Workflow Design Principles**: Governance guidelines and primitive definitions cataloged in [Workflow Architecture Principles](../guidelines/workflow-architecture-principles.md).
+- **Critical Use Cases:** Developing the [Agentic Use Case Classification and Inventory](../resources/agentic-use-case-classification.md), an empirical schema evaluating production workflows across five structural dimensions (Trigger, HITL Pattern, Agent Count, Coordination, and Workflow Pattern)[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc].
+- **Production Evidentiary Standards:** Establishing strict provenance baselines that mandate primary product documentation and confirmed production deployments while rejecting speculative analyst write-ups and unverified claims[^evt-wg-workflows-and-process-integration-pr-41].
+- **Reference Architecture Harmonization:** Linking classified workflow topologies with core architectural guidelines, including the [Workflow Architecture Principles](../guidelines/workflow-architecture-principles.md) and [Job-Oriented Architecture Model](../guidelines/job-oriented-architecture-model.md)[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc].
 
 # Lifecycle History
 
-- Multi-agent reference architecture initiative established focusing on parallel independent agent execution and synthesis workflows [^evt-wg-workflows-and-process-integration-issue-55].
+The working group originated as a foundational body within the Foundation's technical governance structure. In 2026, the Critical Use Cases Workstream finalized an audited production use-case inventory and codified formal evidentiary criteria via PR #41, establishing ongoing alignment with reference architecture deliverables[^evt-wg-workflows-and-process-integration-pr-41].
 
-[^evt-wg-workflows-and-process-integration-issue-55]: https://github.com/aaif/wg-workflows-and-process-integration/issues/55
+[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
+[^evt-wg-workflows-and-process-integration-pr-41]: https://github.com/aaif/wg-workflows-and-process-integration/pull/41

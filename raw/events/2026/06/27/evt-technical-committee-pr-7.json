@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#7",
+  "title": "fix: correct typos in project lifecycle policy",
+  "timestamp": "2026-06-27T05:21:37Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/technical-committee/pull/7",
+  "summary": "Two typos fixed in governance/project-lifecycle-policy.md (Emeritus Stage section):\n\n- \"Projects that are are no longer maintained\" had a duplicate word\n- \"Projects in this stage are have little to no activity\" had two extra words\n\nThe same file in aaif/project-proposals has the ...",
+  "pointers": [],
+  "inline_text": "Two typos fixed in governance/project-lifecycle-policy.md (Emeritus Stage section):\n\n- \"Projects that are are no longer maintained\" had a duplicate word\n- \"Projects in this stage are have little to no activity\" had two extra words\n\nThe same file in aaif/project-proposals has the same fix in a separate PR.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#6",
+  "title": "Fix deliverable ID consistency in charter",
+  "timestamp": "2026-06-30T10:18:10Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/6",
+  "summary": "## Summary\r\n- Resolves conflicting deliverable lists in the charter by keeping the single canonical set : **D1–D6** plus internal **I1** that was the result of the latest charter amends before review",
+  "pointers": [],
+  "inline_text": "## Summary\r\n- Resolves conflicting deliverable lists in the charter by keeping the single canonical set : **D1–D6** plus internal **I1** that was the result of the latest charter amends before review",
+  "labels": []
+}

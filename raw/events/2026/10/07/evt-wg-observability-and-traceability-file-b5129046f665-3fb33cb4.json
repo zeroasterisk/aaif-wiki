@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-b5129046f665-3fb33cb4",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/02-kernel-tracing/falco.md",
+  "title": "falco.md",
+  "timestamp": "2026-10-07T07:18:15+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/falco.md",
+  "summary": "More tracing tools/observability (#34)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/02-kernel-tracing/falco.md",
+      "blob_sha": "3fb33cb4a44f4b2b4d5071fe8cf8d7ecc92d6abd",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

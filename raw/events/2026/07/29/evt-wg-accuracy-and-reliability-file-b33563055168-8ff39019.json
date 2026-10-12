@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-b33563055168-8ff39019",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-07-29T14:56:09-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/README.md",
+  "summary": "Revise meeting access and communication details",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "10bc173f00e45d93a8f7038cb0c36a89e3219565",
+      "path": "README.md",
+      "blob_sha": "8ff39019d54a2c696d9580ca485c78fcd51df628",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

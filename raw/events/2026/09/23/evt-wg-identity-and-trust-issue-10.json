@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-10",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#10",
+  "title": "Five taxonomy words carry a legal meaning that differs by jurisdiction; a \"not the legal sense\" line, or the legal sense keyed by regime, before they publish",
+  "timestamp": "2026-09-23T23:55:33Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/10",
+  "summary": "The charter, the onboarding guide, the July report and issue #5 use these words in an engineering sense. Each has a defined legal meaning that a compliance reader will assume. (I straddle both engineering and legal compliance worlds so this gets confusing.)\n\n| Word | Where used |...",
+  "pointers": [],
+  "inline_text": "The charter, the onboarding guide, the July report and issue #5 use these words in an engineering sense. Each has a defined legal meaning that a compliance reader will assume. (I straddle both engineering and legal compliance worlds so this gets confusing.)\n\n| Word | Where used | Legal meaning it will be read as |\n|---|---|---|\n| Operator (\"who operates it\") | Charter, issue #5 | EU AI Act Article 3(8): the umbrella for provider, product manufacturer, deployer, authorised representative, importer, distributor. \"Who operates it\" answers none of the Act's role questions |\n| Relying party | Onboarding, issue #5 | Under eIDAS as amended (Regulation 2024/1183, Article 5b) a registered role that must declare its intended use before it can ask a wallet for anything |\n| Consent, Consent Receipt | Charter, July report, issue #5 (\"explicit consent\") | GDPR Article 4(11) and 7, a lawful basis for processing; ISO/IEC 27560 already defines the consent record structure for that meaning; under PSD2 Article 64 payment \"consent\" is the authorisation of a transaction, subject to strong customer authentication (Article 97). Three meanings behind one word |\n| Attestation | PR #6, taxonomy | Under eIDAS 2 an electronic attestation of attributes, with a defined issuer class (qualified or not), which is not RATS evidence |\n| Mandate | Issue #5 (AP2 mandates) | In civil-law systems the contract of agency; in the EUDI framework a power-of-representation attestation. Not an AP2 object |\n\nSecond, the reference architecture's actors (user or sponsor, workspace device, logical agent, tool call) and the delegation chain carry no statement of which party is the legal holder of the record at each hop. Each cross-organisation hop is a GDPR Article 28 processor relationship or a controller-to-controller disclosure with Article 30 records on both sides; for a high-risk AI system the log holder is the provider (Article 19) and the deployer (Article 26(6)) separately. Where the Evidence sits is a legal-role question before it is an architecture question. A legal-role column (provider, deployer, controller, processor, data subject, affected person), keyed by regime, is the missing field, and answers sambhav's question on PR #6 about folding the #5 evidence work into the architecture.",
+  "labels": []
+}

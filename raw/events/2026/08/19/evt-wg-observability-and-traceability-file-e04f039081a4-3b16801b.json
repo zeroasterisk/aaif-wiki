@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-e04f039081a4-3b16801b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-TMLL.md",
+  "title": "AAIF-REF-ARCH-TMLL.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-TMLL.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-TMLL.md",
+      "blob_sha": "3b16801b8dcce53ff6506a9cfd02cf7cb7d067ef",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

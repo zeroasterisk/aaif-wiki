@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-87",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#87",
+  "title": "Define universal term Tool",
+  "timestamp": "2026-10-05T16:47:30Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/87",
+  "summary": "Defines Tool as an external function, API, or service an agent may call to retrieve data or perform an action. Adds reciprocal contrastsWith links between Tool and the existing Skill term, preserving Skill's pending definition while satisfying the taxonomy's paired-concept linkag...",
+  "pointers": [],
+  "inline_text": "Defines Tool as an external function, API, or service an agent may call to retrieve data or perform an action. Adds reciprocal contrastsWith links between Tool and the existing Skill term, preserving Skill's pending definition while satisfying the taxonomy's paired-concept linkage rule. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

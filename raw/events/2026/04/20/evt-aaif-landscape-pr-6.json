@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#6",
+  "title": "Add Huawei to landscape",
+  "timestamp": "2026-04-20T03:16:24Z",
+  "author": "RainbowMango",
+  "url": "https://github.com/aaif/aaif-landscape/pull/6",
+  "summary": "This pull request makes a small update to the `landscape.yml` file, adding Huawei as a new item to the relevant category.",
+  "pointers": [],
+  "inline_text": "This pull request makes a small update to the `landscape.yml` file, adding Huawei as a new item to the relevant category.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-9",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#9",
+  "title": "docs(survey): add platform-neutral survey",
+  "timestamp": "2026-09-28T06:27:12Z",
+  "author": "Sanjeev-S",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/9",
+  "summary": "## Summary\n\nAdds a platform-neutral ARWG survey.\n\nThe survey contains 16 questions and specifies the intended response behavior, including required fields, matrices, screen-out paths, inline write-ins, and answer ordering.\n\nThe survey has five question sections:\n\n- Eligibility (Q...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds a platform-neutral ARWG survey.\n\nThe survey contains 16 questions and specifies the intended response behavior, including required fields, matrices, screen-out paths, inline write-ins, and answer ordering.\n\nThe survey has five question sections:\n\n- Eligibility (Q1)\n- About the system (Q2–Q5)\n- Benefits and challenges (Q6–Q8)\n- Accuracy and reliability (Q9–Q13)\n- Future priorities (Q14–Q16)\n\nIt includes welcome messaging, a dedicated early-exit thank-you page for Q1’s three screen-out choices, and a post-submission thank-you message. Q2 includes a “Something else” option with a required text field. Q5 and Q16 are optional; all other questions are required. Q6 and Q10 each use five response choices, including “Not sure.”\n\n## Google Forms prototype\n\nYou can try the current Google Forms prototype here:\n\n[Open the Google Forms prototype](https://docs.google.com/forms/d/e/1FAIpQLSfrKDDrqocQRByBLLetN-F4rYmZEmCi6iIgSKzqsT-KerKBAg/viewform)\n\nThis is a working prototype for review. Please don’t share it with respondents yet.\n\n## Review requested\n\nPlease review whether:\n\n- the survey flow is clear to respondents;\n- every response path is complete and unambiguous;\n- the response mechanics support useful analysis; and\n- any questions should be added, removed, or simplified to improve clarity and keep the survey easy to complete.",
+  "labels": []
+}

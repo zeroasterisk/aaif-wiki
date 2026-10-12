@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-eee95d3f1c5a-c232597d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "charter/CHARTER.md",
+  "title": "CHARTER.md",
+  "timestamp": "2026-05-13T18:57:38+01:00",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/charter/CHARTER.md",
+  "summary": "Submit proposed charter for Technical Committee review (#2)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "charter/CHARTER.md",
+      "blob_sha": "c232597ddcf898c1ed31f6e14ed7daa9c24eaa62",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

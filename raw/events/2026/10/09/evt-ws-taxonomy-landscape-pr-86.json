@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-86",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#86",
+  "title": "Define universal term Model",
+  "timestamp": "2026-10-09T12:44:26Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/86",
+  "summary": "Defines Model as something that can read and write both structured and unstructured text. The scope note explains that agent systems commonly use large, small, or vision-language models without excluding non-language approaches such as hidden Markov models. It also clarifies the ...",
+  "pointers": [],
+  "inline_text": "Defines Model as something that can read and write both structured and unstructured text. The scope note explains that agent systems commonly use large, small, or vision-language models without excluding non-language approaches such as hidden Markov models. It also clarifies the relationship between calibrated weights, GGUF artifacts, input processing, and inference runtimes such as llama.cpp. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

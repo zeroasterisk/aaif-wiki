@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-57",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#57",
+  "title": "feat: Japan and New Zealand become country chapters",
+  "timestamp": "2026-10-07T03:29:07Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/57",
+  "summary": "Ijeoma's update: Tokyo becomes AAIF Japan; Wellington becomes AAIF New Zealand (Auckland never had a chapter), so organizers can host in any city.\n\n## What changes\n- **`lib/aaif_events/cities.py`** (new): one `chapter_for()` that folds Tokyo, Wellington and Auckland into their co...",
+  "pointers": [],
+  "inline_text": "Ijeoma's update: Tokyo becomes AAIF Japan; Wellington becomes AAIF New Zealand (Auckland never had a chapter), so organizers can host in any city.\n\n## What changes\n- **`lib/aaif_events/cities.py`** (new): one `chapter_for()` that folds Tokyo, Wellington and Auckland into their country chapter. Every engine that reads a city off the intake goes through it: `sync_chapters.resolve_city` (so `sync_about` too), `sync_crm` (so `sync_access` and the tracker too), `sync_access`'s last gate, and the Slack audit. The form dropdown still offers Tokyo, so this has to hold for every future applicant. Folding in only some readers would put one person in two chapters, which is the bug this caught in review.\n- **`clean.py`**: `COUNTRY_CHAPTER_FOLDS` beats the Chapters List (rows are never deleted, so a retired Tokyo row would otherwise reclaim the city). A test asserts it equals `CITY_FOLDS`; the skill is zippable and cannot import lib.\n- **Tests**: a regression test at each call site that reads the role tab's `Chapter` column, each checked to go red when its `chapter_for` call is removed.\n- **Docs**: WORKFLOW.md's capital rule and its two exceptions; engine-rules.md; AGENTS.md lib list.\n\n## Order matters — read before merging\nThe fold applies at runtime. The sheet rows, Drive folders and About docs for Tokyo and Wellington have **already been renamed** (Chapters List rows 76/81, folders, About, CRM and icon files; Luma pages had already moved). So merging now is safe. Merging **before** the renames would make the first sync propose a new Japan row beside Tokyo, and an About rewrite that wipes the Tokyo organizers. For the next country chapter: rename the row, folder and About first, then merge.\n\n## Not in this PR\nSlack rooms (`japan-organizers`, `new-zealand-organizers` renamed by hand with per-channel consent), the regenerated `Japan Agent.gif` / `New Zealand Agent.gif`, and the live sheet writes.\n\nVerified: lib suite (520), every skill suite, all repo guards, and a report-only sync against the live sheet proposing no Tokyo/Wellington/Japan duplicates.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

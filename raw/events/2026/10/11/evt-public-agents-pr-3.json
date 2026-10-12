@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-public-agents-pr-3",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/public-agents",
+  "reference_id": "PR#3",
+  "title": "Add AAIF taxonomy contributions skill",
+  "timestamp": "2026-10-11T18:18:20Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/public-agents/pull/3",
+  "summary": "## Summary\n\nAdds `aaif-taxonomy-contributions`, a skill that helps agents route and prepare contributions to the Common Taxonomy and Landscape workstream (aaif/ws-taxonomy-landscape).\n\nThe workstream's contribution rules are spread across four places (docs/data-schemas.md, CONTRI...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds `aaif-taxonomy-contributions`, a skill that helps agents route and prepare contributions to the Common Taxonomy and Landscape workstream (aaif/ws-taxonomy-landscape).\n\nThe workstream's contribution rules are spread across four places (docs/data-schemas.md, CONTRIBUTING.md, the header comment of taxonomy-data.js, and the shape established by its recent Define issues). The most common failure is routing, for example opening a PR that fills in a deferred definition field when the workstream asks for an issue or the weekly sync. This skill packages the routing decision, the pre drafting checks (including searching for in flight proposals on the same term), the definition quality bar, the accepted Define issue shape, a schema quick reference, and what to expect from review.\n\n## How it was tested\n\nBuilt test first. A baseline agent without the skill needed 15 exploratory tool calls to find the correct path by reading the repo. With the skill, an agent handled the same task correctly in 6 targeted calls, and a second agent given a landscape request phrased with marketing language (\"the best open source platform\") correctly stripped the superlative per the schema rules, verified the tool was not already on the landscape or in an open PR, and produced a schema conformant entry. One gap found during testing (live landscape entries carry a `logo` field the schema doc does not list) is reflected in the skill text.\n\n## Notes\n\nThe skill tells agents to fetch the workstream's current docs before drafting and treats those as overriding, so it degrades safely if the workstream changes its process. Written by a contributor to the workstream (issues #45 to #47 there follow the same Define shape this skill teaches). Per this repo's AGENTS.md, the wiki may want a line about the new skill; happy to supply wording if maintainers point me at the page.",
+  "labels": []
+}

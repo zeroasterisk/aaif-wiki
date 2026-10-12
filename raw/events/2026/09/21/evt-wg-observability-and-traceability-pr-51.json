@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-51",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#51",
+  "title": "docs: add Agent Behavior Trace Model shared contract draft (v0.1)",
+  "timestamp": "2026-09-21T06:16:46Z",
+  "author": "DingNova",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/51",
+  "summary": "## Summary\nAdds `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-CONTRACT.md` (v0.1-draft): the identity and relationship contract for the trace model — identities (conversation, runtime session, turn, model call, proposed action, approval decision, tool execution, external effect),...",
+  "pointers": [],
+  "inline_text": "## Summary\nAdds `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-CONTRACT.md` (v0.1-draft): the identity and relationship contract for the trace model — identities (conversation, runtime session, turn, model call, proposed action, approval decision, tool execution, external effect), the six relationships between them, candidate turn-boundary rules, interpretation rules for the four priority questions (missing observation is unknown, not zero; duplicates deduplicate by correlation key; reordered arrival must not change the answer), an OTel GenAI crosswalk, an AAIF terminology crosswalk, and the unresolved choices recorded explicitly.\n\n## Related Issue\nUpdates #41 (does not close it — the draft is expected to be revised against the #40 baselines before any version is proposed as a recommendation).\n\n## Review Notes\nPlease focus on: (1) whether the identity split (conversation vs. runtime session vs. turn) matches the August direction; (2) the candidate turn-boundary rules in section 5; (3) the interpretation rules in section 6; (4) whether the unresolved-choices list is complete. Per working methods this is specification content — suggesting the 2-week review window.\n\n## Follow-ups\nRevise against #40 baselines once captured; turn the fixture example into #42 fixtures; feed the terminology crosswalk into #10.\n\n## Checklist\n- [x] Linked the relevant issue, meeting note, or action item\n- [x] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

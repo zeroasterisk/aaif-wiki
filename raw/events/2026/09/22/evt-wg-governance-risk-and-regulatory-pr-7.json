@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#7",
+  "title": "[Report] 2026-07",
+  "timestamp": "2026-09-22T12:16:56Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/7",
+  "summary": "July monthly report updates",
+  "pointers": [],
+  "inline_text": "July monthly report updates",
+  "labels": [
+    "monthly-report"
+  ]
+}

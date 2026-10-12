@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-37",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#37",
+  "title": "Validate bounded autonomous remediation scenarios",
+  "timestamp": "2026-09-15T20:20:14Z",
+  "author": "danijelblazsetin",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/37",
+  "summary": "## Summary\r\n- mark the Autonomous maintenance run as Validated against Bounded Autonomous Remediation\r\n- add the detailed maintenance validation checks and reasoning\r\n- add weekly staff schedule generation as an illustrative example pending a sourced Use Case Inventory entry\r\n- d...",
+  "pointers": [],
+  "inline_text": "## Summary\r\n- mark the Autonomous maintenance run as Validated against Bounded Autonomous Remediation\r\n- add the detailed maintenance validation checks and reasoning\r\n- add weekly staff schedule generation as an illustrative example pending a sourced Use Case Inventory entry\r\n- describe one Schedule Acceptance Gate whose criteria must all pass (AND)\r\n\r\n## Review feedback\r\nAddresses feedback from mzagar/wg-workflows-and-process-integration#9 by replacing the “small gate / big gate” terminology with one acceptance gate containing multiple criteria.\r\n\r\n## Test plan\r\n- [x] Run `git diff --check`\r\n- [x] Verify relative Markdown links\r\n- [x] Review the Validation record diff\r\n- [x] Confirm the branch is based on current `aaif:main`",
+  "labels": []
+}

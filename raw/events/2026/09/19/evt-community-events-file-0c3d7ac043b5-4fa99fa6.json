@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-0c3d7ac043b5-4fa99fa6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-audit-slack/references/chapters-list-schema.md",
+  "title": "chapters-list-schema.md",
+  "timestamp": "2026-09-19T19:42:20-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/references/chapters-list-schema.md",
+  "summary": "feat(ops): an Ops Notes column people keep, and scripts only quote",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-audit-slack/references/chapters-list-schema.md",
+      "blob_sha": "4fa99fa6a68cf954de46c75e5e0466e7cdc798c8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

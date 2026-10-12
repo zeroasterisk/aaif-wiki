@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-45",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#45",
+  "title": "single agent human approval feedback",
+  "timestamp": "2026-10-03T00:58:32Z",
+  "author": "geemus",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/45",
+  "summary": "High level feedback on the single agent approval doc, just let me know if I can help further or clarify.\n\n- is it really true/necessary that the executor be separate? ie within harnesses you are most often confirming and the same executor/process acts from there. That said, a new...",
+  "pointers": [],
+  "inline_text": "High level feedback on the single agent approval doc, just let me know if I can help further or clarify.\n\n- is it really true/necessary that the executor be separate? ie within harnesses you are most often confirming and the same executor/process acts from there. That said, a new process may be cleaner, especially as durable wait means the cache will probably be cold by the time the answer is provided, so starting with a minimal context may be better (except for cases where you then have to rebuild context).\n \n- \"needs enforceable behavior at point of effect\" list implies that these are the only reasons. Probably better to indicate it is just a list of examples and that there are other possibilities.\n- \"does the reasoning require more than one independent agent?\" again seems to imply an exhaustive list when examples would probably serve better. For instance, splitting sessions to ensure critique is effective (vs critique in the same agent) is a common one I've seen that doesn't appear to be called out here.",
+  "labels": []
+}

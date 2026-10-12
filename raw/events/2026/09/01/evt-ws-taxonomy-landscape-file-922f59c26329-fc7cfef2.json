@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-922f59c26329-fc7cfef2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "reporting/2026-08-report.md",
+  "title": "2026-08-report.md",
+  "timestamp": "2026-09-01T09:03:18-04:00",
+  "author": "Julianna Langston",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/reporting/2026-08-report.md",
+  "summary": "docs: note Agentic Commerce representation",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "reporting/2026-08-report.md",
+      "blob_sha": "fc7cfef2d0576f8c074cea034c53759815d186b9",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

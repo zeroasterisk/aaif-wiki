@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-5cfc9888dc02-166f2d88",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "charter/DRAFT.md",
+  "title": "DRAFT.md",
+  "timestamp": "2026-04-16T08:17:23+01:00",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/charter/DRAFT.md",
+  "summary": "feat: add draft charter",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "charter/DRAFT.md",
+      "blob_sha": "166f2d88c9c157f782aabebd7012f13072ecd156",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

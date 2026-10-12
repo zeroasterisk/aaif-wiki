@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-b248ae41d1f0-0667ce2f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": ".github/workflows/copilot-test-action.yml",
+  "title": "copilot-test-action.yml",
+  "timestamp": "2026-05-07T10:21:09+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/copilot-test-action.yml",
+  "summary": "Use org-scoped inference endpoint for org-owned repos",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": ".github/workflows/copilot-test-action.yml",
+      "blob_sha": "0667ce2feb6a068524dbe6145c616739e55f2844",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

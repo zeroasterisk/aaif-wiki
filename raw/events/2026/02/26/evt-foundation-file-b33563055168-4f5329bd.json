@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-foundation-file-b33563055168-4f5329bd",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-02-26T12:11:37-08:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/README.md",
+  "summary": "Update README.md",
+  "pointers": [
+    {
+      "repo": "foundation",
+      "commit_sha": "8df4e5b4087f2dcd5fbc77b702f68b1fc7418693",
+      "path": "README.md",
+      "blob_sha": "4f5329bd5309a85600f593406c12556311f63f16",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

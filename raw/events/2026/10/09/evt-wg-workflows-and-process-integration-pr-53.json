@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-53",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#53",
+  "title": "Updates based on Issue 45 TC Feedback",
+  "timestamp": "2026-10-09T18:55:43Z",
+  "author": "zaynelt",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/53",
+  "summary": "Edits to the Single Agent Human Approval reference architecture (RA) and Proposal Execution Split pattern docs, based on feedback from @geemus review in #45.\n\nSummary of changes:\n1. Re: Comment 1, Is \"separate\" really necessary? Clarifying what separation IS necessary vs prior am...",
+  "pointers": [],
+  "inline_text": "Edits to the Single Agent Human Approval reference architecture (RA) and Proposal Execution Split pattern docs, based on feedback from @geemus review in #45.\n\nSummary of changes:\n1. Re: Comment 1, Is \"separate\" really necessary? Clarifying what separation IS necessary vs prior ambiguous language.\n    1a. RA - Purpose section: Refined language to make it clear that \"separation\" is focused on authority vs process.\n    1b. RA - Structure section opening: Added 1 line clarification to section open, reinforcing how to read the section below (capability roles vs deployment topology).\n    1c. Pattern - \"Implementation approaches\" table (new example): Added example from Anthropic Claude Agent SDK to show Orchestration/Harness-level instance of proposal execution split (`canUseTool`)\n\n2. Re: Comment 2, \"'enforceable behavior at point of effect' reads as the only reasons\"...\n    2a. RA - Purpose section: added more examples of potential side effects, clarified examples are non-exhaustive\n    2b. Pattern - Problem section: added \"any one of which\" and non-exhaustive callout to list\n\n3. Re: Comment 3, \"'more than one independent agent?' reads as exhaustive; misses critique-isolation\"...\n    3a. RA - \"Is this your architecture?\" checklist, Question 1 - Refined to: Is a single agent producing the proposal a human approves?",
+  "labels": []
+}

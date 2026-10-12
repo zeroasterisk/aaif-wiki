@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-8f732085cd4f-08f3b171",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "governance/project-lifecycle-policy.md",
+  "title": "project-lifecycle-policy.md",
+  "timestamp": "2026-05-28T22:58:52+02:00",
+  "author": "mesutoezdil",
+  "url": "https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/governance/project-lifecycle-policy.md",
+  "summary": "fix: correct three typos in lifecycle policy and issue template",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "f95b796d901b553de20e37213c63f81f40a627a2",
+      "path": "governance/project-lifecycle-policy.md",
+      "blob_sha": "08f3b171d127f30195ef41d7d8e065b7739ab70a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

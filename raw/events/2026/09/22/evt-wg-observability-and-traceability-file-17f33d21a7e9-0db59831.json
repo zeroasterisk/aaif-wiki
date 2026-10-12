@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-17f33d21a7e9-0db59831",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md",
+  "title": "AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md",
+  "timestamp": "2026-09-22T16:18:47+01:00",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md",
+  "summary": "docs: record agent behavior trace model execution plan (#48)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md",
+      "blob_sha": "0db59831fd90a107d00ce4dc632b1a7cca82a96e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

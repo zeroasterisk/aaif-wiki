@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-82",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#82",
+  "title": "Define universal term Context",
+  "timestamp": "2026-09-29T11:33:39Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/82",
+  "summary": "Defines Context as the information available to an agent when making a decision. The scope note identifies user messages, tool results, retrieved documents, memory, and system instructions assembled for the current step. Related terms cover context assembly, exhaustion, propagati...",
+  "pointers": [],
+  "inline_text": "Defines Context as the information available to an agent when making a decision. The scope note identifies user messages, tool results, retrieved documents, memory, and system instructions assembled for the current step. Related terms cover context assembly, exhaustion, propagation, memory access, and retrieval. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

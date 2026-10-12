@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-11",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#11",
+  "title": "Establish liaison roster and cross-WG intake tracker",
+  "timestamp": "2026-08-22T12:25:28Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/11",
+  "summary": "## Context\n\nThe charter positions the WG as a coordination forum, not a competing standards body. It calls for active coordination with OpenTelemetry GenAI, OWASP AOS, W3C Trace Context, MCP, AGNTCY, Monocle, and other AAIF working groups.\n\n## Scope\n\nCreate a liaison roster and c...",
+  "pointers": [],
+  "inline_text": "## Context\n\nThe charter positions the WG as a coordination forum, not a competing standards body. It calls for active coordination with OpenTelemetry GenAI, OWASP AOS, W3C Trace Context, MCP, AGNTCY, Monocle, and other AAIF working groups.\n\n## Scope\n\nCreate a liaison roster and cross-WG intake tracker that records:\n\n- external groups or standards bodies the WG should track\n- internal AAIF WGs with observability-related overlap\n- the central AAIF Taxonomy/Landscape working group as a regular coordination point\n- nominated or acting liaisons\n- recurring update cadence, where known\n- open asks from other groups\n- outbound questions or proposals from this WG\n\n## Acceptance Criteria\n\n- [ ] A liaison roster or tracker exists in the repository.\n- [ ] The tracker includes the initial external groups named in the charter.\n- [ ] The tracker includes internal AAIF WGs with known observability overlap.\n- [ ] The tracker includes the central AAIF Taxonomy/Landscape working group and expected coordination cadence.\n- [ ] Each entry has an owner or is explicitly marked as needing an owner.\n- [ ] The tracker includes a place for inbound asks and outbound follow-ups.\n- [ ] The README or working methods document links to the tracker.\n\n## Notes\n\nThis should be a lightweight coordination artifact. It should help avoid duplicate standards work and make cross-WG requests visible.",
+  "labels": [
+    "documentation",
+    "help wanted"
+  ]
+}

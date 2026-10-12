@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-1be99fd14036-fc1de8cd",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/sync-chapters-write-gate/graders/reports_before_writing.md",
+  "title": "reports_before_writing.md",
+  "timestamp": "2026-09-16T21:40:10-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/sync-chapters-write-gate/graders/reports_before_writing.md",
+  "summary": "feat(evals): check whether the right skill actually fires",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/sync-chapters-write-gate/graders/reports_before_writing.md",
+      "blob_sha": "fc1de8cdd883522e998546685e295dbe8c1c86a3",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,42 +1,51 @@
 ---
 type: pattern
 title: Human Approval Gate
-description: Workflow pattern requiring an authorized human to explicitly approve
-  an immutable proposal before a boundary action is executed.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/42
+description: Workflow pattern requiring an authorized, uniquely identified human to
+  explicitly approve an immutable proposal before a workflow executes a protected
+  effect.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
 tags:
-- patterns
-- workflows
+- pattern
 - governance
-- hitl
+- approval
+- workflows
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:10:15.206888+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T02:47:31.904164+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-42
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/42
-  author: askulkarni2
-  last_modified: '2026-09-24T01:00:06+00:00'
+- id: evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
+  author: Zayne Turner
+  last_modified: '2026-08-05T23:05:12-04:00'
 ---
 
 # Overview
 
-The Human Approval Gate pattern pauses execution at an authorization boundary until an authorized human operator evaluates an immutable proposal and issues an attributable approval or rejection [^evt-wg-workflows-and-process-integration-pr-42]. This gate separates transient confidence-building checkpoints from permanent statutory requirements.
+The Human Approval Gate pattern halts execution before a protected effect until a uniquely identified, authorized human principal makes an explicit decision on an immutable proposal [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]. It ensures that human judgment is captured within a durable, tamper-evident record linking who reviewed, what version was reviewed, and the exact decision rendered before downstream execution proceeds [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
 
 # Architecture / Specification
 
-The pattern operates in conjunction with the [Proposal-Execution Split](proposal-execution-split.md) to ensure an agent cannot execute side-effecting operations without external review.
+The pattern mediates between proposal generation and executor action:
+```text
+immutable proposal ──► present to authorized human ──► explicit decision
+                              │                           │
+                              └── durable wait ─────────┘
+                                          │
+                          decision record: who · what · when
+```
 
-### Operational Distinctions and Lifecycle
-- **Confidence-Driven Gates**: Deployed when an agentic system is nascent or unproven. These gates are eligible for relaxation over time under the [Autonomy Graduation](autonomy-graduation.md) lifecycle [^evt-wg-workflows-and-process-integration-pr-42].
-- **Structural and Regulatory Boundaries**: Checkpoints mandated by law or institutional governance (such as physician sign-offs or legal filings) are distinct from confidence gates and must be modeled as a permanent [Hard Constraint Gate](hard-constraint-gate.md) [^evt-wg-workflows-and-process-integration-pr-42].
+### Invariants
+- **Unique Human Principal**: The approver must be an individually authenticated human holding authorization for the specific decision class; shared role accounts are disallowed [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+- **Proposal Immutability**: The interaction surface must display the exact proposal payload that binds to execution. Any mutation or superseding proposal invalidates pending reviews and requires a fresh decision [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+- **Explicit Affirmation**: Approval and rejection must be explicit; timeouts, queue silence, delivery failures, or system crashes must never default to approval [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+- **Deterministic Decision Binding**: The resulting decision record couples run identifier, proposal version, approver identity, decision status, and timestamps [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+- **Idempotency & Race Safety**: Out-of-order, late, or duplicated decisions cannot trigger duplicate resumes or executions [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
 
-# References
+### Related Patterns
+- [Proposal-Execution Split](../patterns/proposal-execution-split.md)
+- [Durable Wait](../patterns/durable-wait.md)
+- [Approval Checkpoint](../patterns/approval-checkpoint.md)
 
-- [Hard Constraint Human-in-the-Loop Gate](hard-constraint-gate.md)
-- [Autonomy Graduation](autonomy-graduation.md)
-- [Proposal-Execution Split](proposal-execution-split.md)
-- [Deterministic Acceptance Gate](deterministic-acceptance-gate.md)
-
-[^evt-wg-workflows-and-process-integration-pr-42]: https://github.com/aaif/wg-workflows-and-process-integration/pull/42
+[^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md

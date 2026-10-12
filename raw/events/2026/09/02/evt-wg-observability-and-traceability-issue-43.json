@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-43",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#43",
+  "title": "Trace model: implement session and turn correlation",
+  "timestamp": "2026-09-02T01:57:43Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/43",
+  "summary": "## Outcome\n\nSession and turn continuity across traces in both agent examples.\n\nTask 5 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** People need to follow long-running work after individual turns and traces have ended, wi...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nSession and turn continuity across traces in both agent examples.\n\nTask 5 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** People need to follow long-running work after individual turns and traces have ended, without relying on a session-long span.\n\n**Work:** Improve both examples so completed turns remain connected across traces. Test standalone turns, an agent within an existing caller trace, and supported pause/resume paths. Preserve native identities and document capability limits.\n\n**Example:** The user returns the next morning and asks, “What was the ticket number?” Where the runtime supports reopening the conversation, its new turn should join the earlier C1 records even if the process restarted and the earlier traces are closed.\n\n## Acceptance Criteria\n\n**Done when:** both examples pass the core continuity checks using exported telemetry alone. Before/after captures demonstrate the change; unsupported runtime behavior is not disguised by a simulated fixture.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find a contributor and reviewer, then implement the continuity checks in both examples.\n- **Depends on:** [Task 3](https://github.com/aaif/wg-observability-and-traceability/issues/41) and [Task 4](https://github.com/aaif/wg-observability-and-traceability/issues/42).\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).",
+  "labels": [
+    "enhancement",
+    "help wanted"
+  ]
+}

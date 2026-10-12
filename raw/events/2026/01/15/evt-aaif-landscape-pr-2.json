@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#2",
+  "title": "Add README",
+  "timestamp": "2026-01-15T19:22:46Z",
+  "author": "caniszczyk",
+  "url": "https://github.com/aaif/aaif-landscape/pull/2",
+  "summary": "Add an initial README",
+  "pointers": [],
+  "inline_text": "Add an initial README",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-34",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#34",
+  "title": "More tracing tools/observability",
+  "timestamp": "2026-10-07T06:18:15Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/34",
+  "summary": "## Summary\r\n\r\nAdd more tracing tools for the landscape\r\n\r\n### What changed?\r\nAdded many tools/technologies to the tracing landscape.\r\n\r\n## Related Issue\r\n\r\nCloses or updates #\r\n\r\n## Review Notes\r\n\r\n### What should reviewers focus on?\r\n\r\nIf you have knowledge in one tool/domain, p...",
+  "pointers": [],
+  "inline_text": "## Summary\r\n\r\nAdd more tracing tools for the landscape\r\n\r\n### What changed?\r\nAdded many tools/technologies to the tracing landscape.\r\n\r\n## Related Issue\r\n\r\nCloses or updates #\r\n\r\n## Review Notes\r\n\r\n### What should reviewers focus on?\r\n\r\nIf you have knowledge in one tool/domain, please mention\r\n\r\nSuggested review window, if different from the defaults:\r\n\r\n## Follow-ups\r\n\r\n### What remains after this PR?\r\n\r\nMore tooling!\r\n\r\n## Checklist\r\n\r\n- [ ] Linked the relevant issue, meeting note, or action item\r\n- [ ] Updated issue status or next step if needed\r\n- [ ] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

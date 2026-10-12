@@ -1,38 +1,44 @@
 ---
 type: working-group
-title: Governance, Risk, and Regulatory Working Group
-description: AAIF technical working group establishing open schemas, reference architectures,
-  and tracking frameworks for regulatory compliance, risk controls, and verifiable
-  auditability.
-resource: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
+title: Governance, Risk & Regulatory Alignment Working Group
+description: AAIF technical working group bridging global AI policy developments and
+  technical implementations across agentic AI systems.
+resource: https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/charter.md
 tags:
 - governance
-- regulatory
 - compliance
-- risk-management
-- audit-trail
+- policy
+- risk
+- working-group
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:22:44.663639+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:18:55.880365+00:00'
 sources:
-- id: evt-wg-governance-risk-and-regulatory-issue-9
-  resource: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
-  author: narko4u
-  last_modified: '2026-10-08T03:11:06+00:00'
+- id: evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf
+  resource: https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/charter.md
+  author: Manik Surtani
+  last_modified: '2026-10-09T17:38:46+11:00'
 ---
 
 # Overview
-
-The Governance, Risk, and Regulatory Working Group develops open frameworks, schemas, and policy mappings to align agentic AI architectures with global compliance, security, and risk standards [^evt-wg-governance-risk-and-regulatory-issue-9].
+The Governance, Risk & Regulatory Alignment Working Group (GRRA WG) is an Agentic AI Foundation technical working group that bridges emerging global AI policy developments and technical implementations in agentic AI systems[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf]. Approved by the foundation on June 1, 2026, the working group addresses the absence of cohesive regulatory guidance, develops risk mitigation strategies, and identifies gaps in agentic standards and interoperability[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
 
 # Architecture / Specification
+The GRRA WG operates under an explicit charter detailing leadership structure, technical scope, and operational boundaries[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf]:
 
-The working group's Phase 2 gap analysis maps compliance instruments (such as the EU AI Act, China TC260, Singapore Agentic Framework, ISO/IEC 42001, SOC 2, and PCI DSS) to technical requirements for tamper-evident logging and reproducible execution [^evt-wg-governance-risk-and-regulatory-issue-9]. Key standards harmonization targets include:
+- **Leadership**: Chaired by Deborah Eng (JPMorgan) with Co-chair Sriram Natarajan (Google)[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+- **Core Technical Scope**:
+  - Monitoring global regulations, standards, and policy frameworks affecting the treatment of agentic systems[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+  - Examining organizational implementations of agent protocols, including Model Context Protocol (MCP) deployments at boundaries like the [Agent-MCP Boundary](../resources/agent-mcp-server-boundary.md)[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+  - Formulating standards for [AI Agent Bill of Materials](../taxonomy/ai-agent-bill-of-materials.md) (AIBOM) covering foundation models, scaffolding, tools, APIs, and provenance tracking[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+  - Establishing formal protocols and reversibility characterization frameworks for undo infrastructure[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+  - Evaluating risk classification schemas, incident reporting baselines, and human-in-the-loop controls such as the [Human Approval Gate](../patterns/human-approval-gate.md)[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+  - Aligning with sector-specific governance frameworks, such as the FINOS AI Governance Framework[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+- **Boundary Exclusions**: The working group explicitly excludes offering formal legal advice or commercial compliance products[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
 
-- **ISO/IEC 24970 & prEN 18229-1**: Standardized schemas for AI trustworthiness logging and verifiable event records [^evt-wg-governance-risk-and-regulatory-issue-9].
-- **IETF Agent Audit Trail (`draft-sharif-agent-audit-trail`)**: Interoperable JSON record formats enforcing hash chaining, timestamp anchoring, pre-execution denial logging, and independent recorder guarantees [^evt-wg-governance-risk-and-regulatory-issue-9].
+# Lifecycle History
+- **2026-06-01**: Working group charter approved by the foundation[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
+- **2026-10-09**: Charter updated with formalized leadership assignments and expanded scope deliverables[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf].
 
-These efforts formalize the shift from generic logging mandates to machine-checkable, tamper-evident audit records across multi-agent environments [^evt-wg-governance-risk-and-regulatory-issue-9].
-
-[^evt-wg-governance-risk-and-regulatory-issue-9]: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
+[^evt-wg-governance-risk-and-regulatory-file-d22b3d6550c3-13ea07bf]: https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/charter.md

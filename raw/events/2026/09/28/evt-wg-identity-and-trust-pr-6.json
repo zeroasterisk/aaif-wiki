@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#6",
+  "title": "[Report] 2026-08",
+  "timestamp": "2026-09-28T00:40:06Z",
+  "author": "alperdedeoglu",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/6",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": [
+    "monthly-report"
+  ]
+}

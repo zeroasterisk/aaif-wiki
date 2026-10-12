@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#5",
+  "title": "v0.2 of the proposal process",
+  "timestamp": "2026-05-26T23:17:28Z",
+  "author": "maniksurtani",
+  "url": "https://github.com/aaif/technical-committee/pull/5",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

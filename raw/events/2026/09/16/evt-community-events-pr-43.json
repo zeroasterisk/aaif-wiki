@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-43",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#43",
+  "title": "fix(sync-chapters): rename #welcome-cyprus to #cyprus",
+  "timestamp": "2026-09-16T17:47:04Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/43",
+  "summary": "## Summary\n\n`#welcome-cyprus` is a country room wearing a `welcome-` prefix from whatever it was first opened as. Every other country room on this estate is the bare country name — `#greece`, `#ireland`, `#austria`, `#taiwan` — and the odd name is why it was nearly dropped from t...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n`#welcome-cyprus` is a country room wearing a `welcome-` prefix from whatever it was first opened as. Every other country room on this estate is the bare country name — `#greece`, `#ireland`, `#austria`, `#taiwan` — and the odd name is why it was nearly dropped from the `#general` country directory as \"probably an onboarding room\". The name was the only evidence, and it was wrong.\n\n## Changesets\n\n### `fix(sync-chapters): rename #welcome-cyprus to #cyprus`\n**Files:** `provision_channels.py` (+8)\n\nOne entry added to `CHANNEL_RENAMES`, with the reasoning recorded inline. Done through the map rather than a one-off script because this file renames only what the map lists — working around that to save a PR would undermine the rule.\n\n**Already applied** (2026-09-10, per-channel permission, `--write --i-have-approval`): the report planned exactly one rename and nothing else, and the run reported `1 applied, 0 failed`.\n\nVerified after: the room keeps id `C09N3B8NU21`, all 7 members and its full history; `#welcome-cyprus` no longer resolves. `#cyprus` was free beforehand. The `Countries` tab row was updated to match.\n\n## Test Plan\n\n- [x] Report mode planned exactly 1 rename, 0 creates, 0 merges, 0 archives\n- [x] Applied: `renamed #welcome-cyprus -> #cyprus`, 1 applied / 0 failed\n- [x] Verified live: same channel id, 7 members retained\n- [x] Countries tab row 38 updated\n- [x] 40 skill test suites pass; `pre-commit run --all-files` clean\n\n### Follow-up\n\nSlack posts a \"renamed the channel\" system message. Per the standing convention those get deleted by hand — `chat.delete` is deliberately absent from `WRITE_METHODS` and should stay that way.\n\n_Generated using hero-skills._",
+  "labels": []
+}

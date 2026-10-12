@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-16",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#16",
+  "title": "Add a human-backed agent credential run to the presentation queue",
+  "timestamp": "2026-10-09T22:57:39Z",
+  "author": "MarcMolas",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/16",
+  "summary": "Adds one entry to the presentation queue in AGENDA.md, in the same form as #8 and #15. Requested on the list on 3 October (\"Request for a 20-minute slot on October 29\"). No other file is changed.",
+  "pointers": [],
+  "inline_text": "Adds one entry to the presentation queue in AGENDA.md, in the same form as #8 and #15. Requested on the list on 3 October (\"Request for a 20-minute slot on October 29\"). No other file is changed.",
+  "labels": []
+}

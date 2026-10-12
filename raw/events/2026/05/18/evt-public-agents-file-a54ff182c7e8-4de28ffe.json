@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-a54ff182c7e8-4de28ffe",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": "AGENTS.md",
+  "title": "AGENTS.md",
+  "timestamp": "2026-05-18T10:37:54-05:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/AGENTS.md",
+  "summary": "Add agent wiki update instructions",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": "AGENTS.md",
+      "blob_sha": "4de28ffe219accd11a0a7aa4ca981106eaef3b33",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

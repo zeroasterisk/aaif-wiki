@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-3dc5dd454e08-ae040d07",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "DESIGN.md",
+  "title": "DESIGN.md",
+  "timestamp": "2026-09-06T22:49:55+05:30",
+  "author": "Surya",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/DESIGN.md",
+  "summary": "docs: point DESIGN.md at the official logo SVGs in assets/",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "DESIGN.md",
+      "blob_sha": "ae040d0706acca9892cb41885287d2925aa2ca9f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

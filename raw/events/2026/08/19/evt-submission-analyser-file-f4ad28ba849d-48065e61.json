@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-f4ad28ba849d-48065e61",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "tests/fixtures/injections/04-delimiter-forging.md",
+  "title": "04-delimiter-forging.md",
+  "timestamp": "2026-08-19T23:20:33+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/tests/fixtures/injections/04-delimiter-forging.md",
+  "summary": "Add the test suite, and fix the five bugs it found",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "tests/fixtures/injections/04-delimiter-forging.md",
+      "blob_sha": "48065e616e387f236db31147313a1af6528b4b52",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

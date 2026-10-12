@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#1",
+  "title": "Rename Code_of_Conduct.md to CODE_OF_CONDUCT.md",
+  "timestamp": "2026-05-13T18:30:30Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/foundation/pull/1",
+  "summary": "GitHub looks for CODE_OF_CONDUCT.md (all caps) to recognize the file as a community health file. With the current name, GitHub does not detect it and shows this repo as missing a code of conduct in the community standards checklist.",
+  "pointers": [],
+  "inline_text": "GitHub looks for CODE_OF_CONDUCT.md (all caps) to recognize the file as a community health file. With the current name, GitHub does not detect it and shows this repo as missing a code of conduct in the community standards checklist.",
+  "labels": []
+}

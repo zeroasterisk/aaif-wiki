@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-b33563055168-5c93d5a3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-09-10T12:38:46-04:00",
+  "author": "Julianna Langston",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/README.md",
+  "summary": "Add Identity and Trust onboarding guide",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "69e73d0e0a5005d4d44af40ffbd068807169f30f",
+      "path": "README.md",
+      "blob_sha": "5c93d5a354ff9df2f2e3aabc8a01b80ad3ca08fc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

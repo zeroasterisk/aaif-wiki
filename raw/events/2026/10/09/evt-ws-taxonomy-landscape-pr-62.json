@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-62",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#62",
+  "title": "Define taxonomy term: AI Slop",
+  "timestamp": "2026-10-09T08:34:14Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/62",
+  "summary": "Proposed via the Taxonomy Term Wizard (add). Touches only taxonomy/taxonomy-data.js.\n\nDefinition authorship: 100% human-written (no AI draft used).",
+  "pointers": [],
+  "inline_text": "Proposed via the Taxonomy Term Wizard (add). Touches only taxonomy/taxonomy-data.js.\n\nDefinition authorship: 100% human-written (no AI draft used).",
+  "labels": []
+}

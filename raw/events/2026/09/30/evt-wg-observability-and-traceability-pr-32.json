@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-32",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#32",
+  "title": "docs: add Agent to MCP Server boundary deep-dive (issue #29)",
+  "timestamp": "2026-09-30T18:10:57Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/32",
+  "summary": "## Summary\n\nAdds the first filled matrix pass for the Agent → MCP Server boundary: `working-documents/agent-mcp-server-boundary-deep-dive.md`.\n\nThe document delivers issue #29's requested deliverable for this boundary, aligned with the gap-analysis work package in the cross-bound...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the first filled matrix pass for the Agent → MCP Server boundary: `working-documents/agent-mcp-server-boundary-deep-dive.md`.\n\nThe document delivers issue #29's requested deliverable for this boundary, aligned with the gap-analysis work package in the cross-boundary observability model draft (PR #25, Section 8.4):\n\n- Fills all eight matrix fields (Identity, Context, Relationship, Lifecycle, Outcome, Provenance, Security, Timing) with concrete proposals for the Agent → MCP Server boundary\n- Maps each field to existing coverage (MCP spec, OTel GenAI MCP conventions, WG PRIOR-WORK.md landscape) versus open gaps\n- Flags the load-bearing open gaps: declared vs observed divergence, evidence integrity, server-side side-effect manifests, consent-chain observability\n- Includes a generic worked scenario of the declared-vs-observed gap in Section 5, naming no product, written to hold for any implementation that satisfies the field table\n- Proposes coordinate-first upstream recommendations (OTel GenAI SIG, A2A/AGNTCY) and four review questions for the WG\n\n## Related Issue\n\nUpdates #29 (first boundary deep-dive; further boundaries can follow the same pattern)\n\n## Review Notes\n\n- The filled matrix row in Section 3 is designed to be lifted directly into the seed matrix in `working-documents/cross-boundary-observability-model.md` (PR #25) once reviewers are satisfied\n- Coverage claims trace to PRIOR-WORK.md citations and the MCP protocol specification. No implementation is named or recommended: the pass states requirements and gaps, and any named project would need independent selection and review by the WG\n- Suggested review window: before the next WG call, so any accepted changes can flow into the call discussion\n\n## Follow-ups\n\n- If accepted, merge the filled row into the seed matrix (PR #25 follow-up or direct edit)\n- Convert open gaps into upstream action items (Section 6)\n- Consider follow-up deep-dives for the other unfilled boundaries (Agent → A2A Peer, Agent → Gateway or Runtime)\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

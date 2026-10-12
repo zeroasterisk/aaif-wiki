@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-foundation-file-d803a4dfa3ec-79586e70",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "policies-guidelines/case-study-guidelines.md",
+  "title": "case-study-guidelines.md",
+  "timestamp": "2026-04-16T14:27:45-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/case-study-guidelines.md",
+  "summary": "Update case-study-guidelines.md",
+  "pointers": [
+    {
+      "repo": "foundation",
+      "commit_sha": "8df4e5b4087f2dcd5fbc77b702f68b1fc7418693",
+      "path": "policies-guidelines/case-study-guidelines.md",
+      "blob_sha": "79586e70e0b79698b4ac330711de0b8e2cd1220f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

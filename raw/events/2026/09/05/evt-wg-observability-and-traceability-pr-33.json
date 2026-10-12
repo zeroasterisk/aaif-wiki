@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-33",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#33",
+  "title": "Add liaison roster and cross-WG intake tracker",
+  "timestamp": "2026-09-05T18:32:14Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/33",
+  "summary": "## Summary\n\nWhat changed?\n\nAdds `LIAISONS.md`, the liaison roster and cross-WG intake tracker asked for in #11, and links it from the Start Here list in the README and from the Cross-WG and External Coordination section of WORKING-METHODS.md.\n\nThe tracker covers the six external ...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nWhat changed?\n\nAdds `LIAISONS.md`, the liaison roster and cross-WG intake tracker asked for in #11, and links it from the Start Here list in the README and from the Cross-WG and External Coordination section of WORKING-METHODS.md.\n\nThe tracker covers the six external groups named in charter section 8 (OpenTelemetry GenAI SIG, OWASP AOS, W3C Trace Context, Agent Trace, Monocle, AGNTCY), the internal AAIF coordination points (Technical Committee, MCP, Goose, the four sibling WGs, and the Taxonomy & Landscape workstream with its known sync cadence), plus inbound and outbound tables seeded only with items that exist today as real issues. Every liaison cell reads `needs owner` because no source currently names a person, with the Chairs as default contact per the charter's external representation policy. Statuses use the WORKING-METHODS.md vocabulary and the document carries the standard living document freshness marker.\n\nTwo sourcing notes for reviewers. The `cursor/agent-trace` GitHub repository cited in some third party write ups does not resolve as of 2026-08-22, so the roster links the live specification site agent-trace.dev instead and flags the discrepancy. The inbound and outbound tables intentionally hold two rows each rather than a rounder number, since only those items could be traced to real issues.\n\n## Related Issue\n\nCloses #11\n\n## Review Notes\n\nWhat should reviewers focus on?\n\n- Whether the seeded inbound rows (aaif/wg-security-and-privacy#13 and aaif/ws-taxonomy-landscape#15) and outbound rows (#10 and #12 in this repo) are the right starting set.\n- Whether the WG wants named liaison nominations recorded here or tracked in issues first.\n- Any external group descriptions that a practitioner closer to those groups would word differently.\n\n## Follow-ups\n\nWhat remains after this PR?\n\n- Nominating liaisons for the entries marked `needs owner`, per charter section 8.\n- Updating the tracker at the before and after meeting checkpoints WORKING-METHODS.md already defines.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [x] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

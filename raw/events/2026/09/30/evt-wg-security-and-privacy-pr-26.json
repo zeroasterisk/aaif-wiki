@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-26",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#26",
+  "title": "Initial drafts for design patterns catalog",
+  "timestamp": "2026-09-30T14:16:03Z",
+  "author": "sagardashora",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/26",
+  "summary": "Initial drafts for\r\n- Approval checkpoint \r\n- Attested runtime isolation\r\n- Kill switch pattern",
+  "pointers": [],
+  "inline_text": "Initial drafts for\r\n- Approval checkpoint \r\n- Attested runtime isolation\r\n- Kill switch pattern",
+  "labels": []
+}

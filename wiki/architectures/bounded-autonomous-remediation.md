@@ -1,40 +1,50 @@
 ---
 type: architecture
 title: Bounded Autonomous Remediation
-description: Reference architecture for autonomously resolving bounded business tasks
-  using deterministic acceptance gates and structured activity workflows.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
+description: Reference architecture for resolving bounded operational problems autonomously
+  through isolated execution, deterministic acceptance gates, and convergence loops.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
 tags:
-- workflows
+- architecture
 - remediation
-- acceptance-gates
-- deterministic-execution
+- autonomous
+- safety
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:23:01.422207+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:15:53.446387+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-49
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
-  author: mzagar
-  last_modified: '2026-10-09T11:27:17+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-43
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
+  author: narko4u
+  last_modified: '2026-10-02T15:00:07+00:00'
 ---
 
 # Overview
 
-Bounded Autonomous Remediation is a reference architecture developed within the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) for resolving well-defined operational incidents and workflow errors within strict autonomy bounds without requiring human intervention for routine steps [^evt-wg-workflows-and-process-integration-pr-49]. It relies on deterministic acceptance gates and bounded convergence loops to verify outcomes before state changes are committed.
+Bounded Autonomous Remediation provides a reference framework for allowing software agents to remediate operational failures and execute constrained system mutations without synchronous human approval [^evt-wg-workflows-and-process-integration-pr-43]. Remediation workflows operate strictly within bounded execution sandboxes, iterating across convergence loops and submitting proposed changes against strict deterministic acceptance criteria before effects are merged or promoted into production.
+
+To balance operational autonomy with safety, the architecture scales verification intensity against the blast radius and reversal cost of the permitted effect [^evt-wg-workflows-and-process-integration-pr-43].
 
 # Architecture / Specification
 
-The architecture explicitly distinguishes between workflow subunits and target operational problems [^evt-wg-workflows-and-process-integration-pr-49]:
+### Minimum Evidence for Deterministic Gates
 
-- **Business Task**: The bounded business problem or work item admitted to and resolved by an execution run.
-- **Activity**: Individual workflow subunits and operational steps executed by the agent to fulfill the business task.
+While deterministic gates scale their verification hurdles according to the risk of the action, the evidence model preserving gate verdicts enforces three universal invariants across all tiers [^evt-wg-workflows-and-process-integration-pr-43]:
 
-Key architectural components include:
+1. **Determinism of the Verdict**: The acceptance check must evaluate repeatable, deterministic criteria (such as test suites, linters, schema validators, or static analysis runs) where identical candidates and test inputs yield identical verdicts [^evt-wg-workflows-and-process-integration-pr-43].
+2. **Binding of Verdict to Candidate**: The emitted acceptance record is cryptographically bound to the specific immutable candidate artifact (via content digests), ensuring verification cannot be forged or transferred to unvetted revisions [^evt-wg-workflows-and-process-integration-pr-43].
+3. **Preservation as Execution Evidence**: Gate verdicts, captured logs, and evaluation metrics persist permanently within the execution ledger to provide auditability and post-mortem transparency [^evt-wg-workflows-and-process-integration-pr-43].
 
-- **Admission Boundary**: Ingests and validates the scope of incoming business tasks.
-- **Activity Execution Engine**: Dispatches individual activities bounded by resource limits and policy gates.
-- **Acceptance Evaluation**: Employs [deterministic acceptance gates](../patterns/deterministic-acceptance-gate.md) to inspect activity artifacts against explicit success criteria before closing the business task [^evt-wg-workflows-and-process-integration-pr-49].
+### Scaling Gate Strength
 
-[^evt-wg-workflows-and-process-integration-pr-49]: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
+Gate validation criteria scale dynamically based on two structural properties of the target effect [^evt-wg-workflows-and-process-integration-pr-43]:
+- **Blast Radius**: The potential scope of operational impact (e.g., local process restart versus cross-region routing updates).
+- **Reversal Cost**: The complexity, financial impact, or latency required to roll back the applied change if unexpected degradation occurs.
+
+# References
+
+- Composed patterns: `../patterns/deterministic-acceptance-gate.md`, `../patterns/bounded-convergence-loop.md`
+- Boundary guidance: `../guidelines/workflow-architecture-principles.md`
+
+[^evt-wg-workflows-and-process-integration-pr-43]: https://github.com/aaif/wg-workflows-and-process-integration/pull/43

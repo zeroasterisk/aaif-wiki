@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-44",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#44",
+  "title": "schema agentic use cases feedback",
+  "timestamp": "2026-09-09T20:43:23Z",
+  "author": "geemus",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/44",
+  "summary": "Some thoughts about possible cleanup/improvements, unfortunately none quite so clear/solid as to clearly be a PR. Just let me know if I can further help or clarify.\n\n# Trigger\n\nschedule and user are events, which makes it feel like `event` is over broad or not quite right. I also...",
+  "pointers": [],
+  "inline_text": "Some thoughts about possible cleanup/improvements, unfortunately none quite so clear/solid as to clearly be a PR. Just let me know if I can further help or clarify.\n\n# Trigger\n\nschedule and user are events, which makes it feel like `event` is over broad or not quite right. I also tend to think about function or api calls as being distinct from event stream (which event naming perhaps implies).\n\n# HITL pattern\n\nmaybe missing something like `initial input` and/or `clarification` (ie broader asked questions/multiple choice/etc don't clearly seem exception/approval shaped)\n\n# Workflow pattern\n\natomic could probably be framed as a sequential pipeline of length 1 as opposed to being distinct, not sure if that's worth doing though\n\n# Supporting fields\n\nDuration as time feels challenging. It includes SO many variables. ie what model, on what hardware, subscription vs api usage, etc. Turn count or similar would be more stable.",
+  "labels": []
+}

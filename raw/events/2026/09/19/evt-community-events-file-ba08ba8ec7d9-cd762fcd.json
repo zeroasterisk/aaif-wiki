@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-ba08ba8ec7d9-cd762fcd",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/sync-front-door/graders/order_is_respected.md",
+  "title": "order_is_respected.md",
+  "timestamp": "2026-09-19T15:40:28-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/sync-front-door/graders/order_is_respected.md",
+  "summary": "refactor(sync): one front door, one pipeline definition, four phase skills",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/sync-front-door/graders/order_is_respected.md",
+      "blob_sha": "cd762fcd61f08e286723e5338ad17f507440acae",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-0f132b096200-171c31ea",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": ".github/workflows/deploy-pages.yml",
+  "title": "deploy-pages.yml",
+  "timestamp": "2026-07-23T10:39:09+01:00",
+  "author": "Gala Malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/.github/workflows/deploy-pages.yml",
+  "summary": "chore: replace 'master' terminology with 'main' throughout",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": ".github/workflows/deploy-pages.yml",
+      "blob_sha": "171c31ea8dfcbdbf12dffe1836b482f13a66081e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

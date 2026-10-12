@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/critical-use-cases/schema-agentic-use-cases.md",
+  "title": "schema-agentic-use-cases.md",
+  "timestamp": "2026-10-01T07:35:55-07:00",
+  "author": "Jodee Varney",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md",
+  "summary": "[Use Cases WS] Source verification and notes cleanup across all categories (#41)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/critical-use-cases/schema-agentic-use-cases.md",
+      "blob_sha": "5ba45ebcd72a1fcadbe29bc1fe2a9de783e1ea48",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

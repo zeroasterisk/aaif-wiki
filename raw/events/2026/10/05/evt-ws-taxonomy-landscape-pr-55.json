@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-55",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#55",
+  "title": "Initial set of terms from Workflow & Process Integration Group.",
+  "timestamp": "2026-10-05T14:10:12Z",
+  "author": "mssumanth",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/55",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

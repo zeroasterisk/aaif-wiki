@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-36",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#36",
+  "title": "update readme with guide on project submissions",
+  "timestamp": "2026-06-08T00:02:26Z",
+  "author": "angiejones",
+  "url": "https://github.com/aaif/project-proposals/pull/36",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

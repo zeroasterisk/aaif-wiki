@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-12",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#12",
+  "title": "Plan Agent Behavior Trace Model recommendation",
+  "timestamp": "2026-06-24T17:07:55Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/12",
+  "summary": "## Context\n\nOne of the WG's 12-month goals is to produce a recommendation for the Agent Behavior Trace Model: adopt an existing standard, extend an existing effort, or produce a new specification only if the gap analysis shows that is necessary.\n\n## Scope\n\nDefine the plan and dec...",
+  "pointers": [],
+  "inline_text": "## Context\n\nOne of the WG's 12-month goals is to produce a recommendation for the Agent Behavior Trace Model: adopt an existing standard, extend an existing effort, or produce a new specification only if the gap analysis shows that is necessary.\n\n## Scope\n\nDefine the plan and decision process for the Agent Behavior Trace Model recommendation:\n\n- identify candidate existing models and standards to compare\n- define evaluation criteria grounded in the charter and use-case inventory\n- specify what evidence is needed from the landscape survey and focus groups\n- identify where upstream contribution may be preferable to a new AAIF artifact\n- define the expected recommendation format and review process\n\n## Acceptance Criteria\n\n- [ ] Candidate models and standards are listed for comparison.\n- [ ] Evaluation criteria are documented.\n- [ ] Required inputs from prior work, use cases, taxonomy, gap analysis, and focus groups are identified.\n- [ ] The decision path for adopt / extend / new specification is documented.\n- [ ] The review process and target milestone are documented.\n\n## Notes\n\nThis issue is for planning the recommendation, not deciding the recommendation itself. The WG should avoid pre-committing to a new specification before the gap analysis is complete.",
+  "labels": [
+    "documentation",
+    "enhancement"
+  ]
+}

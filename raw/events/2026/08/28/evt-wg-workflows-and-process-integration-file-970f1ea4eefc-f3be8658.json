@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+  "title": "deterministic-acceptance-gate.md",
+  "timestamp": "2026-08-28T22:42:47-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+  "summary": "Add bounded autonomous remediation reference architecture (#26)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+      "blob_sha": "f3be8658890556613a2f92853b871a803348c8ae",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

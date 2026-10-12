@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-landscape-file-a5c0f08bc43f-3b9f2340",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": ".github/workflows/validate.yml",
+  "title": "validate.yml",
+  "timestamp": "2026-05-23T17:37:54-06:00",
+  "author": "Sam Boysel",
+  "url": "https://github.com/aaif/aaif-landscape/blob/8d95963425e194f3df3af16c2d72cc21b95dd250/.github/workflows/validate.yml",
+  "summary": "Add a new Agentic AI project watchlist section (#14)",
+  "pointers": [
+    {
+      "repo": "aaif-landscape",
+      "commit_sha": "8d95963425e194f3df3af16c2d72cc21b95dd250",
+      "path": ".github/workflows/validate.yml",
+      "blob_sha": "3b9f234044a1987cba8f20fc37b861edf82f90a0",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-c385a440d3d1-196a4a61",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "tests/fixtures/injections/02-env-exfiltration.md",
+  "title": "02-env-exfiltration.md",
+  "timestamp": "2026-08-19T23:20:33+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/tests/fixtures/injections/02-env-exfiltration.md",
+  "summary": "Add the test suite, and fix the five bugs it found",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "tests/fixtures/injections/02-env-exfiltration.md",
+      "blob_sha": "196a4a61f0f3921a281f320490e93497f662f31e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

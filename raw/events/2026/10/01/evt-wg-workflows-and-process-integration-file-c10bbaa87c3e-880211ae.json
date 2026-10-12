@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/critical-use-cases/use-case-inventory.md",
+  "title": "use-case-inventory.md",
+  "timestamp": "2026-10-01T07:35:55-07:00",
+  "author": "Jodee Varney",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/use-case-inventory.md",
+  "summary": "[Use Cases WS] Source verification and notes cleanup across all categories (#41)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/critical-use-cases/use-case-inventory.md",
+      "blob_sha": "880211ae0668a5a914ee7371c7c64265b6718fcb",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

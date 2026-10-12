@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-49f05aeb9187-b2c9a601",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-create-chapter/references/design-system-sweep.md",
+  "title": "design-system-sweep.md",
+  "timestamp": "2026-10-11T08:19:56-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/design-system-sweep.md",
+  "summary": "fix(skills): skill instructions work from an installed plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-create-chapter/references/design-system-sweep.md",
+      "blob_sha": "b2c9a6012454d588a6238c5978fe06021679b2d6",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

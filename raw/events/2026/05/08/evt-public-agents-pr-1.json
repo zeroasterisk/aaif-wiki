@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-public-agents-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": "PR#1",
+  "title": "Add AAIF brand guidelines skill",
+  "timestamp": "2026-05-08T07:26:31Z",
+  "author": "angiejones",
+  "url": "https://github.com/aaif/public-agents/pull/1",
+  "summary": "Adds the AAIF brand guidelines skill.",
+  "pointers": [],
+  "inline_text": "Adds the AAIF brand guidelines skill.",
+  "labels": []
+}

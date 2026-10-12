@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-24",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#24",
+  "title": "Add CODE_OF_CONDUCT.md",
+  "timestamp": "2026-05-12T21:13:09Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/project-proposals/pull/24",
+  "summary": "Linux Foundation projects are expected to have a code of conduct. This repo is under AAIF, which is an LF project, but has no CODE_OF_CONDUCT.md.\n\nBased on Contributor Covenant 2.1, which is the standard across LF projects. Contact address is support@aaif.io.",
+  "pointers": [],
+  "inline_text": "Linux Foundation projects are expected to have a code of conduct. This repo is under AAIF, which is an LF project, but has no CODE_OF_CONDUCT.md.\n\nBased on Contributor Covenant 2.1, which is the standard across LF projects. Contact address is support@aaif.io.",
+  "labels": []
+}

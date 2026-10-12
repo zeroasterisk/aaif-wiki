@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-chairs-file-b33563055168-e49b2c6c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-09-14T10:49:47-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/working-group-chairs/blob/db4e4f12937eca5213aef6ad542d4b38ca387f8c/README.md",
+  "summary": "Initial commit",
+  "pointers": [
+    {
+      "repo": "working-group-chairs",
+      "commit_sha": "db4e4f12937eca5213aef6ad542d4b38ca387f8c",
+      "path": "README.md",
+      "blob_sha": "e49b2c6c895f3dabe6cc519e28cf8a411c4a6b03",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

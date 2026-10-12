@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-30",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#30",
+  "title": "Add agentgateway and AGENTS.md under two new subcategories",
+  "timestamp": "2026-10-11T18:18:09Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/30",
+  "summary": "Draft, opened to make the options in #29 concrete rather than to preempt the Domain Editors. If they would rather use different subcategory names, or place these two projects in existing subcategories, I will close this or rewrite it to match.\n\n## What\n\nAdds two AAIF hosted proje...",
+  "pointers": [],
+  "inline_text": "Draft, opened to make the options in #29 concrete rather than to preempt the Domain Editors. If they would rather use different subcategory names, or place these two projects in existing subcategories, I will close this or rewrite it to match.\n\n## What\n\nAdds two AAIF hosted projects that are currently absent from `landscape/landscape.yml`, each in a new subcategory.\n\n`agentgateway` under a new **Gateways & Control Planes** subcategory in Agent Runtimes, Frameworks & Workflow Orchestration.\n\n`AGENTS.md` under a new **Conventions & File Formats** subcategory in Protocols & Discovery Registries.\n\n## Why new subcategories\n\nAs set out in #29, neither fits cleanly today. Orchestration Runtimes covers frameworks that compose agent logic rather than infrastructure that routes traffic, and Prompt & Runtime Guardrails is about constraining model behaviour rather than routing, so a gateway and control plane belongs to neither. Communication Protocols holds MCP and A2A, which are wire protocols, whereas AGENTS.md is a repository file convention.\n\nBoth subcategories are also intended to generalise, since more gateway and proxy projects and more file format conventions are likely to arrive.\n\n## Metadata\n\nStatus is `project: member` for both, matching how the published `aaif/aaif-landscape` marks them and consistent with MCP here and with goose in #27. Homepage and repository URLs match that published landscape. Descriptions follow the objective, pre competitive wording required by `docs/data-schemas.md`, with no superlatives, and `logo` uses the existing `placeholder.svg`.\n\n## Validation\n\n`landscape/landscape.yml` parses as YAML, and every item across all categories carries the required `name`, `homepage_url`, `description` and `project` fields, with `project` values within the allowed set and homepage URLs beginning with `https://`.\n\n@thc1006 offered in #25 to prepare these entries once a subcategory is chosen, so I am happy to hand this over or to have them push to the branch if that is easier.",
+  "labels": []
+}

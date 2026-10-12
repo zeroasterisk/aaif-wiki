@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-a5c0f08bc43f-b99183b6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": ".github/workflows/validate.yml",
+  "title": "validate.yml",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.github/workflows/validate.yml",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": ".github/workflows/validate.yml",
+      "blob_sha": "b99183b6d52e968a335dadc9245a80b93b35d11c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

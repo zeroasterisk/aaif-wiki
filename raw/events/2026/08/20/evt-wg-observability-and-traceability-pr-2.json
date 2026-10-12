@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#2",
+  "title": "Submit proposed charter for Technical Committee review",
+  "timestamp": "2026-08-20T14:21:40Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/2",
+  "summary": "## Summary\n\n- Rename `charter/DRAFT.md` → `charter/CHARTER.md`\n- Fill in approval date and update metadata fields\n\nThe Observability & Traceability Working Group approved this charter on April 15, 2026. Submitting for AAIF Technical Committee review on April 21, 2026.\n\n## Changes...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- Rename `charter/DRAFT.md` → `charter/CHARTER.md`\n- Fill in approval date and update metadata fields\n\nThe Observability & Traceability Working Group approved this charter on April 15, 2026. Submitting for AAIF Technical Committee review on April 21, 2026.\n\n## Changes\n\n- `Date Approved`: set to `2026-04-15`\n- `Last Updated`: set to `2026-04-15`\n- `Approved By`: `Observability & Traceability WG (pending TC review)`\n- File renamed from `DRAFT.md` to `CHARTER.md`",
+  "labels": [
+    "gitvote",
+    "gitvote/closed",
+    "gitvote/failed"
+  ]
+}

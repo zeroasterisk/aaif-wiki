@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-83",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#83",
+  "title": "Clarify taxonomy contribution process",
+  "timestamp": "2026-10-07T12:37:24Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/83",
+  "summary": "Updates CONTRIBUTING.md for accuracy and establishes a clearer end-to-end taxonomy contribution process. Documents how Working Groups propose terms, how delegates bring terms to the Taxonomy Workstream, the KEEP/CULL/DEBATE review outcomes, definition and scope-note expectations,...",
+  "pointers": [],
+  "inline_text": "Updates CONTRIBUTING.md for accuracy and establishes a clearer end-to-end taxonomy contribution process. Documents how Working Groups propose terms, how delegates bring terms to the Taxonomy Workstream, the KEEP/CULL/DEBATE review outcomes, definition and scope-note expectations, cross-Working-Group approval requirements, the Rebase and merge strategy, and the FINALIZED spreadsheet state. Also standardizes terminology, Markdown formatting, schema references, and section numbering.",
+  "labels": []
+}

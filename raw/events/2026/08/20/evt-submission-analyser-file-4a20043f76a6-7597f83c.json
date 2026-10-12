@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-4a20043f76a6-7597f83c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "docs/models.md",
+  "title": "models.md",
+  "timestamp": "2026-08-20T17:58:39+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/docs/models.md",
+  "summary": "Probe inference, not just /models — and fix the pipefail bug",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "docs/models.md",
+      "blob_sha": "7597f83c738b8fd2eaceacf1ba9d42e1ecc0ab9b",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

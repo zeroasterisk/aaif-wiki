@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-7ac80cf9ff9c-21a525e3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/USE-CASES.md",
+  "title": "USE-CASES.md",
+  "timestamp": "2026-09-26T04:54:08+01:00",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/USE-CASES.md",
+  "summary": "Merge branch 'main' of https://github.com/aaif/wg-observability-and-traceability",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/USE-CASES.md",
+      "blob_sha": "21a525e396439082ee48efd5236023e4c8bf76bc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

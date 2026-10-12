@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-58dfe42e59bd-8958ab4b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+  "title": "bounded-autonomous-remediation.md",
+  "timestamp": "2026-09-15T16:20:14-04:00",
+  "author": "Danijel Blazsetin",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+  "summary": "Validate bounded autonomous remediation scenarios (#37)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+      "blob_sha": "8958ab4b50a2322e3d133de95dfab4e20da41225",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

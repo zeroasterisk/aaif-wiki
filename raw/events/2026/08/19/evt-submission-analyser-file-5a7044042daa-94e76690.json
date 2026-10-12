@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-5a7044042daa-94e76690",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "src/skills/issue-analysis/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-08-19T23:05:57+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/SKILL.md",
+  "summary": "Implement the issue-analysis agent core",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "src/skills/issue-analysis/SKILL.md",
+      "blob_sha": "94e766909cd3c8c65764189d0267291e3150d69c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

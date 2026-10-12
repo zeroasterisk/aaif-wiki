@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-86b96cfaa5c4-64c967b8",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "working-groups/reporting.md",
+  "title": "reporting.md",
+  "timestamp": "2026-10-12T10:57:40+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/working-groups/reporting.md",
+  "summary": "working group policy docs",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "fe99a96791381e68eb40e8e5885690ddd08fbfb1",
+      "path": "working-groups/reporting.md",
+      "blob_sha": "64c967b8ba023e43ec349d4a652818c544ab5ff8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

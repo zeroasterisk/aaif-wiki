@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": ".github/workflows/validate-taxonomy.yml",
+  "title": "validate-taxonomy.yml",
+  "timestamp": "2026-09-21T16:36:37-04:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/.github/workflows/validate-taxonomy.yml",
+  "summary": "validate-taxonomy: parse data instead of executing it",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": ".github/workflows/validate-taxonomy.yml",
+      "blob_sha": "0e9c34349d3dda3e0af5efe8ee66ae2fca4abe6f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

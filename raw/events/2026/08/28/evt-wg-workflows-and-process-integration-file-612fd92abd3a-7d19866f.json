@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/taxonomy/terms.md",
+  "title": "terms.md",
+  "timestamp": "2026-08-28T22:43:08-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md",
+  "summary": "Replace workflow steps with activities (#31)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/taxonomy/terms.md",
+      "blob_sha": "7d19866fb57390d22e43723099202bb2822e0522",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

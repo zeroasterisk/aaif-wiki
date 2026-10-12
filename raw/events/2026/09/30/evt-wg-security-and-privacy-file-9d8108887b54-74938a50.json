@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-9d8108887b54-74938a50",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/design-patterns/README.md",
+  "title": "README.md",
+  "timestamp": "2026-09-30T10:16:03-04:00",
+  "author": "sagardashora",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/README.md",
+  "summary": "Initial drafts for design patterns catalog (#26)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "22c3f9a2cdac4fcf092502fa06154b08b4df09b8",
+      "path": "workstreams/design-patterns/README.md",
+      "blob_sha": "74938a50c53715b876ab2dd2abd6a62c0dc21115",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

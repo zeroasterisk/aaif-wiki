@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-10",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#10",
+  "title": "add project lifecycle stages in README",
+  "timestamp": "2026-08-12T17:06:50Z",
+  "author": "christinaharter",
+  "url": "https://github.com/aaif/technical-committee/pull/10",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

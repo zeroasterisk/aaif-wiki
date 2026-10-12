@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-file-b33563055168-432cf673",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-07-29T14:58:38-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/README.md",
+  "summary": "Revise meeting schedule and communication information",
+  "pointers": [
+    {
+      "repo": "wg-governance-risk-and-regulatory",
+      "commit_sha": "bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2",
+      "path": "README.md",
+      "blob_sha": "432cf673d6cf1f889d3cd9baa285709a73f72696",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

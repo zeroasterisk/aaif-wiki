@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-42",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#42",
+  "title": "Trace model: build shared tests and a contribution template",
+  "timestamp": "2026-09-25T14:53:04Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/42",
+  "summary": "## Outcome\n\nA reusable test kit and contribution template for checking relationships in exported telemetry.\n\nTask 4 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** A trace that looks right in one demonstration may still pr...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nA reusable test kit and contribution template for checking relationships in exported telemetry.\n\nTask 4 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** A trace that looks right in one demonstration may still produce incorrect results after records are lost, repeated, or reordered.\n\n**Work:** Create language-neutral sample records, expected answers, and reusable checks. Reuse OTel conformance tooling, adding relationship tests and a template for source mappings and limitations. Use synthetic data, opt-in content capture, and separately labeled deterministic and live integration tests.\n\n**Example:** Deliver the same ticket-creation receipt twice: the expected result is still one confirmed ticket. Remove the receipt: the expected result becomes “creation unconfirmed,” not “no ticket was created.”\n\n## Acceptance Criteria\n\n**Done when:** contributors can run these checks and add a focused example without adopting a new runtime or implementing the whole workflow.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find a contributor and reviewer, then turn the first contract examples into fixtures and expected answers.\n- **Depends on:** [Task 3](https://github.com/aaif/wg-observability-and-traceability/issues/41); develop alongside [Task 5](https://github.com/aaif/wg-observability-and-traceability/issues/43) and [Task 6](https://github.com/aaif/wg-observability-and-traceability/issues/44).\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).",
+  "labels": [
+    "enhancement",
+    "help wanted"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-0a6867909dde-4e2513a7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/03-hardware-accelerators/hpc-tracing.md",
+  "title": "hpc-tracing.md",
+  "timestamp": "2026-10-07T07:18:15+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/03-hardware-accelerators/hpc-tracing.md",
+  "summary": "More tracing tools/observability (#34)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/03-hardware-accelerators/hpc-tracing.md",
+      "blob_sha": "4e2513a72f9385cd86de09d2c740a37352258a75",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

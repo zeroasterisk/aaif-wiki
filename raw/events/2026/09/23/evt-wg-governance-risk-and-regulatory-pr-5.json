@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#5",
+  "title": "[Report] 2026-06",
+  "timestamp": "2026-09-23T04:16:40Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/5",
+  "summary": "Captured the June month reports",
+  "pointers": [],
+  "inline_text": "Captured the June month reports",
+  "labels": [
+    "monthly-report"
+  ]
+}

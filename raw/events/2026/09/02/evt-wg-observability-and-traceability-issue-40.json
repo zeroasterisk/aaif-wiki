@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-40",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#40",
+  "title": "Trace model: define the examples and capture the baseline",
+  "timestamp": "2026-09-02T01:57:01Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/40",
+  "summary": "## Outcome\n\nReproducible baseline captures and a classified gap list for Goose and a second independent agent or SDK.\n\nTask 2 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** We need to distinguish instrumentation defects f...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nReproducible baseline captures and a classified gap list for Goose and a second independent agent or SDK.\n\nTask 2 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** We need to distinguish instrumentation defects from missing semantics. Comparing the same behavior across implementations helps identify shared needs.\n\n**Work:** Run the support workflow in Goose and a second independent agent/SDK. Pin versions, capture sanitized telemetry, and record the expected answers for the four priorities.\n\n**Example:** The first user request looks up an order; the second requests a ticket. Inspect whether each runtime's current telemetry connects those interactions. If one runtime knows the conversation ID but does not export it, record an instrumentation gap, not evidence that OTel needs a new identifier.\n\n## Acceptance Criteria\n\n**Done when:** both baselines are reproducible and their gaps are classified as unsupported behavior, instrumentation, guidance, or semantics.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find a contributor and reviewer, select the second agent/SDK, and pin versions for the baseline captures.\n- **Depends on:** [Task 1](https://github.com/aaif/wg-observability-and-traceability/issues/39).\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).",
+  "labels": [
+    "documentation",
+    "help wanted"
+  ]
+}

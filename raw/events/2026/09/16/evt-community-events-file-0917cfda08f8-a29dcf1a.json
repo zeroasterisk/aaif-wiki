@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-0917cfda08f8-a29dcf1a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/sync-chapters-write-gate/graders/skill_fires.md",
+  "title": "skill_fires.md",
+  "timestamp": "2026-09-16T21:40:10-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/sync-chapters-write-gate/graders/skill_fires.md",
+  "summary": "feat(evals): check whether the right skill actually fires",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/sync-chapters-write-gate/graders/skill_fires.md",
+      "blob_sha": "a29dcf1a9bd55869864ba42ddd1f3d5443dd8cce",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

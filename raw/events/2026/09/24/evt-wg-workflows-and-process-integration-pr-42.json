@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-42",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#42",
+  "title": "Add Hard constraint HITL pattern and Autonomy Graduation concept",
+  "timestamp": "2026-09-24T01:00:06Z",
+  "author": "askulkarni2",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/42",
+  "summary": "## What this changes\r\n\r\nAdds a fourth HITL Pattern value and a new subsection to the classification schema.\r\n\r\n### Hard constraint (new HITL Pattern value)\r\n\r\nA human must act not because the agent can't, but because regulation, policy, or institutional rules require human accoun...",
+  "pointers": [],
+  "inline_text": "## What this changes\r\n\r\nAdds a fourth HITL Pattern value and a new subsection to the classification schema.\r\n\r\n### Hard constraint (new HITL Pattern value)\r\n\r\nA human must act not because the agent can't, but because regulation, policy, or institutional rules require human accountability (e.g., physician signature, legal certification, board approval above a threshold). Non-negotiable; does not relax as the system matures.\r\n\r\nThis fills a gap where `Approval gate` was being used for two structurally different situations: checkpoints that exist because the system isn't trusted yet (and could eventually relax), and requirements that are permanent regardless of system capability.\r\n\r\nThis pattern is observed in enterprise deployments across healthcare (physician signatures), legal (attorney certifications), and finance (board approval thresholds), where the oversight requirement is structural and regulatory rather than\r\nconfidence-based. The existing three HITL values have no clean way to distinguish \"checkpoint until trusted\" from \"permanent institutional requirement.\"\r\n\r\n### Autonomy Graduation (new subsection)\r\n\r\nDocuments the recognized deployment pattern where oversight levels evolve over time: Approval gate → Exception escalation → None. Hard constraints are explicitly excluded from graduation.",
+  "labels": []
+}

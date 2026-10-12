@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-b33563055168-688b7092",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-09-15T10:23:47-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/README.md",
+  "summary": "Fix link to Technical Charter in README",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "fe99a96791381e68eb40e8e5885690ddd08fbfb1",
+      "path": "README.md",
+      "blob_sha": "688b7092e55891d2a2beec1e24210a81f6734359",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-633832607329-9b56d321",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/02-kernel-tracing/linux-driver-tracing.md",
+  "title": "linux-driver-tracing.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/linux-driver-tracing.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/02-kernel-tracing/linux-driver-tracing.md",
+      "blob_sha": "9b56d321f38e508f7aa4a70c5f82262b186ac5fb",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-84",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#84",
+  "title": "Define universal term Prompt",
+  "timestamp": "2026-10-09T13:10:34Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/84",
+  "summary": "Defines Prompt as the input provided to a model to guide its response or behavior. The scope note distinguishes what the user said to do from what they wanted to have happen. Links Prompt and Intent reciprocally through contrastsWith while leaving the existing pending Intent defi...",
+  "pointers": [],
+  "inline_text": "Defines Prompt as the input provided to a model to guide its response or behavior. The scope note distinguishes what the user said to do from what they wanted to have happen. Links Prompt and Intent reciprocally through contrastsWith while leaving the existing pending Intent definition unchanged. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

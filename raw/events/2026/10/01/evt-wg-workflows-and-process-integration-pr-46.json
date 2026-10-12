@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-46",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#46",
+  "title": "[Use Cases WS] Add README for Critical Use Cases workstream",
+  "timestamp": "2026-10-01T14:36:15Z",
+  "author": "jodeev",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/46",
+  "summary": "Documents the workstream's purpose, contents, evidentiary standard for citations, and contribution process. It covers:\r\n\r\n- **What this workstream is for** — identifying reusable workflow patterns from real\r\n  deployed agentic applications, evidenced by sourced examples. A classi...",
+  "pointers": [],
+  "inline_text": "Documents the workstream's purpose, contents, evidentiary standard for citations, and contribution process. It covers:\r\n\r\n- **What this workstream is for** — identifying reusable workflow patterns from real\r\n  deployed agentic applications, evidenced by sourced examples. A classification and\r\n  sourcing exercise, not a prioritization exercise.\r\n- **Contents** — pointers to `schema-agentic-use-cases.md` and `use-case-inventory.md`.\r\n- **Evidentiary standard** — every Notes cell in the inventory must cite a vendor product\r\n  page or primary announcement with confirmed production deployment. At least one\r\n  verified citation per use case, three is the target. Defines preferred / acceptable /\r\n  not-acceptable source tiers.\r\n- **Status** — category groupings, schema, and evidentiary standard are ready for WG\r\n  vote; row-level content (citations, classification values, Notes) is under active\r\n  verification.\r\n- **Structure** and **Contributing** — directory layout and the fork-and-PR process.\r\n- **Links** — workstream meeting notes and Discord.",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-a1a9eeb43d4d-9d91ed07",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-11T08:19:42-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md",
+  "summary": "feat(skills): aaif-check-setup, a plain-language readiness check",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/README.md",
+      "blob_sha": "9d91ed07455a691fa8017e0f5915454609bf528f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

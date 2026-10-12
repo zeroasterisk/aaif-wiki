@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#5",
+  "title": "Add .agents Folder and agents-cli entries to landscape.yml",
+  "timestamp": "2026-04-20T03:18:14Z",
+  "author": "burn2delete",
+  "url": "https://github.com/aaif/aaif-landscape/pull/5",
+  "summary": "Suggesting donating the following two projects to the AAIF.\r\n\r\nAdded new items for .agents Folder and agents-cli with descriptions and URLs.",
+  "pointers": [],
+  "inline_text": "Suggesting donating the following two projects to the AAIF.\r\n\r\nAdded new items for .agents Folder and agents-cli with descriptions and URLs.",
+  "labels": []
+}

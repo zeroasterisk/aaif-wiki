@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-1caae192c2a4-0c489bc7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-clean-data/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-10-11T08:19:56-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/SKILL.md",
+  "summary": "fix(skills): skill instructions work from an installed plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-clean-data/SKILL.md",
+      "blob_sha": "0c489bc74bf9c657ba8302a54d36cfc8fbc92469",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

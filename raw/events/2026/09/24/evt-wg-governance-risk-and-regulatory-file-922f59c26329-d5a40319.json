@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-file-922f59c26329-d5a40319",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "reporting/2026-08-report.md",
+  "title": "2026-08-report.md",
+  "timestamp": "2026-09-24T15:48:19-07:00",
+  "author": "Sriram Natarajan",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/reporting/2026-08-report.md",
+  "summary": "Update 2026-08-report.md",
+  "pointers": [
+    {
+      "repo": "wg-governance-risk-and-regulatory",
+      "commit_sha": "bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2",
+      "path": "reporting/2026-08-report.md",
+      "blob_sha": "d5a40319015291461e3f98c73f95d768818560f0",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

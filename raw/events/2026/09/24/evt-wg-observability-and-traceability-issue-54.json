@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-54",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#54",
+  "title": "The retention, completeness and identifier questions have answers per jurisdiction and role",
+  "timestamp": "2026-09-24T02:28:11Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/54",
+  "summary": "Four places in the working documents treat a legal value as an undefined label. Each is a lookup, and I can supply the rows.\n\n1. **E3 cites the wrong article for retention.** \"Retention and access controls must support applicable audit-log requirements such as EU AI Act Article 1...",
+  "pointers": [],
+  "inline_text": "Four places in the working documents treat a legal value as an undefined label. Each is a lookup, and I can supply the rows.\n\n1. **E3 cites the wrong article for retention.** \"Retention and access controls must support applicable audit-log requirements such as EU AI Act Article 12\". Article 12 is a design duty on the *provider* of a high-risk system (the system must be able to record events; 12(2) names the purposes, 12(3) prescribes content for Annex III 1(a) biometric systems only). Retention is Article 19 (provider) and Article 26(6) (deployer), each \"at least six months, unless provided otherwise in the applicable Union or national law\", each for high-risk systems, each from 2027-12-02 for Annex III. E4, #37, #44 and the HITL rows in #52 all build on E3.\n2. **\"Audit-required events\" (cross-cutting; open question 11) is the set the law enumerates.** Per instrument the fields are: whether a duty exists and what triggers it; what the log must hold (event time, system identity, actor identity, human involvement, input and output references, decision basis, affected-person reference, consent or opt-out state); retention floor and ceiling; and who may demand the record (regulator, court, data subject, auditor, counterparty). Those are data, keyed by jurisdiction and by the role of the party holding the record.\n3. **Open question 10's envelope (\"consent basis\", \"retention class\", \"residency\") presumes one regime.** \"Consent basis\" is GDPR Article 6 vocabulary; the US state acts run on opt-out, Korea's PIPA and Singapore's PDPA on consent, Japan's APPI on purpose. Encoding one as an enum encodes one law.\n4. **#50's \"permissible identifiers\" splits the same way.** A persistent pseudonymous identifier is personal data under the GDPR and UK GDPR (Recital 30) and not necessarily \"PII\" under US definitions; Article 12(3)(d) requires the identity of the natural persons who verified a result, for the systems it covers.\n\nLet me know if you want me to discuss at an upcoming Wednesday meeting.",
+  "labels": []
+}

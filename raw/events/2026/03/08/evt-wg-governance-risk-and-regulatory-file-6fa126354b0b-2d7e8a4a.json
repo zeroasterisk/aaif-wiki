@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-file-6fa126354b0b-2d7e8a4a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "meeting-notes/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-03-08T19:54:40-07:00",
+  "author": "mindpower",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/meeting-notes/TEMPLATE.md",
+  "summary": "Add Agent instructions and templates markdown",
+  "pointers": [
+    {
+      "repo": "wg-governance-risk-and-regulatory",
+      "commit_sha": "bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2",
+      "path": "meeting-notes/TEMPLATE.md",
+      "blob_sha": "2d7e8a4a15328ff83df028a10b1bdb6370ec5696",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

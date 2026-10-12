@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-issue-8",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/foundation",
+  "reference_id": "ISSUE#8",
+  "title": "Broken AAIF Foundation Charter Link in \"Trademark and Accounts\" Section",
+  "timestamp": "2026-10-07T14:19:44Z",
+  "author": "rajveer43",
+  "url": "https://github.com/aaif/foundation/issues/8",
+  "summary": "<img width=\"1018\" height=\"374\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/2057ef7f-ccb5-468e-b2cf-7fb38bb5bcec\" />\n\n## Description\n\nThe **AAIF Foundation Charter** link shown in the **Trademark and accounts** section of the project submission form appears to be b...",
+  "pointers": [],
+  "inline_text": "<img width=\"1018\" height=\"374\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/2057ef7f-ccb5-468e-b2cf-7fb38bb5bcec\" />\n\n## Description\n\nThe **AAIF Foundation Charter** link shown in the **Trademark and accounts** section of the project submission form appears to be broken or inaccessible.\n\nThe form currently states:\n\n> By submitting this issue, you understand that if accepted, all project trademarks (such as the project name) and accounts will be donated to the AAIF. For more information please refer to Section 8 of the AAIF Foundation Charter.\n\nHowever, clicking the **AAIF Foundation Charter** link does not lead to the expected charter/documentation.\n\n## Expected Behavior\n\nThe **AAIF Foundation Charter** link should direct users to the current AAIF Foundation Charter, specifically allowing applicants to review **Section 8** before agreeing to donate project trademarks and accounts.\n\n## Actual Behavior\n\nThe provided link is broken or does not resolve to the intended AAIF Foundation Charter.\n\n## Why This Matters\n\nApplicants are required to agree to donate project trademarks and accounts to the AAIF if their project is accepted. Since this is an important legal/governance requirement, applicants should be able to review the referenced charter before checking the agreement box.\n\n## Suggested Fix\n\nPlease update the **AAIF Foundation Charter** hyperlink to point to the current and publicly accessible version of the charter.\n\n## Screenshot\n\nA screenshot of the affected section is attached for reference.",
+  "labels": []
+}

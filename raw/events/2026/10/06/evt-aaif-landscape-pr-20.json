@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-20",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#20",
+  "title": "Add UnGovr to Associate Members",
+  "timestamp": "2026-10-06T18:33:26Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/aaif-landscape/pull/20",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

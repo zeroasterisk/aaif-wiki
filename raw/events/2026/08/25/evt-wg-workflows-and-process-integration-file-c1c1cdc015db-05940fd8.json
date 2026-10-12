@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-c1c1cdc015db-05940fd8",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/architectures/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-08-25T07:58:21-07:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/architectures/TEMPLATE.md",
+  "summary": "Replace reference architecture steps with activities (#33)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/architectures/TEMPLATE.md",
+      "blob_sha": "05940fd8db356758ee3bbfb4505639f69a8af6d1",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-85",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#85",
+  "title": "Define universal term Hallucination",
+  "timestamp": "2026-10-09T13:00:42Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/85",
+  "summary": "Defines Hallucination as a facially plausible detail or position in AI output that lacks any available support or basis. Adds the concept as a universal taxonomy term without introducing unreviewed aliases, relationships, or scope notes. Validation: taxonomy schema passes with 38...",
+  "pointers": [],
+  "inline_text": "Defines Hallucination as a facially plausible detail or position in AI output that lacks any available support or basis. Adds the concept as a universal taxonomy term without introducing unreviewed aliases, relationships, or scope notes. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

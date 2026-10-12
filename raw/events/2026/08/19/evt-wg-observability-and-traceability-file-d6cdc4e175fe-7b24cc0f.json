@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-d6cdc4e175fe-7b24cc0f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/03-hardware-accelerators/amd-rocprofiler.md",
+  "title": "amd-rocprofiler.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/03-hardware-accelerators/amd-rocprofiler.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/03-hardware-accelerators/amd-rocprofiler.md",
+      "blob_sha": "7b24cc0f6778b3f8b7d042c70b9207116df6d2f4",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

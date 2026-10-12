@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-agentic-commerce-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "PR#6",
+  "title": "Input for Deliverable 1 (Capability Map): post-purchase section (P1-P7)",
+  "timestamp": "2026-09-01T07:30:12Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-agentic-commerce/pull/6",
+  "summary": "## Summary\nProposed input for **Deliverable 1 - Agentic Commerce Capability Map** (charter §4), per the offer made in issue #5 to draft the post-purchase section. Contributed as working-group participant input, not as a claim on the deliverable itself.\n\n## What this adds\n`capabil...",
+  "pointers": [],
+  "inline_text": "## Summary\nProposed input for **Deliverable 1 - Agentic Commerce Capability Map** (charter §4), per the offer made in issue #5 to draft the post-purchase section. Contributed as working-group participant input, not as a claim on the deliverable itself.\n\n## What this adds\n`capability-map-input/post-purchase-section.md` with:\n\n- **§2 - Proposed capability rows P1-P7**: eligibility inquiry, remedy offer and negotiation, buyer authorization and consent evidence, state-change execution signals, evidence binding, dispute and claims initiation, adjustment ledger - each with representative signals/artifacts and initial protocol coverage flags (UCP, ACP, AP2, x402).\n- **§3 - Evidence and auditability: machine-readable contract**: the 8-field bounded verdict envelope (verdict, verifier, verifier_signature, evidence_refs, evidence_fingerprints, verification_basis, witness_scope, timestamp) and its consumption rule, connecting to the cross-boundary evidence row in issue #5.\n- **§4 - Gap Analysis input**: addresses the July-flagged gap that post-purchase expertise and representation remained limited, framing the capability set for the Gap Analysis document (Deliverable 2).\n- **§5 - Next steps**: protocol coverage mapping, alignment with sibling WG primitives (Observability and Traceability evidence record; Identity and Trust consent), integration per chair direction.\n\n## Intent\nProvide a concrete starting point for the post-purchase slice of the map. Protocol coverage cells are initial flags pending the WG's protocol mapping task; happy to adjust placement, naming, or structure to match how the chairs assemble Deliverable 1.\n\nCloses: none (input for the Capability Map assembly; issue #5 remains the tracking issue).",
+  "labels": []
+}

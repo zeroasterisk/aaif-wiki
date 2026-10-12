@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-80",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#80",
+  "title": "Define universal term Agent swarm",
+  "timestamp": "2026-10-05T16:23:43Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/80",
+  "summary": "Defines Agent swarm as a group of subagents working cooperatively or independently toward a task or shared objective. Clarifies that swarm size and temporary versus persistent lifetime are unspecified, notes typical management by an Orchestrator agent, and links Subagent and Orch...",
+  "pointers": [],
+  "inline_text": "Defines Agent swarm as a group of subagents working cooperatively or independently toward a task or shared objective. Clarifies that swarm size and temporary versus persistent lifetime are unspecified, notes typical management by an Orchestrator agent, and links Subagent and Orchestrator as related terms. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass. The Orchestrator related-term reference produces the expected non-blocking warning because that term is not yet defined.",
+  "labels": []
+}

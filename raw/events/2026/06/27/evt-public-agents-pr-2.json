@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-public-agents-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/public-agents",
+  "reference_id": "PR#2",
+  "title": "fix: remove references to directories that do not exist",
+  "timestamp": "2026-06-27T05:21:39Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/public-agents/pull/2",
+  "summary": "The README listed four directories in the structure and contents sections:\n\n- skills\n- recipes\n- prompts\n- docs\n\nBut only skills exists in this repo. The other three do not exist.\n\nThis was misleading for anyone who reads the repo and looks for those paths.\n\nThis PR removes all r...",
+  "pointers": [],
+  "inline_text": "The README listed four directories in the structure and contents sections:\n\n- skills\n- recipes\n- prompts\n- docs\n\nBut only skills exists in this repo. The other three do not exist.\n\nThis was misleading for anyone who reads the repo and looks for those paths.\n\nThis PR removes all references to recipes, prompts, and docs.",
+  "labels": []
+}

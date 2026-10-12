@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-29",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#29",
+  "title": "Cross-boundary observability gap model for agentic systems",
+  "timestamp": "2026-09-19T04:53:41Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/29",
+  "summary": "## Outcome\nA reference document that maps observability boundaries (Agent→Skill, Skill→Tool, Agent→Agent, Agent→MCP server, Agent→A2A peer, Agent→Gateway/Runtime) against what should be observable at each one (identity, context, relationship, lifecycle, outcome, provenance, secur...",
+  "pointers": [],
+  "inline_text": "## Outcome\nA reference document that maps observability boundaries (Agent→Skill, Skill→Tool, Agent→Agent, Agent→MCP server, Agent→A2A peer, Agent→Gateway/Runtime) against what should be observable at each one (identity, context, relationship, lifecycle, outcome, provenance, security, timing) — and flags which existing standards already cover each gap versus which are still open.\n\n## Workstream\nWG-level deliverable, with a likely follow-on into external standards coordination (OTel GenAI SIG and/or an A2A extension proposal) depending on feedback.\n\n## Owner\nneeds owner\n\n## Status\nscoping\n\n## Next Step\nShare the draft matrix with WG leads for a first round of feedback (message drafted, not yet sent). Collect input on missing boundaries/properties before drafting a formal version.\n\n## Review or Decision Needed\n- Do WG leads agree these are the right boundaries, or is a category missing?\n- Are the flagged gaps (decision provenance, downscoped auth on delegation) actually unsolved, or is someone already handling this elsewhere?\n- Decide whether this becomes a standalone reference doc, a WG deliverable, or an input to an external standards effort.\n\n## Links\n\n\n## Acceptance Criteria\n- Matrix reviewed by at least [N] WG leads\n- No unresolved objection that a boundary or property is missing\n- Clear decision recorded on next step (standalone doc / WG deliverable / standards submission)\n\n## Notes\nOriginated as an internal exploration, not yet a formal proposal. Structure is expected to change based on feedback — this issue tracks getting it to a reviewed state, not locking it in.\n\nThis reference doc is one possible output of the broader gap-analysis work — other candidate outputs (not yet scoped) include a context-propagation extension proposal, a reference instrumentation library, and a conformance checklist. This issue tracks only the reference-doc output.",
+  "labels": []
+}

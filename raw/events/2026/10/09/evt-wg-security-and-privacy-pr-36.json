@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-36",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#36",
+  "title": "Add deliverable set to Security and Best Practices",
+  "timestamp": "2026-10-09T14:32:29Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/36",
+  "summary": "Added reference section deliverable set to Security and Best Practices\r\n\r\nSigned-Off-By: Matthew Khouzam <matthew.khouzam@ericsson.com>",
+  "pointers": [],
+  "inline_text": "Added reference section deliverable set to Security and Best Practices\r\n\r\nSigned-Off-By: Matthew Khouzam <matthew.khouzam@ericsson.com>",
+  "labels": []
+}

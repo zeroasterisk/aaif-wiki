@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-9677055e316b-9220099f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:26:17-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/reporting/TEMPLATE.md",
+  "summary": "Add reporting template for workflows integration",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "9220099f6d4fc5d14eb740f9dc376aa59729a2b0",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

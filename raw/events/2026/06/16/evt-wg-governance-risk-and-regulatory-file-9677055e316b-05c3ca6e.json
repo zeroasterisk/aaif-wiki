@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-file-9677055e316b-05c3ca6e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:11:47-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/reporting/TEMPLATE.md",
+  "summary": "Update report template for Government, Risk & Regulatory Alignment",
+  "pointers": [
+    {
+      "repo": "wg-governance-risk-and-regulatory",
+      "commit_sha": "bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "05c3ca6e0ecca4cf220d8bc926947d311b2827fa",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

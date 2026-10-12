@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-24",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#24",
+  "title": "Correct WG attribution in 2026-08-18 meeting notes",
+  "timestamp": "2026-09-25T17:05:22Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/24",
+  "summary": "The 2026-08-18 notes attributed Pavan Sudheendra's cross-boundary observability framework request to the Identity and Trust WG. Pavan chairs the Observability and Traceability WG and authored that framework (aaif/wg-observability-and-traceability#25), so this fixes the attributio...",
+  "pointers": [],
+  "inline_text": "The 2026-08-18 notes attributed Pavan Sudheendra's cross-boundary observability framework request to the Identity and Trust WG. Pavan chairs the Observability and Traceability WG and authored that framework (aaif/wg-observability-and-traceability#25), so this fixes the attribution in the notes and the README summary row.\n\nSurfaced during TC review of the August report: https://github.com/aaif/wg-security-and-privacy/pull/22#discussion_r4071307156\n\nMade with [Cursor](https://cursor.com)",
+  "labels": []
+}

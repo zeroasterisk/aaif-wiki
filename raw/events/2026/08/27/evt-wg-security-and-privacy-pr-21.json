@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-21",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#21",
+  "title": "Add Aditya Gidh to best practices and design patterns contributors",
+  "timestamp": "2026-08-27T02:02:39Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/21",
+  "summary": "## Summary\n\n- Adds Aditya Gidh (IBM) to the Contributors table in `workstreams/best-practices/README.md`.\n- Adds Aditya Gidh (IBM) to the Contributors table in `workstreams/design-patterns/README.md`.\n\nBoth tables remain sorted alphabetically by first name.\n\nMade with [Cursor](ht...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- Adds Aditya Gidh (IBM) to the Contributors table in `workstreams/best-practices/README.md`.\n- Adds Aditya Gidh (IBM) to the Contributors table in `workstreams/design-patterns/README.md`.\n\nBoth tables remain sorted alphabetically by first name.\n\nMade with [Cursor](https://cursor.com)",
+  "labels": []
+}

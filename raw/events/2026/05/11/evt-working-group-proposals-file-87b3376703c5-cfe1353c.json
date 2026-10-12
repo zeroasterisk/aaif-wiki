@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-87b3376703c5-cfe1353c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": ".github/ISSUE_TEMPLATE/working-group-proposal.yml",
+  "title": "working-group-proposal.yml",
+  "timestamp": "2026-05-11T15:49:20-07:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/.github/ISSUE_TEMPLATE/working-group-proposal.yml",
+  "summary": "Merge pull request #2 from mesutoezdil/fix/duplicate-field",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "5c17275468b2e8859b7eb261e53f7ad4d19a9ed8",
+      "path": ".github/ISSUE_TEMPLATE/working-group-proposal.yml",
+      "blob_sha": "cfe1353cd45ce4739abe00671be0542654128c56",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

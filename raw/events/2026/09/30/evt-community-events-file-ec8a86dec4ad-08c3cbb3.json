@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-ec8a86dec4ad-08c3cbb3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-create-chapter/references/rename-chapter.md",
+  "title": "rename-chapter.md",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/rename-chapter.md",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-create-chapter/references/rename-chapter.md",
+      "blob_sha": "08c3cbb3ed7b13ec2c660b22aa4838c71c82e915",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

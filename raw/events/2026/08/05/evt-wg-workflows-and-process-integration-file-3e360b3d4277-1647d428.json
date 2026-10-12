@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/patterns/human-approval-gate.md",
+  "title": "human-approval-gate.md",
+  "timestamp": "2026-08-05T23:05:12-04:00",
+  "author": "Zayne Turner",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md",
+  "summary": "Propose job-oriented reference-architecture model (#20)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/patterns/human-approval-gate.md",
+      "blob_sha": "1647d428915d4711187c8539d761a9ddb797640f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

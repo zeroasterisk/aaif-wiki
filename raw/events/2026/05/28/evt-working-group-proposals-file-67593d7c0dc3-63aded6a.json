@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-67593d7c0dc3-63aded6a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "submission-guidelines.md",
+  "title": "submission-guidelines.md",
+  "timestamp": "2026-05-28T22:55:21+02:00",
+  "author": "mesutoezdil",
+  "url": "https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/submission-guidelines.md",
+  "summary": "fix: replace broken link with correct URL in submission-guidelines",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "5c17275468b2e8859b7eb261e53f7ad4d19a9ed8",
+      "path": "submission-guidelines.md",
+      "blob_sha": "63aded6a6b2ce3a824864336a78c9e86497b193a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

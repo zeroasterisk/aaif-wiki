@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-9677055e316b-9ddc8f32",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:17:42-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/reporting/TEMPLATE.md",
+  "summary": "Add reporting template for Taxonomy & Landscape",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "9ddc8f32857abe6a6a84cdc0b9cce37bbf8e2dca",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

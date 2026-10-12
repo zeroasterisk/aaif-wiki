@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "CONTRIBUTING.md",
+  "title": "CONTRIBUTING.md",
+  "timestamp": "2026-10-07T08:37:23-04:00",
+  "author": "Julianna Langston",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md",
+  "summary": "docs: clarify taxonomy contribution process",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "CONTRIBUTING.md",
+      "blob_sha": "92c6cc7767167f0df62eb295dad699d96df4263a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-31",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#31",
+  "title": "Best practices guide: put the four-tier authorization framework behind a pre-execution hook (Section 4)",
+  "timestamp": "2026-10-10T01:10:12Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/31",
+  "summary": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015413923. Fernando flagged this for WG discussion.\n\n**Current text** ([L135](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables...",
+  "pointers": [],
+  "inline_text": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015413923. Fernando flagged this for WG discussion.\n\n**Current text** ([L135](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L135)): tier assignment is \"made at design time by an orchestration-layer classifier, never accepted as self-reported by the agent\", and all four tiers put a human in the loop as the control.\n\n**Proposal.**\n1. Make the control a hook. Every tool call is intercepted before it runs, and code decides allow, deny, modify or ask. Rules first, an LLM judge only where the rules hand off, a human only on \"ask\". The four tiers then describe the \"ask\" path, not the whole control.\n2. Key the decision on the actual call, tool plus arguments plus context, not on operation type. `run_sql` is Tier 1 or Tier 4 depending on the argument.\n3. Resolve \"design time\" vs \"classifier\". One is a static map from operation type to tier, the other decides per action at runtime. Say which it is, what it sees, and how the agent cannot reach it.\n\n**Why.** Anthropic measured human approval as a control. Users approve 97% of Claude Code permission prompts. When a dangerous command was slipped into the sessions of 1,053 testers, 13.6% caught it, about 5% after fifty prior prompts. Their automated check blocked 89% of the same commands, so they made it the default. https://claude.com/blog/auto-mode-default-in-claude-code. The guide already agrees in one place: the network allowlist on [L144](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L144) is a hook in code, not a reviewer tier.\n\n**References.** OWASP Agent Control Standard, the open wire format for hook decisions: https://github.com/GenAI-Security-Project/agent-control-standard (already in the ledger for AgBOM). hooks.security catalogues the hook-based controls the major agent platforms already expose, most of them firing before execution: https://hooks.security\n\nDisclosure: I contribute to ACS, and I maintain hooks.security.",
+  "labels": []
+}

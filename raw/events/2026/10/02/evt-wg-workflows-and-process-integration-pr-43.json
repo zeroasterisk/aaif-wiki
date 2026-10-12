@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-43",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#43",
+  "title": "Add minimum evidence section for deterministic gates in bounded autonomous remediation",
+  "timestamp": "2026-10-02T15:00:07Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/43",
+  "summary": "## Summary\n\n- Add a \"Minimum evidence for a deterministic gate\" section to the Bounded Autonomous Remediation reference architecture.\n- Resolve open question 3 (\"What minimum evidence makes a deterministic gate strong enough for different classes of constrained effect?\") by tying...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- Add a \"Minimum evidence for a deterministic gate\" section to the Bounded Autonomous Remediation reference architecture.\n- Resolve open question 3 (\"What minimum evidence makes a deterministic gate strong enough for different classes of constrained effect?\") by tying the minimum evidence bar to two properties of the permitted effect: blast radius and reversal cost.\n- State three properties that hold for every acceptance record, independent of gate strength: determinism of the verdict, binding of verdict to candidate, and preservation as execution evidence.\n- Remove the resolved question from the Open questions list.\n\n## Context\n\nFollow-up to the proposal raised in the PR #37 discussion thread and the invitation to bring it into the reference architecture: gate strength should scale with the permitted effect, but the evidence bar for recording a verdict should not weaken.\n\n## Notes for reviewers\n\n- Concepts only. No implementation or product references.\n- The section reuses guarantees already stated in this architecture: the deterministic acceptance gate invariants, the \"acceptance evidence has a limited claim\" composition consideration, and the exit-state recording discipline.\n- If the WG prefers to keep open question 3 open pending broader discussion, this section can be revised or reverted.\n\n## Test plan\n\n- [ ] Run `git diff --check`\n- [ ] Verify relative Markdown links\n- [ ] Confirm the branch is based on current `aaif:main`",
+  "labels": []
+}

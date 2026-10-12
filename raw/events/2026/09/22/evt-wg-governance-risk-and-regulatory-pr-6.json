@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#6",
+  "title": "[Report] 2026-06",
+  "timestamp": "2026-09-22T12:17:06Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/6",
+  "summary": "Governance Risk WG - June updates",
+  "pointers": [],
+  "inline_text": "Governance Risk WG - June updates",
+  "labels": []
+}

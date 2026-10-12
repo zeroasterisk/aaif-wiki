@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-22190b4c1053-5db87bbc",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/best-practices/security-best-practices-feature-matrix.md",
+  "title": "security-best-practices-feature-matrix.md",
+  "timestamp": "2026-09-30T10:38:42-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/best-practices/security-best-practices-feature-matrix.md",
+  "summary": "Move best practices guide and threat modeling gap analysis to deliverables",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "22c3f9a2cdac4fcf092502fa06154b08b4df09b8",
+      "path": "workstreams/best-practices/security-best-practices-feature-matrix.md",
+      "blob_sha": "5db87bbca1ebc58d0cd00575d386ce4518db56ff",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

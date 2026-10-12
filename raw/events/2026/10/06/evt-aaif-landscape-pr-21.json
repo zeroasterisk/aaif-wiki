@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-21",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#21",
+  "title": "Update AAIM watchlist projects",
+  "timestamp": "2026-10-06T18:07:49Z",
+  "author": "sboysel",
+  "url": "https://github.com/aaif/aaif-landscape/pull/21",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-41",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#41",
+  "title": "Define a handful of taxonomy terms",
+  "timestamp": "2026-10-02T03:38:32Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/41",
+  "summary": "## Summary\n\n- define the accepted taxonomy terms `Skill`, `AI agent bill of materials` (`AI-BOM`), `Reversibility`, and `Context exhaustion`\n- preserve deferred category and hierarchy fields while adding the agreed aliases, workgroups, related terms, and contrasts\n- keep Universa...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- define the accepted taxonomy terms `Skill`, `AI agent bill of materials` (`AI-BOM`), `Reversibility`, and `Context exhaustion`\n- preserve deferred category and hierarchy fields while adding the agreed aliases, workgroups, related terms, and contrasts\n- keep Universal terms unassigned with `workgroups: []`\n- leave `Autonomy level` and `Kill switch` to #2, `Handoff` to #55, and the overlapping Security & Privacy concepts to #56\n\n## Why\n\nThese four terms were retained through workstream review, and this PR records the presented definitions and scope notes in the taxonomy. Terms already defined by other pull requests have been removed so each concept has a single owning PR.\n\n## Impact\n\nThe taxonomy UI will display concrete definitions for four accepted terms, recognize `AI-BOM` as an alias, and expose the relevant cross-term relationships.\n\n## Validation\n\n- `git diff --check`\n- confirmed the PR diff against current `main` contains only the four intended term definitions\n- confirmed taxonomy term names remain unique\n- `node --check taxonomy/taxonomy-data.js` currently encounters a pre-existing syntax error in the `Delegation` scope note on `main`",
+  "labels": []
+}

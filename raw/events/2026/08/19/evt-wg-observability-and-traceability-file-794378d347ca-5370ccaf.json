@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-794378d347ca-5370ccaf",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/01-foundations/ctf.md",
+  "title": "ctf.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/01-foundations/ctf.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/01-foundations/ctf.md",
+      "blob_sha": "5370ccaf0dcc0f47a9173bdac80a502027c2de7a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

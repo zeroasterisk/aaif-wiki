@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/critical-use-cases/README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-01T07:36:14-07:00",
+  "author": "Jodee Varney",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md",
+  "summary": "[Use Cases WS] Add README for Critical Use Cases workstream (#46)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/critical-use-cases/README.md",
+      "blob_sha": "b054a303c1f79472ed65ecc56ee342dee7ad90b1",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

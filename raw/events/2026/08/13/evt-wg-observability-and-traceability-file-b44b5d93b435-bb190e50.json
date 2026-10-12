@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-b44b5d93b435-bb190e50",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": ".github/ISSUE_TEMPLATE/work-item.md",
+  "title": "work-item.md",
+  "timestamp": "2026-08-13T08:25:54+01:00",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/.github/ISSUE_TEMPLATE/work-item.md",
+  "summary": "docs: add working methods (#13)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": ".github/ISSUE_TEMPLATE/work-item.md",
+      "blob_sha": "bb190e5020a10e307840f7a6e460c20cea72f800",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

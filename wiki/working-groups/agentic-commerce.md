@@ -1,48 +1,50 @@
 ---
 type: working-group
 title: Agentic Commerce Working Group
-description: AAIF technical working group cataloging and harmonizing open specifications,
-  protocols, buyer capacity models, and record retention requirements for agentic
-  commerce.
-resource: https://github.com/aaif/wg-agentic-commerce/issues/8
+description: Technical working group establishing capability maps, gap analyses, and
+  protocol architectures for autonomous commerce transactions, cross-boundary evidence
+  binding, and post-purchase settlement.
+resource: https://github.com/aaif/wg-agentic-commerce/issues/5
 tags:
-- working-groups
+- working-group
 - commerce
 - protocols
-- identity
-- compliance
+- settlement
+- evidence
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:24:22.444967+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:18:09.925582+00:00'
 sources:
-- id: evt-wg-agentic-commerce-issue-8
-  resource: https://github.com/aaif/wg-agentic-commerce/issues/8
-  author: smcd
-  last_modified: '2026-10-09T22:35:12+00:00'
+- id: evt-wg-agentic-commerce-issue-5
+  resource: https://github.com/aaif/wg-agentic-commerce/issues/5
+  author: narko4u
+  last_modified: '2026-10-08T04:12:43+00:00'
 ---
 
 # Overview
+The Agentic Commerce Working Group is an AAIF technical working group establishing standardized capability maps, gap analyses, protocol architectures, and audit mechanisms for autonomous agent commerce[^evt-wg-agentic-commerce-issue-5]. The group evaluates interaction standards spanning product discovery, agent-negotiated purchases, payment authorization, and post-purchase accountability across agent, merchant, payment processor, and risk-system boundaries[^evt-wg-agentic-commerce-issue-5].
 
-The Agentic Commerce Working Group establishes vendor-neutral standards, capability taxonomies, and reference architectures for autonomous agent-driven economic transactions [^evt-wg-agentic-commerce-issue-8]. The group evaluates emerging commerce protocols (including UCP, ACP, AP2, and x402), trust delegation frameworks, buyer capacity verification, and regulatory record retention obligations across global jurisdictions [^evt-wg-agentic-commerce-issue-8].
+The working group coordinates cross-cutting concerns with sibling foundation efforts, delegating telemetry and causal audit structures to the [Observability & Traceability Working Group](../working-groups/observability-and-traceability.md) and identity binding and delegation primitives to the [Identity & Trust Working Group](../working-groups/identity-and-trust.md)[^evt-wg-agentic-commerce-issue-5].
 
 # Architecture / Specification
 
-### Buyer Legal Capacity and Identity Attributes
+The working group structures its core deliverables around an overarching Capability Map and Gap Analysis, targeting full lifecycle transaction coverage across pre-purchase, point-of-sale, and post-purchase operational phases[^evt-wg-agentic-commerce-issue-5]:
 
-Agentic purchasing protocols require explicit mechanisms to verify principal capacity and age restrictions before delegation execution [^evt-wg-agentic-commerce-issue-8]:
-- **Principal Capacity Modeling**: Distinguishes between agent authentication and principal legal capacity, accounting for jurisdictional voidability of minor contracts and age-gated merchandise verification [^evt-wg-agentic-commerce-issue-8].
-- **Absence at Checkout**: Bridges the verification gap created when human principals are absent during agent execution [^evt-wg-agentic-commerce-issue-8].
-
-### Multi-Tier Record Retention Framework
-
-Evaluating commerce protocol compliance against three distinct regulatory retention tiers [^evt-wg-agentic-commerce-issue-8]:
-1. **AI Governance Layer**: High-risk system logging obligations (e.g., EU AI Act Articles 19 and 26(6) mandating 6-month minimum retention for deployers and providers) [^evt-wg-agentic-commerce-issue-8].
-2. **Data Privacy Layer**: Storage limitation principles establishing ceiling thresholds for personal data retention [^evt-wg-agentic-commerce-issue-8].
-3. **Financial and AML Compliance Layer**: Statutory financial retention mandates (e.g., US Bank Secrecy Act and EU AML Directives requiring 5-year periods; Regulation E requiring 2-year periods) [^evt-wg-agentic-commerce-issue-8].
+- **Evidence Binding**: Constructing verifiable receipts and audit records that cryptographically bind execution claims to transaction identifiers, agent identities, shopper identities, and delegation scopes to enable deterministic dispute resolution[^evt-wg-agentic-commerce-issue-5].
+- **Signal Provenance**: Establishing explicit markers distinguishing self-reported signals from independently observed signals across platforms, payment providers, and merchants[^evt-wg-agentic-commerce-issue-5].
+- **Authorization Strength**: Formulating evidentiary thresholds and renewed approval requirements for state-changing remedies, including cancellations, returns, refunds, and disputes[^evt-wg-agentic-commerce-issue-5].
+- **Auditability and Verdict Envelopes**: Defining bounded verification results via machine-readable verdict envelopes containing:
+  1. `verdict`: Tri-state classification (`supported`, `contradicted`, or `unresolvable`)[^evt-wg-agentic-commerce-issue-5].
+  2. `verifier`: Distinct entity identifier computing the classification[^evt-wg-agentic-commerce-issue-5].
+  3. `verifier_signature`: Digital signature computed over verdict and evidence fingerprints[^evt-wg-agentic-commerce-issue-5].
+  4. `evidence_refs`: Canonical references to transaction, delegation, and consent claims[^evt-wg-agentic-commerce-issue-5].
+  5. `evidence_fingerprints`: RFC 8785 canonical hashes ensuring deterministic replay[^evt-wg-agentic-commerce-issue-5].
+  6. `verification_basis`: Specification of evaluated policy checks[^evt-wg-agentic-commerce-issue-5].
+  7. `witness_scope`: Scope limitations and boundaries of the verification verdict[^evt-wg-agentic-commerce-issue-5].
+  8. `timestamp`: Freshness assertion[^evt-wg-agentic-commerce-issue-5].
 
 # Lifecycle History
+- **Issue #5**: Proposed capability row and machine-readable verdict envelope contract for post-purchase cross-boundary evidence, auditability, and dispute reconciliation[^evt-wg-agentic-commerce-issue-5].
 
-- Scope expanded to evaluate buyer legal capacity models and cross-layer retention matrices in Issue #8 [^evt-wg-agentic-commerce-issue-8].
-
-[^evt-wg-agentic-commerce-issue-8]: https://github.com/aaif/wg-agentic-commerce/issues/8
+[^evt-wg-agentic-commerce-issue-5]: https://github.com/aaif/wg-agentic-commerce/issues/5

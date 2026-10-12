@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-8fb7a6935b72-65c58be5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/design-patterns/DRAFT-approval_checkpoint_pattern.md",
+  "title": "DRAFT-approval_checkpoint_pattern.md",
+  "timestamp": "2026-09-30T10:16:03-04:00",
+  "author": "sagardashora",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-approval_checkpoint_pattern.md",
+  "summary": "Initial drafts for design patterns catalog (#26)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "22c3f9a2cdac4fcf092502fa06154b08b4df09b8",
+      "path": "workstreams/design-patterns/DRAFT-approval_checkpoint_pattern.md",
+      "blob_sha": "65c58be5ed5e36188b983983ec7338de44b6aa2b",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

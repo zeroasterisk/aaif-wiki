@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#4",
+  "title": "Update README links to point to new URLs",
+  "timestamp": "2026-04-20T03:19:06Z",
+  "author": "ColinEberhardt",
+  "url": "https://github.com/aaif/aaif-landscape/pull/4",
+  "summary": "Fixes #3",
+  "pointers": [],
+  "inline_text": "Fixes #3",
+  "labels": []
+}

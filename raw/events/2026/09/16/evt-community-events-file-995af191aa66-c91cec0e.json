@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-995af191aa66-c91cec0e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/audit-slack/prompt.md",
+  "title": "prompt.md",
+  "timestamp": "2026-09-16T21:52:16-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/audit-slack/prompt.md",
+  "summary": "fix(evals): correct three cases the first full run exposed",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/audit-slack/prompt.md",
+      "blob_sha": "c91cec0e8baf473c6fa12465d7bee6754dbc7373",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

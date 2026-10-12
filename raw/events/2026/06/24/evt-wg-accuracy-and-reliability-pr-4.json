@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#4",
+  "title": "Add taxonomy-landscape JSON review index",
+  "timestamp": "2026-06-24T09:52:44Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/4",
+  "summary": "JSON-first taxonomy review for the working group.\n## Files\n- `CURRENT-WORKSTREAMS.md` — workstreams and pull-request practice\n- `taxonomy-landscape/README.md` — section index, outline, contributor paths, source-document lookup\n- `taxonomy-landscape/CONTRIBUTING.md` — JSON field s...",
+  "pointers": [],
+  "inline_text": "JSON-first taxonomy review for the working group.\n## Files\n- `CURRENT-WORKSTREAMS.md` — workstreams and pull-request practice\n- `taxonomy-landscape/README.md` — section index, outline, contributor paths, source-document lookup\n- `taxonomy-landscape/CONTRIBUTING.md` — JSON field semantics, Taxonomy WG schema alignment, ARWG `x-*` review fields\n**JSON slices** — pattern: `taxonomy-landscape/s{section}-{topic}-{p0|p1|p2}.json`  \n(one file per D1 section × priority band; example: `s08-failure-p0.json`)\n| Slug prefix | Topic |\n|-------------|--------|\n| `s03-boundaries-*` | System boundaries and evaluation subjects |\n| `s04-core-*` | Accuracy, reliability, and output quality |\n| `s05-reliability-dimensions-*` | Reliability dimensions |\n| `s06-governance-*` | Operational and governance terms |\n| `s07-grounding-*` | Grounding, evidence, and world |\n| `s08-failure-*` | Failure vocabulary (symptoms and root causes) |\n| `s09-metrics-*` | Metrics and measurement |\n| `s10-ecosystem-*` | Evaluation ecosystem |\n| `s11-response-*` | Response — design and correction (preliminary) |",
+  "labels": []
+}

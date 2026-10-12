@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-13",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#13",
+  "title": "[Report] 2026-09",
+  "timestamp": "2026-10-12T02:07:56Z",
+  "author": "CasperGN",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/13",
+  "summary": "# September AWRG report\r\n\r\nNo TC decisions needed for present report.",
+  "pointers": [],
+  "inline_text": "# September AWRG report\r\n\r\nNo TC decisions needed for present report.",
+  "labels": [
+    "monthly-report"
+  ]
+}

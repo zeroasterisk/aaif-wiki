@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "deliverables/arwg-survey.md",
+  "title": "arwg-survey.md",
+  "timestamp": "2026-09-16T06:33:27-07:00",
+  "author": "Sanjeev Suresh",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/deliverables/arwg-survey.md",
+  "summary": "Clarify survey early exit and add other activity option",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "10bc173f00e45d93a8f7038cb0c36a89e3219565",
+      "path": "deliverables/arwg-survey.md",
+      "blob_sha": "503ff3e3dcc653c5f254594579a76fbae2ecdad8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

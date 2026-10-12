@@ -1,38 +1,48 @@
 ---
 type: resource
-title: Community Events Eval Suite
-description: Empirical evaluation suite using two-arm comparative execution and automated
-  graders to benchmark agent skill routing and execution.
-resource: https://github.com/aaif/community-events/blob/7812e00cb0da0153a9a93f3e19040b1f608a4901/evals/sync-front-door/graders/not_a_phase_skill.md
+title: Community Events Evaluation Suite
+description: Empirical evaluation suite and grading harness benchmarking skill triggering,
+  prompt comprehension, and operational guardrails for community event agent skills.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
 tags:
 - evals
-- benchmarking
-- skills
+- benchmarks
+- community-events
+- agent-skills
 - testing
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:08:29.494725+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:21:20.723735+00:00'
 sources:
-- id: evt-community-events-file-cc0e90fa8ff2-c75eeab5
-  resource: https://github.com/aaif/community-events/blob/7812e00cb0da0153a9a93f3e19040b1f608a4901/evals/sync-front-door/graders/not_a_phase_skill.md
+- id: evt-community-events-file-cd95e0a9e63d-5578e7ad
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
   author: Rahul Parundekar
-  last_modified: '2026-09-19T15:40:28-07:00'
-- id: evt-community-events-file-d8b637bc00e2-5c63f836
-  resource: https://github.com/aaif/community-events/blob/7812e00cb0da0153a9a93f3e19040b1f608a4901/evals/sync-front-door/graders/skill_fires.md
+  last_modified: '2026-10-11T08:19:42-07:00'
+- id: evt-community-events-file-b33563055168-f722dd04
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
   author: Rahul Parundekar
-  last_modified: '2026-09-19T15:40:28-07:00'
+  last_modified: '2026-10-11T08:20:05-07:00'
 ---
 
 # Overview
-The Community Events Eval Suite provides automated benchmarking and behavioral grading for operational agent skills and orchestrator front doors within the Agentic AI Foundation[^evt-community-events-file-cc0e90fa8ff2-c75eeab5][^evt-community-events-file-d8b637bc00e2-5c63f836]. It verifies skill dispatch accuracy, gate adherence, and execution safety using trace assertions and comparative testing.
+The Community Events Evaluation Suite is an empirical benchmarking harness within the Agentic AI Foundation (AAIF) repository designed to test tool selection, invocation fidelity, and parameter safety across community management agent skills [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04]. The suite verifies that agent runners correctly bind natural language user requests to underlying skills—such as [community event operations](../skills/community-event-operations.md)—without requiring rigid technical phrasing [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
 
-# Architecture / Specification
-The evaluation framework executes test cases across comparative trials and evaluates trace logs against declarative rule graders[^evt-community-events-file-cc0e90fa8ff2-c75eeab5][^evt-community-events-file-d8b637bc00e2-5c63f836]:
+# Architecture and Grading Methodology
+The harness evaluates agent behavior across operational tasks ranging from environment configuration checks to complex data migrations and event lifecycle administration [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
 
-- **Front-Door Dispatch Grader (`skill_fires.md`)**: Asserts that generalized whole-estate drift requests invoke the primary orchestrator (`aaif-sync`) rather than prematurely executing an isolated phase engine[^evt-community-events-file-d8b637bc00e2-5c63f836].
-- **Isolation Grader (`not_a_phase_skill.md`)**: Verifies that individual phase skills (such as `aaif-sync-chapters`, `aaif-sync-organizers`, or `aaif-sync-slack`) do not trigger independently when given broad multi-phase prompts, preventing partial, uncoordinated pipeline executions[^evt-community-events-file-cc0e90fa8ff2-c75eeab5].
-- **Trace Matching**: Employs regex and tool invocation pattern matching against execution traces to grade routing decisions deterministically[^evt-community-events-file-cc0e90fa8ff2-c75eeab5][^evt-community-events-file-d8b637bc00e2-5c63f836].
+## Tool Invocation and Trigger Evaluation
+Evaluations use targeted test cases and automated assertion graders to verify proper activation of skills formatted according to the [Agent Skills standard](../standards/agent-skills.md) [^evt-community-events-file-cd95e0a9e63d-5578e7ad]. For instance, setup verification grading (`evals/check-setup/graders/skill_fires.md`) benchmarks whether the agent accurately triggers `aaif-check-setup` when presented with natural, colloquial queries such as "is it all working" [^evt-community-events-file-cd95e0a9e63d-5578e7ad]:
+- **Input Matching**: Evaluates structured agent output against regular expressions detecting target skill invocations (e.g., matching `"skill"\s*:\s*"(?:[\w-]+:)?aaif-check-setup"`) [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
+- **Non-Technical Trigger Robustness**: Enforces that the skill triggers reliably on non-expert phrasing without requiring explicit keywords such as "setup" or "check" [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
 
-[^evt-community-events-file-cc0e90fa8ff2-c75eeab5]: https://github.com/aaif/community-events/blob/7812e00cb0da0153a9a93f3e19040b1f608a4901/evals/sync-front-door/graders/not_a_phase_skill.md
-[^evt-community-events-file-d8b637bc00e2-5c63f836]: https://github.com/aaif/community-events/blob/7812e00cb0da0153a9a93f3e19040b1f608a4901/evals/sync-front-door/graders/skill_fires.md
+## Operational Safety and Protocol Conformance
+Beyond skill triggering, the evaluation framework assesses adherence to critical operational boundaries [^evt-community-events-file-b33563055168-f722dd04]:
+- **Proposal Separation**: Verifies that agents do not trigger mutative write operations during diagnostic or scanning prompts [^evt-community-events-file-b33563055168-f722dd04].
+- **Environment Verification**: Benchmarks proper detection of required system dependencies, including authenticated `gws` Google Workspace CLI access and Python runtimes before execution [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
+
+# Lifecycle History
+Developed within the `aaif/community-events` repository, the evaluation suite serves as an automated regression test gate within Foundation CI workflows, standardizing skill routing quality across compatible agent harnesses like [Goose](../resources/goose.md) [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
+
+[^evt-community-events-file-b33563055168-f722dd04]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
+[^evt-community-events-file-cd95e0a9e63d-5578e7ad]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md

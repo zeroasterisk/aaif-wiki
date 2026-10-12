@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#2",
+  "title": "Add blog guidelines skill tip",
+  "timestamp": "2026-05-13T18:29:50Z",
+  "author": "angiejones",
+  "url": "https://github.com/aaif/foundation/pull/2",
+  "summary": "Adds a tip for installing the AAIF blog guidelines agent skill.",
+  "pointers": [],
+  "inline_text": "Adds a tip for installing the AAIF blog guidelines agent skill.",
+  "labels": []
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-10",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#10",
+  "title": "Publish taxonomy v0.2 and trace-model crosswalk",
+  "timestamp": "2026-06-24T17:07:30Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/10",
+  "summary": "## Context\n\nThe draft taxonomy defines core observable concepts across orchestration, execution, protocol, and reasoning/context planes. It also maps those planes to the Agent Behavior Trace Model dimensions: execution structure, reasoning and planning, and outcomes and effects.\n...",
+  "pointers": [],
+  "inline_text": "## Context\n\nThe draft taxonomy defines core observable concepts across orchestration, execution, protocol, and reasoning/context planes. It also maps those planes to the Agent Behavior Trace Model dimensions: execution structure, reasoning and planning, and outcomes and effects.\n\n## Scope\n\nPublish the taxonomy as a repository artifact and make the trace-model crosswalk explicit:\n\n- define the taxonomy planes and core terms\n- map planes to charter focus areas\n- map planes to the Agent Behavior Trace Model dimensions\n- preserve OpenTelemetry alignment guardrails\n- identify terms that are AAIF extension concepts rather than replacements for existing OTel terms\n- identify where ongoing coordination with the central AAIF Taxonomy/Landscape working group is required\n\n## Acceptance Criteria\n\n- [ ] A taxonomy document exists in the repository.\n- [ ] The document includes the plane model and trace-model crosswalk.\n- [ ] The document clearly distinguishes conceptual planes from focus-group ownership.\n- [ ] The document states the OpenTelemetry alignment guardrails.\n- [ ] Dependencies or open questions for the central AAIF Taxonomy/Landscape working group are called out.\n- [ ] The README links to the taxonomy.\n\n## Notes\n\nThis should stay a taxonomy, not become a mini-specification. Normative field-level proposals should be tracked separately when the WG reaches that stage.",
+  "labels": [
+    "documentation"
+  ]
+}

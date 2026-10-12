@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-9373ed8bd5e2-54fdeb4c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": ".github/workflows/monthly-metrics.yml",
+  "title": "monthly-metrics.yml",
+  "timestamp": "2026-09-30T00:44:32-04:00",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/.github/workflows/monthly-metrics.yml",
+  "summary": "ci: add monthly issue and PR metrics for the TC report (#59)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": ".github/workflows/monthly-metrics.yml",
+      "blob_sha": "54fdeb4ce4297575ef6c952295cb937845b424a7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

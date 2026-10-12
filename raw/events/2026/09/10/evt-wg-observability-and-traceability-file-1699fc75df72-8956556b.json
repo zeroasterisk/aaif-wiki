@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-1699fc75df72-8956556b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/agent-tool-cli-boundary-deep-dive.md",
+  "title": "agent-tool-cli-boundary-deep-dive.md",
+  "timestamp": "2026-09-10T12:16:43+01:00",
+  "author": "Me1iodas",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/agent-tool-cli-boundary-deep-dive.md",
+  "summary": "docs: add Agent to Tool boundary deep-dive for a local CLI realization (#35)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/agent-tool-cli-boundary-deep-dive.md",
+      "blob_sha": "8956556beebb659f457a555cbe55cb018e2ccb90",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

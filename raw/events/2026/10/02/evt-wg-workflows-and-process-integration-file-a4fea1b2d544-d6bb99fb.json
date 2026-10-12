@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-a4fea1b2d544-d6bb99fb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/architectures/single-agent-human-approval.md",
+  "title": "single-agent-human-approval.md",
+  "timestamp": "2026-10-02T11:51:25-07:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/architectures/single-agent-human-approval.md",
+  "summary": "Clarify task and activity terminology (#50)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/architectures/single-agent-human-approval.md",
+      "blob_sha": "d6bb99fb2eecadbfd763e7d3b736659d6328365d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-3422d7005bbb-fcddfd77",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-check-setup/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-10-11T08:48:58-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-check-setup/SKILL.md",
+  "summary": "docs: align install, sign-in and data-folder docs with the code",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-check-setup/SKILL.md",
+      "blob_sha": "fcddfd77e2438f51630a2862d1bf0385d2190b01",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

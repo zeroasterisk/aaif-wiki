@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-issue-9",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "ISSUE#9",
+  "title": "Phase 2 gap analysis input: converging record-shape standards for the logging/evidence theme",
+  "timestamp": "2026-10-08T03:11:06Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9",
+  "summary": "The phase 2 mapping exercise maps policy instruments to common themes. One cluster of instruments (EU AI Act Art 12/19/26(6), China TC260 agent guidelines, Singapore's agentic framework, SOC 2, PCI DSS v4.0.1, ISO/IEC 42001) shares a theme: automatic, tamper-evident logging of ag...",
+  "pointers": [],
+  "inline_text": "The phase 2 mapping exercise maps policy instruments to common themes. One cluster of instruments (EU AI Act Art 12/19/26(6), China TC260 agent guidelines, Singapore's agentic framework, SOC 2, PCI DSS v4.0.1, ISO/IEC 42001) shares a theme: automatic, tamper-evident logging of agent activity. That theme is usually stated as an outcome (\"logging required\"), which leaves a wide gap between what an instrument demands and what a deployer can check.\n\nThat gap is closing from an unexpected direction. Three standards bodies are now specifying the record shape itself, which turns the theme from an outcome into a checkable artefact:\n\n- ISO/IEC 24970 (AI system logging) is in final ballot (2026-08-28), joint JTC 1/SC 42 and CEN-CENELEC JTC 21.\n- prEN 18229-1 (AI Trustworthiness Framework, Part 1: Logging) is the CEN twin, public hearing closed 2026-08-20, with a normative reference relationship to ISO/IEC 24970.\n- IETF draft-sharif-agent-audit-trail (Agent Audit Trail), updated 2026-09-05, defines a JSON record structure with mandatory fields and explicitly maps to the EU AI Act, SOC 2, ISO/IEC 42001, ISO/IEC 24970, prEN 18229-1 and PCI DSS v4.0.1.\n\nStrikingly, the three converge on the same shape: hash-chained, timestamped, tamper-evident records; pre-execution capture of denials and escalations; a recording-independence gradient (an agent should not be the sole recorder of its own high-trust actions); optional external timestamp anchoring; and, in the newest revision, metadata for decision reproducibility.\n\nA suggestion for the phase 2 mapping: include emerging standards in the instrument set, not just regulations. They are where \"logging\" becomes machine-checkable, and they give the gap analysis a concrete conformity anchor for the evidence theme: a deployer can now be asked not only \"do you log\" but \"does your record match the converging shape\". That distinction (self-reported telemetry versus independently attestable records) is the line regulators and auditors will draw first.\n\nHappy to contribute a draft theme card for this cluster: instruments, the shared requirement set, and the standards now defining the checkable shape, formatted for the group's extraction prompts. Concepts only, no implementations.",
+  "labels": []
+}

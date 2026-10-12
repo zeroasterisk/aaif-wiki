@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-17",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#17",
+  "title": "docs: add contributor onboarding guide",
+  "timestamp": "2026-09-01T16:55:37Z",
+  "author": "kmishra1204",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/17",
+  "summary": "## Summary\n\nCloses #8.\n\nAdds `CONTRIBUTOR_ONBOARDING.md` as a practical entry point for new contributors and links it from the README.\n\nThe guide covers:\n\n- where to start: charter, meeting minutes, issues, and PRs\n- public GitHub contribution flow versus member-only meeting/chan...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nCloses #8.\n\nAdds `CONTRIBUTOR_ONBOARDING.md` as a practical entry point for new contributors and links it from the README.\n\nThe guide covers:\n\n- where to start: charter, meeting minutes, issues, and PRs\n- public GitHub contribution flow versus member-only meeting/channel access\n- current focus-area entry points grounded in the charter and public meeting minutes\n- first-time contributor checklist\n- good first contribution examples\n- issue pickup and document-edit guidance\n- focus-area self-nomination guidance\n- sensitive-data reminders for trace examples\n\n## Validation\n\n- `git diff --check`\n- ASCII check on `CONTRIBUTOR_ONBOARDING.md`\n- Checked issue #8 acceptance criteria against the added sections\n\n## Notes\n\nPR #13 also updates repository working methods and README navigation. If it lands first, I can rebase this branch so the README link sits in the preferred Start Here section.",
+  "labels": []
+}

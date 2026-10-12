@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-58",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#58",
+  "title": "feat(clean-data): never flag a submission every role tab has decided no on",
+  "timestamp": "2026-10-08T18:30:02Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/58",
+  "summary": "A Denied, Inactive or Duplicate applicant has nobody left to fix their LinkedIn or email, so `scan` and the live Issues formula stop flagging them.\n\n## Behaviour\n- `scan` skips a submission when **every** role tab listing it says Denied / Inactive / Duplicate. One submission can ...",
+  "pointers": [],
+  "inline_text": "A Denied, Inactive or Duplicate applicant has nobody left to fix their LinkedIn or email, so `scan` and the live Issues formula stop flagging them.\n\n## Behaviour\n- `scan` skips a submission when **every** role tab listing it says Denied / Inactive / Duplicate. One submission can sit on several role tabs with different verdicts (organizer Denied, speaker still Prospect); one live tab keeps it flagged.\n- If a role tab lacks `Status`/`Timestamp`/`Email`, nothing is suppressed — it can't see that tab's verdict.\n- `install_flags` builds the Issues formula through `issues_formula()`, which reads a decided-no row blank so it never turns bright red. Unchanged when there is no Status column.\n- `DECIDED_NO` mirrors `aaif-audit-slack`'s (case aside; `clean.py` is zippable, so it can't import it).\n\n## Checked\n- 122 skill tests; the mixed-status test goes red against the any-tab-says-no logic.\n- Against the live sheet (counts only): 3 of 449 submissions sit on more than one role tab, none with mixed verdicts today — a latent gap, closed.\n- Lib suite and repo guards pass.\n\nNot applied to the live sheet: `install-flags` must be run to push the new formula; this PR is code only.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

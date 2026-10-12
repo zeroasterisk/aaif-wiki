@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#1",
+  "title": "chore(charter): init of wg charter",
+  "timestamp": "2026-05-18T13:05:19Z",
+  "author": "CasperGN",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/1",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": [
+    "gitvote",
+    "gitvote/closed",
+    "gitvote/failed"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-issue-12",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "ISSUE#12",
+  "title": "D4's \"quality thresholds\" and D6's \"conformance\" comments",
+  "timestamp": "2026-09-24T00:35:03Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/issues/12",
+  "summary": "Please consider updates to two names before D4 and D6 are drafted.\n\n- **\"Conformance\" (D6: \"self-assessment guidance, conformance validation artifacts, and pass/fail tests\").** Under the EU AI Act, \"conformity assessment\" (Article 43) is a defined procedure with a defined outcome...",
+  "pointers": [],
+  "inline_text": "Please consider updates to two names before D4 and D6 are drafted.\n\n- **\"Conformance\" (D6: \"self-assessment guidance, conformance validation artifacts, and pass/fail tests\").** Under the EU AI Act, \"conformity assessment\" (Article 43) is a defined procedure with a defined outcome, and a document called \"Evaluation and Conformance Guidance\" from a foundation working group will be read as it. \"Conformance to this vocabulary\" or \"consistency checks\" would be better.\n\n- **\"Quality thresholds\" (D4).** Article 15(1) requires \"an appropriate level of accuracy, robustness and cybersecurity\" and Article 15(2) has the Commission encourage benchmarks and measurement methodologies with \"metrology and benchmarking authorities\"; presumption of conformity flows from harmonised standards under Article 40 (CEN-CENELEC JTC 21). A threshold document without a jurisdiction scope statement will be read as claiming that route. In the US there is no counterpart beyond voluntary NIST AI RMF and a state layer with different content, so the scope statement is also a coverage statement.",
+  "labels": []
+}

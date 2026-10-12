@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-32",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#32",
+  "title": "[Use Cases] Replace workflow steps with activities",
+  "timestamp": "2026-08-25T14:57:48Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/32",
+  "summary": "Related to #30\n\n## Scope\n\nCritical Use Cases only:\n\n- `workstreams/critical-use-cases/schema-agentic-use-cases.md`\n- `workstreams/critical-use-cases/use-case-inventory.md`\n\n## What\n\nReplace “step” terminology with “activity” in the use-case schema and inventory.\n\n## Why\n\nThe work...",
+  "pointers": [],
+  "inline_text": "Related to #30\n\n## Scope\n\nCritical Use Cases only:\n\n- `workstreams/critical-use-cases/schema-agentic-use-cases.md`\n- `workstreams/critical-use-cases/use-case-inventory.md`\n\n## What\n\nReplace “step” terminology with “activity” in the use-case schema and inventory.\n\n## Why\n\nThe working group agreed to use “Activity” instead of “Step”.\nThis aligns the use-case workstream with the taxonomy.",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-foundation-file-ffdbe3a1e7ee-0ec44588",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "CODE_OF_CONDUCT.md",
+  "title": "CODE_OF_CONDUCT.md",
+  "timestamp": "2026-05-02T18:22:54+02:00",
+  "author": "mesutoezdil",
+  "url": "https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/CODE_OF_CONDUCT.md",
+  "summary": "Rename Code_of_Conduct.md to CODE_OF_CONDUCT.md",
+  "pointers": [
+    {
+      "repo": "foundation",
+      "commit_sha": "8df4e5b4087f2dcd5fbc77b702f68b1fc7418693",
+      "path": "CODE_OF_CONDUCT.md",
+      "blob_sha": "0ec445887242e9be4e72f2606e1c4174072d8167",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-b33563055168-a6ab4b87",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-08-11T13:20:58-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/README.md",
+  "summary": "Revise meeting and communication guidelines in README",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "README.md",
+      "blob_sha": "a6ab4b87bbd9b76ccd77d8b27f12daa5315e47a1",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

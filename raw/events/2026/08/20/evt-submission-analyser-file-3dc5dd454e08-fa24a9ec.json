@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-3dc5dd454e08-fa24a9ec",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "DESIGN.md",
+  "title": "DESIGN.md",
+  "timestamp": "2026-08-20T16:59:44+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md",
+  "summary": "Drop the Copilot PAT: use the workflow's own token instead",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "DESIGN.md",
+      "blob_sha": "fa24a9ec715256d0b4a97ba0068b3181aa41f27d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

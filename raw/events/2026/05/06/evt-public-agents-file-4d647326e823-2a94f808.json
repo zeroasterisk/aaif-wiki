@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-4d647326e823-2a94f808",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": "skills/README.md",
+  "title": "README.md",
+  "timestamp": "2026-05-06T19:20:16-05:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/skills/README.md",
+  "summary": "Add AAIF brand guidelines skill",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": "skills/README.md",
+      "blob_sha": "2a94f80880f41a2d5e34bea95cb73d647dae9775",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

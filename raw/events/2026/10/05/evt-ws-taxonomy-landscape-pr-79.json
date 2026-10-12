@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-79",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#79",
+  "title": "refactor(taxonomy): Move taxonomy data to JSON and validate with Zod",
+  "timestamp": "2026-10-05T22:03:35Z",
+  "author": "galesky-a",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/79",
+  "summary": "**Description**\r\n\r\nThe taxonomy is data, but storing it as JavaScript forced CI to maintain a custom parser just to read it safely. That parser duplicated language-parsing logic and still left contributors exposed to avoidable syntax errors, including malformed strings and object...",
+  "pointers": [],
+  "inline_text": "**Description**\r\n\r\nThe taxonomy is data, but storing it as JavaScript forced CI to maintain a custom parser just to read it safely. That parser duplicated language-parsing logic and still left contributors exposed to avoidable syntax errors, including malformed strings and object boundaries.\r\n\r\nThis change makes `taxonomy/taxonomy.json` the source. \r\n\r\nStandard JSON parsing handles syntax, and we use `Zod` to validate the entry schema and reports field-level errors. This removes the custom parser, avoids executing contributor-controlled data, and gives contributors and CI a clearer, more maintainable validation path.\r\n\r\nThe explorer now fetches the JSON file, and CI installs the validation dependency and runs the validator tests.\r\n\r\n**Open question: handling in-flight PRs**\r\n\r\nHow should we handle open PRs that still edit `taxonomy-data.js`? They’d need to move their changes to JSON. Should maintainers help migrate those changes, or ask contributors to rebase and convert them?",
+  "labels": []
+}

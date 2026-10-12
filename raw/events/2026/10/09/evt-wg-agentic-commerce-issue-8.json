@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-agentic-commerce-issue-8",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "ISSUE#8",
+  "title": "The capability map cannot score a protocol without (1) the buyer's capacity, and (2) who keeps which record for how long",
+  "timestamp": "2026-10-09T22:35:12Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/wg-agentic-commerce/issues/8",
+  "summary": "1. **Capacity.** Nothing in scope (UCP, ACP, AP2, x402, the card-network programmes) and nothing in the charter or reports carries a buyer-capacity or age attribute; \"minor\", \"age\" and \"child\" appear nowhere. A minor's delegation is void or voidable depending on the jurisdiction;...",
+  "pointers": [],
+  "inline_text": "1. **Capacity.** Nothing in scope (UCP, ACP, AP2, x402, the card-network programmes) and nothing in the charter or reports carries a buyer-capacity or age attribute; \"minor\", \"age\" and \"child\" appear nowhere. A minor's delegation is void or voidable depending on the jurisdiction; age-restricted goods require verification of the principal, not the agent; and age-verification duties are set per jurisdiction and are multiplying. The identity row needs a capacity attribute before any protocol can be scored against it, and the values are data I can supply per jurisdiction.\n\n2. **Retention.** \"Which records must be retained, by whom, and for how long?\" (issue #5, PR #6 §3) is the question aeoess's replay point turns on. The answer is a per-role, per-jurisdiction table with three layers: the AI layer (EU AI Act Article 19 for the provider and Article 26(6) for the deployer, six months, where the system is high-risk); the personal-data layer (storage limitation as the ceiling); and the payments and anti-money-laundering layer, which sets its own periods (five years under the EU anti-money-laundering directive and the US Bank Secrecy Act; two years under Regulation E). The first two layers I can supply as rows; the third the group's payment-provider members hold.\n\nJust want to point out that neither attribute above is legacy (which the charter would make out of scope). When the buyer is at checkout, the seller can check their age, and each party knows which records it keeps. When an agent buys, no one is at checkout, and the agent is a new party holding records.",
+  "labels": []
+}

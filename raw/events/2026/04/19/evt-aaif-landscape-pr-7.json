@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#7",
+  "title": "Update README.md",
+  "timestamp": "2026-04-19T21:36:01Z",
+  "author": "matthew-d-white",
+  "url": "https://github.com/aaif/aaif-landscape/pull/7",
+  "summary": "updated readme",
+  "pointers": [],
+  "inline_text": "updated readme",
+  "labels": []
+}

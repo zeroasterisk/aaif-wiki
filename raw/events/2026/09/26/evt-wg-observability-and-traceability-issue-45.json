@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-45",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#45",
+  "title": "Trace model: check independent interpretation",
+  "timestamp": "2026-09-26T19:49:14Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/45",
+  "summary": "## Outcome\n\nEvidence that independent consumers interpret both agents' telemetry consistently.\n\nTask 7 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** A model understood only by the producer's own tooling has not demonstra...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nEvidence that independent consumers interpret both agents' telemetry consistently.\n\nTask 7 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** A model understood only by the producer's own tooling has not demonstrated interoperability.\n\n**Work:** Have two independently implemented readers or query paths interpret exports from both agents. Compare each against expected results, not just against the other. Neither may use private runtime state, hidden fixture mappings, or shared reconstruction code.\n\n**Example:** Given the same records in different arrival orders, both readers identify P1 as approved, E1 as observed execution, and ticket-42 as the independently reported effect. With the service receipt removed, both report the effect as unconfirmed.\n\n## Acceptance Criteria\n\n**Done when:** both readers pass the applicable checks, including incomplete and conflicting evidence. Record any mapping losses or semantic disagreements.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find contributors for two independent readers or query paths and agree on the exported inputs and expected answers.\n- **Depends on:** [Task 5](https://github.com/aaif/wg-observability-and-traceability/issues/43) and [Task 6](https://github.com/aaif/wg-observability-and-traceability/issues/44).\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).\n\nThe identifiers in the example are illustrative fixture identities, not proposed OTel attribute names.",
+  "labels": [
+    "enhancement",
+    "help wanted"
+  ]
+}

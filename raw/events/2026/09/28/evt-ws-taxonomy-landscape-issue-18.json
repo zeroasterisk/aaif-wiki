@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-18",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#18",
+  "title": "Security & Privacy should contribute 10-20 candidate terms + 1 line disambiguator for each term",
+  "timestamp": "2026-09-28T20:30:39Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/18",
+  "summary": "See parent issue #12",
+  "pointers": [],
+  "inline_text": "See parent issue #12",
+  "labels": [
+    "taxonomy"
+  ]
+}

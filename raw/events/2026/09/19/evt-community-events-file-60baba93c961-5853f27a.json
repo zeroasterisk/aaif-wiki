@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-60baba93c961-5853f27a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/sync-front-door/prompt.md",
+  "title": "prompt.md",
+  "timestamp": "2026-09-19T15:40:28-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/sync-front-door/prompt.md",
+  "summary": "refactor(sync): one front door, one pipeline definition, four phase skills",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/sync-front-door/prompt.md",
+      "blob_sha": "5853f27a7c6cabaf38a90ed6611a60033269aa85",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

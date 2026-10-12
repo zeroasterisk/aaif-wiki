@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-8",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#8",
+  "title": "fix: remove double comma in project_proposal_process",
+  "timestamp": "2026-06-27T05:21:36Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/technical-committee/pull/8",
+  "summary": "In project_proposal_process.md the Parallel step reads:\n\n  \"If a project passes Step 1, , AAIF PMO will initiate...\"\n\nThere is a duplicate comma. The correct text is:\n\n  \"If a project passes Step 1, AAIF PMO will initiate...\"",
+  "pointers": [],
+  "inline_text": "In project_proposal_process.md the Parallel step reads:\n\n  \"If a project passes Step 1, , AAIF PMO will initiate...\"\n\nThere is a duplicate comma. The correct text is:\n\n  \"If a project passes Step 1, AAIF PMO will initiate...\"",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-37",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#37",
+  "title": "Best practices guide: correct confidential-computing credential exposure row",
+  "timestamp": "2026-10-05T15:26:00Z",
+  "author": "imran-siddique",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/37",
+  "summary": "Following up on [my review of #9](https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4073994177), as requested after the guide merged.\n\nIn [Section 2 at e757d35](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/delivera...",
+  "pointers": [],
+  "inline_text": "Following up on [my review of #9](https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4073994177), as requested after the guide merged.\n\nIn [Section 2 at e757d35](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md#L30-L37), the confidential-computing row makes credential exposure “Not applicable (hardware-protected).”\n\nHardware isolation protects guest memory against host access within the platform's threat model. A bearer token released to guest software still grants its holder access. If that software exposes the token, its permissions and remaining validity determine the exposure. [RFC 6750 §1.2](https://www.rfc-editor.org/rfc/rfc6750.html#section-1.2) defines this bearer property; [Intel's guest threat model](https://intel.github.io/ccc-linux-guest-hardening-docs/security-spec.html#threat-model) includes the guest software stack in the trusted computing base.\n\nProposed replacement cells:\n\n- **Maximum Exposure Window:** Credential validity, subject to effective revocation; hardware isolation does not shorten token lifetime.\n- **Blast Radius Scope:** Credential permissions if exposed by guest software. Hardware isolation protects against host access within the platform's threat model.\n\nAdd one sentence below the table: “Use confidential computing alongside short-lived, narrowly scoped credentials and controls on which guest components can access or release them.”\n\nOne correction to my original review: Azure REPORT_DATA binds a hash of runtime claims, including the vTPM key, VM configuration and user data. My earlier wording implied it could bind only the vTPM key. [Azure's design documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/guest-attestation-confidential-virtual-machines-design#report-payload) describes the actual binding.\n\nDone when the two cells and explanatory sentence are updated, with the bearer-token and platform-threat-model references.",
+  "labels": []
+}

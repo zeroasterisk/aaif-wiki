@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-33",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#33",
+  "title": "[Reference Architectures] Replace workflow steps with activities",
+  "timestamp": "2026-08-25T14:58:22Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/33",
+  "summary": "Related to #30\n\n## Scope\n\nReference Architectures only:\n\n- `workstreams/reference-architectures/`\n\n## What\n\nReplace “step” terminology with “activity” in reference architecture documents, patterns, templates, and supporting material.\n\n## Why\n\nThe working group agreed to use “Acti...",
+  "pointers": [],
+  "inline_text": "Related to #30\n\n## Scope\n\nReference Architectures only:\n\n- `workstreams/reference-architectures/`\n\n## What\n\nReplace “step” terminology with “activity” in reference architecture documents, patterns, templates, and supporting material.\n\n## Why\n\nThe working group agreed to use “Activity” instead of “Step”.\nThis aligns the Reference Architectures workstream with the taxonomy.\n\nThe separate `Execution engine` / `Workflow lifecycle` terminology proposal is not included.",
+  "labels": []
+}

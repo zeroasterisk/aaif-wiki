@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-7cf6ee468c96-f0fe2bdd",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "tests/fixtures/injections/07-attacker-link.md",
+  "title": "07-attacker-link.md",
+  "timestamp": "2026-08-19T23:20:33+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/tests/fixtures/injections/07-attacker-link.md",
+  "summary": "Add the test suite, and fix the five bugs it found",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "tests/fixtures/injections/07-attacker-link.md",
+      "blob_sha": "f0fe2bdd56e000447e1e2e5f7fc9092408a73daa",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
