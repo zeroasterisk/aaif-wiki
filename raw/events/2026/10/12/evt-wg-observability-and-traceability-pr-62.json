@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-62",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#62",
+  "title": "docs: align report template with the TC PR title and label rules",
+  "timestamp": "2026-10-12T02:55:00Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/62",
+  "summary": "The template told authors to title the report PR `[Report] <WG name> – <Month YYYY>`. The TC reporting guidelines require `[Report] <YYYY-MM>` and the `monthly-report` label so that reports can be found automatically. The June and July report PRs followed the template and don't m...",
+  "pointers": [],
+  "inline_text": "The template told authors to title the report PR `[Report] <WG name> – <Month YYYY>`. The TC reporting guidelines require `[Report] <YYYY-MM>` and the `monthly-report` label so that reports can be found automatically. The June and July report PRs followed the template and don't match.\n\n- Step 3 now gives the required title format.\n- Step 4 adds the `monthly-report` label.\n- Step 1 notes that the file name is case-sensitive.\n- The comment links to the guidelines: https://github.com/aaif/technical-committee/blob/main/working-groups/reporting.md",
+  "labels": []
+}

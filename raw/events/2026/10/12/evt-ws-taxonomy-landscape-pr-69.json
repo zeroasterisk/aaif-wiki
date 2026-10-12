@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-69",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#69",
+  "title": "[Report] 2026-09",
+  "timestamp": "2026-10-12T03:36:48Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/69",
+  "summary": "Prepared by @malbasic",
+  "pointers": [],
+  "inline_text": "Prepared by @malbasic",
+  "labels": [
+    "monthly-report"
+  ]
+}

@@ -1,41 +1,39 @@
 ---
 type: working-group
 title: Security and Privacy Working Group
-description: Technical working group establishing threat models, security best practices,
-  design patterns, and cross-surface boundary controls.
-resource: https://github.com/aaif/wg-security-and-privacy/issues/29
+description: AAIF technical working group establishing threat modeling frameworks,
+  security design patterns, and baseline controls for agentic systems.
+resource: https://github.com/aaif/wg-security-and-privacy/pull/25
 tags:
-- governance
-- working-groups
 - security
-- threat-modeling
 - privacy
+- threat-modeling
+- governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:13:00.577812+00:00'
+  at: '2026-10-12T10:46:11.619660+00:00'
 sources:
-- id: evt-wg-security-and-privacy-issue-29
-  resource: https://github.com/aaif/wg-security-and-privacy/issues/29
-  author: andreibesleaga
-  last_modified: '2026-10-01T08:41:47+00:00'
+- id: evt-wg-security-and-privacy-pr-25
+  resource: https://github.com/aaif/wg-security-and-privacy/pull/25
+  author: awfrazer
+  last_modified: '2026-10-09T14:54:26+00:00'
 ---
 
 # Overview
+The Security and Privacy Working Group establishes security guidance, threat modeling frameworks, and defensive design patterns for autonomous and semi-autonomous agentic systems [^evt-wg-security-and-privacy-pr-25]. The group coordinates cross-cutting architectural baselines across AAIF deliverables, with identity and trust mechanisms managed in coordination with the [Identity and Trust Working Group](../working-groups/identity-and-trust.md) [^evt-wg-security-and-privacy-pr-25].
 
-The Security and Privacy Working Group establishes open threat models, security best practices, architectural defense patterns, and boundary protection standards for agentic AI deployments across the Agentic AI Foundation[^evt-wg-security-and-privacy-issue-29]. The group's scope covers runtime isolation, tool invocation controls, prompt defense, and multi-agent network boundaries.
+# Deliverables and Workstreams
+The working group maintains several core deliverables [^evt-wg-security-and-privacy-pr-25]:
+- **Security Best Practices Guide**: Living baseline document maintained through issues and pull requests, incorporating feature matrices and security control baselines [^evt-wg-security-and-privacy-pr-25].
+- **Threat Modeling Gap Analysis**: Comparative threat modeling framework benchmarked against industry standards, with dedicated threat modeling sessions [^evt-wg-security-and-privacy-pr-25].
+- **Design Patterns Catalog**: Architectural patterns catalog providing concrete security controls, including [Approval Checkpoint](../patterns/approval-checkpoint.md), [Kill Switch](../patterns/kill-switch.md), and [Attested Isolated Runtime](../patterns/attested-isolated-runtime.md) [^evt-wg-security-and-privacy-pr-25].
+- **Security Taxonomy**: Cross-working-group security and privacy terminology developed in collaboration with the [Taxonomy and Landscape Working Group](../working-groups/taxonomy-and-landscape.md) under a quiet-period review workflow [^evt-wg-security-and-privacy-pr-25].
 
-# Architecture / Specification
+# Operating Model and Governance
+Deliverables follow strict multi-party approval requirements where pull request authors may not merge their own deliverables into publication paths, leaving folder authority with workstream leads [^evt-wg-security-and-privacy-pr-25]. To ensure global participation, the working group conducts alternating APAC-friendly meeting sessions [^evt-wg-security-and-privacy-pr-25]. Formal external liaison relationships, such as bilateral technical exchanges with ETSI TC SAI regarding AI agent cybersecurity requirements, are coordinated through the [Technical Committee](../governance/technical-committee.md) [^evt-wg-security-and-privacy-pr-25].
 
-The working group actively researches and standardizes key security deliverables:
+# References
+- aaif/wg-security-and-privacy: PR #25 (September 2026 Monthly Report)
 
-- **Cross-Surface Security Floors:** Evaluating design patterns (such as 'declare-pin-inherit-prove') where node publishers declare their exposed interaction surfaces in discovery documents and inherit a single unified security floor rather than managing divergent safety baselines across interfaces[^evt-wg-security-and-privacy-issue-29].
-- **Tool and Payload Strictness:** Defining input validation standards where tool arguments require typed identifiers over raw paths or shell commands, JSON output envelopes maintain fixed untrusted trust annotations, and natural language fields are treated strictly as data[^evt-wg-security-and-privacy-issue-29].
-- **Network and SSRF Mitigations:** Formulating transport constraints for peer discovery and task delegation, including mandatory HTTPS, IANA special-purpose address rejection, hop-by-hop redirect evaluation, and post-connection socket address re-verification to counter DNS rebinding[^evt-wg-security-and-privacy-issue-29].
-- **Boundary Authorizations:** Coordinating with governance patterns such as the [proposal-execution split](../patterns/proposal-execution-split.md) and [human-approval gate](../patterns/human-approval-gate.md) to ensure external modifications require explicit, reviewable human sign-off[^evt-wg-security-and-privacy-issue-29].
-
-# Lifecycle History
-
-Chartered to deliver foundational threat models and operational security guidance, the group regularly reviews community contributions. Issue #29 introduced proposals for inherited surface security baselines and strict payload controls as prospective inputs for the group's design-pattern deliverables[^evt-wg-security-and-privacy-issue-29].
-
-[^evt-wg-security-and-privacy-issue-29]: https://github.com/aaif/wg-security-and-privacy/issues/29
+[^evt-wg-security-and-privacy-pr-25]: https://github.com/aaif/wg-security-and-privacy/pull/25

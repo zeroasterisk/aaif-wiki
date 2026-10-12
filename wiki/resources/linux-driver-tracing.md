@@ -1,39 +1,52 @@
 ---
 type: resource
-title: Linux Driver Tracing
-description: Reference architecture for Linux device driver instrumentation covering
-  dev_dbg, dynamic debug (dyndbg), TRACE_EVENT macros, and debugfs interfaces.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/linux-driver-tracing.md
+title: Linux Driver Tracing Reference Architecture
+description: Kernel-level driver observability architecture combining structured logging,
+  dynamic debug, tracepoints, subsystem-specific tracers, and devcoredump crash records.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/driver-tracing.md
 tags:
-- tracing
 - linux
 - kernel
+- tracing
 - observability
+- hardware
+- drivers
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T02:51:26.918221+00:00'
+  at: '2026-10-12T10:15:10.316983+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-633832607329-9b56d321
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/linux-driver-tracing.md
+- id: evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/driver-tracing.md
   author: Matthew Khouzam
   last_modified: '2026-08-19T20:04:48+01:00'
 ---
 
 # Overview
-Linux Driver Tracing provides the foundational observability and debugging architecture for device drivers across the Linux kernel subsystem layer [^evt-wg-observability-and-traceability-file-633832607329-9b56d321]. Positioned between generic kernel tracing mechanisms and specialized hardware diagnostics, it details how developers instrument driver code and how administrators dynamically control trace event streams at runtime without recompilation [^evt-wg-observability-and-traceability-file-633832607329-9b56d321].
+
+Linux driver tracing provides a layered observability architecture designed for device drivers across storage, networking, GPU accelerators, and peripheral buses.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1] It enables developers and system administrators to inspect hardware communications, I/O request flows, and internal driver states without recompiling kernel modules or modifying driver codebases.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
 
 # Architecture / Specification
-The driver tracing architecture spans structured logging, dynamic call-site modification, and custom tracepoint infrastructure:
 
-- **Structured Device Logging**: Drivers implement structured logging through kernel macros (`dev_dbg`, `dev_info`, `dev_err`, `dev_warn`) that bind device context and driver identification directly to log entries routed through `printk` and the kernel ring buffer [^evt-wg-observability-and-traceability-file-633832607329-9b56d321].
-- **Dynamic Debug (`dyndbg`)**: When built with `CONFIG_DYNAMIC_DEBUG=y`, debug statements (`dev_dbg`, `pr_debug`) introduce zero runtime overhead until dynamically enabled via `/sys/kernel/debug/dynamic_debug/control` [^evt-wg-observability-and-traceability-file-633832607329-9b56d321]. Call sites can be queried and enabled per module, file, function, line number, or kernel boot parameter [^evt-wg-observability-and-traceability-file-633832607329-9b56d321].
-- **Custom `TRACE_EVENT()` Macros**: Drivers define high-performance, structured tracepoints using `TRACE_EVENT()` headers exported to `tracefs` under `/sys/kernel/tracing/events/` [^evt-wg-observability-and-traceability-file-633832607329-9b56d321]. These tracepoints integrate with kernel tooling including `perf` and `trace-cmd` [^evt-wg-observability-and-traceability-file-633832607329-9b56d321].
-- **Subsystem-Specific Tracers and Interfaces**: Subsystem diagnostics extend through specialized tools such as `usbmon` for USB request block inspection, `blktrace` for block I/O profiling, and `devcoredump` for post-mortem driver crash capture [^evt-wg-observability-and-traceability-file-633832607329-9b56d321].
+## Observation Primitives
+
+Driver observability spans several kernel facilities operating at distinct points along the hardware interaction path:[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+
+1. **Structured Logging (`dev_dbg`, `dev_info`, `dev_err`):** Device-aware logging macros that prefix messages with device topology names and bus addresses, routing structured text into the kernel log buffer.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+2. **Dynamic Debug (`dyndbg`):** Controlled via `/sys/kernel/debug/dynamic_debug/control`, allowing runtime activation and deactivation of `dev_dbg` callsites without kernel recompilation. Debug points can be selectively enabled by driver filename, module, line number, or function.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+3. **Static Tracepoints (`TRACE_EVENT`):** High-throughput, low-overhead binary tracepoints exposed under `/sys/kernel/tracing/events/`, consumable by `perf`, `trace-cmd`, or LTTng for low-latency hardware event timelines.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+4. **Subsystem-Specific Tracers:** Purpose-built inspection mechanisms including `blktrace` for block layer queue latency and request dispatch, as well as `usbmon` for raw USB packet capture.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+5. **Post-Mortem Analysis (`devcoredump`):** Automatic crash snapshot infrastructure that captures controller registers and memory state upon driver fault or timeout, exposing snapshot dumps under `/sys/class/devcoredump/`.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
+
+## Hardware State and Counter Model
+
+Unlike userspace tracing models oriented around causal spans, driver observation operates on continuous hardware state queries and discrete event streams.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1] System performance counters monitor hardware health via PCIe Advanced Error Reporting (AER) counters, NVMe controller metrics via sysfs, and GPU performance monitoring units (PMUs), correlating device-level events with operating system dispatch latency.[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]
 
 # References
-- `linux-tracing-comparison.md`
-- `ftrace.md`
-- `linux-perf.md`
 
-[^evt-wg-observability-and-traceability-file-633832607329-9b56d321]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/linux-driver-tracing.md
+- `../resources/linux-tracing-comparison.md`
+- `../resources/ftrace.md`
+- `../resources/linux-perf.md`
+- `../working-groups/observability-and-traceability.md`
+
+[^evt-wg-observability-and-traceability-file-8cb302c8ed1b-a2ffbef1]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/driver-tracing.md

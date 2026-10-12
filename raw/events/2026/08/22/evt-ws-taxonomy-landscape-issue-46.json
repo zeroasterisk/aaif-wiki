@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-46",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#46",
+  "title": "Define: Context exhaustion",
+  "timestamp": "2026-08-22T12:07:57Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/46",
+  "summary": "Same shape as #43, raised as an issue per `docs/data-schemas.md`. The text is PR ready if that is preferred.\n\n**Term:** Context exhaustion (existing Universal entry, `definition` currently pending, `workgroups: []`)\n\n## Proposed definition\n\n> Context exhaustion is the failure mod...",
+  "pointers": [],
+  "inline_text": "Same shape as #43, raised as an issue per `docs/data-schemas.md`. The text is PR ready if that is preferred.\n\n**Term:** Context exhaustion (existing Universal entry, `definition` currently pending, `workgroups: []`)\n\n## Proposed definition\n\n> Context exhaustion is the failure mode in which the information an agent needs for its current task no longer fits within the model's context window at the same time, because accumulated content has reached the window's capacity.\n\n## Why this wording\n\nThe discriminator is needed information displaced by capacity, which rules out the neighbours this term gets confused with. A long context that still holds everything the task needs is not exhaustion, however full it is. Degraded attention over a large but sufficient context is a quality problem, not exhaustion. An agent that never loaded the information in the first place has a retrieval problem, not exhaustion. The term names the moment the window itself becomes the reason the agent cannot see what it needs.\n\n## Proposed scopeNote\n\n> Context exhaustion is a property of a session, not of a model. Mitigations (summarization, external memory, subagent isolation) do not prevent exhaustion, they trade it for lossy compression, and the loss is where the observable failures live. Raised for definition following the 18 August call.\n\n## Proposed field values\n\n```\nterm: 'Context exhaustion'\ncategory: ''                    // unchanged, still deferred\naliases: []\nbroaderTerm: null               // unchanged, still deferred\ndefinition: 'Context exhaustion is the failure mode in which the information an agent needs for its current task no longer fits within the model's context window at the same time, because accumulated content has reached the window's capacity.'\nscopeNote: <as above>\nrelatedTerms: ['Session', 'Harness']\ncontrastsWith: []\nworkgroups: []                  // unchanged, Universal\n```\n\n`relatedTerms` points only at terms already in the taxonomy.",
+  "labels": []
+}

@@ -1,41 +1,37 @@
 ---
 type: working-group
 title: Accuracy and Reliability Working Group
-description: AAIF technical working group establishing evaluation benchmarks, testing
-  harnesses, and verification frameworks for agentic systems.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/10
+description: AAIF technical working group establishing measurement methodologies,
+  failure taxonomies, evaluation benchmarks, and consistency guidance for agentic
+  systems.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/issues/12
 tags:
-- governance
 - working-group
+- accuracy
+- reliability
 - evaluation
 - benchmarks
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:15:15.871817+00:00'
+  at: '2026-10-12T10:31:11.114183+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-pr-10
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/10
-  author: jordanauge
-  last_modified: '2026-10-02T07:28:35+00:00'
+- id: evt-wg-accuracy-and-reliability-issue-12
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/issues/12
+  author: smcd
+  last_modified: '2026-09-24T00:35:03+00:00'
 ---
 
 # Overview
-The Accuracy and Reliability Working Group (ARWG) is a technical body within the Agentic AI Foundation chartered to develop standardized evaluation frameworks, benchmark suites, and verification methodologies for agentic AI behaviors.[^evt-wg-accuracy-and-reliability-pr-10] It focuses on quantifying agent output fidelity, error recovery robustness, and reasoning consistency across multi-step execution graphs.[^evt-wg-accuracy-and-reliability-pr-10]
-
-The working group coordinates deliverable reviews and cross-working-group alignment across Foundation initiatives.[^evt-wg-accuracy-and-reliability-pr-10]
+The Accuracy and Reliability Working Group is an Agentic AI Foundation technical body dedicated to establishing rigorous measurement methodologies, empirical failure taxonomies, and testing frameworks for agentic AI workflows [^evt-wg-accuracy-and-reliability-issue-12]. The group develops standardized metrics, benchmark suites, and validation procedures to evaluate reasoning integrity, operational consistency, and behavioral boundaries across agent deployments [^evt-wg-accuracy-and-reliability-issue-12].
 
 # Architecture / Specification
-The working group organizes its technical roadmap around core research deliverables and cross-workstream coordination:[^evt-wg-accuracy-and-reliability-pr-10]
+The working group organizes its technical deliverables around empirical benchmarks, failure taxonomy catalogs, and verification procedures [^evt-wg-accuracy-and-reliability-issue-12]. Key deliverable scopes and jurisdictional boundaries include:
 
-- **Deliverable 1 (D1)**: Technical specification and baseline evaluation criteria for agent accuracy, currently progressing through formal review.[^evt-wg-accuracy-and-reliability-pr-10]
-- **Deliverable 2 (D2) Survey**: Industry survey and landscape analysis tracking empirical failure modes, benchmark coverage gaps, and reliability evaluation methodologies across member organizations.[^evt-wg-accuracy-and-reliability-pr-10]
-- **Cross-WG Harmonization**: Alignment on evaluation telemetry with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) and risk taxonomy alignment with the [Governance, Risk, and Regulatory Working Group](../working-groups/governance-risk-and-regulatory.md).[^evt-wg-accuracy-and-reliability-pr-10]
-- **Phase 2 Planning**: Preparations for empirical test harnesses and automated benchmark tooling to operationalize evaluation criteria in CI/CD pipelines.[^evt-wg-accuracy-and-reliability-pr-10]
+- **Deliverable D4 (Quality Thresholds)**: Formulating operational thresholds for accuracy, robustness, and stability [^evt-wg-accuracy-and-reliability-issue-12]. Workstream guidance requires explicit jurisdictional scoping to avoid unstated presumptions of regulatory conformity—such as EU AI Act Article 15 requirements for accuracy and robustness harmonized under Article 40 standards (CEN-CENELEC JTC 21)—while clarifying applicability against voluntary frameworks like the NIST AI Risk Management Framework [^evt-wg-accuracy-and-reliability-issue-12].
+- **Deliverable D6 (Evaluation and Conformance Guidance)**: Providing self-assessment tools, conformance verification artifacts, and pass/fail validation suites [^evt-wg-accuracy-and-reliability-issue-12]. Terminology is explicitly framed as consistency checks or conformance to AAIF technical vocabularies to avoid confusion with formal statutory 'conformity assessments' defined under EU AI Act Article 43 [^evt-wg-accuracy-and-reliability-issue-12].
 
-# References
-- [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md)
-- [Governance, Risk, and Regulatory Working Group](../working-groups/governance-risk-and-regulatory.md)
-- [Accuracy and Reliability Working Group Repository](https://github.com/aaif/wg-accuracy-and-reliability)
+# Lifecycle History
+- wg-accuracy-and-reliability#12 introduced naming and scoping guidance for deliverables D4 and D6 to ensure clear demarcation between technical foundation benchmarks and formal statutory conformity assessments [^evt-wg-accuracy-and-reliability-issue-12].
 
-[^evt-wg-accuracy-and-reliability-pr-10]: https://github.com/aaif/wg-accuracy-and-reliability/pull/10
+[^evt-wg-accuracy-and-reliability-issue-12]: https://github.com/aaif/wg-accuracy-and-reliability/issues/12

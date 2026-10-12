@@ -1,53 +1,39 @@
 ---
 type: resource
-title: Agent to Tool CLI Boundary Observability Deep-Dive
+title: Agent-to-Tool CLI Subprocess Boundary
 description: Observability reference matrix and telemetry propagation model analyzing
   the direct agent-to-tool local CLI subprocess boundary.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/agent-tool-cli-boundary-deep-dive.md
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/35
 tags:
 - observability
-- telemetry
 - opentelemetry
+- subprocesses
 - cli
-- trace-context
-- process-boundary
+- traceability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T02:56:41.927536+00:00'
+  at: '2026-10-12T10:27:28.310990+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-1699fc75df72-8956556b
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/agent-tool-cli-boundary-deep-dive.md
-  author: Me1iodas
-  last_modified: '2026-09-10T12:16:43+01:00'
+- id: evt-wg-observability-and-traceability-pr-35
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/35
+  author: fangxiu-wf
+  last_modified: '2026-09-19T04:53:44+00:00'
 ---
 
 # Overview
-The direct Agent → Tool CLI boundary analyzes telemetry propagation, context preservation, and identity continuity when an AI agent invokes an external tool realized as a local CLI subprocess[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b]. While the semantic boundary represents the agent-level tool decision (`gen_ai.tool.name`, `gen_ai.tool.call.id`), the operational boundary crosses from the agent runtime to the local operating system process (`process.pid`, executable path)[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
+The Agent-to-Tool CLI subprocess boundary analyzes telemetry propagation and causality modeling between an AI agent runtime and a tool executed as a local subprocess [^evt-wg-observability-and-traceability-pr-35]. This specification distinguishes between the canonical `Agent → Tool` semantic interaction and the underlying `Agent Runtime → Local Process` operational boundary that realizes it in local environments [^evt-wg-observability-and-traceability-pr-35].
 
 # Architecture / Specification
-## Boundary Hierarchy and Span Structure
-The reference trace hierarchy establishes causality across two distinct execution surfaces[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b]:
-```text
-optional upstream caller
-  └── agent turn / invocation
-      └── tool execution span              (Agent → Tool semantic boundary)
-          └── [optional CLI caller span]
-              └── local CLI execution span (Agent Runtime → Local Process boundary)
-                  └── CLI sub-operations and downstream calls
-```
-The agent execution surface selects tools and schedules calls, whereas the operating-system process surface resolves the binary, prepares the environment, launches the process, and captures standard streams and exit status[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
+The boundary realization addresses context propagation, span hierarchy, and telemetry alignment across process forks:
 
-## Telemetry and Context Propagation Matrix
-Across the local CLI boundary, observability requirements map across six primary dimensions[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b]:
-- **Identity:** Correlates agent, session turn, tool name, and tool call ID with child process ID, resolved executable path, and digest. While OpenTelemetry GenAI covers tool identity and CLI conventions cover PIDs, cross-runtime binding across the agent decision and child executable remains an open gap[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
-- **Context:** Carries active W3C Trace Context and baggage across normalized environment variables (`TRACEPARENT`, `TRACESTATE`). Because local subprocesses lack network headers, context must be injected into the environment before process launch; late transcript parsing cannot retroactively establish parent spans[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
-- **Relationship:** Preserves caller-to-child causality. Synchronous processes exist as children of the tool or CLI caller span, whereas detached or background executions require Span Links to avoid misrepresenting task lifecycles[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
-- **Lifecycle:** Maps execution phases (`selected` → `authorized` → `context prepared` → `spawn requested` → `process started` → `running` → `exited`/`timed out`/`canceled`)[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
-- **Outcome:** Records process exit codes, error classifications, side-effect manifests, and partial tool results while avoiding sensitive credential leakage in stdout/stderr[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
-- **Provenance:** Captures tool origin, instrumentation scope, runtime wrappers, and shell expansions to ensure the executed binary matches the agent's intended invocation[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
+- **Context Carrier**: Utilizes the OpenTelemetry Release Candidate specification for environment variables (`TRACEPARENT`, `TRACESTATE`, and `BAGGAGE`) to propagate W3C Trace Context and Baggage across process boundaries [^evt-wg-observability-and-traceability-pr-35].
+- **Span Composition**: Differentiates between runtime-level `execute_tool` spans and CLI process execution spans, addressing whether the agent runtime suppresses, nests, or shares spans during direct command execution [^evt-wg-observability-and-traceability-pr-35].
+- **Pre-execution Span-ID Reservation**: Implements pre-execution span-ID reservation—validated in the LoongSuite pilot—enabling parent spans to register deterministic trace relationships prior to executing the tool binary [^evt-wg-observability-and-traceability-pr-35].
+- **Detached and Asynchronous Work**: Recommends OpenTelemetry Span Links over direct parent-child causality when tools execute detached or asynchronous background tasks [^evt-wg-observability-and-traceability-pr-35].
+- **Resource Bootstrap**: Isolates process-level OpenTelemetry resource bootstrap from invocation-level carrier contexts [^evt-wg-observability-and-traceability-pr-35].
 
-## Implementation Validation
-The boundary mechanics are validated by the LoongSuite Pilot reference implementation, demonstrating pre-execution reservation of tool call IDs, environment-variable carrier injection prior to child fork/exec, and post-execution transcript reconciliation[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b].
+# Lifecycle History
+The boundary model was introduced by the Observability and Traceability Working Group in PR #35 as the initial concrete matrix pass addressing direct tool invocation gaps identified in issue #29 [^evt-wg-observability-and-traceability-pr-35]. It links to broader cross-boundary telemetry mapping in [Cross-Boundary Observability Model](../resources/cross-boundary-observability-model.md).
 
-[^evt-wg-observability-and-traceability-file-1699fc75df72-8956556b]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/agent-tool-cli-boundary-deep-dive.md
+[^evt-wg-observability-and-traceability-pr-35]: https://github.com/aaif/wg-observability-and-traceability/pull/35

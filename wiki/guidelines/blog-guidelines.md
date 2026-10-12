@@ -1,51 +1,38 @@
 ---
 type: guideline
-title: Blog Guidelines and Intake Process
-description: Editorial standards, contributor eligibility rules, and intake submission
-  workflows for the Agentic AI Foundation blog on aaif.io.
-resource: https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/blog-guidelines.md
+title: AAIF Blog Publishing Guidelines
+description: Editorial standards, contributor eligibility rules, style guidelines,
+  and intake workflows for Agentic AI Foundation blog publications.
+resource: https://github.com/aaif/foundation/pull/7
 tags:
-- guidelines
-- blog
-- governance
+- guideline
 - editorial
+- governance
+- documentation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T02:36:19.520760+00:00'
+  at: '2026-10-12T10:39:03.028504+00:00'
 sources:
-- id: evt-foundation-file-d56154a3412d-c180d87c
-  resource: https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/blog-guidelines.md
-  author: Angie Jones
-  last_modified: '2026-05-13T11:27:17-07:00'
-- id: evt-public-agents-file-2aebb9feb4df-f97f79ed
-  resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/skills/aaif-blog-guidelines/SKILL.md
-  author: Angie Jones
-  last_modified: '2026-05-13T11:19:28-07:00'
+- id: evt-foundation-pr-7
+  resource: https://github.com/aaif/foundation/pull/7
+  author: steveaaif
+  last_modified: '2026-10-02T13:02:30+00:00'
 ---
 
 # Overview
-
-The Agentic AI Foundation (AAIF) blog guidelines define the editorial standards, eligibility criteria, and submission workflow for content published on aaif.io [^evt-foundation-file-d56154a3412d-c180d87c]. Managed by the Linux Foundation team, the blog acts as an educational and technical publication platform highlighting open-source agent projects, technical tutorials, and production deployments [^evt-foundation-file-d56154a3412d-c180d87c].
+The AAIF Blog Publishing Guidelines establish editorial criteria, structural standards, and intake review processes for public articles published across official Agentic AI Foundation communication channels [^evt-foundation-pr-7]. These standards govern contributions from foundation working groups, project maintainers, and community participants to preserve technical credibility and vendor neutrality [^evt-foundation-pr-7].
 
 # Architecture / Specification
 
-### Contributor Eligibility and Quotas
-- **Member Companies**: Permitted to publish vendor-neutral insights; permitted up to two closing sentences and one external link (e.g., career opportunities or project repositories) [^evt-foundation-file-d56154a3412d-c180d87c].
-- **Project Maintainers & Contributors**: Focus on hosted projects such as MCP, `../resources/goose.md`, and AGENTS.md, detailing releases and architecture [^evt-foundation-file-d56154a3412d-c180d87c].
-- **Working Groups & Technical Committee**: Technical reports and milestones authored on behalf of Foundation bodies like `../governance/technical-committee.md` [^evt-foundation-file-d56154a3412d-c180d87c].
-- **Community Contributors**: May submit up to two technical posts per calendar month [^evt-foundation-file-d56154a3412d-c180d87c].
+## Editorial Style Requirements
+Content submitted for publication must satisfy specific technical and stylistic baselines [^evt-foundation-pr-7]:
+- **Sentence Case and US English**: Headings, section titles, and page headers must adhere to sentence case capitalization, with prose written in standard US English [^evt-foundation-pr-7].
+- **Substantiation of Categorical Claims**: Authors must avoid unsupported categorical assertions; performance metrics, market assessments, and architectural assertions require empirical validation or verifiable benchmarking references [^evt-foundation-pr-7].
+- **Primary-Source Referencing**: Assertions referring to specifications, standards, research findings, or regulatory mandates must link directly to authoritative primary sources rather than third-party commentary [^evt-foundation-pr-7].
+- **Official Project Designations**: References to AAIF projects, working groups, and external open-source technologies must consistently employ their official, canonical names [^evt-foundation-pr-7].
 
-### Editorial Constraints
-- **Vendor Neutrality**: Content must avoid sales jargon, sponsored placement framing, or disparaging competing open-source projects [^evt-foundation-file-d56154a3412d-c180d87c].
-- **Timeliness and Readiness**: Submissions must represent original, finalized material reflecting developments from the preceding two months and require internal stakeholder approval before intake [^evt-foundation-file-d56154a3412d-c180d87c].
-- **SLA**: Authors must provide at least a two-week lead time prior to desired publishing dates to accommodate Linux Foundation review and scheduling [^evt-foundation-file-d56154a3412d-c180d87c].
+## Submission and Review Workflow
+Articles are proposed via pull request against the foundation repository and reviewed by designated maintainers to verify factual accuracy and adherence to the [Brand Guidelines](../guidelines/brand-guidelines.md) [^evt-foundation-pr-7].
 
-### Automated Assistance
-Contributors can automate formatting and guideline compliance checks via the `../skills/aaif-blog-guidelines.md` agent skill distributed via `../resources/public-agent-skills.md` [^evt-foundation-file-d56154a3412d-c180d87c].
-
-# References
-
-- Policy source: [aaif/foundation/policies-guidelines/blog-guidelines.md](https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/blog-guidelines.md) [^evt-foundation-file-d56154a3412d-c180d87c]
-
-[^evt-foundation-file-d56154a3412d-c180d87c]: https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/blog-guidelines.md
+[^evt-foundation-pr-7]: https://github.com/aaif/foundation/pull/7

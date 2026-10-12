@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-53",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#53",
+  "title": "Define: witness_scope",
+  "timestamp": "2026-09-20T02:32:57Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/53",
+  "summary": "**Term:** `witness_scope`\n\n**Proposed definition:** The category of witness that holds or attests a record about an agent action, graded as SELF (the agent or its runtime), PEER (a counterparty in the same agreement), or EXTERNAL (a party outside the relationship). Witness_scope ...",
+  "pointers": [],
+  "inline_text": "**Term:** `witness_scope`\n\n**Proposed definition:** The category of witness that holds or attests a record about an agent action, graded as SELF (the agent or its runtime), PEER (a counterparty in the same agreement), or EXTERNAL (a party outside the relationship). Witness_scope names who holds the record; it does not by itself say whether the record is forgeable by the party it describes.\n\n**Category:** deferred (``)  \n**broaderTerm:** null\n\n**Why this term:** The agent control space needed a name for the custody axis of evidence, separate from the forgeability axis. A record held by an EXTERNAL party can still be the emitter's own account of itself if the external party holds a symmetric key the emitter can re-sign with, so custody and forgeability are distinct questions. The term was proposed in the OWASP GenAI-Security-Project agent-control-standard milestone discussion (issue #33), where the witness_scope / verification-basis split was added to the conformance ledger, and it is the home of the SELF / PEER / EXTERNAL vocabulary.\n\n**scopeNote:** Proposed for the taxonomy definitions pass. Paired contrast term \"verification-basis\" (the forgeability axis: substrate versus artifact vantage) is expected to follow in a separate proposal per the workstream's paired-contrast protocol. `relatedTerms` and `contrastsWith` deliberately empty until the contrast term is admitted.\n\n**Definition status:** proposed, open for discussion at the weekly sync.",
+  "labels": []
+}

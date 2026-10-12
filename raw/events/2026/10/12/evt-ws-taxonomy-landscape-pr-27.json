@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-27",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#27",
+  "title": "Add goose to the landscape under Autonomous Agent Frameworks",
+  "timestamp": "2026-10-12T03:30:56Z",
+  "author": "thc1006",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/27",
+  "summary": "## What\nAdds `goose` to the landscape under Autonomous Agent Frameworks. goose was donated to the AAIF at launch alongside MCP but is not on the map yet. Closes #25.\n\n## Notes\n- Metadata matches the published aaif-landscape entry: `goose-docs.ai` and `github.com/aaif-goose/goose`...",
+  "pointers": [],
+  "inline_text": "## What\nAdds `goose` to the landscape under Autonomous Agent Frameworks. goose was donated to the AAIF at launch alongside MCP but is not on the map yet. Closes #25.\n\n## Notes\n- Metadata matches the published aaif-landscape entry: `goose-docs.ai` and `github.com/aaif-goose/goose` (the AAIF-org home the project moved to after donation, rather than the original `block/goose`). Thanks @asish-singh for proposing the entry in #25.\n- Set `project: member` to match MCP, the other launch-donated hosted project, which is `member` here today. If editors would rather classify launch-hosted projects as `graduated` or `incubating`, happy to change goose and MCP together.\n- Two other AAIF hosted projects are also absent from this landscape, `agentgateway` and `AGENTS.md`, but neither has an obvious existing subcategory (a gateway/control-plane and a file-format convention), so I left their placement to the Domain Editors rather than invent one. Happy to follow up.\n\n## Validation\n`landscape.yml` parses and the entry conforms to `docs/data-schemas.md` (required `name`, `homepage_url`, `description`, `project`; optional `repo_url`).",
+  "labels": [
+    "landscape-deferred"
+  ]
+}

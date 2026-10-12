@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-50",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#50",
+  "title": "Define: emission-conformant",
+  "timestamp": "2026-09-20T02:33:00Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/50",
+  "summary": "**Term:** `emission-conformant`\n\n**Proposed definition:** A claim about an artifact that asserts conformance at the emission layer only: the emitted record validates against the canonical schema, with no assertion about operational behavior or whether the recorded content is a tr...",
+  "pointers": [],
+  "inline_text": "**Term:** `emission-conformant`\n\n**Proposed definition:** A claim about an artifact that asserts conformance at the emission layer only: the emitted record validates against the canonical schema, with no assertion about operational behavior or whether the recorded content is a true account of what happened.\n\n**Category:** deferred (``)  \n**broaderTerm:** null\n\n**Why this term:** The agent control space needed a name for the weakest class of conformance claim: \"the artifact was emitted correctly\", as distinct from claims about operational behavior. Without the distinction, an unqualified \"conformant\" claim silently overclaims. The term emerged from claim-scope vocabulary in the OWASP GenAI-Security-Project agent-control-standard (issues #18 and #33), where the witness_scope split (SELF / PEER / EXTERNAL) was agreed.\n\n**scopeNote:** Proposed for the taxonomy definitions pass. Paired contrast term \"operationally conformant\" (claims about operational behavior) is expected to follow in a separate proposal, per the workstream's paired-contrast protocol. `relatedTerms` and `contrastsWith` deliberately empty until the contrast term is admitted.\n\n**Definition status:** proposed, open for discussion at the weekly sync.",
+  "labels": []
+}

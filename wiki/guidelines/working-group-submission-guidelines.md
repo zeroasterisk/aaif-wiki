@@ -1,52 +1,53 @@
 ---
 type: guideline
 title: Working Group Submission Guidelines
-description: Intake criteria, required proposal sections, cross-organization sponsor
-  rules, and review workflows for proposing new AAIF Working Groups.
-resource: https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/working-groups/lifecycle-policy.md
+description: Intake guidelines, issue template workflows, status tracking labels,
+  and Technical Committee approval rules for chartering new working groups.
+resource: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md
 tags:
 - governance
 - working-groups
-- guidelines
-- intake
+- technical-committee
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:28:25.423120+00:00'
+  at: '2026-10-12T09:56:27.340171+00:00'
 sources:
-- id: evt-technical-committee-file-6f2428968391-033df704
-  resource: https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/working-groups/lifecycle-policy.md
-  author: Manik Surtani
-  last_modified: '2026-10-12T10:57:40+11:00'
+- id: evt-working-group-proposals-file-b33563055168-33233981
+  resource: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md
+  author: Christina Harter
+  last_modified: '2026-06-10T09:24:18-07:00'
 ---
 
 # Overview
-The Working Group Submission Guidelines establish the structural criteria, documentation standards, and evaluation path required to propose a new Working Group (WG) to the Agentic AI Foundation[^evt-technical-committee-file-6f2428968391-033df704]. Proposing a WG requires demonstrating that the scope represents a durable, long-lived domain rather than a temporary or tightly bounded task that could operate as a workstream within an existing group[^evt-technical-committee-file-6f2428968391-033df704].
 
-Working group intake is administered by the [Technical Committee](../governance/technical-committee.md) in accordance with the [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md)[^evt-technical-committee-file-6f2428968391-033df704].
+The Working Group Submission Guidelines establish the formal submission, triage, and review framework for establishing new working groups within the Agentic AI Foundation (AAIF) [^evt-working-group-proposals-file-b33563055168-33233981]. Managed through the `aaif/working-group-proposals` repository, the process outlines how prospective working group organizers author proposal charters, navigate open community commentary, and obtain Technical Committee approval under the [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md) [^evt-working-group-proposals-file-b33563055168-33233981].
 
 # Architecture / Specification
 
-## Scope and Workstream Evaluation
-Before submitting a new working group proposal, initiators must verify whether the targeted technical objectives fit within existing groups[^evt-technical-committee-file-6f2428968391-033df704]. AAIF reserves new working groups for broad, persistent domains; specialized tools, single specifications, or time-boxed deliverables should instead be structured as workstreams hosted within an active WG[^evt-technical-committee-file-6f2428968391-033df704].
+### Submission Workflow
 
-## Proposal Prerequisites
-Proposals are formally submitted through the issue template in the `aaif/working-group-proposals` repository[^evt-technical-committee-file-6f2428968391-033df704]. Every proposal must supply five mandatory components[^evt-technical-committee-file-6f2428968391-033df704]:
-1. **Problem Statement**: Explicitly articulates the agentic AI gap and demonstrates why neither existing AAIF working groups nor external bodies address the problem[^evt-technical-committee-file-6f2428968391-033df704].
-2. **Scope and First Deliverables**: Boundaries specifying what the working group will and will not cover, along with concrete deliverables targeted for its initial 12-month charter[^evt-technical-committee-file-6f2428968391-033df704].
-3. **Overlap and External Coordination**: Mapping of adjacent AAIF efforts and external standards bodies (e.g., W3C, IETF, OpenSSF, CNCF, or OWASP) detailing proactive coordination strategies to prevent duplication[^evt-technical-committee-file-6f2428968391-033df704].
-4. **Leadership**: Nominated chair and co-chair affiliated with two distinct member organizations (Platinum, Gold, or Silver)[^evt-technical-committee-file-6f2428968391-033df704].
-5. **Demonstrated Demand**: Explicit commitments from named contributors spanning at least three independent organizations[^evt-technical-committee-file-6f2428968391-033df704].
+Proponents submit a new working group application through the structured issue template within the `aaif/working-group-proposals` repository [^evt-working-group-proposals-file-b33563055168-33233981]. Each proposal is tracked publicly on the foundation's Working Group Proposals Board [^evt-working-group-proposals-file-b33563055168-33233981].
 
-## Review and Admission Workflow
-The intake workflow progresses through four procedural checkpoints[^evt-technical-committee-file-6f2428968391-033df704]:
-- **Completeness Verification**: AAIF staff screen submissions against formatting and eligibility criteria prior to technical evaluation[^evt-technical-committee-file-6f2428968391-033df704].
-- **Technical Committee Review**: The TC conducts an asynchronous review on the issue, targeting a decision within eight weeks of a complete filing[^evt-technical-committee-file-6f2428968391-033df704].
-- **Determinations**: The TC may approve (moving the WG to Sandbox), request revisions, decline with written rationale, or redirect the scope into an existing working group[^evt-technical-committee-file-6f2428968391-033df704].
-- **Governing Board Confirmation**: Approval by the TC is subject to formal confirmation by the AAIF Governing Board prior to Sandbox entry[^evt-technical-committee-file-6f2428968391-033df704].
+### Review Status Taxonomy
 
-# References
-- Working Group Lifecycle Policy: [../policies/working-group-lifecycle-policy.md](../policies/working-group-lifecycle-policy.md)
-- Technical Committee: [../governance/technical-committee.md](../governance/technical-committee.md)
+Proposals are triaged using five formal operational labels [^evt-working-group-proposals-file-b33563055168-33233981]:
 
-[^evt-technical-committee-file-6f2428968391-033df704]: https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/working-groups/lifecycle-policy.md
+- `New`: The proposal is unreviewed and placed into the initial intake backlog [^evt-working-group-proposals-file-b33563055168-33233981].
+- `Waiting on Comment`: The proposal requires additional details, scope boundary adjustments, or responses to reviewer feedback [^evt-working-group-proposals-file-b33563055168-33233981].
+- `Too Early`: The proposal is immature or lacks sufficient initial momentum; guidance is recorded for prospective resubmission [^evt-working-group-proposals-file-b33563055168-33233981].
+- `Approved`: The working group charter has been accepted by the Technical Committee and confirmed by the Governing Board [^evt-working-group-proposals-file-b33563055168-33233981].
+- `Declined`: The proposal is rejected with documented rationale logged in the issue thread [^evt-working-group-proposals-file-b33563055168-33233981].
+
+### TC Review and Voting Requirements
+
+Following initial triage, proposals are scheduled for live review during a regular [Technical Committee](../governance/technical-committee.md) meeting [^evt-working-group-proposals-file-b33563055168-33233981]:
+
+- **Approval Threshold**: Formation requires a simple majority vote of all members of the Technical Committee [^evt-working-group-proposals-file-b33563055168-33233981].
+- **Governing Board Ratification**: Approved working group formations remain subject to final administrative consent from the AAIF Governing Board [^evt-working-group-proposals-file-b33563055168-33233981].
+
+# Lifecycle History
+
+- **Intake Process Codification**: Working group charter intake established via the `aaif/working-group-proposals` repository and tracking board [^evt-working-group-proposals-file-b33563055168-33233981].
+
+[^evt-working-group-proposals-file-b33563055168-33233981]: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md

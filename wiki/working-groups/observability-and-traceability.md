@@ -1,43 +1,38 @@
 ---
 type: working-group
 title: Observability and Traceability Working Group
-description: Technical working group standardizing agent telemetry, causal execution
-  traces, cross-boundary verification, and the five-tier tracing reference architecture
-  stack.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
+description: AAIF technical working group establishing vendor-neutral telemetry standards,
+  behavioral trace models, and cross-boundary agent observability.
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
 tags:
 - working-group
 - observability
-- tracing
+- traceability
 - telemetry
-- standards
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:18:09.925582+00:00'
+  at: '2026-10-12T10:52:34.061085+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
-  author: Matthew Khouzam
-  last_modified: '2026-10-07T07:18:15+01:00'
+- id: evt-wg-observability-and-traceability-pr-62
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
+  author: mr-lee
+  last_modified: '2026-10-12T02:55:00+00:00'
 ---
 
 # Overview
-The Observability and Traceability Working Group is an AAIF technical body developing telemetry specifications, execution trace models, and evaluation frameworks for AI agent infrastructure[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]. The working group standardizes how agent execution state, tool interactions, multi-agent coordination, and underlying hardware operations are captured, correlated, and audited across multi-tenant environments[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
-
-The group maintains structured reference architecture assessments spanning foundational binary formats up through runtime agent tracing, establishing unified evaluation dimensions for performance, overhead, and semantic fidelity[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+The Observability and Traceability Working Group is an AAIF technical body responsible for defining vendor-neutral telemetry models, agent execution trace formats, and cross-boundary observability standards across LLM primitives, MCP protocol boundaries, and host operating environments [^evt-wg-observability-and-traceability-pr-62]. The group produces telemetry specifications and reference architectures to ensure agent reasoning loops and tool invocations can be reliably inspected, attributed, and diagnosed [^evt-wg-observability-and-traceability-pr-62].
 
 # Architecture / Specification
+In addition to technical specifications such as the [Agent Behavior Trace Model](../standards/agent-behavior-trace-model.md) and cross-boundary telemetry matrices, the working group adheres to the foundation's standardized governance operations defined by the [Technical Committee](../governance/technical-committee.md) [^evt-wg-observability-and-traceability-pr-62].
 
-The working group structures its technical assessments along a bottom-up five-layer observability stack[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]:
-
-1. **Layer 01 — Foundations**: Baseline binary trace encodings and comparative evaluation frameworks, including the [Common Trace Format](../resources/common-trace-format.md) (CTF), the [Linux Tracing Comparison](../resources/linux-tracing-comparison.md), and [Trace Compass](../resources/trace-compass.md) for cross-domain state system analysis[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
-2. **Layer 02 — Kernel Tracing**: Operating system instrumentation and execution dynamics, evaluating [FTrace](../resources/ftrace.md), [Linux perf](../resources/linux-perf.md), [LTTng Kernel](../resources/lttng-kernel.md), [LTTng-UST](../resources/lttng-ust.md), device driver instrumentation ([Linux Driver Tracing](../resources/linux-driver-tracing.md)), [Virtualization Tracing](../resources/virtualization-tracing.md), [Container Orchestration Tracing](../resources/container-orchestration-tracing.md), [Tracy Profiler](../resources/tracy.md), and syscall inspection frameworks including [Sysdig](../resources/sysdig.md) and [Falco](../resources/falco.md)[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
-3. **Layer 03 — Hardware Accelerators**: GPU kernel dispatches, tensor core utilization, and host-device synchronization profiled via [NVIDIA Nsight](../resources/nvidia-nsight.md), [AMD ROCprofiler](../resources/amd-rocprofiler.md), [PyTorch Profiler](../resources/pytorch-profiler.md), and hardware processor tracing[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
-4. **Layer 04 — Network**: Wire-level protocol inspection, packet capture via [Wireshark](../resources/wireshark.md), and distributed communication fabrics[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
-5. **Layer 05 — AI Agent Observability**: High-level agent runtime telemetry, model interaction traces, and semantic metrics captured via [OpenTelemetry](../resources/opentelemetry.md), [Langfuse](../resources/langfuse.md), and [PostHog](../resources/posthog.md)[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+## Governance and Reporting Conventions
+The working group aligns its periodic reporting cadence with centralized Technical Committee reporting requirements [^evt-wg-observability-and-traceability-pr-62]:
+- **Report Pull Request Naming**: Pull requests submitting periodic reports must strictly follow the format `[Report] <YYYY-MM>` (e.g., `[Report] 2024-06`), deprecating older WG-prefixed titling formats (`[Report] <WG name> – <Month YYYY>`) [^evt-wg-observability-and-traceability-pr-62].
+- **Labeling Requirements**: Monthly reports require the `monthly-report` label to enable automated discovery, ingestion, and status tracking across Technical Committee dashboards [^evt-wg-observability-and-traceability-pr-62].
+- **Case Sensitivity**: Report file naming in working group repositories enforces strict case sensitivity in accordance with foundation-wide reporting guidelines [^evt-wg-observability-and-traceability-pr-62].
 
 # Lifecycle History
-- **Authoritative Assessment**: Established the structured narrative and five-tier bottom-up stack in `tracing_landscape/README.md` to catalog observability technologies against agentic infrastructure[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+The working group operational procedures were updated in PR #62 to resolve reporting mismatches and align monthly progress disclosures with unified Technical Committee reporting automation [^evt-wg-observability-and-traceability-pr-62].
 
-[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
+[^evt-wg-observability-and-traceability-pr-62]: https://github.com/aaif/wg-observability-and-traceability/pull/62

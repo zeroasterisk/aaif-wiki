@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-17",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#17",
+  "title": "Governance, Risk & Regulatory Alignment should contribute 10-20 candidate terms + 1 line disambiguator for each term",
+  "timestamp": "2026-09-23T23:36:28Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/17",
+  "summary": "See parent issue #12",
+  "pointers": [],
+  "inline_text": "See parent issue #12",
+  "labels": [
+    "taxonomy"
+  ]
+}

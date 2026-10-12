@@ -1,41 +1,36 @@
 ---
 type: standard
 title: Agent Behavior Trace Model
-description: Telemetry specification and causal execution trace standard defining
-  turn boundaries and cross-boundary agent observations.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/60
+description: Vendor-neutral telemetry framework capturing agent reasoning paths, state
+  transitions, execution receipts, and testable conformance vectors.
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/57
 tags:
-- aaif
 - observability
-- opentelemetry
+- telemetry
 - tracing
-- standards
+- verification
+- conformance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:11:37.577005+00:00'
+  at: '2026-10-12T10:46:54.620317+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-60
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/60
-  author: mr-lee
-  last_modified: '2026-09-30T16:55:49+00:00'
+- id: evt-wg-observability-and-traceability-pr-57
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/57
+  author: astrogilda
+  last_modified: '2026-10-10T02:46:49+00:00'
 ---
 
 # Overview
-
-The Agent Behavior Trace Model is an open telemetry specification developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) to define turn boundaries, causal execution graphs, and runtime behavior tracking across agentic workflows [^evt-wg-observability-and-traceability-pr-60]. The model establishes vendor-neutral telemetry conventions that map multi-turn agent deliberation, tool calls, and delegated task handoffs into structured trace events [^evt-wg-observability-and-traceability-pr-60].
+The Agent Behavior Trace Model is a vendor-neutral telemetry specification defining structured event schemas, state transition graphs, and verifiable execution receipts for autonomous agents [^evt-wg-observability-and-traceability-pr-57]. Developed under the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), the standard establishes common semantics for OpenTelemetry Protocol (OTLP) pipelines and automated conformance test suites.
 
 # Architecture / Specification
-
-The trace model development lifecycle is structured around four sequential, evidence-first execution phases [^evt-wg-observability-and-traceability-pr-60]:
-
-- **Phase 1 (Agree)**: Align on core dimensions, milestone scope definitions, and evaluation metrics [^evt-wg-observability-and-traceability-pr-60].
-- **Phase 2 (Evidence)**: Empirical capture and analysis of telemetry emitted by production agent frameworks, utilizing [Goose](../resources/goose.md) as the initial reference implementation [^evt-wg-observability-and-traceability-pr-60].
-- **Phase 3 (Interpret)**: Maintain a shared register of observed telemetry gaps, inconsistent OpenTelemetry GenAI semantic convention implementations, and missing behavioral attributes [^evt-wg-observability-and-traceability-pr-60].
-- **Phase 4 (Contribute)**: Formulate formal OpenTelemetry upstream proposals and Foundation trace specifications backed by validated runtime traces [^evt-wg-observability-and-traceability-pr-60].
+The specification establishes runtime telemetry formats and automated validation requirements:
+- **Span and Event Taxonomy**: Formats reasoning steps, plan selections, tool invocations, retries, and approval gates into correlated trace spans.
+- **Trace-Model Test Kit**: Provides an executable OTLP/JSON test suite evaluating execution continuity, signature validity, missing or duplicate receipts, ticket ID tampering, and cross-tenant action identifier collisions [^evt-wg-observability-and-traceability-pr-57].
+- **Evidence and Signature Boundary**: Maintains separation between cryptographic signature validity and runtime effect correlation, integrating with signed vector suites to evaluate policy compliance without assuming underlying tenant metadata authenticity [^evt-wg-observability-and-traceability-pr-57].
 
 # Lifecycle History
+- **PR #57**: Added the trace-model test kit containing six OTLP/JSON reference fixtures, naive-reader validation, and synthetic receipt verification test cases [^evt-wg-observability-and-traceability-pr-57].
 
-In September 2026, the working group restructured the project's execution plan from parallel theoretical tracks to a four-phase evidence-driven methodology anchored by an empirical gap register and a Goose reference implementation [^evt-wg-observability-and-traceability-pr-60].
-
-[^evt-wg-observability-and-traceability-pr-60]: https://github.com/aaif/wg-observability-and-traceability/pull/60
+[^evt-wg-observability-and-traceability-pr-57]: https://github.com/aaif/wg-observability-and-traceability/pull/57

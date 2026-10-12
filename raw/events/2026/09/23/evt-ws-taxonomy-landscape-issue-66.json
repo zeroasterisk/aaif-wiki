@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-66",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#66",
+  "title": "Add a LICENSE for adoption metric",
+  "timestamp": "2026-09-23T23:43:35Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/66",
+  "summary": "LICENSE file appears to be needed - CC BY 4.0 for the taxonomy and landscape data, Apache-2.0 for the code",
+  "pointers": [],
+  "inline_text": "LICENSE file appears to be needed - CC BY 4.0 for the taxonomy and landscape data, Apache-2.0 for the code",
+  "labels": []
+}
