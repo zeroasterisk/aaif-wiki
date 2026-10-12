@@ -12,11 +12,11 @@ project:
   dist_dir: "dist"          # build artifacts (gitignored)
 
 curator:
-  # Gemini 3.7 Flash, released 2026-08-13. The Flash line is moving on a ~3-week
-  # cadence (3.5 -> 3.6 -> 3.7), so this pin is a decision with a review date, not
+  # Gemini 3.8 Flash (upgraded 2026-10-12 from 3.7). The Flash line is moving on a ~3-week
+  # cadence (3.5 -> 3.6 -> 3.7 -> 3.8), so this pin is a decision with a review date, not
   # a fossil: revisit quarterly. Pinned rather than aliased so that replay and the
   # `generated.by` provenance refer to the model that actually produced the text.
-  model: "gemini-3.7-flash"
+  model: "gemini-3.8-flash"
   fallback_model: "gemini-flash-latest"
   vertex:
     project: null           # null -> ADC / GOOGLE_CLOUD_PROJECT

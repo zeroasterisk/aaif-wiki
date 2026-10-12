@@ -54,7 +54,7 @@ GitHub (files · open PRs · issues)
           ▼  scan_sources          git clone for content · REST for PRs/issues
    raw/events/**.json              append-only, pointers not blobs
           │
-          ▼  curate_concepts       Vertex · gemini-3.7-flash · 3-tier prompts
+          ▼  curate_concepts       Vertex · gemini-3.8-flash · 3-tier prompts
    structured Mutations            schema-validated; no direct file writes
           │
           ▼  apply_mutations

@@ -212,6 +212,7 @@ def _publish(cfg, mutations, run_id: str, summary: dict) -> None:
             cfg.root,
             [
                 cfg.project.bundle_root,
+                cfg.project.event_store,
                 cfg.publish.review_records,
                 cfg.resolution.exceptions_dir,
             ],

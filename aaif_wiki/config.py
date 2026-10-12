@@ -43,13 +43,13 @@ class VertexCfg(BaseModel):
 
 
 class CuratorCfg(BaseModel):
-    model: str = "gemini-3.7-flash"
+    model: str = "gemini-3.8-flash"
     fallback_model: str = "gemini-flash-latest"
     vertex: VertexCfg = Field(default_factory=VertexCfg)
     iteration_budget: int = 15
     compaction_threshold: int = 10
     temperature: float = 0.2
-    # Introductory pricing for gemini-3.7-flash, USD per 1M tokens. Used for the
+    # Pricing carried over from gemini-3.7-flash (3.8 unverified), USD per 1M. Used for the
     # budget ceiling; approximate by design, and cheap to correct.
     usd_per_1m_input: float = 0.75
     usd_per_1m_output: float = 3.75
