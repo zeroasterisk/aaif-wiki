@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-cd95e0a9e63d-5578e7ad",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/check-setup/graders/skill_fires.md",
+  "title": "skill_fires.md",
+  "timestamp": "2026-10-11T08:19:42-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md",
+  "summary": "feat(skills): aaif-check-setup, a plain-language readiness check",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/check-setup/graders/skill_fires.md",
+      "blob_sha": "5578e7adae674447fc9dacae3c70ffa5b50325dc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

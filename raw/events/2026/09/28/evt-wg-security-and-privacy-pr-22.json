@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-22",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#22",
+  "title": "[Report] 2026-08",
+  "timestamp": "2026-09-28T12:37:32Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/22",
+  "summary": "This PR adds the August 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\n\n### Month at a glance\n\n- Past working group meeting recordings will now be public by default, since no confidential content was discussed.\n- The Threat M...",
+  "pointers": [],
+  "inline_text": "This PR adds the August 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\n\n### Month at a glance\n\n- Past working group meeting recordings will now be public by default, since no confidential content was discussed.\n- The Threat Modeling Gap Analysis ([#8](https://github.com/aaif/wg-security-and-privacy/pull/8)) is in active review, with STRIDE and PASTA alignment analysis underway and reviewer feedback being incorporated.\n- The Best Practices Guide skeleton draft went up as a PR ([#9](https://github.com/aaif/wg-security-and-privacy/pull/9)), and the workstream reviewed Erin Farr's security best practices guide ahead of her PR.\n- The Design Patterns Catalog has an initial draft and a template for adding patterns, with a repository PR to follow.\n- The cross-WG review checklist workstream held its first two meetings and started the overlap checklist between groups, and the cross-WG taxonomy effort will send security and privacy term PRs to this group for review in the coming weeks.\n- Meeting attendance averaged about 18 across the two August meetings, a dip from July's average of about 30 that aligns with the Black Hat and DEF CON conference window anticipated in the July report.\n\n### Decision requested from the TC\n\nThe WG requests clarification on how the A2A donation affects working group scopes, particularly for protocol-related security work spanning this group, Agent Gateway, and other AAIF efforts. Please respond in this PR so the decision can be actioned.\n\n### Risks worth flagging\n\nOverlapping ownership across working groups remains unresolved, with multiple groups sometimes claiming the same areas and the A2A donation raising new scope questions for protocol-related work. A proposal to consolidate per-WG protocol workstreams into a single cross-WG effort is under discussion.",
+  "labels": [
+    "monthly-report"
+  ]
+}

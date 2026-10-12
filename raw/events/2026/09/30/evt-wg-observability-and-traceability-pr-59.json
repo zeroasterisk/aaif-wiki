@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-59",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#59",
+  "title": "ci: add monthly issue and PR metrics for the TC report",
+  "timestamp": "2026-09-30T04:44:32Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/59",
+  "summary": "## Summary\n\nAdds a monthly GitHub Action that counts the previous month's issues and pull requests and opens an issue with the report, labeled `monthly-report`. It uses [issue-metrics](https://github.com/github-community-projects/issue-metrics), as the TC suggested on the August ...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds a monthly GitHub Action that counts the previous month's issues and pull requests and opens an issue with the report, labeled `monthly-report`. It uses [issue-metrics](https://github.com/github-community-projects/issue-metrics), as the TC suggested on the August report (#38), so the monthly counts no longer have to be compiled by hand.\n\n- Runs on the 1st of each month, and can be run manually from the Actions tab.\n- Reports issues and pull requests created or updated during the month, with open/closed counts and time to first response and close.\n- Both actions are pinned to a commit. The workflow only needs permission to read the repository and open an issue.\n\n## Related Issue\n\nUpdates the TC feedback on #38 (monthly completion counts).\n\n## Review Notes\n\nThe report counts all repository activity. Per-track counts can come later, by adding track labels and one query per track.\n\n## Follow-ups\n\n- After merge, run it once manually to produce the September counts for the September report (#58).\n- Consider a label for items pending WG alignment, so the report can count them.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [ ] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-8d913ff52178-e9043c6b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/02-kernel-tracing/sysdig.md",
+  "title": "sysdig.md",
+  "timestamp": "2026-10-07T07:18:15+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/02-kernel-tracing/sysdig.md",
+  "summary": "More tracing tools/observability (#34)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/02-kernel-tracing/sysdig.md",
+      "blob_sha": "e9043c6bc7d790969502e6d7af8a5704a0e7dee2",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

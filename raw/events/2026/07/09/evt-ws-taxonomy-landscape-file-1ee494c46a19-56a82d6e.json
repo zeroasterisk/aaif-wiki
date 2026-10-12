@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-1ee494c46a19-56a82d6e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "meeting-notes/2026-07-06.md",
+  "title": "2026-07-06.md",
+  "timestamp": "2026-07-09T21:32:22-07:00",
+  "author": "Junjie Bu",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/2026-07-06.md",
+  "summary": "docs: add meeting notes for 2026-07-06 and update index in README",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "meeting-notes/2026-07-06.md",
+      "blob_sha": "56a82d6e4047855a0498a5d5ec2a5e9bf04e3774",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-agentic-commerce-file-9677055e316b-dc950981",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:24:00-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-agentic-commerce/blob/8458b003a68de58c8bc24900ebd931d3112eb7ca/reporting/TEMPLATE.md",
+  "summary": "Add reporting template for Agentic Commerce",
+  "pointers": [
+    {
+      "repo": "wg-agentic-commerce",
+      "commit_sha": "8458b003a68de58c8bc24900ebd931d3112eb7ca",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "dc9509818d0166f279190333c7404ef747722f98",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

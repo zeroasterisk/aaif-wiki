@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-31e1ac583aa4-9cc8bb73",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": ".github/workflows/probe-copilot.yml",
+  "title": "probe-copilot.yml",
+  "timestamp": "2026-08-20T17:58:39+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/probe-copilot.yml",
+  "summary": "Probe inference, not just /models — and fix the pipefail bug",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": ".github/workflows/probe-copilot.yml",
+      "blob_sha": "9cc8bb73b3c61db52eeb41bec012dc62016a30fe",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

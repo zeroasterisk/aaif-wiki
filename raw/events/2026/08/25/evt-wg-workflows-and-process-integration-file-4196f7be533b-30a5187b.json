@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-4196f7be533b-30a5187b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/docs/saw-ra-doc-blueprint.md",
+  "title": "saw-ra-doc-blueprint.md",
+  "timestamp": "2026-08-25T07:58:21-07:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/saw-ra-doc-blueprint.md",
+  "summary": "Replace reference architecture steps with activities (#33)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/docs/saw-ra-doc-blueprint.md",
+      "blob_sha": "30a5187b8ba75148cb3cd4ad201b7e7e87f3f4e9",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

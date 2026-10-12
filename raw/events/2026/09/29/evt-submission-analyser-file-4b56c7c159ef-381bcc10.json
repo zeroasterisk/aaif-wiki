@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-4b56c7c159ef-381bcc10",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": ".github/workflows/canary.yml",
+  "title": "canary.yml",
+  "timestamp": "2026-09-29T10:55:53+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/canary.yml",
+  "summary": "Update canary.yml",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": ".github/workflows/canary.yml",
+      "blob_sha": "381bcc1059060c2ebbb04f489e01efd6b40a4952",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

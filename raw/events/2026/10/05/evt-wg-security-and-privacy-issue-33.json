@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-33",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#33",
+  "title": "Best practices guide: secrets quick start misses agent configs, context leakage and host credentials (Section 2)",
+  "timestamp": "2026-10-05T07:57:32Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/33",
+  "summary": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015526477.\n\n**Current text** ([L39](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-...",
+  "pointers": [],
+  "inline_text": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015526477.\n\n**Current text** ([L39](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L39)): the audit covers cloud keys in environment variables and image layers.\n\n**Proposal.** Three additions to the quick start and the Section 2 threat model.\n1. Agent config files and skill bundles. MCP client configs (`.mcp.json`, `.cursor/mcp.json`, `claude_desktop_config.json`) carry API keys in their `env` blocks and get committed with the repo. Skills ship with hardcoded keys; the guide's own figure on [L68](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L68) is 10.9%. Add these paths to the audit.\n2. Secrets that pass through the agent's context. When a tool reads a `.env` or returns a token, it lands in the transcript, in traces, in memory and in the Section 6 log stream. Two rules: redact tool output before it re-enters context, and never let agent memory hold credentials (OWASP ASI03 calls this memory-based privilege retention).\n3. Credentials on the host that nobody gave the agent. SSH keys, cloud tokens, browser sessions. Coding agents run where all of these live, and this summer Cursor, Codex, Gemini CLI and Antigravity were shown escaping their sandboxes to the user's full home directory, read and write (https://www.pillar.security/blog/the-week-of-sandbox-escapes). Claude Cowork's VM had the same outcome (https://thehackernews.com/2026/07/claude-cowork-flaw-could-let-ai-agent.html). The control is a deny rule on those paths at the hook, plus short-lived credentials so what is reachable is worthless quickly, which is Section 2's own argument.\n\nMaps to OWASP MCP01 and ASI03.",
+  "labels": []
+}

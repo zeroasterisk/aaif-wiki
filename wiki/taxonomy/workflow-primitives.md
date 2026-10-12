@@ -1,47 +1,48 @@
 ---
 type: taxonomy
 title: Workflow Primitives
-description: Standardized vocabulary of modular workflow building blocks, boundary
-  contracts, and handoff specifications for single- and multi-agent reference architectures.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+description: Standardized vocabulary of modular workflow building blocks, execution
+  states, and boundary contracts for agentic AI orchestration.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
 tags:
-- workflows
-- primitives
-- orchestration
-- reference-architectures
-- contracts
+- taxonomy
+- workflow
+- vocabulary
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:20:41.806737+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T02:54:39.529684+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-29
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
-  author: praneeth2k3
-  last_modified: '2026-10-06T15:45:22+00:00'
-- id: evt-wg-workflows-and-process-integration-pr-54
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
-  author: praneeth2k3
-  last_modified: '2026-10-06T03:09:10+00:00'
+- id: evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
+  author: Mario Zagar
+  last_modified: '2026-08-28T22:43:08-04:00'
+- id: evt-wg-workflows-and-process-integration-pr-31
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/31
+  author: mzagar
+  last_modified: '2026-08-29T02:43:08+00:00'
 ---
 
 # Overview
 
-Workflow Primitives are the standardized, modular building blocks defined by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to compose reliable single-agent and multi-agent systems.[^evt-wg-workflows-and-process-integration-pr-29] Designated across catalog series (P1 through P19), these primitives define discrete functional roles such as Triggers, AgentSteps, Budgets, and Handoffs, enabling formal composition according to foundational [workflow architecture principles](../guidelines/workflow-architecture-principles.md).[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54]
-
-Each primitive crossing is governed by rigorous interface contracts to enforce predictable execution, state continuity, and policy compliance across system boundaries.[^evt-wg-workflows-and-process-integration-pr-29]
+Workflow Primitives define the foundational vocabulary and execution building blocks for structured agentic AI workflows and orchestration systems.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
 
 # Architecture / Specification
 
-The primitive framework standardizes workflow mechanics across reference architectures, including [single-agent human approval architectures](../architectures/single-agent-human-approval.md) and multi-agent topology patterns (T1–T6):[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54]
+### Foundational Concepts
 
-- **Primitive Vocabulary (P1–P19)**: Identifies atomic workflow components including invocation triggers, autonomous agent steps, constraint evaluators, budget limits, human intervention gates, and delegation handoffs.[^evt-wg-workflows-and-process-integration-pr-29]
-- **AgentStep Boundary Contracts**: Defines deterministic input/output schemas and execution invariants required whenever an agent step is executed.
-- **Handoff Contracts**: Specifies state transfer, context propagation, and authorization invariants required when transferring execution responsibility between autonomous agents or between agents and human operators.[^evt-wg-workflows-and-process-integration-pr-29]
+- **Activity**: A single, bounded task with defined inputs and outputs that can be tracked to completion.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f] This term replaces earlier usages of "Workflow Step" and "Workflow Task" to prevent circularity with the Workflow definition.[^evt-wg-workflows-and-process-integration-pr-31]
+- **Workflow**: The primary unit of structured, multi-activity work with a defined goal and outcome, composed of one or more activities, their relationships, and execution logic.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Workflow Execution**: A runtime instance of a workflow definition, maintaining its own execution state and lifecycle independently of concurrent instances.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Workflow State**: The information representing the current condition and execution progress of a workflow execution at a specific point in time.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Workflow Context**: The shared information available to workflow participants during execution, including inputs, shared metadata, history, and external references.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
 
-# Lifecycle History
+### Execution and Control
 
-- **2026-08**: Workflows & Process Integration WG introduced the primitive-based architecture drafts and supporting contracts (PR #29, PR #54).[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54]
+- **Control Flow**: The logic determining execution order, branching, parallelism, and synchronization of activities.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Trigger**: An event, condition, schedule, or signal initiating or advancing workflow execution.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Durability**: The capability of preserving execution state across system failures or interruptions without loss of progress.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Determinism**: The property whereby identical inputs, execution state, and history produce consistent execution behavior.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
 
-[^evt-wg-workflows-and-process-integration-pr-29]: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
-[^evt-wg-workflows-and-process-integration-pr-54]: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
+[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
+[^evt-wg-workflows-and-process-integration-pr-31]: https://github.com/aaif/wg-workflows-and-process-integration/pull/31

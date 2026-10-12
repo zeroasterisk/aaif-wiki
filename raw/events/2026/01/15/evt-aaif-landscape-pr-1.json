@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#1",
+  "title": "Fix MCP project repository url",
+  "timestamp": "2026-01-15T19:02:07Z",
+  "author": "tegioz",
+  "url": "https://github.com/aaif/aaif-landscape/pull/1",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

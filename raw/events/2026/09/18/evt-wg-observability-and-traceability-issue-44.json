@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-44",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#44",
+  "title": "Trace model: connect calls, approvals, and external effects",
+  "timestamp": "2026-09-18T10:28:41Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/44",
+  "summary": "## Outcome\n\nTested relationships connecting model calls, approval decisions, tool execution, and independently observed effects.\n\nTask 6 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** Session membership does not explain w...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nTested relationships connecting model calls, approval decisions, tool execution, and independently observed effects.\n\nTask 6 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** Session membership does not explain which work caused a call, which action was approved, or what changed outside the agent.\n\n**Work and examples:**\n\n- **Calls and retries:** a visible model-call attempt fails and another succeeds while handling the ticket request. Associate both with the triggering work and count reported usage once. Unavailable usage and hidden retries remain unknown.\n- **Approvals:** “Approve” must refer to proposed action P1. A denial should not produce a fictional tool execution.\n- **Effects:** the agent observes tool execution E1; the service separately reports creating ticket-42. Preserve the correlation that connects the receipt to E1 and P1.\n\n## Acceptance Criteria\n\n**Done when:** tests cover all three relationships and report each example's coverage. Missing confirmation remains unknown; observed approval is not proof of enforcement. These pieces can be assigned separately.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find contributors and reviewers for the three pieces of work and record each example's supported capabilities.\n- **Depends on:** [Task 4](https://github.com/aaif/wg-observability-and-traceability/issues/42) and [Task 5](https://github.com/aaif/wg-observability-and-traceability/issues/43).\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).\n\nThe identifiers in the example are illustrative fixture identities, not proposed OTel attribute names.",
+  "labels": [
+    "enhancement",
+    "help wanted"
+  ]
+}

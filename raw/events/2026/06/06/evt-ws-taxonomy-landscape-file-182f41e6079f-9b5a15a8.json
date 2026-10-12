@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-182f41e6079f-9b5a15a8",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "landscape/landscape.yml",
+  "title": "landscape.yml",
+  "timestamp": "2026-06-06T16:57:30-07:00",
+  "author": "Junjie Bu",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/landscape/landscape.yml",
+  "summary": "renamed \"Agent Runtimes & Frameworks\" to \"Agent Runtimes, Frameworks & Workflow Orchestration\"",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "landscape/landscape.yml",
+      "blob_sha": "9b5a15a802adc4347cc2242938466477581d1970",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

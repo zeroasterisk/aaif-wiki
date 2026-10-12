@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-57c4a0921db3-7bd7bd69",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PORTABILITY.md",
+  "title": "PORTABILITY.md",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/PORTABILITY.md",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "PORTABILITY.md",
+      "blob_sha": "7bd7bd69c8c78dc62648d6f57430570a00fb1234",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

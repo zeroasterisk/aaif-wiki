@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-9",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#9",
+  "title": "Update lifecycle",
+  "timestamp": "2026-08-28T04:07:05Z",
+  "author": "maniksurtani",
+  "url": "https://github.com/aaif/technical-committee/pull/9",
+  "summary": "* Include sandbox\r\n* Tighten language around growth criteria\r\n* Remove redundant proposal and acceptance language",
+  "pointers": [],
+  "inline_text": "* Include sandbox\r\n* Tighten language around growth criteria\r\n* Remove redundant proposal and acceptance language",
+  "labels": []
+}

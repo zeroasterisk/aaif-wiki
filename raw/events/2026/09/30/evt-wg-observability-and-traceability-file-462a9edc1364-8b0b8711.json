@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-462a9edc1364-8b0b8711",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/agent-mcp-server-boundary-deep-dive.md",
+  "title": "agent-mcp-server-boundary-deep-dive.md",
+  "timestamp": "2026-09-30T19:10:57+01:00",
+  "author": "Empire Labs Pty Ltd",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/agent-mcp-server-boundary-deep-dive.md",
+  "summary": "docs: add Agent to MCP Server boundary deep-dive (issue #29) (#32)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/agent-mcp-server-boundary-deep-dive.md",
+      "blob_sha": "8b0b8711bffc88173860108a49697b7ebd282e54",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

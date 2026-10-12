@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-agentic-commerce-file-b33563055168-41e54563",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-07-29T15:00:59-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-agentic-commerce/blob/8458b003a68de58c8bc24900ebd931d3112eb7ca/README.md",
+  "summary": "Revise meeting details and communication links",
+  "pointers": [
+    {
+      "repo": "wg-agentic-commerce",
+      "commit_sha": "8458b003a68de58c8bc24900ebd931d3112eb7ca",
+      "path": "README.md",
+      "blob_sha": "41e54563ab00109a1a5715573e056417c1026831",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

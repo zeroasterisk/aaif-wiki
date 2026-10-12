@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-b33563055168-aa8532b6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-06-07T19:02:00-05:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/README.md",
+  "summary": "Apply suggestion from @angiejones",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "f95b796d901b553de20e37213c63f81f40a627a2",
+      "path": "README.md",
+      "blob_sha": "aa8532b6b565c31ce215538f62566e0f3ad90131",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

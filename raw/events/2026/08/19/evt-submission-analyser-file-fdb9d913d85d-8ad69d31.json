@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-fdb9d913d85d-8ad69d31",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "tests/fixtures/injections/03-fake-authority.md",
+  "title": "03-fake-authority.md",
+  "timestamp": "2026-08-19T23:20:33+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/tests/fixtures/injections/03-fake-authority.md",
+  "summary": "Add the test suite, and fix the five bugs it found",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "tests/fixtures/injections/03-fake-authority.md",
+      "blob_sha": "8ad69d31a2126bea7f0b3149c440a31f576578ba",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-10",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#10",
+  "title": "[Report] 2026-08",
+  "timestamp": "2026-10-02T07:28:35Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/10",
+  "summary": "## Summary\n\nAdds the August 2026 monthly report for ARWG.\n\nThe report is concise due to summer PTO period and focuses on:\n- D2 survey review cycle in PR #9\n- D1 review status in PR #8\n- cross-WG coordination and phase 2 preparation\n- explicit consolidated answers to review questi...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the August 2026 monthly report for ARWG.\n\nThe report is concise due to summer PTO period and focuses on:\n- D2 survey review cycle in PR #9\n- D1 review status in PR #8\n- cross-WG coordination and phase 2 preparation\n- explicit consolidated answers to review questions raised on July report PR #7\n\n## Changes\n\n- Add reporting/2026-08-report.md\n- Keep links to PRs and supporting references explicit in the report body and references section\n\n## References\n\n- July report PR #7: https://github.com/aaif/wg-accuracy-and-reliability/pull/7\n- D1 PR #8: https://github.com/aaif/wg-accuracy-and-reliability/pull/8\n- D2 survey PR #9: https://github.com/aaif/wg-accuracy-and-reliability/pull/9",
+  "labels": [
+    "monthly-report"
+  ]
+}

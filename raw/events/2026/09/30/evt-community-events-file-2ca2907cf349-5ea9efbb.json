@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-2ca2907cf349-5ea9efbb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-audit-slack/references/engine-reports.md",
+  "title": "engine-reports.md",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/references/engine-reports.md",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-audit-slack/references/engine-reports.md",
+      "blob_sha": "5ea9efbbab964f90cc95e5e17a9c2e7a8bdcf31a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

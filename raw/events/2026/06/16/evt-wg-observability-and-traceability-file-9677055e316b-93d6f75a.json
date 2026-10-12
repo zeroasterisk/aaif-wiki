@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-9677055e316b-93d6f75a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:16:08-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/reporting/TEMPLATE.md",
+  "summary": "Add reporting template for Observability & Traceability",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "93d6f75a3e60bf708fab4ab5ac0d5c856c42fefc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

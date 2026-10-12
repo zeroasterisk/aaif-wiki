@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-38",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#38",
+  "title": "[Report] 2026-08",
+  "timestamp": "2026-09-28T00:45:18Z",
+  "author": "yaron2",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/38",
+  "summary": "August report.",
+  "pointers": [],
+  "inline_text": "August report.",
+  "labels": [
+    "monthly-report"
+  ]
+}

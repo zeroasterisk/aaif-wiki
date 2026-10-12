@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/design-patterns/DRAFT-kill_switch_pattern.md",
+  "title": "DRAFT-kill_switch_pattern.md",
+  "timestamp": "2026-09-30T10:16:03-04:00",
+  "author": "sagardashora",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-kill_switch_pattern.md",
+  "summary": "Initial drafts for design patterns catalog (#26)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "22c3f9a2cdac4fcf092502fa06154b08b4df09b8",
+      "path": "workstreams/design-patterns/DRAFT-kill_switch_pattern.md",
+      "blob_sha": "8e9abf012f8fb87dd95586f00294f71f8275120d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

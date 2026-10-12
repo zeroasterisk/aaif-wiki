@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-30",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#30",
+  "title": "feat: add use case E4 (tamper-evident evidence) + priority matrix contribution",
+  "timestamp": "2026-08-23T09:50:09Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/30",
+  "summary": "## Summary\nAdds **Use Case E4 - Tamper-Evident Evidence for Audit and Dispute Resolution** to the Safety and Compliance category of `working-documents/USE-CASES.md`, plus Empire Labs' priorities for the appendix matrix.\n\n## What's included\n- **E4 use case**: can a regulated org p...",
+  "pointers": [],
+  "inline_text": "## Summary\nAdds **Use Case E4 - Tamper-Evident Evidence for Audit and Dispute Resolution** to the Safety and Compliance category of `working-documents/USE-CASES.md`, plus Empire Labs' priorities for the appendix matrix.\n\n## What's included\n- **E4 use case**: can a regulated org prove what an agent actually did, to an auditor or a court? Requires Merkle-chained signed event records, WORM storage, RFC 3161 timestamps, approval chains, declared-vs-observed linkage, and a comparable evidence-grade ladder.\n- **Prior work references**: the [witnessos](https://github.com/narko4u/witnessos) evidence-grade ladder (E0 Declared -> E4 Anchored) and [eu-ai-act-compliance-grade](https://github.com/narko4u/eu-ai-act-compliance-grade) as reference models for grading evidence strength.\n- **Priority matrix contribution**: Empire Labs Pty Ltd (Security Division) priorities - High on E1-E4 + F1, reflecting evidence-grade observability focus.\n\n## Context\nE4 extends the existing E1-E3 compliance cluster and gives the Agent Behavior Trace Model a concrete integrity requirement beyond observability. Open to feedback from the WG.",
+  "labels": []
+}

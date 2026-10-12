@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-56",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#56",
+  "title": "Add Security and Privacy Terms for WG review",
+  "timestamp": "2026-09-30T04:40:21Z",
+  "author": "kdruckman",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/56",
+  "summary": "This adds the initial Security & Privacy terms agreed upon in the taxonomy and landscape workstream. \r\n\r\nDefinitions to be reviewed by the Security and Privacy WG before approving. \r\n\r\nIn particular, `Agent sabotage` and `Agent mishandling/misuse` need refinement.",
+  "pointers": [],
+  "inline_text": "This adds the initial Security & Privacy terms agreed upon in the taxonomy and landscape workstream. \r\n\r\nDefinitions to be reviewed by the Security and Privacy WG before approving. \r\n\r\nIn particular, `Agent sabotage` and `Agent mishandling/misuse` need refinement.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-21",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#21",
+  "title": "Remove duplicate header fields in project-proposal.yml",
+  "timestamp": "2026-05-13T06:18:54Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/project-proposals/pull/21",
+  "summary": "The file had two sets of top-level fields (name, description, title, labels). YAML parsers use the last value when keys are duplicated, so the first block had no effect. Removed the first block and kept the second one, which includes the assignees field and the correct title form...",
+  "pointers": [],
+  "inline_text": "The file had two sets of top-level fields (name, description, title, labels). YAML parsers use the last value when keys are duplicated, so the first block had no effect. Removed the first block and kept the second one, which includes the assignees field and the correct title format.",
+  "labels": []
+}

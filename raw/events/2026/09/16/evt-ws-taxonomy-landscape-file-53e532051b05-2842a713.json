@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-53e532051b05-2842a713",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "docs/local-development.md",
+  "title": "local-development.md",
+  "timestamp": "2026-09-16T13:39:37-04:00",
+  "author": "Julianna Langston",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/docs/local-development.md",
+  "summary": "docs: clarify taxonomy-only contribution scope",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "docs/local-development.md",
+      "blob_sha": "2842a71359b38ff4d778e203c623d93f072f7210",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

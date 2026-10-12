@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-20",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#20",
+  "title": "Add security best practices feature matrix",
+  "timestamp": "2026-10-01T17:23:21Z",
+  "author": "erinmfarr",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/20",
+  "summary": "Initial commit of a table that lists out for each best practice, the specific features required to support it.\r\nThe table also indicates if the feature involves 'people', 'process', or 'technology', where:\r\n\r\n- 'people' indicates a need for skills, training, knowledge and securit...",
+  "pointers": [],
+  "inline_text": "Initial commit of a table that lists out for each best practice, the specific features required to support it.\r\nThe table also indicates if the feature involves 'people', 'process', or 'technology', where:\r\n\r\n- 'people' indicates a need for skills, training, knowledge and security awareness for all personnel\r\n- 'process' indicates the feature requires a documented policy, procedure or formal strategy for how security is executed\r\n- 'technology' indicates the feature is either physical or digital tools, hardware, software or automated systems to enforce security controls",
+  "labels": []
+}

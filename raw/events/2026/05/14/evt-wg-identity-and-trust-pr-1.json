@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#1",
+  "title": "Create charter for Identity & Trust Working Group",
+  "timestamp": "2026-05-14T13:43:52Z",
+  "author": "alperdedeoglu",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/1",
+  "summary": "Added the charter for the Identity & Trust Working Group, outlining its purpose, scope, goals, and governance structure.",
+  "pointers": [],
+  "inline_text": "Added the charter for the Identity & Trust Working Group, outlining its purpose, scope, goals, and governance structure.",
+  "labels": [
+    "gitvote",
+    "gitvote/closed",
+    "gitvote/failed"
+  ]
+}

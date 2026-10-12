@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-13",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#13",
+  "title": "Update contact info",
+  "timestamp": "2026-10-10T22:02:42Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/13",
+  "summary": "updated chair/co-chair and contact info in README and Charter files.",
+  "pointers": [],
+  "inline_text": "updated chair/co-chair and contact info in README and Charter files.",
+  "labels": []
+}

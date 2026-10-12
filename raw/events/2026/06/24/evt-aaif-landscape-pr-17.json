@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-17",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#17",
+  "title": "Add agentgateway",
+  "timestamp": "2026-06-24T20:15:47Z",
+  "author": "sboysel",
+  "url": "https://github.com/aaif/aaif-landscape/pull/17",
+  "summary": "Adding new AAIF member project https://agentgateway.dev/",
+  "pointers": [],
+  "inline_text": "Adding new AAIF member project https://agentgateway.dev/",
+  "labels": []
+}

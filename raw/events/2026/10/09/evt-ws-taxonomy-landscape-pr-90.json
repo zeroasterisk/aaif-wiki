@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-90",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#90",
+  "title": "introduce taxonomy-browser.html",
+  "timestamp": "2026-10-09T13:33:42Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/90",
+  "summary": "same as matthewkhouzam.github.io/taxonomy-browser/",
+  "pointers": [],
+  "inline_text": "same as matthewkhouzam.github.io/taxonomy-browser/",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-23",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#23",
+  "title": "Add action_ref / Mycelium Trails to prior-work survey",
+  "timestamp": "2026-08-20T14:27:37Z",
+  "author": "giskard09",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/23",
+  "summary": "Adds an entry (#18) and summary-table row for `action_ref` / Mycelium Trails, following the existing entry format.\n\n`action_ref` is a post-hoc, third-party-verifiable action accountability primitive — narrow scope, complementary to the WG's session-trace model rather than competi...",
+  "pointers": [],
+  "inline_text": "Adds an entry (#18) and summary-table row for `action_ref` / Mycelium Trails, following the existing entry format.\n\n`action_ref` is a post-hoc, third-party-verifiable action accountability primitive — narrow scope, complementary to the WG's session-trace model rather than competing with it: the WG's work answers *what an agent did and in what structure*; `action_ref` answers a narrower, orthogonal question, *is this particular recorded action verifiable by someone who doesn't trust whoever reported it*. Production-anchored (Arbitrum), specified in an IETF individual draft ([draft-etcheverry-action-ref](https://datatracker.ietf.org/doc/draft-etcheverry-action-ref/), still pre-adoption).\n\nNo claim of replacing OTel/AOS/AGNTCY — sits one layer beneath, consistent with the doc's own \"interoperability over invention\" framing.",
+  "labels": []
+}

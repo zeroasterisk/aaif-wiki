@@ -1,49 +1,45 @@
 ---
 type: resource
 title: Cross-Boundary Observability Model
-description: Three-layer coordination model analyzing telemetry propagation, context
-  hand-offs, and observability gaps across LLM primitives, protocols, and infrastructure.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
+description: Reference architecture evaluating boundary telemetry propagation, control-plane
+  evidence provenance, and kernel-enforced runtime tracing.
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
 tags:
 - observability
 - telemetry
-- protocols
 - boundaries
-- tracing
+- runtime
+- provenance
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:20:41.806737+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:06:54.015360+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-566afac466bc-889ed18a
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
-  author: Pavan Sudheendra
-  last_modified: '2026-10-06T04:07:46+01:00'
-- id: evt-wg-observability-and-traceability-pr-25
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/25
-  author: 91pavan
-  last_modified: '2026-10-06T03:07:52+00:00'
+- id: evt-wg-observability-and-traceability-pr-52
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
+  author: Salkimmich
+  last_modified: '2026-09-24T03:32:21+00:00'
 ---
 
 # Overview
-
-The Cross-Boundary Observability Model is a coordination framework developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) to systematically identify and analyze telemetry gaps across execution boundaries in agentic systems.[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a] Rather than acting as a standalone telemetry wire protocol, the model serves as an analytical map for evaluating how existing specifications and runtimes handle identity propagation, delegation chains, context preservation, and lifecycle tracking across heterogeneous boundaries.[^evt-wg-observability-and-traceability-pr-25]
-
-Current observability tooling frequently isolates insights to single execution layers, creating operational blind spots during inter-agent hand-offs, protocol negotiation failures, and cross-runtime delegations.[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]
+The Cross-Boundary Observability Model is an evaluation matrix and reference architecture analyzing telemetry propagation, security attestation, and evidence provenance across critical agentic boundaries.[^evt-wg-observability-and-traceability-pr-52] Developed within the Primitives and Protocol Observability focus group of the Observability and Traceability Working Group, the model categorizes telemetry expectations between agents, runtimes, external tools, gateways, and human supervisors.[^evt-wg-observability-and-traceability-pr-52]
 
 # Architecture / Specification
+The model standardizes telemetry and security attributes across four primary operational boundaries:[^evt-wg-observability-and-traceability-pr-52]
+- **Agent → Tool (MCP / CLI)**: Evaluates command payload logging, tool provenance, and security isolation at the invocation boundary.[^evt-wg-observability-and-traceability-pr-52]
+- **Agent → Gateway / Runtime**: Covers interactions with policy gateways and execution engines (such as the SAF-M-74 class and the nono runtime). It models enforcement layers categorized as kernel, broker, or proxy, alongside cryptographic execution hashes and golden vector validation.[^evt-wg-observability-and-traceability-pr-52]
+- **Agent → Human (HITL)**: Captures human-in-the-loop approval relationships, tracking approval checkpoints, delegation chains, and decision attribution records.[^evt-wg-observability-and-traceability-pr-52]
+- **Agent → Agent (A2A)**: Evaluates mutual identity verification, authorization delegation, and distributed turn tracking.[^evt-wg-observability-and-traceability-pr-52]
 
-The model organizes observability gap analysis across three distinct structural layers:[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]
-
-1. **LLM Primitive Layer**: Encompasses core cognitive and execution primitives including agents, skills, tools, models, and memory stores.
-2. **Protocol Boundary Layer**: Captures interaction patterns and transport-level transactions across discovery, negotiation, request/response cycles, delegation hand-offs, streaming channels, cancellation signals, and structured error handling, as seen in interfaces such as [Agent-to-MCP boundaries](../resources/agent-mcp-server-boundary.md) and [Agent-to-CLI boundaries](../resources/agent-tool-cli-boundary.md).
-3. **Infrastructure Boundary Layer**: Governs underlying platform execution substrates, API gateways, execution runtimes, containerized microservices, and network topologies.
-
-By categorizing system interactions across these layers, working groups evaluate whether distributed context tokens, provenance data, and authorization metadata successfully transit boundaries without truncation or loss of causal linkage.[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]
+A key technical challenge identified in kernel-enforced sandboxed runtimes (such as nono) is that W3C distributed trace context (`TRACEPARENT`, `TRACESTATE`, `BAGGAGE`) is not automatically propagated into the execution sandbox by default, requiring explicit environment allow-lists to correlate in-sandbox telemetry with outer workflow traces.[^evt-wg-observability-and-traceability-pr-52]
 
 # Lifecycle History
+In September 2026, PR #52 expanded the model by formalizing below-L7 kernel-enforced runtime rows, defining the Agent → Gateway/Runtime and Agent → Human matrix mappings, and documenting trace propagation boundaries in sandboxed environments.[^evt-wg-observability-and-traceability-pr-52]
 
-- **2026-08-25**: First draft of the cross-boundary observability model merged as a working document to guide WG gap analysis and upstream recommendations.[^evt-wg-observability-and-traceability-pr-25]
+# References
+- [../patterns/attested-isolated-runtime.md](../patterns/attested-isolated-runtime.md)
+- [../patterns/approval-checkpoint.md](../patterns/approval-checkpoint.md)
+- [../standards/agent-behavior-trace-model.md](../standards/agent-behavior-trace-model.md)
+- [../working-groups/observability-and-traceability.md](../working-groups/observability-and-traceability.md)
 
-[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
-[^evt-wg-observability-and-traceability-pr-25]: https://github.com/aaif/wg-observability-and-traceability/pull/25
+[^evt-wg-observability-and-traceability-pr-52]: https://github.com/aaif/wg-observability-and-traceability/pull/52

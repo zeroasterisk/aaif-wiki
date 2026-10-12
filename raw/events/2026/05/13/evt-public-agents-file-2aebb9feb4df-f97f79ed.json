@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-2aebb9feb4df-f97f79ed",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": "skills/aaif-blog-guidelines/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-05-13T11:19:28-07:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/skills/aaif-blog-guidelines/SKILL.md",
+  "summary": "Add AAIF blog guidelines skill",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": "skills/aaif-blog-guidelines/SKILL.md",
+      "blob_sha": "f97f79ed821e7a878e8f2f3a8f046805fa78a269",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

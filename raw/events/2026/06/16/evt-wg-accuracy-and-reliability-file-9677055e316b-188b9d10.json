@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-9677055e316b-188b9d10",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:25:13-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/reporting/TEMPLATE.md",
+  "summary": "Add WG reporting template for accuracy and reliability",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "10bc173f00e45d93a8f7038cb0c36a89e3219565",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "188b9d10e2dfeb674f9d100e8536840fe5a51f72",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

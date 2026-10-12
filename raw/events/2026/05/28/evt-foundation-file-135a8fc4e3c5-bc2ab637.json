@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-foundation-file-135a8fc4e3c5-bc2ab637",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "policies-guidelines/social-guidelines.md",
+  "title": "social-guidelines.md",
+  "timestamp": "2026-05-28T23:01:34+02:00",
+  "author": "mesutoezdil",
+  "url": "https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/social-guidelines.md",
+  "summary": "fix: add missing word in social-guidelines",
+  "pointers": [
+    {
+      "repo": "foundation",
+      "commit_sha": "8df4e5b4087f2dcd5fbc77b702f68b1fc7418693",
+      "path": "policies-guidelines/social-guidelines.md",
+      "blob_sha": "bc2ab637a1778b4fb2227f76a9abf9e87787da97",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-13",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#13",
+  "title": "Worked authority-at-dispatch and effect comparison",
+  "timestamp": "2026-10-09T15:44:13Z",
+  "author": "astrogilda",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/13",
+  "summary": "I've put together a runnable companion to the unreachable-authority publication case: [runner](https://github.com/probityai/agent-evidence-observer/tree/fb8cabc5c9c54459743497f2325bfef49b137a1a/interop/authority-unreachable-2026-10-03).\n\nIt keeps the dispatch decision, committed ...",
+  "pointers": [],
+  "inline_text": "I've put together a runnable companion to the unreachable-authority publication case: [runner](https://github.com/probityai/agent-evidence-observer/tree/fb8cabc5c9c54459743497f2325bfef49b137a1a/interop/authority-unreachable-2026-10-03).\n\nIt keeps the dispatch decision, committed effect and task result separate. The useful awkward case: the write commits, the response is lost, and the task fails. The reader keeps the effect and blocks publication.\n\nCould the Use Cases breakout use this record for the Alakris/MintID/Proofable comparison, alongside #5's freshness dimension? I can maintain the runner and help wire in each implementation's own trace.",
+  "labels": []
+}

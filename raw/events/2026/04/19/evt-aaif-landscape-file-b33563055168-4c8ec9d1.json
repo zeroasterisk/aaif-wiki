@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-landscape-file-b33563055168-4c8ec9d1",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-04-19T21:36:21-06:00",
+  "author": "Matt White",
+  "url": "https://github.com/aaif/aaif-landscape/blob/8d95963425e194f3df3af16c2d72cc21b95dd250/README.md",
+  "summary": "Matt tmp (#11)",
+  "pointers": [
+    {
+      "repo": "aaif-landscape",
+      "commit_sha": "8d95963425e194f3df3af16c2d72cc21b95dd250",
+      "path": "README.md",
+      "blob_sha": "4c8ec9d13ad0ac7dc40969e00ce5b1831cdde04a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

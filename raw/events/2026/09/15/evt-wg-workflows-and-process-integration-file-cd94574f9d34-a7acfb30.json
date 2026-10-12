@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/AGENTS.md",
+  "title": "AGENTS.md",
+  "timestamp": "2026-09-15T16:19:55-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/AGENTS.md",
+  "summary": "Add RA use-case validation guide (#35)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/AGENTS.md",
+      "blob_sha": "a7acfb305f6ed18ae29c92ec0212b56675736bdb",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-wg-agentic-commerce-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "PR#1",
+  "title": "Draft charter for Agentic Commerce WG",
+  "timestamp": "2026-05-16T04:48:23Z",
+  "author": "igrigorik",
+  "url": "https://github.com/aaif/wg-agentic-commerce/pull/1",
+  "summary": "See charter.md",
+  "pointers": [],
+  "inline_text": "See charter.md",
+  "labels": [
+    "gitvote",
+    "gitvote/closed",
+    "gitvote/failed"
+  ]
+}

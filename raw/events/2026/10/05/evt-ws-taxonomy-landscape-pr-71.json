@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-71",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#71",
+  "title": "update(taxonomy): define agent-in-the-loop transaction",
+  "timestamp": "2026-10-05T22:39:38Z",
+  "author": "galesky-a",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/71",
+  "summary": "## Summary\r\n\r\nDefines **Agent-in-the-loop transaction** in the Agentic Commerce taxonomy and renames the existing term from **Agent-mediated transaction** based on meeting feedback.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git dif...",
+  "pointers": [],
+  "inline_text": "## Summary\r\n\r\nDefines **Agent-in-the-loop transaction** in the Agentic Commerce taxonomy and renames the existing term from **Agent-mediated transaction** based on meeting feedback.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git diff --check`.",
+  "labels": []
+}

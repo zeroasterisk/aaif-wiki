@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-31",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#31",
+  "title": "[Taxonomy] Replace workflow steps with activities",
+  "timestamp": "2026-08-29T02:43:08Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/31",
+  "summary": "Related to #30\n\n## Scope\n\nTaxonomy only: `workstreams/taxonomy/terms.md`\n\n## What\n\nReplace `Workflow Step / Workflow Task` with `Activity`.\nDefine Activity before Workflow and update related taxonomy definitions.\n\n## Why\n\nThe working group agreed to use “Activity” instead of “Ste...",
+  "pointers": [],
+  "inline_text": "Related to #30\n\n## Scope\n\nTaxonomy only: `workstreams/taxonomy/terms.md`\n\n## What\n\nReplace `Workflow Step / Workflow Task` with `Activity`.\nDefine Activity before Workflow and update related taxonomy definitions.\n\n## Why\n\nThe working group agreed to use “Activity” instead of “Step”.\nDefining Activity independently avoids a circular definition with Workflow.",
+  "labels": []
+}

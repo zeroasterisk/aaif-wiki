@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-50",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#50",
+  "title": "fix(crm): a one-column sqref split across ranges is not multi-column",
+  "timestamp": "2026-09-21T22:39:21Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/50",
+  "summary": "## Summary\n`sync_crm.dv_lists` and `migrate_interested_in._dv_column` decided a data validation spanned several columns by testing for a space in its `sqref`. Excel splits a sqref at every row that does not exist, so an ordinary one-column dropdown in a sheet with a row gap is wr...",
+  "pointers": [],
+  "inline_text": "## Summary\n`sync_crm.dv_lists` and `migrate_interested_in._dv_column` decided a data validation spanned several columns by testing for a space in its `sqref`. Excel splits a sqref at every row that does not exist, so an ordinary one-column dropdown in a sheet with a row gap is written as two ranges (`E2:E8 E10:E1002`) and was rejected on the space alone.\n\nThe two failures compounded into a state nothing could clear: `check_dropdowns` saw no list for the column and reported it stale on every run although the list matched `DV_EXPECTED`, and `dv_plan` marked it blocked so `apply_dropdowns` refused it, while the migration is the only thing that rewrites a dropdown.\n\nUnion the ranges and judge the columns they resolve to instead. A genuinely multi-column sqref is still skipped, and one unparsable range still poisons the whole sqref, so the refusal that protects a neighbouring column's list is unchanged.\n\n## Changesets\n\n### 1. `fix(crm): a one-column sqref split across ranges is not multi-column`\n**Files:** `sync_crm.py`, `migrate_interested_in.py` and their tests (+56 −5)\n\n## Test Plan\n- [x] `test_sync_crm.py` and `test_migrate_interested_in.py` pass, with and without `CI=1`\n- [x] All 46 skill test scripts pass; pre-commit and the PII guard pass\n- [x] Verified against a live chapter workbook on 2026-09-18, read-only: the one chapter that reported two stale dropdowns on every run reports none\n\n## Related Issues\nNone.\n\n_Generated using hero-skills._\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

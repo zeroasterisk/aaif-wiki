@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#4",
+  "title": "[codex] Add Steve GitHub link to README",
+  "timestamp": "2026-04-08T14:17:15Z",
+  "author": "southpolesteve",
+  "url": "https://github.com/aaif/technical-committee/pull/4",
+  "summary": "Adds @southpolesteve GitHub handle and profile link to the Technical Committee members list in the README.",
+  "pointers": [],
+  "inline_text": "Adds @southpolesteve GitHub handle and profile link to the Technical Committee members list in the README.",
+  "labels": []
+}

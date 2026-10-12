@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-18",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#18",
+  "title": "Add Higress to MCP Infrastructure",
+  "timestamp": "2026-08-18T23:20:32Z",
+  "author": "ralf0131",
+  "url": "https://github.com/aaif/aaif-landscape/pull/18",
+  "summary": "## New entry: Higress\n\nThis PR adds **[Higress](https://github.com/alibaba/higress)** to the **Frameworks & Infrastructure → Orchestration & Multi-Agent** subcategory, directly alongside **agentgateway**.\n\n### Why this category\n\nHigress is placed next to **agentgateway** (Solo.io...",
+  "pointers": [],
+  "inline_text": "## New entry: Higress\n\nThis PR adds **[Higress](https://github.com/alibaba/higress)** to the **Frameworks & Infrastructure → Orchestration & Multi-Agent** subcategory, directly alongside **agentgateway**.\n\n### Why this category\n\nHigress is placed next to **agentgateway** (Solo.io) — the closest analogous project already in the landscape. Both are unified, full-featured AI gateways that span MCP, agent-to-agent communication, and LLM inference under a single control plane, so they belong in the same box rather than in MCP Infrastructure.\n\n### Why it fits\n\n- **Cloud-native AI Gateway**: production-grade AI gateway built on Envoy and Istio, providing a unified control plane for LLM API management, **MCP (Model Context Protocol) server hosting & registry**, and AI agent traffic governance.\n- **CNCF Sandbox project** — part of the Linux Foundation / CNCF ecosystem.\n- **Open source, ~9k GitHub stars**, well above the 1000-star threshold.\n\n### Checklist\n- [x] Added next to agentgateway in Orchestration & Multi-Agent\n- [x] Logo added to `hosted_logos/` (official Higress wordmark, name in English, non-reversed, transparent background)\n- [x] `repo_url`, `homepage_url`, `description`, and `crunchbase` (Alibaba Group, the controlling org) provided\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

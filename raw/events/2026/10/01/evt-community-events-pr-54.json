@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-54",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#54",
+  "title": "feat: portable Agent Plugin packaging + Drift/Synced tabs in the sync report",
+  "timestamp": "2026-10-01T02:01:13Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/54",
+  "summary": "## What\n\n**Portable packaging**\n- Root Agent Plugins v1 `plugin.json` alongside the Claude manifest; `PORTABILITY.md` documents client capabilities and authorization gates.\n- All 23 skills declare `compatibility`; `argument-hint` moves to namespaced `metadata`; `${CLAUDE_SKILL_DI...",
+  "pointers": [],
+  "inline_text": "## What\n\n**Portable packaging**\n- Root Agent Plugins v1 `plugin.json` alongside the Claude manifest; `PORTABILITY.md` documents client capabilities and authorization gates.\n- All 23 skills declare `compatibility`; `argument-hint` moves to namespaced `metadata`; `${CLAUDE_SKILL_DIR}` becomes a `<skill-root>` placeholder.\n- `aaif-sync`, `aaif-triage-intake`, `aaif-clean-data` and `aaif-community-pulse` keep a short contract in `SKILL.md` and move the procedure to a linked `WORKFLOW.md`.\n- New validators with tests: `check_manifests.py`, `check_skill_portability.py`, stricter `check_frontmatter.py` (pre-commit + CI).\n\n**Sync report**\n- A step's findings split into Drift and Synced tabs when it has both; warn/info render as a glyph; print shows both panels.\n\n## Review notes\n- No `description:` changed. A line-level comparison of every skill doc against `main` found no content dropped in the `WORKFLOW.md` moves; the only rewording is client-neutral phrasing of the browser step in `aaif-community-pulse`.\n- **Trade-off:** Claude Code does not read `metadata`, so the slash-command argument hint no longer shows. Documented in `PORTABILITY.md` as deliberate.\n- The warn/info glyphs are colour emoji, outside the design tokens.\n\n## Checks\nLibrary pytest (514 passed), every `scripts/check_*.py` and its tests, the `aaif-sync` script tests, pre-commit, and `claude plugin validate .` pass locally.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

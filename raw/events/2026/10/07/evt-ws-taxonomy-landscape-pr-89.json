@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-89",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#89",
+  "title": "feat(taxonomy): generate Markdown term reference",
+  "timestamp": "2026-10-07T12:36:51Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/89",
+  "summary": "## Summary\n- generate a stable, human-readable taxonomy reference from taxonomy-data.js\n- keep the generated reference current with a versioned pre-commit hook and CI verification\n- install repository hooks through the npm prepare lifecycle and document the local workflow\n\n## Val...",
+  "pointers": [],
+  "inline_text": "## Summary\n- generate a stable, human-readable taxonomy reference from taxonomy-data.js\n- keep the generated reference current with a versioned pre-commit hook and CI verification\n- install repository hooks through the npm prepare lifecycle and document the local workflow\n\n## Validation\n- node tools/validate-taxonomy.mjs\n- node tools/generate-taxonomy-markdown.mjs --verify\n- node --test tools/validate-taxonomy.test.mjs tools/generate-taxonomy-markdown.test.mjs",
+  "labels": []
+}

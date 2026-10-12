@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-52",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#52",
+  "title": "docs: Runtime and HITL boundary rows plus nono reference architecture (issue #29)",
+  "timestamp": "2026-09-24T03:32:21Z",
+  "author": "Salkimmich",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/52",
+  "summary": "## Summary\n\nFollow-through on the Sept 2 decision to place below-L7 work in the Primitives and Protocol Observability focus group.\n\n- working-documents/kernel-enforced-runtime-proposal.md: the layer map across T&O, Identity & Trust, and Security & Privacy, and why the T&O part be...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nFollow-through on the Sept 2 decision to place below-L7 work in the Primitives and Protocol Observability focus group.\n\n- working-documents/kernel-enforced-runtime-proposal.md: the layer map across T&O, Identity & Trust, and Security & Privacy, and why the T&O part belongs in Primitives and Protocol. Only the T&O pieces are in this PR; the other two groups receive separate mappings in their own repos, all citing one evidence model.\n- working-documents/cross-boundary-runtime-and-hitl-rows.md: filled rows for Agent → Gateway or Runtime and Agent → Human (HITL), plus observed Security and Provenance values for Agent → Tool. Vendor-neutral; any runtime in the SAF-M-74 class can satisfy them.\n- tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-NONO.md: reference architecture in the repo template, graded, as the checked source for the rows. Includes AAuth branch status relevant to #50.\n- working-documents/fixtures/kernel-enforced-runtime/: the field reference the rows cite, a seven-record session whose hashes verify against nono's alpha scheme and golden vector, and the generator.\n\nFinding stated in the documents: the nono realization does not propagate W3C trace context into the sandbox. A nono issue with the proposed default allow-list will be linked here.\n\n## Related Issue\n\nUpdates #29. Related: #44 (approval relationship), #50 (delegation fields as shipped values).\n\n## Review Notes\n\nThree questions in the rows document, section 6. The first, whether enforcement_layer (kernel | broker | proxy) is a column or a Provenance value, changes the matrix shape and gates the other two working groups' mappings.\n\nSuggested review window: 1 week (living documents).\n\n## Follow-ups\n\n- nono issue for TRACEPARENT / TRACESTATE / BAGGAGE allow-list and trace_id on audit records\n- USE-CASES.md current-state text for E2, E3, E4 and a PRIOR-WORK.md summary row (separate PR)\n- OTLP exporter as reference implementation, after nolabs-ai/nono#1704\n\nDisclosure: drafted with AI assistance; all field names and claims checked against nolabs-ai/nono main (7450e43) and this repo at bd6c430.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

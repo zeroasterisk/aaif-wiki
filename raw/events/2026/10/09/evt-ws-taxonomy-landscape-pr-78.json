@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-78",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#78",
+  "title": "Update taxonomy term: Accountability",
+  "timestamp": "2026-10-09T08:36:03Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/78",
+  "summary": "Proposed via the Taxonomy Term Wizard (update). Touches only taxonomy/taxonomy-data.js.\n\nDefinition authorship: 91% AI-drafted (Grok/xAI), 9% manually edited.",
+  "pointers": [],
+  "inline_text": "Proposed via the Taxonomy Term Wizard (update). Touches only taxonomy/taxonomy-data.js.\n\nDefinition authorship: 91% AI-drafted (Grok/xAI), 9% manually edited.",
+  "labels": []
+}

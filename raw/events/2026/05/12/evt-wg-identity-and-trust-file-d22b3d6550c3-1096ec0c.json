@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-d22b3d6550c3-1096ec0c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-05-12T10:35:10+02:00",
+  "author": "Alper",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/charter.md",
+  "summary": "added identity reference architecture draft",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "69e73d0e0a5005d4d44af40ffbd068807169f30f",
+      "path": "charter.md",
+      "blob_sha": "1096ec0c954faf64418619d9226b709780ffc0af",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

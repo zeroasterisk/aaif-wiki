@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-28",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#28",
+  "title": "Restore the V7 cell and Kill Switch sentence in Approval Checkpoint",
+  "timestamp": "2026-09-30T14:40:31Z",
+  "author": "Rul1an",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/28",
+  "summary": "This applies the two suggestions from my review on #26, which the merge didn't carry over. A paste in the Google Doc cut the V7 cell off after \"no\", and the rest of that cell landed in the Related Patterns sentence about Kill Switch, where it replaced \"was\".\n\nThe V7 cell now read...",
+  "pointers": [],
+  "inline_text": "This applies the two suggestions from my review on #26, which the merge didn't carry over. A paste in the Google Doc cut the V7 cell off after \"no\", and the rest of that cell landed in the Related Patterns sentence about Kill Switch, where it replaced \"was\".\n\nThe V7 cell now reads to the end again and names both V2 and V8, and the Kill Switch sentence says \"to know what was released\". Both lines are identical to the suggestions on #26. The Google Doc already has the same text, so the next doc sync will match this file.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

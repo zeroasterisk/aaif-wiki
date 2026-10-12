@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-f8e00aa928be-0c623c44",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "wg-charter/charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-06-30T12:15:29+02:00",
+  "author": "Jordan Augé",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/wg-charter/charter.md",
+  "summary": "remove deliverable dependency chain and update last updated date",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "10bc173f00e45d93a8f7038cb0c36a89e3219565",
+      "path": "wg-charter/charter.md",
+      "blob_sha": "0c623c4467d0cf22f5d6341626e17957f1286cc0",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

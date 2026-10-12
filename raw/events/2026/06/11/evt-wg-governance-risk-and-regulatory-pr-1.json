@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#1",
+  "title": "Draft Charter for TC Review",
+  "timestamp": "2026-06-11T15:58:40Z",
+  "author": "christinaharter",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/1",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": [
+    "gitvote",
+    "gitvote/closed",
+    "gitvote/failed"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-56",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#56",
+  "title": "feat(clean-data): flag Other cities red for chapter review",
+  "timestamp": "2026-10-03T00:54:08Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/56",
+  "summary": "## Summary\n- New `clean.py chapter-flags` subcommand. It adds a red conditional format to just the City cell on Form Responses, and to the `City (Existing)` cell on Organizers, Hosts and Speakers, whenever the submitted city starts with `Other`, in any case.\n- The flag does not d...",
+  "pointers": [],
+  "inline_text": "## Summary\n- New `clean.py chapter-flags` subcommand. It adds a red conditional format to just the City cell on Form Responses, and to the `City (Existing)` cell on Organizers, Hosts and Speakers, whenever the submitted city starts with `Other`, in any case.\n- The flag does not depend on Status or on `Resolved City` extraction. An `Other` selection asks for a chapter decision; it does not make one.\n- Preview is read-only by default and says per tab whether `--write` would change anything. That includes a rule whose stored range stops short of the tab: Sheets fixes the range at the row count when the rule is installed, so it would miss rows Forms adds later.\n- `--write` replaces only the rules it owns (same formula, single cell column, red), then reads them back and aborts if the check fails.\n- `install-colors` never puts its provenance rules above the flag, and its colour-only fallback no longer mistakes the flag for the error rule.\n- Formatting only. No cell values, role-tab formulas or chapters change.\n- `SKILL.md`, `WORKFLOW.md` and CHANGELOG are updated, and the City-overwrite rule now names its one exception.\n\n## Test plan\n- [x] `python skills/aaif-clean-data/scripts/test_clean.py` (116 tests OK)\n- [x] pre-commit on the changed files, plus the PII, retry and banner guards\n- [x] Read-only live preview, 2026-10-02: role-tab Other counts add up to the Form Responses count, and every tab reports the rule as current\n- [x] The rule is already on the live sheet, so nothing is left to write after merge\n\n_Generated using wayfare._",
+  "labels": []
+}

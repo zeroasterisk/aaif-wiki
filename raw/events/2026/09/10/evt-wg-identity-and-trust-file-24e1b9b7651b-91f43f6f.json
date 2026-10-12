@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-24e1b9b7651b-91f43f6f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ONBOARDING.md",
+  "title": "ONBOARDING.md",
+  "timestamp": "2026-09-10T12:51:14-04:00",
+  "author": "Julianna Langston",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/ONBOARDING.md",
+  "summary": "Trim onboarding and agenda draft",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "69e73d0e0a5005d4d44af40ffbd068807169f30f",
+      "path": "ONBOARDING.md",
+      "blob_sha": "91f43f6ff15a5af843ea8e79fbc35a9ce98c8dec",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

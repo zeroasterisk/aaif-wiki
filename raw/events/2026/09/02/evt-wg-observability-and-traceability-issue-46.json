@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-46",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#46",
+  "title": "Trace model: make the examples easy to run and extend",
+  "timestamp": "2026-09-02T01:57:56Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/46",
+  "summary": "## Outcome\n\nRunnable agent and provider API examples with a tested path for community contributions.\n\nTask 8 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** New contributors should be able to demonstrate their agent's beha...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nRunnable agent and provider API examples with a tested path for community contributions.\n\nTask 8 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** New contributors should be able to demonstrate their agent's behavior without rebuilding the test suite or depending on the original authors.\n\n**Work:** Package the examples, test service, mappings, fixtures, and instructions. Exercise two provider integrations across the agents and add two standalone provider API examples for streaming, errors, tool-call requests, and available usage. Extract helpers only where reuse is demonstrated.\n\n**Example:** A contributor whose SDK calls conversations “threads” documents that scope, maps the native identity, and runs the continuity checks. A provider-only example returning a `create_ticket` tool-call request must not report that the tool executed.\n\n## Acceptance Criteria\n\n**Done when:** the second agent validates the contribution instructions and another contributor can register a focused example with expected results, limitations, terminology version, and maintainer. Report standalone API coverage separately.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find contributors, select the initial provider pair, and package the examples and contributor instructions.\n- **Depends on:** [Task 4](https://github.com/aaif/wg-observability-and-traceability/issues/42), [Task 5](https://github.com/aaif/wg-observability-and-traceability/issues/43), [Task 6](https://github.com/aaif/wg-observability-and-traceability/issues/44), [Task 7](https://github.com/aaif/wg-observability-and-traceability/issues/45). Provider cases can start once Tasks 3 and 4 are usable.\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).",
+  "labels": [
+    "documentation",
+    "help wanted"
+  ]
+}

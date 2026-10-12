@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-issue-22",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "ISSUE#22",
+  "title": "Listing eligibility: Hive, an open-source Goose fleet orchestrator",
+  "timestamp": "2026-10-05T16:42:07Z",
+  "author": "mendezr",
+  "url": "https://github.com/aaif/aaif-landscape/issues/22",
+  "summary": "Could Hive be considered for the Orchestration & Multi-Agent category, or should we wait until it reaches the landscape's general 1,000-star threshold? Hive currently has 63 stars; this request is for eligibility guidance, not a claim of AAIF membership or endorsement.\n\nHive is a...",
+  "pointers": [],
+  "inline_text": "Could Hive be considered for the Orchestration & Multi-Agent category, or should we wait until it reaches the landscape's general 1,000-star threshold? Hive currently has 63 stars; this request is for eligibility guidance, not a claim of AAIF membership or endorsement.\n\nHive is an Apache-2.0 orchestration layer that dispatches to Goose at fleet scale, alongside other coding-agent backends. It provides operator-controlled scheduling, policy gates, and contributor-compute relays. Goose's canonical upstream is now aaif-goose/goose.\n\nProject and review material:\n- Repository: https://github.com/hivecommons/hive\n- OpenSSF Best Practices badge: https://www.bestpractices.dev/projects/14261\n- License: https://github.com/hivecommons/hive/blob/v5/LICENSE\n- Security self-assessment: https://github.com/hivecommons/hive/blob/v5/src/docs/security-self-assessment.md\n- CNCF reference architecture: https://github.com/hivecommons/hive/blob/v5/src/docs/cncf-reference-architecture.md\n- Tracking issue: https://github.com/hivecommons/hive/issues/10627\n\nYour README specifies a landscape.yml PR with an SVG logo for new entries. Before proposing that change, we'd appreciate confirmation that a smaller open-source downstream Goose orchestrator is eligible and which existing category best fits it.\n\n— hive: backend=pi model=openai-codex/gpt-6.1-sol",
+  "labels": []
+}

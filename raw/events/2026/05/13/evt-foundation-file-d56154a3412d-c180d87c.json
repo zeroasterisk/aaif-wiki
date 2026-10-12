@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-foundation-file-d56154a3412d-c180d87c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "policies-guidelines/blog-guidelines.md",
+  "title": "blog-guidelines.md",
+  "timestamp": "2026-05-13T11:27:17-07:00",
+  "author": "Angie Jones",
+  "url": "https://github.com/aaif/foundation/blob/8df4e5b4087f2dcd5fbc77b702f68b1fc7418693/policies-guidelines/blog-guidelines.md",
+  "summary": "Apply suggestion from @angiejones",
+  "pointers": [
+    {
+      "repo": "foundation",
+      "commit_sha": "8df4e5b4087f2dcd5fbc77b702f68b1fc7418693",
+      "path": "policies-guidelines/blog-guidelines.md",
+      "blob_sha": "c180d87cc6b862496b466358834dc81f28986428",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

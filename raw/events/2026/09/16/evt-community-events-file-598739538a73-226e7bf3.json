@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-598739538a73-226e7bf3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/recap-post/graders/no_invented_numbers.md",
+  "title": "no_invented_numbers.md",
+  "timestamp": "2026-09-16T21:40:10-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/recap-post/graders/no_invented_numbers.md",
+  "summary": "feat(evals): check whether the right skill actually fires",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/recap-post/graders/no_invented_numbers.md",
+      "blob_sha": "226e7bf3e53205a360418e10c16773bc59b45a6e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-22",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#22",
+  "title": "Remove empty test file from .github directory",
+  "timestamp": "2026-05-04T15:06:31Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/project-proposals/pull/22",
+  "summary": "The file .github/test.md is empty and looks like it was left over from an earlier test. Removing it to keep the repo clean.",
+  "pointers": [],
+  "inline_text": "The file .github/test.md is empty and looks like it was left over from an earlier test. Removing it to keep the repo clean.",
+  "labels": []
+}

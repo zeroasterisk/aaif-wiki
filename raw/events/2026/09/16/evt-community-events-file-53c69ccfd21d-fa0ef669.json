@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-53c69ccfd21d-fa0ef669",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/triage-intake/prompt.md",
+  "title": "prompt.md",
+  "timestamp": "2026-09-16T21:52:16-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/triage-intake/prompt.md",
+  "summary": "fix(evals): correct three cases the first full run exposed",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/triage-intake/prompt.md",
+      "blob_sha": "fa0ef669241d1ff224ea97e36f332d6ed4e0d8a4",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

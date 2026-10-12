@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-68",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#68",
+  "title": "Define universal term Subagent",
+  "timestamp": "2026-09-29T07:10:47Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/68",
+  "summary": "## Summary\n\n- add **Subagent** as a universal taxonomy term\n- define it as: \"An agent spawned by an existing agent\"\n- relate it to **Agent**\n- document examples and clarify that authentication, identity, access, environment, permissions, and similar properties are not implied by ...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- add **Subagent** as a universal taxonomy term\n- define it as: \"An agent spawned by an existing agent\"\n- relate it to **Agent**\n- document examples and clarify that authentication, identity, access, environment, permissions, and similar properties are not implied by subagent status\n- fix an existing unescaped quote in the Delegation scope note so the taxonomy data parses successfully\n\n## Validation\n\n- `node --check taxonomy/taxonomy-data.js`\n- loaded the taxonomy in Node and verified the Subagent definition, related term, and overall term uniqueness",
+  "labels": []
+}

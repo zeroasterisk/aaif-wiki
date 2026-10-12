@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-agentic-commerce-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "PR#4",
+  "title": "[Report] 2026-07",
+  "timestamp": "2026-09-23T04:15:28Z",
+  "author": "igrigorik",
+  "url": "https://github.com/aaif/wg-agentic-commerce/pull/4",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": [
+    "monthly-report"
+  ]
+}

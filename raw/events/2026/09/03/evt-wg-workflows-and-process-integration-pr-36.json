@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-36",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#36",
+  "title": "Validate human approval architecture against content use cases",
+  "timestamp": "2026-09-03T15:22:48Z",
+  "author": "itafra",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/36",
+  "summary": "## Summary\n- add validated scenarios for FAQ and knowledge-base updates, release notes, and listing descriptions\n- link each scenario to the relevant Use Case Inventory section\n- record the proposal, human approval, and publication boundary for each use case\n\n## Test plan\n- [x] R...",
+  "pointers": [],
+  "inline_text": "## Summary\n- add validated scenarios for FAQ and knowledge-base updates, release notes, and listing descriptions\n- link each scenario to the relevant Use Case Inventory section\n- record the proposal, human approval, and publication boundary for each use case\n\n## Test plan\n- [x] Run `git diff --check`\n- [x] Review the Markdown validation-record diff\n\n\nMade with [Cursor](https://cursor.com)",
+  "labels": []
+}

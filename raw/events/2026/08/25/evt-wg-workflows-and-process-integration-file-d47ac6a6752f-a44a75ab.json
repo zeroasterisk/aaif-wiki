@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-d47ac6a6752f-a44a75ab",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/docs/agentic-workflow-patterns-comparison.md",
+  "title": "agentic-workflow-patterns-comparison.md",
+  "timestamp": "2026-08-25T07:58:21-07:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/agentic-workflow-patterns-comparison.md",
+  "summary": "Replace reference architecture steps with activities (#33)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/docs/agentic-workflow-patterns-comparison.md",
+      "blob_sha": "a44a75ab257b7ab822e66cac1ff31dea25b4bd5e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

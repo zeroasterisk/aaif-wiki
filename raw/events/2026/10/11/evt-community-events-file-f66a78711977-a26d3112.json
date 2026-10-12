@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-f66a78711977-a26d3112",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-clean-data/WORKFLOW.md",
+  "title": "WORKFLOW.md",
+  "timestamp": "2026-10-11T08:19:56-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md",
+  "summary": "fix(skills): skill instructions work from an installed plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-clean-data/WORKFLOW.md",
+      "blob_sha": "a26d311238decf9ee33cb20fcc0fb8e603891c79",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-b41aaf03f7ac-76d5f60b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "charter/charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-07-23T10:39:09+01:00",
+  "author": "Gala Malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/charter/charter.md",
+  "summary": "chore: replace 'master' terminology with 'main' throughout",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "charter/charter.md",
+      "blob_sha": "76d5f60b42a5b4564336728afda71b82eb70cdd7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

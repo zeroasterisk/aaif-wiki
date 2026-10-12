@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-07T07:18:15+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md",
+  "summary": "More tracing tools/observability (#34)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/README.md",
+      "blob_sha": "cc8ae7214fa28a22489311d964283296bed6929f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

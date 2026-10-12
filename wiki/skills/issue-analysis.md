@@ -1,41 +1,42 @@
 ---
 type: skill
 title: Issue Analysis Skill
-description: Modular agent skill providing structured GitHub issue triage, rubric
-  evaluation, and report drafting without repository write access.
-resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md
+description: Modular Flue 2.0 skill providing automated GitHub issue analysis, reference
+  corpus retrieval, and prompt injection reporting.
+resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
 tags:
-- skills
-- issue-triage
-- flue
+- skill
+- triage
+- prompt-injection
 - security
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T14:57:51.428767+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T02:51:26.918221+00:00'
 sources:
-- id: evt-submission-analyser-file-3dc5dd454e08-fa24a9ec
-  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md
+- id: evt-submission-analyser-file-562ca4e251fc-8c9734e5
+  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
   author: Manik Surtani
-  last_modified: '2026-08-20T16:59:44+10:00'
-- id: evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4
-  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/TODO.md
+  last_modified: '2026-08-20T13:34:39+10:00'
+- id: evt-submission-analyser-file-a54ff182c7e8-7be29901
+  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/AGENTS.md
   author: Manik Surtani
-  last_modified: '2026-08-20T17:10:18+10:00'
+  last_modified: '2026-08-20T13:34:39+10:00'
 ---
 
 # Overview
-The Issue Analysis Skill provides a standardized prompt, rubric, and template package for automated agent evaluation of newly opened GitHub issues and project submissions[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]. Designed for execution within the Flue 2.0 runtime, the skill isolates analysis templates and reference examples to maintain deterministic evaluations across diverse submissions[^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+The Issue Analysis skill is a modular capability package within Flue 2.0 that automates triage, technical risk assessment, and policy compliance verification for incoming GitHub issues [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. It executes inside the `submission-analyser` agent harness, extracting relevant architectural precedents from a local reference corpus to inform project-specific evaluations [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
 
 # Architecture / Specification
-The skill implements progressive context disclosure through Flue's `useSkill()` pattern[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]:
-- **Catalog Entry**: Mounts a single catalog line in the model's system prompt to minimize idle context token consumption[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec].
-- **Activation**: Full instructions and schema constraints are injected only upon the model invoking `activate_skill`[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec].
-- **Reference Retrieval**: Supporting review references (including synthetic bug, feature request, and security reviews) remain unread on disk until explicitly referenced[^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
-- **Security and Injection Handling**: Schema definitions require explicit `injectionSuspected` flags and diagnostic notes rather than failing silently when adversarial prompts are detected in untrusted issue bodies[^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+The skill implements structured data retrieval, prompt isolation, and telemetry reporting:
+
+- **Reference Corpus Retrieval**: The skill maintains a library of historical hand-written analyses in a local directory [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. Each analysis defines frontmatter metadata including `issue-number`, `date`, `issue-type`, `severity`, `tags`, and `components` [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. The retrieval layer scans frontmatter across the corpus, dynamically selects the 3 to 5 most relevant reference cases using tag and component matching, and loads their full contents into context to guide decision making [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
+- **Injection Isolation and Telemetry**: The skill enforces strict prompt containment by isolating untrusted input from system instructions [^evt-submission-analyser-file-a54ff182c7e8-7be29901]. When an issue body attempts prompt override or jailbreaking, the model is instructed to mark `injectionSuspected: true` and record the incident details in `injectionNotes` while continuing to evaluate any genuine technical elements [^evt-submission-analyser-file-a54ff182c7e8-7be29901].
+- **Tool Invocation Contract**: The skill operates via a single consolidated tool invocation (`analyze_and_publish`), enforcing a read-only stance that forbids direct file writes, environment variable inspections, or outbound network calls outside configured publishing endpoints [^evt-submission-analyser-file-a54ff182c7e8-7be29901].
 
 # References
-- [Submission Analyser](../resources/submission-analyser.md)
+- `../resources/submission-analyser.md`
+- `../guidelines/agentic-ai-security-best-practices.md`
 
-[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md
-[^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/TODO.md
+[^evt-submission-analyser-file-562ca4e251fc-8c9734e5]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
+[^evt-submission-analyser-file-a54ff182c7e8-7be29901]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/AGENTS.md

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-8",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#8",
+  "title": "Add Vector shared-environment walkthrough to the presentation queue",
+  "timestamp": "2026-09-11T11:52:55Z",
+  "author": "FilipBl4gojevic",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/8",
+  "summary": "Adds one entry to the presentation queue for 1 October, following the chairs' invitation on the 3 September call. The session maps a live implementation onto the Agent Identity Primitives draft, lists where it does not fit, and proposes Vector as a shared, open environment where ...",
+  "pointers": [],
+  "inline_text": "Adds one entry to the presentation queue for 1 October, following the chairs' invitation on the 3 September call. The session maps a live implementation onto the Agent Identity Primitives draft, lists where it does not fit, and proposes Vector as a shared, open environment where the group can deploy and test its primitives with real but bounded consequences. 30 minutes preferred; a shorter slot works.",
+  "labels": []
+}

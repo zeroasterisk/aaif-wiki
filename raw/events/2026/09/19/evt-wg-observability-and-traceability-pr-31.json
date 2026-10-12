@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-31",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#31",
+  "title": "docs: add A2A + agentgateway to prior-work landscape",
+  "timestamp": "2026-09-19T04:53:51Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/31",
+  "summary": "## Summary\n\nUpdates `working-documents/PRIOR-WORK.md` to reflect two landscape changes since the June 2026 refresh:\n\n1. **A2A joined AAIF (August 2026)** as a hosted project - the agent-to-agent interoperability layer. A2A v1.0 (Mar 2026) introduced signed agent cards, yet identi...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nUpdates `working-documents/PRIOR-WORK.md` to reflect two landscape changes since the June 2026 refresh:\n\n1. **A2A joined AAIF (August 2026)** as a hosted project - the agent-to-agent interoperability layer. A2A v1.0 (Mar 2026) introduced signed agent cards, yet identity verification of card claims against runtime behaviour remains an open problem (a2aproject/A2A issue #1672).\n2. **agentgateway (solo.io)** joined AAIF (June 2026) - traffic mediation and control for MCP and A2A traffic, deployable on AWS/Azure/GCP marketplaces.\n\nCloses or updates: #28\n\n## Changes\n\n- AAIF context: A2A added to hosted project list\n- Summary table: A2A + agentgateway rows (scope, maturity, licensing, key strength)\n- Detailed assessments: new section 18 covering both projects, their observability relevance (signed-agent-card verification surface, agentgateway as enforcement point), and the unclaimed \"evidence layer\" gap\n\n## Review Notes\n\nFocus on: accuracy of the A2A/agentgateway facts (dates, adoption, licensing), and whether the \"evidence layer\" framing is useful for the gap analysis. Suggested window: standard.\n\n## Follow-ups\n\nVerify A2A/agentgateway maturity and adoption claims periodically as the landscape evolves.",
+  "labels": []
+}

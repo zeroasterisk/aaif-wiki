@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-35",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#35",
+  "title": "adding link to submission guide",
+  "timestamp": "2026-06-07T23:57:58Z",
+  "author": "angiejones",
+  "url": "https://github.com/aaif/project-proposals/pull/35",
+  "summary": "I have to go hunt for this blog post too often. adding it to the submission form.",
+  "pointers": [],
+  "inline_text": "I have to go hunt for this blog post too often. adding it to the submission form.",
+  "labels": []
+}

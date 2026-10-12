@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-file-d7a6875f36a3-5c7bc654",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "meeting-notes/README.md",
+  "title": "README.md",
+  "timestamp": "2026-03-08T19:59:02-07:00",
+  "author": "mindpower",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/blob/bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2/meeting-notes/README.md",
+  "summary": "Add meeting notes for 2026-02-29",
+  "pointers": [
+    {
+      "repo": "wg-governance-risk-and-regulatory",
+      "commit_sha": "bfcefbf1250c2d3d6b6f2dcf20829a7ab24136a2",
+      "path": "meeting-notes/README.md",
+      "blob_sha": "5c7bc654dd0fa86e84f80ed088ac429916ef4a7f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-566afac466bc-889ed18a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/cross-boundary-observability-model.md",
+  "title": "cross-boundary-observability-model.md",
+  "timestamp": "2026-10-06T04:07:46+01:00",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md",
+  "summary": "feat: first proposal on cross boundary observability model (#25)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/cross-boundary-observability-model.md",
+      "blob_sha": "889ed18a52adb71e65dd3e508d8b2afbd22fc422",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

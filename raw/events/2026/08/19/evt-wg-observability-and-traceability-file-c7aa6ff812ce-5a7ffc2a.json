@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-c7aa6ff812ce-5a7ffc2a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/01-foundations/trace-compass.md",
+  "title": "trace-compass.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/01-foundations/trace-compass.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/01-foundations/trace-compass.md",
+      "blob_sha": "5a7ffc2abbc5406ab4701fe6836c65071da2563c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

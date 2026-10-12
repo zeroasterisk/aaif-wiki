@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-16",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#16",
+  "title": "Add iFLYTEK Astron projects to landscape",
+  "timestamp": "2026-06-01T05:43:55Z",
+  "author": "FenjuFu",
+  "url": "https://github.com/aaif/aaif-landscape/pull/16",
+  "summary": "## Summary\r\n- add `Astron Agent` to `Frameworks & Infrastructure / Orchestration & Multi-Agent`\r\n- add `AstronRPA` to `Agent Capabilities / Computer Use & Browser Agents`\r\n- add `SkillHub` to `Frameworks & Infrastructure / Developer Tooling & SDKs`\r\n- add the three corresponding ...",
+  "pointers": [],
+  "inline_text": "## Summary\r\n- add `Astron Agent` to `Frameworks & Infrastructure / Orchestration & Multi-Agent`\r\n- add `AstronRPA` to `Agent Capabilities / Computer Use & Browser Agents`\r\n- add `SkillHub` to `Frameworks & Infrastructure / Developer Tooling & SDKs`\r\n- add the three corresponding SVG logos under `hosted_logos`\r\n\r\n## Notes\r\n- all three projects are open source and meet the repository star guideline\r\n- logos use the provided SVG assets and are referenced from `landscape.yml`\r\n- `landscape.yml` was checked locally for YAML diagnostics before submission",
+  "labels": []
+}

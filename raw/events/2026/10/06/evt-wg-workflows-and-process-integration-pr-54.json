@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-54",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#54",
+  "title": "Add workflow primitives for single-agent human approval",
+  "timestamp": "2026-10-06T03:09:10Z",
+  "author": "praneeth2k3",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/54",
+  "summary": "Add 12 primitives (P1-P12) under reference-architectures/primitives and reference them from single-agent-human-approval.md.",
+  "pointers": [],
+  "inline_text": "Add 12 primitives (P1-P12) under reference-architectures/primitives and reference them from single-agent-human-approval.md.",
+  "labels": []
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#5",
+  "title": "[Report] 2026-06",
+  "timestamp": "2026-09-23T04:14:32Z",
+  "author": "CasperGN",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/5",
+  "summary": "Init of June 2026 ARWG report. \r\n\r\nNote TC decision section with ask.",
+  "pointers": [],
+  "inline_text": "Init of June 2026 ARWG report. \r\n\r\nNote TC decision section with ask.",
+  "labels": [
+    "monthly-report"
+  ]
+}

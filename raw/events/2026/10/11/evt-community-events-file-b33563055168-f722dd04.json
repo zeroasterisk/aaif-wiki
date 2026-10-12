@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-b33563055168-f722dd04",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-11T08:20:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md",
+  "summary": "docs: README for the person using the toolkit, MAINTAINING.md for its upkeep",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "README.md",
+      "blob_sha": "f722dd04d8a3f05f5c0250d12a6897f7ddcbe82e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

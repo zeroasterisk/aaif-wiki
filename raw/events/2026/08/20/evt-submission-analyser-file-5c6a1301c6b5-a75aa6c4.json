@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "TODO.md",
+  "title": "TODO.md",
+  "timestamp": "2026-08-20T17:10:18+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/TODO.md",
+  "summary": "Send the Actions token directly; the exchange does not apply to it",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "TODO.md",
+      "blob_sha": "a75aa6c484c5e33e9d19e985a7d89405c67bf506",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

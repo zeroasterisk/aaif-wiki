@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-0dc3d95afe1f-91fcca49",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-create-chapter/references/engine-internals.md",
+  "title": "engine-internals.md",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/engine-internals.md",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "skills/aaif-create-chapter/references/engine-internals.md",
+      "blob_sha": "91fcca4999815c2eacb1c9141ba250e2e94c662d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

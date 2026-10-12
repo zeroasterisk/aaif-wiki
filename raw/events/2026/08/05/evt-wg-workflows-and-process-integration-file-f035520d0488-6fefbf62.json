@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/decisions/job-oriented-architecture-model.md",
+  "title": "job-oriented-architecture-model.md",
+  "timestamp": "2026-08-05T23:05:12-04:00",
+  "author": "Zayne Turner",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md",
+  "summary": "Propose job-oriented reference-architecture model (#20)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/decisions/job-oriented-architecture-model.md",
+      "blob_sha": "6fefbf629119bc0e6f81f1402c9950aeb3f169fe",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-9677055e316b-2e851e23",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-06-16T10:22:44-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/reporting/TEMPLATE.md",
+  "summary": "Add reporting template for Identity & Trust group",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "69e73d0e0a5005d4d44af40ffbd068807169f30f",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "2e851e238a935165ddad4f8d63c0ece19352c6ae",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

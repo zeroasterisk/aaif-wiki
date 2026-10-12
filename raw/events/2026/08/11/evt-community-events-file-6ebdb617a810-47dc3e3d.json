@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-6ebdb617a810-47dc3e3d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "CLAUDE.md",
+  "title": "CLAUDE.md",
+  "timestamp": "2026-08-11T11:35:35-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CLAUDE.md",
+  "summary": "feat(sync-chapters): resource map, About engine, Slack provisioning, and a nightly runner (#19)",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "CLAUDE.md",
+      "blob_sha": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

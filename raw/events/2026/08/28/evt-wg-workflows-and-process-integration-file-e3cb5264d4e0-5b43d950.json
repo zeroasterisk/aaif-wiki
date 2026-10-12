@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/patterns/proposal-execution-split.md",
+  "title": "proposal-execution-split.md",
+  "timestamp": "2026-08-28T22:42:47-04:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/proposal-execution-split.md",
+  "summary": "Add bounded autonomous remediation reference architecture (#26)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/patterns/proposal-execution-split.md",
+      "blob_sha": "5b43d9503f7326760afdc1486d57f1fee266ec92",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

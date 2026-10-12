@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-23",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#23",
+  "title": "Make Roadmap and Security fields optional in proposal form",
+  "timestamp": "2026-05-12T21:05:25Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/project-proposals/pull/23",
+  "summary": "The project lifecycle policy has two lists: required items and optional items.\n\nRoadmap and OpenSSF badge both appear under the optional list in the policy:\n\n> Projects can optionally provide the following:\n> - a published roadmap\n> - openSSF best practices badge\n\nThe proposal fo...",
+  "pointers": [],
+  "inline_text": "The project lifecycle policy has two lists: required items and optional items.\n\nRoadmap and OpenSSF badge both appear under the optional list in the policy:\n\n> Projects can optionally provide the following:\n> - a published roadmap\n> - openSSF best practices badge\n\nThe proposal form had both marked as required, which blocks applicants who do not have them yet, even though the policy does not require them.\n\nThis change aligns the form with the policy. If the intent was to require these in the form regardless of what the policy says, happy to close this.",
+  "labels": []
+}

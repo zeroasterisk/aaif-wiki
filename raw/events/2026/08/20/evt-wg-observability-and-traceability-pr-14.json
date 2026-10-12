@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-14",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#14",
+  "title": "feat: report for June",
+  "timestamp": "2026-08-20T14:21:34Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/14",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

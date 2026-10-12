@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-a6116ffcd592-e614afed",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/check-setup/graders/no_token_in_chat.md",
+  "title": "no_token_in_chat.md",
+  "timestamp": "2026-10-11T08:19:42-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/no_token_in_chat.md",
+  "summary": "feat(skills): aaif-check-setup, a plain-language readiness check",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/check-setup/graders/no_token_in_chat.md",
+      "blob_sha": "e614afedf3d51f562fb07a63e2dd0d7d71b2f179",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

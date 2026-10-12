@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-b33563055168-20a6dfb7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-05-11T09:21:58+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md",
+  "summary": "Add gemini-test-action workflow and README",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": "README.md",
+      "blob_sha": "20a6dfb77a4e4d01adcddcbd8607887f59d2fe7d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

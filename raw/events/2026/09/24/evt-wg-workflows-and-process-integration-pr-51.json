@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-51",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#51",
+  "title": "docs(inventory): add upstream SDK release impact analysis use case",
+  "timestamp": "2026-09-24T05:16:44Z",
+  "author": "GeeksikhSecurity",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/51",
+  "summary": "## Summary\n\nAdds one row to the SDLC table of the Use Case Inventory: **Upstream SDK release impact analysis**, sourced from MCP Inspector's `sdk-watch.yml` (public, pinned to commit `1e31c78`).\n\n## Why this row\n\nIt is a production example of an agent whose write authority is sep...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds one row to the SDLC table of the Use Case Inventory: **Upstream SDK release impact analysis**, sourced from MCP Inspector's `sdk-watch.yml` (public, pinned to commit `1e31c78`).\n\n## Why this row\n\nIt is a production example of an agent whose write authority is separated from its analysis by job-level permissions rather than by a runtime gate:\n\n- a deterministic script files the upgrade issue;\n- the agent runs in a job with a read-only token and only Read/Grep/Glob tools (no shell, network, or write tool), treating upstream release text as untrusted;\n- output is scanned for verbatim credentials before it is uploaded, then handed to a separate write-scoped job as an artifact.\n\n## Classification and evidence\n\n| Dimension | Value | Basis |\n|---|---|---|\n| Trigger | `Scheduled` | nightly cron in the workflow |\n| HITL Pattern | `None` | output is an informational comment; the adopt decision sits outside the workflow |\n| Agent Count | `Single-agent sufficient` | one analysis agent |\n| Coordination | `Single-agent, orchestrated` | agent explores the repo with read-only search tools; surrounding steps are fixed code |\n| Workflow Pattern | `Sequential pipeline` | sweep, fetch, analyze, scan, post |\n| Duration | `Short` | upper bound from the job's 20-minute timeout, not a measured run |\n\nThe row also notes that this is the proposal/execution split enforced by permissions, and not a convergence loop (no gate iterates on the analysis). Happy to reclassify if reviewers read any dimension differently.\n\n## Checks\n\n- `git diff --check` clean; 1 line added; the new row has 12 columns like its neighbours.\n- Verified the source claims against the cited commit (`scripts/sdk-watch.mjs` runs `gh issue create`; the analysis job's tool grant is `Read,Grep,Glob`).\n\n## Noted, out of scope\n\n`use-case-inventory.md` links to `./classification-schema.md`, but the file in this directory is `schema-agentic-use-cases.md`. Not touched here.\n\nNo Validation-record row is proposed: no current RA is a clean fit for a no-gate, no-approval analysis flow, which may itself be useful input for a future RA.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

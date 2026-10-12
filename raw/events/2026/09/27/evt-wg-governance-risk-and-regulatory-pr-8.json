@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-8",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#8",
+  "title": "[Report] 2026-08",
+  "timestamp": "2026-09-27T00:25:10Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/8",
+  "summary": "August monthly report",
+  "pointers": [],
+  "inline_text": "August monthly report",
+  "labels": [
+    "monthly-report"
+  ]
+}

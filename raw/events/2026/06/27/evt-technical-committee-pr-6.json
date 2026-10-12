@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-pr-6",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/technical-committee",
+  "reference_id": "PR#6",
+  "title": "fix: correct broken link to Technical Charter in README",
+  "timestamp": "2026-06-27T05:21:38Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/technical-committee/pull/6",
+  "summary": "The README links to /charter.md but that file does not exist in this repo.\n\nThe file is at /governance/charter.md.\n\nThis PR updates the link so it points to the right path.",
+  "pointers": [],
+  "inline_text": "The README links to /charter.md but that file does not exist in this repo.\n\nThe file is at /governance/charter.md.\n\nThis PR updates the link so it points to the right path.",
+  "labels": []
+}

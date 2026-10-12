@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-95e86f9d14bc-9418ea76",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/announcement-post/graders/skill_fires.md",
+  "title": "skill_fires.md",
+  "timestamp": "2026-09-16T22:07:16-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/skill_fires.md",
+  "summary": "fix: address self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/announcement-post/graders/skill_fires.md",
+      "blob_sha": "9418ea763d4146df27afe5cddf72c73ec8d23540",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

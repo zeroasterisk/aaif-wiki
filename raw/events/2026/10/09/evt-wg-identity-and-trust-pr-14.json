@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-14",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#14",
+  "title": "chore: fix dates, formatting",
+  "timestamp": "2026-10-09T06:47:30Z",
+  "author": "maniksurtani",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/14",
+  "summary": "* Fix missing fields\n* Formatting",
+  "pointers": [],
+  "inline_text": "* Fix missing fields\n* Formatting",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/PRIOR-WORK.md",
+  "title": "PRIOR-WORK.md",
+  "timestamp": "2026-09-26T04:52:07+01:00",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/PRIOR-WORK.md",
+  "summary": "feat: update USE-CASES and PRIOR-WORK.md in order to keep it organization-neutral",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "working-documents/PRIOR-WORK.md",
+      "blob_sha": "085a285372b30892fbaaa64047692384d0de6d6d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

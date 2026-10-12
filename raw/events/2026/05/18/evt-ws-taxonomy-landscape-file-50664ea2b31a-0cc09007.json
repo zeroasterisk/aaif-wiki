@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-50664ea2b31a-0cc09007",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "landscape/settings.yml",
+  "title": "settings.yml",
+  "timestamp": "2026-05-18T15:58:10-07:00",
+  "author": "Junjie Bu",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/landscape/settings.yml",
+  "summary": "fix: update page wording",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "landscape/settings.yml",
+      "blob_sha": "0cc09007b55b33c192d42e45a86519a3f10b6ba9",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

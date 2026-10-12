@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-55",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#55",
+  "title": "\"Anonymous-by-design\" is a classification the regime makes, not the implementer",
+  "timestamp": "2026-09-24T01:59:02Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/55",
+  "summary": "The PostHog reference architecture says \"Anonymous-by-design: installation_id is a random UUID with no link to human identity\", \"per-user journey tracking without PII\", and that the API URL \"is hardcoded to us.i.posthog.com\". PR #34's best-practices file lifts this to \"Privacy by...",
+  "pointers": [],
+  "inline_text": "The PostHog reference architecture says \"Anonymous-by-design: installation_id is a random UUID with no link to human identity\", \"per-user journey tracking without PII\", and that the API URL \"is hardcoded to us.i.posthog.com\". PR #34's best-practices file lifts this to \"Privacy by Design ... Anonymous installation IDs\".\n\nA persistent per-installation identifier used for longitudinal tracking is pseudonymous data, and pseudonymous data is personal data under the GDPR (Recital 26 and 30) and the UK GDPR, so \"anonymous\" and \"without PII\" are conclusions that hold under some US definitions and not under the regimes most of the group's stated audience operates in; sending it to a US endpoint is then a transfer those regimes regulate. The fix is not a longer regex list. It is a classification field on the reference-architecture template (personal data, personal information, PII, none) keyed by regime, so an implementer reads the line for its own jurisdiction. Happy to supply the classification for the regimes the template names.",
+  "labels": []
+}

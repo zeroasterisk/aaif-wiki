@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-18",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#18",
+  "title": "docs: add liaison tracker",
+  "timestamp": "2026-09-28T10:33:36Z",
+  "author": "kmishra1204",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/18",
+  "summary": "## Summary\n\nCloses #11.\n\nAdds `LIAISON_TRACKER.md` as a lightweight liaison roster and cross-WG intake tracker, then links it from the README.\n\nThe tracker includes:\n\n- external groups and standards bodies named in the charter, including OpenTelemetry GenAI SIG, OWASP AOS, W3C Tr...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nCloses #11.\n\nAdds `LIAISON_TRACKER.md` as a lightweight liaison roster and cross-WG intake tracker, then links it from the README.\n\nThe tracker includes:\n\n- external groups and standards bodies named in the charter, including OpenTelemetry GenAI SIG, OWASP AOS, W3C Trace Context, Agent Trace, Monocle, AGNTCY, and protocol maintainers beyond MCP\n- internal AAIF coordination rows for TC, MCP, Goose, Taxonomy/Landscape, Identity and Trust, Security and Privacy, Governance/Risk/Regulatory, Workflows, and Accuracy/Reliability\n- explicit `TBD` owner/cadence fields where no public liaison assignment is visible\n- inbound ask and outbound follow-up columns\n- an initial intake queue from the public 2026-06-11 and 2026-06-25 meeting minutes\n- review checklist to keep private contact details out and owner fields explicit\n\n## Validation\n\n- `git diff --check`\n- ASCII check on `LIAISON_TRACKER.md`\n- Checked issue #11 acceptance criteria against the added tracker and README link\n\n## Notes\n\nThis intentionally does not assign private liaison roles. It marks unknown owners as `TBD` so chairs or nominated leads can fill them in publicly later.",
+  "labels": []
+}

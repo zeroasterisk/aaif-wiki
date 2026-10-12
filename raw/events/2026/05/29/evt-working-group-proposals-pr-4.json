@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-proposals-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "PR#4",
+  "title": "fix: replace broken link with correct URL in submission-guidelines",
+  "timestamp": "2026-05-29T18:18:10Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/working-group-proposals/pull/4",
+  "summary": "The Questions and Support section in submission-guidelines.md had this line:\n\n  [www.aaif.io](#)\n\nThe href was # which goes nowhere. This PR sets it to the correct URL:\n\n  [www.aaif.io](https://www.aaif.io)",
+  "pointers": [],
+  "inline_text": "The Questions and Support section in submission-guidelines.md had this line:\n\n  [www.aaif.io](#)\n\nThe href was # which goes nowhere. This PR sets it to the correct URL:\n\n  [www.aaif.io](https://www.aaif.io)",
+  "labels": []
+}

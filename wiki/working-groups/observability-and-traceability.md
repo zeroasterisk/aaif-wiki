@@ -1,36 +1,43 @@
 ---
 type: working-group
 title: Observability and Traceability Working Group
-description: AAIF technical working group defining behavioral tracing models, cross-boundary
-  telemetry standards, and OpenTelemetry conformance for AI agents.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-09-30.md
+description: Technical working group standardizing agent telemetry, causal execution
+  traces, cross-boundary verification, and the five-tier tracing reference architecture
+  stack.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
 tags:
 - working-group
 - observability
-- telemetry
 - tracing
+- telemetry
+- standards
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:20:12.298283+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:18:09.925582+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-09-30.md
-  author: Pavan Sudheendra
-  last_modified: '2026-10-05T18:02:05+01:00'
+- id: evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
+  author: Matthew Khouzam
+  last_modified: '2026-10-07T07:18:15+01:00'
 ---
 
 # Overview
-The Observability and Traceability Working Group establishes vendor-neutral telemetry specifications, behavioral tracing models, and operational guidance for monitoring multi-agent systems and tool invocations across system boundaries.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
+The Observability and Traceability Working Group is an AAIF technical body developing telemetry specifications, execution trace models, and evaluation frameworks for AI agent infrastructure[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]. The working group standardizes how agent execution state, tool interactions, multi-agent coordination, and underlying hardware operations are captured, correlated, and audited across multi-tenant environments[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+
+The group maintains structured reference architecture assessments spanning foundational binary formats up through runtime agent tracing, establishing unified evaluation dimensions for performance, overhead, and semantic fidelity[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
 
 # Architecture / Specification
-## Active Workstreams and Initiatives
-- **Behavior Trace Model and OTel Conformance**: Assessing semantic discrepancies in agent SDK telemetry and building conformance suites aligned with upstream [OpenTelemetry](../resources/opentelemetry.md) specifications.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
-- **Agentic Observability White Paper**: Authoring practical recommendations addressing runtime debugging, system reliability, cost control, and compliance logging for production agent deployments.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
-- **Attestation Collaboration**: Participating in cross-working group efforts alongside the [Identity and Trust Working Group](../working-groups/identity-and-trust.md) to integrate behavioral trace records with cryptographic runtime attestation.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
-- **Taxonomy and Standards Liaisons**: Coordinating domain terms with the [Taxonomy and Landscape](../working-groups/taxonomy-and-landscape.md) horizontal group and establishing liaison connections with external standards organizations such as FINOS and the IETF.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
+
+The working group structures its technical assessments along a bottom-up five-layer observability stack[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]:
+
+1. **Layer 01 — Foundations**: Baseline binary trace encodings and comparative evaluation frameworks, including the [Common Trace Format](../resources/common-trace-format.md) (CTF), the [Linux Tracing Comparison](../resources/linux-tracing-comparison.md), and [Trace Compass](../resources/trace-compass.md) for cross-domain state system analysis[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+2. **Layer 02 — Kernel Tracing**: Operating system instrumentation and execution dynamics, evaluating [FTrace](../resources/ftrace.md), [Linux perf](../resources/linux-perf.md), [LTTng Kernel](../resources/lttng-kernel.md), [LTTng-UST](../resources/lttng-ust.md), device driver instrumentation ([Linux Driver Tracing](../resources/linux-driver-tracing.md)), [Virtualization Tracing](../resources/virtualization-tracing.md), [Container Orchestration Tracing](../resources/container-orchestration-tracing.md), [Tracy Profiler](../resources/tracy.md), and syscall inspection frameworks including [Sysdig](../resources/sysdig.md) and [Falco](../resources/falco.md)[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+3. **Layer 03 — Hardware Accelerators**: GPU kernel dispatches, tensor core utilization, and host-device synchronization profiled via [NVIDIA Nsight](../resources/nvidia-nsight.md), [AMD ROCprofiler](../resources/amd-rocprofiler.md), [PyTorch Profiler](../resources/pytorch-profiler.md), and hardware processor tracing[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+4. **Layer 04 — Network**: Wire-level protocol inspection, packet capture via [Wireshark](../resources/wireshark.md), and distributed communication fabrics[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
+5. **Layer 05 — AI Agent Observability**: High-level agent runtime telemetry, model interaction traces, and semantic metrics captured via [OpenTelemetry](../resources/opentelemetry.md), [Langfuse](../resources/langfuse.md), and [PostHog](../resources/posthog.md)[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
 
 # Lifecycle History
-- 2026-09-30: Working group established priorities around OTel conformance tooling, a living observability white paper, and human contribution standards.[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]
+- **Authoritative Assessment**: Established the structured narrative and five-tier bottom-up stack in `tracing_landscape/README.md` to catalog observability technologies against agentic infrastructure[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
 
-[^evt-wg-observability-and-traceability-file-fc392a405330-7a0995cd]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-09-30.md
+[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md

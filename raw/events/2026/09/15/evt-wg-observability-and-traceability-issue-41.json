@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-41",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#41",
+  "title": "Trace model: define the shared contract",
+  "timestamp": "2026-09-15T18:56:02Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/41",
+  "summary": "## Outcome\n\nA versioned relationship contract and AAIF/OTel crosswalk that both examples can implement.\n\nTask 3 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** Identifiers only help if everyone agrees on what they identify...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nA versioned relationship contract and AAIF/OTel crosswalk that both examples can implement.\n\nTask 3 of the nine-task Agent Behavior Trace Model execution plan following the August WG discussions.\n\n**Why:** Identifiers only help if everyone agrees on what they identify and how their relationships should be interpreted.\n\n**Work:** Specify conversation/session scope, turns, calls, proposed actions, observations, and their relationships. Map these to AAIF terminology and OTel; review provisional definitions with the relevant groups. Evaluate standalone turn traces while preserving existing caller context. Address approval waits, resumption, and missing targets.\n\n**Example:** Turns T1 and T2 belong to conversation C1 but may have different trace IDs. Proposed action P1 means “create this ticket.” An approval references P1 even if the action is denied and no tool-execution span ever exists.\n\n## Acceptance Criteria\n\n**Done when:** a versioned contract explains these identities and relationships, their OTel mappings, incomplete observations, and unresolved choices.\n\n## Tracking\n\n- **Workstream:** Agent Behavior Trace Model\n- **Owner:** needs owner\n- **Status:** needs owner\n- **Next step:** Find a contributor and reviewer, then use the baseline gaps to draft the identity and relationship crosswalk.\n- **Depends on:** [Task 2](https://github.com/aaif/wg-observability-and-traceability/issues/40); refine alongside implementation.\n\n## Links\n\n- [Execution plan PR](https://github.com/aaif/wg-observability-and-traceability/pull/48) and its [nine-task overview](https://github.com/aaif/wg-observability-and-traceability/blob/codex/agent-trace-execution-plan/working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EXECUTION-PLAN.md#tasks).\n- August WG discussions: [August 5](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-05.md), [August 19](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-08-19.md).\n- [Taxonomy and trace-model crosswalk #10](https://github.com/aaif/wg-observability-and-traceability/issues/10) and [AAIF Taxonomy & Landscape](https://github.com/aaif/ws-taxonomy-landscape).\n- [OTel GenAI conventions](https://github.com/open-telemetry/semantic-conventions-genai) and [turn-entry discussion](https://github.com/open-telemetry/semantic-conventions-genai/issues/356).\n\nThe identifiers in the example are illustrative fixture identities, not proposed OTel attribute names.",
+  "labels": [
+    "documentation",
+    "help wanted"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-72",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#72",
+  "title": "update(taxonomy): define agent-initiated transaction",
+  "timestamp": "2026-10-05T22:39:50Z",
+  "author": "galesky-a",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/72",
+  "summary": "## Summary\r\n\r\nDefines **Agent-initiated transaction** in the Agentic Commerce taxonomy.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git diff --check`.",
+  "pointers": [],
+  "inline_text": "## Summary\r\n\r\nDefines **Agent-initiated transaction** in the Agentic Commerce taxonomy.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git diff --check`.",
+  "labels": []
+}

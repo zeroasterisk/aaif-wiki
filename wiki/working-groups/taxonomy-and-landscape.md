@@ -1,53 +1,51 @@
 ---
 type: working-group
-title: Taxonomy and Landscape Workstream
-description: Horizontal AAIF technical initiative governing cross-domain taxonomy
-  curation, SKOS-Lite vocabularies, and ecosystem mapping across Foundation working
-  groups.
-resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
+title: Taxonomy and Landscape Working Group
+description: Cross-cutting AAIF workstream harmonizing shared agentic AI vocabulary,
+  taxonomies, and the open-source landscape.
+resource: https://github.com/aaif/ws-taxonomy-landscape/pull/79
 tags:
 - governance
 - taxonomy
 - landscape
-- working-group
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:22:28.785976+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:17:27.587597+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77
-  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
-  author: Julianna Langston
-  last_modified: '2026-10-07T08:37:23-04:00'
-- id: evt-ws-taxonomy-landscape-pr-83
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/83
-  author: julianna-ciq
-  last_modified: '2026-10-07T12:37:24+00:00'
+- id: evt-ws-taxonomy-landscape-pr-79
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/79
+  author: galesky-a
+  last_modified: '2026-10-05T22:03:35+00:00'
+- id: evt-ws-taxonomy-landscape-pr-70
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/70
+  author: galesky-a
+  last_modified: '2026-10-05T22:39:10+00:00'
+- id: evt-ws-taxonomy-landscape-pr-71
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/71
+  author: galesky-a
+  last_modified: '2026-10-05T22:39:38+00:00'
+- id: evt-ws-taxonomy-landscape-pr-72
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/72
+  author: galesky-a
+  last_modified: '2026-10-05T22:39:50+00:00'
 ---
 
 # Overview
-The Taxonomy and Landscape Workstream is a horizontal initiative within the Agentic AI Foundation (AAIF) tasked with maintaining a unified cross-domain vocabulary and global ecosystem landscape across all Foundation Technical Working Groups[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]. The workstream coordinates terminology across specialized domains, standardizes definitions, and ensures conceptual interoperability across agentic systems[^evt-ws-taxonomy-landscape-pr-83].
+The Taxonomy and Landscape Working Group is a cross-cutting Agentic AI Foundation (AAIF) workstream standardizing shared terminology, classification schemas, and ecosystem landscapes across the agentic AI ecosystem [^evt-ws-taxonomy-landscape-pr-79]. The workstream harmonizes domain-specific concepts developed across Foundation working groups, including the [Agentic Commerce Working Group](../working-groups/agentic-commerce.md), ensuring consistency across all published taxonomy assets [^evt-ws-taxonomy-landscape-pr-70].
 
-# Governance and Roles
-The workstream distributes curation responsibilities across three operational tiers[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]:
-- **Contributors**: Open community participants, working group members, and external partners who submit pull requests, propose glossary additions, and log issues.
-- **Domain Editors**: Nominated technical experts representing the seven active Technical Working Groups (such as [Identity & Trust](../working-groups/identity-and-trust.md), [Observability & Traceability](../working-groups/observability-and-traceability.md), and [Security & Privacy](../working-groups/security-and-privacy.md)) who actively author and steward entries in their respective domains.
-- **Maintainers**: Workstream chairs (Junjie Bu and Gala Malbasic) holding repository write access and final administrative merge authority.
+# Architecture / Specification
+The working group maintains the central taxonomy data repository and automated CI validation pipelines. As part of structural refactoring, the taxonomy data format migrated from executable JavaScript files (`taxonomy-data.js`) to standard JSON (`taxonomy/taxonomy.json`) backed by Zod schema validation [^evt-ws-taxonomy-landscape-pr-79]. This transition removes custom parser maintenance in continuous integration, avoids executing contributor-provided script code, and yields deterministic field-level validation errors for pull requests [^evt-ws-taxonomy-landscape-pr-79].
 
-# Contribution Lifecycle and Review
-Taxonomy updates follow a structured multi-stage intake and consensus workflow[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77][^evt-ws-taxonomy-landscape-pr-83]:
-1. **Working Group Inception**: Prospective terms originate within individual domain Working Groups.
-2. **Intake Nomination**: Domain delegates log terms into the central taxonomy tracking sheet and coordinate via communication channels.
-3. **Workstream Review and Triage**: During weekly workstream meetings, terms are evaluated for practical relevance, novelty, non-redundancy, and working group ownership. Terms receive one of three formal dispositions:
-   - `KEEP`: Approved for formal pull request authoring.
-   - `CULL`: Rejected from inclusion.
-   - `DEBATE`: Held for broader consensus and clarification.
-4. **Pull Request Submission**: The owning delegate submits a SKOS-Lite-compliant pull request providing a concise single-sentence definition and supplementary details in `scopeNote`.
-5. **Cross-Working-Group Approval**: Merging a single-term pull request requires approvals from at least two Domain Editors representing distinct Technical Working Groups. Any Domain Editor retains veto authority.
-6. **Rebase and Merge**: Approved pull requests are merged via GitHub's rebase-and-merge strategy, transitioning tracking records to `FINALIZED`.
+Active taxonomy definitions integrated from domain working groups include:
+- **Agent-completed transaction**: Captures transactions finalized autonomously by an AI agent [^evt-ws-taxonomy-landscape-pr-70].
+- **Agent-in-the-loop transaction**: Renamed from agent-mediated transaction following community review, defining transaction flows wherein an agent participates alongside human actors [^evt-ws-taxonomy-landscape-pr-71].
+- **Agent-initiated transaction**: Classifies transaction cycles originated or triggered by autonomous agent decisions [^evt-ws-taxonomy-landscape-pr-72].
 
-# Scope Limitations
-The workstream is actively accepting and processing taxonomy glossary additions only; contributions proposing ecosystem landscape modifications remain deferred pending formal landscape review workflow ratification[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
+# Lifecycle History
+The working group moved taxonomy data storage to schema-validated JSON to resolve CI syntax-checking fragility and standardize the contributor intake process [^evt-ws-taxonomy-landscape-pr-79].
 
-[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
-[^evt-ws-taxonomy-landscape-pr-83]: https://github.com/aaif/ws-taxonomy-landscape/pull/83
+[^evt-ws-taxonomy-landscape-pr-70]: https://github.com/aaif/ws-taxonomy-landscape/pull/70
+[^evt-ws-taxonomy-landscape-pr-71]: https://github.com/aaif/ws-taxonomy-landscape/pull/71
+[^evt-ws-taxonomy-landscape-pr-72]: https://github.com/aaif/ws-taxonomy-landscape/pull/72
+[^evt-ws-taxonomy-landscape-pr-79]: https://github.com/aaif/ws-taxonomy-landscape/pull/79

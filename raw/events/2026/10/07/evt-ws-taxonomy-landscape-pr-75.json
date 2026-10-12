@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-75",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#75",
+  "title": "update(taxonomy): define agentic commerce protocols",
+  "timestamp": "2026-10-07T15:58:53Z",
+  "author": "galesky-a",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/75",
+  "summary": "## Summary\r\n\r\nDefines **Agentic commerce protocols** in the Agentic Commerce taxonomy and renames the existing term from **Agentic commerce protocol**.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git diff --check`.",
+  "pointers": [],
+  "inline_text": "## Summary\r\n\r\nDefines **Agentic commerce protocols** in the Agentic Commerce taxonomy and renames the existing term from **Agentic commerce protocol**.\r\n\r\n## Validation\r\n\r\n- Ran JavaScript syntax validation.\r\n- Ran whitespace validation with `git diff --check`.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-55",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#55",
+  "title": "[RA] draft first multi-agent RA proposal",
+  "timestamp": "2026-10-10T01:10:11Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/55",
+  "summary": "As discussed and [based on decision from WG RA sync#9 point (5)](https://docs.google.com/document/d/1g8637JPZZ4Y-V-KXTcGU0de1HmTEc2iI6-PCTHv7zuI/edit?tab=t.yviuf0wr6281#heading=h.4ilpt4j07ujr), draft proposal for first multi-agent RA.\n\n> Many use cases run agents in parallel and ...",
+  "pointers": [],
+  "inline_text": "As discussed and [based on decision from WG RA sync#9 point (5)](https://docs.google.com/document/d/1g8637JPZZ4Y-V-KXTcGU0de1HmTEc2iI6-PCTHv7zuI/edit?tab=t.yviuf0wr6281#heading=h.4ilpt4j07ujr), draft proposal for first multi-agent RA.\n\n> Many use cases run agents in parallel and then merge the results.\n> - The next RA could cover this job: parallel research, then merge.\n> - Agents are independent and don't talk to each other.\n> - Agent-to-agent communication is a separate, later RA.\n> - Decision: Create a rough draft proposal, so we can review it and see if the direction makes sense.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-48",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#48",
+  "title": "[Use Cases] Point schema links at the file that exists",
+  "timestamp": "2026-09-12T01:52:46Z",
+  "author": "kevintelus",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/48",
+  "summary": "Seven links in `use-case-inventory.md` point at `./classification-schema.md`, which doesn't exist in this repo — the schema is `schema-agentic-use-cases.md`. They 404 on GitHub and in any local markdown preview.\n\nThe intro link on line 5 was already correct, so this makes all eig...",
+  "pointers": [],
+  "inline_text": "Seven links in `use-case-inventory.md` point at `./classification-schema.md`, which doesn't exist in this repo — the schema is `schema-agentic-use-cases.md`. They 404 on GitHub and in any local markdown preview.\n\nThe intro link on line 5 was already correct, so this makes all eight agree.\n\nLink targets only. No text, table, or classification changes — `git diff --word-diff` shows nothing but the paths.\n\nSplit out of #39 so it can land independently of the `parallel fan-out` discussion. #41 fixes 3 of the 7; this covers the remaining 4 (lines 62, 113, 119, 346) plus the 3 already handled there, so it's safe to merge in either order.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

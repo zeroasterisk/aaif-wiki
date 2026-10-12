@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-8570bc08b106-eb1aa55d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/announcement-post/graders/not_the_neighbours.md",
+  "title": "not_the_neighbours.md",
+  "timestamp": "2026-09-16T22:07:16-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/not_the_neighbours.md",
+  "summary": "fix: address self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/announcement-post/graders/not_the_neighbours.md",
+      "blob_sha": "eb1aa55dc513c42bf004250364c922234a7888c8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

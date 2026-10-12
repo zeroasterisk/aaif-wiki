@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-26",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#26",
+  "title": "Add bounded autonomous remediation reference architecture",
+  "timestamp": "2026-08-29T02:42:47Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/26",
+  "summary": "## Summary\n\nAdds a second, deliberately contrasting job-oriented reference architecture.\n\nInstead of human approval before each effect, this architecture supports a\nbounded autonomous workflow: an agent may retry a small, fenced problem, while\nan independent deterministic gate—no...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds a second, deliberately contrasting job-oriented reference architecture.\n\nInstead of human approval before each effect, this architecture supports a\nbounded autonomous workflow: an agent may retry a small, fenced problem, while\nan independent deterministic gate—not the agent—decides whether the result may\nproceed. A human is involved only when the run cannot safely continue.\n\n## Adds\n\n### Reference architecture\n\n- **Bounded Autonomous Remediation**\n  - one pre-qualified, bounded problem per run;\n  - explicit scope, tool/data access, and time/cost/iteration limits;\n  - independent deterministic acceptance evidence;\n  - constrained effect only for the exact accepted result;\n  - explicit stop, escalation, and recovery outcomes.\n\n### Reusable patterns\n\n- **Bounded Convergence Loop** — permits repeated agent attempts only while\n  declared scope and budgets remain; non-convergence stops or escalates.\n- **Deterministic Acceptance Gate** — evaluates the exact candidate result\n  against explicit checks, policy, and scope rather than relying on model\n  self-assessment.\n\n## Validation\n\nThe architecture is validated against the Critical Use Cases inventory:\n\n- **Autonomous maintenance run (\"night shift\")** — candidate fit.\n- **Closed-loop dependency & CVE remediation (fleet-wide)** — partial fit:\n  each target/repository run can use this architecture, while fleet-wide\n  discovery, fan-out, batching, and aggregation need future composition.\n\n## Scope\n\nThis PR does not propose final taxonomy terms, primitives, short codes,\nmachine-readable schemas, or a complete pattern catalogue. It tests and\nextends the existing job-oriented architecture + reusable pattern + scenario\nvalidation model with a contrasting bounded-autonomy case.",
+  "labels": []
+}

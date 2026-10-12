@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-0f27825af60d-1d3aca33",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "tests/fixtures/injections/09-obfuscated-base64.md",
+  "title": "09-obfuscated-base64.md",
+  "timestamp": "2026-08-19T23:20:33+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/tests/fixtures/injections/09-obfuscated-base64.md",
+  "summary": "Add the test suite, and fix the five bugs it found",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "tests/fixtures/injections/09-obfuscated-base64.md",
+      "blob_sha": "1d3aca3308dbeed2cedf231bf6931ae225546bea",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

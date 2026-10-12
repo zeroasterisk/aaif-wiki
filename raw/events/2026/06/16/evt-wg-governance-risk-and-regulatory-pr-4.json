@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#4",
+  "title": "Add reporting template for working group reports",
+  "timestamp": "2026-06-16T17:12:12Z",
+  "author": "christinaharter",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/4",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

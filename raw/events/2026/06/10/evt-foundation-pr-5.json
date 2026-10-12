@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-5",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#5",
+  "title": "fix: add missing word in social-guidelines",
+  "timestamp": "2026-06-10T17:45:22Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/foundation/pull/5",
+  "summary": "In policies-guidelines/social-guidelines.md the Give Credit bullet reads:\n\n  \"Reposting individuals will be limited due the vast number of contributors.\"\n\nThe word \"to\" is missing. The correct text is:\n\n  \"Reposting individuals will be limited due to the vast number of contributo...",
+  "pointers": [],
+  "inline_text": "In policies-guidelines/social-guidelines.md the Give Credit bullet reads:\n\n  \"Reposting individuals will be limited due the vast number of contributors.\"\n\nThe word \"to\" is missing. The correct text is:\n\n  \"Reposting individuals will be limited due to the vast number of contributors.\"",
+  "labels": []
+}

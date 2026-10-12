@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-35",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#35",
+  "title": "Add RA use-case validation guide",
+  "timestamp": "2026-09-15T20:19:55Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/35",
+  "summary": "## What\n\nAdd a simple guide for validating one Reference Architecture against one real\nuse case.\n\nIt defines `Validated`, `Partial`, `No fit`, and `Candidate`, with a standard\noutput for a GitHub Issue or small Validation record PR.\n\nThe guide is linked from `CONTRIBUTING.md` and...",
+  "pointers": [],
+  "inline_text": "## What\n\nAdd a simple guide for validating one Reference Architecture against one real\nuse case.\n\nIt defines `Validated`, `Partial`, `No fit`, and `Candidate`, with a standard\noutput for a GitHub Issue or small Validation record PR.\n\nThe guide is linked from `CONTRIBUTING.md` and `AGENTS.md`.\n\n## Why\n\nThis implements the RA Workstream Sync #6 action to give contributors a clear,\nsimple way to validate architectural fit against real use cases.",
+  "labels": []
+}

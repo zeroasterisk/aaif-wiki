@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-50",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#50",
+  "title": "[RA] Clarify task and activity terminology for single-agent human approval",
+  "timestamp": "2026-10-02T18:51:26Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/50",
+  "summary": "What\n- Clarify business-task versus workflow-activity terminology in the single-agent human-approval reference architecture\n- Align the agent input contract, checklist, and taxonomy reference\n\nWhy\n- Make the end-to-end request distinct from the workflow activities that handle it\n...",
+  "pointers": [],
+  "inline_text": "What\n- Clarify business-task versus workflow-activity terminology in the single-agent human-approval reference architecture\n- Align the agent input contract, checklist, and taxonomy reference\n\nWhy\n- Make the end-to-end request distinct from the workflow activities that handle it\n\nCloses #30",
+  "labels": []
+}

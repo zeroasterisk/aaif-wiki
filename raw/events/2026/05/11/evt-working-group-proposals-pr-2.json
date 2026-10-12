@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-proposals-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "PR#2",
+  "title": "Fix duplicate field label in working-group-proposal.yml",
+  "timestamp": "2026-05-11T22:49:20Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/working-group-proposals/pull/2",
+  "summary": "The form had two fields with the same label: \"Any existing work, prior art, competing or related initiatives?\" One is in the Resources section (id: existing_work) and one is in Supporting Materials (id: supporting_documents). The second was renamed to \"Supporting documents or att...",
+  "pointers": [],
+  "inline_text": "The form had two fields with the same label: \"Any existing work, prior art, competing or related initiatives?\" One is in the Resources section (id: existing_work) and one is in Supporting Materials (id: supporting_documents). The second was renamed to \"Supporting documents or attachments\" to match its actual purpose.",
+  "labels": []
+}

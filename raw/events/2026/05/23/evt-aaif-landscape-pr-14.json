@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-14",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#14",
+  "title": "Add a new Agentic AI project watchlist section",
+  "timestamp": "2026-05-23T23:38:24Z",
+  "author": "sboysel",
+  "url": "https://github.com/aaif/aaif-landscape/pull/14",
+  "summary": "- Adds a watchlist of top agentic AI OSS projects\r\n- Decouples Members and Projects using groups\r\n- Highlights AAIF member projects\r\n- Can be synced with the [Agentic AI Momentum Dashboard](https://insights.linuxfoundation.org/report/agentic-ai-momentum) on LFX Insights\r\n- Placeh...",
+  "pointers": [],
+  "inline_text": "- Adds a watchlist of top agentic AI OSS projects\r\n- Decouples Members and Projects using groups\r\n- Highlights AAIF member projects\r\n- Can be synced with the [Agentic AI Momentum Dashboard](https://insights.linuxfoundation.org/report/agentic-ai-momentum) on LFX Insights\r\n- Placeholder icons and descriptions for now\r\n@angiejones @maniksurtani @asalkever-LF @jonathimer",
+  "labels": []
+}

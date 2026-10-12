@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-1c0d972ee491-3ba13e0c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": ".github/ISSUE_TEMPLATE/config.yml",
+  "title": "config.yml",
+  "timestamp": "2026-03-10T11:06:22-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/config.yml",
+  "summary": "Create config.yml",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "f95b796d901b553de20e37213c63f81f40a627a2",
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "blob_sha": "3ba13e0cec6cbbfd462e9ebf529dd2093148cd69",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "workstreams/design-patterns/DRAFT-attested-isolated-runtime.md",
+  "title": "DRAFT-attested-isolated-runtime.md",
+  "timestamp": "2026-09-30T10:16:03-04:00",
+  "author": "sagardashora",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md",
+  "summary": "Initial drafts for design patterns catalog (#26)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "22c3f9a2cdac4fcf092502fa06154b08b4df09b8",
+      "path": "workstreams/design-patterns/DRAFT-attested-isolated-runtime.md",
+      "blob_sha": "0ef833ebc02f386ab2dfcc5c4f01ec734dcb4a2d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-30",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#30",
+  "title": "fix: correct typos in lifecycle policy and issue template",
+  "timestamp": "2026-05-29T16:21:21Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/project-proposals/pull/30",
+  "summary": "Three typos fixed in two files.\n\nIn governance/project-lifecycle-policy.md (Emeritus Stage section):\n- \"Projects that are are no longer maintained\" had a duplicate word\n- \"Projects in this stage are have little to no activity\" had two extra words\n\nIn .github/ISSUE_TEMPLATE/projec...",
+  "pointers": [],
+  "inline_text": "Three typos fixed in two files.\n\nIn governance/project-lifecycle-policy.md (Emeritus Stage section):\n- \"Projects that are are no longer maintained\" had a duplicate word\n- \"Projects in this stage are have little to no activity\" had two extra words\n\nIn .github/ISSUE_TEMPLATE/project-proposal.yml:\n- \"If more than one nam and email\" was missing the letter e in name",
+  "labels": []
+}

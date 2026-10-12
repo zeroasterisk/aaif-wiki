@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-b33563055168-33233981",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-06-10T09:24:18-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md",
+  "summary": "Update README to remove proposal review date",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "5c17275468b2e8859b7eb261e53f7ad4d19a9ed8",
+      "path": "README.md",
+      "blob_sha": "3323398192f07b74203287fdac7fb039b9fafdc7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

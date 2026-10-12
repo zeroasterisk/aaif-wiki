@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#7",
+  "title": "Update blog style guidance",
+  "timestamp": "2026-10-02T13:02:30Z",
+  "author": "steveaaif",
+  "url": "https://github.com/aaif/foundation/pull/7",
+  "summary": "Adds sentence case, US English, guidance on unsupported categorical claims, primary-source linking, and official project naming to the AAIF blog guidelines.",
+  "pointers": [],
+  "inline_text": "Adds sentence case, US English, guidance on unsupported categorical claims, primary-source linking, and official project naming to the AAIF blog guidelines.",
+  "labels": []
+}

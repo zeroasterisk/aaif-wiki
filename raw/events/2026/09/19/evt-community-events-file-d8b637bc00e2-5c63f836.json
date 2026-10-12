@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-d8b637bc00e2-5c63f836",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/sync-front-door/graders/skill_fires.md",
+  "title": "skill_fires.md",
+  "timestamp": "2026-09-19T15:40:28-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/sync-front-door/graders/skill_fires.md",
+  "summary": "refactor(sync): one front door, one pipeline definition, four phase skills",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/sync-front-door/graders/skill_fires.md",
+      "blob_sha": "5c63f836d3e72dc744e047b822537f5c46ff808f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

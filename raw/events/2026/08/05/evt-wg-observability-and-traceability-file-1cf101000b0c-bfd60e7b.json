@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-1cf101000b0c-bfd60e7b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/.agents/skills/aaif-ref-arch/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-08-05T11:32:54+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/.agents/skills/aaif-ref-arch/SKILL.md",
+  "summary": "Add AAIF reference architecture skill (#22)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/.agents/skills/aaif-ref-arch/SKILL.md",
+      "blob_sha": "bfd60e7b66c7f2f23f776cfdb94a2b66ebc0210a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

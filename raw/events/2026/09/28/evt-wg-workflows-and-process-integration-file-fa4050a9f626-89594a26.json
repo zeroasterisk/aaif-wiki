@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-fa4050a9f626-89594a26",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "reporting/2026-07-report.md",
+  "title": "2026-07-report.md",
+  "timestamp": "2026-09-28T06:29:14-07:00",
+  "author": "Yaron Schneider",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/reporting/2026-07-report.md",
+  "summary": "Create 2026-07-report.md (#24)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "reporting/2026-07-report.md",
+      "blob_sha": "89594a26210c3cb6dc2c3f22655c468a507db73c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-57",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#57",
+  "title": "Add the trace-model test kit with effect and evidence-grade cases",
+  "timestamp": "2026-10-10T02:46:49Z",
+  "author": "astrogilda",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/57",
+  "summary": "## Summary\n\nAdd the #42 test kit: six OTLP/JSON cases, expected answers, a reader, a contribution template and CI. The cases cover duplicate and missing receipts, valid and invalid receipt signatures, a changed ticket ID and reuse of action ID P1 in another tenant. The reader tak...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdd the #42 test kit: six OTLP/JSON cases, expected answers, a reader, a contribution template and CI. The cases cover duplicate and missing receipts, valid and invalid receipt signatures, a changed ticket ID and reuse of action ID P1 in another tenant. The reader takes query context from `basis.json` before it opens `expected.json`.\n\n## Evidence\n\n[Fork CI at dcf5327](https://github.com/astrogilda-forks/wg-observability-and-traceability/actions/runs/37590622434) passes fixture regeneration, all six expected answers and the naive-reader check. The same checks pass locally with the declared `cryptography==50.0.1` dependency. The README now states the current qualification and keeps signature validity separate from effect correlation. Synthetic signatures do not authenticate tenant metadata or establish real target effects. These checks use known expectations and the declared R1/R5/R6 mapping. They do not complete Task 7 relationship or runtime coverage.\n\n## Adoption\n\nUse this kit as a trace-model CI gate for #42. For signed-evidence cases, [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) ships accept and reject vectors and a GitHub Action. The next integration is a pinned tag run in AAIF CI; maintainers should choose the accepted tags and version.\n\nThe continuity, calls, retries and approvals cases remain under #41. Host workflow authorization and WG acceptance remain separate from fork qualification.",
+  "labels": []
+}

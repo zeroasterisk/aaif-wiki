@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-41",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#41",
+  "title": "docs: point DESIGN.md at the official logo SVGs in assets/",
+  "timestamp": "2026-10-07T19:22:24Z",
+  "author": "Suryals",
+  "url": "https://github.com/aaif/community-events/pull/41",
+  "summary": "DESIGN.md documents the logo SVGs — but only at lines ~207–212, in the chapter-icons section near the end. The source-of-truth table at the top lists the design system, tokens, and fonts and stops there, so a reader (or agent) who takes the table as the inventory never reaches th...",
+  "pointers": [],
+  "inline_text": "DESIGN.md documents the logo SVGs — but only at lines ~207–212, in the chapter-icons section near the end. The source-of-truth table at the top lists the design system, tokens, and fonts and stops there, so a reader (or agent) who takes the table as the inventory never reaches the brand assets: mine redrew the AAIF mark from a screenshot before I caught it.\n\nThis surfaces the three SVGs in the table with per-file purposes (repeating the disambiguation that `aaif-mark.svg` is the full lockup despite its name) and adds a **never redraw the mark** rule next to the other hard-won ones. The existing paragraph at ~207 keeps the derivation details; the table rows are just pointers.\n\nTested with two context-free agents given \"make an event banner, gather the brand assets\": on main, the agent found the logos but only by reading DESIGN.md nearly to the end, and flagged that AGENTS.md/README never mention them; on this branch, the table routes it in one hop.",
+  "labels": []
+}

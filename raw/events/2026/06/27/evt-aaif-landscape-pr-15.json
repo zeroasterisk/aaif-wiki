@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-15",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#15",
+  "title": "Fix typos in README.md",
+  "timestamp": "2026-06-27T05:21:41Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/aaif-landscape/pull/15",
+  "summary": "Fixes five typos in the opening paragraph and guidelines section: mebmers, promenant, provided, soure, solultions.",
+  "pointers": [],
+  "inline_text": "Fixes five typos in the opening paragraph and guidelines section: mebmers, promenant, provided, soure, solultions.",
+  "labels": []
+}

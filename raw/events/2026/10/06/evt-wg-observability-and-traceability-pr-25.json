@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-25",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#25",
+  "title": "feat: first proposal on cross boundary observability model",
+  "timestamp": "2026-10-06T03:07:52Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/25",
+  "summary": "Advances https://github.com/aaif/wg-observability-and-traceability/issues/29",
+  "pointers": [],
+  "inline_text": "Advances https://github.com/aaif/wg-observability-and-traceability/issues/29",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-6ae19f00f4c0-5634c5c6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "docs/threat-model.md",
+  "title": "threat-model.md",
+  "timestamp": "2026-08-20T13:34:39+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/docs/threat-model.md",
+  "summary": "Analyse another repo's issues, and stop commenting on them",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "docs/threat-model.md",
+      "blob_sha": "5634c5c66fe276896b78e71c87d8bbcaf4943fcc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

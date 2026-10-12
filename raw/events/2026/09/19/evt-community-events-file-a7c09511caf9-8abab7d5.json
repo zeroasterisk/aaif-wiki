@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-a7c09511caf9-8abab7d5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/announcement-post/graders/legal_footer.md",
+  "title": "legal_footer.md",
+  "timestamp": "2026-09-19T15:40:28-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/legal_footer.md",
+  "summary": "refactor(sync): one front door, one pipeline definition, four phase skills",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/announcement-post/graders/legal_footer.md",
+      "blob_sha": "8abab7d5c833b5219955081211cfba81ac522afc",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

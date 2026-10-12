@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-agentic-commerce-file-d22b3d6550c3-4eccf8be",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-05-29T14:08:09-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/wg-agentic-commerce/blob/8458b003a68de58c8bc24900ebd931d3112eb7ca/charter.md",
+  "summary": "Update title of working group charter",
+  "pointers": [
+    {
+      "repo": "wg-agentic-commerce",
+      "commit_sha": "8458b003a68de58c8bc24900ebd931d3112eb7ca",
+      "path": "charter.md",
+      "blob_sha": "4eccf8bef1218d7f7584a2ef17539bf110800901",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

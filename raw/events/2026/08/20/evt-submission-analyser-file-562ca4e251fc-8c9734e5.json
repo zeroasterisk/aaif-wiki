@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-562ca4e251fc-8c9734e5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "src/skills/issue-analysis/references/README.md",
+  "title": "README.md",
+  "timestamp": "2026-08-20T13:34:39+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md",
+  "summary": "Analyse another repo's issues, and stop commenting on them",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "src/skills/issue-analysis/references/README.md",
+      "blob_sha": "8c9734e5a3d791863af2a80e9605692d8219678a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

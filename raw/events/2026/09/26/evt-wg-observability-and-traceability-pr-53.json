@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-53",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#53",
+  "title": "docs: refresh the use case appendix after E4 and I1 landed",
+  "timestamp": "2026-09-26T09:19:20Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/53",
+  "summary": "Updates the use case inventory (`working-documents/USE-CASES.md`). No issue is closed by this change.\n\nFour items in the appendix went stale while the document moved around them. This corrects them together so the appendix matches the inventory it summarises.\n\n## What changed\n\n1....",
+  "pointers": [],
+  "inline_text": "Updates the use case inventory (`working-documents/USE-CASES.md`). No issue is closed by this change.\n\nFour items in the appendix went stale while the document moved around them. This corrects them together so the appendix matches the inventory it summarises.\n\n## What changed\n\n1. **The appendix priority matrix was missing E4.** It ran E3 straight to F1, so the matrix a reader fills in did not list a use case the inventory itself contains. E4 is added with a blank priority cell, matching every other row in that matrix.\n2. **Our own priority table still described E4 as proposed.** E4 merged on 2026-08-18 in PR #30, so both the \"(proposed)\" label and the \"See proposed use case above\" note were stale. Both removed. The priority itself is unchanged.\n3. **The same table predated I1.** Cross-surface identity resolution was added on 2026-08-19 in PR #27, after our table was written. I1 is added with a blank priority cell rather than an assigned value, because we have not assessed it and would rather leave it visibly open than guess.\n4. **A heading carried a longer form than the table it labels.** The heading above our table named a company plus a business unit, while the table's own column header reads \"Priority (Empire Labs)\". The heading is normalised to \"Empire Labs priorities\" for consistency inside the same appendix.\n\n## Review questions\n\n- Is the appendix priority matrix mirrored from a canonical list elsewhere, and if so, does that list already carry E4? We corrected only what this file shows.\n- Item 4 is a consistency change rather than a factual one. Happy to drop it if the longer heading was deliberate.\n\n## Follow-up that remains open\n\nThis document's E-range carries use case identifiers (E1 to E4 under section E), and the evidence-grade ladder's rungs use the same letters, so one file means two things by the same token. We raised that as ours to correct on the governance, risk and regulatory group's issue #9 (https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9) and it is deliberately not addressed here, so this change stays focused on appendix accuracy.",
+  "labels": []
+}

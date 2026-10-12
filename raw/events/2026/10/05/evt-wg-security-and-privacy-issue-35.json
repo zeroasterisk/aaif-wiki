@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-35",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#35",
+  "title": "Best practices guide: replace the two incident examples in Section 4 with sourced data on approval fatigue",
+  "timestamp": "2026-10-05T07:57:34Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/35",
+  "summary": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015022849.\n\n**Current text** ([L125](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices...",
+  "pointers": [],
+  "inline_text": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015022849.\n\n**Current text** ([L125](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L125)): \"documented production failures include an 847GB/15-million-record database deletion and a $25M fraudulent wire transfer\".\n\n**Proposal.** Replace both with Anthropic's data on this exact failure. In a study of 1,053 testers, a dangerous command slipped into a Claude Code session was caught by 13.6% of humans, about 5% after 50 prior prompts, while 97% of permission prompts get approved. Anthropic's automated check blocked 89% of the same commands and became the default. https://claude.com/blog/auto-mode-default-in-claude-code. It is the strongest published evidence that flat approval prompts train reviewers to rubber-stamp, and it backs the fatigue-tracking principle later in the section.\n\n**Why.** The $25M wire transfer is the Arup deepfake fraud (https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk). No agent was involved, so it does not support a claim about HITL failing in agentic systems. The 847GB / 15-million-record deletion has no source in the ledger and I could not find one; the documented agent deletions (Replit, July 2025; PocketOS, April 2026) have different figures.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-47",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#47",
+  "title": "[Use Cases] Raise fan-out vs. pipeline as an open question",
+  "timestamp": "2026-09-15T14:22:31Z",
+  "author": "kevintelus",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/47",
+  "summary": "Adds one entry to Open questions in `schema-agentic-use-cases.md`. \r\n\r\n`Parallel fan-out` is defined by timing (\"concurrent sub-tasks\"), `Sequential pipeline` by dependency (\"dependent activities, each feeding the next\"). Those aren't opposites, so a row can match neither. 20 of ...",
+  "pointers": [],
+  "inline_text": "Adds one entry to Open questions in `schema-agentic-use-cases.md`. \r\n\r\n`Parallel fan-out` is defined by timing (\"concurrent sub-tasks\"), `Sequential pipeline` by dependency (\"dependent activities, each feeding the next\"). Those aren't opposites, so a row can match neither. 20 of the 24 `Unspecified` rows in the inventory are stuck on it.\r\n\r\nThe entry lists the three readings that have come up -- timing as observed, agent count (raised by @jodeev in #39), and dependency -- along with what each one costs. It doesn't pick one.\r\n\r\nThat's deliberate. Which reading is right depends on whether these columns describe one company's implementation or the use case itself, and @zaynelt opened that question on #41. Happy to fold this into the joint decision note if that's a better home for it.\r\n\r\n## Note\r\n\r\nAn earlier version of this PR picked dependency and reclassified 18 rows. Pulled all of that out.",
+  "labels": []
+}

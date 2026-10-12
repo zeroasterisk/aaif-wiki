@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-8f732085cd4f-49330cd0",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "governance/project-lifecycle-policy.md",
+  "title": "project-lifecycle-policy.md",
+  "timestamp": "2026-08-17T13:10:25+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/technical-committee/blob/fe99a96791381e68eb40e8e5885690ddd08fbfb1/governance/project-lifecycle-policy.md",
+  "summary": "Add governing board approval of sandbox stage projects",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "fe99a96791381e68eb40e8e5885690ddd08fbfb1",
+      "path": "governance/project-lifecycle-policy.md",
+      "blob_sha": "49330cd0f2264fed283e8b8566463f7bce57d7af",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

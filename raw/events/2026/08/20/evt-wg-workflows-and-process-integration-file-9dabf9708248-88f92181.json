@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-9dabf9708248-88f92181",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/principles.md",
+  "title": "principles.md",
+  "timestamp": "2026-08-20T06:14:14-07:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/principles.md",
+  "summary": "Add principles and contributor guidance (#27)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "3b4d645499620b10b313297e7f365148fa6d0ee1",
+      "path": "workstreams/reference-architectures/principles.md",
+      "blob_sha": "88f92181ed5a3dcdad59b3ccf579274d3d9ce6e9",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

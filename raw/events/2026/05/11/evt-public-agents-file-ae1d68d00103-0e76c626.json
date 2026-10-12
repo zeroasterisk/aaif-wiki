@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-public-agents-file-ae1d68d00103-0e76c626",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/public-agents",
+  "reference_id": ".github/workflows/gemini-test-action.yml",
+  "title": "gemini-test-action.yml",
+  "timestamp": "2026-05-11T09:21:58+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/gemini-test-action.yml",
+  "summary": "Add gemini-test-action workflow and README",
+  "pointers": [
+    {
+      "repo": "public-agents",
+      "commit_sha": "fcc3ebc4db293e01305373fc9c2f2c46845ee015",
+      "path": ".github/workflows/gemini-test-action.yml",
+      "blob_sha": "0e76c62647a688801a1d962eebda1c20b356efc2",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

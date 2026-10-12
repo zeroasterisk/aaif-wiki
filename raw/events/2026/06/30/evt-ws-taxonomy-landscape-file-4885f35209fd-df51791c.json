@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-4885f35209fd-df51791c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "meeting-notes/2026-06-22.md",
+  "title": "2026-06-22.md",
+  "timestamp": "2026-06-30T06:18:34-07:00",
+  "author": "mindpower",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/2026-06-22.md",
+  "summary": "doc: added meeting notes for 2026-06-22",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "6ac90f517a064054d4113b3331c8c06e380258b8",
+      "path": "meeting-notes/2026-06-22.md",
+      "blob_sha": "df51791c08b62c39f5c190b9f7b2b489d3409a43",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

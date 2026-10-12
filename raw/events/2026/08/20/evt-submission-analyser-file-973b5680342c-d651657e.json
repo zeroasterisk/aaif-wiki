@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-submission-analyser-file-973b5680342c-d651657e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/submission-analyser",
+  "reference_id": "docs/secrets.md",
+  "title": "secrets.md",
+  "timestamp": "2026-08-20T17:10:18+10:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/docs/secrets.md",
+  "summary": "Send the Actions token directly; the exchange does not apply to it",
+  "pointers": [
+    {
+      "repo": "submission-analyser",
+      "commit_sha": "df50b968b54196c39fa1037cf2e90f359f1ea7ab",
+      "path": "docs/secrets.md",
+      "blob_sha": "d651657e332c625e149fb6e93e6a502fe09c5b2d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,50 +1,34 @@
 ---
 type: resource
 title: Agentic AI Landscape
-description: Interactive ecosystem and architecture map tracking agent runtimes, protocols,
-  security guardrails, and global regulatory frameworks.
-resource: https://github.com/aaif/ws-taxonomy-landscape/issues/67
+description: Schema-validated catalog and interactive landscape mapping open-source
+  and member agentic AI frameworks, tools, and runtimes.
+resource: https://github.com/aaif/aaif-landscape/issues/22
 tags:
 - landscape
+- catalog
+- ecosystem
 - taxonomy
-- governance
-- regulation
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:09:44.874905+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-12T03:16:55.654115+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-issue-67
-  resource: https://github.com/aaif/ws-taxonomy-landscape/issues/67
-  author: smcd
-  last_modified: '2026-09-23T23:46:13+00:00'
+- id: evt-aaif-landscape-issue-22
+  resource: https://github.com/aaif/aaif-landscape/issues/22
+  author: mendezr
+  last_modified: '2026-10-05T16:42:07+00:00'
 ---
 
 # Overview
-
-The Agentic AI Landscape is an interactive ecosystem map maintained by the [Taxonomy & Landscape Working Group](../working-groups/taxonomy-and-landscape.md) to categorize agent runtimes, interoperability protocols, security guardrails, and regulatory environments across the open agentic ecosystem.
+The Agentic AI Landscape is an interactive directory and schema-validated catalog maintained by the Agentic AI Foundation to categorize frameworks, runtimes, protocols, and developer tools across the agentic ecosystem.
 
 # Architecture / Specification
 
-The landscape dataset enforces structured data schemas across multiple domains, including technical components, standards, and global governance frameworks.
+## Inclusion Criteria and Taxonomy Categories
+The landscape organizes projects into functional domains, including Orchestration & Multi-Agent systems, protocols, evaluation frameworks, and security layers. General admission for open-source ecosystem tools maintains a baseline threshold (such as a 1,000 GitHub star general threshold for independent projects) alongside requirements for schema compliance in `landscape.yml` accompanied by vector (SVG) brand assets [^evt-aaif-landscape-issue-22]. Projects governed directly under AAIF repositories (such as [Goose](./goose.md) at `aaif-goose/goose`) serve as canonical references within the catalog [^evt-aaif-landscape-issue-22].
 
-## Governance & Regulatory Regimes Classification
+# Lifecycle History
+The landscape was established by the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md) to track foundation projects and community tools. Open issues such as issue #22 continue to evaluate category eligibility and intake criteria for emerging open-source orchestrators.
 
-Regulatory and governance initiatives tracked in the landscape are categorized according to their legal enforceability and official status [^evt-ws-taxonomy-landscape-issue-67]:
-
-- **Enacted Legislation & Acts**: Binding statutory instruments that have been enacted into law with active or scheduled operative dates, such as the Colorado Automated Decision-Making Technology Act (SB 26-189) [^evt-ws-taxonomy-landscape-issue-67].
-- **Standards & Risk Frameworks**: Voluntary guidance, model frameworks, and operational risk standards, including Singapore's Model AI Governance Framework for Agentic AI [^evt-ws-taxonomy-landscape-issue-67].
-
-## Schema Validation Rules
-
-Landscape data entries must adhere to schema constraints defined in the repository validation tooling [^evt-ws-taxonomy-landscape-issue-67]:
-
-- Unsubstantiated superlatives (such as claiming "world's first") are prohibited in descriptive text.
-- Official metadata must link directly to authoritative upstream legislative and official registry sources rather than secondary commentary or third-party summaries [^evt-ws-taxonomy-landscape-issue-67].
-
-# References
-
-- [Governance, Risk & Regulatory Working Group](../working-groups/governance-risk-and-regulatory.md)
-- [Taxonomy & Landscape Working Group](../working-groups/taxonomy-and-landscape.md)
-
-[^evt-ws-taxonomy-landscape-issue-67]: https://github.com/aaif/ws-taxonomy-landscape/issues/67
+[^evt-aaif-landscape-issue-22]: https://github.com/aaif/aaif-landscape/issues/22

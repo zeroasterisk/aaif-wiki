@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-49",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#49",
+  "title": "[RA] Clarify business task terminology in bounded remediation",
+  "timestamp": "2026-10-09T11:27:17Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/49",
+  "summary": "## What\nClarifies the task/activity terminology in the bounded autonomous remediation reference architecture and its composed patterns.\n\n- Uses **activity** for workflow subunits.\n- Uses **business task** for the bounded business problem admitted to and handled by a run.\n- Adds a...",
+  "pointers": [],
+  "inline_text": "## What\nClarifies the task/activity terminology in the bounded autonomous remediation reference architecture and its composed patterns.\n\n- Uses **activity** for workflow subunits.\n- Uses **business task** for the bounded business problem admitted to and handled by a run.\n- Adds a short terminology note and aligns diagrams, lifecycle, scope, gate, and recovery language.\n\n## Why\nThis applies the agreed terminology alignment: workflow subunit = activity; business activity/work item = business task.\n\nCloses #30",
+  "labels": []
+}

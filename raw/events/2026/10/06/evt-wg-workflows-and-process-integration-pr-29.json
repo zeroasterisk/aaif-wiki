@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-29",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#29",
+  "title": "Introduce primitive-based single/multi-agent reference architecture draft",
+  "timestamp": "2026-10-06T15:45:22Z",
+  "author": "praneeth2k3",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/29",
+  "summary": "Adds a P1-P19 primitive vocabulary (workstreams/taxonomy/primitives/). The shared building blocks (Trigger, AgentStep, Budget, Handoff, etc.) that both architectures below are built from.\r\n\r\nAdds the reference-architectures workstream's supporting structure:\r\n- architectures/sing...",
+  "pointers": [],
+  "inline_text": "Adds a P1-P19 primitive vocabulary (workstreams/taxonomy/primitives/). The shared building blocks (Trigger, AgentStep, Budget, Handoff, etc.) that both architectures below are built from.\r\n\r\nAdds the reference-architectures workstream's supporting structure:\r\n- architectures/single-agent.md, multi-agent.md : the two RA drafts\r\n- contracts/ : the AgentStep boundary and Handoff contracts each primitive-crossing step MUST satisfy\r\n- topologies/ : T1-T6, the multi-agent shapes multi-agent.md routes to\r\n- guidance/ : shared supporting arguments (checklists, loop tiers, anti-patterns, invariants, WG boundaries, references) factored out of the two RAs to avoid duplication\r\n\r\nUpdates both workstream READMEs so this content is discoverable from the top level, and fixes all cross-references between these files.",
+  "labels": []
+}

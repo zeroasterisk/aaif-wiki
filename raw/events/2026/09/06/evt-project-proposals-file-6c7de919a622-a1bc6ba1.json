@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-6c7de919a622-a1bc6ba1",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": ".github/ISSUE_TEMPLATE/project-proposal.yml",
+  "title": "project-proposal.yml",
+  "timestamp": "2026-09-06T17:37:26+08:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml",
+  "summary": "Revise project proposal description and requirements to accommodate Sandbox",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "f95b796d901b553de20e37213c63f81f40a627a2",
+      "path": ".github/ISSUE_TEMPLATE/project-proposal.yml",
+      "blob_sha": "a1bc6ba1a1c070360b8fc9f0381d9ad1048bdbb3",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

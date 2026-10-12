@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-67",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#67",
+  "title": "Three corrections to \"Global Governance & Regulatory Regimes\"",
+  "timestamp": "2026-09-23T23:46:13Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/67",
+  "summary": "Filing as an issue since landscape PRs are paused...\n\n1. Colorado SB 24-205 is listed under \"Enacted Legislation & Acts\". It never took effect: SB 25B-004 delayed its operative date to 2026-06-30, and SB 26-189 (signed 2026-05-14, \"repeals and reenacts\", effective 2027-01-01) rep...",
+  "pointers": [],
+  "inline_text": "Filing as an issue since landscape PRs are paused...\n\n1. Colorado SB 24-205 is listed under \"Enacted Legislation & Acts\". It never took effect: SB 25B-004 delayed its operative date to 2026-06-30, and SB 26-189 (signed 2026-05-14, \"repeals and reenacts\", effective 2027-01-01) replaced it. The entry should be SB 26-189, the Automated Decision-Making Technology Act, `homepage_url` https://leg.colorado.gov/bills/sb26-189.\n2. Singapore's Model AI Governance Framework for Agentic AI sits under the same heading. It is voluntary guidance; the Governance WG's own landscape analysis says so. It belongs under \"Standards & Risk Frameworks\".\n3. The EU AI Act and Singapore descriptions both open \"World's first\", which `docs/data-schemas.md` rules out (\"first\" is on its list). The EU AI Act's `homepage_url` is a third-party explainer; the charter asks for the authoritative upstream, https://eur-lex.europa.eu/eli/reg/2024/1689/oj.",
+  "labels": []
+}

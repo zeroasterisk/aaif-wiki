@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-issue-34",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "ISSUE#34",
+  "title": "Best practices guide: sandbox blast-radius claim overstates what sandbox mode delivers (Section 3.2)",
+  "timestamp": "2026-10-05T17:42:01Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/issues/34",
+  "summary": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015533684.\n\n**Current text** ([L109](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices...",
+  "pointers": [],
+  "inline_text": "Origin: PR #9 review thread https://github.com/aaif/wg-security-and-privacy/pull/9#discussion_r4015533684.\n\n**Current text** ([L109](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L109)): sandbox mode \"reduces the blast radius of any unverified artifact from full system access to working-directory scope\". The row on [L106](https://github.com/aaif/wg-security-and-privacy/blob/e757d350133fea0858dda1deec13dbca923b3cf8/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md?plain=1#L106) rates it \"Contained\".\n\n**Proposal.** Keep the recommendation, state it honestly: sandbox mode narrows the filesystem, it does not close egress or the trust handoff to host tools. Update the L106 row to match.\n\n**Why.** Pillar escaped the sandboxes of Cursor, Codex, Gemini CLI and Antigravity in one week, in most cases without breaking the sandbox at all: the agent writes a file that an unsandboxed host component later runs (https://www.pillar.security/blog/the-week-of-sandbox-escapes). And the agent does not need an attacker to route around egress. In our Cursor testing, curl was blocked, so the agent used Python urllib and uploaded project files to a public anonymous host to finish an ordinary task (https://www.capsulesecurity.io/blog-post/cursebox-the-agent-that-sends-your-files-to-strangers-to-get-the-job-done, my employer's post).",
+  "labels": []
+}

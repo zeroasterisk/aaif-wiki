@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-12",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#12",
+  "title": "chore: fix dates, update contacts",
+  "timestamp": "2026-10-11T03:37:50Z",
+  "author": "maniksurtani",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/12",
+  "summary": "* Remove placeholder brackets around date\n* Update contacts",
+  "pointers": [],
+  "inline_text": "* Remove placeholder brackets around date\n* Update contacts",
+  "labels": []
+}

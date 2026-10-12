@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-7",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#7",
+  "title": "Add onboarding guide",
+  "timestamp": "2026-09-10T16:52:41Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/7",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

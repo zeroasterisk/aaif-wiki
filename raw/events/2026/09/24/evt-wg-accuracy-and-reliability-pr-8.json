@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-8",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#8",
+  "title": "D1: deliverable d1 - taxonomy",
+  "timestamp": "2026-09-24T00:30:54Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/8",
+  "summary": "Signed-off-by: Jordan Augé <augjorda@cisco.com>",
+  "pointers": [],
+  "inline_text": "Signed-off-by: Jordan Augé <augjorda@cisco.com>",
+  "labels": []
+}

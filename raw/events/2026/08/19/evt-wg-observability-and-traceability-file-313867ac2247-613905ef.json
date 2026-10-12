@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-313867ac2247-613905ef",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/01-foundations/linux-tracing-comparison.md",
+  "title": "linux-tracing-comparison.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/01-foundations/linux-tracing-comparison.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/01-foundations/linux-tracing-comparison.md",
+      "blob_sha": "613905efc8b2b908acf68fbb9a15c7b782f95b27",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-f612edccd3bb-3e43a826",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "tracing_landscape/03-hardware-accelerators/gpu-ai-tracing.md",
+  "title": "gpu-ai-tracing.md",
+  "timestamp": "2026-08-19T20:04:48+01:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/03-hardware-accelerators/gpu-ai-tracing.md",
+  "summary": "Tracing landscape (#20)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "ecdd24bcbb59140ce89b608a8ddf815a38140a2b",
+      "path": "tracing_landscape/03-hardware-accelerators/gpu-ai-tracing.md",
+      "blob_sha": "3e43a826faadf873b480084c5dbe9fc796eb7794",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

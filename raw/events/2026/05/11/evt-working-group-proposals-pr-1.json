@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-proposals-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "PR#1",
+  "title": "Remove duplicate header fields and fix typo in working-group-proposal.yml",
+  "timestamp": "2026-05-11T22:48:21Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/working-group-proposals/pull/1",
+  "summary": "The YAML file had two sets of top-level fields (name, description, title, labels). In YAML, the second definition overwrites the first, so the first four lines had no effect. Removed the duplicate block and kept the correct one with the assignee. Also fixed a double word: \"and th...",
+  "pointers": [],
+  "inline_text": "The YAML file had two sets of top-level fields (name, description, title, labels). In YAML, the second definition overwrites the first, so the first four lines had no effect. Removed the duplicate block and kept the correct one with the assignee. Also fixed a double word: \"and the the AAIF\" was changed to \"and the AAIF\".",
+  "labels": []
+}

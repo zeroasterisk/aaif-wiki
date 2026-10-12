@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-eca12c0a30e2-4eaff5f4",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "CONTRIBUTING.md",
+  "title": "CONTRIBUTING.md",
+  "timestamp": "2026-10-11T08:20:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md",
+  "summary": "docs: README for the person using the toolkit, MAINTAINING.md for its upkeep",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "CONTRIBUTING.md",
+      "blob_sha": "4eaff5f41c1a9e0155344cea56967c00b2e8a829",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

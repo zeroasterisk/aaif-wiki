@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-foundation-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "closed",
+  "repository": "aaif/foundation",
+  "reference_id": "PR#4",
+  "title": "fix: correct section cross-references in charter.md",
+  "timestamp": "2026-06-27T05:21:35Z",
+  "author": "moezdil",
+  "url": "https://github.com/aaif/foundation/pull/4",
+  "summary": "Fixes #3\n\nThe charter uses numeric section numbering (1, 2, 3...) throughout. But two lines reference sections using alphanumeric labels (5.e. and 13.a.) that do not exist in this file.\n\nThe correct numeric references are 5.5 and 13.1.\n\nChanges:\n- Section 5.3: two references to 5...",
+  "pointers": [],
+  "inline_text": "Fixes #3\n\nThe charter uses numeric section numbering (1, 2, 3...) throughout. But two lines reference sections using alphanumeric labels (5.e. and 13.a.) that do not exist in this file.\n\nThe correct numeric references are 5.5 and 13.1.\n\nChanges:\n- Section 5.3: two references to 5.e. and 13.a. changed to 5.5 and 13.1\n- Section 13.1: one reference to 5.e. changed to 5.5",
+  "labels": []
+}

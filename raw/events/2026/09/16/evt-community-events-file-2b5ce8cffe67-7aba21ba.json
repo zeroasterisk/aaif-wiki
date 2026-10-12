@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-2b5ce8cffe67-7aba21ba",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "evals/recap-post/prompt.md",
+  "title": "prompt.md",
+  "timestamp": "2026-09-16T21:52:16-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/recap-post/prompt.md",
+  "summary": "fix(evals): correct three cases the first full run exposed",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": "evals/recap-post/prompt.md",
+      "blob_sha": "7aba21ba32f25fe934a6447a1dc4806910832d70",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

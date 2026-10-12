@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-81",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#81",
+  "title": "Define universal term Agent-to-agent",
+  "timestamp": "2026-10-09T13:09:31Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/81",
+  "summary": "Defines Agent-to-agent as a general interaction in which one agent communicates or coordinates with another. Clarifies in the scope note that the term is not specific to the Agent2Agent (A2A) protocol, and intentionally does not add A2A as an alias. Validation: taxonomy schema pa...",
+  "pointers": [],
+  "inline_text": "Defines Agent-to-agent as a general interaction in which one agent communicates or coordinates with another. Clarifies in the scope note that the term is not specific to the Agent2Agent (A2A) protocol, and intentionally does not add A2A as an alias. Validation: taxonomy schema passes with 38 entries; all 5 validator tests pass.",
+  "labels": []
+}

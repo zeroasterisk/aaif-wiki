@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-17",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#17",
+  "title": "Add the authority-at-dispatch catalogue entry, workflow and agenda item",
+  "timestamp": "2026-10-10T23:53:46Z",
+  "author": "astrogilda",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/17",
+  "summary": "This adds the authority-at-dispatch comparison from [issue 13](https://github.com/aaif/wg-identity-and-trust/issues/13) as a catalogue entry, a workflow that runs it, and an agenda item.\n\nEvery trace in the comparison writes one versioned contract identifier, and the reader refus...",
+  "pointers": [],
+  "inline_text": "This adds the authority-at-dispatch comparison from [issue 13](https://github.com/aaif/wg-identity-and-trust/issues/13) as a catalogue entry, a workflow that runs it, and an agenda item.\n\nEvery trace in the comparison writes one versioned contract identifier, and the reader refuses a trace without it. Authority evidence also carries its age and the deployed freshness limit Imran Siddique asked the comparison to keep in [message 26](https://lists.aaif.io/g/wg-identity-trust/message/26). The entry maps the six cases from [list message 14](https://lists.aaif.io/g/wg-identity-trust/message/14) onto reference cases and pins the MintID, Proofable and Alakris runs from issue 13.\n\nThe workflow installs the reader from [agent-evidence-observer](https://github.com/probityai/agent-evidence-observer) at a pinned commit, runs the reference cases, and refuses a submitted trace without the identifier. I'm happy to maintain it. Could the chairs give the item 10 to 15 minutes at the Thursday, October 15 meeting, next to the delegated-authority cases from message 14?",
+  "labels": []
+}

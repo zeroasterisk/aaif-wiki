@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-63a9c44a44ac-37822210",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": ".pre-commit-config.yaml",
+  "title": ".pre-commit-config.yaml",
+  "timestamp": "2026-09-30T18:54:05-07:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml",
+  "summary": "feat: make the plugin a portable Agent Plugin",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f9238daa9a574849f49e30e1ce9a5c03458594b9",
+      "path": ".pre-commit-config.yaml",
+      "blob_sha": "37822210e064a2ef2ce7b4405ef580efebe5540e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
