@@ -175,6 +175,41 @@ def push_branch(root: Path, branch: str) -> None:
     _git(root, "push", "-u", "origin", branch)
 
 
+def validate_committed(cfg: Config, ref: str) -> list[str]:
+    """Run the deterministic validators against a clean checkout of ``ref``.
+
+    Mirrors CI: only committed files count. Returns error messages (empty = clean).
+    """
+    import tempfile
+
+    from .store import EventStore
+    from .validate import validate_bundle
+
+    with tempfile.TemporaryDirectory(prefix="aaif-validate-") as tmp:
+        wt = Path(tmp) / "tree"
+        _git(cfg.root, "worktree", "add", "--detach", str(wt), ref)
+        try:
+            events_dir = wt / cfg.project.event_store
+            known = (
+                {e.event_id for e in EventStore(events_dir).iter_events()}
+                if events_dir.exists()
+                else set()
+            )
+            result = validate_bundle(
+                wt / cfg.project.bundle_root,
+                known_event_ids=known,
+                link_allowlist=cfg.trust.link_allowlist,
+                forbidden_patterns=cfg.trust.forbidden_patterns,
+            )
+            return [
+                f"{i.path}: [{i.check}] {i.message}"
+                for i in result.issues
+                if i.severity == "error"
+            ]
+        finally:
+            _git(cfg.root, "worktree", "remove", "--force", str(wt))
+
+
 def open_pull_request(
     cfg: Config, branch: str, title: str, body: str, *, allow_merge: bool = True
 ) -> tuple[bool, str]:

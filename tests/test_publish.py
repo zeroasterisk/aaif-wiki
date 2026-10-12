@@ -128,9 +128,10 @@ def test_publish_stages_bundle_reviews_and_exceptions(tmp_path, monkeypatch):
         return "c0ffee12345"
 
     monkeypatch.setattr("aaif_wiki.publish.commit_paths", fake_commit_paths)
+    monkeypatch.setattr("aaif_wiki.publish.validate_committed", lambda cfg, ref: [])
     monkeypatch.setattr(
         "aaif_wiki.publish.open_pull_request",
-        lambda cfg, branch, title, body: (True, "https://github.com/pr/1"),
+        lambda cfg, branch, title, body, allow_merge=True: (True, "https://github.com/pr/1"),
     )
     monkeypatch.setattr("aaif_wiki.publish._git", lambda *args, **kwargs: "")
 
@@ -138,8 +139,69 @@ def test_publish_stages_bundle_reviews_and_exceptions(tmp_path, monkeypatch):
     _publish(cfg, [mut], "run-test", {})
 
     assert "wiki" in staged_paths
+    assert "raw/events" in staged_paths
     assert "raw/reviews" in staged_paths
     assert "raw/exceptions" in staged_paths
+
+
+def test_publish_blocks_merge_when_committed_tree_invalid(tmp_path, monkeypatch):
+    cfg = Config(root=tmp_path)
+    seen = {}
+    monkeypatch.setattr("aaif_wiki.publish.current_branch", lambda root: "main")
+    monkeypatch.setattr("aaif_wiki.publish.create_branch", lambda root, branch: branch)
+    monkeypatch.setattr(
+        "aaif_wiki.publish.write_review_record", lambda *a: Path("record.json")
+    )
+    monkeypatch.setattr("aaif_wiki.publish.commit_paths", lambda *a: "c0ffee12345")
+    monkeypatch.setattr(
+        "aaif_wiki.publish.validate_committed",
+        lambda cfg, ref: ["wiki/x.md: [provenance] sources[] id not in event store: evt-1"],
+    )
+
+    def fake_open(cfg, branch, title, body, allow_merge=True):
+        seen["allow_merge"] = allow_merge
+        return True, "https://github.com/pr/1"
+
+    monkeypatch.setattr("aaif_wiki.publish.open_pull_request", fake_open)
+    monkeypatch.setattr("aaif_wiki.publish._git", lambda *a, **k: "")
+    mut = Mutation(action="create", slug="taxonomy/x", concept=Concept(type="Term", title="x", description="x"))
+    _publish(cfg, [mut], "run-test", {})  # summary has no issues: in-run validation was clean
+    assert seen["allow_merge"] is False
+
+
+def _git_repo(root: Path) -> None:
+    for args in (
+        ["init", "-q", "-b", "main"],
+        ["config", "user.name", "t"],
+        ["config", "user.email", "t@t"],
+    ):
+        subprocess.run(["git", *args], cwd=root, check=True)
+
+
+def test_validate_committed_ignores_uncommitted_files(tmp_path):
+    """The bug behind CI failures on #3/#4: events existed on disk but not in git."""
+    from aaif_wiki.publish import validate_committed
+
+    _git_repo(tmp_path)
+    cfg = Config(root=tmp_path)
+    (tmp_path / "wiki").mkdir()
+    (tmp_path / "wiki" / "index.md").write_text(
+        '---\nokf_version: "0.2"\ntype: Index\ntitle: T\ndescription: D\nstatus: draft\n---\n\n# T\n'
+    )
+    subprocess.run(["git", "add", "-A"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "commit", "-qm", "init"], cwd=tmp_path, check=True)
+    sha = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=tmp_path, capture_output=True, text=True
+    ).stdout.strip()
+    # Clean committed tree validates without error, and the worktree is cleaned up.
+    assert validate_committed(cfg, sha) == []
+    wts = subprocess.run(
+        ["git", "worktree", "list"], cwd=tmp_path, capture_output=True, text=True
+    ).stdout
+    assert len(wts.strip().splitlines()) == 1
+    # An uncommitted page that cites an unknown event must NOT be seen: only git counts.
+    (tmp_path / "wiki" / "x.md").write_text("garbage, no front matter\n")
+    assert validate_committed(cfg, sha) == []
 
 
 def test_weekly_workflow_uses_project_variable():

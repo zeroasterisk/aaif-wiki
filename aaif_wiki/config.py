@@ -195,6 +195,7 @@ class TrustCfg(BaseModel):
             "spdx.github.io",
             "posthog.com",
             "amd.com",
+            "github.ai",
         ]
     )
     forbidden_patterns: list[str] = Field(
