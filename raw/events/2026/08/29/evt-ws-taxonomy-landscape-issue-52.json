@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-52",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#52",
+  "title": "Define: self-reported",
+  "timestamp": "2026-08-29T23:51:33Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/52",
+  "summary": "**Term:** `self-reported`\n\n**Proposed definition:** A property of an observation or record that asserts the artifact described it about itself, with no independent verification from outside the artifact's write path. A record can be well-formed and self-reported, or well-formed a...",
+  "pointers": [],
+  "inline_text": "**Term:** `self-reported`\n\n**Proposed definition:** A property of an observation or record that asserts the artifact described it about itself, with no independent verification from outside the artifact's write path. A record can be well-formed and self-reported, or well-formed and independently observed; the property names which of the two holds.\n\n**Category:** deferred (``)  \n**broaderTerm:** null\n\n**Why this term:** The observability-versus-evidence distinction needed a name for the weak property that separates them. An OTel span is emitted by the thing it describes, so its content is self-reported no matter how well-formed it is; a substrate-vantage record is independently observed. The term was coined in the OWASP GenAI-Security-Project agent-control-standard conformance discussion (issue #36), where it was adopted as the property under test for the verifier-side primitive, and it maps onto the claim-scope distinction between emission and operational conformance already admitted here (issues #50, #51).\n\n**scopeNote:** Proposed for the taxonomy definitions pass. The paired contrast is the family of independently-observed properties (substrate vantage, external observation), expected to follow in separate proposals per the workstream's paired-contrast protocol. `relatedTerms` and `contrastsWith` deliberately empty until those terms are admitted.\n\n**Definition status:** proposed, open for discussion at the weekly sync.",
+  "labels": []
+}

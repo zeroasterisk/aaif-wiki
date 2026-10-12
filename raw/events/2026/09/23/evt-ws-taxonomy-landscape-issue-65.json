@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-65",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#65",
+  "title": "Split `Intended purpose` out of `Intent`",
+  "timestamp": "2026-09-23T23:33:57Z",
+  "author": "smcd",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/65",
+  "summary": "`Intent` carries `Intended purpose` as an alias. They are not synonyms.\n\n\"Intended purpose\" is a defined legal term. EU AI Act Article 3(12): \"the use for which an AI system is intended by the provider, including the specific context and conditions of use, as specified in the inf...",
+  "pointers": [],
+  "inline_text": "`Intent` carries `Intended purpose` as an alias. They are not synonyms.\n\n\"Intended purpose\" is a defined legal term. EU AI Act Article 3(12): \"the use for which an AI system is intended by the provider, including the specific context and conditions of use, as specified in the information supplied by the provider\". It belongs to the provider and it is written down before deployment. \"Intent\" in the agentic sense is the goal an agent or its principal is pursuing at runtime. Different owner, different time.\n\nThe distinction is already active. #56 defines Agent sabotage and Agent mishandling/misuse as acting \"against its intended purpose\" and Agent derailment as \"outside its intended scope\". The law has the paired term for that as well, Article 3(13), \"reasonably foreseeable misuse\": use \"not in accordance with its intended purpose, but which may result from reasonably foreseeable human behaviour or interaction with other systems, including other AI systems\".\n\nSuggest: drop the alias; add `Intended purpose` as its own term, owned by Governance, Risk & Regulatory Alignment, `contrastsWith: ['Intent']`, and point the three #56 terms at it in `relatedTerms`. Draft: \"The use for which a system is intended by the party that built or supplied it, as stated in its documentation and instructions. A legal term of art (EU AI Act Article 3(12)) and the anchor for misuse (Article 3(13)).\"",
+  "labels": []
+}

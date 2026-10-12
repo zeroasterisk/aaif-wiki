@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-54",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#54",
+  "title": "Define: three-state reconciliation",
+  "timestamp": "2026-09-20T02:33:08Z",
+  "author": "narko4u",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/54",
+  "summary": "**Term:** `three-state reconciliation`\n\n**Proposed definition:** The comparison of an agent claim against an independent observation, resolved into one of three states: agreement, contradiction, or no independent evidence. The absence of independent evidence is an explicit state,...",
+  "pointers": [],
+  "inline_text": "**Term:** `three-state reconciliation`\n\n**Proposed definition:** The comparison of an agent claim against an independent observation, resolved into one of three states: agreement, contradiction, or no independent evidence. The absence of independent evidence is an explicit state, not a silent default, so an auditor can distinguish \"verified consistent\" from \"nothing checked it.\"\n\n**Category:** deferred (``)  \n**broaderTerm:** null\n\n**Why this term:** Evidence evaluation needed a name for the three-state outcome that separates a checked claim from an unchecked one. A two-state model (matched or not) collapses the case where no independent observation exists into a silent default, which is exactly the gap audit and dispute use cases care about. The term was proposed in the AAIF Observability & Traceability WG issue #36 (control-plane telemetry as an evidence source), where the reconciliation case was framed as agent claim to boundary observation to agreement / contradiction / no independent evidence, three states not two.\n\n**scopeNote:** Proposed for the taxonomy definitions pass. Related terms \"witness_scope\" and the verification-basis axis are expected to follow per the workstream's paired-contrast and related-term protocols. `relatedTerms` and `contrastsWith` deliberately empty until those terms are admitted.\n\n**Definition status:** proposed, open for discussion at the weekly sync.",
+  "labels": []
+}

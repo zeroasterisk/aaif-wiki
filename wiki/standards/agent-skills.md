@@ -2,56 +2,44 @@
 type: standard
 title: Agent Skills Specification
 description: Open file-based packaging format and progressive disclosure standard
-  for extending AI agents with procedural skills.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md
+  for extending AI agents with procedural knowledge, executable scripts, and resources.
+resource: https://github.com/aaif/project-proposals/issues/47
 tags:
-- agent-skills
-- specification
-- progressive-disclosure
-- prompt-engineering
+- standard
+- packaging
+- skills
+- interoperability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:22:24.071069+00:00'
+  at: '2026-10-12T10:39:03.028504+00:00'
 sources:
-- id: evt-community-events-file-eca12c0a30e2-4eaff5f4
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:20:05-07:00'
+- id: evt-project-proposals-issue-47
+  resource: https://github.com/aaif/project-proposals/issues/47
+  author: claim-ant
+  last_modified: '2026-10-02T03:46:40+00:00'
 ---
 
 # Overview
-The Agent Skills specification defines a file-based packaging format and progressive disclosure architecture for extending autonomous agents with structured, reusable procedural skills [^evt-community-events-file-eca12c0a30e2-4eaff5f4]. It ensures that agents retrieve concise operational instructions without overwhelming context windows or diluting procedural attention.
+The Agent Skills specification defines an open, file-based packaging format for extending AI agent capabilities with specialized domain knowledge, repeatable multi-step workflows, and operational resources [^evt-project-proposals-issue-47]. Structurally composed of a directory containing a `SKILL.md` file alongside optional scripts, templates, and reference documentation, the standard establishes a portable capability layer across heterogeneous agent runtimes and development environments [^evt-project-proposals-issue-47].
 
-Skills are organized into modular directories containing a primary instruction file (`SKILL.md`), optional supplementary references, and automated evaluation harnesses [^evt-community-events-file-eca12c0a30e2-4eaff5f4].
+Originally developed by Anthropic and published as an open standard, Agent Skills was formally submitted for project intake under the [Technical Committee](../governance/technical-committee.md) to transition canonical stewardship, specifications, and reference tooling to neutral governance under the Agentic AI Foundation [^evt-project-proposals-issue-47].
 
 # Architecture / Specification
 
-## Directory Layout
-A skill conforms to the standard folder structure [^evt-community-events-file-eca12c0a30e2-4eaff5f4]:
-```
-skills/<skill-name>/
-├── SKILL.md            # Primary procedural spine
-├── WORKFLOW.md         # Extended multi-phase procedure (optional)
-├── scripts/            # Executable helper scripts and unit tests
-└── references/         # Deep contextual documentation loaded on demand
-```
+## Three-Stage Progressive Disclosure
+To manage context window utilization effectively, agents load skills via progressive disclosure across three operational phases [^evt-project-proposals-issue-47]:
+1. **Discovery**: At runtime startup, an agent inspects only the lightweight metadata (such as skill name and descriptive summary) of all installed skills, maintaining an intentionally small baseline context footprint [^evt-project-proposals-issue-47].
+2. **Activation**: When an incoming prompt or operational objective matches a skill's activation description, the agent ingests the complete procedural instructions of `SKILL.md` into active context [^evt-project-proposals-issue-47].
+3. **Execution**: The agent executes the prescribed instructions, optionally running bundled code scripts, querying referenced datasets, or invoking client tools as needed [^evt-project-proposals-issue-47].
 
-## Frontmatter Metadata
-Each `SKILL.md` must begin with YAML frontmatter declaring identity, runtime prerequisites, and trigger descriptions [^evt-community-events-file-eca12c0a30e2-4eaff5f4]:
-- `name`: Unique identifier matching the skill folder name.
-- `description`: Single-line statement detailing both capability and trigger conditions ("Use when asked to...") to facilitate autonomous tool selection.
-- `compatibility`: Explicit declaration of required CLI binaries, language runtimes, network access, or credentials.
-- `metadata`: Client-specific invocation hints, such as argument placeholders.
-
-## Structural and Sizing Rules
-To maintain agent attention during task execution, `SKILL.md` documents adhere to strict constraints [^evt-community-events-file-eca12c0a30e2-4eaff5f4]:
-1. **Size Ceilings**: The primary `SKILL.md` must remain under 500 lines and approximately 5,000 tokens. Extended procedures must be relocated to `references/` or `WORKFLOW.md`.
-2. **Explicit Progressive Disclosure**: Reference documents in `references/` must begin with an explicit trigger phrase ("Load this when..."), paired with a routing table at the end of `SKILL.md`. Vague directives like "see references for details" are prohibited.
-3. **Checklist Formatting**: Multi-phase actions must be formatted as markdown checklists (`- [ ] **Step** — command, then rationale`) rather than dense prose.
-4. **Focused Gotchas**: Troubleshooting guidance must be limited to non-obvious failure modes ("gotchas") that agents commonly misunderstand, avoiding explanations of standard programming idioms.
+## Interoperability and Complementary Protocols
+Agent Skills addresses capability packaging alongside adjacent foundational standards [^evt-project-proposals-issue-47]:
+- **Model Context Protocol (MCP)**: Operates at the connectivity and tool execution layer; Agent Skills provides procedural guidance defining when, how, and in what order to invoke specific MCP tools [^evt-project-proposals-issue-47].
+- **AGENTS.md**: Operates as a persistent, repository-level instruction file describing project-specific setup, whereas skills provide modular, portable capabilities reusable across repositories [^evt-project-proposals-issue-47].
+- **Agent Client Protocol (ACP)**: Defines IDE-to-agent communication channels over which skill execution and file modification requests are mediated [^evt-project-proposals-issue-47].
 
 # Lifecycle History
-The 500-line and 5,000-token threshold was adopted as an enforceable ceiling within the AAIF community events repository following token-bloat remediation where oversized procedural documents degraded agent routing accuracy [^evt-community-events-file-eca12c0a30e2-4eaff5f4].
+Anthropic originally introduced Agent Skills on October 16, 2025, and published the open specification on December 18, 2025 [^evt-project-proposals-issue-47]. In 2026, an official proposal was submitted to the AAIF to transfer the specification repository, reference implementations, and associated domains to foundation ownership [^evt-project-proposals-issue-47].
 
-[^evt-community-events-file-eca12c0a30e2-4eaff5f4]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md
+[^evt-project-proposals-issue-47]: https://github.com/aaif/project-proposals/issues/47

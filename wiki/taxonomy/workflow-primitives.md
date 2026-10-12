@@ -2,47 +2,44 @@
 type: taxonomy
 title: Workflow Primitives
 description: Standardized vocabulary of modular workflow building blocks, execution
-  states, and boundary contracts for agentic AI orchestration.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
+  boundary contracts, and topology primitives for agentic systems.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
 tags:
 - taxonomy
-- workflow
-- vocabulary
+- workflows
+- primitives
+- contracts
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T02:54:39.529684+00:00'
+  at: '2026-10-12T10:40:40.637301+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
-  author: Mario Zagar
-  last_modified: '2026-08-28T22:43:08-04:00'
-- id: evt-wg-workflows-and-process-integration-pr-31
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/31
-  author: mzagar
-  last_modified: '2026-08-29T02:43:08+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-29
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+  author: praneeth2k3
+  last_modified: '2026-10-06T15:45:22+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-54
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
+  author: praneeth2k3
+  last_modified: '2026-10-06T03:09:10+00:00'
 ---
 
 # Overview
 
-Workflow Primitives define the foundational vocabulary and execution building blocks for structured agentic AI workflows and orchestration systems.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+Workflow primitives are standardized building blocks and boundary contracts defined by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) for assembling modular single-agent and multi-agent reference architectures[^evt-wg-workflows-and-process-integration-pr-29]. They establish vendor-neutral execution units covering triggers, operational budgets, discrete agent steps, and handoff boundaries[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
 
 # Architecture / Specification
 
-### Foundational Concepts
+The primitive framework formalizes workflow decomposition into reusable components and boundary guarantees[^evt-wg-workflows-and-process-integration-pr-29]:
 
-- **Activity**: A single, bounded task with defined inputs and outputs that can be tracked to completion.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f] This term replaces earlier usages of "Workflow Step" and "Workflow Task" to prevent circularity with the Workflow definition.[^evt-wg-workflows-and-process-integration-pr-31]
-- **Workflow**: The primary unit of structured, multi-activity work with a defined goal and outcome, composed of one or more activities, their relationships, and execution logic.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Workflow Execution**: A runtime instance of a workflow definition, maintaining its own execution state and lifecycle independently of concurrent instances.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Workflow State**: The information representing the current condition and execution progress of a workflow execution at a specific point in time.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Workflow Context**: The shared information available to workflow participants during execution, including inputs, shared metadata, history, and external references.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+- **Primitive Vocabulary (P1–P19)**: Modular execution units including triggers, agent execution steps (`AgentStep`), operational budget limits (`Budget`), and handoff transfers (`Handoff`).
+- **Boundary Contracts**: Explicit invariants required whenever execution crosses primitive boundaries, specifically governing `AgentStep` inputs/outputs and cross-agent `Handoff` transitions[^evt-wg-workflows-and-process-integration-pr-29].
+- **Multi-Agent Topologies (T1–T6)**: Structural shapes and routing topologies governing agent coordination, supervisor hierarchies, and peer-to-peer delegation flows[^evt-wg-workflows-and-process-integration-pr-29].
+- **Approval Integration**: Specialized control subsets (P1–P12) integrating deterministic checks and human approval gates into single-agent workflows, as used in the [Single-Agent Human Approval Architecture](../architectures/single-agent-human-approval.md)[^evt-wg-workflows-and-process-integration-pr-54].
 
-### Execution and Control
+# Lifecycle History
 
-- **Control Flow**: The logic determining execution order, branching, parallelism, and synchronization of activities.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Trigger**: An event, condition, schedule, or signal initiating or advancing workflow execution.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Durability**: The capability of preserving execution state across system failures or interruptions without loss of progress.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
-- **Determinism**: The property whereby identical inputs, execution state, and history produce consistent execution behavior.[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]
+The primitive catalog was drafted to unify the underlying components of single-agent and multi-agent reference architectures into a shared taxonomic baseline[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
 
-[^evt-wg-workflows-and-process-integration-file-612fd92abd3a-7d19866f]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/taxonomy/terms.md
-[^evt-wg-workflows-and-process-integration-pr-31]: https://github.com/aaif/wg-workflows-and-process-integration/pull/31
+[^evt-wg-workflows-and-process-integration-pr-29]: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+[^evt-wg-workflows-and-process-integration-pr-54]: https://github.com/aaif/wg-workflows-and-process-integration/pull/54

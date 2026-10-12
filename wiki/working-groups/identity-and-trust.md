@@ -1,44 +1,37 @@
 ---
 type: working-group
 title: Identity and Trust Working Group
-description: Technical working group defining agent identity, credential delegation,
-  decentralized trust, and verifiable authority at dispatch.
-resource: https://github.com/aaif/wg-identity-and-trust/pull/17
+description: AAIF technical working group standardizing decentralized agent identity,
+  hardware attestation layering, cryptographic delegation, and authorization boundaries.
+resource: https://github.com/aaif/wg-identity-and-trust/issues/12
 tags:
-- working-group
 - identity
+- attestation
 - trust
-- delegation
-- verification
+- working-group
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:20:12.498367+00:00'
+  at: '2026-10-12T10:40:05.907782+00:00'
 sources:
-- id: evt-wg-identity-and-trust-pr-17
-  resource: https://github.com/aaif/wg-identity-and-trust/pull/17
-  author: astrogilda
-  last_modified: '2026-10-10T23:53:46+00:00'
+- id: evt-wg-identity-and-trust-issue-12
+  resource: https://github.com/aaif/wg-identity-and-trust/issues/12
+  author: imran-siddique
+  last_modified: '2026-10-05T20:10:13+00:00'
 ---
 
 # Overview
-The Identity and Trust Working Group is an Agentic AI Foundation technical body established to standardize agent identity mechanisms, cryptographic delegation frameworks, decentralized trust models, and verifiable authority specifications across multi-agent systems [^evt-wg-identity-and-trust-pr-17]. The working group evaluates decentralized identifiers, delegation chains, and verification harnesses that govern how autonomous agents establish, prove, and constrain authority during execution [^evt-wg-identity-and-trust-pr-17].
+The Identity and Trust Working Group standardizes identity frameworks, cryptographic attestation mechanisms, authentication protocols, and delegation boundaries across autonomous agent systems[^evt-wg-identity-and-trust-issue-12]. Operating under the technical governance of the Agentic AI Foundation, the working group establishes reference architectures and interoperability baselines allowing relying parties to verify agent execution integrity and authorized delegation.
 
 # Architecture / Specification
+To address architectural divergence across hardware environments, the group is restructuring attestation specifications into a three-part model[^evt-wg-identity-and-trust-issue-12]:
+- **Platform Evidence**: Signed hardware or firmware reports and endorsement chains (such as AMD SEV-SNP, Intel TDX, or GPU attestation) certifying the underlying execution environment and boot state[^evt-wg-identity-and-trust-issue-12].
+- **Identity Binding**: Cryptographic statements binding an agent key or identifier to hardware measurements using transport structures such as guest report data, paravisor runtime claims, or TPM qualifying data[^evt-wg-identity-and-trust-issue-12].
+- **Appraisal**: Verification logic and policy verdicts executed by relying parties to confirm evidence satisfies security and compliance thresholds[^evt-wg-identity-and-trust-issue-12].
 
-## Core Focus Areas
-The working group coordinates technical specifications and empirical evaluation across several domains:
-- **Decentralized Agent Identity**: Standardizing verifiable credential profiles and decentralized identifiers (DIDs) interoperable across platforms, complementing efforts such as [agent-network-protocol](../standards/agent-network-protocol.md).
-- **Delegated Authority and Consent**: Defining schemas for bounded delegation, subagent credential scopes, and user consent verification.
-- **Authority-at-Dispatch Verification**: Benchmarking and cataloguing mechanisms that verify agent authority at the moment of tool or task dispatch [^evt-wg-identity-and-trust-pr-17].
-
-## Authority-at-Dispatch Catalogue and Testing
-The working group maintains a reference catalogue and verification workflow evaluating authority-at-dispatch implementations [^evt-wg-identity-and-trust-pr-17]:
-- **Contract Identifier Enforcement**: Execution traces must include a versioned contract identifier; trace readers reject submissions lacking this explicit identifier [^evt-wg-identity-and-trust-pr-17].
-- **Freshness Limits**: Authority evidence structures must record assertion age against deployed freshness thresholds to prevent replay of stale delegation authorizations [^evt-wg-identity-and-trust-pr-17].
-- **Reference Comparative Benchmarks**: Standardized reference cases map authority assertion runs across distinct systems, integrating readers from tooling such as `agent-evidence-observer` [^evt-wg-identity-and-trust-pr-17].
+This structural division resolves cross-platform inconsistencies between direct guest attestation, hypervisor-managed paravisor runtime structures, and multi-accelerator environments[^evt-wg-identity-and-trust-issue-12].
 
 # Lifecycle History
-Active within the AAIF governance structure, collaborating with related efforts such as [evidence-record-spec](../standards/evidence-record-spec.md) and [governance-risk-and-regulatory](../working-groups/governance-risk-and-regulatory.md) [^evt-wg-identity-and-trust-pr-17].
+Following charter establishment, reference architecture discussions in Issue #12 identified gaps in monolithic attestation representations, leading to proposals decomposing attestation into platform evidence, identity binding, and appraisal layers[^evt-wg-identity-and-trust-issue-12].
 
-[^evt-wg-identity-and-trust-pr-17]: https://github.com/aaif/wg-identity-and-trust/pull/17
+[^evt-wg-identity-and-trust-issue-12]: https://github.com/aaif/wg-identity-and-trust/issues/12

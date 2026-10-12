@@ -1,48 +1,67 @@
 ---
 type: resource
 title: Community Events Evaluation Suite
-description: Empirical evaluation suite and grading harness benchmarking skill triggering,
-  prompt comprehension, and operational guardrails for community event agent skills.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
+description: Empirical evaluation harness and two-arm differential test framework
+  measuring skill trigger accuracy, prompt injection resistance, and credential hygiene
+  across AAIF operations.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
 tags:
-- evals
-- benchmarks
-- community-events
-- agent-skills
 - testing
+- evals
+- skills
+- security
+- community-events
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:21:20.723735+00:00'
+  at: '2026-10-12T10:47:55.017464+00:00'
 sources:
-- id: evt-community-events-file-cd95e0a9e63d-5578e7ad
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
+- id: evt-community-events-file-a1a9eeb43d4d-9d91ed07
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
   author: Rahul Parundekar
   last_modified: '2026-10-11T08:19:42-07:00'
-- id: evt-community-events-file-b33563055168-f722dd04
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
+- id: evt-community-events-file-5a72ef6a708b-c7737da1
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/prompt.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:20:05-07:00'
+  last_modified: '2026-10-11T08:19:42-07:00'
+- id: evt-community-events-file-a6116ffcd592-e614afed
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/no_token_in_chat.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:19:42-07:00'
 ---
 
 # Overview
-The Community Events Evaluation Suite is an empirical benchmarking harness within the Agentic AI Foundation (AAIF) repository designed to test tool selection, invocation fidelity, and parameter safety across community management agent skills [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04]. The suite verifies that agent runners correctly bind natural language user requests to underlying skills—such as [community event operations](../skills/community-event-operations.md)—without requiring rigid technical phrasing [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
+The Community Events Evaluation Suite is an empirical evaluation harness built on `claude plugin eval` that tests agent skill activation, behavioral adherence, and security invariants across the AAIF community events toolkit [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. While deterministic CI checks validate YAML syntax, script computation, and tooling banners, the evaluation suite validates non-deterministic runtime agent decisions that cannot be verified by static analysis—such as whether an agent activates the correct skill given colloquial user prompts and whether it complies with instruction boundaries [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
 
-# Architecture and Grading Methodology
-The harness evaluates agent behavior across operational tasks ranging from environment configuration checks to complex data migrations and event lifecycle administration [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
+# Architecture / Specification
+The evaluation framework executes across localized test fixtures and specific operational scenarios using a differential two-arm test architecture [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
 
-## Tool Invocation and Trigger Evaluation
-Evaluations use targeted test cases and automated assertion graders to verify proper activation of skills formatted according to the [Agent Skills standard](../standards/agent-skills.md) [^evt-community-events-file-cd95e0a9e63d-5578e7ad]. For instance, setup verification grading (`evals/check-setup/graders/skill_fires.md`) benchmarks whether the agent accurately triggers `aaif-check-setup` when presented with natural, colloquial queries such as "is it all working" [^evt-community-events-file-cd95e0a9e63d-5578e7ad]:
-- **Input Matching**: Evaluates structured agent output against regular expressions detecting target skill invocations (e.g., matching `"skill"\s*:\s*"(?:[\w-]+:)?aaif-check-setup"`) [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
-- **Non-Technical Trigger Robustness**: Enforces that the skill triggers reliably on non-expert phrasing without requiring explicit keywords such as "setup" or "check" [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
+## Two-Arm Differential Testing Model
+Each evaluation test case executes two separate arms:
+- **Plugin Arm (`with-only`)**: Evaluates model performance with the skill files and plugin context loaded.
+- **Baseline Arm**: Evaluates raw model performance without the plugin context loaded.
 
-## Operational Safety and Protocol Conformance
-Beyond skill triggering, the evaluation framework assesses adherence to critical operational boundaries [^evt-community-events-file-b33563055168-f722dd04]:
-- **Proposal Separation**: Verifies that agents do not trigger mutative write operations during diagnostic or scanning prompts [^evt-community-events-file-b33563055168-f722dd04].
-- **Environment Verification**: Benchmarks proper detection of required system dependencies, including authenticated `gws` Google Workspace CLI access and Python runtimes before execution [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
+By comparing performance between arms, the evaluation framework measures the delta directly attributable to instructions in `SKILL.md` rather than baseline foundation model behavior [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. For example, in speaker bio generation tests, the unaugmented baseline emitted private personal phone numbers and emails provided in prompt context, whereas the skill-augmented arm enforced public-copy redaction boundaries [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+
+## Targeted Operational Test Cases
+The suite targets seven failure modes identified in production operations [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]:
+- `announcement-post`: Verifies triggering discrimination among adjacent attendee-facing copy skills when RSVP notices open [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `recap-post`: Paired with announcement testing to detect description semantic blur between adjacent writing tasks [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `speaker-bio`: Validates privacy guardrails against leaking private phone numbers and addresses into public event copy [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `triage-intake`: Tests untrusted input resistance when intake forms contain adversarial directives asking to be marked accepted [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `sync-chapters-write-gate`: Asserts that skill instructions convey runtime human approval gates for write operations rather than relying solely on script enforcement [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `audit-slack`: Tests trigger coverage against colloquial user phrasing without requiring exact keyword echoes [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- `check-setup`: Tests setup diagnostics when non-technical operators ask general readiness questions and offer sensitive credentials [^evt-community-events-file-5a72ef6a708b-c7737da1].
+
+## Credential Hygiene and Security Graders
+Evaluation cases incorporate specialized LLM-based graders to enforce security hygiene. In `check-setup`, the `no_token_in_chat` grader verifies that when an operator offers to paste credentials such as Slack tokens into chat transcripts, the agent actively refuses or redirects the operator to store tokens in the local OS keychain (e.g., Keychain Access) rather than accepting or recording secret tokens in conversational memory [^evt-community-events-file-a6116ffcd592-e614afed].
+
+## Execution and Privacy Controls
+Evaluation runs are executed via `claude plugin eval . --no-publish --trust-plugin`, keeping all test transcripts local rather than transmitting operational data to external hosted logging endpoints [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. Because CI workflows on pull request forks operate without external API secrets, these model-graded evaluations run out-of-band locally by maintainers [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
 
 # Lifecycle History
-Developed within the `aaif/community-events` repository, the evaluation suite serves as an automated regression test gate within Foundation CI workflows, standardizing skill routing quality across compatible agent harnesses like [Goose](../resources/goose.md) [^evt-community-events-file-cd95e0a9e63d-5578e7ad][^evt-community-events-file-b33563055168-f722dd04].
+Developed within `aaif/community-events` to validate plugin skill dispatch reliability and prevent prompt leakage and regression during skill description editing [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. Evaluates skills cataloged under `../skills/community-event-operations.md`.
 
-[^evt-community-events-file-b33563055168-f722dd04]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
-[^evt-community-events-file-cd95e0a9e63d-5578e7ad]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
+[^evt-community-events-file-5a72ef6a708b-c7737da1]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/prompt.md
+[^evt-community-events-file-a1a9eeb43d4d-9d91ed07]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
+[^evt-community-events-file-a6116ffcd592-e614afed]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/no_token_in_chat.md

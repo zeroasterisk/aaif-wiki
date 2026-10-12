@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-38",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#38",
+  "title": "Add AVE (Agentic Vulnerability Enumeration)",
+  "timestamp": "2026-10-12T03:31:06Z",
+  "author": "chaksaray",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/38",
+  "summary": "Adds AVE to Security Guardrails & Firewalls, subcategory Prompt & Runtime Guardrails, directly after the existing OWASP LLM Top 10 entry -- same category and subcategory, a classification framework rather than a runtime tool, matching that entry's precedent.\n\n## What\nAVE (Agentic...",
+  "pointers": [],
+  "inline_text": "Adds AVE to Security Guardrails & Firewalls, subcategory Prompt & Runtime Guardrails, directly after the existing OWASP LLM Top 10 entry -- same category and subcategory, a classification framework rather than a runtime tool, matching that entry's precedent.\n\n## What\nAVE (Agentic Vulnerability Enumeration) is an open standard assigning stable identifiers to behavioral vulnerability classes in agentic AI components (MCP servers, agent skills, LLM plugins), scored with OWASP's AIVSS framework. It crosswalks into OWASP's MCP Top 10 and MITRE ATLAS. github.com/aveproject/ave, Apache 2.0.\n\n## Precedent check\nBefore drafting, checked all open/closed issues and PRs in this repo for a stated landscape-entry contribution process and for any prior proposal, addition, or rejection of a similar classification standard/taxonomy. Found none -- no existing AVE entry, no prior competing proposal. Followed the pattern from #25/#27 (goose) and #29/#30 (agentgateway, AGENTS.md) instead: cite real metadata, verify URLs directly, note the placement reasoning.\n\n## Validation\n- `landscape/landscape.yml` parses as valid YAML.\n- Entry conforms to `docs/data-schemas.md`: required `name`, `homepage_url` (https, verified 200), `description` (no marketing superlatives), `project: external` (matches OWASP LLM Top 10 and other non-member standards in this file); optional `repo_url` included and verified (200).\n- `homepage_url` and `repo_url` both checked directly, not assumed.\n- Checked the whole file for any existing AVE or similarly-named entry first -- none found.\n\nAI assistance note: AI assistance was used to draft this contribution. I reviewed the final text against the repository schema, the live landscape.yml content, and the contribution guidelines before submitting.",
+  "labels": [
+    "landscape-deferred"
+  ]
+}
