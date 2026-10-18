@@ -115,6 +115,42 @@ sources:
     include_discussions: true
     max_items_per_repo: 25
 
+    # ADR-013. Non-AAIF repositories on the same topics, as an explicit allowlist
+    # (never discovered). `steward` is who governs the work and is what the curator
+    # must attribute it to. Files only by default; include_paths keeps CLAs,
+    # examples and changelogs out.
+    external:
+      - repo: "frmoretto/agentic-standards-map"
+        steward: "Agentic Standards Map (independent, F. Marinoni Moretto)"
+        topics: ["landscape", "governance", "commerce", "discovery", "identity"]
+        include_paths: ["README.md", "METHOD.md", "MAP.md", "entries", "notes/seams.md"]
+        file_limit: 70
+      - repo: "google-agentic-commerce/AP2"
+        steward: "FIDO Alliance"
+        topics: ["payments", "commerce"]
+        include_paths: ["README.md", "docs"]
+        file_limit: 15
+      - repo: "Universal-Commerce-Protocol/ucp"
+        steward: "Universal Commerce Protocol Governing Council"
+        topics: ["commerce", "discovery"]
+        include_paths: ["README.md", "docs/specification", "docs/documentation"]
+        file_limit: 40
+      - repo: "agentic-commerce-protocol/agentic-commerce-protocol"
+        steward: "OpenAI and Stripe (ACP maintainers)"
+        topics: ["commerce", "payments"]
+        include_paths: ["README.md", "MAINTAINERS.md", "docs", "rfcs"]
+        file_limit: 25
+      - repo: "coinbase/x402"
+        steward: "x402 Foundation (Linux Foundation)"
+        topics: ["payments"]
+        include_paths: ["README.md", "specs"]
+        file_limit: 25
+      - repo: "Agent-Card/ai-catalog"
+        steward: "Agent Card Working Group (Linux Foundation)"
+        topics: ["discovery"]
+        include_paths: ["README.md", "GOVERNANCE.md", "specification", "docs"]
+        file_limit: 20
+
 # ADR-009. The curator never writes to main.
 publish:
   enabled: true

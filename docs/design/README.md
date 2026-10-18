@@ -22,6 +22,7 @@ This directory contains the canonical Architecture Decision Records for the **AA
 | **[ADR-010](ADR-010-project-positioning-and-attribution.md)** | Project Positioning, Disclaimers & Attribution | **Accepted** | Unofficial/not-endorsed disclaimers, canonical upstream links, per-repository license detection and attribution, donation path via AAIF `project-proposals` |
 | **[ADR-011](ADR-011-optional-jev-mutation-assessment.md)** | Optional Advisory Jev Mutation Assessment | **Proposed** | Optional advisory classifier for typed proposals (kind, target, priority, confidence); fail-open and strictly metadata; reproducible offline eval harness |
 | **[ADR-012](ADR-012-autonomous-resolution-and-exceptions.md)** | Autonomous Resolution Ladder & Durable Exceptions | **Proposed** | Layered best-effort semantic resolution, deterministic invariants gate bundle application, durable exception queue for human review, structured training signal |
+| **[ADR-013](ADR-013-external-sources.md)** | External (Non-AAIF) Sources on Adjacent Topics | **Proposed** | Allowlisted non-AAIF repos (AP2, UCP, ACP, x402, AI Catalog, agentic-standards-map), steward attribution enforced in prompt and tags, files only, anonymous clone |
 
 ## Reviews
 

@@ -30,7 +30,7 @@ from ..models import (
     RawEvent,
 )
 from ..orchestration.local import BudgetExceeded
-from .prompts import PromptAssembler, lifecycle_forces_draft
+from .prompts import PromptAssembler, external_steward, lifecycle_forces_draft
 
 log = logging.getLogger("aaif_wiki.curator")
 
@@ -209,12 +209,20 @@ class Curator:
                 elif declared == "deprecated":
                     status = ConceptStatus.DEPRECATED
 
+                # Server-side provenance (ADR-013): a concept fed by non-AAIF
+                # sources is tagged so readers and validators can tell, whatever
+                # the model wrote.
+                tags = [str(t) for t in (cdata.get("tags") or [])]
+                stewards = sorted({s for s in (external_steward(e) for e in contributing) if s})
+                if stewards:
+                    tags = ["external"] + [t for t in tags if t != "external"]
+
                 concept = Concept(
                     type=str(cdata.get("type", "Concept")),
                     title=str(cdata["title"]),
                     description=str(cdata.get("description", ""))[:300],
                     resource=contributing[0].url if contributing else None,
-                    tags=[str(t) for t in (cdata.get("tags") or [])][:8],
+                    tags=tags[:8],
                     generated=actor,
                     verified=[],  # only a human review adds this (ADR-009)
                     status=status,

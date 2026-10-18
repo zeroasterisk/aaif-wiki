@@ -25,7 +25,7 @@ from pathlib import Path
 
 import httpx
 
-from ..config import GitHubCfg
+from ..config import ExternalSourceCfg, GitHubCfg
 from ..models import FilePointer, Lifecycle, RawEvent, SourceType
 
 API = "https://api.github.com"
@@ -42,6 +42,11 @@ def _digest(text: str) -> str:
 
 class RateLimited(RuntimeError):
     """Raised when GitHub refuses further requests; the caller degrades gracefully."""
+
+
+def is_external(repo: str) -> bool:
+    """AAIF repos are bare names; external sources are ``owner/name`` (ADR-013)."""
+    return "/" in repo
 
 
 class GitHubConnector:
@@ -100,7 +105,13 @@ class GitHubConnector:
 
         Hardcoding the repo list means silently missing a new working group, which
         would be a direct failure of the project's purpose.
+
+        External (non-AAIF) sources are appended as ``owner/name``. They are an
+        explicit allowlist, never discovered: adjacent orgs are not ours to crawl.
         """
+        return self._discover_aaif() + [e.repo for e in self.cfg.external]
+
+    def _discover_aaif(self) -> list[str]:
         if not self.cfg.discover_repos:
             return list(self.cfg.repositories)
         data = self._get(f"{API}/orgs/{self.cfg.org}/repos?per_page=100", ttl_seconds=86400)
@@ -115,17 +126,30 @@ class GitHubConnector:
         ]
         return sorted(names) or list(self.cfg.repositories)
 
+    # -- coordinates ----------------------------------------------------
+    def _full_name(self, repo: str) -> str:
+        return repo if is_external(repo) else f"{self.cfg.org}/{repo}"
+
+    def _external(self, repo: str) -> ExternalSourceCfg | None:
+        return self.cfg.external_for(repo) if is_external(repo) else None
+
+    def _event_prefix(self, repo: str) -> str:
+        """Event ids become filenames, so ``owner/name`` cannot appear verbatim."""
+        return f"ext-{_slug(repo)}" if is_external(repo) else repo
+
     # -- git mirror -----------------------------------------------------
     def sync_repo(self, repo: str) -> Path | None:
         """Maintain a shallow local mirror. This is the offline replay cache."""
         import os
 
         dest = self.repo_cache / repo
+        dest.parent.mkdir(parents=True, exist_ok=True)
         token = self.cfg.token()
-        if token:
+        # External sources are public and outside the AAIF token's scope: clone anonymously.
+        if token and not is_external(repo):
             url = f"https://x-access-token:{token}@github.com/{self.cfg.org}/{repo}.git"
         else:
-            url = f"https://github.com/{self.cfg.org}/{repo}.git"
+            url = f"https://github.com/{self._full_name(repo)}.git"
         env = {**os.environ, "GIT_TERMINAL_PROMPT": "0"}
         try:
             if dest.exists():
@@ -179,8 +203,14 @@ class GitHubConnector:
             return []
 
         listing = self._git(repo_dir, "ls-tree", "-r", "HEAD")
+        ext = self._external(repo)
+        if ext is not None:
+            limit = min(limit, ext.file_limit)
+        full = self._full_name(repo)
+        prefix = self._event_prefix(repo)
         events: list[RawEvent] = []
-        for line in listing.splitlines()[: limit * 4]:
+        lines = listing.splitlines()
+        for line in lines if ext is not None else lines[: limit * 4]:
             # <mode> <type> <sha>\t<path>
             try:
                 meta, path = line.split("\t", 1)
@@ -189,7 +219,11 @@ class GitHubConnector:
                 continue
             if obj_type != "blob":
                 continue
-            if not any(path.endswith(ext) for ext in self.cfg.doc_extensions):
+            if not any(path.endswith(x) for x in self.cfg.doc_extensions):
+                continue
+            if ext is not None and ext.include_paths and not any(
+                path == p or path.startswith(p.rstrip("/") + "/") for p in ext.include_paths
+            ):
                 continue
 
             when = self._git(repo_dir, "log", "-1", "--format=%cI", "--", path).strip()
@@ -202,16 +236,17 @@ class GitHubConnector:
 
             events.append(
                 RawEvent(
-                    event_id=f"evt-{repo}-file-{_digest(path)}-{blob_sha[:8]}",
+                    event_id=f"evt-{prefix}-file-{_digest(path)}-{blob_sha[:8]}",
                     source_type=SourceType.REPO_FILE,
                     lifecycle=Lifecycle.MERGED,
-                    repository=f"{self.cfg.org}/{repo}",
+                    repository=full,
                     reference_id=path,
                     title=path.rsplit("/", 1)[-1],
                     timestamp=ts,
                     author=author or None,
-                    url=f"https://github.com/{self.cfg.org}/{repo}/blob/{head}/{path}",
+                    url=f"https://github.com/{full}/blob/{head}/{path}",
                     summary=subject,
+                    labels=self._labels(ext),
                     pointers=[
                         FilePointer(
                             repo=repo, commit_sha=head, path=path, blob_sha=blob_sha, status="present"
@@ -225,10 +260,11 @@ class GitHubConnector:
 
     # -- events: pull requests, issues, discussions ----------------------
     def scan_pull_requests(self, repo: str) -> list[RawEvent]:
-        if not self.cfg.include_open_prs:
+        ext = self._external(repo)
+        if not (ext.include_prs if ext is not None else self.cfg.include_open_prs):
             return []
         data = self._get(
-            f"{API}/repos/{self.cfg.org}/{repo}/pulls"
+            f"{API}/repos/{self._full_name(repo)}/pulls"
             f"?state=all&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}"
         )
         if not isinstance(data, list):
@@ -251,10 +287,11 @@ class GitHubConnector:
         return [e for e in events if e]
 
     def scan_issues(self, repo: str) -> list[RawEvent]:
-        if not self.cfg.include_issues:
+        ext = self._external(repo)
+        if not (ext.include_issues if ext is not None else self.cfg.include_issues):
             return []
         data = self._get(
-            f"{API}/repos/{self.cfg.org}/{repo}/issues"
+            f"{API}/repos/{self._full_name(repo)}/issues"
             f"?state=open&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}"
         )
         if not isinstance(data, list):
@@ -283,10 +320,10 @@ class GitHubConnector:
         # Inline, because git cannot reproduce this and it can be edited or deleted.
         body = (payload.get("body") or "").strip()
         return RawEvent(
-            event_id=f"evt-{repo}-{prefix.lower()}-{number}",
+            event_id=f"evt-{self._event_prefix(repo)}-{prefix.lower()}-{number}",
             source_type=source_type,
             lifecycle=lifecycle,
-            repository=f"{self.cfg.org}/{repo}",
+            repository=self._full_name(repo),
             reference_id=f"{prefix}#{number}",
             title=payload.get("title") or f"{prefix} #{number}",
             timestamp=ts,
@@ -298,8 +335,16 @@ class GitHubConnector:
                 lbl.get("name", "")
                 for lbl in (payload.get("labels") or [])
                 if isinstance(lbl, dict)
-            ],
+            ]
+            + self._labels(self._external(repo)),
         )
+
+    @staticmethod
+    def _labels(ext: ExternalSourceCfg | None) -> list[str]:
+        """Provenance labels the curator and validators key off (ADR-013)."""
+        if ext is None:
+            return []
+        return ["external", f"steward:{ext.steward}", *(f"topic:{t}" for t in ext.topics)]
 
     # -- orchestration entry point ---------------------------------------
     def scan_repo(self, repo: str, file_limit: int = 200) -> list[RawEvent]:
