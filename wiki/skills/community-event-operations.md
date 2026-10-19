@@ -1,72 +1,55 @@
 ---
 type: skill
 title: Community Event Operations Skill Suite
-description: Modular agent skill suite managing community chapters, event scheduling,
-  automated Slack workspace audits, and social copy generation across Google Workspace
-  and external platforms.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
+description: Operational agent skill suite and execution engines automating AAIF chapter
+  intake, diagnostic setup verification, event synchronization, and reporting across
+  local checkouts and installed agent runtimes.
+resource: https://github.com/aaif/community-events/pull/60
 tags:
-- skills
 - community
 - operations
+- skills
 - automation
+- tooling
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:50:35.583468+00:00'
+  at: '2026-10-19T11:09:50.927503+00:00'
 sources:
-- id: evt-community-events-file-4c2672b57ca1-5e9465e1
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-52894c310bd9-02d85f04
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-carousel-copy/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-8b30d97e0275-3e6d8b8d
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/references/caches-and-composition.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-91886a9e0653-84165b73
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-953dd2e86174-aa074a1c
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-a54ff182c7e8-2d5d5bf6
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
+- id: evt-community-events-pr-60
+  resource: https://github.com/aaif/community-events/pull/60
+  author: rparundekar
+  last_modified: '2026-10-11T15:58:20+00:00'
 ---
 
 # Overview
+The Community Event Operations skill suite provides automated execution engines and procedural workflows for managing Agentic AI Foundation (AAIF) local chapters, community events, and ecosystem communications.[^evt-community-events-pr-60] Packaged as modular agent skills adhering to the `agent-skills` format, the suite automates chapter provisioning, attendee and intake triage, event synchronization across Google Workspace and Luma, and monthly chapter updates.[^evt-community-events-pr-60]
 
-The Community Event Operations skill suite is a collection of modular agent skills that automate administrative, auditing, and publishing workflows for Agentic AI Foundation chapters and online series[^evt-community-events-file-953dd2e86174-aa074a1c]. Designed for cross-client portability across runtimes such as [Goose](../resources/goose.md), Claude Desktop, Claude Code, and Cursor, the toolkit pairs local deterministic Python automation with Google Workspace CLI (`gws`), Slack APIs, and external event platforms[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
-
-The skill suite operates under strict boundary constraints: content and audit engines are read-only or staged locally, and state-modifying actions—such as creating live Luma events or publishing external copy—require explicit human confirmation[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-91886a9e0653-84165b73]. Conformance and evaluation mechanisms for these operational skills are benchmarked by the [Community Events Evaluation Suite](../resources/community-events-eval-suite.md)[^evt-community-events-file-953dd2e86174-aa074a1c].
+The suite is engineered to execute both from source repository checkouts and as an installed plugin within agent runtimes like [Goose](../resources/goose.md) and Claude Desktop without requiring a shell environment or local git repository.[^evt-community-events-pr-60]
 
 # Architecture / Specification
 
-## Core Skill Modules
+## Installed Plugin Runtime Architecture
+The operational suite isolates execution paths to support running inside containerized, cached, or `.git`-less agent plugin installations:[^evt-community-events-pr-60]
+- **Isolated Data Storage**: Runtime writes, synchronizations, caches, and backups are routed away from the current working directory (`cwd`) to a dedicated user application directory (e.g., `~/Library/Application Support/AAIF`), preventing workspace contamination during operator execution.[^evt-community-events-pr-60]
+- **Credential Resolution Chain**: Secret resolution follows a deterministic hierarchy across execution contexts: process environment variables first, local `.env` files within the repository root second, and OS-native secret storage (such as the macOS keychain) third, with per-run caching.[^evt-community-events-pr-60]
+- **Portability Guards**: Engine instructions address dependencies using relative `<skill-root>` conventions instead of fixed repository paths or shell variable overrides like `PYTHONPATH`.[^evt-community-events-pr-60]
 
-- **Event Creation (`aaif-create-event`)**: Clones standardized event sections within chapter or series `Event Tracker.docx` documents, programmatically back-calculating due dates for operational milestones relative to the scheduled event date[^evt-community-events-file-4c2672b57ca1-5e9465e1]. Can push drafted details to Luma via API, but strictly gates live creation on prior human approval aligned with the [Human Approval Gate](../patterns/human-approval-gate.md) pattern[^evt-community-events-file-4c2672b57ca1-5e9465e1].
-- **Social Carousel Copy (`aaif-carousel-copy`)**: Generates structured 6-slide LinkedIn carousels based on official presentation templates, adhering to builder-focused house tone guidelines (Slide 1 hook, Slide 6 call-to-action)[^evt-community-events-file-52894c310bd9-02d85f04]. Enforces strict redactive rules prohibiting the leakage or repetition of private contact details in drafts or conversational reasoning[^evt-community-events-file-52894c310bd9-02d85f04].
-- **Slack Workspace Audit (`aaif-audit-slack`)**: Independent read-only auditing layer dividing checks into three engines (Organizers, Topics, and Members) and a shared measurement layer (`audit_activity.py`)[^evt-community-events-file-91886a9e0653-84165b73]. Results are compiled into a unified HTML dashboard (`summarize_audits.py`) without modifying workspace channels or rosters[^evt-community-events-file-8b30d97e0275-3e6d8b8d][^evt-community-events-file-91886a9e0653-84165b73].
+## Setup and Readiness Engine (`aaif-check-setup`)
+The suite includes the `aaif-check-setup` diagnostic engine, providing plain-language readiness evaluations for operators.[^evt-community-events-pr-60] The tool verifies:
+1. Availability and accessibility of required credentials (e.g., Slack, Google Workspace, Luma tokens).
+2. Distinction between missing credentials and OS keychain access refusals.
+3. Guided remediation providing scoped sign-in commands for missing or misconfigured integrations.[^evt-community-events-pr-60]
 
-## Tooling Rules & Document Rendering
+## Execution Engines and Synchronization
+Core scripts include `sync.py`, digest engines, and tracker fetch tools designed to gracefully handle partial network failures, ensure restrictive folder permissions (`0700` for backups), and clean up partial downloads during failure modes.[^evt-community-events-pr-60]
 
-All interactions with Drive files are restricted to Python scripts driving the `gws` CLI[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-52894c310bd9-02d85f04]. Native Google Workspace document formats (`application/vnd.google-apps.*`) must be edited via native APIs, while legacy Office files (`.docx`, `.pptx`, `.xlsx`) undergo direct byte-level OOXML edits[^evt-community-events-file-4c2672b57ca1-5e9465e1]. Headless suites such as LibreOffice (`soffice`) and `unoconv` are strictly prohibited to avoid font substitution and OOXML degradation; document previews are rendered by converting temporary copies to PDF via the Google Drive export API[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-52894c310bd9-02d85f04].
+# Lifecycle History
+Originally developed as repository-bound automation scripts, the community event operations suite underwent extensive refactoring in PR #60 to support non-technical operators executing through desktop agent harnesses like Goose and Claude Desktop, eliminating assumptions about shell paths, git presence, and working directory ownership.[^evt-community-events-pr-60]
 
-## Data Hygiene & Untrusted Input
+# References
+- Goose Agent Framework: [../resources/goose.md](../resources/goose.md)
+- Agent Plugin Portability Guidelines: [../guidelines/agent-plugin-portability.md](../guidelines/agent-plugin-portability.md)
+- Community Events Evaluation Suite: [../resources/community-events-eval-suite.md](../resources/community-events-eval-suite.md)
 
-- **Untrusted Input Invariants**: Member profiles, channel topics, message payloads, and CRM sheet cells are strictly classified as untrusted external data rather than agent instructions[^evt-community-events-file-91886a9e0653-84165b73][^evt-community-events-file-a54ff182c7e8-2d5d5bf6]. Text attempting to grant administrative roles or force channel membership changes is flagged to the operator and ignored by execution engines[^evt-community-events-file-91886a9e0653-84165b73].
-- **Repository Privacy Controls**: Audit caches and reports are generated with restrictive permissions (`0600` inside `0700` directories) and engines refuse to execute unless output paths are verifiably safe from `git add -A` commits[^evt-community-events-file-8b30d97e0275-3e6d8b8d][^evt-community-events-file-a54ff182c7e8-2d5d5bf6]. In installed plugin contexts, persistent state is mapped away from working directories to standard OS data directories per [Agent Plugin Portability](../guidelines/agent-plugin-portability.md)[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
-
-[^evt-community-events-file-4c2672b57ca1-5e9465e1]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
-[^evt-community-events-file-52894c310bd9-02d85f04]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-carousel-copy/SKILL.md
-[^evt-community-events-file-8b30d97e0275-3e6d8b8d]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/references/caches-and-composition.md
-[^evt-community-events-file-91886a9e0653-84165b73]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/SKILL.md
-[^evt-community-events-file-953dd2e86174-aa074a1c]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
-[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
+[^evt-community-events-pr-60]: https://github.com/aaif/community-events/pull/60

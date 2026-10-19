@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-project-proposals-pr-58",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/project-proposals",
+  "reference_id": "PR#58",
+  "title": "docs: fix foundation charter link in proposal form",
+  "timestamp": "2026-10-13T02:54:18Z",
+  "author": "FenjuFu",
+  "url": "https://github.com/aaif/project-proposals/pull/58",
+  "summary": "The proposal form's \"Trademark and accounts\" section links to `charter.md`, which does not exist in the foundation repository. Point it to the published `foundation-charter.pdf` so applicants can read the referenced charter before submitting.\n\nFixes aaif/foundation#8.\n\nValidation...",
+  "pointers": [],
+  "inline_text": "The proposal form's \"Trademark and accounts\" section links to `charter.md`, which does not exist in the foundation repository. Point it to the published `foundation-charter.pdf` so applicants can read the referenced charter before submitting.\n\nFixes aaif/foundation#8.\n\nValidation:\n\n- Parsed the issue form with PyYAML and compared the full form structure; only the charter URL changes.\n- Confirmed that the published charter PDF is publicly accessible (HTTP 200).\n- `git diff --check` passes.",
+  "labels": []
+}

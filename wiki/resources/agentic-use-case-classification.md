@@ -1,47 +1,53 @@
 ---
 type: resource
-title: Agentic Use Case Classification and Inventory
-description: Empirical inventory and classification schema mapping production agentic
-  workflows against multi-dimensional properties and strict deployment evidentiary
-  standards.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
+title: Agentic Use Case Classification
+description: Twelve-column classification schema defining structural dimensions, coordination
+  mechanisms, and evidentiary criteria for agent workflows.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/41
 tags:
-- workflows
-- use-cases
+- taxonomy
 - classification
-- methodology
+- workflows
+- governance
+- evidence
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:38:13.383580+00:00'
+  at: '2026-10-19T10:49:23.773344+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
-  author: Jodee Varney
-  last_modified: '2026-10-01T07:36:14-07:00'
-- id: evt-wg-workflows-and-process-integration-pr-46
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
+- id: evt-wg-workflows-and-process-integration-pr-41
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/41
   author: jodeev
-  last_modified: '2026-10-01T14:36:15+00:00'
+  last_modified: '2026-10-01T14:35:56+00:00'
 ---
 
 # Overview
-The Agentic Use Case Classification and Inventory is an empirical catalog maintained by the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to document recurring agentic workflow shapes from real-world production deployments [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]. The initiative provides an explicit, evidence-backed inventory of named workflows rather than hypothetical architectures, enabling practitioners to identify patterns across multiple industries [^evt-wg-workflows-and-process-integration-pr-46].
+The Agentic Use Case Classification schema is a standardized taxonomy and structural rubric maintained by the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to systematically categorize, compare, and validate production agentic implementations [^evt-wg-workflows-and-process-integration-pr-41]. The framework establishes precise metadata definitions across triggers, human-in-the-loop (HITL) gates, multi-agent coordination architectures, and operational constraints [^evt-wg-workflows-and-process-integration-pr-41].
+
+This classification schema serves as the formal foundation for the companion [Agentic Use Case Inventory](../resources/agentic-use-case-inventory.md), ensuring that real-world agent deployments are evaluated against uniform architectural criteria rather than informal marketing claims [^evt-wg-workflows-and-process-integration-pr-41].
 
 # Architecture / Specification
-The workstream repository is organized into distinct documentation components [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]:
-- `schema-agentic-use-cases.md`: Defines column schemas, valid categorical property values, and open taxonomy questions for workflow classification.
-- `use-case-inventory.md`: The central matrix recording deployed workflows, associated runtime properties, and verified production references.
 
-## Evidentiary Standard
-To ensure reliable taxonomy derivation, the workstream enforces an evidentiary threshold for all inventory entries [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]:
-- **Citation Minimums**: Each use case requires at least one publicly accessible, independently verifiable citation of confirmed production deployment, with a target of three independent citations [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
-- **Preferred Evidence**: Primary announcements or vendor product documentation demonstrating a named customer deployment (such as Cohere Health with BSIM or PagerDuty with Chicago Trading Company) [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
-- **Acceptable Evidence**: Vendor documentation showing strong technical evidence of production usage at scale, even without an identified customer [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
-- **Unacceptable Sources**: Secondary blog posts, market analyst commentary, academic publications, market projections, or unverifiable implementer claims [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
+## Structural Dimensions
+The schema standardizes twelve core attributes across agentic systems:
+1. **Functional Domain**: Horizontal business functions or industry verticals.
+2. **Trigger Mechanism**: Event-driven, schedule-based, or manual agent initiation.
+3. **Workflow Shape**: Sequence topology, including iterative convergence loops, directed graphs, or parallel swarms.
+4. **HITL Pattern**: Enforcement points for human intervention, including patterns like [Human Approval Gate](../patterns/human-approval-gate.md) or [Approval Checkpoint](../patterns/approval-checkpoint.md).
+5. **Approval Gate Sub-Type**: Explicit taxonomy for runtime approval requirements and oversight mechanics [^evt-wg-workflows-and-process-integration-pr-41].
+6. **Agent Count & Architecture**: Single-agent versus distributed multi-agent systems.
+7. **Multi-Agent Rationale**: Mandatory documented justification when classifying workflows as "Better as multi-agent" or "Inherently multi-agent" [^evt-wg-workflows-and-process-integration-pr-41].
+8. **Coordination Mechanism**: State machines, message passing, or shared persistent stores.
+9. **Failure Modes**: Characteristic vulnerabilities, such as [Context Exhaustion](../taxonomy/context-exhaustion.md) or unconstrained tool recursion.
+10. **Preconditions**: Environmental prerequisites, identity assertions, and system dependencies.
+11. **Runtime Durations**: Execution envelopes and timeout budgets.
+12. **Source Evidence & Citations**: Verifiable references documenting real-world operation [^evt-wg-workflows-and-process-integration-pr-41].
 
-# Lifecycle History
-The classification schema, category groupings, and evidentiary criteria were codified for working group vote in PR#46 [^evt-wg-workflows-and-process-integration-pr-46], moving row-level verification into an active multi-contributor phase.
+## Evidentiary Standards and Citation Quality
+To ensure schema integrity, entries classified under this framework must comply with rigorous verification thresholds [^evt-wg-workflows-and-process-integration-pr-41]:
+- **Tier 1 (Preferred)**: Direct vendor product pages or official press releases detailing named, verifiable enterprise customer deployments [^evt-wg-workflows-and-process-integration-pr-41].
+- **Tier 2 (Acceptable)**: Vendor product documentation exhibiting documented production-scale features without public customer identification [^evt-wg-workflows-and-process-integration-pr-41].
+- **Excluded Sources**: Secondary analyst summaries, academic preprints, unverified third-party blogs, and commercial marketing forecasts are disallowed as primary evidence [^evt-wg-workflows-and-process-integration-pr-41].
+- **Citation Health**: Working groups conduct active link-rot mitigation, retiring stale URLs and updating records following corporate rebranding or software acquisitions [^evt-wg-workflows-and-process-integration-pr-41].
 
-[^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
-[^evt-wg-workflows-and-process-integration-pr-46]: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
+[^evt-wg-workflows-and-process-integration-pr-41]: https://github.com/aaif/wg-workflows-and-process-integration/pull/41

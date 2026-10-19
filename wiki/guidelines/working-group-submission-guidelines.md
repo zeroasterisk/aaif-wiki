@@ -1,53 +1,66 @@
 ---
 type: guideline
-title: Working Group Submission Guidelines
-description: Intake guidelines, issue template workflows, status tracking labels,
-  and Technical Committee approval rules for chartering new working groups.
-resource: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md
+title: Working Group Proposal Submission Guidelines
+description: Operating guidelines governing proposal preparation, membership eligibility,
+  issue tracking, and approval workflows for AAIF working groups.
+resource: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/submission-guidelines.md
 tags:
 - governance
+- guidelines
 - working-groups
-- technical-committee
+- aaif
+- proposals
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T09:56:27.340171+00:00'
+  at: '2026-10-19T11:13:39.958463+00:00'
 sources:
-- id: evt-working-group-proposals-file-b33563055168-33233981
-  resource: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md
-  author: Christina Harter
-  last_modified: '2026-06-10T09:24:18-07:00'
+- id: evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2
+  resource: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/submission-guidelines.md
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:14:24+11:00'
+- id: evt-working-group-proposals-file-87b3376703c5-313cc435
+  resource: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/.github/ISSUE_TEMPLATE/working-group-proposal.yml
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:14:24+11:00'
+- id: evt-working-group-proposals-file-b33563055168-6c29ea3b
+  resource: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/README.md
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:14:24+11:00'
 ---
 
 # Overview
+The Working Group Proposal Submission Guidelines instruct contributors on preparing and submitting formal proposals to establish new Working Groups (WGs) or revive Concluded WGs under the Agentic AI Foundation (AAIF)[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2][^evt-working-group-proposals-file-b33563055168-6c29ea3b]. Last updated on October 15, 2026, the guideline operationalizes the [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md) and standardized GitHub issue application workflows[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
 
-The Working Group Submission Guidelines establish the formal submission, triage, and review framework for establishing new working groups within the Agentic AI Foundation (AAIF) [^evt-working-group-proposals-file-b33563055168-33233981]. Managed through the `aaif/working-group-proposals` repository, the process outlines how prospective working group organizers author proposal charters, navigate open community commentary, and obtain Technical Committee approval under the [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md) [^evt-working-group-proposals-file-b33563055168-33233981].
+# Eligibility and Scope
+Working groups represent enduring bodies organized around long-lived problem domains relevant to agentic AI[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2]. Focused, short-term, or single-deliverable tasks (such as individual whitepapers, benchmarks, or specific reference architectures) must be chartered as workstreams within existing working groups rather than creating independent groups[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
 
-# Architecture / Specification
+Eligibility constraints require[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2]:
+- **Submitters**: Proposals must originate from a representative of an AAIF member organization in good standing (Platinum, Gold, Silver, or Associate tier)[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2]. Non-member contributors must obtain sponsorship from a member organization representative to submit on their behalf[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+- **Chairs**: Designated working group chairs must belong to Platinum, Gold, or Silver member organizations[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+- **Participants**: Working group meetings, discussions, and technical activities remain open to the public and all community members regardless of formal membership status[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
 
-### Submission Workflow
+# Proposal Structure and Review Process
+Proposals are submitted through GitHub issue templates within the `aaif/working-group-proposals` repository and tracked on the public Working Group Proposals Board[^evt-working-group-proposals-file-87b3376703c5-313cc435][^evt-working-group-proposals-file-b33563055168-6c29ea3b]. Submissions require eight structured components[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2]:
+1. **Submitter Information**: Name, affiliation, role, contact info, and AAIF tier[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+2. **Identity**: Proposed title and a clear, jargon-free one-sentence scope summary[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+3. **Problem Statement & Purpose**: Documented industry gap, agentic relevance, alignment with foundation objectives, and justification against existing working groups[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+4. **Scope & Concrete Deliverables**: In-scope and out-of-scope boundaries and tangible year-one technical deliverables (e.g., specifications, benchmarks, architectures)[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+5. **First-Year Plan**: Milestone timeline and regular meeting schedules[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+6. **Leadership & Committed Participants**: Proposed chairs and initial committed contributors[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+7. **Overlap & Coordination**: Touchpoints with other AAIF groups and external standards bodies[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
+8. **Impact, Risks & Resources**: Operational requirements, infrastructure dependencies, and risk mitigation strategies[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2].
 
-Proponents submit a new working group application through the structured issue template within the `aaif/working-group-proposals` repository [^evt-working-group-proposals-file-b33563055168-33233981]. Each proposal is tracked publicly on the foundation's Working Group Proposals Board [^evt-working-group-proposals-file-b33563055168-33233981].
+# Review Tracking and Lifecycle Onboarding
+Following intake verification by foundation staff, the [Technical Committee](../governance/technical-committee.md) reviews proposals asynchronously directly on the GitHub issue[^evt-working-group-proposals-file-b33563055168-6c29ea3b]. Review states are categorized by workflow labels[^evt-working-group-proposals-file-b33563055168-6c29ea3b]:
+- `New`: Newly filed submission queued in backlog triage[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
+- `Waiting on Comment`: Reviewers require clarification or supplementary data from submitters[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
+- `Too Early`: The proposal concept lacks maturity or readiness; guidance is provided for potential reapplication[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
+- `Declined`: The proposal is formally declined with rationale documented in issue comments[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
+- `Approved`: Formal endorsement by both the TC and the Governing Board[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
 
-### Review Status Taxonomy
+Upon approval, the working group launches into **Sandbox** stage, initiating regular meetings and monthly reporting while formalizing its operating charter[^evt-working-group-proposals-file-b33563055168-6c29ea3b]. Transition to **Active** status requires subsequent TC evaluation and approval of the completed charter[^evt-working-group-proposals-file-b33563055168-6c29ea3b].
 
-Proposals are triaged using five formal operational labels [^evt-working-group-proposals-file-b33563055168-33233981]:
-
-- `New`: The proposal is unreviewed and placed into the initial intake backlog [^evt-working-group-proposals-file-b33563055168-33233981].
-- `Waiting on Comment`: The proposal requires additional details, scope boundary adjustments, or responses to reviewer feedback [^evt-working-group-proposals-file-b33563055168-33233981].
-- `Too Early`: The proposal is immature or lacks sufficient initial momentum; guidance is recorded for prospective resubmission [^evt-working-group-proposals-file-b33563055168-33233981].
-- `Approved`: The working group charter has been accepted by the Technical Committee and confirmed by the Governing Board [^evt-working-group-proposals-file-b33563055168-33233981].
-- `Declined`: The proposal is rejected with documented rationale logged in the issue thread [^evt-working-group-proposals-file-b33563055168-33233981].
-
-### TC Review and Voting Requirements
-
-Following initial triage, proposals are scheduled for live review during a regular [Technical Committee](../governance/technical-committee.md) meeting [^evt-working-group-proposals-file-b33563055168-33233981]:
-
-- **Approval Threshold**: Formation requires a simple majority vote of all members of the Technical Committee [^evt-working-group-proposals-file-b33563055168-33233981].
-- **Governing Board Ratification**: Approved working group formations remain subject to final administrative consent from the AAIF Governing Board [^evt-working-group-proposals-file-b33563055168-33233981].
-
-# Lifecycle History
-
-- **Intake Process Codification**: Working group charter intake established via the `aaif/working-group-proposals` repository and tracking board [^evt-working-group-proposals-file-b33563055168-33233981].
-
-[^evt-working-group-proposals-file-b33563055168-33233981]: https://github.com/aaif/working-group-proposals/blob/5c17275468b2e8859b7eb261e53f7ad4d19a9ed8/README.md
+[^evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2]: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/submission-guidelines.md
+[^evt-working-group-proposals-file-87b3376703c5-313cc435]: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/.github/ISSUE_TEMPLATE/working-group-proposal.yml
+[^evt-working-group-proposals-file-b33563055168-6c29ea3b]: https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/README.md

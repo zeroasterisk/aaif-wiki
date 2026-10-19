@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-15",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#15",
+  "title": "Observability & Traceability should contribute 10-20 candidate terms + 1 line disambiguator for each term",
+  "timestamp": "2026-10-13T09:18:27Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/15",
+  "summary": "See parent issue #12",
+  "pointers": [],
+  "inline_text": "See parent issue #12",
+  "labels": [
+    "taxonomy"
+  ]
+}

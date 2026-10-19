@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-64",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#64",
+  "title": "Taxonomy: add scopeNote and relevant metadata to Reasoning definition",
+  "timestamp": "2026-10-18T18:27:15Z",
+  "author": "jmaionchi",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/64",
+  "summary": "## Outcome\n\nThe `Reasoning` term in the ws-taxonomy-landscape repo has the `scopeNote`, `relatedTerms`, `contrastsWith`, `workgroups` and any other relevant fields defined. **One more thing**: this term should be moved from Observability & Traceability to Universal.\n\n## Workstrea...",
+  "pointers": [],
+  "inline_text": "## Outcome\n\nThe `Reasoning` term in the ws-taxonomy-landscape repo has the `scopeNote`, `relatedTerms`, `contrastsWith`, `workgroups` and any other relevant fields defined. **One more thing**: this term should be moved from Observability & Traceability to Universal.\n\n## Workstream\n\nCurrently the `Reasoning` term only has `definition` defined. Let's augment with supporting context for this very important term for Agentic AI.\n\n## Owner\n\n`needs owner`\n\n## Status\n\n`needs owner`\n\n## Next Step\n\nAssign the issue, then define the necessary fields and submit a PR for review.\n\n## Review or Decision Needed\n\nThe owner can share a draft of the changes within the workgroup via the `wg-terms-prs` thread in our Discord channel prior to submitting the PR to the broader Taxonomy WS. Otherwise, the Taxonomy WS will assign reviewers and provide feedback via the PR.\n\n## Links\n\nhttps://docs.google.com/spreadsheets/d/1Oa-x7nBISIOuqaC-BnsQ1R-iPdwZ6Otk3dpWlqpI_z4/edit?usp=sharing\nhttps://discord.com/channels/1461090924791595243/1545911498881114234\nhttps://github.com/aaif/ws-taxonomy-landscape/blob/main/CONTRIBUTING.md\nhttps://github.com/aaif/ws-taxonomy-landscape/blob/main/ONBOARDING.md\n\n## Acceptance Criteria\n\nPR is submitted to Taxonomy WS and all feedback has been addressed such that the PR is ready to be merged.\nAll guidelines in `CONTRIBUTING.md` and `ONBOARDING.md` are followed.\n\n## Notes\n\nReach out to @jmaionchi, @MatthewKhouzam or @91pavan if you have any questions.",
+  "labels": []
+}

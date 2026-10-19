@@ -1,56 +1,41 @@
 ---
 type: resource
-title: PostHog Agent Telemetry Reference Architecture
+title: PostHog AI Agent Analytics Reference Architecture
 description: Product analytics and telemetry reference architecture capturing pseudonymous
-  agent behavioral funnels and operational metrics via direct Capture API calls and
-  client-side PII sanitization.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
+  agent behavioral funnels, feature adoption, and longitudinal usage tracking.
+resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
 tags:
-- observability
-- posthog
+- analytics
 - telemetry
 - privacy
-- analytics
-- goose
+- gdpr
+- observability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:15:10.316983+00:00'
+  at: '2026-10-19T10:37:58.858547+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
-  author: Matthew Khouzam
-  last_modified: '2026-08-19T20:04:48+01:00'
+- id: evt-wg-observability-and-traceability-issue-55
+  resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
+  author: smcd
+  last_modified: '2026-09-24T01:59:02+00:00'
 ---
 
 # Overview
-
-PostHog functions as a product analytics and behavioral event telemetry sink for AI agent frameworks, exemplified by its reference integration in Goose.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] Rather than capturing low-level function spans or kernel call graphs, PostHog ingests discrete session lifecycle events, feature adoption statistics, and error states while enforcing strict client-side privacy sanitization.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
+The PostHog reference architecture provides design patterns and architectural specifications for integrating product analytics into AI agent harnesses and developer tools [^evt-wg-observability-and-traceability-issue-55]. It establishes telemetry capture for agent user journeys, feature discovery, and session completion metrics [^evt-wg-observability-and-traceability-issue-55].
 
 # Architecture / Specification
+The integration architecture standardizes client event dispatch, property capture, and funnel reporting.
 
-## Ingestion Pipeline
+### Identity and Privacy Classification
+Telemetry implementations commonly generate persistent per-installation identifiers (`installation_id`, typically formatted as a random UUID) to measure cohort behavior and longitudinal usage without directly linking human identity [^evt-wg-observability-and-traceability-issue-55].
 
-Agent runtimes communicate directly with PostHog's Capture API (`https://us.i.posthog.com/capture/` or self-hosted instances) via HTTPS POST operations containing a project API key (`phc_*`).[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] Ingestion does not require heavy SDK runtimes or local telemetry daemons; the agent runtime constructs and dispatches typed JSON payloads directly.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
+However, architectural review within the Observability and Traceability Working Group emphasizes that data privacy classifications depend on jurisdictional definitions rather than implementer labels [^evt-wg-observability-and-traceability-issue-55]:
+- **Pseudonymity vs. Anonymity**: Under the EU General Data Protection Regulation (GDPR, Recitals 26 and 30) and the UK GDPR, persistent identifiers used for longitudinal user tracking constitute pseudonymous personal data, rather than anonymous data [^evt-wg-observability-and-traceability-issue-55].
+- **Cross-Border Transfers**: Hardcoded telemetry endpoints directed to US ingest nodes (e.g., `us.i.posthog.com`) trigger international data transfer compliance duties when transmitting pseudonymous personal data originating from EU/UK jurisdictions [^evt-wg-observability-and-traceability-issue-55].
+- **Template Schema Recommendations**: The working group proposes keying reference architecture privacy attributes (`personal data`, `personal information`, `PII`, `none`) directly to governing regulatory regimes rather than asserting absolute "privacy by design" claims [^evt-wg-observability-and-traceability-issue-55].
 
-## Telemetry Payload and Identity Model
+# Lifecycle History
+- **2026-09**: Regulatory review identified that persistent installation UUIDs constitute pseudonymous personal data under GDPR/UK GDPR, initiating revisions to architectural classification standards [^evt-wg-observability-and-traceability-issue-55].
 
-The core transmission unit is the `CaptureEvent` payload, containing:
-- `api_key`: Client project identifier embedded in the agent distribution.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `event`: Lifecycle action name (such as `session_start`, `error`, or `onboarding_*`).[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `distinct_id`: Pseudonymous installation identifier generated as a random UUIDv4 stored on the local filesystem, avoiding association with user account identities or network hardware addresses.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `properties`: Metadata map detailing operational properties and execution environments.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `timestamp`: UTC event generation time.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-
-## Client-Side PII Sanitization
-
-To preserve operational privacy, the client telemetry module (such as Goose's `posthog.rs`) routes all outgoing property fields through regex-based sanitization pipelines before serialization.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] The filter scrubs filesystem paths, API keys, email addresses, authorization tokens, and arbitrary UUIDs, ensuring that local workspace context and sensitive developer credentials are never transmitted to analytics storage.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-
-# References
-
-- `../resources/goose.md`
-- `../resources/agent-tool-cli-boundary.md`
-- `../standards/agent-behavior-trace-model.md`
-- `../working-groups/observability-and-traceability.md`
-
-[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
+[^evt-wg-observability-and-traceability-issue-55]: https://github.com/aaif/wg-observability-and-traceability/issues/55

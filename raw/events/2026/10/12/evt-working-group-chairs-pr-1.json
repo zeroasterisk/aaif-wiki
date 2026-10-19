@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-chairs-pr-1",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "PR#1",
+  "title": "feat: Add skill for generating AAIF monthly WG reports",
+  "timestamp": "2026-10-12T09:43:40Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/working-group-chairs/pull/1",
+  "summary": "- Add a reusable skill for generating evidence-based monthly AAIF WG reports\r\n- Align reports with charter objectives, milestones, KPIs, and prior commitments\r\n- Highlight material variance, risks, and governance decisions\r\n- Support asynchronous review by the AAIF Technical Comm...",
+  "pointers": [],
+  "inline_text": "- Add a reusable skill for generating evidence-based monthly AAIF WG reports\r\n- Align reports with charter objectives, milestones, KPIs, and prior commitments\r\n- Highlight material variance, risks, and governance decisions\r\n- Support asynchronous review by the AAIF Technical Committee and governing body\r\n- Preserve each WG repository's reporting template and conventions",
+  "labels": []
+}

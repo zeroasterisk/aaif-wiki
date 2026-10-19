@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-issue-65",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "ISSUE#65",
+  "title": "Taxonomy: define operationally conformant",
+  "timestamp": "2026-10-18T18:41:21Z",
+  "author": "jmaionchi",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/issues/65",
+  "summary": "Outcome\nThe `operationally conformant` term in the ws-taxonomy-landscape repo has the `definition`, `scopeNote`, `relatedTerms`, `contrastsWith`, `workgroups` and any other relevant fields defined.\n\nWorkstream\nCurrently the `operationally conformant` term is undefined.\n\nOwner\nnee...",
+  "pointers": [],
+  "inline_text": "Outcome\nThe `operationally conformant` term in the ws-taxonomy-landscape repo has the `definition`, `scopeNote`, `relatedTerms`, `contrastsWith`, `workgroups` and any other relevant fields defined.\n\nWorkstream\nCurrently the `operationally conformant` term is undefined.\n\nOwner\nneeds owner\n\nStatus\nneeds owner\n\nNext Step\nAssign the issue, then define the necessary fields and submit a PR for review.\n\nReview or Decision Needed\nThe owner can share a draft of the changes within the workgroup via the wg-terms-prs thread in our Discord channel prior to submitting the PR to the broader Taxonomy WS. Otherwise, the Taxonomy WS will assign reviewers and provide feedback via the PR.\n\nLinks\nhttps://docs.google.com/spreadsheets/d/1Oa-x7nBISIOuqaC-BnsQ1R-iPdwZ6Otk3dpWlqpI_z4/edit?usp=sharing\nhttps://discord.com/channels/1461090924791595243/1545911498881114234\nhttps://github.com/aaif/ws-taxonomy-landscape/blob/main/CONTRIBUTING.md\nhttps://github.com/aaif/ws-taxonomy-landscape/blob/main/ONBOARDING.md\n\nAcceptance Criteria\nPR is submitted to Taxonomy WS and all feedback has been addressed such that the PR is ready to be merged.\nAll guidelines in CONTRIBUTING.md and ONBOARDING.md are followed.\n\nNotes\nReach out to @jmaionchi, @MatthewKhouzam or @91pavan if you have any questions.",
+  "labels": []
+}

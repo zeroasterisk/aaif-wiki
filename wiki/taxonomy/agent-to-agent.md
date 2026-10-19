@@ -2,30 +2,40 @@
 type: taxonomy
 title: Agent-to-Agent
 description: Universal taxonomy term defining direct communication, task delegation,
-  and coordination interactions occurring between autonomous agents.
-resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
+  and coordination interactions between autonomous AI agents.
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
 tags:
 - taxonomy
-- agent-to-agent
-- multi-agent
-- collaboration
+- coordination
+- delegation
+- a2a
+- protocols
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:23:19.617877+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-19T10:28:12.524255+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-pr-81
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
-  author: julianna-ciq
-  last_modified: '2026-10-09T13:09:31+00:00'
+- id: evt-wg-observability-and-traceability-pr-31
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
+  author: narko4u
+  last_modified: '2026-09-19T04:53:51+00:00'
 ---
 
 # Overview
+Agent-to-Agent (A2A) defines direct communication, task delegation, negotiation, and coordination interactions between autonomous AI agents operating across shared or disparate execution environments.[^evt-wg-observability-and-traceability-pr-31] In August 2026, the A2A interoperability layer formally joined the Agentic AI Foundation as a hosted project to standardize multi-agent interaction protocols and identity discovery.[^evt-wg-observability-and-traceability-pr-31]
 
-Agent-to-Agent (A2A) is defined as a general interaction pattern in which one autonomous agent communicates, coordinates, or exchanges state with another agent [^evt-ws-taxonomy-landscape-pr-81]. This collaborative coordination spans multi-agent architectures, hierarchical task delegation, and distributed peer-to-peer workflows.
+# Architecture / Specification
+Agent-to-agent interactions require standardized mechanisms for discovery, capability advertisement, and execution verification:
 
-# Vocabulary and Scope
+- **Protocol Mediation**: Direct communication between agents can be routed through proxies such as [agentgateway](../resources/agentgateway.md) or point-to-point connections.[^evt-wg-observability-and-traceability-pr-31]
+- **Signed Agent Cards**: Introduced in A2A v1.0 (March 2026), signed agent cards allow agents to declare capabilities, endpoints, and identity metadata cryptographically.[^evt-wg-observability-and-traceability-pr-31]
+- **Runtime Verification Challenge**: Verifying signed card declarations against actual runtime behavior remains an active challenge within the foundation's observability and evidence frameworks.[^evt-wg-observability-and-traceability-pr-31]
 
-The taxonomy defines Agent-to-Agent as a universal interaction concept rather than tying the definition specifically to any single protocol implementation [^evt-ws-taxonomy-landscape-pr-81]. In agentic topologies, agent-to-agent interactions govern relationships between coordinators and [subagents](subagent.md), emergent coordination across an [agent swarm](agent-swarm.md), and standardized message exchanges over interfaces such as the [Agent Network Protocol](../standards/agent-network-protocol.md).
+# Lifecycle History
+- **March 2026**: A2A v1.0 released, introducing signed agent cards for capability and identity declaration.[^evt-wg-observability-and-traceability-pr-31]
+- **August 2026**: A2A officially joined the Agentic AI Foundation as a hosted project.[^evt-wg-observability-and-traceability-pr-31]
 
-[^evt-ws-taxonomy-landscape-pr-81]: https://github.com/aaif/ws-taxonomy-landscape/pull/81
+# References
+- [AAIF Observability Prior Work Landscape (PR #31)](https://github.com/aaif/wg-observability-and-traceability/pull/31)
+
+[^evt-wg-observability-and-traceability-pr-31]: https://github.com/aaif/wg-observability-and-traceability/pull/31

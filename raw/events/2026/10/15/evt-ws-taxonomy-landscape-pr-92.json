@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-92",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#92",
+  "title": "Define six Governance taxonomy terms",
+  "timestamp": "2026-10-15T16:19:27Z",
+  "author": "kjamithash",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/92",
+  "summary": "Adds definitions for six KEEP terms from the taxonomy spreadsheet:\n\n- Agent registry\n- Governance\n- Autonomy level\n- Risk classification\n- Kill switch\n- Continuous assurance\n\nFills four existing placeholders and adds Agent registry and Continuous assurance as new entries. Definit...",
+  "pointers": [],
+  "inline_text": "Adds definitions for six KEEP terms from the taxonomy spreadsheet:\n\n- Agent registry\n- Governance\n- Autonomy level\n- Risk classification\n- Kill switch\n- Continuous assurance\n\nFills four existing placeholders and adds Agent registry and Continuous assurance as new entries. Definitions follow the spreadsheet, with wording adjustments and explanatory scope notes.\n\nContinuous assurance uses “approved specification” in place of “approved blueprint” to avoid prescribing an artifact name.\n\nAgent blueprint is deferred pending discussion of Agent Manifest.\n\nIntended purpose is deferred pending resolution of its overlap with Intent in #65.",
+  "labels": []
+}

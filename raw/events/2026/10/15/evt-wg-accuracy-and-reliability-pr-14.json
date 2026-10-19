@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-14",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#14",
+  "title": "fix(survey): add reliability rows, reorder questions, add consent",
+  "timestamp": "2026-10-15T21:09:55Z",
+  "author": "Jessie1989",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/14",
+  "summary": "## Summary\n\nFollow-up edits to the D2 survey (`deliverables/arwg-survey.md`) after PR #9.\n\n- **Q10 (Accuracy and reliability factors):** add two rows, \"Decline in quality after the system itself changed, such as a model, prompt, or version update\" and \"Failure to recover safely a...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nFollow-up edits to the D2 survey (`deliverables/arwg-survey.md`) after PR #9.\n\n- **Q10 (Accuracy and reliability factors):** add two rows, \"Decline in quality after the system itself changed, such as a model, prompt, or version update\" and \"Failure to recover safely after an error, such as leaving partial actions behind\". Both match options already offered in the Shared-industry priority question.\n- **Order:** move Human checking next to System structure, followed by Organization size. In Benefits and challenges, put Most significant benefit before Constraints. Q5 to Q8 are renumbered; Q9 to Q16 keep their numbers.\n- **Intro:** add a consent and data-use statement (time estimate, no name or contact details collected, aggregate reporting, storage by AAIF, contact address).\n\n## For reviewers\n\n- The consent text uses placeholder values that need confirmation: the 20 minute estimate, the retention period (not stated yet), the support@aaif.io contact, and the legal wording of \"submitting means you agree\".\n- No question wording was changed other than the two new Q10 rows.",
+  "labels": []
+}

@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-agentic-commerce-pr-9",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "PR#9",
+  "title": "[Report] 2026-09",
+  "timestamp": "2026-10-13T08:27:46Z",
+  "author": "igrigorik",
+  "url": "https://github.com/aaif/wg-agentic-commerce/pull/9",
+  "summary": "Monthly report for September 2026 covering the onX, MPP and UCP August-release deep dives, each framed by the problem it addresses, how it works, its governance and status, and where it hands off to the others.",
+  "pointers": [],
+  "inline_text": "Monthly report for September 2026 covering the onX, MPP and UCP August-release deep dives, each framed by the problem it addresses, how it works, its governance and status, and where it hands off to the others.",
+  "labels": [
+    "monthly-report"
+  ]
+}

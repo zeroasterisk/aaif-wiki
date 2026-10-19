@@ -1,43 +1,60 @@
 ---
 type: policy
 title: Project Proposal Process
-description: Operating procedure defining intake criteria, contribution agreements,
-  triage roles, and joint TC and Governing Board review gates for AAIF projects.
-resource: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml
+description: Operating procedure defining the six-step intake, review, voting, legal
+  formation, and onboarding workflow for prospective AAIF projects.
+resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/project_proposal_process.md
 tags:
 - governance
-- policy
-- project-intake
+- intake
+- technical-committee
+- lifecycle
+- policies
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:19:24.664549+00:00'
+  at: '2026-10-19T11:12:22.882582+00:00'
 sources:
-- id: evt-project-proposals-file-6c7de919a622-a1bc6ba1
-  resource: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml
+- id: evt-technical-committee-file-05a7e66403db-9c234333
+  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/project_proposal_process.md
   author: Manik Surtani
-  last_modified: '2026-09-06T17:37:26+08:00'
+  last_modified: '2026-10-15T16:14:10+11:00'
+- id: evt-project-proposals-file-b33563055168-3d9290b7
+  resource: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/README.md
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:13:53+11:00'
+- id: evt-project-proposals-file-6c7de919a622-15a00e3a
+  resource: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/.github/ISSUE_TEMPLATE/project-proposal.yml
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:13:53+11:00'
 ---
 
 # Overview
-
-The Project Proposal Process defines the intake workflow and review gates for open-source projects applying to become official AAIF Hosted Projects across the Sandbox, Growth, and Impact maturity tiers [^evt-project-proposals-file-6c7de919a622-a1bc6ba1]. The process requires formal alignment analysis, an executed legal Contribution Agreement, and affirmative approval votes from both the Technical Committee (TC) and the Governing Board (GB) [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
+The Project Proposal Process is the operating procedure implementing the [Project Lifecycle Policy](project-lifecycle-policy.md) for proposing, reviewing, approving, and onboarding open-source projects into the Agentic AI Foundation (AAIF).[^evt-technical-committee-file-05a7e66403db-9c234333] The procedure is structured into six sequential steps plus parallel contributor paperwork, defaulting to offline, asynchronous execution to accommodate a globally distributed Technical Committee (TC).[^evt-technical-committee-file-05a7e66403db-9c234333]
 
 # Architecture / Specification
+The intake and approval pipeline coordinates defined actor roles across six steps:[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 1 - Initial Intake**: The CTO, assisted by an automated compliance intake agent, screens applications for completeness, performs smoke tests, and solicits input from [Technical Committee Chairs](../governance/technical-committee.md) on the proposal issue.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 2 - TC Q&A Window**: An asynchronous inquiry window on GitHub.[^evt-technical-committee-file-05a7e66403db-9c234333] Advancement requires meeting an explicit engagement bar consisting of active TC member participation; if unmet, the TC chairs seek an on-demand TC supporter to champion the proposal, failing which the proposal is rejected.[^evt-technical-committee-file-05a7e66403db-9c234333] Live presentations occur on demand only if requested by a TC member.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Parallel Step - Contributor Paperwork**: Contribution agreements, technical charters, and trademark assignments are prepared concurrently by LF PMO and LF Legal, and must be execution-ready before Step 4.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 3 - TC Vote**: The Technical Committee conducts an offline vote using LFX Vote to recommend admission and determine the initial lifecycle stage.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 4 - GB Vote**: The Governing Board votes offline via LFX Vote on organizational readiness and Foundation resource allocation.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 5 - LF Legal Formation**: LF Legal and AAIF staff execute final contribution and charter agreements via DocuSign.[^evt-technical-committee-file-05a7e66403db-9c234333]
+- **Step 6 - Technical Onboarding**: Project maintainers and LF IT transfer code repositories, domains, credentials, and continuous integration infrastructure.[^evt-technical-committee-file-05a7e66403db-9c234333]
 
-## Intake and Triage
+### Application Tracking Labels
+Proposal issues submitted via the standardized issue form are tracked using specific workflow labels:[^evt-project-proposals-file-b33563055168-3d9290b7][^evt-project-proposals-file-6c7de919a622-15a00e3a]
+- `New`: The submission is placed in the initial intake backlog.[^evt-project-proposals-file-b33563055168-3d9290b7]
+- `Approved`: The application has fulfilled all approval gates and completed foundation onboarding.[^evt-project-proposals-file-b33563055168-3d9290b7]
+- `Declined`: The proposal has been formally rejected with documented rationale.[^evt-project-proposals-file-b33563055168-3d9290b7]
+- `Waiting on Comment`: Review is paused awaiting answers or updates from the submitter.[^evt-project-proposals-file-b33563055168-3d9290b7]
+- `Too Early`: The project is not yet mature enough for hosting; guidance is provided for subsequent reapplication.[^evt-project-proposals-file-b33563055168-3d9290b7]
 
-Applications are submitted via the structured GitHub issue template in the `aaif/project-proposals` repository labeled `New` [^evt-project-proposals-file-6c7de919a622-a1bc6ba1]. Applicants must detail:
+Foundation project hosting does not require prior AAIF corporate membership, nor does project acceptance confer corporate membership tier status or a Governing Board seat.[^evt-project-proposals-file-b33563055168-3d9290b7]
 
-- Project origins, capabilities, and technical maturity [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-- Alignment with the AAIF mission and ecosystem [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-- Architectural relationship to existing AAIF hosted projects and specifications [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
+# Lifecycle History
+Operating procedure v0.3 was published on August 28, 2026, codifying the engagement bar, automated intake agent responsibilities, and LFX Vote mechanics.[^evt-technical-committee-file-05a7e66403db-9c234333]
 
-## Contribution Agreement and Dual Approval Gates
-
-1. **Contribution Agreement**: A legal Contribution Agreement is sent to designated project contacts based on submission information. This agreement must be signed before the Governing Board can conduct a formal acceptance vote [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-2. **TC and GB Approval**: Official acceptance requires affirmative votes by both the Technical Committee (see [../governance/technical-committee.md](../governance/technical-committee.md)) and the Governing Board [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-3. **Linux Foundation Countersignature**: The Linux Foundation countersigns the Contribution Agreement only after a successful Governing Board vote [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-4. **Representation Restrictions**: Maintainers cannot represent their project as "donated" or "contributed" until both voting gates succeed and the Contribution Agreement is countersigned [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-
-[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml
+[^evt-project-proposals-file-6c7de919a622-15a00e3a]: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/.github/ISSUE_TEMPLATE/project-proposal.yml
+[^evt-project-proposals-file-b33563055168-3d9290b7]: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/README.md
+[^evt-technical-committee-file-05a7e66403db-9c234333]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/project_proposal_process.md

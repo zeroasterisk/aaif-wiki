@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-67593d7c0dc3-a2eb51a2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "submission-guidelines.md",
+  "title": "submission-guidelines.md",
+  "timestamp": "2026-10-15T16:14:24+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/submission-guidelines.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "1054856f6e1307fdfb56d51abcf9a87055ee0140",
+      "path": "submission-guidelines.md",
+      "blob_sha": "a2eb51a2dd6449aa24aee1d7e64b05c247660995",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-63",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#63",
+  "title": "feat: add reusable WG toolkit and date-driven minutes generator",
+  "timestamp": "2026-10-13T09:37:59Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/63",
+  "summary": "## Summary\n\n- Add a reusable Python toolkit for LFX MCP access, transcript retrieval,\n  and structured model output.\n- Add a date-driven CLI that combines LFX summaries and transcripts into\n  draft minutes with decisions, action items, and evidence citations.\n- Support other WGs ...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- Add a reusable Python toolkit for LFX MCP access, transcript retrieval,\n  and structured model output.\n- Add a date-driven CLI that combines LFX summaries and transcripts into\n  draft minutes with decisions, action items, and evidence citations.\n- Support other WGs through configurable project, committee, and meeting identifiers.\n- Document authentication, uv setup, privacy constraints, and usage.\n\n## Review Notes\n\n- Focus on authentication, credential isolation, meeting selection,\n  transcript fallback, and cross-WG configuration.\n- Generated minutes require human review before publication.\n\n## Follow-ups\n\n- Move the reusable toolkit and generic CLI to working-groups-chair,\n  the shared repository for tooling used across WGs.\n- Replace the local path dependency with a versioned shared dependency.\n- Keep WG-specific configuration and published minutes in each WG repository.\n- Improve verification that evidence supports decisions and action ownership.",
+  "labels": []
+}

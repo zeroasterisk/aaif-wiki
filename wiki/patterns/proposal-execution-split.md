@@ -1,42 +1,44 @@
 ---
 type: pattern
-title: Proposal-Execution Split
-description: Architectural pattern enforcing authorization and attribution at protected
-  boundaries by separating proposal generation from action execution.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
+title: Proposal/Execution Split
+description: Architectural governance pattern separating intent generation, authorization,
+  and workflow execution into distinct roles to enforce deterministic attribution.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/proposal-execution-split.md
 tags:
-- pattern
+- workflow
+- patterns
+- security
 - governance
-- authorization
-- workflows
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:46:11.619660+00:00'
+  at: '2026-10-19T10:16:04.076901+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-53
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
-  author: zaynelt
-  last_modified: '2026-10-09T18:55:43+00:00'
+- id: evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/proposal-execution-split.md
+  author: Mario Zagar
+  last_modified: '2026-08-28T22:42:47-04:00'
 ---
 
 # Overview
-The Proposal-Execution Split pattern prevents unauthorized or unverified agent operations by strictly decoupling the generation of an operational proposal from the mechanism authorized to execute it [^evt-wg-workflows-and-process-integration-pr-53]. By introducing an explicit governance boundary between intent synthesis and system state modification, systems can enforce policy verification, human inspection, and cryptographic attribution before point-of-effect execution [^evt-wg-workflows-and-process-integration-pr-53].
+The Proposal/Execution Split is a workflow safety pattern that enforces authorization, attribution, and non-repudiation at protected execution boundaries when intent originates from a probabilistic AI agent[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950]. Because agent reasoning is probabilistic and non-deterministic, systems cannot accept an agent's self-contained decision as an authorized execution; instead, intent, authorization, and execution must be isolated into separate architectural roles[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
+
+The pattern forms a structural prerequisite for architectures like [Single-Agent Human Approval](../architectures/single-agent-human-approval.md) and [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md), working in tandem with the [Human Approval Gate](./human-approval-gate.md) and [Durable Wait](./durable-wait.md) patterns[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
 
 # Architecture / Specification
-The pattern focuses on separation of authority rather than physical process or deployment separation [^evt-wg-workflows-and-process-integration-pr-53]. While proposal generation and execution can be hosted in distinct environments or microservices, the requirement is that the proposal-generating capability role lacks ambient privileges or execution credentials at protected interfaces [^evt-wg-workflows-and-process-integration-pr-53].
+The core principle requires one precept and three distinct separations: intent, authorization, and execution belong to distinct roles, and each is independently persisted in an immutable system of record[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
 
-Key architectural elements include:
-- **Capability Separation vs Topology**: The pattern specifies logical capability roles (proposer vs executor) rather than requiring rigid distributed deployment topologies [^evt-wg-workflows-and-process-integration-pr-53].
-- **Point-of-Effect Gating**: Side effects requiring split execution are non-exhaustive and include irreversible data mutations, financial commitments, external communications, and infrastructure state changes [^evt-wg-workflows-and-process-integration-pr-53].
-- **Implementation Variants**: Implementations range from harness and orchestration-level interception—such as SDK tool-use gates (e.g., `canUseTool` callbacks) that prevent tool dispatch without confirmation—to cryptographic approval checkpoints and verified execution workers [^evt-wg-workflows-and-process-integration-pr-53].
+## Core Roles
+- **Proposer (Agent)**: Generates proposed parameter data rather than executing direct effects. The payload is treated as immutable data representing proposed intent, not executable code or autonomous capability[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
+- **Authorization Authority**: An accountable entity—either an authenticated human principal or an immutable, versioned policy engine—evaluating whether that exact, immutable proposal payload may proceed[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950]. If denied, timed out, or unverified, the gate fails closed into a terminal or recovery path[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
+- **Workflow-Controlled Executor**: A deterministic system component invoked exclusively by workflow orchestrators (and inaccessible to direct agent calls) that executes the authorized payload against downstream protected resources[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
 
-# Related Patterns
-- [Single-Agent Human Approval Architecture](../architectures/single-agent-human-approval.md)
-- [Human Approval Gate](../patterns/human-approval-gate.md)
-- [Approval Checkpoint](../patterns/approval-checkpoint.md)
+## Invariants and Enforcement
+- **Proposal Immutability**: What is authorized must match byte-for-byte what executes; downstream mutations invalidate the approval[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
+- **Fail-Closed Verification**: Absence, delay, or failure of an authorization signal strictly terminates execution[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
+- **Idempotency & Non-Replayability**: Retrying an approved proposal must never result in duplicate external side effects[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
 
 # References
-- aaif/wg-workflows-and-process-integration: PR #53 (Updates based on Issue 45 TC Feedback)
+Defined by the Workflows and Process Integration Working Group [workstream on reference architectures](../working-groups/workflows-and-process-integration.md)[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950].
 
-[^evt-wg-workflows-and-process-integration-pr-53]: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
+[^evt-wg-workflows-and-process-integration-file-e3cb5264d4e0-5b43d950]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/proposal-execution-split.md

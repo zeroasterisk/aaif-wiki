@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-29954f63e09f-b0f27f04",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "governance/charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-10-15T16:14:10+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "684c3d2a07da3a8d55f87647bc125b2fcd5631be",
+      "path": "governance/charter.md",
+      "blob_sha": "b0f27f04e58b4bd0f46b00958da14f58bc8b0278",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

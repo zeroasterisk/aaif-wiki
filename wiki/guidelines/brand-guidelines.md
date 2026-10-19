@@ -1,51 +1,41 @@
 ---
 type: guideline
-title: Brand Guidelines
-description: Visual, typographic, palette, and asset specifications governing Agentic
-  AI Foundation digital assets, presentation decks, and document rendering pipelines.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md
+title: AAIF Brand and Visual Identity Guidelines
+description: Visual identity, typography, palette tokens, asset generation, and SVG
+  asset usage specifications governing official AAIF brand representations.
+resource: https://github.com/aaif/community-events/pull/41
 tags:
+- brand
 - guidelines
-- branding
-- typography
+- design
 - assets
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:49:29.052987+00:00'
+  at: '2026-10-19T11:00:39.514262+00:00'
 sources:
-- id: evt-community-events-file-f66a78711977-a26d3112
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:19:56-07:00'
-- id: evt-community-events-file-2e96153bc720-8848e516
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-online-series/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-4676d39ff431-bb8c2b01
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-dayof-slides/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
+- id: evt-community-events-pr-41
+  resource: https://github.com/aaif/community-events/pull/41
+  author: Suryals
+  last_modified: '2026-10-07T19:22:24+00:00'
 ---
 
 # Overview
-The Brand Guidelines define visual identity, typographic standards, color palettes, and presentation formats for the Agentic AI Foundation (AAIF). These specifications ensure consistent representation across digital media, open-source repositories, community chapters, and event collateral[^evt-community-events-file-2e96153bc720-8848e516][^evt-community-events-file-4676d39ff431-bb8c2b01].
-
-Adherence to brand specifications extends to automated tooling and document generation pipelines used by agent runtimes such as [Goose](../resources/goose.md) and Claude Desktop[^evt-community-events-file-06572a96a58d-9d2d11f7], preventing font substitution and visual degradation during automated asset assembly[^evt-community-events-file-f66a78711977-a26d3112][^evt-community-events-file-2e96153bc720-8848e516].
+The AAIF Brand Guidelines define the visual identity, typography, color palettes, and digital asset usage standards for the Agentic AI Foundation. These specifications ensure consistent visual presentation across documentation, slide decks, event collateral, and community web properties [^evt-community-events-pr-41].
 
 # Architecture / Specification
 
-## Presentation and Slide Standards
-Event presentation templates (such as the standard AAIF "Day of Event" deck) incorporate fixed, mandatory brand slides alongside modular event-specific slides[^evt-community-events-file-4676d39ff431-bb8c2b01]:
-- **Fixed Brand Content**: Core foundational slides—including the "About AAIF" overview and global network metric slides—are designated as fixed brand standards and must not be reworded, reformatted, or omitted during automated deck generation[^evt-community-events-file-4676d39ff431-bb8c2b01].
-- **Host Lockups and Sponsoring Attribution**: On title and welcome slides, the `HOSTED BY` banner carries the immutable AAIF organizational lockup[^evt-community-events-file-4676d39ff431-bb8c2b01]. Neighboring logo placeholders (`LOGO 1`, `LOGO 2`) are designated image drop zones for event co-hosts or chapter partners and must never be filled with plain text or replace the primary AAIF lockup[^evt-community-events-file-4676d39ff431-bb8c2b01]. Venue hosts and supporting members are formally credited in prose on dedicated concluding recognition slides[^evt-community-events-file-4676d39ff431-bb8c2b01].
+## Canonical Logo Assets
+Official vector assets reside in the central repository `assets/` directory and must be consumed directly by authors and automated generation agents [^evt-community-events-pr-41]:
+- `aaif-mark.svg`: Serves as the primary full lockup, containing both the brand symbol and typographic mark despite its shortened filename.
+- `aaif-icon.svg`: The standalone brand glyph intended for chapter badges, square icons, and avatars.
+- `aaif-wordmark.svg`: Typographic wordmark without the standalone icon.
 
-## Asset Integrity and Rendering Constraints
-To preserve brand typography and embedded layout fidelity, automated tools and agents managing AAIF collateral must conform to strict document processing rules[^evt-community-events-file-f66a78711977-a26d3112][^evt-community-events-file-2e96153bc720-8848e516]:
-- **Prohibition of LibreOffice and Desktop Conversion Tools**: Automated environments must never use LibreOffice (`soffice`), `unoconv`, or generic desktop office suites to edit, convert, or preview AAIF documents[^evt-community-events-file-f66a78711977-a26d3112][^evt-community-events-file-2e96153bc720-8848e516]. These suites routinely substitute local system fallback fonts for official AAIF brand typefaces and discard complex OpenXML (OOXML) structures[^evt-community-events-file-f66a78711977-a26d3112].
-- **Native API Rendering**: Document and slide previews must be rendered exclusively through native cloud APIs (such as exporting Google Slides or Docs to PDF/PNG via the `gws` Google Workspace CLI) rather than local headless converters[^evt-community-events-file-f66a78711977-a26d3112].
-- **OOXML Structure Preservation**: Modifications to Office files (`.pptx`, `.docx`, `.xlsx`) must be performed using targeted byte-level zip part manipulation so that untouched components and embedded brand fonts remain intact[^evt-community-events-file-f66a78711977-a26d3112].
+## Rendering Invariants
+- **Never Redraw the Mark**: Agents and human contributors are strictly prohibited from redrawing, vectorizing from screenshots, or approximating the AAIF logo mark; the canonical SVGs must always be sourced directly [^evt-community-events-pr-41].
+- **Palette and Typography**: Brand typography and color token tables in `DESIGN.md` establish authoritative values for digital, print, and presentation media [^evt-community-events-pr-41].
 
-[^evt-community-events-file-2e96153bc720-8848e516]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-online-series/SKILL.md
-[^evt-community-events-file-4676d39ff431-bb8c2b01]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-dayof-slides/SKILL.md
-[^evt-community-events-file-f66a78711977-a26d3112]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md
+# References
+- Automated brand tooling: [../skills/aaif-brand-guidelines.md](../skills/aaif-brand-guidelines.md)
+
+[^evt-community-events-pr-41]: https://github.com/aaif/community-events/pull/41

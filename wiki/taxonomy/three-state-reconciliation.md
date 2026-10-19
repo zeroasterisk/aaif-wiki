@@ -1,40 +1,56 @@
 ---
 type: taxonomy
 title: Three-State Reconciliation
-description: Taxonomy classification designating the comparison of an agent claim
-  against independent observation into agreement, contradiction, or absent evidence.
-resource: https://github.com/aaif/ws-taxonomy-landscape/issues/54
+description: Classification framework evaluating agent self-reported claims against
+  independent boundary observations into agreement, contradiction, or no independent
+  evidence.
+resource: https://github.com/aaif/wg-observability-and-traceability/issues/36
 tags:
-- taxonomy
 - observability
+- telemetry
 - verification
-- audit
+- reconciliation
+- evidence
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:28:37.295086+00:00'
+  at: '2026-10-19T10:28:12.524255+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-issue-54
-  resource: https://github.com/aaif/ws-taxonomy-landscape/issues/54
+- id: evt-wg-observability-and-traceability-issue-36
+  resource: https://github.com/aaif/wg-observability-and-traceability/issues/36
   author: narko4u
-  last_modified: '2026-09-20T02:33:08+00:00'
+  last_modified: '2026-09-19T04:54:01+00:00'
 ---
 
 # Overview
-`Three-state reconciliation` is a taxonomy term defining an evidence evaluation model where an agent claim is compared against independent observations and classified into one of three distinct states: agreement, contradiction, or no independent evidence[^evt-ws-taxonomy-landscape-issue-54].
-
-The framework prevents silent defaults by elevating missing independent telemetry to an explicit evaluative state rather than treating it as verification failure or implicit confirmation[^evt-ws-taxonomy-landscape-issue-54].
+Three-State Reconciliation is a telemetry evaluation model that compares an agent's self-reported execution claims against independent boundary observations, producing one of three explicit reconciliation states: agreement, contradiction, or no independent evidence.[^evt-wg-observability-and-traceability-issue-36] By treating the absence of independent evidence as an explicit third state rather than a silent default or assumption of agreement, it establishes clear semantics for runtime trust.[^evt-wg-observability-and-traceability-issue-36]
 
 # Architecture / Specification
-Formulated within the Observability & Traceability Working Group in discussion around control-plane telemetry as an evidence source[^evt-ws-taxonomy-landscape-issue-54], three-state reconciliation prevents conflating checked claims with unchecked ones:
+Three-State Reconciliation addresses the measurement gap between agent self-reports and independently observed control-plane telemetry (such as gateway, proxy, or runtime boundary telemetry).[^evt-wg-observability-and-traceability-issue-36] Evidence trustworthiness is modeled across two distinct dimensions:
 
-1. **Agreement**: The independent observation directly corroborates the agent's asserted action or state.
-2. **Contradiction**: Independent boundary observations refute or diverge from the agent's asserted claim.
-3. **No Independent Evidence**: No external observation exists to assess the claim, exposing an audit visibility gap rather than asserting fault.
+1. **Observation Source**: Identifies where the telemetry originated:
+   - Agent / runtime self-reports
+   - Tool-level instrumentation
+   - Gateway / proxy control planes
+   - External systems[^evt-wg-observability-and-traceability-issue-36]
+2. **Observation Relationship**: Characterizes what the signal asserts about the claimed action:
+   - Direct observation
+   - Corroborating
+   - Contradictory
+   - Derived from secondary telemetry[^evt-wg-observability-and-traceability-issue-36]
 
-This pattern operates in conjunction with [witness-scope](./witness-scope.md) evaluations and verification-basis frameworks[^evt-ws-taxonomy-landscape-issue-54].
+### Reconciliation Outcomes
+Comparing agent claims against independent observations yields three formal states:
+- **Agreement (Corroboration)**: Independent boundary observations confirm that the action took place as claimed.[^evt-wg-observability-and-traceability-issue-36]
+- **Contradiction**: Independent boundary observations conflict with or refute the agent's claim.[^evt-wg-observability-and-traceability-issue-36]
+- **No Independent Evidence**: The boundary lacks telemetry to confirm or refute the claim, avoiding silent assumptions of validity.[^evt-wg-observability-and-traceability-issue-36]
+
+This framework operates in conjunction with boundary models such as [Cross-Boundary Observability Model](../resources/cross-boundary-observability-model.md) and [Agent-MCP Server Boundary](../resources/agent-mcp-server-boundary.md).
 
 # Lifecycle History
-Proposed in `aaif/ws-taxonomy-landscape` issue #54 following initial framing in Observability & Traceability Working Group issue #36[^evt-ws-taxonomy-landscape-issue-54].
+- **2026**: Proposed in the Observability and Traceability Working Group as a candidate evidence model (Theme 10 / Open Question 9).[^evt-wg-observability-and-traceability-issue-36]
 
-[^evt-ws-taxonomy-landscape-issue-54]: https://github.com/aaif/ws-taxonomy-landscape/issues/54
+# References
+- [Issue #36: Control-plane telemetry as an evidence source](https://github.com/aaif/wg-observability-and-traceability/issues/36)
+
+[^evt-wg-observability-and-traceability-issue-36]: https://github.com/aaif/wg-observability-and-traceability/issues/36
