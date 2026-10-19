@@ -133,15 +133,16 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 ## standards
 
 - [Agent-to-Agent Protocol (A2A)](standards/a2a.md) — Open protocol standardizing agent-to-agent communication, AgentCard manifests, and task lifecycle coordination. _(draft, unverified)_
+- [ACP (disambiguation)](standards/acp-disambiguation.md) — Three unrelated agent protocols share the acronym ACP -- Agent Client Protocol (editor-to-agent), Agentic Commerce Protocol (checkout), and Agent Communication Protocol (IBM BeeAI, merged into A2A). _(draft, unverified)_
 - [Agent Behavior Trace Model](standards/agent-behavior-trace-model.md) — Vendor-neutral telemetry framework capturing agent reasoning paths, state transitions, execution receipts, and testable conformance vectors. _(draft, unverified)_
 - [Agent Client Protocol](standards/agent-client-protocol.md) — Open standard for communication between code editors or IDEs and AI coding agents over JSON-RPC or HTTP/WebSocket. _(draft, unverified)_
 - [Agent Network Protocol](standards/agent-network-protocol.md) — Open communication protocol stack utilizing Decentralized Identifiers (DIDs) for cross-platform agent identity, secure messaging, and semantic discovery. _(draft, unverified)_
 - [Agent Skills Specification](standards/agent-skills.md) — Open file-based packaging format and progressive disclosure standard for extending AI agents with procedural knowledge, executable scripts, and resources. _(draft, unverified)_
 - [Agent Trace Specification](standards/agent-trace.md) — Open specification and reference architecture for line-level AI code attribution tracing in version-controlled repositories. _(draft, unverified)_
-- [Agentic Commerce Protocol (ACP)](standards/agentic-commerce-protocol.md) — Open checkout and payment negotiation protocol stewarded by OpenAI, Stripe, and Meta connecting buyers, AI agents, and merchants. _(draft, unverified)_
+- [Agentic Commerce Protocol (ACP)](standards/agentic-commerce-protocol.md) — Open checkout and payment negotiation protocol maintained by OpenAI and Stripe connecting buyers, AI agents, and merchants. _(draft, unverified)_
 - [Agentic Resource Discovery](standards/agentic-resource-discovery.md) — Decentralized specification and discovery architecture enabling agents to find and verify AI resources via static catalogs and dynamic registries. _(draft, unverified)_
 - [AI Catalog](standards/ai-catalog.md) — Open specification and discovery mechanism indexing AI tools, agents, and capabilities across flexible publisher-anchored endpoints. _(draft, unverified)_
-- [Agent Payment Protocol (AP2)](standards/ap2.md) — Open agent payments protocol stewarded by the FIDO Alliance establishing mandate delegation, action constraints, and cryptographically verified checkout. _(draft, unverified)_
+- [Agent Payments Protocol (AP2)](standards/ap2.md) — Open agent payments protocol whose core specification was donated to the FIDO Alliance, establishing mandate delegation, action constraints, and cryptographically verified checkout. _(draft, unverified)_
 - [AuthZEN Agent Authorization (AARP and COAZ)](standards/authzen-agent-authorization.md) — Draft specifications stewarded by the OpenID Foundation defining prerequisite policy checks and MCP tool authorization profiles. _(draft, unverified)_
 - [CEN/CENELEC JTC 24 Digital Product Passport Standards](standards/cen-clc-jtc24-dpp.md) — Suite of eight horizontal Digital Product Passport standards (EN 18216 to EN 18246) stewarded by CEN/CENELEC covering product identification, data carriers, and searchability. _(draft, unverified)_
 - [DIF Trusted AI Agents Stack](standards/dif-trusted-ai-agents.md) — Decentralized identity, delegation, and verification framework for AI agents stewarded by the Decentralized Identity Foundation (DIF). _(draft, unverified)_
@@ -172,7 +173,7 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 - [W3C Agentic Web Working Group](standards/w3c-agentic-web.md) — Proposed W3C working group standardizing client-side web capabilities, context, and permissions for AI agents. _(draft, unverified)_
 - [W3C AI Agent Protocol](standards/w3c-ai-agent-protocol.md) — Draft web specification defining well-known discovery endpoints and DID-based HTTP signatures for AI agent communication. _(draft, unverified)_
 - [W3C DID Resolution](standards/w3c-did-resolution.md) — W3C Candidate Recommendation standardizing Decentralized Identifier resolution and DID URL dereferencing algorithms across decentralized trust infrastructures. _(draft, unverified)_
-- [WebMCP](standards/webmcp.md) — Draft browser-level specification stewarded by the W3C enabling web applications to expose structured client-side tools directly to AI browsing agents. _(draft, unverified)_
+- [WebMCP](standards/webmcp.md) — Draft Community Group Report of the W3C Web Machine Learning Community Group enabling web applications to expose structured client-side tools directly to AI browsing agents. _(draft, unverified)_
 - [x402](standards/x402.md) — Open internet-native payment protocol stewarded by the x402 Foundation under the Linux Foundation standardizing HTTP 402 payment challenges and agent signatures. _(draft, unverified)_
 
 ## taxonomy

@@ -31,6 +31,8 @@ sources:
 ---
 
 # Overview
+> Not to be confused with other protocols abbreviated ACP; see [ACP (disambiguation)](./acp-disambiguation.md).
+
 The Agentic Commerce Protocol (ACP) is an open specification maintained by OpenAI and Stripe as Founding Maintainers; Meta is a member of its Technical Steering Committee[^evt-ext-frmoretto-agentic-standards-map-85d122-file-a2ffe7ba6966-f3bec241]. It provides a standardized interaction model for connecting buyers, autonomous AI agents, and merchants to complete purchases over REST interfaces and Model Context Protocol (MCP) bindings[^evt-ext-frmoretto-agentic-standards-map-85d122-file-a2ffe7ba6966-f3bec241].
 
 ACP addresses checkout orchestration and session state management, intersecting with work evaluated in the AAIF [Agentic Commerce Working Group](../working-groups/agentic-commerce.md)[^evt-wg-agentic-commerce-file-a439311d16f4-f0496332][^evt-wg-agentic-commerce-file-3e3f89e6a796-ee1af760] and related payment frameworks like [AP2](./ap2.md) and [Universal Commerce Protocol](./universal-commerce-protocol.md).
