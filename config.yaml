@@ -123,7 +123,8 @@ sources:
       - repo: "frmoretto/agentic-standards-map"
         steward: "Agentic Standards Map (independent, F. Marinoni Moretto)"
         topics: ["landscape", "governance", "commerce", "discovery", "identity"]
-        include_paths: ["README.md", "METHOD.md", "MAP.md", "entries", "notes/seams.md"]
+        include_paths: ["README.md", "METHOD.md", "MAP.md", "notes/seams.md", "entries"]
+        doc_extensions: [".md", ".yaml"]   # entries/*.yaml ARE the map's content
         file_limit: 70
       - repo: "google-agentic-commerce/AP2"
         steward: "FIDO Alliance"
@@ -133,7 +134,11 @@ sources:
       - repo: "Universal-Commerce-Protocol/ucp"
         steward: "Universal Commerce Protocol Governing Council"
         topics: ["commerce", "discovery"]
-        include_paths: ["README.md", "docs/specification", "docs/documentation"]
+        include_paths: ["README.md", "docs/specification/overview", "docs/specification/shopping/checkout",
+                        "docs/specification/shopping/cart", "docs/specification/shopping/catalog",
+                        "docs/specification/payment/guide.md", "docs/specification/payment/extensions/ap2-mandates.md",
+                        "docs/documentation/core-concepts.md", "docs/documentation/ucp-and-ap2.md",
+                        "docs/specification"]
         file_limit: 40
       - repo: "agentic-commerce-protocol/agentic-commerce-protocol"
         steward: "OpenAI and Stripe (ACP maintainers)"
@@ -143,12 +148,16 @@ sources:
       - repo: "coinbase/x402"
         steward: "x402 Foundation (Linux Foundation)"
         topics: ["payments"]
-        include_paths: ["README.md", "specs"]
+        include_paths: ["README.md", "specs/x402-specification-v2.md", "specs/transports-v2",
+                        "specs/schemes/exact/scheme_exact.md", "specs/schemes/exact/scheme_exact_evm.md",
+                        "specs/schemes/upto/scheme_upto.md", "specs/schemes/auth-capture/scheme_auth_capture.md",
+                        "specs/schemes/batch-settlement/scheme_batch_settlement.md", "specs/README.md",
+                        "specs/x402-specification-v1.md", "specs/extensions"]
         file_limit: 25
       - repo: "Agent-Card/ai-catalog"
         steward: "Agent Card Working Group (Linux Foundation)"
         topics: ["discovery"]
-        include_paths: ["README.md", "GOVERNANCE.md", "specification", "docs"]
+        include_paths: ["README.md", "GOVERNANCE.md", "specification", "docs/specification.md", "docs"]
         file_limit: 20
 
 # ADR-009. The curator never writes to main.

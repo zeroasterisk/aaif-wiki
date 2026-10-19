@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import subprocess
 import time
 from datetime import UTC, datetime
@@ -27,6 +28,8 @@ import httpx
 
 from ..config import ExternalSourceCfg, GitHubCfg
 from ..models import FilePointer, Lifecycle, RawEvent, SourceType
+
+log = logging.getLogger("aaif_wiki.connectors.github")
 
 API = "https://api.github.com"
 USER_AGENT = "aaif-wiki/0.1 (+https://github.com/zeroasterisk/aaif-wiki)"
@@ -45,8 +48,16 @@ class RateLimited(RuntimeError):
 
 
 def is_external(repo: str) -> bool:
-    """AAIF repos are bare names; external sources are ``owner/name`` (ADR-013)."""
+    """Syntactic check: AAIF repos are bare names; external sources are ``owner/name``.
+
+    Being ``owner/name`` is not enough to be ingested: ``GitHubConnector.resolve``
+    rejects anything not on the ``sources.github.external`` allowlist (ADR-013).
+    """
     return "/" in repo
+
+
+class UnlistedRepo(ValueError):
+    """An ``owner/name`` that is not on the external allowlist."""
 
 
 class GitHubConnector:
@@ -60,14 +71,17 @@ class GitHubConnector:
         self._budget_exhausted = False
 
     # -- HTTP -----------------------------------------------------------
-    def _headers(self) -> dict:
+    def _headers(self, *, authenticated: bool = True) -> dict:
         headers = {"Accept": "application/vnd.github+json", "User-Agent": USER_AGENT}
-        token = self.cfg.token()
+        # The AAIF token is scoped to the aaif org; never send it elsewhere (ADR-013 §4).
+        token = self.cfg.token() if authenticated else None
         if token:
             headers["Authorization"] = f"Bearer {token}"
         return headers
 
-    def _get(self, url: str, *, ttl_seconds: int = 3600) -> list | dict | None:
+    def _get(
+        self, url: str, *, ttl_seconds: int = 3600, authenticated: bool = True
+    ) -> list | dict | None:
         """Cached GET. Returns None when the request cannot be served."""
         key = self.api_cache / f"{_digest(url)}.json"
         if key.exists() and (time.time() - key.stat().st_mtime) < ttl_seconds:
@@ -78,7 +92,7 @@ class GitHubConnector:
         if self._budget_exhausted:
             return None
         try:
-            resp = httpx.get(url, headers=self._headers(), timeout=30.0)
+            resp = httpx.get(url, headers=self._headers(authenticated=authenticated), timeout=30.0)
         except httpx.HTTPError:
             return None
 
@@ -127,6 +141,21 @@ class GitHubConnector:
         return sorted(names) or list(self.cfg.repositories)
 
     # -- coordinates ----------------------------------------------------
+    def resolve(self, repo: str) -> str:
+        """Canonical repo key. Bare names (and ``aaif/name``) are AAIF; any other
+        ``owner/name`` must be allowlisted and is returned in its configured case,
+        so ``Coinbase/X402`` and ``coinbase/x402`` produce the same coordinates."""
+        repo = repo.strip().strip("/")
+        owner, _, name = repo.partition("/")
+        if name and owner.lower() == self.cfg.org.lower():
+            return name
+        if not name:
+            return repo
+        ext = self.cfg.external_for(repo)
+        if ext is None:
+            raise UnlistedRepo(f"{repo} is not in sources.github.external (ADR-013)")
+        return ext.repo
+
     def _full_name(self, repo: str) -> str:
         return repo if is_external(repo) else f"{self.cfg.org}/{repo}"
 
@@ -134,8 +163,14 @@ class GitHubConnector:
         return self.cfg.external_for(repo) if is_external(repo) else None
 
     def _event_prefix(self, repo: str) -> str:
-        """Event ids become filenames, so ``owner/name`` cannot appear verbatim."""
-        return f"ext-{_slug(repo)}" if is_external(repo) else repo
+        """Event ids become filenames, so ``owner/name`` cannot appear verbatim.
+
+        The slug is lossy (``a-b/c`` and ``a/b-c`` both slug to ``a-b-c``), so a
+        short hash of the exact lower-cased name keeps ids collision-free.
+        """
+        if not is_external(repo):
+            return repo
+        return f"ext-{_slug(repo)}-{_digest(repo.lower())[:6]}"
 
     # -- git mirror -----------------------------------------------------
     def sync_repo(self, repo: str) -> Path | None:
@@ -204,28 +239,24 @@ class GitHubConnector:
 
         listing = self._git(repo_dir, "ls-tree", "-r", "HEAD")
         ext = self._external(repo)
-        if ext is not None:
-            limit = min(limit, ext.file_limit)
         full = self._full_name(repo)
         prefix = self._event_prefix(repo)
         events: list[RawEvent] = []
         lines = listing.splitlines()
-        for line in lines if ext is not None else lines[: limit * 4]:
-            # <mode> <type> <sha>\t<path>
-            try:
-                meta, path = line.split("\t", 1)
-                _mode, obj_type, blob_sha = meta.split()
-            except ValueError:
-                continue
-            if obj_type != "blob":
-                continue
-            if not any(path.endswith(x) for x in self.cfg.doc_extensions):
-                continue
-            if ext is not None and ext.include_paths and not any(
-                path == p or path.startswith(p.rstrip("/") + "/") for p in ext.include_paths
-            ):
-                continue
-
+        if ext is not None:
+            limit = min(limit, ext.file_limit)
+            candidates = self._select_external(lines, ext)
+            if len(candidates) > limit:
+                log.warning(
+                    "%s: file_limit %d keeps %d of %d matching files; dropped e.g. %s",
+                    repo, limit, limit, len(candidates), candidates[limit][1],
+                )
+        else:
+            candidates = [
+                c for c in map(self._blob, lines[: limit * 4])
+                if c and any(c[1].endswith(x) for x in self.cfg.doc_extensions)
+            ]
+        for blob_sha, path in candidates:
             when = self._git(repo_dir, "log", "-1", "--format=%cI", "--", path).strip()
             author = self._git(repo_dir, "log", "-1", "--format=%an", "--", path).strip()
             subject = self._git(repo_dir, "log", "-1", "--format=%s", "--", path).strip()
@@ -258,6 +289,39 @@ class GitHubConnector:
                 break
         return events
 
+    @staticmethod
+    def _blob(line: str) -> tuple[str, str] | None:
+        """``<mode> <type> <sha>\\t<path>`` -> (sha, path) for blobs."""
+        try:
+            meta, path = line.split("\t", 1)
+            _mode, obj_type, blob_sha = meta.split()
+        except ValueError:
+            return None
+        return (blob_sha, path) if obj_type == "blob" else None
+
+    @staticmethod
+    def _select_external(lines: list[str], ext: ExternalSourceCfg) -> list[tuple[str, str]]:
+        """Matching files ranked by ``include_paths`` order, then by path.
+
+        ``ls-tree`` order is alphabetical, so cutting at ``file_limit`` kept
+        ``docs/examples/*`` and dropped the actual specs. Listing order in the
+        config is now the priority: put the normative paths first.
+        """
+        def rank(path: str) -> int | None:
+            for i, p in enumerate(ext.include_paths or [""]):
+                if not p or path == p or path.startswith(p.rstrip("/") + "/"):
+                    return i
+            return None
+
+        ranked = []
+        for blob in map(GitHubConnector._blob, lines):
+            if not blob or not any(blob[1].endswith(x) for x in ext.doc_extensions):
+                continue
+            r = rank(blob[1])
+            if r is not None:
+                ranked.append((r, blob[1].count("/"), blob[1], blob[0]))
+        return [(sha, path) for _r, _d, path, sha in sorted(ranked)]
+
     # -- events: pull requests, issues, discussions ----------------------
     def scan_pull_requests(self, repo: str) -> list[RawEvent]:
         ext = self._external(repo)
@@ -265,7 +329,8 @@ class GitHubConnector:
             return []
         data = self._get(
             f"{API}/repos/{self._full_name(repo)}/pulls"
-            f"?state=all&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}"
+            f"?state=all&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}",
+            authenticated=ext is None,
         )
         if not isinstance(data, list):
             return []
@@ -292,7 +357,8 @@ class GitHubConnector:
             return []
         data = self._get(
             f"{API}/repos/{self._full_name(repo)}/issues"
-            f"?state=open&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}"
+            f"?state=open&sort=updated&direction=desc&per_page={self.cfg.max_items_per_repo}",
+            authenticated=ext is None,
         )
         if not isinstance(data, list):
             return []
@@ -348,6 +414,7 @@ class GitHubConnector:
 
     # -- orchestration entry point ---------------------------------------
     def scan_repo(self, repo: str, file_limit: int = 200) -> list[RawEvent]:
+        repo = self.resolve(repo)  # raises UnlistedRepo for non-allowlisted owner/name
         events: list[RawEvent] = []
         events.extend(self.scan_files(repo, limit=file_limit))
         events.extend(self.scan_pull_requests(repo))

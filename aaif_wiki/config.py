@@ -141,6 +141,8 @@ class ExternalSourceCfg(BaseModel):
     include_paths: list[str] = Field(default_factory=list)
     include_prs: bool = False
     include_issues: bool = False
+    # Externals default to prose: schema/YAML files crowd out the spec text.
+    doc_extensions: list[str] = Field(default_factory=lambda: [".md", ".markdown"])
     file_limit: int = 60
 
     @property
@@ -161,8 +163,10 @@ class GitHubCfg(BaseModel):
     external: list[ExternalSourceCfg] = Field(default_factory=list)
 
     def external_for(self, repo: str) -> ExternalSourceCfg | None:
-        """Look up an external source by ``owner/name``."""
-        return next((e for e in self.external if e.repo == repo), None)
+        """Look up an allowlisted external source by ``owner/name`` (case-insensitive,
+        as GitHub is). Anything not on the allowlist is not an external source."""
+        key = repo.strip().strip("/").lower()
+        return next((e for e in self.external if e.repo.lower() == key), None)
 
     def token(self) -> str | None:
         # Sources live in the aaif org; a fine-grained token scoped there takes

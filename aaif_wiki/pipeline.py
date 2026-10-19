@@ -15,6 +15,7 @@ import logging
 from datetime import UTC, datetime
 from pathlib import Path
 
+from . import provenance
 from .config import Config, get_config
 from .curator import Curator
 from .models import (
@@ -33,25 +34,6 @@ from .okf import load_bundle, write_concept
 from .orchestration.base import REGISTRY, RetryPolicy, activity
 from .store import EventIndex, EventStore
 from .validate import validate_bundle, validate_mutation
-
-
-def _is_external_source_id(source_id: str) -> bool:
-    """ADR-013 external events carry the ``evt-ext-`` coordinate prefix."""
-    return source_id.startswith("evt-ext-")
-
-
-def external_overwrites_aaif(existing, mutation: Mutation) -> bool:
-    """True if an external-only mutation would replace a page built from AAIF sources.
-
-    New pages and pages that were already external-only are fine. A mutation that
-    carries at least one AAIF source is an AAIF curation and may proceed.
-    """
-    if existing is None or mutation.concept is None:
-        return False
-    if not any(not _is_external_source_id(s.id) for s in existing.sources):
-        return False
-    return all(_is_external_source_id(s.id) for s in mutation.concept.sources)
-
 
 log = logging.getLogger("aaif_wiki.pipeline")
 
@@ -209,22 +191,23 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
             # Owned by the deterministic roster (ADR-014); never model-written.
             log.info("refusing LLM mutation of deterministic page %s", mutation.slug)
             continue
-        if external_overwrites_aaif(load_bundle(cfg.bundle_dir).get(mutation.slug), mutation):
-            # ADR-013: updates replace a page's body and sources wholesale, so an
-            # external-fed rewrite of an AAIF page would erase its AAIF provenance
-            # and restate AAIF work in another body's words.
-            log.warning("refusing external-sourced rewrite of AAIF page %s", mutation.slug)
+        existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
+        lost = provenance.dropped_classes(existing, mutation.concept, cfg.sources.github.org)
+        if mutation.action != "deprecate" and lost:
+            # ADR-013: updates replace a page's body and sources wholesale. A
+            # single-class rewrite would flip provenance: an AAIF page restated
+            # from external sources, or an external standard losing its steward.
+            log.warning("refusing rewrite of %s that drops %s sources", mutation.slug, lost)
             issues.append(
                 ValidationIssue(
                     severity="warning",
-                    check="external-overwrite",
+                    check="provenance-overwrite",
                     path=f"{mutation.slug}.md",
-                    message="external-sourced mutation may not rewrite an AAIF-sourced page",
+                    message=f"mutation would drop all {'/'.join(sorted(lost))} sources",
                 )
             )
             continue
         if mutation.action == "deprecate":
-            existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
             if existing:
                 existing.status = ConceptStatus.DEPRECATED
                 write_concept(cfg.bundle_dir, existing)
@@ -232,6 +215,7 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
             continue
         if mutation.concept:
             mutation.concept.slug = mutation.slug
+            provenance.normalise_tags(mutation.concept, cfg.sources.github.org)
             # All generated concepts in the bundle are draft until human review (ADR-009)
             if not mutation.concept.verified:
                 mutation.concept.status = ConceptStatus.DRAFT

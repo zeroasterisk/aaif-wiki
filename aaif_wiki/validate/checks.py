@@ -16,6 +16,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
+from .. import provenance
 from ..models import Concept, Mutation, ValidateResult, ValidationIssue
 from ..okf import PROFILE_REQUIRED, SPEC_REQUIRED, extract_links, is_root_absolute, load_bundle
 
@@ -75,6 +76,20 @@ def validate_concept(
                 issues.append(
                     _issue("error", "provenance", path, f"sources[] id not in event store: {src.id}")
                 )
+    # ADR-013: the `external` tag must mirror the sources, so hand edits and later
+    # overwrites can't silently pass external work off as AAIF (or vice versa).
+    has_ext = "external" in provenance.classes(concept)
+    if has_ext != ("external" in concept.tags):
+        issues.append(
+            _issue(
+                "error",
+                "external-tag",
+                path,
+                "cites external sources but lacks the `external` tag"
+                if has_ext
+                else "tagged `external` but cites no external source",
+            )
+        )
 
     # -- trust tier coherence (ADR-009)
     if concept.status.value == "stable" and concept.trust_tier == "unverified":

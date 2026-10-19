@@ -192,7 +192,16 @@ class Curator:
                 continue
 
             source_ids = [s for s in (raw.get("source_event_ids") or []) if s in by_id]
-            contributing = [by_id[s] for s in source_ids] or events
+            if source_ids:
+                contributing = [by_id[s] for s in source_ids]
+            elif len({external_steward(e) is not None for e in events}) > 1:
+                # No valid citation in a batch mixing AAIF and external events:
+                # attributing the whole batch would mis-cite one class as the other
+                # (ADR-013). Drop rather than guess.
+                log.warning("dropping %s: no valid source_event_ids in a mixed batch", slug)
+                continue
+            else:
+                contributing = events
 
             concept = None
             if action != "deprecate":
@@ -209,13 +218,12 @@ class Curator:
                 elif declared == "deprecated":
                     status = ConceptStatus.DEPRECATED
 
-                # Server-side provenance (ADR-013): a concept fed by non-AAIF
-                # sources is tagged so readers and validators can tell, whatever
-                # the model wrote.
-                tags = [str(t) for t in (cdata.get("tags") or [])]
-                stewards = sorted({s for s in (external_steward(e) for e in contributing) if s})
-                if stewards:
-                    tags = ["external"] + [t for t in tags if t != "external"]
+                # Server-side provenance (ADR-013): the `external` tag is recomputed
+                # from sources in apply_mutations (provenance.normalise_tags); set it
+                # here too so callers of _parse see the same answer.
+                tags = [str(t) for t in (cdata.get("tags") or []) if str(t) != "external"]
+                if any(external_steward(e) for e in contributing):
+                    tags = ["external", *tags]
 
                 concept = Concept(
                     type=str(cdata.get("type", "Concept")),
