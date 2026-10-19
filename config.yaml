@@ -157,6 +157,12 @@ sources:
                         "specs/schemes/batch-settlement/scheme_batch_settlement.md", "specs/README.md",
                         "specs/x402-specification-v1.md", "specs/extensions"]
         file_limit: 25
+      - repo: "i-am-bee/acp"   # archived; cited only to disambiguate "ACP"
+        # README: "ACP is now part of A2A under the Linux Foundation" (2025-08-25)
+        steward: "IBM Research (BeeAI); archived, merged into A2A"
+        topics: ["communication"]
+        include_paths: ["README.md"]
+        file_limit: 1
       - repo: "Agent-Card/ai-catalog"
         # README: temporary working repo maintained by the LF; GOVERNANCE.md: TSC
         # seats nominated by MCP core maintainers (2) and the A2A TSC (2).
