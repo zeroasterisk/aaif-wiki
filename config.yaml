@@ -122,7 +122,7 @@ sources:
     external:
       - repo: "frmoretto/agentic-standards-map"
         # Independent CC BY 4.0 dataset; the author discloses participating in venues it maps.
-        steward: "Francesco Marinoni Moretto (independent researcher; not affiliated with AAIF)"
+        steward: "Francesco Marinoni Moretto (independent researcher)"
         topics: ["landscape", "governance", "commerce", "discovery", "identity"]
         include_paths: ["README.md", "METHOD.md", "MAP.md", "notes/seams.md", "entries"]
         doc_extensions: [".md", ".yaml"]   # entries/*.yaml ARE the map's content
