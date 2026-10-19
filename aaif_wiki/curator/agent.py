@@ -30,7 +30,7 @@ from ..models import (
     RawEvent,
 )
 from ..orchestration.local import BudgetExceeded
-from .prompts import PromptAssembler, lifecycle_forces_draft
+from .prompts import PromptAssembler, external_steward, lifecycle_forces_draft
 
 log = logging.getLogger("aaif_wiki.curator")
 
@@ -192,7 +192,16 @@ class Curator:
                 continue
 
             source_ids = [s for s in (raw.get("source_event_ids") or []) if s in by_id]
-            contributing = [by_id[s] for s in source_ids] or events
+            if source_ids:
+                contributing = [by_id[s] for s in source_ids]
+            elif len({external_steward(e) is not None for e in events}) > 1:
+                # No valid citation in a batch mixing AAIF and external events:
+                # attributing the whole batch would mis-cite one class as the other
+                # (ADR-013). Drop rather than guess.
+                log.warning("dropping %s: no valid source_event_ids in a mixed batch", slug)
+                continue
+            else:
+                contributing = events
 
             concept = None
             if action != "deprecate":
@@ -209,12 +218,19 @@ class Curator:
                 elif declared == "deprecated":
                     status = ConceptStatus.DEPRECATED
 
+                # Server-side provenance (ADR-013): the `external` tag is recomputed
+                # from sources in apply_mutations (provenance.normalise_tags); set it
+                # here too so callers of _parse see the same answer.
+                tags = [str(t) for t in (cdata.get("tags") or []) if str(t) != "external"]
+                if any(external_steward(e) for e in contributing):
+                    tags = ["external", *tags]
+
                 concept = Concept(
                     type=str(cdata.get("type", "Concept")),
                     title=str(cdata["title"]),
                     description=str(cdata.get("description", ""))[:300],
                     resource=contributing[0].url if contributing else None,
-                    tags=[str(t) for t in (cdata.get("tags") or [])][:8],
+                    tags=tags[:8],
                     generated=actor,
                     verified=[],  # only a human review adds this (ADR-009)
                     status=status,
@@ -237,7 +253,8 @@ class Curator:
                     slug=slug,
                     concept=concept,
                     rationale=str(raw.get("rationale", ""))[:500],
-                    source_event_ids=source_ids,
+                    # The evidence actually used, so the apply gate judges provenance on it.
+                    source_event_ids=[e.event_id for e in contributing],
                 )
             )
         return out

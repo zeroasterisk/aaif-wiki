@@ -126,6 +126,30 @@ class OrchestratorCfg(BaseModel):
     task_queue: str = "aaif-wiki-queue"
 
 
+class ExternalSourceCfg(BaseModel):
+    """A non-AAIF repository on an adjacent topic (ADR-013).
+
+    ``repo`` is ``owner/name``. ``steward`` is the organization that governs the
+    work; it is never AAIF, and the curator must attribute it as such.
+    ``include_paths`` limits file ingestion to path prefixes so CLAs, examples and
+    changelogs never become concepts.
+    """
+
+    repo: str
+    steward: str
+    topics: list[str] = Field(default_factory=list)
+    include_paths: list[str] = Field(default_factory=list)
+    include_prs: bool = False
+    include_issues: bool = False
+    # Externals default to prose: schema/YAML files crowd out the spec text.
+    doc_extensions: list[str] = Field(default_factory=lambda: [".md", ".markdown"])
+    file_limit: int = 60
+
+    @property
+    def name(self) -> str:
+        return self.repo.split("/", 1)[1]
+
+
 class GitHubCfg(BaseModel):
     org: str = "aaif"
     discover_repos: bool = True
@@ -136,6 +160,13 @@ class GitHubCfg(BaseModel):
     include_issues: bool = True
     include_discussions: bool = True
     max_items_per_repo: int = 25
+    external: list[ExternalSourceCfg] = Field(default_factory=list)
+
+    def external_for(self, repo: str) -> ExternalSourceCfg | None:
+        """Look up an allowlisted external source by ``owner/name`` (case-insensitive,
+        as GitHub is). Anything not on the allowlist is not an external source."""
+        key = repo.strip().strip("/").lower()
+        return next((e for e in self.external if e.repo.lower() == key), None)
 
     def token(self) -> str | None:
         # Sources live in the aaif org; a fine-grained token scoped there takes

@@ -108,3 +108,12 @@ def test_mutation_without_concept_is_rejected():
 
 def test_deprecate_needs_no_concept():
     assert validate_mutation(Mutation(action="deprecate", slug="a/b")) == []
+
+
+def test_url_template_in_inline_code_is_not_an_outbound_link():
+    body = "# Overview\n\nCards live at `https://{brandDomain}/.well-known/agent-card.json`.\n"
+    assert not [i for i in validate_concept(_c(body=body), link_allowlist=["github.com"])
+                if i.check == "link-allowlist"]
+    leak = "# Overview\n\nSee https://evil.example/x and `code`.\n"
+    assert [i for i in validate_concept(_c(body=leak), link_allowlist=["github.com"])
+            if i.check == "link-allowlist"]
