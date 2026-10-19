@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-b60c6a93e9f7-26db5c3d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "GOVERNANCE.md",
+  "title": "GOVERNANCE.md",
+  "timestamp": "2026-06-10T09:50:32+02:00",
+  "author": "Luca Muscariello",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/GOVERNANCE.md",
+  "summary": "chore: add Tadas Antanavicius (PulseMCP) to TSC members",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "GOVERNANCE.md",
+      "blob_sha": "26db5c3de90643c0fba9247afe386b3eaaf8fa2c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

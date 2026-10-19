@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-472912440253-6dc1e0bc",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.delegate_authentication.md",
+  "title": "rfc.delegate_authentication.md",
+  "timestamp": "2026-02-26T15:37:41-05:00",
+  "author": "dean-adyen",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.delegate_authentication.md",
+  "summary": "[SEP] Delegated Authentication: API contract for agent to merchant-specified authentication provider #79 (#93)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.delegate_authentication.md",
+      "blob_sha": "6dc1e0bc916f727d7e1e74d61eb7c1bb9528b06e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

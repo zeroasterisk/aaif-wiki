@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-9dab0c9ee6dd-6e70cc34",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/w3c-ai-agent-protocol-cg.yaml",
+  "title": "w3c-ai-agent-protocol-cg.yaml",
+  "timestamp": "2026-10-14T06:28:09+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/w3c-ai-agent-protocol-cg.yaml",
+  "summary": "Review corrections 2026-10-14: data, notes, tools",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/w3c-ai-agent-protocol-cg.yaml",
+      "blob_sha": "6e70cc349153af6ba90c53a7feaed8796651dca6",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

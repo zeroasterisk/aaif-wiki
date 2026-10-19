@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-2fee0f847286-935266e7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/guides/creating-a-catalog.md",
+  "title": "creating-a-catalog.md",
+  "timestamp": "2026-10-01T09:36:24-04:00",
+  "author": "Darrel",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/guides/creating-a-catalog.md",
+  "summary": "Merge pull request #109 from jonathanhefner/agent/remove-host-trust-manifests",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/guides/creating-a-catalog.md",
+      "blob_sha": "935266e72e36552cfb7b6bcd0d34192221c96eaf",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

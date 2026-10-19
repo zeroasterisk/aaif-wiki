@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-955ebfe208df-4fecd4ef",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/w3c-gs1-ecommerce-workshop.yaml",
+  "title": "w3c-gs1-ecommerce-workshop.yaml",
+  "timestamp": "2026-10-14T06:32:08+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/w3c-gs1-ecommerce-workshop.yaml",
+  "summary": "Review corrections 2026-10-14: persons and third parties, state of a cited pull request",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/w3c-gs1-ecommerce-workshop.yaml",
+      "blob_sha": "4fecd4efb1179118417496558d2f7501a0d63f29",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

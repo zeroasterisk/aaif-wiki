@@ -25,6 +25,7 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 
 ## governance
 
+- [People: Technical Committee and Working Group Chairs](governance/people.md) — Roster of the AAIF Technical Committee (8 members) and the chairs of 8 working groups and workstreams, parsed from their READMEs. _(draft, unverified)_
 - [Technical Committee](governance/technical-committee.md) — Governing technical body of the Agentic AI Foundation managing working groups, project intake, and technical vision. _(draft, unverified)_
 
 ## guidelines
@@ -70,6 +71,7 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 - [Agent-to-Tool CLI Subprocess Boundary](resources/agent-tool-cli-boundary.md) — Observability reference matrix and telemetry propagation model analyzing the direct agent-to-tool local CLI subprocess boundary. _(draft, unverified)_
 - [Agentic AI Landscape](resources/agentic-ai-landscape.md) — Interactive catalog, schema specification, and CI validation engine mapping open-source agentic AI projects, runtimes, and protocols. _(draft, unverified)_
 - [Agentic AI Threat Modeling Gap Analysis and Framework Design](resources/agentic-ai-threat-modeling-gap-analysis.md) — Comparative threat modeling evaluation benchmarking OWASP, MITRE ATLAS, CSA MAESTRO, and NIST AI RMF across eight agentic threat domains. _(draft, unverified)_
+- [Agentic Standards Map](resources/agentic-standards-map.md) — Independent comparative catalog and cross-venue landscape tracking agent commerce, identity, discovery, and payment specifications. _(draft, unverified)_
 - [Agentic Use Case Classification and Inventory](resources/agentic-use-case-classification.md) — Empirical inventory and classification schema mapping production agentic workflows against multi-dimensional properties and strict deployment evidentiary standards. _(draft, unverified)_
 - [Agentic Vulnerability Enumeration](resources/agentic-vulnerability-enumeration.md) — Open vulnerability catalog assigning stable identifiers and OWASP AIVSS severity scores to behavioral flaws in agentic AI components. _(draft, unverified)_
 - [Agentic AI Workflow Patterns Comparison](resources/agentic-workflow-patterns-comparison.md) — Comparative taxonomy and operational analysis evaluating agentic workflow orchestration patterns, complexity tiers, and agency levels across major AI ecosystems. _(draft, unverified)_
@@ -108,6 +110,7 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 - [Processor Tracing (Intel PT, ARM ETM, AMD IBS)](resources/processor-tracing.md) — Reference architecture evaluating hardware processor tracing (Intel PT, ARM ETM, AMD IBS/BRS) for cycle-accurate control flow reconstruction and micro-architectural analysis. _(draft, unverified)_
 - [AAIF Public Agent Resources and Skills](resources/public-agent-skills.md) — Public repository packaging portable agent skills, repeatable recipes, prompt templates, and CI canary workflows for foundation automation. _(draft, unverified)_
 - [PyTorch Profiler Reference Architecture](resources/pytorch-profiler.md) — Reference architecture documenting PyTorch Profiler instrumentation across Python dispatch, ATen backend, and GPU kernel execution. _(draft, unverified)_
+- [Shopify Agent MCP Surfaces](resources/shopify-mcp.md) — Architectural reference analyzing Shopify Model Context Protocol surfaces spanning Checkout WebMCP, developer tooling, merchant administration, and Shop CLI. _(draft, unverified)_
 - [Spector Memory Engine](resources/spector.md) — Open-source cognitive memory engine and MCP server providing multi-tier state retention, decay scoring, and namespace isolation for AI agents. _(draft, unverified)_
 - [Submission Analyser](resources/submission-analyser.md) — Headless CI triage agent utilizing GitHub Actions, Copilot inference, and multi-model fallback to validate incoming issue submissions in a read-only environment. _(draft, unverified)_
 - [sysdig](resources/sysdig.md) — Reference architecture for open-source sysdig capturing kernel syscalls, enriching container context, and replaying system traces. _(draft, unverified)_
@@ -129,15 +132,48 @@ architectures and taxonomy of the Agentic AI Foundation (AAIF).
 
 ## standards
 
+- [Agent-to-Agent Protocol (A2A)](standards/a2a.md) — Open protocol standardizing agent-to-agent communication, AgentCard manifests, and task lifecycle coordination. _(draft, unverified)_
 - [Agent Behavior Trace Model](standards/agent-behavior-trace-model.md) — Vendor-neutral telemetry framework capturing agent reasoning paths, state transitions, execution receipts, and testable conformance vectors. _(draft, unverified)_
 - [Agent Client Protocol](standards/agent-client-protocol.md) — Open standard for communication between code editors or IDEs and AI coding agents over JSON-RPC or HTTP/WebSocket. _(draft, unverified)_
 - [Agent Network Protocol](standards/agent-network-protocol.md) — Open communication protocol stack utilizing Decentralized Identifiers (DIDs) for cross-platform agent identity, secure messaging, and semantic discovery. _(draft, unverified)_
 - [Agent Skills Specification](standards/agent-skills.md) — Open file-based packaging format and progressive disclosure standard for extending AI agents with procedural knowledge, executable scripts, and resources. _(draft, unverified)_
 - [Agent Trace Specification](standards/agent-trace.md) — Open specification and reference architecture for line-level AI code attribution tracing in version-controlled repositories. _(draft, unverified)_
+- [Agentic Commerce Protocol (ACP)](standards/agentic-commerce-protocol.md) — Open checkout and payment negotiation protocol stewarded by OpenAI, Stripe, and Meta connecting buyers, AI agents, and merchants. _(draft, unverified)_
 - [Agentic Resource Discovery](standards/agentic-resource-discovery.md) — Decentralized specification and discovery architecture enabling agents to find and verify AI resources via static catalogs and dynamic registries. _(draft, unverified)_
+- [AI Catalog](standards/ai-catalog.md) — Open specification and discovery mechanism indexing AI tools, agents, and capabilities across flexible publisher-anchored endpoints. _(draft, unverified)_
+- [Agent Payment Protocol (AP2)](standards/ap2.md) — Open agent payments protocol stewarded by the FIDO Alliance establishing mandate delegation, action constraints, and cryptographically verified checkout. _(draft, unverified)_
+- [AuthZEN Agent Authorization (AARP and COAZ)](standards/authzen-agent-authorization.md) — Draft specifications stewarded by the OpenID Foundation defining prerequisite policy checks and MCP tool authorization profiles. _(draft, unverified)_
+- [CEN/CENELEC JTC 24 Digital Product Passport Standards](standards/cen-clc-jtc24-dpp.md) — Suite of eight horizontal Digital Product Passport standards (EN 18216 to EN 18246) stewarded by CEN/CENELEC covering product identification, data carriers, and searchability. _(draft, unverified)_
+- [DIF Trusted AI Agents Stack](standards/dif-trusted-ai-agents.md) — Decentralized identity, delegation, and verification framework for AI agents stewarded by the Decentralized Identity Foundation (DIF). _(draft, unverified)_
+- [EMILIA Protocol](standards/emilia-protocol.md) — Experimental authority gate and action-evidence boundary architecture stewarded independently by EMILIA Protocol, Inc. _(draft, unverified)_
+- [EMV Agentic Payments Framework](standards/emvco-agentic-payments-framework.md) — Draft framework for card-based agentic payments and consumer intent registration stewarded by EMVCo. _(draft, unverified)_
 - [Evidence Record Specification](standards/evidence-record-spec.md) — Testable JSON Schema and interchange data model encoding agent observation sources, verification vantages, E0-E4 integrity grades, and claim reconciliation. _(draft, unverified)_
+- [GS1-Conformant Resolver Standard](standards/gs1-conformant-resolver.md) — Resolution standard stewarded by GS1 mapping Digital Link URIs and product keys to related web data and services. _(draft, unverified)_
+- [IEEE P3931 Agent Description, Discovery, and Registry (ADDR)](standards/ieee-p3931-addr.md) — Interoperability standard stewarded by the IEEE Standards Association specifying agent description models, registry mechanisms, and cross-platform discovery protocols. _(draft, unverified)_
+- [IETF Agent Communication Protocols (agentproto)](standards/ietf-agentproto.md) — Agentic dialog management protocol and lifecycle specification stewarded by the Internet Engineering Task Force (IETF). _(draft, unverified)_
+- [IETF AI Preferences](standards/ietf-aipref.md) — IETF protocol specifications defining vocabularies and attachment mechanisms for expressing content processing preferences for AI models. _(draft, unverified)_
+- [IETF AUDIT (Agent Use of Delegation and Interaction Traceability)](standards/ietf-audit.md) — Proposed IETF auditing and interaction record framework for observable agent behaviors and delegated execution. _(draft, unverified)_
+- [IETF DAWN (Discovery of Agents With Names)](standards/ietf-dawn.md) — Proposed IETF protocol framework standardizing discovery mechanisms for public AI agent endpoints and reachability metadata. _(draft, unverified)_
+- [Payment HTTP Authentication Scheme](standards/ietf-httpauth-payment.md) — Proposed HTTP authentication scheme stewarded within the IETF defining standardized payment challenges and Payment-Receipt headers. _(draft, unverified)_
+- [IETF vCon (Virtualized Conversations)](standards/ietf-vcon.md) — JSON container standardizing conversational data records, media references, and proposed AI agent interaction extensions. _(draft, unverified)_
+- [IETF Web Bot Auth](standards/ietf-webbotauth.md) — Draft standard defining cryptographic HTTP message signatures and public key directories for authenticating automated agent clients. _(draft, unverified)_
+- [IETF WIMSE AI Identity Management System (AIMS)](standards/ietf-wimse-aims.md) — Informational IETF draft establishing best practices for authentication and authorization across autonomous AI agent interactions. _(draft, unverified)_
+- [KYAPay](standards/kyapay.md) — Draft token and authorization specification extending OAuth to convey verified agent identity, human delegation, and payment credentials. _(draft, unverified)_
+- [Mastercard Agent Pay](standards/mastercard-agent-pay.md) — Commercial agentic payment acceptance framework stewarded by Mastercard integrating Web Bot Auth verification and dynamic agentic tokens. _(draft, unverified)_
+- [MCP Server Cards](standards/mcp-server-card.md) — Static metadata document format and discovery protocol enabling clients to discover and connect to remote MCP servers. _(draft, unverified)_
+- [Model Context Protocol](standards/model-context-protocol.md) — Open protocol standardizing integration between LLM applications and external data sources, tools, and prompts. _(draft, unverified)_
 - [Open Responses](standards/open-responses.md) — Vendor-neutral specification and conformance suite standardizing language model request, response, streaming, and tool-call APIs. _(draft, unverified)_
+- [Personal Agent Consent & Trust Protocol](standards/pact.md) — Open specification stewarded by Decagon and Instinct standardizing personal agent authentication, OAuth device delegation, and action receipts. _(draft, unverified)_
+- [Personal Agent Protocol](standards/personal-agent-protocol.md) — Draft specification stewarded by Sierra and Meta standardizing agent discovery via well-known URIs and OAuth-based merchant interaction. _(draft, unverified)_
 - [TRACE Specification](standards/trace.md) — Open standard and JSON Schema for signed agent execution records supporting verifiable software, hardware-attested, and transparency-anchored evidence. _(draft, unverified)_
+- [Universal Commerce Protocol](standards/universal-commerce-protocol.md) — Open commerce protocol specifying modular shopping discovery, lodging booking, catalog queries, and verifiable checkout handoffs. _(draft, unverified)_
+- [Verifiable Intent](standards/verifiable-intent.md) — Draft specification for cryptographic agent authorization in commerce using layered SD-JWT credentials. _(draft, unverified)_
+- [Visa Trusted Agent Protocol](standards/visa-trusted-agent-protocol.md) — Draft specification stewarded by Visa establishing cryptographic HTTP message signatures and tokenized payment containers for AI agents. _(draft, unverified)_
+- [W3C Agentic Web Working Group](standards/w3c-agentic-web.md) — Proposed W3C working group standardizing client-side web capabilities, context, and permissions for AI agents. _(draft, unverified)_
+- [W3C AI Agent Protocol](standards/w3c-ai-agent-protocol.md) — Draft web specification defining well-known discovery endpoints and DID-based HTTP signatures for AI agent communication. _(draft, unverified)_
+- [W3C DID Resolution](standards/w3c-did-resolution.md) — W3C Candidate Recommendation standardizing Decentralized Identifier resolution and DID URL dereferencing algorithms across decentralized trust infrastructures. _(draft, unverified)_
+- [WebMCP](standards/webmcp.md) — Draft browser-level specification stewarded by the W3C enabling web applications to expose structured client-side tools directly to AI browsing agents. _(draft, unverified)_
+- [x402](standards/x402.md) — Open internet-native payment protocol stewarded by the x402 Foundation under the Linux Foundation standardizing HTTP 402 payment challenges and agent signatures. _(draft, unverified)_
 
 ## taxonomy
 

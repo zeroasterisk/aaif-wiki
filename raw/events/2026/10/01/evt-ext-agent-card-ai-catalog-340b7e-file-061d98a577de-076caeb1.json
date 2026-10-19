@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-061d98a577de-076caeb1",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "specification/ai-catalog.md",
+  "title": "ai-catalog.md",
+  "timestamp": "2026-10-01T11:46:28-04:00",
+  "author": "Darrel",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/specification/ai-catalog.md",
+  "summary": "Merge pull request #110 from jonathanhefner/agent/define-did-web-entry-signatures",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "specification/ai-catalog.md",
+      "blob_sha": "076caeb139e7a3c68b10d22b063a133333c6c9f3",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

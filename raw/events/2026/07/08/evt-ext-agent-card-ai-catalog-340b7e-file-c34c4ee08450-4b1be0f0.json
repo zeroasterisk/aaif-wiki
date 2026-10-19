@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-c34c4ee08450-4b1be0f0",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/guides/serving-your-catalog.md",
+  "title": "serving-your-catalog.md",
+  "timestamp": "2026-07-08T18:51:42Z",
+  "author": "Tadas Antanavicius",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/guides/serving-your-catalog.md",
+  "summary": "docs: reconcile mkdocs site with spec + ADRs (MCP drift)",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/guides/serving-your-catalog.md",
+      "blob_sha": "4b1be0f0151c11b8ccf7861d4718589ec1560789",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

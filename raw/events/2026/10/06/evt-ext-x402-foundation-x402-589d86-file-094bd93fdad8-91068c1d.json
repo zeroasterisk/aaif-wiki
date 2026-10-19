@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-094bd93fdad8-91068c1d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/extensions/builder_code.md",
+  "title": "builder_code.md",
+  "timestamp": "2026-10-06T18:08:52+02:00",
+  "author": "phdargen",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/extensions/builder_code.md",
+  "summary": "feat(builder-code): add facilitator-authored settlement metadata (m) (#3666)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/extensions/builder_code.md",
+      "blob_sha": "91068c1d80876e513cebf982cbe5da7738c514b1",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

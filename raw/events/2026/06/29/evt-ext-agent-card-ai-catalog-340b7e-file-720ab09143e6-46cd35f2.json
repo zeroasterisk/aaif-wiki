@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-720ab09143e6-46cd35f2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/guides/consuming-catalogs.md",
+  "title": "consuming-catalogs.md",
+  "timestamp": "2026-06-29T21:55:03+01:00",
+  "author": "Sam Betts",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/guides/consuming-catalogs.md",
+  "summary": "feat: add MkDocs developer documentation site",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/guides/consuming-catalogs.md",
+      "blob_sha": "46cd35f2d3a4418a05cf1c83bda33ce1327fac79",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

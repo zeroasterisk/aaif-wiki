@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-c38a792b8477-d63ef149",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/examples/multi-protocol-agent.md",
+  "title": "multi-protocol-agent.md",
+  "timestamp": "2026-10-01T07:35:29-07:00",
+  "author": "Jonathan Hefner",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/examples/multi-protocol-agent.md",
+  "summary": "Define did:web verification for Entry Trust Manifests",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/examples/multi-protocol-agent.md",
+      "blob_sha": "d63ef14944dd665b701cd57279d999221ddce32c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

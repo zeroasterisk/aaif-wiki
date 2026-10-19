@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-google-agentic-commerce-ap2-8e3471-file-f23678b4c439-0dae0aa0",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "google-agentic-commerce/AP2",
+  "reference_id": "docs/overview.md",
+  "title": "overview.md",
+  "timestamp": "2026-04-28T05:32:46-07:00",
+  "author": "YanheChen",
+  "url": "https://github.com/google-agentic-commerce/AP2/blob/e1ea56db72a6385bce3e5c1112b3a56ce60acb43/docs/overview.md",
+  "summary": "feat: Release Ap2 v0.2 (#233)",
+  "pointers": [
+    {
+      "repo": "google-agentic-commerce/AP2",
+      "commit_sha": "e1ea56db72a6385bce3e5c1112b3a56ce60acb43",
+      "path": "docs/overview.md",
+      "blob_sha": "0dae0aa038efa7faf87b2eca45e3bd52e7a73a3b",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:FIDO Alliance",
+    "topic:payments",
+    "topic:commerce"
+  ]
+}

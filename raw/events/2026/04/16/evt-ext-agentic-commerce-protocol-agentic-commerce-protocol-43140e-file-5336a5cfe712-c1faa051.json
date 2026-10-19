@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-5336a5cfe712-c1faa051",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "docs/sep-markdown-specification.md",
+  "title": "sep-markdown-specification.md",
+  "timestamp": "2026-04-16T13:00:34-04:00",
+  "author": "nvp-stripe",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/docs/sep-markdown-specification.md",
+  "summary": "SEP: Markdown Content Specification (CommonMark) (#212)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "docs/sep-markdown-specification.md",
+      "blob_sha": "c1faa051e84ac982e31009fa438b0c14f4f537cd",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

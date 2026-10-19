@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-7cddd94ef0fe-88360f38",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/aaif-wg-agentic-commerce.yaml",
+  "title": "aaif-wg-agentic-commerce.yaml",
+  "timestamp": "2026-10-14T21:36:08+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/aaif-wg-agentic-commerce.yaml",
+  "summary": "Version 1.0.1: corrections to the living version, archive links, DAWN examples, IANA request, TPAC calendar, changelog",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/aaif-wg-agentic-commerce.yaml",
+      "blob_sha": "88360f383494bd8f54dfa05845b454d7058cb75f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}
