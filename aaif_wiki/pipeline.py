@@ -27,11 +27,31 @@ from .models import (
     ScanRequest,
     ScanResult,
     ValidateResult,
+    ValidationIssue,
 )
 from .okf import load_bundle, write_concept
 from .orchestration.base import REGISTRY, RetryPolicy, activity
 from .store import EventIndex, EventStore
 from .validate import validate_bundle, validate_mutation
+
+
+def _is_external_source_id(source_id: str) -> bool:
+    """ADR-013 external events carry the ``evt-ext-`` coordinate prefix."""
+    return source_id.startswith("evt-ext-")
+
+
+def external_overwrites_aaif(existing, mutation: Mutation) -> bool:
+    """True if an external-only mutation would replace a page built from AAIF sources.
+
+    New pages and pages that were already external-only are fine. A mutation that
+    carries at least one AAIF source is an AAIF curation and may proceed.
+    """
+    if existing is None or mutation.concept is None:
+        return False
+    if not any(not _is_external_source_id(s.id) for s in existing.sources):
+        return False
+    return all(_is_external_source_id(s.id) for s in mutation.concept.sources)
+
 
 log = logging.getLogger("aaif_wiki.pipeline")
 
@@ -185,6 +205,24 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
                 mutation.exception_reasons,
             )
             continue
+        if mutation.slug == "governance/people":
+            # Owned by the deterministic roster (ADR-014); never model-written.
+            log.info("refusing LLM mutation of deterministic page %s", mutation.slug)
+            continue
+        if external_overwrites_aaif(load_bundle(cfg.bundle_dir).get(mutation.slug), mutation):
+            # ADR-013: updates replace a page's body and sources wholesale, so an
+            # external-fed rewrite of an AAIF page would erase its AAIF provenance
+            # and restate AAIF work in another body's words.
+            log.warning("refusing external-sourced rewrite of AAIF page %s", mutation.slug)
+            issues.append(
+                ValidationIssue(
+                    severity="warning",
+                    check="external-overwrite",
+                    path=f"{mutation.slug}.md",
+                    message="external-sourced mutation may not rewrite an AAIF-sourced page",
+                )
+            )
+            continue
         if mutation.action == "deprecate":
             existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
             if existing:
@@ -237,11 +275,53 @@ def uncurated_event_ids(cfg: Config, limit: int = 0) -> list[str]:
     """
     store = EventStore(cfg.events_dir)
     projected: set[str] = set()
-    for concept in load_bundle(cfg.bundle_dir).values():
+    for slug, concept in load_bundle(cfg.bundle_dir).items():
+        # The deterministic roster (ADR-014) cites WG READMEs too; that must not
+        # stop the LLM curator from updating the WG pages from a new revision.
+        if slug == "governance/people":
+            continue
         projected.update(s.id for s in concept.sources)
 
     pending = [e.event_id for e in store.all_events() if e.event_id not in projected]
     return pending[:limit] if limit else pending
+
+
+def refresh_people(cfg: Config) -> dict:
+    """Regenerate governance/people from TC/WG READMEs (ADR-014). No LLM.
+
+    Rewritten only when the roster or its sources change, so an unchanged run is
+    a no-op diff (the ``generated.at`` stamp would otherwise churn weekly).
+    """
+    from . import people
+    from .connectors import GitHubConnector
+
+    conn = GitHubConnector(cfg.sources.github, cfg.cache_dir)
+
+    def rehydrate(event):
+        for ptr in event.pointers:
+            text = conn.read_pointer(ptr)
+            if text:
+                return text
+        return event.inline_text
+
+    groups = people.collect(EventStore(cfg.events_dir).all_events(), rehydrate)
+    existing = load_bundle(cfg.bundle_dir)
+    concept = people.build_concept(groups, set(existing))
+    if concept is None:
+        return {"groups": 0, "people": 0, "written": False}
+
+    old = existing.get(people.SLUG)
+    written = False
+    if old is None or old.body.strip() != concept.body.strip() or [s.id for s in old.sources] != [
+        s.id for s in concept.sources
+    ]:
+        write_concept(cfg.bundle_dir, concept)
+        written = True
+    return {
+        "groups": len(groups),
+        "people": sum(len(g.people) for g in groups),
+        "written": written,
+    }
 
 
 def reindex_bundle(cfg: Config) -> Path:
@@ -375,6 +455,9 @@ async def run_pipeline(
         "resolution": {"calls": 0, "tokens_in": 0, "tokens_out": 0, "usd": 0.0},
     }
     if not curate or not pending:
+        summary["people"] = refresh_people(cfg)
+        if summary["people"].get("written"):
+            reindex_bundle(cfg)
         return summary
 
     all_mutations: list[Mutation] = []
@@ -415,6 +498,7 @@ async def run_pipeline(
 
     summary["mutations"] = len(all_mutations)
     summary["_mutations"] = all_mutations
+    summary["people"] = refresh_people(cfg)
 
     # Regenerate the root index before validating, so newly written concepts are
     # reachable and do not trip the orphan check.

@@ -131,3 +131,47 @@ def test_curator_tags_concepts_from_external_sources():
     }
     [m] = curator._parse(json.dumps(payload), [event])
     assert m.concept.tags[0] == "external" and "payments" in m.concept.tags
+
+
+def _concept(ids: list[str]):
+    from aaif_wiki.models import Concept, ConceptSource
+
+    return Concept(
+        type="Standard", title="t", description="d", body="# Overview\n\nx",
+        sources=[ConceptSource(id=i, resource="https://github.com/x") for i in ids],
+    )
+
+
+def test_external_only_update_may_not_rewrite_aaif_page(tmp_path, monkeypatch):
+    """Regression: a live run let map-sourced updates replace AAIF WG/TRACE pages wholesale."""
+    import asyncio
+
+    from aaif_wiki import pipeline
+    from aaif_wiki.models import CurateResult, Mutation
+    from aaif_wiki.okf import load_bundle, write_concept
+
+    class _Cfg:
+        bundle_dir = tmp_path
+
+    monkeypatch.setattr(pipeline, "get_config", lambda: _Cfg())
+    aaif = _concept(["evt-wg-agentic-commerce-pr-1"])
+    aaif.slug = "working-groups/agentic-commerce"
+    write_concept(tmp_path, aaif)
+    ext_page = _concept(["evt-ext-coinbase-x402-file-1"])
+    ext_page.slug = "standards/x402"
+    write_concept(tmp_path, ext_page)
+
+    def mut(slug, ids):
+        return Mutation(action="update", slug=slug, rationale="r", source_event_ids=ids, concept=_concept(ids))
+
+    res = asyncio.run(pipeline.apply_mutations(CurateResult(mutations=[
+        mut("working-groups/agentic-commerce", ["evt-ext-frmoretto-agentic-standards-map-file-9"]),  # refused
+        mut("working-groups/agentic-commerce", ["evt-ext-a-file-1", "evt-wg-agentic-commerce-file-2"]),  # mixed: ok
+        mut("standards/x402", ["evt-ext-coinbase-x402-file-2"]),  # external page: ok
+        mut("standards/new-thing", ["evt-ext-coinbase-x402-file-3"]),  # new page: ok
+    ])))
+    assert res.checked == 3
+    assert [i.check for i in res.issues] == ["external-overwrite"]
+    b = load_bundle(tmp_path)
+    assert [s.id for s in b["working-groups/agentic-commerce"].sources] == [
+        "evt-ext-a-file-1", "evt-wg-agentic-commerce-file-2"]

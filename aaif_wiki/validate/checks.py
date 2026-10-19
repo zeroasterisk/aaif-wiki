@@ -113,7 +113,9 @@ def validate_concept(
 
     # -- outbound link allowlist (ADR-007)
     if link_allowlist is not None:
-        for url in URL_RE.findall(concept.body):
+        # Inline code is not a link: URL templates like `https://{host}/x` are spec text.
+        prose = re.sub(r"`[^`\n]*`", "", concept.body)
+        for url in URL_RE.findall(prose):
             host = (urlparse(url).hostname or "").lower()
             if host and not any(host == a or host.endswith("." + a) for a in link_allowlist):
                 issues.append(
