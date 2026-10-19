@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-eeb8125b350a-82ed0bbc",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/payment/tokenization.md",
+  "title": "tokenization.md",
+  "timestamp": "2026-08-24T21:30:02-07:00",
+  "author": "Jing Li",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/payment/tokenization.md",
+  "summary": "feat!: Introduce Location Search + Lookup capabilities (#589)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/payment/tokenization.md",
+      "blob_sha": "82ed0bbc059fe7cd0c517c39389bbcd7ec379aa3",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

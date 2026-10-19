@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-b6e427b588e4-53205881",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/pact.yaml",
+  "title": "pact.yaml",
+  "timestamp": "2026-10-14T04:52:24+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/pact.yaml",
+  "summary": "Initial commit",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/pact.yaml",
+      "blob_sha": "532058814949852b52872277f5871011797acfa8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

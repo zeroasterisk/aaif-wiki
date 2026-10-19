@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-5bd26dc8e13a-4cf740b8",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/shopping/checkout/rest.md",
+  "title": "rest.md",
+  "timestamp": "2026-10-14T19:45:12+02:00",
+  "author": "Vishal Katyal",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/shopping/checkout/rest.md",
+  "summary": "docs(checkout-rest): cover ucp-agent in the example signed request (#795)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/shopping/checkout/rest.md",
+      "blob_sha": "4cf740b8066a779ff8eeb1cfb682d035c6cd7af7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-488a08d3d8bd-c7c127bb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/schemes/batch-settlement/scheme_batch_settlement.md",
+  "title": "scheme_batch_settlement.md",
+  "timestamp": "2026-09-21T11:55:53-07:00",
+  "author": "Carson Roscoe",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/schemes/batch-settlement/scheme_batch_settlement.md",
+  "summary": "feat: expand x402.org/protected routes (#3522)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/schemes/batch-settlement/scheme_batch_settlement.md",
+      "blob_sha": "c7c127bb866d6827609627c7eab28a0fd4a8b20e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

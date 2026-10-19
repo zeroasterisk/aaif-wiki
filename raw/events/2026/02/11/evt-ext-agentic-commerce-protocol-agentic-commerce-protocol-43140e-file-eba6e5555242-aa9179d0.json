@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-eba6e5555242-aa9179d0",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.capability_negotiation.md",
+  "title": "rfc.capability_negotiation.md",
+  "timestamp": "2026-02-11T21:35:14-05:00",
+  "author": "karthik",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.capability_negotiation.md",
+  "summary": "fix: align JSON Schema and OpenAPI spec for discounts and 3DS frictionless (#129)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.capability_negotiation.md",
+      "blob_sha": "aa9179d0bbf23c016d742e9bd11cb0514ba63fbe",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-bcb5a43d1f72-0dbd9e76",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/transports-v2/mcp.md",
+  "title": "mcp.md",
+  "timestamp": "2026-09-21T11:55:53-07:00",
+  "author": "Carson Roscoe",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/transports-v2/mcp.md",
+  "summary": "feat: expand x402.org/protected routes (#3522)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/transports-v2/mcp.md",
+      "blob_sha": "0dbd9e76eef52a30617012d50f868f9a5aff8dbb",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

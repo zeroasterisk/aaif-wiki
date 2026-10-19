@@ -23,6 +23,8 @@ sources:
 ---
 
 # Overview
+> Not to be confused with other protocols abbreviated ACP; see [ACP (disambiguation)](./acp-disambiguation.md).
+
 The Agent Client Protocol (ACP) is an open communication standard designed to connect code editors and integrated development environments (IDEs) with AI coding agents[^evt-project-proposals-issue-1]. Co-developed by Zed Industries and JetBrains, ACP decouples coding agents from editors, addressing the M×N integration problem where each client previously required custom implementations for every agent[^evt-project-proposals-issue-1].
 
 # Architecture / Specification

@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-af99241259e8-a777617f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/shopping/cart/index.md",
+  "title": "index.md",
+  "timestamp": "2026-10-09T16:38:56-07:00",
+  "author": "Greg Smith",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/shopping/cart/index.md",
+  "summary": "docs(cart): clarify line_items requirement in cart-to-checkout conversion (#910)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/shopping/cart/index.md",
+      "blob_sha": "a777617f6c88bb804d67ad16a53a8fecb2ddcaef",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

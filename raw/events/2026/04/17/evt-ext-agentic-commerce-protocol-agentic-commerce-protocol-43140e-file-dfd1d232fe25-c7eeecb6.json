@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-dfd1d232fe25-c7eeecb6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.marketing_consent.md",
+  "title": "rfc.marketing_consent.md",
+  "timestamp": "2026-04-17T15:32:29-04:00",
+  "author": "lhwa",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.marketing_consent.md",
+  "summary": "SEP: Marketing Consent (#199)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.marketing_consent.md",
+      "blob_sha": "c7eeecb6736aa6c4909811d3fbdc4764f5288ede",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

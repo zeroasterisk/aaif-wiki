@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-d1619e65f846-7018972b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.payment_handlers.md",
+  "title": "rfc.payment_handlers.md",
+  "timestamp": "2026-02-13T11:34:09-08:00",
+  "author": "Prasad Wangikar",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.payment_handlers.md",
+  "summary": "Payment handler display order (merchant-suggested ordering) (#133)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.payment_handlers.md",
+      "blob_sha": "7018972bad220be0f60237ec42a786c2c8ebbc47",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

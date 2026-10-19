@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-f3f5b3af6d2f-0261b283",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/ieee-p3931-addr.yaml",
+  "title": "ieee-p3931-addr.yaml",
+  "timestamp": "2026-10-14T06:28:09+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/ieee-p3931-addr.yaml",
+  "summary": "Review corrections 2026-10-14: data, notes, tools",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/ieee-p3931-addr.yaml",
+      "blob_sha": "0261b2833fa81475c39e2b4d72be8c2a49ae5dce",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

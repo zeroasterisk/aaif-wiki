@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-f66bee5cf433-00f4b591",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/cen-clc-jtc24-dpp.yaml",
+  "title": "cen-clc-jtc24-dpp.yaml",
+  "timestamp": "2026-10-14T06:28:09+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/cen-clc-jtc24-dpp.yaml",
+  "summary": "Review corrections 2026-10-14: data, notes, tools",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/cen-clc-jtc24-dpp.yaml",
+      "blob_sha": "00f4b5912ce400e61562339dd79bf37bb6b1df7c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

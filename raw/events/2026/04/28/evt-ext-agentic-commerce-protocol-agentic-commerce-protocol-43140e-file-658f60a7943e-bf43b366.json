@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-658f60a7943e-bf43b366",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.product_feeds.md",
+  "title": "rfc.product_feeds.md",
+  "timestamp": "2026-04-28T09:20:18-07:00",
+  "author": "Sakina Roufid",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.product_feeds.md",
+  "summary": "fix: add UpsertProductsResponse to feed JSON Schema bundle (#241)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.product_feeds.md",
+      "blob_sha": "bf43b3664105000a0bffbadc623f06ca15a81aa4",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

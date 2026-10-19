@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-i-am-bee-acp-13a961-file-b33563055168-a9e78328",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "i-am-bee/acp",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2025-08-25T14:42:35-04:00",
+  "author": "Jenna Winkler",
+  "url": "https://github.com/i-am-bee/acp/blob/e5265ca9fa06c55cd011b1e81ee927f6d80af8f6/README.md",
+  "summary": "docs: A2A announcement (#230)",
+  "pointers": [
+    {
+      "repo": "i-am-bee/acp",
+      "commit_sha": "e5265ca9fa06c55cd011b1e81ee927f6d80af8f6",
+      "path": "README.md",
+      "blob_sha": "a9e7832886b69ddabf688e29377c12c148495b9e",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:IBM Research (BeeAI); archived, merged into A2A",
+    "topic:communication"
+  ]
+}

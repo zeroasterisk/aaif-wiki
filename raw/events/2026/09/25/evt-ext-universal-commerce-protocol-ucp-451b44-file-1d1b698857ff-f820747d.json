@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-1d1b698857ff-f820747d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/glossary.md",
+  "title": "glossary.md",
+  "timestamp": "2026-09-25T09:15:23+02:00",
+  "author": "qinyingran-TT",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/glossary.md",
+  "summary": "docs: correct capability registry notation (#721)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/glossary.md",
+      "blob_sha": "f820747de5f82cd671237529bfe47456beb3efc0",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

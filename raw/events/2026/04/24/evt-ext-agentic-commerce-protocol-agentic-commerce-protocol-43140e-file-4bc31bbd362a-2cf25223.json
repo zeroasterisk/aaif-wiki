@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-4bc31bbd362a-2cf25223",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "rfcs/rfc.agentic_checkout.md",
+  "title": "rfc.agentic_checkout.md",
+  "timestamp": "2026-04-24T11:27:36-04:00",
+  "author": "karthik",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/rfcs/rfc.agentic_checkout.md",
+  "summary": "docs: add intervention_required to RFC error code documentation (#143)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "rfcs/rfc.agentic_checkout.md",
+      "blob_sha": "2cf252233c74025e73cb59604e1d3562eb2fcbea",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

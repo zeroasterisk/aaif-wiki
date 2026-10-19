@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-faeec7da37c7-0cb706f9",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/browsers-webmcp.yaml",
+  "title": "browsers-webmcp.yaml",
+  "timestamp": "2026-10-14T04:52:24+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/browsers-webmcp.yaml",
+  "summary": "Initial commit",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/browsers-webmcp.yaml",
+      "blob_sha": "0cb706f91199026ec9f595fbca198eac5e7f6810",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

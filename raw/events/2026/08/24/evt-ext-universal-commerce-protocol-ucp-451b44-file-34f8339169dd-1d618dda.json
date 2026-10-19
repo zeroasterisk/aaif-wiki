@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-34f8339169dd-1d618dda",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/shopping/cart/mcp.md",
+  "title": "mcp.md",
+  "timestamp": "2026-08-24T21:30:02-07:00",
+  "author": "Jing Li",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/shopping/cart/mcp.md",
+  "summary": "feat!: Introduce Location Search + Lookup capabilities (#589)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/shopping/cart/mcp.md",
+      "blob_sha": "1d618dda4b1fba89658e1585e73ff827536fd4ea",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

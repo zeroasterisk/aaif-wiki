@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-a09952148e74-cda2ed42",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/schemes/exact/scheme_exact_evm.md",
+  "title": "scheme_exact_evm.md",
+  "timestamp": "2026-09-21T11:55:53-07:00",
+  "author": "Carson Roscoe",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/schemes/exact/scheme_exact_evm.md",
+  "summary": "feat: expand x402.org/protected routes (#3522)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/schemes/exact/scheme_exact_evm.md",
+      "blob_sha": "cda2ed42b0169e8db05969c193a8012f74fb0b20",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-0a1b768f0f09-553e94c4",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/schemaorg-open-agent-commerce-items.yaml",
+  "title": "schemaorg-open-agent-commerce-items.yaml",
+  "timestamp": "2026-10-14T06:46:06+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/schemaorg-open-agent-commerce-items.yaml",
+  "summary": "Review corrections 2026-10-14, part two: browser readings, scope and author statements, small changes before the DOI",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/schemaorg-open-agent-commerce-items.yaml",
+      "blob_sha": "553e94c43353d2dcb7e64e92b1b25c3fccb98bc4",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

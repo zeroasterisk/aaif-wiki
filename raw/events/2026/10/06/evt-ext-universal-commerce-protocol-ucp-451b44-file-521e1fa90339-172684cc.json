@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-521e1fa90339-172684cc",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/documentation/core-concepts.md",
+  "title": "core-concepts.md",
+  "timestamp": "2026-10-06T18:01:49-07:00",
+  "author": "Ilya Grigorik",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/documentation/core-concepts.md",
+  "summary": "feat: `ask` capability for natural-language Q&A (#538)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/documentation/core-concepts.md",
+      "blob_sha": "172684cc898e972f61bda13646d6bc3955b51743",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

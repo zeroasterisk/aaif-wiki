@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-49fd25087bd9-bee90e2c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/guides/organizing-catalogs.md",
+  "title": "organizing-catalogs.md",
+  "timestamp": "2026-07-08T18:51:42Z",
+  "author": "Tadas Antanavicius",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/guides/organizing-catalogs.md",
+  "summary": "docs: reconcile mkdocs site with spec + ADRs (MCP drift)",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/guides/organizing-catalogs.md",
+      "blob_sha": "bee90e2c75c177936c91ed7303113bd0eeba1c49",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

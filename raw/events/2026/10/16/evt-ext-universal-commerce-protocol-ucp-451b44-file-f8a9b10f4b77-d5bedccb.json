@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-universal-commerce-protocol-ucp-451b44-file-f8a9b10f4b77-d5bedccb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Universal-Commerce-Protocol/ucp",
+  "reference_id": "docs/specification/shopping/playground.md",
+  "title": "playground.md",
+  "timestamp": "2026-10-16T09:23:33+02:00",
+  "author": "Vishal Katyal",
+  "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/3ab41043b79373df33a6e2c377bc82a806175f78/docs/specification/shopping/playground.md",
+  "summary": "fix(order)!: cover webhook-id and webhook-timestamp in the signing gate (#659)",
+  "pointers": [
+    {
+      "repo": "Universal-Commerce-Protocol/ucp",
+      "commit_sha": "3ab41043b79373df33a6e2c377bc82a806175f78",
+      "path": "docs/specification/shopping/playground.md",
+      "blob_sha": "d5bedccb668f8020ebf9f4055a546037e17c40ac",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)",
+    "topic:commerce",
+    "topic:discovery"
+  ]
+}

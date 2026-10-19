@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-63242e93d393-626b3f46",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/implementations.md",
+  "title": "implementations.md",
+  "timestamp": "2026-10-01T10:08:16-04:00",
+  "author": "Darrel",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/implementations.md",
+  "summary": "Merge branch 'main' into darrelmiller-implementation-classifications",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/implementations.md",
+      "blob_sha": "626b3f460f07484f2855f49e12c4a672367c3e1a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

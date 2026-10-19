@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-ec7faf031141-c4989b6e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/community/index.md",
+  "title": "index.md",
+  "timestamp": "2026-07-31T09:16:26+01:00",
+  "author": "Sam Betts",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/community/index.md",
+  "summary": "docs: add Community page, section indexes, and nav icons",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/community/index.md",
+      "blob_sha": "c4989b6eacbe807b1c110033e9e8b0782618ffba",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

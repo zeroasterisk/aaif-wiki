@@ -1,0 +1,28 @@
+{
+  "event_id": "evt-ext-agentic-commerce-protocol-agentic-commerce-protocol-43140e-file-39da3bd6270d-1a92e6ad",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "agentic-commerce-protocol/agentic-commerce-protocol",
+  "reference_id": "MAINTAINERS.md",
+  "title": "MAINTAINERS.md",
+  "timestamp": "2026-04-24T12:44:27-04:00",
+  "author": "Lee Hwa",
+  "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/MAINTAINERS.md",
+  "summary": "ADMIN: Add Meta as TSC member (#236)",
+  "pointers": [
+    {
+      "repo": "agentic-commerce-protocol/agentic-commerce-protocol",
+      "commit_sha": "7fdd78df677a94dce04c770644b0fbbb1401272b",
+      "path": "MAINTAINERS.md",
+      "blob_sha": "1a92e6ad91711198f6e4753dc8a79c384f51e667",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:OpenAI and Stripe (Founding Maintainers)",
+    "topic:commerce",
+    "topic:payments"
+  ]
+}

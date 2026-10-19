@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-b33563055168-0daeea1b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-13T13:45:53+09:00",
+  "author": "PhilBot",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/README.md",
+  "summary": "chore: remove outdated ROADMAP and PROJECT-IDEAS docs (#3789)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "README.md",
+      "blob_sha": "0daeea1bc9c5a68f7c7e48228636a0c550dca8e5",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-3205a6bb9ab7-e19e0dae",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/extensions/sign-in-with-x.md",
+  "title": "sign-in-with-x.md",
+  "timestamp": "2026-09-21T11:55:53-07:00",
+  "author": "Carson Roscoe",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/extensions/sign-in-with-x.md",
+  "summary": "feat: expand x402.org/protected routes (#3522)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/extensions/sign-in-with-x.md",
+      "blob_sha": "e19e0dae8a10e2439366f820226d47f8042d552d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}

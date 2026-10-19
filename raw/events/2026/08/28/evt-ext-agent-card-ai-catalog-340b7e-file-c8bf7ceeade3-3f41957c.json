@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-agent-card-ai-catalog-340b7e-file-c8bf7ceeade3-3f41957c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "Agent-Card/ai-catalog",
+  "reference_id": "docs/mappings/claude-code-plugins.md",
+  "title": "claude-code-plugins.md",
+  "timestamp": "2026-08-28T12:03:29-05:00",
+  "author": "Jonathan Hefner",
+  "url": "https://github.com/Agent-Card/ai-catalog/blob/9316f00de22f8baf0a7bb526cf92e27a40ca047e/docs/mappings/claude-code-plugins.md",
+  "summary": "Clarify Claude marketplace projection",
+  "pointers": [
+    {
+      "repo": "Agent-Card/ai-catalog",
+      "commit_sha": "9316f00de22f8baf0a7bb526cf92e27a40ca047e",
+      "path": "docs/mappings/claude-code-plugins.md",
+      "blob_sha": "3f41957c01c8c41d4cdfa7b1d12dd20fa1be8ec8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)",
+    "topic:discovery"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "event_id": "evt-ext-frmoretto-agentic-standards-map-85d122-file-1837116489b7-e12907fb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "frmoretto/agentic-standards-map",
+  "reference_id": "entries/dif-trusted-ai-agents.yaml",
+  "title": "dif-trusted-ai-agents.yaml",
+  "timestamp": "2026-10-15T16:11:07+02:00",
+  "author": "frmoretto",
+  "url": "https://github.com/frmoretto/agentic-standards-map/blob/b7ea348f961457df551928597041fc428e37e169/entries/dif-trusted-ai-agents.yaml",
+  "summary": "DIF entry: org corrected to Linux Foundation; CONTRIBUTING and issue template state the proposer's role and interest",
+  "pointers": [
+    {
+      "repo": "frmoretto/agentic-standards-map",
+      "commit_sha": "b7ea348f961457df551928597041fc428e37e169",
+      "path": "entries/dif-trusted-ai-agents.yaml",
+      "blob_sha": "e12907fbf8ff43ac3b5f144a57dc0629f41fe162",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:Francesco Marinoni Moretto (independent researcher)",
+    "topic:landscape",
+    "topic:governance",
+    "topic:commerce",
+    "topic:discovery",
+    "topic:identity"
+  ]
+}

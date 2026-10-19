@@ -1,0 +1,27 @@
+{
+  "event_id": "evt-ext-x402-foundation-x402-589d86-file-dfa7ac90a6df-7e079035",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "x402-foundation/x402",
+  "reference_id": "specs/extensions/erc20_gas_sponsoring.md",
+  "title": "erc20_gas_sponsoring.md",
+  "timestamp": "2026-09-21T11:55:53-07:00",
+  "author": "Carson Roscoe",
+  "url": "https://github.com/x402-foundation/x402/blob/faa1c694c66a3732aaabbce93bdae140e521a67d/specs/extensions/erc20_gas_sponsoring.md",
+  "summary": "feat: expand x402.org/protected routes (#3522)",
+  "pointers": [
+    {
+      "repo": "x402-foundation/x402",
+      "commit_sha": "faa1c694c66a3732aaabbce93bdae140e521a67d",
+      "path": "specs/extensions/erc20_gas_sponsoring.md",
+      "blob_sha": "7e079035c22f5d81a5529af27c58ed722bd4a344",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": [
+    "external",
+    "steward:x402 Foundation (Linux Foundation)",
+    "topic:payments"
+  ]
+}
