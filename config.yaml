@@ -121,7 +121,8 @@ sources:
     # examples and changelogs out.
     external:
       - repo: "frmoretto/agentic-standards-map"
-        steward: "Agentic Standards Map (independent, F. Marinoni Moretto)"
+        # Independent CC BY 4.0 dataset; the author discloses participating in venues it maps.
+        steward: "Francesco Marinoni Moretto (independent researcher; not affiliated with AAIF)"
         topics: ["landscape", "governance", "commerce", "discovery", "identity"]
         include_paths: ["README.md", "METHOD.md", "MAP.md", "notes/seams.md", "entries"]
         doc_extensions: [".md", ".yaml"]   # entries/*.yaml ARE the map's content
@@ -132,7 +133,8 @@ sources:
         include_paths: ["README.md", "docs"]
         file_limit: 15
       - repo: "Universal-Commerce-Protocol/ucp"
-        steward: "Universal Commerce Protocol Governing Council"
+        # Universal-Commerce-Protocol/.github GOVERNANCE.md + MAINTAINERS.md
+        steward: "the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)"
         topics: ["commerce", "discovery"]
         include_paths: ["README.md", "docs/specification/overview", "docs/specification/shopping/checkout",
                         "docs/specification/shopping/cart", "docs/specification/shopping/catalog",
@@ -141,11 +143,12 @@ sources:
                         "docs/specification"]
         file_limit: 40
       - repo: "agentic-commerce-protocol/agentic-commerce-protocol"
-        steward: "OpenAI and Stripe (ACP maintainers)"
+        # README: "jointly governed by OpenAI and Stripe as Founding Maintainers"
+        steward: "OpenAI and Stripe (Founding Maintainers)"
         topics: ["commerce", "payments"]
         include_paths: ["README.md", "MAINTAINERS.md", "docs", "rfcs"]
         file_limit: 25
-      - repo: "coinbase/x402"
+      - repo: "x402-foundation/x402"   # canonical; coinbase/x402 is now a fork of it
         steward: "x402 Foundation (Linux Foundation)"
         topics: ["payments"]
         include_paths: ["README.md", "specs/x402-specification-v2.md", "specs/transports-v2",
@@ -155,7 +158,9 @@ sources:
                         "specs/x402-specification-v1.md", "specs/extensions"]
         file_limit: 25
       - repo: "Agent-Card/ai-catalog"
-        steward: "Agent Card Working Group (Linux Foundation)"
+        # README: temporary working repo maintained by the LF; GOVERNANCE.md: TSC
+        # seats nominated by MCP core maintainers (2) and the A2A TSC (2).
+        steward: "the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)"
         topics: ["discovery"]
         include_paths: ["README.md", "GOVERNANCE.md", "specification", "docs/specification.md", "docs"]
         file_limit: 20

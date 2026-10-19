@@ -129,7 +129,10 @@ def validate_concept(
     # -- outbound link allowlist (ADR-007)
     if link_allowlist is not None:
         # Inline code is not a link: URL templates like `https://{host}/x` are spec text.
-        prose = re.sub(r"`[^`\n]*`", "", concept.body)
+        # Escaped backticks are literal text, not span delimiters: drop them first so
+        # they can't pair with a real backtick and hide a live link. Spans close on
+        # an equal-length backtick run (CommonMark).
+        prose = re.sub(r"(`+)(?!`)[^\n]*?(?<!`)\1(?!`)", "", concept.body.replace("\\`", ""))
         for url in URL_RE.findall(prose):
             host = (urlparse(url).hostname or "").lower()
             if host and not any(host == a or host.endswith("." + a) for a in link_allowlist):

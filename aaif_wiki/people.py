@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, datetime
 
 from .models import Actor, Concept, ConceptSource, ConceptStatus, RawEvent, SourceType
@@ -26,16 +26,20 @@ ACTOR = "agent:aaif-wiki-people/deterministic"
 
 # "* **[Role: ]Name [TAG] [@handle](url)|(no GitHub)** - Org"
 ROW_RE = re.compile(
-    r"^\s*[*-]\s+\*\*\s*"
-    r"(?:(?P<role>Co-Chair|Chair)\s*:\s*)?"
-    r"(?P<name>[^\[\]()*@]+?)\s*"
+    r"^\s*[*+-]\s+\*\*\s*"
+    r"(?:(?P<role>(?:co|vice)[- ]?chair|chair)s?\s*:\s*)?"
+    r"(?P<name>[^\[\]*@]+?)\s*"
     r"(?:\[(?P<tag>TC (?:CO-)?CHAIR)\]\s*)?"
     r"(?:\[@(?P<handle>[A-Za-z0-9-]+)\]\([^)]*\)|\(no GitHub\))?\s*"
-    r"\*\*\s*[-–—]\s*(?P<org>.+?)\s*$"
+    r"\*\*\s*[-–—]\s*(?P<org>.+?)\s*$",
+    re.IGNORECASE,
 )
+BULLET_RE = re.compile(r"^\s*(?:[*+-]|\d+\.)\s+\S")
+FENCE_RE = re.compile(r"^(```|~~~).*?^\1[^\n]*$", re.MULTILINE | re.DOTALL)
+MD_LINK_RE = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 TERM_RE = re.compile(r"Current term for (?:the )?[\w ]+? is \*\*(?P<term>[^*]+)\*\*")
 TITLE_RE = re.compile(r"^#\s+(?P<title>.+?)\s*$", re.MULTILINE)
-SECTION_RE = re.compile(r"^##\s+(?P<h>.+?)\s*$", re.MULTILINE)
+HEADING_RE = re.compile(r"^(?P<level>#{1,6})\s+(?P<h>.+?)\s*$", re.MULTILINE)
 
 
 @dataclass(frozen=True)
@@ -53,34 +57,60 @@ class Group:
     people: list[Person]
     term: str | None
     event: RawEvent
+    unparsed: list[str] = field(default_factory=list)  # bullets in the section we couldn't read
 
 
 def _section(text: str, heading: str) -> str | None:
-    """Body of the first `## <heading>` section (case-insensitive)."""
-    matches = list(SECTION_RE.finditer(text))
+    """Body of the first `## <heading>` section, up to the next heading of ANY level
+    (so a `### Emeritus` subsection is not read as current members). Fenced code is
+    removed first, so an example block can't shadow the real section. Matching
+    ignores case, a plural ``s`` and trailing emoji/punctuation."""
+    text = FENCE_RE.sub("", text)
+    want = heading.lower().rstrip("s")
+    matches = list(HEADING_RE.finditer(text))
     for i, m in enumerate(matches):
-        if m.group("h").strip().lower() == heading.lower():
+        words = re.sub(r"[^a-z ]", "", m.group("h").lower()).strip().rstrip("s")
+        if len(m.group("level")) == 2 and words == want:
             end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
             return text[m.end() : end]
     return None
 
 
-def parse_rows(block: str, *, tc: bool) -> list[Person]:
+def _role(raw: str | None) -> str | None:
+    if not raw:
+        return None
+    r = raw.lower().replace(" ", "-")
+    # aaif.io labels the second seat "Vice Chair" on some pages; it is the co-chair seat.
+    return "Co-Chair" if r.startswith(("co", "vice")) else "Chair"
+
+
+def _clean(s: str) -> str:
+    """README text is untrusted cell content: drop links, escape table pipes."""
+    s = MD_LINK_RE.sub(r"\1", s)
+    return " ".join(s.replace("|", "\\|").split())
+
+
+def parse_rows(block: str, *, tc: bool) -> tuple[list[Person], list[str]]:
+    """Rows we can read, plus bullet lines we could not (surfaced, never guessed)."""
     out: list[Person] = []
+    unparsed: list[str] = []
     for line in block.splitlines():
         m = ROW_RE.match(line)
         if not m:
+            if BULLET_RE.match(line):
+                unparsed.append(line.strip())
             continue
-        name = " ".join(m.group("name").split())
         if tc:
             tag = (m.group("tag") or "").upper()
             role = {"TC CHAIR": "TC Chair", "TC CO-CHAIR": "TC Co-Chair"}.get(tag, "TC Member")
         else:
-            if not m.group("role"):
-                continue  # a WG README bullet that is not a chair row
-            role = m.group("role")
-        out.append(Person(name=name, org=m.group("org").strip(), role=role, handle=m.group("handle")))
-    return out
+            role = _role(m.group("role"))
+            if not role:
+                continue  # a WG README bullet that is not a chair row (e.g. Secretary)
+        out.append(
+            Person(name=_clean(m.group("name")), org=_clean(m.group("org")), role=role, handle=m.group("handle"))
+        )
+    return out, unparsed
 
 
 def parse_readme(repo: str, text: str, event: RawEvent) -> Group | None:
@@ -88,7 +118,7 @@ def parse_readme(repo: str, text: str, event: RawEvent) -> Group | None:
     block = _section(text, "Members" if tc else "Chairs")
     if block is None:
         return None
-    people = parse_rows(block, tc=tc)
+    people, unparsed = parse_rows(block, tc=tc)
     if not people:
         return None
     title = TITLE_RE.search(text)
@@ -99,6 +129,7 @@ def parse_readme(repo: str, text: str, event: RawEvent) -> Group | None:
         people=people,
         term=term.group("term").strip() if term else None,
         event=event,
+        unparsed=unparsed,
     )
 
 
@@ -126,16 +157,22 @@ def latest_readmes(events: list[RawEvent]) -> dict[str, RawEvent]:
     return latest
 
 
-def collect(events: list[RawEvent], rehydrate: Callable[[RawEvent], str | None]) -> list[Group]:
+def collect(
+    events: list[RawEvent], rehydrate: Callable[[RawEvent], str | None]
+) -> tuple[list[Group], list[str]]:
+    """Parsed groups, plus roster repos whose README could not be read (e.g. a
+    failed clone): the caller must not publish a roster missing those."""
     groups: list[Group] = []
+    unreadable: list[str] = []
     for name, event in sorted(latest_readmes(events).items()):
         text = rehydrate(event)
         if not text:
+            unreadable.append(name)
             continue
         g = parse_readme(name, text, event)
         if g:
             groups.append(g)
-    return groups
+    return groups, unreadable
 
 
 def _wg_slug(repo: str) -> str:
@@ -165,7 +202,8 @@ def build_concept(groups: list[Group], known_slugs: set[str], now: datetime | No
         "Who leads the Agentic AI Foundation's technical work: the members of the Technical",
         "Committee (TC) and the chairs of each working group and workstream, parsed",
         "verbatim from each group's README. This page is generated deterministically (no",
-        "language model); every row cites the README revision it came from.",
+        "language model); every row cites the README revision it came from. Where aaif.io",
+        "differs, the README is what this page follows.",
         "",
     ]
     if tc:

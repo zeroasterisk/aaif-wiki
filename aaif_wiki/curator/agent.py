@@ -253,7 +253,8 @@ class Curator:
                     slug=slug,
                     concept=concept,
                     rationale=str(raw.get("rationale", ""))[:500],
-                    source_event_ids=source_ids,
+                    # The evidence actually used, so the apply gate judges provenance on it.
+                    source_event_ids=[e.event_id for e in contributing],
                 )
             )
         return out

@@ -15,7 +15,7 @@ import logging
 from datetime import UTC, datetime
 from pathlib import Path
 
-from . import provenance
+from . import people, provenance
 from .config import Config, get_config
 from .curator import Curator
 from .models import (
@@ -172,6 +172,9 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
     cfg = get_config()
     issues = []
     applied = 0
+    org = cfg.sources.github.org
+    store = EventStore(cfg.events_dir)
+    bundle = load_bundle(cfg.bundle_dir)  # once, kept current as mutations apply
 
     for mutation in result.mutations:
         problems = validate_mutation(mutation)
@@ -187,23 +190,35 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
                 mutation.exception_reasons,
             )
             continue
-        if mutation.slug == "governance/people":
+        if mutation.slug == people.SLUG:
             # Owned by the deterministic roster (ADR-014); never model-written.
-            log.info("refusing LLM mutation of deterministic page %s", mutation.slug)
+            issues.append(
+                ValidationIssue(
+                    severity="warning",
+                    check="deterministic-page",
+                    path=f"{mutation.slug}.md",
+                    message="LLM mutation refused: page is generated from READMEs (ADR-014)",
+                )
+            )
             continue
-        existing = load_bundle(cfg.bundle_dir).get(mutation.slug)
-        lost = provenance.dropped_classes(existing, mutation.concept, cfg.sources.github.org)
-        if mutation.action != "deprecate" and lost:
-            # ADR-013: updates replace a page's body and sources wholesale. A
-            # single-class rewrite would flip provenance: an AAIF page restated
-            # from external sources, or an external standard losing its steward.
-            log.warning("refusing rewrite of %s that drops %s sources", mutation.slug, lost)
+        existing = bundle.get(mutation.slug)
+        evidence = [e for e in (store.get(i) for i in mutation.source_event_ids) if e]
+        # ADR-013: updates replace a page's body and sources wholesale, so a change
+        # must (a) be backed by evidence of every class the page already has and
+        # (b) keep a source of every such class. Otherwise an AAIF page gets
+        # restated (or deprecated) from external material, or an external standard
+        # loses its steward citation. Applies to deprecate too.
+        lost = provenance.unsupported_classes(existing, evidence, org)
+        if mutation.action != "deprecate":
+            lost |= provenance.dropped_classes(existing, mutation.concept, org)
+        if lost:
+            log.warning("refusing %s of %s: unsupported %s provenance", mutation.action, mutation.slug, lost)
             issues.append(
                 ValidationIssue(
                     severity="warning",
                     check="provenance-overwrite",
                     path=f"{mutation.slug}.md",
-                    message=f"mutation would drop all {'/'.join(sorted(lost))} sources",
+                    message=f"{mutation.action} not backed by {'/'.join(sorted(lost))} evidence",
                 )
             )
             continue
@@ -215,11 +230,12 @@ async def apply_mutations(result: CurateResult) -> ValidateResult:
             continue
         if mutation.concept:
             mutation.concept.slug = mutation.slug
-            provenance.normalise_tags(mutation.concept, cfg.sources.github.org)
+            provenance.normalise_tags(mutation.concept, org)
             # All generated concepts in the bundle are draft until human review (ADR-009)
             if not mutation.concept.verified:
                 mutation.concept.status = ConceptStatus.DRAFT
             write_concept(cfg.bundle_dir, mutation.concept)
+            bundle[mutation.slug] = mutation.concept
             applied += 1
 
     log.info("applied %d/%d mutations", applied, len(result.mutations))
@@ -276,7 +292,6 @@ def refresh_people(cfg: Config) -> dict:
     Rewritten only when the roster or its sources change, so an unchanged run is
     a no-op diff (the ``generated.at`` stamp would otherwise churn weekly).
     """
-    from . import people
     from .connectors import GitHubConnector
 
     conn = GitHubConnector(cfg.sources.github, cfg.cache_dir)
@@ -288,24 +303,40 @@ def refresh_people(cfg: Config) -> dict:
                 return text
         return event.inline_text
 
-    groups = people.collect(EventStore(cfg.events_dir).all_events(), rehydrate)
+    groups, unreadable = people.collect(EventStore(cfg.events_dir).all_events(), rehydrate)
+    unparsed = {g.repo: g.unparsed for g in groups if g.unparsed}
+    for repo, lines in unparsed.items():
+        log.warning("people: %s has roster bullets the parser cannot read: %s", repo, lines)
+    stats = {
+        "groups": len(groups),
+        "people": sum(len(g.people) for g in groups),
+        "written": False,
+        "unreadable": unreadable,
+        "unparsed": unparsed,
+    }
+    if unreadable:
+        # A failed clone must not silently delete real chairs: keep the last page.
+        log.warning("people: not rewriting roster, unreadable READMEs: %s", unreadable)
+        return stats
     existing = load_bundle(cfg.bundle_dir)
     concept = people.build_concept(groups, set(existing))
     if concept is None:
-        return {"groups": 0, "people": 0, "written": False}
+        return stats
 
     old = existing.get(people.SLUG)
-    written = False
-    if old is None or old.body.strip() != concept.body.strip() or [s.id for s in old.sources] != [
-        s.id for s in concept.sources
-    ]:
+    if old is None or _body_without_footnotes(old.body) != _body_without_footnotes(concept.body) or [
+        s.id for s in old.sources
+    ] != [s.id for s in concept.sources]:
         write_concept(cfg.bundle_dir, concept)
-        written = True
-    return {
-        "groups": len(groups),
-        "people": sum(len(g.people) for g in groups),
-        "written": written,
-    }
+        stats["written"] = True
+    return stats
+
+
+def _body_without_footnotes(body: str) -> str:
+    """render_concept appends ``[^id]: url`` definitions on write; compare without them."""
+    from .okf import FOOTNOTE_DEF_RE
+
+    return "\n".join(ln for ln in body.splitlines() if not FOOTNOTE_DEF_RE.match(ln)).strip()
 
 
 def reindex_bundle(cfg: Config) -> Path:

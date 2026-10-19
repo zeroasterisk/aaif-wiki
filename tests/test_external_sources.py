@@ -158,11 +158,25 @@ def _page(ids, slug=None, tags=()):
     return c
 
 
-def _apply(tmp_path, monkeypatch, mutations):
+def _apply(tmp_path, monkeypatch, mutations, events=()):
+    """Run apply_mutations against a real EventStore. Event class comes from the
+    connector label, so every id the mutations cite is seeded as an event."""
     import asyncio
 
     from aaif_wiki import pipeline
     from aaif_wiki.models import CurateResult
+    from aaif_wiki.store import EventStore
+
+    events_dir = tmp_path.parent / f"{tmp_path.name}-events"
+    store = EventStore(events_dir)
+    seen = {e.event_id for e in events}
+    store.append_many(list(events))
+    for m in mutations:
+        for eid in m.source_event_ids:
+            if eid not in seen:
+                seen.add(eid)
+                ext = eid.startswith("evt-ext-")
+                store.append(_ev(eid, "acme/spec" if ext else "aaif/wg-x", ["external"] if ext else []))
 
     class _Sources:
         github = GitHubCfg()
@@ -171,6 +185,7 @@ def _apply(tmp_path, monkeypatch, mutations):
         bundle_dir = tmp_path
         sources = _Sources()
 
+    _Cfg.events_dir = events_dir  # type: ignore[attr-defined]
     monkeypatch.setattr(pipeline, "get_config", lambda: _Cfg())
     return asyncio.run(pipeline.apply_mutations(CurateResult(mutations=mutations)))
 
@@ -325,3 +340,73 @@ def test_external_event_prefix_is_collision_free(tmp_path):
     conn = GitHubConnector(GitHubCfg(discover_repos=False), tmp_path)
     assert conn._event_prefix("a-b/c") != conn._event_prefix("a/b-c")
     assert conn._event_prefix("Coinbase/X402") == conn._event_prefix("coinbase/x402")
+
+
+# --- review deleg_c932b394 #2: guard bypasses -------------------------------------
+
+
+def _deprecate(slug, ids):
+    from aaif_wiki.models import Mutation
+
+    return Mutation(action="deprecate", slug=slug, rationale="r", source_event_ids=ids)
+
+
+def test_external_evidence_cannot_deprecate_aaif_page(tmp_path, monkeypatch):
+    from aaif_wiki.okf import load_bundle, write_concept
+
+    write_concept(tmp_path, _page(["evt-wg-agentic-commerce-pr-1"], "working-groups/agentic-commerce"))
+    res = _apply(tmp_path, monkeypatch, [_deprecate("working-groups/agentic-commerce", ["evt-ext-map-file-9"])])
+    assert res.checked == 0 and [i.check for i in res.issues] == ["provenance-overwrite"]
+    assert load_bundle(tmp_path)["working-groups/agentic-commerce"].status.value != "deprecated"
+
+
+def test_keeping_one_stale_aaif_id_does_not_launder_external_rewrite(tmp_path, monkeypatch):
+    """The model can echo an old AAIF id into sources[]; evidence decides, not sources."""
+    from aaif_wiki.models import Mutation
+    from aaif_wiki.okf import load_bundle, write_concept
+
+    write_concept(tmp_path, _page(["evt-wg-agentic-commerce-pr-1"], "working-groups/agentic-commerce"))
+    m = Mutation(action="update", slug="working-groups/agentic-commerce", rationale="r",
+                 source_event_ids=["evt-ext-map-file-9"],
+                 concept=_page(["evt-wg-agentic-commerce-pr-1", "evt-ext-map-file-9"]))
+    res = _apply(tmp_path, monkeypatch, [m])
+    assert res.checked == 0
+    assert [s.id for s in load_bundle(tmp_path)["working-groups/agentic-commerce"].sources] == [
+        "evt-wg-agentic-commerce-pr-1"]
+
+
+def test_sourceless_page_is_treated_as_aaif(tmp_path, monkeypatch):
+    from aaif_wiki.okf import write_concept
+
+    write_concept(tmp_path, _page([], "governance/charter"))
+    res = _apply(tmp_path, monkeypatch, [_mut("governance/charter", ["evt-ext-map-file-9"])])
+    assert res.checked == 0
+
+
+def test_event_class_comes_from_label_not_id_prefix():
+    """An AAIF repo named ext-tools yields evt-ext-tools-*; it is still AAIF."""
+    from aaif_wiki import provenance
+
+    aaif = _ev("evt-ext-tools-file-1", "aaif/ext-tools", [])
+    assert provenance.event_class(aaif) == "aaif"
+    assert provenance.source_is_external(_src_url("evt-ext-tools-file-1", "aaif/ext-tools")) is False
+
+
+def _src_url(eid, repo):
+    return ConceptSource(id=eid, resource=f"https://github.com/{repo}/blob/a/README.md")
+
+
+# --- review #4: escaped backticks must not hide links -----------------------------
+
+
+def test_escaped_backtick_cannot_hide_a_live_link():
+    from aaif_wiki.validate.checks import validate_concept
+
+    for body in (
+        "# Overview\n\nUse \\` then [click me](https://evil.example/phish) and `code`.",
+        "# Overview\n\n``a ` b`` then [x](https://evil.example/y) `z`",
+    ):
+        c = _concept([])
+        c.body = body
+        issues = validate_concept(c, known_slugs=set(), known_event_ids=set(), link_allowlist=["github.com"])
+        assert any(i.check == "link-allowlist" for i in issues), body
