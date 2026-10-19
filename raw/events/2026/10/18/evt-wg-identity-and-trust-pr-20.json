@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-20",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#20",
+  "title": "Add delegation tree and re-registration test cases for issue 18",
+  "timestamp": "2026-10-18T23:48:58Z",
+  "author": "astrogilda",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/20",
+  "summary": "@hymkw, the cases I promised in [issue 18](https://github.com/aaif/wg-identity-and-trust/issues/18) are in the test-cases/delegation-lifecycle directory, now with a recovery set for your lost-key question.\n\nThe tree and re-registration sets come from agent-evidence-vectors releas...",
+  "pointers": [],
+  "inline_text": "@hymkw, the cases I promised in [issue 18](https://github.com/aaif/wg-identity-and-trust/issues/18) are in the test-cases/delegation-lifecycle directory, now with a recovery set for your lost-key question.\n\nThe tree and re-registration sets come from agent-evidence-vectors release v0.19.0, and the tree set follows your case 8 in [message 30](https://lists.aaif.io/g/wg-identity-trust/message/30).\n\nA recovery record signed by the registry and the Responsible entity, matched on software attestation, carries revocations and disputes forward, never a grant. The cases are recovery-regrant, recovery-grant-not-carried, recovery-registry-only, recovery-software-mismatch, recovery-after-compromise-no-revival, recovery-after-compromise-regrant and recovery-history-follows. The recovery job runs them from agent-evidence-vectors v0.20.0 without copying them, and [INDEX.md at that release](https://github.com/probityai/agent-evidence-vectors/blob/v0.20.0/vectors-delegation-lifecycle/INDEX.md#recovery-after-a-lost-or-compromised-key) states each rule and marks those without precedent Proposed.\n\nWould you check whether the recovery rules match what use case B needs?\n\nEdited 2026-10-18: added the recovery set and its job at release v0.20.0; the tree and re-registration cases moved from commit aeac3739 to release v0.19.0.",
+  "labels": []
+}

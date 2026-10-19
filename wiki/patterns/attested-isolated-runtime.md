@@ -2,47 +2,43 @@
 type: pattern
 title: Attested Isolated Runtime
 description: Architectural security pattern isolating policy enforcement and evidence
-  signing inside hardware-attested trusted execution environments while leaving untrusted
-  agent execution outside.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
+  signing inside hardware-attested enclaves while bounding guest software bearer token
+  lifecycles.
+resource: https://github.com/aaif/wg-security-and-privacy/issues/37
 tags:
+- pattern
 - security
-- tee
-- attestation
-- patterns
 - confidential-computing
+- attestation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:36:11.485979+00:00'
+  at: '2026-10-19T10:51:49.114172+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
-  author: sagardashora
-  last_modified: '2026-09-30T10:16:03-04:00'
+- id: evt-wg-security-and-privacy-issue-37
+  resource: https://github.com/aaif/wg-security-and-privacy/issues/37
+  author: imran-siddique
+  last_modified: '2026-10-05T15:26:00+00:00'
 ---
 
 # Overview
-The Attested Isolated Runtime pattern establishes verifiable policy evaluation and cryptographic evidence generation inside a hardware-isolated Trusted Execution Environment (TEE), separating policy enforcement from the untrusted agent workload.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb] Also known as confidential agent execution or an attested enclave gateway, the pattern addresses scenarios where an agent operates on sensitive, regulated, or classified data hosted on untrusted infrastructure such as public cloud regions, partner multi-tenant clusters, or customer environments subject to audit.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
-
-When the host platform and infrastructure operator are within the threat model, software-only controls cannot prevent host administrators or compromised host kernels from swapping policy bundles, tampering with in-memory decisions, or fabricating execution logs.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb] By constraining the enclave boundary strictly to policy evaluation, secret unsealing, and evidence signing while leaving the resource-heavy agent orchestration outside, the pattern minimizes the enclave trusted computing base.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
+The Attested Isolated Runtime pattern executes agent policy engines, cryptographic signing keys, and privileged tool execution environments within hardware-enforced trusted execution environments (TEEs) or confidential virtual machines. By decoupling runtime trust from the underlying host and hypervisor, the pattern provides remote attestation of software integrity and protects sensitive memory state against infrastructure operators and adjacent tenants.
 
 # Architecture / Specification
 
-## Architectural Roles
-The pattern defines four discrete organizational roles with divergent security interests:[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
-- **Data Owner:** Requires that inputs and execution context remain confidential and unexposed during processing.
-- **Agent Operator:** Executes the workload and seeks broad runtime adoptability across heterogeneous environments.
-- **Infrastructure Operator:** Controls the host operating system, hypervisor, and orchestration fabric; sits inside the threat model.
-- **Relying Party:** A downstream tool, peer agent, auditor, or regulator that verifies proof of compliance without directly inspecting private data.
+## Enclave Isolation and Remote Attestation
+The runtime leverages hardware TEE mechanisms (such as AMD SEV-SNP, Intel TDX, or ARM CCA) to guarantee memory encryption and state isolation:
+- **Cryptographic Measurement:** Emits hardware-signed measurement quotes verifying the firmware, kernel, and agent runtime layers before cluster admission.
+- **Report Payload Claims:** Attestation report payloads (such as Azure confidential VM REPORT_DATA) bind a cryptographic hash of runtime claims, including the virtual TPM key, guest configuration, and caller-supplied data[^evt-wg-security-and-privacy-issue-37].
+- **Evidence Signing:** Signs [action records](../taxonomy/action-record.md) and telemetry directly within the protected boundary using hardware-derived keys.
 
-## Core Mechanics
-1. **Isolate the Enforcement Point:** The policy engine and cryptographic signing modules run inside a hardware TEE, while the primary agent process, LLM inference, and external tooling run in the untrusted host environment.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
-2. **Internal Key Generation:** Signing and sealing keys are generated inside the enclave boundary and cryptographically bound to hardware measurement registers, ensuring private keys cannot be extracted by the host.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
-3. **Measurement Sealing and Appraisal:** Policies are sealed to enclave measurement quotes. Protected state and execution authorization are released only after appraisal passes against expected reference measurements.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
-4. **Verifiable Evidence Emission:** The isolated runtime emits signed [Action Records](../taxonomy/action-record.md) for each discrete unit of work, enabling external relying parties to independently verify policy enforcement and execution integrity.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
+## Threat Model Scope and Credential Exposure Boundaries
+Security Working Group analysis defines the precise boundaries of hardware isolation models[^evt-wg-security-and-privacy-issue-37]:
+- **Guest Software within TCB:** Hardware attestation defends guest memory against unauthorized hypervisor and host access, but guest application software remains inside the trusted computing base[^evt-wg-security-and-privacy-issue-37].
+- **Bearer Token Lifespans:** Hardware enclaves do not compress or limit token lifetimes; if a guest component or agent tool leaks a bearer token, the exposure window is determined by token validity and revocation mechanisms, while the blast radius is governed by token permissions[^evt-wg-security-and-privacy-issue-37].
+- **Layered Controls:** Enclave isolation must operate in tandem with short-lived, narrowly scoped credentials and internal compartmentalization restricting which guest components may access sensitive tokens[^evt-wg-security-and-privacy-issue-37].
 
 # Lifecycle History
-The draft pattern was authored by the Design Patterns workstream within the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) as the first pattern in the privacy-preserving execution topic area, evaluated across five independent hardware attestation architectures.[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]
+Established by the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) as a foundational hardware-attested trust pattern. Enclave threat model boundaries and bearer token lifetime specifications clarified during post-merge review discussions[^evt-wg-security-and-privacy-issue-37].
 
-[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
+[^evt-wg-security-and-privacy-issue-37]: https://github.com/aaif/wg-security-and-privacy/issues/37

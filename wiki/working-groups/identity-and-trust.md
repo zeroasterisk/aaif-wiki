@@ -1,37 +1,48 @@
 ---
 type: working-group
 title: Identity and Trust Working Group
-description: AAIF technical working group standardizing decentralized agent identity,
-  hardware attestation layering, cryptographic delegation, and authorization boundaries.
-resource: https://github.com/aaif/wg-identity-and-trust/issues/12
+description: AAIF technical working group establishing vendor-neutral standards, verification
+  test suites, and trust models for agent identity, delegation trees, and key recovery.
+resource: https://github.com/aaif/wg-identity-and-trust/issues/18
 tags:
+- working-groups
 - identity
-- attestation
 - trust
-- working-group
+- attestation
+- delegation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:40:05.907782+00:00'
+  at: '2026-10-19T11:15:47.474225+00:00'
 sources:
-- id: evt-wg-identity-and-trust-issue-12
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/12
-  author: imran-siddique
-  last_modified: '2026-10-05T20:10:13+00:00'
+- id: evt-wg-identity-and-trust-issue-18
+  resource: https://github.com/aaif/wg-identity-and-trust/issues/18
+  author: astrogilda
+  last_modified: '2026-10-17T22:12:36+00:00'
+- id: evt-wg-identity-and-trust-pr-20
+  resource: https://github.com/aaif/wg-identity-and-trust/pull/20
+  author: astrogilda
+  last_modified: '2026-10-18T23:48:58+00:00'
 ---
 
 # Overview
-The Identity and Trust Working Group standardizes identity frameworks, cryptographic attestation mechanisms, authentication protocols, and delegation boundaries across autonomous agent systems[^evt-wg-identity-and-trust-issue-12]. Operating under the technical governance of the Agentic AI Foundation, the working group establishes reference architectures and interoperability baselines allowing relying parties to verify agent execution integrity and authorized delegation.
+The Identity and Trust Working Group is an AAIF technical body developing vendor-neutral identity primitives, cryptographic attestation frameworks, delegation protocols, and lifecycle verification test cases for autonomous agent systems [^evt-wg-identity-and-trust-issue-18]. The group defines how agents, their human principals, and mediating infrastructure establish provenance, enforce least privilege, propagate delegated authority, and recover from key compromise [^evt-wg-identity-and-trust-issue-18, ^evt-wg-identity-and-trust-pr-20].
 
 # Architecture / Specification
-To address architectural divergence across hardware environments, the group is restructuring attestation specifications into a three-part model[^evt-wg-identity-and-trust-issue-12]:
-- **Platform Evidence**: Signed hardware or firmware reports and endorsement chains (such as AMD SEV-SNP, Intel TDX, or GPU attestation) certifying the underlying execution environment and boot state[^evt-wg-identity-and-trust-issue-12].
-- **Identity Binding**: Cryptographic statements binding an agent key or identifier to hardware measurements using transport structures such as guest report data, paravisor runtime claims, or TPM qualifying data[^evt-wg-identity-and-trust-issue-12].
-- **Appraisal**: Verification logic and policy verdicts executed by relying parties to confirm evidence satisfies security and compliance thresholds[^evt-wg-identity-and-trust-issue-12].
+Key focus areas and technical workstreams within the working group include:
 
-This structural division resolves cross-platform inconsistencies between direct guest attestation, hypervisor-managed paravisor runtime structures, and multi-accelerator environments[^evt-wg-identity-and-trust-issue-12].
+- **Agent Identity & DIDs:** Specifying decentralized identifiers, key bindings, and machine-verifiable credentials under standards such as the [Agent Network Protocol](../standards/agent-network-protocol.md).
+- **Delegation Trees & Disputed Revocations:** Modeling hierarchical subagent delegation lifecycles, including test vectors where a parent identity is revoked while child delegations remain presented, or where revocation signals are delayed or unenforced [^evt-wg-identity-and-trust-issue-18, ^evt-wg-identity-and-trust-pr-20].
+- **Re-Registration & Artifact Binding:** Defining test suites that tie signed action records and requests across identifier rotations and re-registrations [^evt-wg-identity-and-trust-issue-18, ^evt-wg-identity-and-trust-pr-20].
+- **Key Recovery Semantics:** Developing recovery record rules signed jointly by registries and responsible entities under software attestation matching; recovery records carry forward history, revocations, and disputes while preventing unauthorized re-grants following compromise [^evt-wg-identity-and-trust-pr-20].
+- **Evidence Verification:** Coordinating with external test vector suites such as `agent-evidence-vectors` to ensure deterministic validation across verifiers [^evt-wg-identity-and-trust-issue-18, ^evt-wg-identity-and-trust-pr-20].
 
 # Lifecycle History
-Following charter establishment, reference architecture discussions in Issue #12 identified gaps in monolithic attestation representations, leading to proposals decomposing attestation into platform evidence, identity binding, and appraisal layers[^evt-wg-identity-and-trust-issue-12].
+The working group actively evaluates identity and delegation lifecycle use cases. In late 2026, test suites covering disputed delegation revocation, identifier re-registration, and lost-key recovery workflows were integrated into the group's test harness [^evt-wg-identity-and-trust-issue-18, ^evt-wg-identity-and-trust-pr-20].
 
-[^evt-wg-identity-and-trust-issue-12]: https://github.com/aaif/wg-identity-and-trust/issues/12
+# References
+- Working Group Repository: https://github.com/aaif/wg-identity-and-trust
+- Delegation Lifecycle Test Cases: https://github.com/aaif/wg-identity-and-trust/pull/20
+
+[^evt-wg-identity-and-trust-issue-18]: https://github.com/aaif/wg-identity-and-trust/issues/18
+[^evt-wg-identity-and-trust-pr-20]: https://github.com/aaif/wg-identity-and-trust/pull/20

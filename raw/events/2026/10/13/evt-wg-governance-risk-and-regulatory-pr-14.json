@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-14",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#14",
+  "title": "Update charter with new tasks identified by the group members",
+  "timestamp": "2026-10-13T04:21:22Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/14",
+  "summary": "- Update contact info\n- Add new tasks planned by working group members.",
+  "pointers": [],
+  "inline_text": "- Update contact info\n- Add new tasks planned by working group members.",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-b33563055168-3d9290b7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-15T16:13:53+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/README.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "24210e3c136914c2df3bd643c1c717eabcb33ff5",
+      "path": "README.md",
+      "blob_sha": "3d9290b76e58045e780feece3b8a576e4d2d61bd",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

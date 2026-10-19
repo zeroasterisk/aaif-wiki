@@ -1,45 +1,39 @@
 ---
 type: taxonomy
 title: Workflow Primitives
-description: Standardized vocabulary of modular workflow building blocks, execution
-  boundary contracts, and topology primitives for agentic systems.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+description: Core vocabulary and execution primitives standardizing structured multi-activity
+  work, coordination flows, and determinism boundaries.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/40
 tags:
 - taxonomy
-- workflows
+- workflow
+- orchestration
 - primitives
-- contracts
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:40:40.637301+00:00'
+  at: '2026-10-19T10:18:43.513324+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-29
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
-  author: praneeth2k3
-  last_modified: '2026-10-06T15:45:22+00:00'
-- id: evt-wg-workflows-and-process-integration-pr-54
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
-  author: praneeth2k3
-  last_modified: '2026-10-06T03:09:10+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-40
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/40
+  author: chaksaray
+  last_modified: '2026-09-08T17:48:26+00:00'
 ---
 
 # Overview
 
-Workflow primitives are standardized building blocks and boundary contracts defined by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) for assembling modular single-agent and multi-agent reference architectures[^evt-wg-workflows-and-process-integration-pr-29]. They establish vendor-neutral execution units covering triggers, operational budgets, discrete agent steps, and handoff boundaries[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
+Workflow Primitives provide foundational definitions for orchestrating agent activities, coordinating control flow, and classifying execution state transitions across multi-step processes [^evt-wg-workflows-and-process-integration-pr-40].
 
 # Architecture / Specification
 
-The primitive framework formalizes workflow decomposition into reusable components and boundary guarantees[^evt-wg-workflows-and-process-integration-pr-29]:
+### Core Primitives
+- **Determinism**: Evaluated as a scoped property of a discrete layer—Workflow Execution, Control Flow, or an individual Activity—rather than an invariant across an entire end-to-end workflow [^evt-wg-workflows-and-process-integration-pr-40]. A workflow can retain deterministic control flow logic while orchestrating non-deterministic language model activities [^evt-wg-workflows-and-process-integration-pr-40].
+- **Control Flow**: The structural ordering, branching, and joining logic governing execution sequences [^evt-wg-workflows-and-process-integration-pr-40]. Control flow definitions are agnostic to whether transitions are static design-time paths or dynamically determined at runtime by an agent orchestrator [^evt-wg-workflows-and-process-integration-pr-40].
+- **Workflow Execution**: An instantiated lifecycle execution that retains continuity across mid-execution replanning, retries, and dynamic plan alterations [^evt-wg-workflows-and-process-integration-pr-40].
+- **Handoff**: The transfer of execution responsibility or context across agents, tools, or human boundaries [^evt-wg-workflows-and-process-integration-pr-40]. Handoff captures both the responsibility transition and the observable trace boundary where transfer occurs [^evt-wg-workflows-and-process-integration-pr-40].
 
-- **Primitive Vocabulary (P1–P19)**: Modular execution units including triggers, agent execution steps (`AgentStep`), operational budget limits (`Budget`), and handoff transfers (`Handoff`).
-- **Boundary Contracts**: Explicit invariants required whenever execution crosses primitive boundaries, specifically governing `AgentStep` inputs/outputs and cross-agent `Handoff` transitions[^evt-wg-workflows-and-process-integration-pr-29].
-- **Multi-Agent Topologies (T1–T6)**: Structural shapes and routing topologies governing agent coordination, supervisor hierarchies, and peer-to-peer delegation flows[^evt-wg-workflows-and-process-integration-pr-29].
-- **Approval Integration**: Specialized control subsets (P1–P12) integrating deterministic checks and human approval gates into single-agent workflows, as used in the [Single-Agent Human Approval Architecture](../architectures/single-agent-human-approval.md)[^evt-wg-workflows-and-process-integration-pr-54].
+# References
 
-# Lifecycle History
+- Layered determinism models reference factor classifications from [../resources/agentic-vulnerability-enumeration.md](../resources/agentic-vulnerability-enumeration.md) [^evt-wg-workflows-and-process-integration-pr-40].
 
-The primitive catalog was drafted to unify the underlying components of single-agent and multi-agent reference architectures into a shared taxonomic baseline[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
-
-[^evt-wg-workflows-and-process-integration-pr-29]: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
-[^evt-wg-workflows-and-process-integration-pr-54]: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
+[^evt-wg-workflows-and-process-integration-pr-40]: https://github.com/aaif/wg-workflows-and-process-integration/pull/40

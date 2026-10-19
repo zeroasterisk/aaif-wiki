@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-38",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#38",
+  "title": "Reframe gateway as checkpoint and add hook enforcement in best practices guide Section 3.1",
+  "timestamp": "2026-10-12T11:44:58Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/38",
+  "summary": "Closes #30.\n\nThis PR replaces the gateway enforcement bullet in Section 3.1 of the best practices guide with two bullets.\n\n- **Enforce at the hooks.** Describes the runtime hooks as the enforcement point: the points across the lifecycle of a run where the runtime stops and hands ...",
+  "pointers": [],
+  "inline_text": "Closes #30.\n\nThis PR replaces the gateway enforcement bullet in Section 3.1 of the best practices guide with two bullets.\n\n- **Enforce at the hooks.** Describes the runtime hooks as the enforcement point: the points across the lifecycle of a run where the runtime stops and hands the pending action to policy code, together with the context that led to it. Points to Section 4 for how the decision is made.\n- **Use the gateway as a checkpoint.** Describes the MCP gateway as the control on the network path: one endpoint for remote MCP servers, OAuth, per-tool permission policy, and payload capture for the Section 6 action events. States its scope and how it works together with the hook.\n\nOther changes in the same commit:\n\n- The vendor name is out of the body. The Section 7 table keeps its row.\n- agentgateway is named as an AAIF project in the body and in the Section 7 row.\n- The Last Modified date for the guide in deliverables/README.md is updated, per deliverables/AGENTS.md.\n\nThe change touches Section 3.1, one row in the Section 7 table, and the README date, so it does not overlap with #36.\n\nDisclosure: I co-lead the spec workstream of the OWASP Agent Control Standard, and I work at Capsule Security, which runs the hooks.security registry. Neither is cited in this change.\n\n@MatthewKhouzam @flucktemberg-sap this is the PR requested on #30.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

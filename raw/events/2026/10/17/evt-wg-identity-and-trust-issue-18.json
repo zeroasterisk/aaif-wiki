@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-18",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#18",
+  "title": "Use cases: disputed revocation across a delegation tree, and re-registration under a new identifier",
+  "timestamp": "2026-10-17T22:12:36Z",
+  "author": "astrogilda",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/18",
+  "summary": "@hymkw, you asked in #wg-identity-trust where to file two use cases: disputed revocation across a delegation tree, and re-registration under a new identifier. This issue is my answer: it maps both to my public test cases at https://github.com/probityai/agent-evidence-vectors (rel...",
+  "pointers": [],
+  "inline_text": "@hymkw, you asked in #wg-identity-trust where to file two use cases: disputed revocation across a delegation tree, and re-registration under a new identifier. This issue is my answer: it maps both to my public test cases at https://github.com/probityai/agent-evidence-vectors (release v0.18.1). Each case there is a saved signed record of what an AI agent did, paired with the outcome the repository's verifier, aee-verify, must return.\n\nCase A4 at https://github.com/probityai/agent-evidence-vectors/blob/v0.18.1/vectors-agent-audit-record/INDEX.md records a revocation signal that arrived, was not enforced, and was followed by a write. Case GT-R8 at https://github.com/probityai/agent-evidence-vectors/blob/v0.18.1/interop/govops-trace-profile/INDEX.md rejects a signature made by a key revoked an hour earlier. No case covers a parent revoked while its child delegation is still presented, and I propose a delegation-tree set of cases for it.\n\nThe artifact-binding cases at https://github.com/probityai/agent-evidence-vectors/blob/v0.18.1/vectors-artifact-binding/INDEX.md tie a signed record to its request and key, and none links an old identifier to a new one, so I propose a second set for re-registration.\n\nI ask the working group to consider both sets as tests for these two use cases. I maintain the repository and will send the sets as a pull request to aaif/wg-identity-and-trust, each case stating the expected outcome for one situation.",
+  "labels": []
+}

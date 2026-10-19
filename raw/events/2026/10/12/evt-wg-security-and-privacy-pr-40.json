@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-40",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#40",
+  "title": "Tag mapped clauses with MITRE ATLAS and OWASP ASI codes in best practices guide",
+  "timestamp": "2026-10-12T12:41:45Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/40",
+  "summary": "Closes #32.\n\nThe source ledger says ATLAS technique codes are referenced inline and ASI classification runs throughout, and no code appears in the text. This PR adds a bracketed tag at the end of each clause that describes a behavior the two frameworks cover, for example `[ATLAS ...",
+  "pointers": [],
+  "inline_text": "Closes #32.\n\nThe source ledger says ATLAS technique codes are referenced inline and ASI classification runs throughout, and no code appears in the text. This PR adds a bracketed tag at the end of each clause that describes a behavior the two frameworks cover, for example `[ATLAS AML.T0110, AML.T0051.001; ASI02, ASI04]`, with a one-line legend above the ledger.\n\n- **24 clauses tagged.** The seventeen rows from the issue, plus seven for the sections added on 2026-09-28: Section 3.3 Tool Implementation, the input and output handling list in Section 4, and the lethal trifecta and Rule of Two paragraph.\n- **Validation.** Every ATLAS ID was checked against the ATLAS v5.6.0 data file, the current release. Every ASI code was checked against the OWASP Top 10 for Agentic Applications 2026.\n- **Three changes from the issue's table.** ATLAS v5.6.0 has AML.T0109 \"AI Supply Chain Rug Pull\", so the rug pull clause, the runtime invariants clause (hash drift), and the MCP package clause (silent update) carry it.\n- **Ledger.** The ATLAS row moves to v5.6.0, and the ATLAS and OWASP rows now point at the inline tags.\n- **Not in this PR.** The two Section 4 clauses about an injected agent labeling its own exfiltration as routine are rewritten in #39, so their tags belong there and will follow once #39 settles.\n\nThe Last Modified line in deliverables/README.md is also touched by #38 and #39, which is a one-line fix for whichever merges later.\n\nDisclosure: I co-lead the spec workstream of the OWASP Agent Control Standard, and I work at Capsule Security, which runs the hooks.security registry. Neither is cited in this change.\n\n@MatthewKhouzam @flucktemberg-sap this is the PR requested on #32.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

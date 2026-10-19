@@ -1,46 +1,39 @@
 ---
 type: resource
-title: AAIF Public Agent Resources and Skills
-description: Public repository packaging portable agent skills, repeatable recipes,
-  prompt templates, and CI canary workflows for foundation automation.
-resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
+title: Public Agent Skills Repository
+description: Public repository packaging portable agent skills, recipes, prompt templates,
+  and automated CI test workflows across multi-model providers.
+resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/copilot-test-action.yml
 tags:
 - skills
-- recipes
-- prompts
-- github-actions
-- tooling
+- agent-skills
+- ci
+- github-models
+- gemini
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T02:35:53.136890+00:00'
+  at: '2026-10-19T09:41:59.414343+00:00'
 sources:
-- id: evt-public-agents-file-b33563055168-20a6dfb7
-  resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
+- id: evt-public-agents-file-b248ae41d1f0-0667ce2f
+  resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/copilot-test-action.yml
+  author: Manik Surtani
+  last_modified: '2026-05-07T10:21:09+10:00'
+- id: evt-public-agents-file-ae1d68d00103-0e76c626
+  resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/gemini-test-action.yml
   author: Manik Surtani
   last_modified: '2026-05-11T09:21:58+10:00'
 ---
 
 # Overview
-The AAIF Public Agents repository (`aaif/public-agents`) provides reusable, modular assets designed for autonomous and semi-autonomous agent execution across foundation workflows[^evt-public-agents-file-b33563055168-20a6dfb7]. The repository organizes functional extensions into distinct operational tiers, including installable agent skills, repeatable task recipes, reusable prompt templates, and validation documentation[^evt-public-agents-file-b33563055168-20a6dfb7].
 
-The repository adheres to [Agent Skills](../standards/agent-skills.md) conventions and provides foundational automation for administrative triage and community management[^evt-public-agents-file-b33563055168-20a6dfb7].
+The `aaif/public-agents` repository maintains public, portable agent skills, integration recipes, and automated verification suites for the Agentic AI Foundation [^evt-public-agents-file-b248ae41d1f0-0667ce2f][^evt-public-agents-file-ae1d68d00103-0e76c626]. It provides reusable templates alongside CI-driven test harnesses to validate multi-model execution and provider interoperability [^evt-public-agents-file-b248ae41d1f0-0667ce2f][^evt-public-agents-file-ae1d68d00103-0e76c626].
 
 # Architecture / Specification
 
-## Repository Structure
-The repository is partitioned into modular resource collections[^evt-public-agents-file-b33563055168-20a6dfb7]:
-- `skills/`: Agent skills encapsulating domain expertise, formatting rules, brand guidelines, and tool execution instructions.
-- `recipes/`: Structured, multi-step agent workflows and repeatable task definitions.
-- `prompts/`: Reusable prompt templates and instruction sets for specific LLM roles.
-- `docs/`: Architectural specifications and contributor guidance.
+The repository incorporates continuous integration workflows to test multi-model inference capabilities:
+- **GitHub Models Integration**: The `copilot-test-action` workflow queries the GitHub Models catalog endpoint (`https://models.github.ai/catalog/models`) and executes chat completion inferences against selected models under organization-level credentials [^evt-public-agents-file-b248ae41d1f0-0667ce2f].
+- **Gemini API Integration**: The `gemini-test-action` workflow verifies connectivity and content generation across Gemini model versions (such as `gemini-2.5-flash` and `gemini-2.5-pro`) using direct REST API endpoints [^evt-public-agents-file-ae1d68d00103-0e76c626].
 
-## Inference Validation and Canary Actions
-The repository maintains manually triggered GitHub Actions workflows in `.github/workflows/` to validate model connectivity and test LLM inference pipelines without third-party orchestrators[^evt-public-agents-file-b33563055168-20a6dfb7]:
-- **GitHub Models (`copilot-test-action`)**: Connects to GitHub Models (`https://models.github.ai`) using the standard built-in `GITHUB_TOKEN` across organization-scoped chat completion endpoints (`/orgs/{org}/inference/chat/completions`), requiring no external secrets[^evt-public-agents-file-b33563055168-20a6dfb7].
-- **Google Gemini (`gemini-test-action`)**: Dispatches prompt workloads to Google Gemini endpoints (such as `gemini-2.5-flash` or `gemini-2.5-pro`) using secret headers (`x-goog-api-key`) scoped either to repository secrets or restricted deployment environments[^evt-public-agents-file-b33563055168-20a6dfb7].
-
-# Lifecycle History
-- **Repository Initialization**: Structured baseline directories for skills, recipes, and prompts, alongside GitHub Models and Gemini inference verification workflows[^evt-public-agents-file-b33563055168-20a6dfb7].
-
-[^evt-public-agents-file-b33563055168-20a6dfb7]: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
+[^evt-public-agents-file-ae1d68d00103-0e76c626]: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/gemini-test-action.yml
+[^evt-public-agents-file-b248ae41d1f0-0667ce2f]: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/.github/workflows/copilot-test-action.yml
