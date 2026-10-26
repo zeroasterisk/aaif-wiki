@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-8f732085cd4f-ef6fdf4e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": "governance/project-lifecycle-policy.md",
+  "title": "project-lifecycle-policy.md",
+  "timestamp": "2026-10-15T16:13:53+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/governance/project-lifecycle-policy.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "24210e3c136914c2df3bd643c1c717eabcb33ff5",
+      "path": "governance/project-lifecycle-policy.md",
+      "blob_sha": "ef6fdf4efaaff36f6c423a70db61ad7994cb1798",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,18 +1,19 @@
 ---
 type: taxonomy
 title: Workflow Primitives
-description: Standardized vocabulary of modular workflow building blocks, execution
-  boundary contracts, and topology primitives for agentic systems.
+description: Standardized vocabulary of composable execution blocks and boundary contracts
+  structuring single-agent and multi-agent reference architectures.
 resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
 tags:
-- taxonomy
-- workflows
+- workflow
 - primitives
 - contracts
+- taxonomy
+- wg-workflows-and-process-integration
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:40:40.637301+00:00'
+  at: '2026-10-26T10:49:39.325201+00:00'
 sources:
 - id: evt-wg-workflows-and-process-integration-pr-29
   resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
@@ -25,21 +26,25 @@ sources:
 ---
 
 # Overview
+Workflow primitives are standardized, composable operational units and execution boundaries defined by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to serve as shared building blocks across single-agent and multi-agent reference architectures[^evt-wg-workflows-and-process-integration-pr-29]. Spanning an indexed catalog from P1 through P19, these primitives decouple architectural patterns from proprietary orchestrator frameworks and establish consistent execution semantics across system boundaries[^evt-wg-workflows-and-process-integration-pr-29].
 
-Workflow primitives are standardized building blocks and boundary contracts defined by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) for assembling modular single-agent and multi-agent reference architectures[^evt-wg-workflows-and-process-integration-pr-29]. They establish vendor-neutral execution units covering triggers, operational budgets, discrete agent steps, and handoff boundaries[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
+By establishing explicit structural invariants across transitions, workflow primitives ensure that autonomous planning cycles, tool invocations, approval gates, and multi-agent delegations maintain verifiable state durability, resource budgets, and deterministic policy constraints[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
 
 # Architecture / Specification
+The primitive vocabulary defines core workflow components, including fundamental building blocks such as `Trigger`, `AgentStep`, `Budget`, and `Handoff`[^evt-wg-workflows-and-process-integration-pr-29].
 
-The primitive framework formalizes workflow decomposition into reusable components and boundary guarantees[^evt-wg-workflows-and-process-integration-pr-29]:
+### Boundary Contracts
+Every execution transition crossing a primitive threshold must satisfy formal boundary contracts[^evt-wg-workflows-and-process-integration-pr-29]:
+- **AgentStep Boundary Contract**: Defines pre-condition validation, state isolation, and telemetry propagation requirements before and after individual autonomous agent iterations.
+- **Handoff Contract**: Mandates schema validation, authorization verification, and execution context preservation whenever control transfers between agents or transitions to human reviewers.
 
-- **Primitive Vocabulary (P1–P19)**: Modular execution units including triggers, agent execution steps (`AgentStep`), operational budget limits (`Budget`), and handoff transfers (`Handoff`).
-- **Boundary Contracts**: Explicit invariants required whenever execution crosses primitive boundaries, specifically governing `AgentStep` inputs/outputs and cross-agent `Handoff` transitions[^evt-wg-workflows-and-process-integration-pr-29].
-- **Multi-Agent Topologies (T1–T6)**: Structural shapes and routing topologies governing agent coordination, supervisor hierarchies, and peer-to-peer delegation flows[^evt-wg-workflows-and-process-integration-pr-29].
-- **Approval Integration**: Specialized control subsets (P1–P12) integrating deterministic checks and human approval gates into single-agent workflows, as used in the [Single-Agent Human Approval Architecture](../architectures/single-agent-human-approval.md)[^evt-wg-workflows-and-process-integration-pr-54].
+### Topology and Reference Architecture Integration
+Primitives are assembled to compose both single-agent and multi-agent architectures:
+- **Single-Agent Patterns**: Employs primitives P1 through P12 to implement durable waits, validation gates, and approval structures in workflows such as [Single-Agent Human Approval](../architectures/single-agent-human-approval.md)[^evt-wg-workflows-and-process-integration-pr-54].
+- **Multi-Agent Topologies**: Arranges primitives into six canonical multi-agent topological structures (T1 through T6) defining supervision hierarchies, peer handoffs, and swarm networks[^evt-wg-workflows-and-process-integration-pr-29].
 
 # Lifecycle History
-
-The primitive catalog was drafted to unify the underlying components of single-agent and multi-agent reference architectures into a shared taxonomic baseline[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
+Drafted in the Workflows and Process Integration Working Group to bridge horizontal taxonomy efforts with actionable reference architectures and topology models[^evt-wg-workflows-and-process-integration-pr-29][^evt-wg-workflows-and-process-integration-pr-54].
 
 [^evt-wg-workflows-and-process-integration-pr-29]: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
 [^evt-wg-workflows-and-process-integration-pr-54]: https://github.com/aaif/wg-workflows-and-process-integration/pull/54

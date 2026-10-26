@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-87b3376703c5-313cc435",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": ".github/ISSUE_TEMPLATE/working-group-proposal.yml",
+  "title": "working-group-proposal.yml",
+  "timestamp": "2026-10-15T16:14:24+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/.github/ISSUE_TEMPLATE/working-group-proposal.yml",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "1054856f6e1307fdfb56d51abcf9a87055ee0140",
+      "path": ".github/ISSUE_TEMPLATE/working-group-proposal.yml",
+      "blob_sha": "313cc43580aa31c3d52979a4518dba9c7dd2adb7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-39",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#39",
+  "title": "Put the Section 4 authorization framework behind a policy decision point at the hook in best practices guide",
+  "timestamp": "2026-10-12T12:30:29Z",
+  "author": "barka-bee",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/39",
+  "summary": "Closes #31.\n\nThis PR rewrites the control in Section 4 of the best practices guide as a system, per the discussion on #31.\n\n- **The control is a policy decision point at the hook.** It receives the whole call, which is the tool, its arguments, and the context of the run, and retu...",
+  "pointers": [],
+  "inline_text": "Closes #31.\n\nThis PR rewrites the control in Section 4 of the best practices guide as a system, per the discussion on #31.\n\n- **The control is a policy decision point at the hook.** It receives the whole call, which is the tool, its arguments, and the context of the run, and returns allow, deny, modify, or ask. The decision is keyed on the call itself, since the same tool can be routine or destructive depending on its arguments.\n- **Three stages.** Deterministic rules decide first. Calls the rules hand off go to a second stage, which can be a classifier, a model, or a separate deterministic agent. A human takes part only on ask. The agent has no path into any stage.\n- **The four tiers describe the ask path.** The table is unchanged and now has an intro that says so. The Tier 4 destination rule is restated as a deterministic rule that fires before any hand-off.\n- **Quick start** now starts with the decision point and the rules, then maps the hand-off calls to tiers.\n- **Evidence** for the failure pattern paragraph: the measured approval rates from the Anthropic auto mode post, 97% of prompts approved, 13.6% of 1,053 testers caught a planted dangerous command, 89% blocked by the automated check.\n\nThe text refers to the hook described in Section 3.1, which arrives with #38, so this PR merges after #38. The two PRs touch the same Last Modified line in deliverables/README.md, which is a one-line fix for whichever merges second.\n\nDisclosure: I co-lead the spec workstream of the OWASP Agent Control Standard, and I work at Capsule Security, which runs the hooks.security registry. Neither is cited in this change.\n\n@MatthewKhouzam @flucktemberg-sap this is the PR requested on #31.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

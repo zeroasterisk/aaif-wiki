@@ -1,38 +1,44 @@
 ---
 type: working-group
 title: Observability and Traceability Working Group
-description: AAIF technical working group establishing vendor-neutral telemetry standards,
-  behavioral trace models, and cross-boundary agent observability.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
+description: AAIF technical working group establishing vendor-neutral agent telemetry
+  standards, cross-boundary trace context, and execution verification architectures.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/f10288d27f769a4ff90184490100a0f7fdbc4d4e/meeting-minutes/2026-10-14.md
 tags:
 - working-group
 - observability
-- traceability
 - telemetry
+- tracing
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:52:34.061085+00:00'
+  at: '2026-10-26T11:06:49.409332+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-62
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
-  author: mr-lee
-  last_modified: '2026-10-12T02:55:00+00:00'
+- id: evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/f10288d27f769a4ff90184490100a0f7fdbc4d4e/meeting-minutes/2026-10-14.md
+  author: Pavan Sudheendra
+  last_modified: '2026-10-19T15:06:04+01:00'
+- id: evt-wg-observability-and-traceability-issue-64
+  resource: https://github.com/aaif/wg-observability-and-traceability/issues/64
+  author: jmaionchi
+  last_modified: '2026-10-18T18:27:15+00:00'
+- id: evt-wg-observability-and-traceability-issue-65
+  resource: https://github.com/aaif/wg-observability-and-traceability/issues/65
+  author: jmaionchi
+  last_modified: '2026-10-18T18:41:21+00:00'
 ---
 
 # Overview
-The Observability and Traceability Working Group is an AAIF technical body responsible for defining vendor-neutral telemetry models, agent execution trace formats, and cross-boundary observability standards across LLM primitives, MCP protocol boundaries, and host operating environments [^evt-wg-observability-and-traceability-pr-62]. The group produces telemetry specifications and reference architectures to ensure agent reasoning loops and tool invocations can be reliably inspected, attributed, and diagnosed [^evt-wg-observability-and-traceability-pr-62].
+The Observability and Traceability Working Group establishes vendor-neutral telemetry standards, distributed tracing conventions, and execution audit architectures for autonomous agent systems [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21]. The group focuses on capturing causal execution chains across LLM primitives, tool invocations, and multi-agent protocols [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21].
 
-# Architecture / Specification
-In addition to technical specifications such as the [Agent Behavior Trace Model](../standards/agent-behavior-trace-model.md) and cross-boundary telemetry matrices, the working group adheres to the foundation's standardized governance operations defined by the [Technical Committee](../governance/technical-committee.md) [^evt-wg-observability-and-traceability-pr-62].
+# Initiatives and Active Workstreams
+The working group coordinates several specifications and industry alignments:
+- **Telemetry Seams and OTel/OCSF Mapping**: Collaborating with the OpenTelemetry (OTel) GenAI SIG and the Open Cybersecurity Schema Framework (OCSF) to define standard extension points and nine identified integration seams for coding agents, agent SDKs, and AI gateways [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21].
+- **Agentic Resource Discovery (ARD) Observability**: Defining telemetry requirements and an observability specification section for the decentralized [Agentic Resource Discovery](../standards/agentic-resource-discovery.md) standard [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21].
+- **Context Engines and Verifiable Replay**: Assessing cryptographic audit structures, provable execution replay, and zero-knowledge boundary protocols such as CIGAR (Context Intelligence Graph Agentic Runtime) and Agent Action Capsule (AAC) specifications [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21].
+- **Cross-Boundary Security Coordination**: Partnering with the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) to integrate attestation evidence and policy enforcement boundaries into trace contexts [^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21].
+- **Taxonomy Definitions**: Reviewing operational telemetry classifications, such as [Operationally Conformant](../taxonomy/operationally-conformant.md) and universal reasoning terms, in coordination with the [Taxonomy and Landscape Working Group](../working-groups/taxonomy-and-landscape.md) [^evt-wg-observability-and-traceability-issue-64], [^evt-wg-observability-and-traceability-issue-65].
 
-## Governance and Reporting Conventions
-The working group aligns its periodic reporting cadence with centralized Technical Committee reporting requirements [^evt-wg-observability-and-traceability-pr-62]:
-- **Report Pull Request Naming**: Pull requests submitting periodic reports must strictly follow the format `[Report] <YYYY-MM>` (e.g., `[Report] 2024-06`), deprecating older WG-prefixed titling formats (`[Report] <WG name> – <Month YYYY>`) [^evt-wg-observability-and-traceability-pr-62].
-- **Labeling Requirements**: Monthly reports require the `monthly-report` label to enable automated discovery, ingestion, and status tracking across Technical Committee dashboards [^evt-wg-observability-and-traceability-pr-62].
-- **Case Sensitivity**: Report file naming in working group repositories enforces strict case sensitivity in accordance with foundation-wide reporting guidelines [^evt-wg-observability-and-traceability-pr-62].
-
-# Lifecycle History
-The working group operational procedures were updated in PR #62 to resolve reporting mismatches and align monthly progress disclosures with unified Technical Committee reporting automation [^evt-wg-observability-and-traceability-pr-62].
-
-[^evt-wg-observability-and-traceability-pr-62]: https://github.com/aaif/wg-observability-and-traceability/pull/62
+[^evt-wg-observability-and-traceability-file-7c02d5e673bb-b7cb2b21]: https://github.com/aaif/wg-observability-and-traceability/blob/f10288d27f769a4ff90184490100a0f7fdbc4d4e/meeting-minutes/2026-10-14.md
+[^evt-wg-observability-and-traceability-issue-64]: https://github.com/aaif/wg-observability-and-traceability/issues/64
+[^evt-wg-observability-and-traceability-issue-65]: https://github.com/aaif/wg-observability-and-traceability/issues/65

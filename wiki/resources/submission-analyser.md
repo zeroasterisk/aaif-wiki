@@ -1,18 +1,19 @@
 ---
 type: resource
 title: Submission Analyser
-description: Headless CI triage agent utilizing GitHub Actions, Copilot inference,
-  and multi-model fallback to validate incoming issue submissions in a read-only environment.
+description: Headless Flue 2.0 agent running in GitHub Actions that analyses repository
+  issues and publishes reports, incorporating dual-matrix dry-run canary verification.
 resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/canary.yml
 tags:
-- tooling
+- agents
 - ci-cd
-- triage
-- automation
+- github-actions
+- flue
+- tools
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:35:07.018920+00:00'
+  at: '2026-10-26T10:38:42.139689+00:00'
 sources:
 - id: evt-submission-analyser-file-4b56c7c159ef-381bcc10
   resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/canary.yml
@@ -22,18 +23,23 @@ sources:
 
 # Overview
 
-Submission Analyser is a headless continuous integration (CI) triage agent designed to parse, validate, and evaluate incoming GitHub issue submissions against foundation requirements [^evt-submission-analyser-file-4b56c7c159ef-381bcc10]. It executes automated first-pass evaluations within containerized workflows without requiring persistent interactive execution environments [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+The Submission Analyser is a headless agent built on Flue 2.0 and automated via GitHub Actions to inspect intake repository issues, apply structured rubric assessments, and generate evaluation summaries [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+
+To manage upstream LLM provider volatility, the analyser incorporates a daily dry-run canary workflow verifying both primary and fallback model pipelines across real model endpoints without performing publication actions [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
 
 # Architecture / Specification
 
-The analyser incorporates specific architectural resilience and security mechanisms:
+### Model Canary Verification
 
-- **Model Access Canary**: Employs an out-of-band scheduled daily canary workflow running in dry-run mode (`DRY_RUN=1`) against a fixed issue baseline to proactively detect expired PATs, broken Copilot individual endpoints, and header drift before live triage failures occur [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
-- **Dual-Matrix Fallback Validation**: Operates an independent primary and fallback execution matrix (running `fail-fast: false`), preventing a broken fallback model configuration from being masked when the primary endpoint is healthy [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
-- **Least Privilege Execution**: Uses scoped repository permissions (`contents: read`, `issues: read`, `copilot-requests: write`) and eliminates third-party publication credentials during validation runs [^evt-submission-analyser-file-4b56c7c159ef-381bcc10]. Model inference utilizes repository-level GITHUB_TOKEN Copilot entitlements rather than external personal access tokens [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+The canary workflow (`canary.yml`) isolates model availability risks from production analysis pipelines [^evt-submission-analyser-file-4b56c7c159ef-381bcc10]:
 
-# References
+- **Dual Matrix Execution:** Evaluates both primary and fallback model legs independently with `fail-fast: false`, ensuring a failure in the primary model does not mask a silent outage in the fallback engine [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+- **Dry-Run Confinement:** Operates with `DRY_RUN=1` and minimal permissions (`contents: read`, `issues: read`, `copilot-requests: write`), explicitly excluding downstream write credentials (such as Google Drive or Discord secrets) to limit security exposure [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+- **Token Attestation:** Uses repository workflow identity tokens rather than personal access tokens (PATs) to authenticate against individual Copilot endpoints, avoiding permission revocation issues [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
+- **Scheduled Frequency:** Scheduled off-peak daily (07:15 UTC) against a fixed reference issue to detect header or credential drifts prior to production triage [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
 
-- [Submission Analyser Repository](https://github.com/aaif/submission-analyser)
+# Lifecycle History
+
+Deployed across foundation repositories for automated issue intake analysis alongside guidelines documented in [skills/issue-analysis](../skills/issue-analysis.md) and [guidelines/working-group-submission-guidelines](../guidelines/working-group-submission-guidelines.md) [^evt-submission-analyser-file-4b56c7c159ef-381bcc10].
 
 [^evt-submission-analyser-file-4b56c7c159ef-381bcc10]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/canary.yml

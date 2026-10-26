@@ -1,18 +1,19 @@
 ---
 type: resource
-title: Cross-Boundary Observability Model
-description: Multi-layer analysis framework evaluating agent observability gaps across
-  LLM primitives, protocol boundaries, and underlying infrastructure.
+title: Cross-Boundary Observability Model for Agentic Systems
+description: Analytical coordination framework structuring agent observability across
+  LLM primitives, protocol boundaries, and infrastructure layers.
 resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
 tags:
 - observability
 - telemetry
-- gap-analysis
 - boundaries
+- protocols
+- wg-observability-and-traceability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:40:40.637301+00:00'
+  at: '2026-10-26T10:49:39.325201+00:00'
 sources:
 - id: evt-wg-observability-and-traceability-file-566afac466bc-889ed18a
   resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
@@ -25,22 +26,27 @@ sources:
 ---
 
 # Overview
+The Cross-Boundary Observability Model for Agentic Systems is a coordination artifact developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) to evaluate telemetry gaps across heterogeneous execution boundaries[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]. Rather than defining a standalone telemetry protocol or competing with existing logging frameworks, the model functions as a common boundary map to assess where interoperability breaks down across standards and implementations, guiding targeted upstream contributions and foundation recommendations[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a][^evt-wg-observability-and-traceability-pr-25].
 
-The Cross-Boundary Observability Model is an analytical framework developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) to evaluate telemetry and observability gaps across execution boundaries in agentic systems[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]. Rather than specifying a new telemetry protocol, the model serves as a coordination artifact for benchmarking existing standards, identifying where cross-system interoperability fails, and focusing targeted upstream contributions[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a][^evt-wg-observability-and-traceability-pr-25].
+Contemporary agentic systems span multiple conceptual and physical boundaries where telemetry conventions diverge. While monitoring solutions frequently capture isolated invocations, they routinely lose correlation across multi-step delegations, protocol handoffs, and underlying infrastructure environments. The model formalizes these transitions to illuminate persistent blind spots in cross-system identity, context propagation, provenance, protocol negotiation, and responsibility tracking[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a].
 
 # Architecture / Specification
+The model structures observability analysis into three distinct horizontal layers[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]:
 
-The model organizes observability gap analysis across three distinct operational layers to expose breakdowns in context propagation, provenance, delegation, and responsibility chains[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]:
+- **LLM Primitive Layer**: Governs fundamental generative building blocks, including agents, packaged skills, external tools, models, and memory architectures.
+- **Protocol Boundary Layer**: Governs interaction patterns across transport specifications such as the Model Context Protocol (MCP), Agent-to-Agent (A2A), and HTTP/streaming interfaces. Primary interaction points include discovery, capability negotiation, request/response cycles, task delegation, streaming pipelines, cancellation signaling, and structured error handling.
+- **Infrastructure Boundary Layer**: Governs runtime hosting environments, gateways, policy mediation proxies, container runtimes, and physical network fabrics.
 
-- **LLM Primitive Layer**: Models primary execution entities including agents, skills, tools, foundation models, and memory stores.
-- **Protocol Boundary Layer**: Evaluates interaction semantics across external interfaces (such as MCP, A2A, and streaming HTTP) across discovery, negotiation, request/response, delegation, streaming, cancellation, and error handling.
-- **Infrastructure Boundary Layer**: Analyzes underlying runtimes, AI gateways, microservices, and network boundaries transporting agent requests.
-
-By evaluating cross-boundary observability questions against this layered topology, the working group systematically identifies unobserved context drops and unverified agent delegations across multi-system handoffs[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a].
+### Cross-Boundary Observability Blind Spots
+The framework targets five core operational areas where cross-layer visibility fails[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]:
+1. **Delegation and Hand-offs**: Preserving parent-child causality when tasks are transferred between autonomous agents.
+2. **Context Propagation**: Carrying execution trace baggage, state snapshots, and session context across transport boundaries.
+3. **Provenance and Trust**: Establishing verifiable audit chains that authenticate which models, tools, or inputs produced specific outputs.
+4. **Protocol Negotiation and Failure Modes**: Monitoring dynamic capability mismatches, version negotiations, and unhandled transport exceptions.
+5. **End-to-End Responsibility Chains**: Tracing decision accountability across multi-agent and human-in-the-loop workflows.
 
 # Lifecycle History
-
-The model was proposed and merged as a working draft within the Observability and Traceability Working Group to support gap analysis and interoperability evaluations[^evt-wg-observability-and-traceability-pr-25].
+Authored as a foundational working document within the Observability and Traceability Working Group to guide the AAIF gap analysis work package and structure comparative landscape assessments[^evt-wg-observability-and-traceability-pr-25].
 
 [^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
 [^evt-wg-observability-and-traceability-pr-25]: https://github.com/aaif/wg-observability-and-traceability/pull/25

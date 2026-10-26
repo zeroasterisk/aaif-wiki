@@ -1,18 +1,19 @@
 ---
 type: taxonomy
-title: Agent-to-Agent
+title: Agent-to-agent
 description: Universal taxonomy term defining direct communication, task delegation,
-  and coordination interactions occurring between autonomous agents.
+  and coordination interactions between autonomous agents.
 resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
 tags:
 - taxonomy
-- agent-to-agent
+- a2a
 - multi-agent
-- collaboration
+- coordination
+- universal-term
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T15:23:19.617877+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-10-26T10:52:30.795908+00:00'
 sources:
 - id: evt-ws-taxonomy-landscape-pr-81
   resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
@@ -21,11 +22,12 @@ sources:
 ---
 
 # Overview
+Agent-to-agent designates a general operational interaction in which one autonomous agent communicates, delegates tasks, or coordinates activities with another agent [^evt-ws-taxonomy-landscape-pr-81]. Governed under the universal taxonomy curated by the [Taxonomy & Landscape Working Group](../working-groups/taxonomy-and-landscape.md), the term establishes a platform-neutral classification for inter-agent behavior across decentralized and centralized systems alike [^evt-ws-taxonomy-landscape-pr-81].
 
-Agent-to-Agent (A2A) is defined as a general interaction pattern in which one autonomous agent communicates, coordinates, or exchanges state with another agent [^evt-ws-taxonomy-landscape-pr-81]. This collaborative coordination spans multi-agent architectures, hierarchical task delegation, and distributed peer-to-peer workflows.
+# Architecture / Specification
+The definition operates as an overarching, protocol-agnostic concept covering diverse exchange paradigms, including direct peer-to-peer messaging, hierarchical orchestration, and distributed blackboard architectures [^evt-ws-taxonomy-landscape-pr-81]. The taxonomy explicitly notes that Agent-to-agent is not restricted or synonymous with any single transport specification, intentionally avoiding direct conflation with specific protocol implementations such as Google Agent2Agent (A2A) [^evt-ws-taxonomy-landscape-pr-81].
 
-# Vocabulary and Scope
-
-The taxonomy defines Agent-to-Agent as a universal interaction concept rather than tying the definition specifically to any single protocol implementation [^evt-ws-taxonomy-landscape-pr-81]. In agentic topologies, agent-to-agent interactions govern relationships between coordinators and [subagents](subagent.md), emergent coordination across an [agent swarm](agent-swarm.md), and standardized message exchanges over interfaces such as the [Agent Network Protocol](../standards/agent-network-protocol.md).
+# Lifecycle History
+Introduced into the cross-working-group universal terminology set via PR #81 in `ws-taxonomy-landscape`, the definition passed schema validation checks across the foundation's taxonomy test suites [^evt-ws-taxonomy-landscape-pr-81].
 
 [^evt-ws-taxonomy-landscape-pr-81]: https://github.com/aaif/ws-taxonomy-landscape/pull/81

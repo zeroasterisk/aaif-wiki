@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-91",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#91",
+  "title": "Define universal term Guardrail",
+  "timestamp": "2026-10-15T15:39:46Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/91",
+  "summary": "Defines Guardrail as a form of constraint on a model that prescribes intended actions or prevents unwanted actions or disclosures.\n\nThe scope note clarifies that guardrails apply to models, while harnesses may host and provide them. Links Guardrail to Constraint through `relatedT...",
+  "pointers": [],
+  "inline_text": "Defines Guardrail as a form of constraint on a model that prescribes intended actions or prevents unwanted actions or disclosures.\n\nThe scope note clarifies that guardrails apply to models, while harnesses may host and provide them. Links Guardrail to Constraint through `relatedTerms`.\n\nValidation: this change adds one schema-conformant taxonomy entry and leaves category and broader term deferred.",
+  "labels": []
+}

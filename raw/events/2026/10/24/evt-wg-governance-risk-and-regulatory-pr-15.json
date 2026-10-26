@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-15",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#15",
+  "title": "September monthly report",
+  "timestamp": "2026-10-24T02:28:54Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/15",
+  "summary": "September monthly report for the Governance risk and regulatory working group.",
+  "pointers": [],
+  "inline_text": "September monthly report for the Governance risk and regulatory working group.",
+  "labels": []
+}

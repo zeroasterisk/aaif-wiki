@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-project-proposals-file-6c7de919a622-15a00e3a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/project-proposals",
+  "reference_id": ".github/ISSUE_TEMPLATE/project-proposal.yml",
+  "title": "project-proposal.yml",
+  "timestamp": "2026-10-15T16:13:53+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/.github/ISSUE_TEMPLATE/project-proposal.yml",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "project-proposals",
+      "commit_sha": "24210e3c136914c2df3bd643c1c717eabcb33ff5",
+      "path": ".github/ISSUE_TEMPLATE/project-proposal.yml",
+      "blob_sha": "15a00e3a109a4f0df67031b99d6e35f3117f711f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-chairs-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "PR#2",
+  "title": "Add skills for WG meeting notes and monthly TC reports",
+  "timestamp": "2026-10-07T07:34:57Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/working-group-chairs/pull/2",
+  "summary": "## Summary\n\nAdds the first two shared agent skills for working group chairs. They're converted from the Security & Privacy WG's existing prompts and made generic, so any AAIF working group can use them.\n\n## Skills\n\n- **`aaif-wg-meeting-notes`** turns a meeting's AI summary and tr...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the first two shared agent skills for working group chairs. They're converted from the Security & Privacy WG's existing prompts and made generic, so any AAIF working group can use them.\n\n## Skills\n\n- **`aaif-wg-meeting-notes`** turns a meeting's AI summary and transcript into notes in the standard template: topics discussed, decisions, deliverables, action items, and links to the AI summary, transcript, and recording.\n- **`aaif-wg-monthly-report`** drafts the monthly report to the TC from the month's meeting notes, the WG repo's GitHub activity, and last month's report, and writes it to `reporting/YYYY-MM-report.md`. The chair reviews the draft and opens the report PR.\n\nEach skill is a folder with a `SKILL.md` (instructions for the agent) and a `template.md` (the output format). Both only load when named explicitly, for example: \"Using the aaif-wg-meeting-notes skill, write the notes for the 3-17 meeting.\"\n\n## Using them\n\nCopy a skill folder into your agent's skills directory (for example `~/.cursor/skills/` or `~/.claude/skills/`), then name the skill in your request.\n\n## Notes for reviewers\n\n- Neither skill has been run on real meeting material yet.\n- The monthly report template's Ecosystem Highlights guidance still uses security examples (OWASP, AARM, MCP ACS). They're marked \"e.g.\", but other WGs may want to swap in their own.\n\nMade with [Cursor](https://cursor.com)",
+  "labels": []
+}

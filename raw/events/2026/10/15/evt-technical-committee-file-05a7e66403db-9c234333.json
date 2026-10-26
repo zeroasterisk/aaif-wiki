@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-05a7e66403db-9c234333",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "project_proposal_process.md",
+  "title": "project_proposal_process.md",
+  "timestamp": "2026-10-15T16:14:10+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/project_proposal_process.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "684c3d2a07da3a8d55f87647bc125b2fcd5631be",
+      "path": "project_proposal_process.md",
+      "blob_sha": "9c2343335c4e3088f533e3039a4e3955403d82bf",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

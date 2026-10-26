@@ -1,32 +1,21 @@
 ---
 type: guideline
 title: Agent Plugin Portability Guidelines
-description: Architectural specifications for packaging multi-client agent plugins,
-  path token resolutions, external persistent data directories, and out-of-band secret
-  management.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
+description: Packaging, runtime abstraction, credential resolution, and execution
+  boundary guidelines ensuring agent skills run consistently across git checkouts
+  and installed plugins.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
 tags:
 - guidelines
 - plugins
 - portability
-- standards
+- runtime
+- security
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:50:35.583468+00:00'
+  at: '2026-10-26T11:01:50.430523+00:00'
 sources:
-- id: evt-community-events-file-4c2672b57ca1-5e9465e1
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-8b30d97e0275-3e6d8b8d
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-audit-slack/references/caches-and-composition.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-953dd2e86174-aa074a1c
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
 - id: evt-community-events-file-a54ff182c7e8-2d5d5bf6
   resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
   author: Rahul Parundekar
@@ -35,40 +24,35 @@ sources:
 
 # Overview
 
-Agent Plugin Portability guidelines establish architectural conventions allowing AI agent plugins and skills to execute predictably across diverse host applications, including [Goose](../resources/goose.md), Claude Desktop, Claude Code, Cursor, and Codex[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6]. By decoupling script execution from working directory assumptions, standardizing path resolution tokens, isolating persistent state, and externalizing credentials, plugins achieve runtime compatibility regardless of whether they are run from a local git repository checkout or installed into version-isolated application containers[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
+The Agent Plugin Portability Guidelines specify structural and runtime isolation contracts required for agent skills to operate reliably across varied execution environments, including developer git checkouts and packaged host installations.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6] AI agent runners such as Goose and Claude Desktop install and invoke plugins under disparate filesystem topologies and stripped shell environments, necessitating strict path resolution conventions, credential fallback chains, and scratch directory boundaries.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]
 
 # Architecture / Specification
 
-## Path Token Resolution
+## Checkout vs. Installed Plugin Runtimes
 
-Installed plugins operate in environments where host clients manage execution contexts differently—Goose clones git repositories directly, whereas tools like Claude Desktop unpack repository archives into version-specific directories stripped of `.git` metadata[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6]. Consequently:
+Plugin architectures must account for divergence in installation semantics:[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]
+- **Host Installations**: Host applications like Claude Desktop install decoupled, versioned directory snapshots lacking `.git` metadata, invoking scripts from the operator's active working directory with an empty shell profile.
+- **Relative Path Resolution**: Commands defined in `SKILL.md` files must resolve paths using an explicit `<skill-root>` variable rather than static paths relative to repository roots (e.g., avoiding `skills/<name>/...`).
 
-- Skill instructions in `SKILL.md` must resolve script locations via a dynamic `<skill-root>` token resolved from the loaded skill directory rather than relative paths from an assumed repository root (e.g. `skills/<name>/...`)[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
-- CI validation harnesses must enforce that all referenced script paths use `<skill-root>` to prevent silent failures when executed by desktop runtimes[^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
+## Secret and Credential Resolution Chain
 
-## Persistent State and Data Directories
+Because host applications cannot pass environment variables through user shells into plugin child processes, engines resolve operational secrets via a prioritized three-tier fallback hierarchy:[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]
+1. Active process environment variables.
+2. Root-level `.env` configuration files.
+3. Native operating system secure storage (such as the macOS Keychain), ensuring installed plugins retain access without hardcoded credentials.
 
-Plugins must never store persistent state, caches, backups, or generated reports in the plugin installation directory or the user's current working directory (`cwd`)[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6]:
+## Filesystem and Scratch Isolation
 
-- **Ephemeral Install Trees**: Automatic updates replace the plugin install directory entirely, orphaning any state or backups stored within it[^evt-community-events-file-953dd2e86174-aa074a1c].
-- **Host Working Directories**: Desktop clients frequently run from personal or synchronized user directories that must not be polluted with scratch files[^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
-- **Central Data Directory**: Persistent state must route through a dedicated datadir utility (such as `aaif_events.datadir`), resolving to standard operating system application support folders (e.g., `~/Library/Application Support/AAIF` on macOS, or `$XDG_DATA_HOME` on Linux), overridable by an absolute `AAIF_DATA_DIR` environment variable[^evt-community-events-file-953dd2e86174-aa074a1c]. Temporary files must use system scratch directories (`mktemp -d`)[^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
+Plugins must never default writes to the process's current working directory (CWD), which often maps to synced personal user folders.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6] Operational state, caches, and backups must target centralized application data directories (e.g. `aaif_events.datadir`) or isolated temporary directories created via `mktemp -d` and cleaned up after execution.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]
 
-## Dual Manifest Structure
+## Public Repository PII Safeguards
 
-To bridge diverging client packaging specifications:
+Publicly distributed agent plugins operating on real organizational rosters must treat commits as immutable.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6] Automated linting hooks (such as `check_no_real_pii.py`) and synthetic fixture constraints prevent live personal data from entering version control or agent transcripts.[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]
 
-- The root directory hosts standard `plugin.json` adhering to the open Agent Plugin standard[^evt-community-events-file-953dd2e86174-aa074a1c].
-- Client-specific manifests, such as Claude Desktop and Claude Code configurations, reside in dedicated subdirectories (e.g., `.claude-plugin/`), allowing multi-client support from a single upstream codebase[^evt-community-events-file-953dd2e86174-aa074a1c].
-- Individual capabilities are encapsulated in [Agent Skills](../standards/agent-skills.md) subdirectories with standard YAML frontmatter[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-953dd2e86174-aa074a1c].
+# References
 
-## Out-of-Band Secret Sourcing
+- [AAIF Check Setup Skill](../skills/aaif-check-setup.md)
+- [AAIF Backup Skill](../skills/aaif-backup.md)
+- [Public Agent Skills Resource](../resources/public-agent-skills.md)
 
-Desktop assistant applications do not propagate interactive shell environments to plugin subprocesses[^evt-community-events-file-953dd2e86174-aa074a1c]. To maintain credential hygiene without requiring users to expose API keys inside conversational transcripts:
-
-- Sensitive secrets (such as Slack tokens and calendar API keys) must be resolved hierarchically: first from process environment variables, second from a repository-level `.env` file, and third from the OS keychain (e.g. macOS Keychain Access under named items)[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
-- Setup verification skills (`aaif-check-setup`) confirm keychain accessibility prior to executing operations[^evt-community-events-file-4c2672b57ca1-5e9465e1][^evt-community-events-file-953dd2e86174-aa074a1c].
-
-[^evt-community-events-file-4c2672b57ca1-5e9465e1]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-event/SKILL.md
-[^evt-community-events-file-953dd2e86174-aa074a1c]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
 [^evt-community-events-file-a54ff182c7e8-2d5d5bf6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md

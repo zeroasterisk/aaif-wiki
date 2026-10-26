@@ -1,18 +1,19 @@
 ---
 type: pattern
 title: Proposal-Execution Split
-description: Architectural pattern enforcing authorization and attribution at protected
-  boundaries by separating proposal generation from action execution.
+description: Architectural governance pattern separating intent generation, authorization,
+  and workflow execution into decoupled authority roles.
 resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
 tags:
 - pattern
 - governance
-- authorization
+- security
 - workflows
+- authorization
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:46:11.619660+00:00'
+  at: '2026-10-26T10:53:12.499283+00:00'
 sources:
 - id: evt-wg-workflows-and-process-integration-pr-53
   resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
@@ -21,22 +22,24 @@ sources:
 ---
 
 # Overview
-The Proposal-Execution Split pattern prevents unauthorized or unverified agent operations by strictly decoupling the generation of an operational proposal from the mechanism authorized to execute it [^evt-wg-workflows-and-process-integration-pr-53]. By introducing an explicit governance boundary between intent synthesis and system state modification, systems can enforce policy verification, human inspection, and cryptographic attribution before point-of-effect execution [^evt-wg-workflows-and-process-integration-pr-53].
+The Proposal-Execution Split pattern isolates the generation of an intended action from its authorization and runtime execution, ensuring that an agent cannot enact side effects solely on its own authority [^evt-wg-workflows-and-process-integration-pr-53]. This architectural split guarantees that candidate operations must transition through an explicit governance checkpoint before accessing sensitive tools or committing side effects [^evt-wg-workflows-and-process-integration-pr-53].
+
+The separation focuses fundamentally on authority and capability boundaries rather than physical process boundaries [^evt-wg-workflows-and-process-integration-pr-53]. As a result, the pattern can be realized both across distributed multi-tier services and within unified harness-level execution runtimes [^evt-wg-workflows-and-process-integration-pr-53].
 
 # Architecture / Specification
-The pattern focuses on separation of authority rather than physical process or deployment separation [^evt-wg-workflows-and-process-integration-pr-53]. While proposal generation and execution can be hosted in distinct environments or microservices, the requirement is that the proposal-generating capability role lacks ambient privileges or execution credentials at protected interfaces [^evt-wg-workflows-and-process-integration-pr-53].
+The pattern defines an authority barrier separating proposal generation from action execution:
+- **Intent Formulation**: The model produces an unauthenticated action manifest or tool call proposal describing intended effects [^evt-wg-workflows-and-process-integration-pr-53].
+- **Policy and Authorization Gate**: An independent evaluation plane assesses the proposal against deterministic policies, organizational rules, or human approval gates [^evt-wg-workflows-and-process-integration-pr-53].
+- **Effect Execution**: An execution engine receives validated approval evidence and executes the target operation [^evt-wg-workflows-and-process-integration-pr-53].
 
-Key architectural elements include:
-- **Capability Separation vs Topology**: The pattern specifies logical capability roles (proposer vs executor) rather than requiring rigid distributed deployment topologies [^evt-wg-workflows-and-process-integration-pr-53].
-- **Point-of-Effect Gating**: Side effects requiring split execution are non-exhaustive and include irreversible data mutations, financial commitments, external communications, and infrastructure state changes [^evt-wg-workflows-and-process-integration-pr-53].
-- **Implementation Variants**: Implementations range from harness and orchestration-level interception—such as SDK tool-use gates (e.g., `canUseTool` callbacks) that prevent tool dispatch without confirmation—to cryptographic approval checkpoints and verified execution workers [^evt-wg-workflows-and-process-integration-pr-53].
+At the implementation layer, this pattern can be instantiated via orchestration- and harness-level controls, such as the `canUseTool` capability gate in agent SDKs (e.g., Anthropic Claude Agent SDK), or through distributed protocol proxies and sidecars [^evt-wg-workflows-and-process-integration-pr-53]. The pattern mitigates risks including unconstrained autonomous state corruption, unauthorized financial outlays, unintended message broadcast, and credential leakage [^evt-wg-workflows-and-process-integration-pr-53].
 
-# Related Patterns
-- [Single-Agent Human Approval Architecture](../architectures/single-agent-human-approval.md)
-- [Human Approval Gate](../patterns/human-approval-gate.md)
-- [Approval Checkpoint](../patterns/approval-checkpoint.md)
+# Lifecycle History
+Authored within the Workflows and Process Integration Working Group (../working-groups/workflows-and-process-integration.md). Updated in PR #53 based on Technical Committee review to clarify authority separation versus process isolation and document harness-level implementation mechanisms [^evt-wg-workflows-and-process-integration-pr-53].
 
 # References
-- aaif/wg-workflows-and-process-integration: PR #53 (Updates based on Issue 45 TC Feedback)
+- [WG Workflows PR #53](https://github.com/aaif/wg-workflows-and-process-integration/pull/53)
+- [Single-Agent Human Approval Reference Architecture](../architectures/single-agent-human-approval.md)
+- [Approval Checkpoint](../patterns/approval-checkpoint.md)
 
 [^evt-wg-workflows-and-process-integration-pr-53]: https://github.com/aaif/wg-workflows-and-process-integration/pull/53

@@ -1,21 +1,19 @@
 ---
 type: resource
 title: PostHog Agent Telemetry Reference Architecture
-description: Product analytics and telemetry reference architecture capturing pseudonymous
-  agent behavioral funnels and operational metrics via direct Capture API calls and
-  client-side PII sanitization.
+description: Reference architecture detailing PostHog's Capture API ingestion, PII
+  sanitization, and session analytics for agent runtimes.
 resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
 tags:
 - observability
-- posthog
 - telemetry
-- privacy
 - analytics
-- goose
+- privacy
+- posthog
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:15:10.316983+00:00'
+  at: '2026-10-26T10:13:28.544386+00:00'
 sources:
 - id: evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75
   resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
@@ -24,33 +22,17 @@ sources:
 ---
 
 # Overview
-
-PostHog functions as a product analytics and behavioral event telemetry sink for AI agent frameworks, exemplified by its reference integration in Goose.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] Rather than capturing low-level function spans or kernel call graphs, PostHog ingests discrete session lifecycle events, feature adoption statistics, and error states while enforcing strict client-side privacy sanitization.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
+PostHog serves as an external analytics and behavioral telemetry sink capturing agent session lifecycles, user adoption funnels, and command metrics [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]. Within the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) landscape, PostHog demonstrates how privacy-conscious client-side agents like [Goose](../resources/goose.md) stream structured analytics payloads over HTTPS without embedding heavy vendor SDKs [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75].
 
 # Architecture / Specification
-
-## Ingestion Pipeline
-
-Agent runtimes communicate directly with PostHog's Capture API (`https://us.i.posthog.com/capture/` or self-hosted instances) via HTTPS POST operations containing a project API key (`phc_*`).[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] Ingestion does not require heavy SDK runtimes or local telemetry daemons; the agent runtime constructs and dispatches typed JSON payloads directly.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-
-## Telemetry Payload and Identity Model
-
-The core transmission unit is the `CaptureEvent` payload, containing:
-- `api_key`: Client project identifier embedded in the agent distribution.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `event`: Lifecycle action name (such as `session_start`, `error`, or `onboarding_*`).[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `distinct_id`: Pseudonymous installation identifier generated as a random UUIDv4 stored on the local filesystem, avoiding association with user account identities or network hardware addresses.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `properties`: Metadata map detailing operational properties and execution environments.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-- `timestamp`: UTC event generation time.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
-
-## Client-Side PII Sanitization
-
-To preserve operational privacy, the client telemetry module (such as Goose's `posthog.rs`) routes all outgoing property fields through regex-based sanitization pipelines before serialization.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75] The filter scrubs filesystem paths, API keys, email addresses, authorization tokens, and arbitrary UUIDs, ensuring that local workspace context and sensitive developer credentials are never transmitted to analytics storage.[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
+The reference architecture outlines the ingestion pipeline and client runtime architecture [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]:
+- **Ingestion Surface:** Agents send direct HTTPS POST payloads to PostHog's Capture API (`/capture/`) containing API project keys, event types, anonymous `distinct_id` identifiers, and custom properties.
+- **Client-Side Telemetry Module:** Exemplified by Goose's `posthog.rs`, the client manages an installation tracker UUID persisted on disk, an event builder for session lifecycles (`session_start`, onboarding milestones), and an active regex-based PII sanitizer stripping paths, tokens, emails, and keys.
+- **Sink Storage and Analytics:** PostHog processes inbound events through an ingestion pipeline into a ClickHouse-backed event store, computing behavioral funnels, cohort segmentation, and feature flag states.
+- **Privacy Boundaries:** Strict separation is maintained between pseudonymous product telemetry and raw conversational prompt data, preventing sensitive context leakage.
 
 # References
-
-- `../resources/goose.md`
-- `../resources/agent-tool-cli-boundary.md`
-- `../standards/agent-behavior-trace-model.md`
-- `../working-groups/observability-and-traceability.md`
+- [PostHog Reference Architecture](https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md)
+- Related agent framework: [Goose](../resources/goose.md)
 
 [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md

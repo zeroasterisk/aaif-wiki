@@ -1,17 +1,18 @@
 ---
 type: policy
 title: Project Proposal Process
-description: Operating procedure defining intake criteria, contribution agreements,
-  triage roles, and joint TC and Governing Board review gates for AAIF projects.
+description: Operating procedure and governance requirements for open-source projects
+  submitting proposals for AAIF hosting across lifecycle stages.
 resource: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml
 tags:
-- governance
 - policy
+- governance
 - project-intake
+- contribution-agreement
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T10:19:24.664549+00:00'
+  at: '2026-10-26T10:18:23.873756+00:00'
 sources:
 - id: evt-project-proposals-file-6c7de919a622-a1bc6ba1
   resource: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml
@@ -20,24 +21,15 @@ sources:
 ---
 
 # Overview
-
-The Project Proposal Process defines the intake workflow and review gates for open-source projects applying to become official AAIF Hosted Projects across the Sandbox, Growth, and Impact maturity tiers [^evt-project-proposals-file-6c7de919a622-a1bc6ba1]. The process requires formal alignment analysis, an executed legal Contribution Agreement, and affirmative approval votes from both the Technical Committee (TC) and the Governing Board (GB) [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
+The Project Proposal Process establishes the operational requirements and review stages for prospective open-source projects applying for AAIF hosting across the Sandbox, Growth, and Impact lifecycle tiers.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1] Intake is administered through GitHub issue templates evaluated jointly by the Technical Committee (`../governance/technical-committee.md`) and the Governing Board under Linux Foundation legal oversight.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
 
 # Architecture / Specification
+The submission and evaluation procedure mandates explicit legal and governance checkpoints before any project can be designated as an official AAIF project:[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
+- **Standardized Application Intake**: Proposers must submit a structured application via the `.github/ISSUE_TEMPLATE/project-proposal.yml` template in the `aaif/project-proposals` repository, detailing project origin, architectural alignment with the AAIF mission, and relationships to existing foundation projects.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1] Initial triage is handled by assigned TC intake leads.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
+- **Contribution Agreement Gate**: A formal Contribution Agreement is generated from application contacts and must be signed by the project maintainers prior to a Governing Board vote.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1] The agreement is countersigned by the Linux Foundation only after an affirmative vote.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
+- **Dual Approval Requirement**: Official hosting requires affirmative approval votes from both the Technical Committee (evaluating technical readiness and scope) and the Governing Board (evaluating ecosystem governance and legal fit).[^evt-project-proposals-file-6c7de919a622-a1bc6ba1] Projects may not represent themselves as donated or contributed until all formal execution gates conclude.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
 
-## Intake and Triage
-
-Applications are submitted via the structured GitHub issue template in the `aaif/project-proposals` repository labeled `New` [^evt-project-proposals-file-6c7de919a622-a1bc6ba1]. Applicants must detail:
-
-- Project origins, capabilities, and technical maturity [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-- Alignment with the AAIF mission and ecosystem [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-- Architectural relationship to existing AAIF hosted projects and specifications [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-
-## Contribution Agreement and Dual Approval Gates
-
-1. **Contribution Agreement**: A legal Contribution Agreement is sent to designated project contacts based on submission information. This agreement must be signed before the Governing Board can conduct a formal acceptance vote [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-2. **TC and GB Approval**: Official acceptance requires affirmative votes by both the Technical Committee (see [../governance/technical-committee.md](../governance/technical-committee.md)) and the Governing Board [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-3. **Linux Foundation Countersignature**: The Linux Foundation countersigns the Contribution Agreement only after a successful Governing Board vote [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
-4. **Representation Restrictions**: Maintainers cannot represent their project as "donated" or "contributed" until both voting gates succeed and the Contribution Agreement is countersigned [^evt-project-proposals-file-6c7de919a622-a1bc6ba1].
+# Lifecycle History
+The proposal workflow was formalized in the `aaif/project-proposals` repository to operationalize the foundation's tiered progression model documented in `../policies/project-lifecycle-policy.md`.[^evt-project-proposals-file-6c7de919a622-a1bc6ba1]
 
 [^evt-project-proposals-file-6c7de919a622-a1bc6ba1]: https://github.com/aaif/project-proposals/blob/f95b796d901b553de20e37213c63f81f40a627a2/.github/ISSUE_TEMPLATE/project-proposal.yml

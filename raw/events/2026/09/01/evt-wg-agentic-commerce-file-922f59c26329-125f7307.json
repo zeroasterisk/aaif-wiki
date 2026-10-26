@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-agentic-commerce-file-922f59c26329-125f7307",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-agentic-commerce",
+  "reference_id": "reporting/2026-08-report.md",
+  "title": "2026-08-report.md",
+  "timestamp": "2026-09-01T19:33:08-07:00",
+  "author": "Ilya Grigorik",
+  "url": "https://github.com/aaif/wg-agentic-commerce/blob/ee7be8500b8aefa949f0b8f6d1606f2a1d5e0809/reporting/2026-08-report.md",
+  "summary": "Add August 2026 report",
+  "pointers": [
+    {
+      "repo": "wg-agentic-commerce",
+      "commit_sha": "ee7be8500b8aefa949f0b8f6d1606f2a1d5e0809",
+      "path": "reporting/2026-08-report.md",
+      "blob_sha": "125f7307897018acc8ce584b17caef89d2d8043a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

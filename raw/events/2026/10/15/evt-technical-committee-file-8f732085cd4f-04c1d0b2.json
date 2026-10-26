@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-8f732085cd4f-04c1d0b2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "governance/project-lifecycle-policy.md",
+  "title": "project-lifecycle-policy.md",
+  "timestamp": "2026-10-15T16:14:10+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/project-lifecycle-policy.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "684c3d2a07da3a8d55f87647bc125b2fcd5631be",
+      "path": "governance/project-lifecycle-policy.md",
+      "blob_sha": "04c1d0b2c01181a307666362a4b54d1cd8af82fd",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

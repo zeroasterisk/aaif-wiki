@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-proposals-file-b33563055168-6c29ea3b",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-proposals",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-15T16:14:24+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/working-group-proposals/blob/1054856f6e1307fdfb56d51abcf9a87055ee0140/README.md",
+  "summary": "Clean up for consistency with related docs and repos",
+  "pointers": [
+    {
+      "repo": "working-group-proposals",
+      "commit_sha": "1054856f6e1307fdfb56d51abcf9a87055ee0140",
+      "path": "README.md",
+      "blob_sha": "6c29ea3b4ee9af908cc8f397f912b1142c53c610",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,17 +1,18 @@
 ---
 type: skill
 title: AAIF Blog Guidelines Skill
-description: Modular agent skill assisting contributors in drafting, validating, and
-  packaging vendor-neutral blog posts according to AAIF editorial standards.
+description: Modular agent skill assisting contributors in drafting, reviewing, neutralizing,
+  and styling AAIF blog publications.
 resource: https://github.com/aaif/public-agents/pull/4
 tags:
-- skill
+- skills
 - editorial
-- guidelines
+- blog
+- style-guide
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-12T03:15:15.871817+00:00'
+  at: '2026-10-26T10:48:03.610328+00:00'
 sources:
 - id: evt-public-agents-pr-4
   resource: https://github.com/aaif/public-agents/pull/4
@@ -20,19 +21,15 @@ sources:
 ---
 
 # Overview
-The AAIF Blog Guidelines skill is a modular agent skill designed to guide technical contributors through authoring, linting, and submitting articles for publication on the Agentic AI Foundation blog.[^evt-public-agents-pr-4] It encodes organizational publication guidelines into automated drafting assistants and validation checks.[^evt-public-agents-pr-4]
-
-The skill enforces alignment with Foundation editorial standards defined in the [Blog Guidelines](../guidelines/blog-guidelines.md).[^evt-public-agents-pr-4]
+The AAIF Blog Guidelines Skill is an automated agent skill providing editorial validation and drafting assistance for community blog posts published under the Agentic AI Foundation. It operationalizes editorial standards, tone neutralization, attribution rules, and publication checklists established by Foundation governance.
 
 # Architecture / Specification
-The skill automates pre-submission validation and editorial guidance across several key quality dimensions:[^evt-public-agents-pr-4]
+The skill enforces formatting and style rules during blog drafting and pull request reviews:
+- **Style and Tone Verification**: Validates US English spelling and sentence case conventions across headings and document sections.[^evt-public-agents-pr-4]
+- **Neutrality and Claims Guidance**: Verifies factual attributions and neutral phrasing, ensuring claims are backed by verifiable sources rather than subjective vendor positioning.[^evt-public-agents-pr-4]
+- **Editorial Consistency Checks**: Programmatically scans markdown frontmatter, author metadata, and document structure to ensure compliance with the foundational [Blog Guidelines](../guidelines/blog-guidelines.md).[^evt-public-agents-pr-4]
 
-- **Casing and Grammar**: Enforces standardized sentence-case capitalization across headings and titles, alongside American English (US English) spelling and stylistic conventions.[^evt-public-agents-pr-4]
-- **Source Verification Guidance**: Guides authors on properly citing external specifications, foundation repositories, and factual references while filtering unsupported assertions.[^evt-public-agents-pr-4]
-- **Editorial Consistency**: Executes automated checks for vendor neutrality, tone, markdown formatting hygiene, and metadata frontmatter correctness prior to pull request intake.[^evt-public-agents-pr-4]
-
-# References
-- [Blog Guidelines](../guidelines/blog-guidelines.md)
-- [Public Agent Skills Repository](https://github.com/aaif/public-agents)
+# Lifecycle History
+Iteratively maintained within the public agent skills repository (`aaif/public-agents`), incorporating updated copy standards and automated consistency checks for contributor workflows.[^evt-public-agents-pr-4]
 
 [^evt-public-agents-pr-4]: https://github.com/aaif/public-agents/pull/4

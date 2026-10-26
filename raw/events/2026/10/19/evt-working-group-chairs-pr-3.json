@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-working-group-chairs-pr-3",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "PR#3",
+  "title": "feat: add tookit for interacting with LFX platform",
+  "timestamp": "2026-10-19T16:57:39Z",
+  "author": "91pavan",
+  "url": "https://github.com/aaif/working-group-chairs/pull/3",
+  "summary": "What's included:\r\n\r\n- LFX MCP client: OAuth via mcp-remote or bearer-token authentication, tool lookup, and pagination.\r\n- Transcript utilities: WebVTT/plain-text parsing and Zoom transcript downloads, with an optional Playwright fallback.\r\n- Structured-output model client: JSON ...",
+  "pointers": [],
+  "inline_text": "What's included:\r\n\r\n- LFX MCP client: OAuth via mcp-remote or bearer-token authentication, tool lookup, and pagination.\r\n- Transcript utilities: WebVTT/plain-text parsing and Zoom transcript downloads, with an optional Playwright fallback.\r\n- Structured-output model client: JSON Schema completions through OpenAI-compatible endpoints.\r\n- Shared helpers: Date and URL validation, private no-overwrite JSON output, and credential-safe error messages.\r\n- Package metadata, pinned dependencies, usage documentation, and unit tests.",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "meeting-notes/2026-10-13.md",
+  "title": "2026-10-13.md",
+  "timestamp": "2026-10-19T09:09:02-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/2026-10-13.md",
+  "summary": "Add meeting notes for 2026-10-13",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8",
+      "path": "meeting-notes/2026-10-13.md",
+      "blob_sha": "daf59b9316649d89ec2983dc90a9a40408455dfb",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

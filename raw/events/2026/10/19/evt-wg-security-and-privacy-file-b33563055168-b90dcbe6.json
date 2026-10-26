@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-b33563055168-b90dcbe6",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-19T09:14:44-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/README.md",
+  "summary": "Add APAC meeting to root README",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8",
+      "path": "README.md",
+      "blob_sha": "b90dcbe6c232b92885616ec7338c6bd5638465e1",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
