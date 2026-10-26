@@ -1,41 +1,44 @@
 ---
 type: skill
-title: AAIF Working Group Meeting Notes Generator
-description: Modular agent skill and CLI toolkit converting working group LFX audio
-  transcripts and AI summaries into standardized AAIF meeting minutes.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/63
+title: AAIF Working Group Meeting Notes Skill
+description: Progressively disclosed agent skill converting working group LFX audio
+  transcripts and AI summaries into standardized Markdown meeting notes.
+resource: https://github.com/aaif/working-group-chairs/pull/2
 tags:
-- agent-skill
-- meeting-notes
-- automation
-- lfx
 - governance
+- working-groups
+- documentation
+- skills
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T11:11:30.472250+00:00'
+  at: '2026-10-26T10:50:53.998977+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-63
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/63
-  author: 91pavan
-  last_modified: '2026-10-13T09:37:59+00:00'
+- id: evt-working-group-chairs-pr-2
+  resource: https://github.com/aaif/working-group-chairs/pull/2
+  author: awfrazer
+  last_modified: '2026-10-07T07:34:57+00:00'
 ---
 
 # Overview
-The AAIF Working Group Meeting Notes Generator is an automated agent skill and command-line toolkit designed to convert raw meeting audio transcripts and LFX summaries into standardized, publication-ready working group meeting minutes[^evt-wg-observability-and-traceability-pr-63]. It enforces consistent synthesis across decisions, action items, and evidence citations across Agentic AI Foundation working groups[^evt-wg-observability-and-traceability-pr-63].
-
-Operating in accordance with standards established in [Taxonomy Landscape Meeting Notes Guidelines](../guidelines/taxonomy-landscape-meeting-notes.md), the tool standardizes note formatting while ensuring that all generated minutes require human review prior to publication[^evt-wg-observability-and-traceability-pr-63].
+The AAIF Working Group Meeting Notes skill (`aaif-wg-meeting-notes`) is an agent skill that converts raw meeting materials into standardized Markdown documentation for Agentic AI Foundation working groups[^evt-working-group-chairs-pr-2]. Originally adapted from operational prompts established in the [Security & Privacy Working Group](../working-groups/security-and-privacy.md), the skill formats meeting transcripts, audio recordings, and AI summaries into clean consensus records[^evt-working-group-chairs-pr-2].
 
 # Architecture / Specification
-The meeting notes generation workflow relies on a modular Python toolkit and date-driven CLI pipeline[^evt-wg-observability-and-traceability-pr-63]:
+## Packaging and Invocation Structure
+The skill uses progressive disclosure to minimize context overhead across general agent sessions[^evt-working-group-chairs-pr-2]:
+- **Directory Structure**: Maintained within an isolated directory containing `SKILL.md` (agent instructions) and `template.md` (target output layout)[^evt-working-group-chairs-pr-2].
+- **Agent Integration**: Deployed directly into an agent skills path (such as `~/.cursor/skills/` or `~/.claude/skills/`)[^evt-working-group-chairs-pr-2].
+- **Explicit Activation**: Configured to load only when named explicitly in a user prompt, ensuring deterministic processing without passive context consumption[^evt-working-group-chairs-pr-2].
 
-- **LFX MCP Integration**: Connects via Model Context Protocol (MCP) to Linux Foundation LFX APIs to retrieve official meeting audio transcripts and structured summaries[^evt-wg-observability-and-traceability-pr-63].
-- **Transcript Synthesis & Fallback**: Correlates high-level LFX summaries with detailed timestamped transcripts, incorporating fallback handling when primary summaries or raw audio transcripts are incomplete[^evt-wg-observability-and-traceability-pr-63].
-- **Structured Output Generation**: Generates Markdown meeting minutes structuring logged decisions, explicit action item ownership, and cited evidence[^evt-wg-observability-and-traceability-pr-63].
-- **Cross-WG Parameterization**: Configurable across foundation groups via parameter overrides for project, committee, and meeting identifiers[^evt-wg-observability-and-traceability-pr-63].
-- **Human Verification Gate**: Requires manual maintainer or working group chair review to verify decision accuracy and task assignments before notes are published[^evt-wg-observability-and-traceability-pr-63].
+## Output Schema
+The output format standardizes meeting records across all foundation working groups[^evt-working-group-chairs-pr-2]:
+- **Topics Discussed**: Structured breakdown of agenda items and technical deliberations.
+- **Decisions**: Explicit list of formal consensus points and technical determinations reached.
+- **Deliverables**: Status tracking for specifications, whitepapers, and shared repositories.
+- **Action Items**: Concrete operational tasks mapped to designated owners.
+- **Artifact Hyperlinks**: References linking directly to LFX AI summaries, audio transcripts, and video recordings.
 
 # Lifecycle History
-Developed in the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), the toolkit was implemented as a reusable Python module with plans to migrate the shared CLI logic into the foundation's centralized `working-groups-chair` tooling repository for broad WG adoption[^evt-wg-observability-and-traceability-pr-63].
+Contributed via PR #2 in `aaif/working-group-chairs` to provide portable meeting documentation tooling across all working group chairs[^evt-working-group-chairs-pr-2].
 
-[^evt-wg-observability-and-traceability-pr-63]: https://github.com/aaif/wg-observability-and-traceability/pull/63
+[^evt-working-group-chairs-pr-2]: https://github.com/aaif/working-group-chairs/pull/2

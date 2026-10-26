@@ -1,41 +1,38 @@
 ---
 type: resource
-title: PostHog AI Agent Analytics Reference Architecture
-description: Product analytics and telemetry reference architecture capturing pseudonymous
-  agent behavioral funnels, feature adoption, and longitudinal usage tracking.
-resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
+title: PostHog Agent Telemetry Reference Architecture
+description: Reference architecture detailing PostHog's Capture API ingestion, PII
+  sanitization, and session analytics for agent runtimes.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
 tags:
-- analytics
-- telemetry
-- privacy
-- gdpr
 - observability
+- telemetry
+- analytics
+- privacy
+- posthog
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:37:58.858547+00:00'
+  at: '2026-10-26T10:13:28.544386+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-issue-55
-  resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
-  author: smcd
-  last_modified: '2026-09-24T01:59:02+00:00'
+- id: evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
+  author: Matthew Khouzam
+  last_modified: '2026-08-19T20:04:48+01:00'
 ---
 
 # Overview
-The PostHog reference architecture provides design patterns and architectural specifications for integrating product analytics into AI agent harnesses and developer tools [^evt-wg-observability-and-traceability-issue-55]. It establishes telemetry capture for agent user journeys, feature discovery, and session completion metrics [^evt-wg-observability-and-traceability-issue-55].
+PostHog serves as an external analytics and behavioral telemetry sink capturing agent session lifecycles, user adoption funnels, and command metrics [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]. Within the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) landscape, PostHog demonstrates how privacy-conscious client-side agents like [Goose](../resources/goose.md) stream structured analytics payloads over HTTPS without embedding heavy vendor SDKs [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75].
 
 # Architecture / Specification
-The integration architecture standardizes client event dispatch, property capture, and funnel reporting.
+The reference architecture outlines the ingestion pipeline and client runtime architecture [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]:
+- **Ingestion Surface:** Agents send direct HTTPS POST payloads to PostHog's Capture API (`/capture/`) containing API project keys, event types, anonymous `distinct_id` identifiers, and custom properties.
+- **Client-Side Telemetry Module:** Exemplified by Goose's `posthog.rs`, the client manages an installation tracker UUID persisted on disk, an event builder for session lifecycles (`session_start`, onboarding milestones), and an active regex-based PII sanitizer stripping paths, tokens, emails, and keys.
+- **Sink Storage and Analytics:** PostHog processes inbound events through an ingestion pipeline into a ClickHouse-backed event store, computing behavioral funnels, cohort segmentation, and feature flag states.
+- **Privacy Boundaries:** Strict separation is maintained between pseudonymous product telemetry and raw conversational prompt data, preventing sensitive context leakage.
 
-### Identity and Privacy Classification
-Telemetry implementations commonly generate persistent per-installation identifiers (`installation_id`, typically formatted as a random UUID) to measure cohort behavior and longitudinal usage without directly linking human identity [^evt-wg-observability-and-traceability-issue-55].
+# References
+- [PostHog Reference Architecture](https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md)
+- Related agent framework: [Goose](../resources/goose.md)
 
-However, architectural review within the Observability and Traceability Working Group emphasizes that data privacy classifications depend on jurisdictional definitions rather than implementer labels [^evt-wg-observability-and-traceability-issue-55]:
-- **Pseudonymity vs. Anonymity**: Under the EU General Data Protection Regulation (GDPR, Recitals 26 and 30) and the UK GDPR, persistent identifiers used for longitudinal user tracking constitute pseudonymous personal data, rather than anonymous data [^evt-wg-observability-and-traceability-issue-55].
-- **Cross-Border Transfers**: Hardcoded telemetry endpoints directed to US ingest nodes (e.g., `us.i.posthog.com`) trigger international data transfer compliance duties when transmitting pseudonymous personal data originating from EU/UK jurisdictions [^evt-wg-observability-and-traceability-issue-55].
-- **Template Schema Recommendations**: The working group proposes keying reference architecture privacy attributes (`personal data`, `personal information`, `PII`, `none`) directly to governing regulatory regimes rather than asserting absolute "privacy by design" claims [^evt-wg-observability-and-traceability-issue-55].
-
-# Lifecycle History
-- **2026-09**: Regulatory review identified that persistent installation UUIDs constitute pseudonymous personal data under GDPR/UK GDPR, initiating revisions to architectural classification standards [^evt-wg-observability-and-traceability-issue-55].
-
-[^evt-wg-observability-and-traceability-issue-55]: https://github.com/aaif/wg-observability-and-traceability/issues/55
+[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md

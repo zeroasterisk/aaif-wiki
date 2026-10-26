@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-21",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#21",
+  "title": "Use cases: proving when agent evidence existed (evidence bundles, agent cards, purchase mandates)",
+  "timestamp": "2026-10-24T19:47:03Z",
+  "author": "Abracadabrastartup",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/21",
+  "summary": "Three small use cases from the evidence side, each written as a test with an expected outcome. They share one question that signatures alone do not answer for a third party: when did this exact record exist?\n\n**UC-1. An evidence bundle existed before the dispute.** An operator pu...",
+  "pointers": [],
+  "inline_text": "Three small use cases from the evidence side, each written as a test with an expected outcome. They share one question that signatures alone do not answer for a third party: when did this exact record exist?\n\n**UC-1. An evidence bundle existed before the dispute.** An operator publishes the SHA-256 digest of an evidence bundle (audit record, trace, manifest) and gets an independent timestamp on it: an RFC 3161 token from a TSA and an OpenTimestamps proof anchored in Bitcoin. Later, a verifier is handed the bundle.\n- Pass: the recomputed digest matches, the TSA token verifies (`openssl ts -verify`) and the OTS proof verifies (`ots verify`). Result: \"this bundle existed no later than T\".\n- Fail: one byte of the bundle changed, so the digest does not match. Result: no claim about the altered bundle.\n\n**UC-2. Which agent card did the delegator rely on?** Before delegating a task, the delegating agent fixes the digest of the counterpart's A2A agent card in time. Months later the card has changed.\n- Pass: the card version presented matches a digest whose timestamp is earlier than the delegation.\n- Fail: the presented version was first timestamped after the delegation, so it cannot be the one relied on.\n\n**UC-3. The mandate came before the payment.** The system that receives a person's approval timestamps the mandate's digest, and the order confirmation is timestamped after the purchase.\n- Pass: T(mandate) < T(purchase).\n- Fail: T(mandate) > T(purchase), or no mandate timestamp exists. The check says nothing about whether the person really approved; that stays with the mandate's signature.\n\nAll three rely only on public standards (RFC 3161, OpenTimestamps) and send only a digest, never the content. If useful, I can publish a small set of vectors for each case (bundle, digest, TSA token, OTS proof, expected outcome) that anyone can check offline.\n\nDisclosure: I run DEUSPROOF (https://deusproof.com/?src=aaif), a free, open registry that issues these timestamps; any operator can do the same with a TSA and OpenTimestamps alone. Drafted with AI assistance; I am responsible for it.",
+  "labels": []
+}

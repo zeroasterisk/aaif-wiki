@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-56",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#56",
+  "title": "[RA] Add parallel research and merge multi-agent architecture",
+  "timestamp": "2026-10-23T06:14:16Z",
+  "author": "mzagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/56",
+  "summary": "Adds the first multi-agent RA with the two patterns it composes.\r\n\r\n## What\r\n- Add `parallel-research-and-merge.md`: several agents research different sources independently, then combine their findings into one report with references.\r\n- Add two supporting patterns:\r\n  - `paralle...",
+  "pointers": [],
+  "inline_text": "Adds the first multi-agent RA with the two patterns it composes.\r\n\r\n## What\r\n- Add `parallel-research-and-merge.md`: several agents research different sources independently, then combine their findings into one report with references.\r\n- Add two supporting patterns:\r\n  - `parallel-fan-out-and-join.md` — how to run the research in parallel and handle missing results.\r\n  - `branch-isolation.md` — how to keep each agent's work separate.\r\n- Add links in the headers of `durable-wait.md` and `proposal-execution-split.md`. Their main text stays unchanged.\r\n- Update the README to list the new documents.\r\n\r\n## Why\r\nSome questions need information from several sources. This draft shows how agents can divide that research, work separately, and produce one report that shows where the information came from and what is missing.\r\n\r\nThis is a draft for working group discussion, not a tested implementation.\r\n\r\nCloses #55",
+  "labels": []
+}

@@ -1,41 +1,33 @@
 ---
 type: taxonomy
-title: Agent-to-Agent
+title: Agent-to-agent
 description: Universal taxonomy term defining direct communication, task delegation,
-  and coordination interactions between autonomous AI agents.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
+  and coordination interactions between autonomous agents.
+resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
 tags:
 - taxonomy
-- coordination
-- delegation
 - a2a
-- protocols
+- multi-agent
+- coordination
+- universal-term
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:28:12.524255+00:00'
+  at: '2026-10-26T10:52:30.795908+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-31
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
-  author: narko4u
-  last_modified: '2026-09-19T04:53:51+00:00'
+- id: evt-ws-taxonomy-landscape-pr-81
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/81
+  author: julianna-ciq
+  last_modified: '2026-10-09T13:09:31+00:00'
 ---
 
 # Overview
-Agent-to-Agent (A2A) defines direct communication, task delegation, negotiation, and coordination interactions between autonomous AI agents operating across shared or disparate execution environments.[^evt-wg-observability-and-traceability-pr-31] In August 2026, the A2A interoperability layer formally joined the Agentic AI Foundation as a hosted project to standardize multi-agent interaction protocols and identity discovery.[^evt-wg-observability-and-traceability-pr-31]
+Agent-to-agent designates a general operational interaction in which one autonomous agent communicates, delegates tasks, or coordinates activities with another agent [^evt-ws-taxonomy-landscape-pr-81]. Governed under the universal taxonomy curated by the [Taxonomy & Landscape Working Group](../working-groups/taxonomy-and-landscape.md), the term establishes a platform-neutral classification for inter-agent behavior across decentralized and centralized systems alike [^evt-ws-taxonomy-landscape-pr-81].
 
 # Architecture / Specification
-Agent-to-agent interactions require standardized mechanisms for discovery, capability advertisement, and execution verification:
-
-- **Protocol Mediation**: Direct communication between agents can be routed through proxies such as [agentgateway](../resources/agentgateway.md) or point-to-point connections.[^evt-wg-observability-and-traceability-pr-31]
-- **Signed Agent Cards**: Introduced in A2A v1.0 (March 2026), signed agent cards allow agents to declare capabilities, endpoints, and identity metadata cryptographically.[^evt-wg-observability-and-traceability-pr-31]
-- **Runtime Verification Challenge**: Verifying signed card declarations against actual runtime behavior remains an active challenge within the foundation's observability and evidence frameworks.[^evt-wg-observability-and-traceability-pr-31]
+The definition operates as an overarching, protocol-agnostic concept covering diverse exchange paradigms, including direct peer-to-peer messaging, hierarchical orchestration, and distributed blackboard architectures [^evt-ws-taxonomy-landscape-pr-81]. The taxonomy explicitly notes that Agent-to-agent is not restricted or synonymous with any single transport specification, intentionally avoiding direct conflation with specific protocol implementations such as Google Agent2Agent (A2A) [^evt-ws-taxonomy-landscape-pr-81].
 
 # Lifecycle History
-- **March 2026**: A2A v1.0 released, introducing signed agent cards for capability and identity declaration.[^evt-wg-observability-and-traceability-pr-31]
-- **August 2026**: A2A officially joined the Agentic AI Foundation as a hosted project.[^evt-wg-observability-and-traceability-pr-31]
+Introduced into the cross-working-group universal terminology set via PR #81 in `ws-taxonomy-landscape`, the definition passed schema validation checks across the foundation's taxonomy test suites [^evt-ws-taxonomy-landscape-pr-81].
 
-# References
-- [AAIF Observability Prior Work Landscape (PR #31)](https://github.com/aaif/wg-observability-and-traceability/pull/31)
-
-[^evt-wg-observability-and-traceability-pr-31]: https://github.com/aaif/wg-observability-and-traceability/pull/31
+[^evt-ws-taxonomy-landscape-pr-81]: https://github.com/aaif/ws-taxonomy-landscape/pull/81

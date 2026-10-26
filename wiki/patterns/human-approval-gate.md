@@ -2,51 +2,60 @@
 type: pattern
 title: Human Approval Gate
 description: Workflow governance pattern requiring authorized human review before
-  executing sensitive agent actions, mitigated against approval fatigue via automated
-  acceptance checks.
-resource: https://github.com/aaif/wg-security-and-privacy/issues/35
+  executing sensitive agent actions.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
 tags:
 - pattern
 - governance
-- hitl
-- security
+- approval
+- workflow
+- human-in-the-loop
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:51:49.114172+00:00'
+  at: '2026-10-26T10:00:37.486962+00:00'
 sources:
-- id: evt-wg-security-and-privacy-issue-35
-  resource: https://github.com/aaif/wg-security-and-privacy/issues/35
-  author: barka-bee
-  last_modified: '2026-10-05T07:57:34+00:00'
+- id: evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
+  author: Zayne Turner
+  last_modified: '2026-08-05T23:05:12-04:00'
 ---
 
 # Overview
-The Human Approval Gate pattern establishes an explicit execution pause in an autonomous agent workflow, requiring an authorized human operator to inspect and approve a structured proposal before any irreversible or high-impact tool can execute. Designed to maintain human accountability over autonomous systems, the pattern combines cryptographic approval binding with fatigue-reduction mechanisms to prevent superficial review and rubber-stamping.
+
+The Human Approval Gate pattern halts an automated agent execution workflow until a uniquely identified, accountable human principal renders an explicit decision bound to an immutable proposal version [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]. It establishes an enforceable barrier between speculative intent generation and side-effect execution for actions carrying significant legal, regulatory, financial, or operational risk [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
 
 # Architecture / Specification
 
-## Workflow Execution and Proposal Split
-Operating alongside the [proposal-execution split](./proposal-execution-split.md), the agent transitions into a [durable wait](./durable-wait.md) state upon assembling a critical action. The system creates an [approval checkpoint](./approval-checkpoint.md) record containing:
-- The exact serialized command and target resource.
-- Contextual justifications, tool provenance, and safety classifications.
-- An immutable cryptographic hash binding the reviewer's signature directly to the payload.
+The pattern addresses operational tensions where human response latency exceeds process lifetimes and where ambiguous approval flags fail to provide non-repudiation [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
 
-Execution remains blocked until an authenticated operator signs an approval token or issues a structured rejection.
+```text
+immutable proposal ──► present to authorized human ──► explicit decision
+                              │                           │
+                              └── durable wait ─────────┘
+                                          │
+                          decision record: who · what · when
+```
 
-## Reviewer Fatigue and Vulnerability Profiles
-Working group reviews highlight that flat, high-frequency approval gates suffer severe human reliability degradation[^evt-wg-security-and-privacy-issue-35]:
-- **Rubber-Stamping Baselines:** In empirical studies of interactive coding agents, operators approved 97% of permission prompts indiscriminately[^evt-wg-security-and-privacy-issue-35].
-- **Interception Degradation:** Humans intercepted dangerous commands in only 13.6% of presentations, with interception success dropping to approximately 5% after 50 consecutive prompts[^evt-wg-security-and-privacy-issue-35].
-- **Automated Gate Comparison:** By comparison, deterministic automated checks successfully intercepted 89% of the same hazardous operations[^evt-wg-security-and-privacy-issue-35].
-
-## Fatigue Mitigation and Gate Calibration
-To preserve defensive validity, implementations must not rely on unassisted manual review:
-1. **Automated Pre-Filtering:** Precede human gates with [deterministic acceptance gates](./deterministic-acceptance-gate.md) that automatically intercept out-of-policy invocations before alerting human reviewers[^evt-wg-security-and-privacy-issue-35].
-2. **Approval Velocity Limits:** Monitor prompt repetition velocity and reviewer dwell times, flagging rapid sequential approvals for secondary review.
-3. **Differential Impact Highlighting:** Visually distinguish destructive, network-exfiltrating, or credential-accessing arguments from routine read operations.
+### Core Invariants
+Every conformant implementation must satisfy the following rules [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]:
+1. **Authorized Individual Principal**: The approver must be an individually authenticated human holding explicit authorization for the decision category; shared accounts are prohibited.
+2. **Immutable Proposal Binding**: The presentation surface must display the exact, immutable proposal version against which the decision record binds.
+3. **Explicit Decision Requirement**: Silence, timeout, channel errors, or transport failures must never default to approval.
+4. **Audit Provenance**: The decision record must log the proposal version, approver identity, action, and timestamp under a unified run identity.
+5. **Proposal Mutation Reset**: Any superseding proposal or modification invalidates pending state and mandates a fresh approval cycle.
+6. **Defined Expiry & Escalation**: Inactive reviews must follow explicit timeout or escalation paths.
+7. **Idempotency & Replay Protection**: Race conditions, late approvals, or duplicate decision submissions cannot trigger execution more than once.
 
 # Lifecycle History
-Documented as an architectural governance pattern by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md). Empirical failure data and rubber-stamping defenses incorporated following technical reviews with the [Security and Privacy Working Group](../working-groups/security-and-privacy.md)[^evt-wg-security-and-privacy-issue-35].
 
-[^evt-wg-security-and-privacy-issue-35]: https://github.com/aaif/wg-security-and-privacy/issues/35
+Defined by the Workflows & Process Integration Working Group as a foundational pattern within reference architectures such as Single-Agent Human Approval [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+
+# References
+
+- Single Agent Human Approval: `../architectures/single-agent-human-approval.md`
+- Proposal Execution Split: `../patterns/proposal-execution-split.md`
+- Durable Wait: `../patterns/durable-wait.md`
+- Approval Checkpoint: `../patterns/approval-checkpoint.md`
+
+[^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md

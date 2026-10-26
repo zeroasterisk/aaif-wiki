@@ -1,59 +1,39 @@
 ---
 type: policy
 title: Project Lifecycle Policy
-description: Governance policy defining intake requirements, stage transitions, evaluation
-  criteria, and annual reviews for Agentic AI Foundation technical projects.
-resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/project-lifecycle-policy.md
+description: Governance policy defining intake requirements, stage progression across
+  Sandbox, Growth, Impact, and Emeritus, and oversight procedures.
+resource: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/governance/project-lifecycle-policy.md
 tags:
 - governance
+- lifecycle
 - policy
-- project-lifecycle
-- aaif
-- tc
+- technical-committee
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T11:13:39.958463+00:00'
+  at: '2026-10-26T11:06:06.176360+00:00'
 sources:
-- id: evt-technical-committee-file-8f732085cd4f-04c1d0b2
-  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/project-lifecycle-policy.md
+- id: evt-project-proposals-file-8f732085cd4f-ef6fdf4e
+  resource: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/governance/project-lifecycle-policy.md
   author: Manik Surtani
-  last_modified: '2026-10-15T16:14:10+11:00'
-- id: evt-technical-committee-file-29954f63e09f-b0f27f04
-  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md
-  author: Manik Surtani
-  last_modified: '2026-10-15T16:14:10+11:00'
-- id: evt-technical-committee-file-b33563055168-8f2953e0
-  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/README.md
-  author: Manik Surtani
-  last_modified: '2026-10-15T16:14:10+11:00'
+  last_modified: '2026-10-15T16:13:53+11:00'
 ---
 
 # Overview
-The Agentic AI Foundation Project Lifecycle Policy sets the authoritative criteria and processes for technical projects seeking entry into and progression within the foundation[^evt-technical-committee-file-8f732085cd4f-04c1d0b2]. Originally created on March 18, 2026, and updated on October 15, 2026, the policy regulates the complete project lifecycle across admission, graduation, and annual review cycles[^evt-technical-committee-file-8f732085cd4f-04c1d0b2].
+The Project Lifecycle Policy defines the governance framework, stage progression criteria, and operational expectations for open-source initiatives hosted under the Agentic AI Foundation [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e]. Administered under the oversight of the [Technical Committee](../governance/technical-committee.md), the policy standardizes onboarding, incubation, maturity evaluation, and offboarding across all foundation projects [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
 
-# Proposal Requirements
-New or existing open-source technical projects submit proposals via the foundation's project proposals repository[^evt-technical-committee-file-8f732085cd4f-04c1d0b2]. Every submission must provide verified information, including[^evt-technical-committee-file-8f732085cd4f-04c1d0b2]:
-- Project name, descriptive purpose, origin, and evolutionary history.
-- Alignment statement articulating how the effort supports the AAIF mission and interacts with existing foundation initiatives.
-- Concrete use cases demonstrating adoption and utility across agentic workflows.
-- Technical Committee sponsor designation (optional, providing mentorship and onboarding guidance).
-- Permissive licensing under an OSI-approved open-source license.
-- Public source code repository, automated CI/CD and release pipelines, public issue tracker, and transparent contribution guides.
-- Analysis of external software dependencies and corresponding license compatibility.
-- Identification of maintainers, leadership composition, and documented governance processes (`GOVERNANCE.md`).
-- Official communication forums, project websites, social presence, existing funding sources, and technical infrastructure prerequisites.
+# Architecture / Specification
+The policy establishes formalized maturity tiers and review criteria for hosted projects [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
 
-# Lifecycle Stages
-The policy defines four sequential progression stages, providing tiered foundation mentorship, visibility, and resource backing[^evt-technical-committee-file-8f732085cd4f-04c1d0b2]:
-1. **Sandbox Stage**: Entry-level incubation for early-stage or experimental projects meeting core baseline open-source standards and architectural alignment[^evt-technical-committee-file-8f732085cd4f-04c1d0b2].
-2. **Growth Stage**: Intermediate maturation stage for projects exhibiting sustained community adoption, multi-organization maintainer distribution, and healthy governance processes[^evt-technical-committee-file-8f732085cd4f-04c1d0b2].
-3. **Impact Stage**: Production-grade foundational projects showing widespread ecosystem adoption, robust governance, cross-vendor deployment, and strict architectural stability (e.g., Model Context Protocol and goose)[^evt-technical-committee-file-8f732085cd4f-04c1d0b2][^evt-technical-committee-file-b33563055168-8f2953e0].
-4. **Emeritus Stage**: A planned retirement or archived state for projects that have completed their lifecycle, reached end-of-life, or whose maintainers have transitioned support elsewhere[^evt-technical-committee-file-8f732085cd4f-04c1d0b2].
+## Lifecycle Stages
+Projects progress through defined stages:
+- **Sandbox:** Entry-level stage for experimental, early-stage, or newly donated projects seeking community validation, contributor onboarding, and initial technical alignment under AAIF [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
+- **Growth:** Incubation stage demonstrating active multi-organizational contribution, regular release cadences, production adoption, and verified adherence to foundation governance and security standards [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
+- **Impact:** High-maturity stage representing industry reference implementations and critical open-source standards with diversified leadership and broad production deployment [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
+- **Emeritus:** Controlled archival stage for projects that have reached natural end-of-life or been superseded [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
 
-# Review and Maintenance
-Progression between stages requires review and approval by the [Technical Committee](../governance/technical-committee.md) in coordination with the Governing Board[^evt-technical-committee-file-29954f63e09f-b0f27f04][^evt-technical-committee-file-8f732085cd4f-04c1d0b2]. Projects participate in mandatory Annual Reviews to assess ongoing governance vitality, dependency hygiene, community growth, and continued alignment with AAIF strategic priorities[^evt-technical-committee-file-8f732085cd4f-04c1d0b2].
+# Lifecycle History
+The canonical policy and associated proposal process documentation were consolidated under the Technical Committee repository (`aaif/technical-committee`) to unify technical governance, intake review, and stage progression procedures [^evt-project-proposals-file-8f732085cd4f-ef6fdf4e].
 
-[^evt-technical-committee-file-29954f63e09f-b0f27f04]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md
-[^evt-technical-committee-file-8f732085cd4f-04c1d0b2]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/project-lifecycle-policy.md
-[^evt-technical-committee-file-b33563055168-8f2953e0]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/README.md
+[^evt-project-proposals-file-8f732085cd4f-ef6fdf4e]: https://github.com/aaif/project-proposals/blob/24210e3c136914c2df3bd643c1c717eabcb33ff5/governance/project-lifecycle-policy.md

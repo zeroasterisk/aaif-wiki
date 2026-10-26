@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-42",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#42",
+  "title": "Best practices guide: correct the confidential-computing credential exposure row",
+  "timestamp": "2026-10-20T04:23:57Z",
+  "author": "imran-siddique",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/42",
+  "summary": "Closes #37.\n\nThe Section 2 table said confidential computing makes credential exposure \"Not applicable (hardware-protected)\". Hardware isolation protects guest memory from the host, but a bearer token released to guest software still grants access to whoever holds it, so exposure...",
+  "pointers": [],
+  "inline_text": "Closes #37.\n\nThe Section 2 table said confidential computing makes credential exposure \"Not applicable (hardware-protected)\". Hardware isolation protects guest memory from the host, but a bearer token released to guest software still grants access to whoever holds it, so exposure is set by that token's permissions and validity. This replaces the two cells with the wording proposed in #37 and adds the sentence below the table, citing RFC 6750 §1.2 and Intel's TDX guest threat model.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

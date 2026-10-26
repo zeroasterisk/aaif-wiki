@@ -1,55 +1,41 @@
 ---
 type: skill
-title: Community Event Operations Skill Suite
-description: Operational agent skill suite and execution engines automating AAIF chapter
-  intake, diagnostic setup verification, event synchronization, and reporting across
-  local checkouts and installed agent runtimes.
-resource: https://github.com/aaif/community-events/pull/60
+title: Community Event Operations
+description: Procedural orchestration pipeline and spreadsheet reconciliation engine
+  managing AAIF chapter event intake, role gating, and CRM synchronization.
+resource: https://github.com/aaif/community-events/pull/59
 tags:
-- community
+- skill
 - operations
-- skills
+- community
 - automation
-- tooling
+- sheets
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T11:09:50.927503+00:00'
+  at: '2026-10-26T10:53:12.499283+00:00'
 sources:
-- id: evt-community-events-pr-60
-  resource: https://github.com/aaif/community-events/pull/60
+- id: evt-community-events-pr-59
+  resource: https://github.com/aaif/community-events/pull/59
   author: rparundekar
-  last_modified: '2026-10-11T15:58:20+00:00'
+  last_modified: '2026-10-09T18:08:39+00:00'
 ---
 
 # Overview
-The Community Event Operations skill suite provides automated execution engines and procedural workflows for managing Agentic AI Foundation (AAIF) local chapters, community events, and ecosystem communications.[^evt-community-events-pr-60] Packaged as modular agent skills adhering to the `agent-skills` format, the suite automates chapter provisioning, attendee and intake triage, event synchronization across Google Workspace and Luma, and monthly chapter updates.[^evt-community-events-pr-60]
-
-The suite is engineered to execute both from source repository checkouts and as an installed plugin within agent runtimes like [Goose](../resources/goose.md) and Claude Desktop without requiring a shell environment or local git repository.[^evt-community-events-pr-60]
+Community Event Operations provides automated operational tooling and data reconciliation workflows for AAIF community chapter events, synchronizing participant intake submissions across role-specific tracking sheets and chapter CRMs [^evt-community-events-pr-59]. The pipeline automates the ingestion, filtering, and triage of community submissions while maintaining referential integrity across Google Sheets formulas and external directory integrations [^evt-community-events-pr-59].
 
 # Architecture / Specification
-
-## Installed Plugin Runtime Architecture
-The operational suite isolates execution paths to support running inside containerized, cached, or `.git`-less agent plugin installations:[^evt-community-events-pr-60]
-- **Isolated Data Storage**: Runtime writes, synchronizations, caches, and backups are routed away from the current working directory (`cwd`) to a dedicated user application directory (e.g., `~/Library/Application Support/AAIF`), preventing workspace contamination during operator execution.[^evt-community-events-pr-60]
-- **Credential Resolution Chain**: Secret resolution follows a deterministic hierarchy across execution contexts: process environment variables first, local `.env` files within the repository root second, and OS-native secret storage (such as the macOS keychain) third, with per-run caching.[^evt-community-events-pr-60]
-- **Portability Guards**: Engine instructions address dependencies using relative `<skill-root>` conventions instead of fixed repository paths or shell variable overrides like `PYTHONPATH`.[^evt-community-events-pr-60]
-
-## Setup and Readiness Engine (`aaif-check-setup`)
-The suite includes the `aaif-check-setup` diagnostic engine, providing plain-language readiness evaluations for operators.[^evt-community-events-pr-60] The tool verifies:
-1. Availability and accessibility of required credentials (e.g., Slack, Google Workspace, Luma tokens).
-2. Distinction between missing credentials and OS keychain access refusals.
-3. Guided remediation providing scoped sign-in commands for missing or misconfigured integrations.[^evt-community-events-pr-60]
-
-## Execution Engines and Synchronization
-Core scripts include `sync.py`, digest engines, and tracker fetch tools designed to gracefully handle partial network failures, ensure restrictive folder permissions (`0700` for backups), and clean up partial downloads during failure modes.[^evt-community-events-pr-60]
+The operations framework manages intake filtering, deduplication, and downstream synchronization across several distinct components:
+- **Per-Role Multi-Gate Filtering**: Processes intake responses where applicants answer individual Yes/No questions per role (organizing, speaking, hosting venues, or collaborating) rather than a single selection, permitting applicants to qualify across multiple role tabs simultaneously [^evt-community-events-pr-59].
+- **Formula Guards and Migration Integrity**: Employs formula migration tooling (`migrate_intake_role_gates.py`) to safely transition live spreadsheet formulas, injecting explicit guards that emit `MISSING FORM COLUMN: <question>` rather than silently blanking tab rows on column schema alterations [^evt-community-events-pr-59].
+- **Role Tab Orchestration**: Routes verified applications into dedicated management tabs (`Organizers`, `Hosts`, `Speakers`, and `Collaborators`), maintaining positional alignment for typed triage status and reviewer columns against append-only formula outputs [^evt-community-events-pr-59].
+- **CRM Synchronization Engine**: Reconciles survey interest text and chapter-level tracking rows, rebuilding legacy composite interest fields for downstream CRM parity while enforcing mandatory presence of role gate questions [^evt-community-events-pr-59].
 
 # Lifecycle History
-Originally developed as repository-bound automation scripts, the community event operations suite underwent extensive refactoring in PR #60 to support non-technical operators executing through desktop agent harnesses like Goose and Claude Desktop, eliminating assumptions about shell paths, git presence, and working directory ownership.[^evt-community-events-pr-60]
+Maintained by community operations maintainers. Updated in PR #59 to replace single-choice interest intake with multi-role Yes/No questions, add the non-synced `Collaborators` role tab on Intake Ops, and implement schema guards across formula filters [^evt-community-events-pr-59].
 
 # References
-- Goose Agent Framework: [../resources/goose.md](../resources/goose.md)
-- Agent Plugin Portability Guidelines: [../guidelines/agent-plugin-portability.md](../guidelines/agent-plugin-portability.md)
-- Community Events Evaluation Suite: [../resources/community-events-eval-suite.md](../resources/community-events-eval-suite.md)
+- [AAIF Community Events PR #59](https://github.com/aaif/community-events/pull/59)
+- Relates to [AAIF Create Chapter](../skills/aaif-create-chapter.md)
 
-[^evt-community-events-pr-60]: https://github.com/aaif/community-events/pull/60
+[^evt-community-events-pr-59]: https://github.com/aaif/community-events/pull/59

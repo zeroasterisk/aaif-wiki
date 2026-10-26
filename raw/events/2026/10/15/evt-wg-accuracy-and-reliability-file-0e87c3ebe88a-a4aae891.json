@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "deliverables/arwg-survey.md",
+  "title": "arwg-survey.md",
+  "timestamp": "2026-10-15T14:09:14-07:00",
+  "author": "Jessie Zhang",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/blob/36572aec9bd6c78db9b2ce27bf7f1b9b9d4834bd/deliverables/arwg-survey.md",
+  "summary": "fix(survey): merge overlapping Q10 input and dependency factors",
+  "pointers": [
+    {
+      "repo": "wg-accuracy-and-reliability",
+      "commit_sha": "36572aec9bd6c78db9b2ce27bf7f1b9b9d4834bd",
+      "path": "deliverables/arwg-survey.md",
+      "blob_sha": "a4aae8911ce78ed0627fabe1005f41cd7aab88ba",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
