@@ -59,7 +59,14 @@ def unsupported_classes(existing: Concept | None, evidence: list[RawEvent], org:
     batch rewrite (or deprecate) an AAIF page. Empty evidence is not judged here."""
     if existing is None or not evidence:
         return set()
-    return page_classes(existing, org) - {event_class(e) for e in evidence}
+    required = page_classes(existing, org)
+    # AAIF is the primary authority. A mixed page needs AAIF evidence, not both:
+    # otherwise a new WG README revision (AAIF-only evidence) is refused forever
+    # and its events re-curated every run. The external citation is still kept,
+    # because ``dropped_classes`` forbids removing it.
+    if "aaif" in required:
+        required = {"aaif"}
+    return required - {event_class(e) for e in evidence}
 
 
 def normalise_tags(concept: Concept, org: str = AAIF_ORG) -> None:

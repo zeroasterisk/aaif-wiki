@@ -173,11 +173,16 @@ class GitHubConnector:
         return f"ext-{_slug(repo)}-{_digest(repo.lower())[:6]}"
 
     # -- git mirror -----------------------------------------------------
+    def _cache_dir(self, repo: str) -> Path:
+        """Externals live under ``_ext/`` so ``owner/name`` can never nest inside an
+        AAIF clone that happens to be named ``owner``."""
+        return self.repo_cache / "_ext" / repo if is_external(repo) else self.repo_cache / repo
+
     def sync_repo(self, repo: str) -> Path | None:
         """Maintain a shallow local mirror. This is the offline replay cache."""
         import os
 
-        dest = self.repo_cache / repo
+        dest = self._cache_dir(repo)
         dest.parent.mkdir(parents=True, exist_ok=True)
         token = self.cfg.token()
         # External sources are public and outside the AAIF token's scope: clone anonymously.
@@ -220,7 +225,7 @@ class GitHubConnector:
 
     def read_pointer(self, ptr: FilePointer) -> str | None:
         """Rehydrate pointer-backed content from the local mirror."""
-        repo_dir = self.repo_cache / ptr.repo
+        repo_dir = self._cache_dir(ptr.repo)
         if not repo_dir.exists():
             return None
         out = self._git(repo_dir, "cat-file", "-p", ptr.blob_sha)
