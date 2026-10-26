@@ -16,6 +16,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
+from .. import provenance
 from ..models import Concept, Mutation, ValidateResult, ValidationIssue
 from ..okf import PROFILE_REQUIRED, SPEC_REQUIRED, extract_links, is_root_absolute, load_bundle
 
@@ -75,6 +76,20 @@ def validate_concept(
                 issues.append(
                     _issue("error", "provenance", path, f"sources[] id not in event store: {src.id}")
                 )
+    # ADR-013: the `external` tag must mirror the sources, so hand edits and later
+    # overwrites can't silently pass external work off as AAIF (or vice versa).
+    has_ext = "external" in provenance.classes(concept)
+    if has_ext != ("external" in concept.tags):
+        issues.append(
+            _issue(
+                "error",
+                "external-tag",
+                path,
+                "cites external sources but lacks the `external` tag"
+                if has_ext
+                else "tagged `external` but cites no external source",
+            )
+        )
 
     # -- trust tier coherence (ADR-009)
     if concept.status.value == "stable" and concept.trust_tier == "unverified":
@@ -113,7 +128,12 @@ def validate_concept(
 
     # -- outbound link allowlist (ADR-007)
     if link_allowlist is not None:
-        for url in URL_RE.findall(concept.body):
+        # Inline code is not a link: URL templates like `https://{host}/x` are spec text.
+        # Escaped backticks are literal text, not span delimiters: drop them first so
+        # they can't pair with a real backtick and hide a live link. Spans close on
+        # an equal-length backtick run (CommonMark).
+        prose = re.sub(r"(`+)(?!`)[^\n]*?(?<!`)\1(?!`)", "", concept.body.replace("\\`", ""))
+        for url in URL_RE.findall(prose):
             host = (urlparse(url).hostname or "").lower()
             if host and not any(host == a or host.endswith("." + a) for a in link_allowlist):
                 issues.append(

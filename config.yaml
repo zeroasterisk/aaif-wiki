@@ -115,6 +115,62 @@ sources:
     include_discussions: true
     max_items_per_repo: 25
 
+    # ADR-013. Non-AAIF repositories on the same topics, as an explicit allowlist
+    # (never discovered). `steward` is who governs the work and is what the curator
+    # must attribute it to. Files only by default; include_paths keeps CLAs,
+    # examples and changelogs out.
+    external:
+      - repo: "frmoretto/agentic-standards-map"
+        # Independent CC BY 4.0 dataset; the author discloses participating in venues it maps.
+        steward: "Francesco Marinoni Moretto (independent researcher)"
+        topics: ["landscape", "governance", "commerce", "discovery", "identity"]
+        include_paths: ["README.md", "METHOD.md", "MAP.md", "notes/seams.md", "entries"]
+        doc_extensions: [".md", ".yaml"]   # entries/*.yaml ARE the map's content
+        file_limit: 70
+      - repo: "google-agentic-commerce/AP2"
+        steward: "FIDO Alliance"
+        topics: ["payments", "commerce"]
+        include_paths: ["README.md", "docs"]
+        file_limit: 15
+      - repo: "Universal-Commerce-Protocol/ucp"
+        # Universal-Commerce-Protocol/.github GOVERNANCE.md + MAINTAINERS.md
+        steward: "the UCP Governing Council (Domain Tech Councils staffed mainly by Google and Shopify)"
+        topics: ["commerce", "discovery"]
+        include_paths: ["README.md", "docs/specification/overview", "docs/specification/shopping/checkout",
+                        "docs/specification/shopping/cart", "docs/specification/shopping/catalog",
+                        "docs/specification/payment/guide.md", "docs/specification/payment/extensions/ap2-mandates.md",
+                        "docs/documentation/core-concepts.md", "docs/documentation/ucp-and-ap2.md",
+                        "docs/specification"]
+        file_limit: 40
+      - repo: "agentic-commerce-protocol/agentic-commerce-protocol"
+        # README: "jointly governed by OpenAI and Stripe as Founding Maintainers"
+        steward: "OpenAI and Stripe (Founding Maintainers)"
+        topics: ["commerce", "payments"]
+        include_paths: ["README.md", "MAINTAINERS.md", "docs", "rfcs"]
+        file_limit: 25
+      - repo: "x402-foundation/x402"   # canonical; coinbase/x402 is now a fork of it
+        steward: "x402 Foundation (Linux Foundation)"
+        topics: ["payments"]
+        include_paths: ["README.md", "specs/x402-specification-v2.md", "specs/transports-v2",
+                        "specs/schemes/exact/scheme_exact.md", "specs/schemes/exact/scheme_exact_evm.md",
+                        "specs/schemes/upto/scheme_upto.md", "specs/schemes/auth-capture/scheme_auth_capture.md",
+                        "specs/schemes/batch-settlement/scheme_batch_settlement.md", "specs/README.md",
+                        "specs/x402-specification-v1.md", "specs/extensions"]
+        file_limit: 25
+      - repo: "i-am-bee/acp"   # archived; cited only to disambiguate "ACP"
+        # README: "ACP is now part of A2A under the Linux Foundation" (2025-08-25)
+        steward: "IBM Research (BeeAI); archived, merged into A2A"
+        topics: ["communication"]
+        include_paths: ["README.md"]
+        file_limit: 1
+      - repo: "Agent-Card/ai-catalog"
+        # README: temporary working repo maintained by the LF; GOVERNANCE.md: TSC
+        # seats nominated by MCP core maintainers (2) and the A2A TSC (2).
+        steward: "the Linux Foundation (temporary pre-v1 repo; TSC nominated by MCP and A2A maintainers)"
+        topics: ["discovery"]
+        include_paths: ["README.md", "GOVERNANCE.md", "specification", "docs/specification.md", "docs"]
+        file_limit: 20
+
 # ADR-009. The curator never writes to main.
 publish:
   enabled: true
