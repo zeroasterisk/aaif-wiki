@@ -1,34 +1,47 @@
 ---
 type: skill
-title: Taxonomy Contributions Workflow and Skill
-description: Automated agent skill and contributor workflow enforcing SKOS-Lite schemas,
-  validation checklists, and maintainer-gated CI testing for taxonomy assets.
-resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/.github/workflows/validate-taxonomy.yml
+title: Taxonomy Contributions Skill
+description: Progressively disclosed agent skill guiding automated routing, schema
+  validation, and superlative removal for AAIF Common Taxonomy and Landscape contributions.
+resource: https://github.com/aaif/public-agents/pull/3
 tags:
+- skills
 - taxonomy
-- workflow
-- validation
-- ci-cd
+- landscape
+- contributions
+- governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:28:57.202119+00:00'
+  at: '2026-10-26T11:01:50.430523+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434
-  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/.github/workflows/validate-taxonomy.yml
-  author: Matthew Khouzam
-  last_modified: '2026-09-21T16:36:37-04:00'
+- id: evt-public-agents-pr-3
+  resource: https://github.com/aaif/public-agents/pull/3
+  author: asish-singh
+  last_modified: '2026-10-11T18:18:20+00:00'
 ---
 
 # Overview
-The Taxonomy Contributions skill and validation harness support contributors in authoring, verifying, and submitting terminology additions to the AAIF taxonomy landscape[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434]. It enforces syntactic validity and schema compliance on `taxonomy/taxonomy-data.js` to ensure that malformed metadata (such as unescaped strings) cannot break downstream web viewers and client applications[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434].
+
+The Taxonomy Contributions skill (`aaif-taxonomy-contributions`) provides structured protocols for AI agents preparing contributions to the AAIF Common Taxonomy and Landscape workstream.[^evt-public-agents-pr-3] The skill unifies contribution requirements across schema specifications, issue templates, and runtime data files, preventing common workflow failures such as opening pull requests for terms that require working group discussion issues.[^evt-public-agents-pr-3]
 
 # Architecture / Specification
 
-## Maintainer-Gated CI Pipeline
-To guard against compute abuse while maintaining push protection on target branches, automated taxonomy testing is isolated behind explicit human maintainer actions[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434]:
-- **Trigger Conditions**: The GitHub Actions workflow (`validate-taxonomy.yml`) runs exclusively upon `pull_request_review` submission or edits by maintainers, as well as on manual `workflow_dispatch`[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434]. Unreviewed external contributor pushes do not trigger CI automatically[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434].
-- **Target Head Checkout**: Review-triggered runs explicitly check out the proposed head commit (`github.event.pull_request.head.sha`) rather than the base branch[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434].
-- **Resource Boundaries**: Jobs enforce a 5-minute timeout, cancel superseded in-progress runs via concurrency groups, and reject oversized data payloads prior to parsing[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434].
+## Contribution Routing and Pre-Drafting Checks
 
-[^evt-ws-taxonomy-landscape-file-eda84dd4e776-0e9c3434]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/.github/workflows/validate-taxonomy.yml
+Before generating pull requests or taxonomy entries, the skill guides agents through a standardized decision flow:[^evt-public-agents-pr-3]
+- **In-Flight Proposal Deduplication**: Inspects open pull requests and issues to prevent duplicate or conflicting submissions.
+- **Routing Validation**: Directs contributors to use the appropriate channel (Define issue template vs. Landscape PR) based on definition maturity.
+- **Objective Tone Enforcement**: Enforces pre-competitive neutrality by detecting and stripping marketing superlatives prior to submission.
+
+## Operational Performance and Efficiency
+
+Empirical testing demonstrated that agents equipped with the skill reduced exploratory repository tool calls from 15 calls down to 6 targeted operations, successfully validating schema compliance against live landscape schema rules.[^evt-public-agents-pr-3]
+
+# References
+
+- [Taxonomy & Landscape Working Group](../working-groups/taxonomy-and-landscape.md)
+- [Agentic AI Landscape Resource](../resources/agentic-ai-landscape.md)
+- [Working Group Submission Guidelines](../guidelines/working-group-submission-guidelines.md)
+
+[^evt-public-agents-pr-3]: https://github.com/aaif/public-agents/pull/3

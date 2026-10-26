@@ -1,41 +1,41 @@
 ---
 type: resource
-title: Accuracy and Reliability Production Survey
-description: Platform-neutral 16-question evaluation instrument measuring production
-  deployment stages, failure frequencies, and governance priorities across agentic
-  AI systems.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
+title: Accuracy & Reliability Working Group Survey
+description: Platform-neutral 16-question survey instrument evaluating real-world
+  AI system deployments, failure visibility, and shared industry priorities.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/36572aec9bd6c78db9b2ce27bf7f1b9b9d4834bd/deliverables/arwg-survey.md
 tags:
 - survey
-- accuracy
-- reliability
-- metrics
 - evaluation
+- accuracy-and-reliability
+- benchmarks
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T11:14:48.488964+00:00'
+  at: '2026-10-26T11:06:06.176360+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-pr-14
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
-  author: Jessie1989
-  last_modified: '2026-10-15T21:09:55+00:00'
+- id: evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/36572aec9bd6c78db9b2ce27bf7f1b9b9d4834bd/deliverables/arwg-survey.md
+  author: Jessie Zhang
+  last_modified: '2026-10-15T14:09:14-07:00'
 ---
 
 # Overview
-The Accuracy and Reliability Production Survey is a platform-neutral 16-question evaluation instrument produced by the [Accuracy and Reliability Working Group](../working-groups/accuracy-and-reliability.md) to quantify deployment maturities, failure distributions, and operational pain points across production agentic AI workloads[^evt-wg-accuracy-and-reliability-pr-14]. The survey provides benchmark data on human oversight topologies, failure factors, and safety trade-offs[^evt-wg-accuracy-and-reliability-pr-14].
+The Accuracy & Reliability Working Group Survey is a platform-neutral, 16-question evaluation instrument developed by the [Accuracy & Reliability Working Group](../working-groups/accuracy-and-reliability.md) to gather firsthand empirical evidence on AI agent deployments operating in production environments [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891]. Designed to assess operational realities rather than synthetic benchmarks, the survey measures deployment maturity, failure frequency, pre-impact failure recognition, and community priorities across diverse industry workflows [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
 
 # Architecture / Specification
-The instrument organizes evaluation metrics across four structured sections[^evt-wg-accuracy-and-reliability-pr-14]:
-- **System Topology and Oversight**: Assesses single-agent and multi-agent coordination architectures alongside human verification patterns and organization scales[^evt-wg-accuracy-and-reliability-pr-14].
-- **Reliability Degradation Factors**: Evaluates common failure modes in Question 10, specifically capturing quality decline caused by underlying system updates (such as model, prompt, or version changes) and failures to recover safely after an error (such as leaving partial, uncompensated actions behind)[^evt-wg-accuracy-and-reliability-pr-14].
-- **Benefits and Constraints**: Collects comparative data on production business benefits against engineering, regulatory, and latency constraints[^evt-wg-accuracy-and-reliability-pr-14].
-- **Data Custody and Consent**: Incorporates aggregate reporting commitments, AAIF storage policies, and formal respondent consent terms governing anonymous survey collection[^evt-wg-accuracy-and-reliability-pr-14].
+The survey specifies standardized response formats, strict data governance parameters, eligibility screening, and a single focal-system evaluation structure [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
 
-# Lifecycle History
-Maintained under deliverable D2 (`deliverables/arwg-survey.md`) within `aaif/wg-accuracy-and-reliability`, the survey was revised in PR #14 to refine failure factor granularity for post-error recovery and regression tracking, reorder organizational questions, and add participant consent terms[^evt-wg-accuracy-and-reliability-pr-14].
+## Response Formats and Governance
+- **Response Formats:** Employs single-select, multi-select, single-response matrix (Likert scale), and conditional inline text entries [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
+- **Privacy and Data Governance:** Prohibits respondent names, employer identities, and customer confidential information; responses are stored by AAIF and published exclusively in aggregate, with short text answers redacted of identifying context before quotation [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
 
-# References
-- Accuracy and Reliability Survey PR #14: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
+## Questionnaire Structure
+The survey organizes 16 questions across five operational dimensions centered on a single focal system evaluated over a six-month window [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891]:
+1. **Eligibility and Real-World Use (Q1):** Gates participation based on maturity. Respondents working with serious pilots, limited deployments, broad deployments, paused/retired systems, or unspecified real-world use proceed to the survey; respondents with only demos, prototypes, secondhand knowledge, or no experience exit early [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
+2. **About the System (Q2–Q6):** Evaluates direct practitioner roles (design, quality testing, operations, and human oversight), functional work domain, architectural structure, human checking mechanisms, and organizational scale [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
+3. **Benefits and Challenges (Q7–Q8):** Identifies primary operational benefits alongside principal architectural and organizational constraints [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
+4. **Accuracy and Reliability (Q9–Q13):** Measures unacceptable output frequencies, root-cause accuracy factors, failure detection prior to downstream impact, severity of real-world consequences, and primary quality validation evidence [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
+5. **Future Priorities (Q14–Q16):** Surfaces shared-industry technical priorities and preferred cross-organizational resource investments [^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891].
 
-[^evt-wg-accuracy-and-reliability-pr-14]: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
+[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-a4aae891]: https://github.com/aaif/wg-accuracy-and-reliability/blob/36572aec9bd6c78db9b2ce27bf7f1b9b9d4834bd/deliverables/arwg-survey.md

@@ -1,9 +1,9 @@
 ---
 type: resource
 title: Agentic AI Landscape
-description: Interactive ecosystem catalog and YAML mapping of agent runtimes, protocols,
-  security guardrails, observability backends, and regulatory regimes.
-resource: https://github.com/aaif/ws-taxonomy-landscape/issues/67
+description: Interactive catalog and ecosystem map visualizing agentic frameworks,
+  protocols, and runtimes under AAIF classification taxonomy.
+resource: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md
 tags:
 - landscape
 - ecosystem
@@ -12,26 +12,33 @@ tags:
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:34:55.588168+00:00'
+  at: '2026-10-26T11:08:09.484639+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-issue-67
-  resource: https://github.com/aaif/ws-taxonomy-landscape/issues/67
-  author: smcd
-  last_modified: '2026-09-23T23:46:13+00:00'
+- id: evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md
+  author: Gala Malbasic
+  last_modified: '2026-10-19T09:43:19-07:00'
 ---
 
 # Overview
-The Agentic AI Landscape is an interactive ecosystem catalog and structured data registry mapping agent runtimes, protocol standards, security frameworks, and global governance regimes. It provides an empirical overview of the technologies, open-source projects, and statutory baselines shaping autonomous AI deployment.
+
+The Agentic AI Landscape is an interactive directory and classification map tracking open-source and commercial frameworks, agent runtimes, orchestration engines, and tool protocols across the agentic AI domain[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]. Stewarded under the [Taxonomy and Landscape Working Group](../working-groups/taxonomy-and-landscape.md), the deliverable aims to organize tools according to standard capability layers and open specifications[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
 
 # Architecture / Specification
-The landscape organizes entries across standardized ecosystem domains, maintaining strict data schemas and upstream authoritative citations [^evt-ws-taxonomy-landscape-issue-67]:
-- **Global Governance and Enacted Legislation**: Catalogs statutory mandates governing autonomous and automated systems, incorporating Colorado SB 26-189 (the Automated Decision-Making Technology Act, repealing and reenacting SB 24-205) and the EU Artificial Intelligence Act (Regulation 2024/1689) linked to authoritative EUR-Lex registries [^evt-ws-taxonomy-landscape-issue-67].
-- **Standards and Risk Frameworks**: Groups voluntary guidance and risk governance models, including Singapore's Model AI Governance Framework for Agentic AI [^evt-ws-taxonomy-landscape-issue-67].
-- **Runtime, Gateways, and Protocols**: Documents emerging agent communication protocols, execution sandboxes, and mediation proxies across industry implementations.
+
+## Inclusion Governance and Workstream Pause
+
+Contributions to the Landscape track were paused by the workstream in September 2026 pending formal charter review by the [Technical Committee](../governance/technical-committee.md)[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]:
+- **Taxonomy Prioritization**: Reviewer resources were concentrated on landing consensus taxonomy definitions across active working groups before indexing external tools[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
+- **Inclusion Criteria**: Unrestricted landscape entries raised foundation neutrality concerns; the workstream determined that explicit inclusion criteria and granularity thresholds must be submitted to the Technical Committee prior to reopening intake[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
+
+# Lifecycle History
+
+- **June 2026**: Initial landscape web portal pipeline and schema structure published.
+- **September 2026**: Contribution guide updated (PR #61) to pause landscape ingestion and direct community submissions strictly to taxonomy terms[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
 
 # References
-- Taxonomy & Landscape Workstream Issue #67 [^evt-ws-taxonomy-landscape-issue-67]
-- [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md)
-- [Governance, Risk and Regulatory Alignment Working Group](../working-groups/governance-risk-and-regulatory.md)
 
-[^evt-ws-taxonomy-landscape-issue-67]: https://github.com/aaif/ws-taxonomy-landscape/issues/67
+- [WS Taxonomy & Landscape September 2026 Report](https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md)
+
+[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md

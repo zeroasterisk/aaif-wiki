@@ -1,38 +1,36 @@
 ---
 type: working-group
-title: Accuracy & Reliability Working Group
-description: AAIF technical working group establishing measurement frameworks, failure
-  taxonomies, evaluation protocols, and empirical surveys for agent systems.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/reporting/2026-08-report.md
+title: Accuracy and Reliability Working Group
+description: Technical working group defining evaluation benchmarks, failure taxonomies,
+  and testing methodologies for reliable agent systems.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/10
 tags:
 - working-group
 - accuracy
-- reliability
-- evaluation
 - benchmarks
+- evaluation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:17:04.688055+00:00'
+  at: '2026-10-26T10:47:26.007917+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/reporting/2026-08-report.md
-  author: Jordan Augé
-  last_modified: '2026-08-31T18:36:08+02:00'
+- id: evt-wg-accuracy-and-reliability-pr-10
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/10
+  author: jordanauge
+  last_modified: '2026-10-02T07:28:35+00:00'
 ---
 
 # Overview
-The Accuracy & Reliability Working Group (ARWG) is an AAIF technical body focused on defining measurement frameworks, failure taxonomies, and empirical evaluation standards for production AI agent systems [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7]. Chaired by Jordan Auge (Cisco) and Casper Nielsen (Diagrid), the group coordinates cross-industry efforts to capture failure modes, benchmark agent behavior, and establish common definitions across the AI ecosystem [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
-
-Key deliverables under development include the terminology and failure taxonomy deliverable (D1) and the gap analysis and empirical survey track (D2) [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
+The Accuracy and Reliability Working Group (ARWG) is an AAIF technical body focused on defining metrics, benchmarks, and engineering standards for evaluating agentic AI correctness and dependability. The group develops quantitative testing frameworks and diagnostic instruments such as the ../resources/accuracy-and-reliability-survey.md to measure failure modes in autonomous pipelines.
 
 # Architecture / Specification
-The working group structures its primary technical outputs across distinct deliverables:
-- **D1 (Terminology and Failure Taxonomy)**: Establishes a shared taxonomy for failure modes, hallucination classifications, and operational accuracy metrics in coordination with the [Taxonomy & Landscape Workstream](../working-groups/taxonomy-and-landscape.md) [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
-- **D2 (Gap Analysis and Survey Support)**: Gathers empirical data through practitioner surveys targeting engineers and operators with firsthand agent-system deployment experience to uncover operational pain points, prioritization signals, and benchmarking gaps [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
-- **Phase 2 & Internal Deliverables (I1)**: Establishes cross-working-group relays and alignment to coordinate evaluation protocols with other AAIF bodies [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
+ARWG coordinates work packages across multiple deliverables and foundational deliverables:
+
+- **Deliverable 1 (D1)**: Specification covering failure categorization, accuracy grading methods, and evaluation baselines.
+- **Deliverable 2 (D2)**: The community deployment and reliability survey assessing production failure topologies and readiness levels.
+- **Cross-Group Coordination**: Alignment with ../working-groups/observability-and-traceability.md and ../working-groups/security-and-privacy.md for joint verification pipelines.
 
 # Lifecycle History
-- **August 2026**: Conducted iterative review of the D1 terminology pull request (#8) and advanced the D2 survey specification pull request (#9) toward merge readiness, targeting practitioners across early exploration and production agent deployments [^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7].
+Operating under the AAIF Technical Committee (../governance/technical-committee.md), ARWG conducts regular review cycles on core deliverables. In the August 2026 report (PR #10), the working group completed the review cycle for the D2 survey (PR #9), advanced D1 review milestones (PR #8), addressed review questions from the prior July period, and commenced cross-working-group preparations for Phase 2 operations [^evt-wg-accuracy-and-reliability-pr-10].
 
-[^evt-wg-accuracy-and-reliability-file-922f59c26329-135870e7]: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/reporting/2026-08-report.md
+[^evt-wg-accuracy-and-reliability-pr-10]: https://github.com/aaif/wg-accuracy-and-reliability/pull/10

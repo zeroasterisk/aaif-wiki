@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "reporting/2026-09-report.md",
+  "title": "2026-09-report.md",
+  "timestamp": "2026-10-19T09:43:19-07:00",
+  "author": "Gala Malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md",
+  "summary": "docs: add September 2026 progress report",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "5f21b431705d64821bd86c74c23b7fafbc8a768b",
+      "path": "reporting/2026-09-report.md",
+      "blob_sha": "f4687b4acc8e0c1c272f35042765fb0bd919a38c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
