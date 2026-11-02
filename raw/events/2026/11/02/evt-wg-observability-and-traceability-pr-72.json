@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-72",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#72",
+  "title": "docs: add the turn proposal (October 28)",
+  "timestamp": "2026-11-02T02:43:22Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/72",
+  "summary": "## Summary\n\nAdds the turn proposal for the Agent Behavior Trace Model, reviewed at the October 28 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-TURN.md`, with its four figures under `working-documents/figures/`. It proposes how OpenTelemetry should define and record a...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the turn proposal for the Agent Behavior Trace Model, reviewed at the October 28 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-TURN.md`, with its four figures under `working-documents/figures/`. It proposes how OpenTelemetry should define and record a turn, and the sequence of upstream proposals to the OpenTelemetry GenAI SIG.\n\nThe text is the version in the WG working document, converted to Markdown, with two changes:\n\n- The taxonomy steps follow the Taxonomy & Landscape workstream's process: the terms go to its term sheet and its Monday vote first, and pull requests follow a KEEP vote.\n- The terms proposed to the taxonomy are Turn, and Agent step with Step as an alias. Turn segment stays an OpenTelemetry term.\n\n## Related Issue\n\nUpdates #43. Covers the October 28 action to bring the turn proposal into the repository ([minutes](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-10-28.md)).\n\n## Review Notes\n\n- Part 2 is the proposal. Appendix C has the design decisions and their tradeoffs.\n- The link to the gaps update resolves once that pull request merges.\n- The first upstream proposal is planned for the GenAI SIG meeting on November 3; comments here feed into it.\n\nSuggested review window: 1 week. The upstream pull requests get their own review in the OpenTelemetry repository.\n\n## Follow-ups\n\n- Bring Turn and Agent step to the Taxonomy & Landscape workstream.\n- Re-pin the OpenTelemetry revision the evidence is checked against, before the first upstream pull request.\n- Open a request for contributions to a proof of concept and a mapping of current SDK implementations.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

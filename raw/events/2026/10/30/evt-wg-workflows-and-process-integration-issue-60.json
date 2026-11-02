@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-60",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#60",
+  "title": "[Use Cases] Add “Boundary” dimension to the schema",
+  "timestamp": "2026-10-30T20:12:06Z",
+  "author": "mluciano-sbai",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/60",
+  "summary": "### Background\n\nThe schema has five classification dimensions. None captures whether a workflow's output stays inside the team, goes to another team, or goes to another company. The schema's Scope and limits section lists boundaries as not yet captured and leaves open whether the...",
+  "pointers": [],
+  "inline_text": "### Background\n\nThe schema has five classification dimensions. None captures whether a workflow's output stays inside the team, goes to another team, or goes to another company. The schema's Scope and limits section lists boundaries as not yet captured and leaves open whether they should become a dimension. I therefore propose adding Boundary as a dimension, because it changes how a workflow is built with regard to routing, approvals, and handoffs.\n\nBelow are four rows from the use case inventory where the outputs differ:\n\n| Use case | Output goes to |\n|---|---|\n| Resume screening | Same team |\n| Access request fulfillment | Across teams |\n| Legal hold notification | Across teams |\n| Inventory reorder automation | Across companies |\n\nAll four share the same five values: `Event` · `Approval gate` · `Single-agent sufficient` · `Fixed/scripted` · `Sequential pipeline`\n\n### Proposed changes\n\n- Add dimension Boundary: `Same team`, `Across teams`, `Across companies`\n- Tag existing inventory rows\n\n### Files affected\n\n- schema-agentic-use-cases.md\n- use-case-inventory.md",
+  "labels": []
+}

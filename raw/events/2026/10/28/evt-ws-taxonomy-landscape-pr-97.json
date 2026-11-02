@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-97",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#97",
+  "title": "Define universal term Identity",
+  "timestamp": "2026-10-28T12:44:29Z",
+  "author": "nynymike",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/97",
+  "summary": "## Summary\nAdds a draft proposal for the taxonomy term **Identity** at `taxonomy/proposals/identity.md`, for discussion at the Taxonomy Workstream sync.\n\nProposed definition: \"A set of attributes related to an entity,\" reproducing the ISO/IEC 24760-1:2025 §3.1.2 verbatim wording,...",
+  "pointers": [],
+  "inline_text": "## Summary\nAdds a draft proposal for the taxonomy term **Identity** at `taxonomy/proposals/identity.md`, for discussion at the Taxonomy Workstream sync.\n\nProposed definition: \"A set of attributes related to an entity,\" reproducing the ISO/IEC 24760-1:2025 §3.1.2 verbatim wording, with citations across the 2011, 2019, and 2025 editions.\n\n## What's included\n- Proposed definition + primary ISO citation\n- Scope note on non-uniqueness (an entity may hold multiple identities)\n- Required Identity-vs-Identifier disambiguation (AGENTS.md §3)\n- Proposed workgroups: Identity & Trust\n- A ready-to-use taxonomy entry block for a later, post-KEEP PR\n\n## What this does NOT do\n- Does not modify `taxonomy/taxonomy-data.js`. \"Identity\" has not received a KEEP vote (CONTRIBUTING.md §2) and definitions remain deferred (docs/data-schemas.md), so this is a proposal document, not a backfilled `definition` field.\n\n## Reviewer note\nThe ISO Online Browsing Platform renders term content client-side and could not be independently verified by automated fetch during drafting. A reviewer with OBP access should confirm the §3.1.2 wording before any merge into the data.",
+  "labels": []
+}

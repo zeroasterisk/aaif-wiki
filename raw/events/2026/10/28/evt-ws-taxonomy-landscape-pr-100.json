@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-100",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#100",
+  "title": "Define taxonomy term: Agent (AI)",
+  "timestamp": "2026-10-28T20:23:38Z",
+  "author": "MatthewKhouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/100",
+  "summary": "Proposed via the Taxonomy Term Wizard (add). Touches only taxonomy/taxonomy-data.js.\n\nAuthorship (AI-drafted vs. human): definition 100% human, scope 59% AI, total 22% human across the patch (model: grok-4-20-non-reasoning).",
+  "pointers": [],
+  "inline_text": "Proposed via the Taxonomy Term Wizard (add). Touches only taxonomy/taxonomy-data.js.\n\nAuthorship (AI-drafted vs. human): definition 100% human, scope 59% AI, total 22% human across the patch (model: grok-4-20-non-reasoning).",
+  "labels": []
+}

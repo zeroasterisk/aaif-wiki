@@ -2,60 +2,45 @@
 type: pattern
 title: Human Approval Gate
 description: Workflow governance pattern requiring authorized human review before
-  executing sensitive agent actions.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
+  executing sensitive agent actions, reinforced by automated pre-gates against approval
+  fatigue.
+resource: https://github.com/aaif/wg-security-and-privacy/issues/35
 tags:
 - pattern
 - governance
-- approval
-- workflow
-- human-in-the-loop
+- hitl
+- safety
+- approval-fatigue
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:00:37.486962+00:00'
+  at: '2026-11-02T10:15:51.752089+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
-  author: Zayne Turner
-  last_modified: '2026-08-05T23:05:12-04:00'
+- id: evt-wg-security-and-privacy-issue-35
+  resource: https://github.com/aaif/wg-security-and-privacy/issues/35
+  author: barka-bee
+  last_modified: '2026-10-05T07:57:34+00:00'
 ---
 
 # Overview
 
-The Human Approval Gate pattern halts an automated agent execution workflow until a uniquely identified, accountable human principal renders an explicit decision bound to an immutable proposal version [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]. It establishes an enforceable barrier between speculative intent generation and side-effect execution for actions carrying significant legal, regulatory, financial, or operational risk [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+The Human Approval Gate pattern introduces a synchronous authorization checkpoint into an agent workflow, preventing the execution of sensitive or high-impact actions until an authorized operator inspects and approves the request. While standard across single-agent and multi-agent governance architectures (../architectures/single-agent-human-approval.md), unconditioned prompts are vulnerable to severe operator fatigue and habituated rubber-stamping [^evt-wg-security-and-privacy-issue-35].
 
 # Architecture / Specification
 
-The pattern addresses operational tensions where human response latency exceeds process lifetimes and where ambiguous approval flags fail to provide non-repudiation [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
+## Approval Fatigue and Failure Dynamics
+Empirical research highlights the degradation of human oversight under frequent interactive prompts [^evt-wg-security-and-privacy-issue-35]:
+- **Passive Approval Rates**: In large-scale user studies, approximately 97% of interactive agent permission prompts are accepted by operators without substantive inspection [^evt-wg-security-and-privacy-issue-35].
+- **Detection Decay**: Human testers caught only 13.6% of dangerous commands slipped into agent sessions, with detection efficacy falling to approximately 5% after 50 prior prompts in a single session [^evt-wg-security-and-privacy-issue-35].
+- **Habituation**: Frequent binary confirmations train operators to clear modals automatically, negating the gate's efficacy against indirect prompt injections and subverted tool calls [^evt-wg-security-and-privacy-issue-35].
 
-```text
-immutable proposal ──► present to authorized human ──► explicit decision
-                              │                           │
-                              └── durable wait ─────────┘
-                                          │
-                          decision record: who · what · when
-```
-
-### Core Invariants
-Every conformant implementation must satisfy the following rules [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]:
-1. **Authorized Individual Principal**: The approver must be an individually authenticated human holding explicit authorization for the decision category; shared accounts are prohibited.
-2. **Immutable Proposal Binding**: The presentation surface must display the exact, immutable proposal version against which the decision record binds.
-3. **Explicit Decision Requirement**: Silence, timeout, channel errors, or transport failures must never default to approval.
-4. **Audit Provenance**: The decision record must log the proposal version, approver identity, action, and timestamp under a unified run identity.
-5. **Proposal Mutation Reset**: Any superseding proposal or modification invalidates pending state and mandates a fresh approval cycle.
-6. **Defined Expiry & Escalation**: Inactive reviews must follow explicit timeout or escalation paths.
-7. **Idempotency & Replay Protection**: Race conditions, late approvals, or duplicate decision submissions cannot trigger execution more than once.
+## Hardened Implementation Guidelines
+To maintain security integrity, human approval checkpoints must be paired with automated evaluation and contextual throttling:
+- **Automated Pre-Gating**: Workflows should evaluate candidate actions against deterministic policy engines (../patterns/deterministic-acceptance-gate.md) before presenting them to humans, which can catch up to 89% of hazardous actions automatically [^evt-wg-security-and-privacy-issue-35].
+- **Velocity and Fatigue Tracking**: Runtimes must track prompt frequency and operator review latency, enforcing cooling-off intervals, batching routine executions, or triggering out-of-band sign-offs (../patterns/hardware-bound-human-authorization.md) when velocity indicates rubber-stamping [^evt-wg-security-and-privacy-issue-35].
+- **Payload Verification**: Actions submitted for review must bind to unalterable execution artifacts via cryptographic checkpoints (../patterns/approval-checkpoint.md), ensuring the approved intent matches the executed payload [^evt-wg-security-and-privacy-issue-35].
 
 # Lifecycle History
+Originally formulated as a foundational human-in-the-loop pattern, this pattern was updated to reflect empirical human review studies submitted during Security and Privacy Working Group reviews [^evt-wg-security-and-privacy-issue-35].
 
-Defined by the Workflows & Process Integration Working Group as a foundational pattern within reference architectures such as Single-Agent Human Approval [^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428].
-
-# References
-
-- Single Agent Human Approval: `../architectures/single-agent-human-approval.md`
-- Proposal Execution Split: `../patterns/proposal-execution-split.md`
-- Durable Wait: `../patterns/durable-wait.md`
-- Approval Checkpoint: `../patterns/approval-checkpoint.md`
-
-[^evt-wg-workflows-and-process-integration-file-3e360b3d4277-1647d428]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/human-approval-gate.md
+[^evt-wg-security-and-privacy-issue-35]: https://github.com/aaif/wg-security-and-privacy/issues/35

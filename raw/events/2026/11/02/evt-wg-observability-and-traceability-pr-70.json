@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-70",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#70",
+  "title": "docs: add the trace model evidence-first proposal (September 30)",
+  "timestamp": "2026-11-02T02:43:10Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/70",
+  "summary": "## Summary\n\nAdds the evidence-first proposal for the Agent Behavior Trace Model, presented and agreed at the September 30 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EVIDENCE-FIRST.md`. The text is the version in the WG working document, converted to Markdown, with ...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the evidence-first proposal for the Agent Behavior Trace Model, presented and agreed at the September 30 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-EVIDENCE-FIRST.md`. The text is the version in the WG working document, converted to Markdown, with a status line added.\n\n## Related Issue\n\nUpdates #40. Records the decision that the revised execution plan (#60) implements.\n\n## Review Notes\n\nThis is the document as presented, kept as a record of the decision. Please check that the conversion matches the working document.\n\nSuggested review window: 1 week (living documents).\n\n## Follow-ups\n\nThe October 14 gaps update and the October 28 turn proposal follow in their own pull requests.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

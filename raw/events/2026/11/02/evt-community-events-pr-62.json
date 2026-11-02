@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-62",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#62",
+  "title": "fix(sync): keep chapter lists to accepted organizers",
+  "timestamp": "2026-11-02T07:31:04Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/62",
+  "summary": "## What\n- **sync_crm**: the \"No chapter folder, run aaif-create-chapter\" list now names only cities with an **accepted organizer**. AAIF ops people don't count. Other folderless cities (pipeline hosts, speakers and applicants) are reported as a count, in stdout and `--json-out`, ...",
+  "pointers": [],
+  "inline_text": "## What\n- **sync_crm**: the \"No chapter folder, run aaif-create-chapter\" list now names only cities with an **accepted organizer**. AAIF ops people don't count. Other folderless cities (pipeline hosts, speakers and applicants) are reported as a count, in stdout and `--json-out`, with no names.\n- **sync_chapters**: the Chapters List `Organizers` cell is meant to hold accepted organizers only. The sync now finds names that break that and **proposes** removing them:\n  - A name is proposed when the intake holds it in that city under a set, non-qualifying Status, and under no qualifying Status anywhere. Unresolved, malformed and hand-typed `accepted` rows still protect a name.\n  - Plain `--write` never removes. `sync_chapters.py --write --apply-removals` does, after a human checks the intake row and Status each line cites. The sync runner never passes the flag.\n  - The match is on name + city only and the intake is a public form, which is why it stays a human call.\n  - Kept: names the intake has never seen (hand entries, MLOps-era organizers). Retired rows are never edited. A removal that would empty a cell is held as a retirement question and keeps the run at exit 2.\n  - The Organizers cells being rewritten are re-read before the write; a hand edit since the read aborts it.\n\n## Why\nUser-decided 2026-11-01: a chapter, and its listing, exists only for accepted organizers. A full sync had listed three cities as \"create a chapter\" items although nobody there had been accepted. The self-review found that removing names automatically, by name alone, would let a stranger's form row take a real organizer off the public list, so removal is gated like Drive access.\n\n## Checks\n- `test_sync_crm.py`, `test_sync_chapters.py`, `test_sync_about.py`, `test_sync.py`, `test_render_report.py` pass.\n- New cases: pipeline-only, host-only and ops-only cities; MLOps-era status; the collectors and `compute()` wiring; the Tokyo→Japan fold; protection by an unresolved accepted row; never-blank and retired rows; plain `--write` vs `--apply-removals`; verify; stale-cell abort; redaction; the JSON count.\n- Live report run: same adds and new rows as before, no removals proposed.\n- pre-commit, `check_no_real_pii.py` and `check_skill_portability.py` clean.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n_Generated using wayfare._",
+  "labels": []
+}

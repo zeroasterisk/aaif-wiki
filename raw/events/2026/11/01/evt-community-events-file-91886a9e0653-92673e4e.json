@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-91886a9e0653-92673e4e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-audit-slack/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-11-01T11:56:54-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/skills/aaif-audit-slack/SKILL.md",
+  "summary": "docs(audit-slack): describe the spam search accurately",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "a411604181e6a15dc2278221bc7501c8bb3c49fc",
+      "path": "skills/aaif-audit-slack/SKILL.md",
+      "blob_sha": "92673e4e80cf64174c2ee0dd48d7cbc66a139e28",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

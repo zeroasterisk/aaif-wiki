@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-922f59c26329-928a222f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "reporting/2026-08-report.md",
+  "title": "2026-08-report.md",
+  "timestamp": "2026-11-01T20:45:38+01:00",
+  "author": "Dedeoglu",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md",
+  "summary": "Address maniksurtani's review comments on 2026-08 report",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "03635504ad1c4ab99631967b15705bf947f64f1e",
+      "path": "reporting/2026-08-report.md",
+      "blob_sha": "928a222f89efec4a044840d5642af8e8261b6303",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

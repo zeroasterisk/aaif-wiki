@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-9677055e316b-21c321e2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "reporting/TEMPLATE.md",
+  "title": "TEMPLATE.md",
+  "timestamp": "2026-10-31T16:16:22Z",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/reporting/TEMPLATE.md",
+  "summary": "docs: align report template with the TC PR title and label rules (#62)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "81dc934a316e97895677257cdc0977f5c3498ea2",
+      "path": "reporting/TEMPLATE.md",
+      "blob_sha": "21c321e29dbb4aade9a97e274d2f8b4a1a47611b",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

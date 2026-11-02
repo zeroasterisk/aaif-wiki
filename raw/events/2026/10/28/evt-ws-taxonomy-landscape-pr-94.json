@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-94",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#94",
+  "title": "Define universal term Principal",
+  "timestamp": "2026-10-28T12:40:48Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/94",
+  "summary": "## Summary\n\n- define the accepted universal term `Principal`\n- add a scope note clarifying that actions always have at least one principal and may have more than one\n- discourage the contradictory term `principal agent` in favor of more precise alternatives\n- leave category and h...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- define the accepted universal term `Principal`\n- add a scope note clarifying that actions always have at least one principal and may have more than one\n- discourage the contradictory term `principal agent` in favor of more precise alternatives\n- leave category and hierarchy fields deferred\n\n## AI assistance\n\nThe definition and scope note were human-written. Codex was used to create this pull request.",
+  "labels": []
+}

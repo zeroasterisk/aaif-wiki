@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-technical-committee-file-b33563055168-fc8fa852",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/technical-committee",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-29T12:22:27-07:00",
+  "author": "Christina Harter",
+  "url": "https://github.com/aaif/technical-committee/blob/ac08e71a9073be6cf7f8c77bb0ad913893fe6d87/README.md",
+  "summary": "Update project table in README.md",
+  "pointers": [
+    {
+      "repo": "technical-committee",
+      "commit_sha": "ac08e71a9073be6cf7f8c77bb0ad913893fe6d87",
+      "path": "README.md",
+      "blob_sha": "fc8fa852a59cfacf287ad218b24f25212447ecf7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

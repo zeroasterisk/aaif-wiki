@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-74",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#74",
+  "title": "[Report] 2026-10",
+  "timestamp": "2026-11-02T06:07:46Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/74",
+  "summary": "Prepared by @mr-lee and @91pavan.\n\nSubmitted after the October 30 due date.",
+  "pointers": [],
+  "inline_text": "Prepared by @mr-lee and @91pavan.\n\nSubmitted after the October 30 due date.",
+  "labels": [
+    "monthly-report"
+  ]
+}

@@ -1,47 +1,49 @@
 ---
 type: skill
-title: AAIF Event Announcement Skill
+title: AAIF Announcement Post Skill
 description: LinkedIn launch copy generation skill enforcing privacy protection, attendee
-  disclosure controls, and standard community disclaimers.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
+  disclosure controls, and event RSVP announcement triggering boundaries.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/prompt.md
 tags:
-- aaif
-- skills
+- skill
+- community
 - social-media
-- privacy
-- community-events
+- content
+- evals
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:55:55.482485+00:00'
+  at: '2026-11-02T10:00:12.294357+00:00'
 sources:
-- id: evt-community-events-file-b33563055168-f722dd04
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/README.md
+- id: evt-community-events-file-79d927ff6229-9d338aa6
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/prompt.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:20:05-07:00'
-- id: evt-community-events-file-eca12c0a30e2-4eaff5f4
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md
+  last_modified: '2026-09-16T21:52:16-07:00'
+- id: evt-community-events-file-8570bc08b106-eb1aa55d
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/not_the_neighbours.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:20:05-07:00'
-- id: evt-community-events-file-133151709c55-005d77f9
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-announcement-post/SKILL.md
+  last_modified: '2026-09-16T22:07:16-07:00'
+- id: evt-community-events-file-95e86f9d14bc-9418ea76
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/skill_fires.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
+  last_modified: '2026-09-16T22:07:16-07:00'
 ---
 
 # Overview
-The `aaif-announcement-post` skill guides AI agents in generating scannable, builder-focused LinkedIn announcement posts when registration opens for AAIF community events[^evt-community-events-file-133151709c55-005d77f9]. It enforces concise structure, typographic style constraints, mandatory governance disclaimers, and rigorous privacy boundaries that prevent the leakage of attendee or organizer personal data[^evt-community-events-file-133151709c55-005d77f9].
+The `aaif-announcement-post` skill is a modular agent skill that drafts LinkedIn announcement copy when chapter event RSVPs open, incorporating logistics, speaker topics, and registration links under AAIF privacy and editorial guidelines[^evt-community-events-file-79d927ff6229-9d338aa6][^evt-community-events-file-95e86f9d14bc-9418ea76].
 
 # Architecture / Specification
-The skill combines automated event data retrieval with deterministic output constraints[^evt-community-events-file-133151709c55-005d77f9]:
-- **Input Resolution:** Fetches verified event logistics from chapter tracker documents in Google Drive using `fetch_tracker.py` or extracts details from explicit user prompts[^evt-community-events-file-133151709c55-005d77f9].
-- **Copy Structure:** Formats output into an approximately 120-word post comprising a one-line hook, logistical details (what, when, where), speaker highlights with a single core takeaway, and an RSVP call-to-action linking registration platforms like Luma or Gradual.AI[^evt-community-events-file-133151709c55-005d77f9]. Visual decoration is limited to at most one emoji and three hashtags[^evt-community-events-file-133151709c55-005d77f9].
-- **Public-Copy Privacy Rule:** Strictly bars publishing private personal details, including email addresses, phone numbers, venue door access codes, and unannounced attendee names[^evt-community-events-file-133151709c55-005d77f9]. Agents are forbidden from echoing private values in conversational transcripts even to explain omissions or request confirmation[^evt-community-events-file-133151709c55-005d77f9].
-- **Mandatory Legal Footers:** Enforces inclusion of standard trailing links to the Linux Foundation Code of Conduct and Privacy Policy on all public-facing attendee drafts[^evt-community-events-file-133151709c55-005d77f9].
-- **Framework Integration:** Follows the file-based packaging structure defined in [standards/agent-skills](../standards/agent-skills.md) and complements operational coordination in [skills/community-event-operations](../skills/community-event-operations.md).
+The skill is triggered specifically when registration opens for an upcoming event and prospective attendees must be directed to an RSVP page[^evt-community-events-file-79d927ff6229-9d338aa6].
 
-# Lifecycle History
-Merged into the `aaif-events` agent plugin to ensure community marketing conforms to AAIF brand voice, non-commercial peer sharing, and privacy standards[^evt-community-events-file-133151709c55-005d77f9][^evt-community-events-file-eca12c0a30e2-4eaff5f4].
+### Neighboring Skill Boundaries
+Because multiple attendee-facing writing skills share similar description keywords (such as "post" and "AAIF event"), the [community-events-eval-suite](../resources/community-events-eval-suite.md) actively evaluates skill routing discrimination to prevent adjacent skills from firing on announcement requests[^evt-community-events-file-8570bc08b106-eb1aa55d][^evt-community-events-file-95e86f9d14bc-9418ea76]:
+- **`aaif-announcement-post`**: Fires exclusively for the "RSVPs are open" milestone to drive initial registration[^evt-community-events-file-79d927ff6229-9d338aa6][^evt-community-events-file-95e86f9d14bc-9418ea76].
+- **`aaif-luma-description`**: Limited to staging the primary event landing page prior to or alongside public launch[^evt-community-events-file-8570bc08b106-eb1aa55d].
+- **[aaif-attendee-reminder](aaif-attendee-reminder.md)**: Reserved for logistical updates sent to individuals who have already registered[^evt-community-events-file-8570bc08b106-eb1aa55d].
+- **`aaif-recap-post`**: Reserved for retrospective summary copy written after an event has taken place[^evt-community-events-file-8570bc08b106-eb1aa55d].
 
-[^evt-community-events-file-133151709c55-005d77f9]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-announcement-post/SKILL.md
-[^evt-community-events-file-eca12c0a30e2-4eaff5f4]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CONTRIBUTING.md
+Negative trace match evaluation (`not_the_neighbours`) prevents producing the wrong document type in the correct organization voice, which represents a critical failure mode in automated content workflows[^evt-community-events-file-8570bc08b106-eb1aa55d].
+
+[^evt-community-events-file-79d927ff6229-9d338aa6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/prompt.md
+[^evt-community-events-file-8570bc08b106-eb1aa55d]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/not_the_neighbours.md
+[^evt-community-events-file-95e86f9d14bc-9418ea76]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/announcement-post/graders/skill_fires.md

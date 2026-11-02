@@ -1,36 +1,45 @@
 ---
 type: architecture
-title: Parallel Research and Merge
+title: Parallel Research and Merge Reference Architecture
 description: Multi-agent reference architecture coordinating concurrent, isolated
-  subagent research across disparate sources and reconciling findings into a unified,
-  referenced report.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/56
+  subagent research across disparate domains before merging findings into a unified
+  output.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/55
 tags:
-- workflow
+- workflows
 - multi-agent
 - orchestration
-- research
+- reference-architecture
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T11:08:56.885758+00:00'
+  at: '2026-11-02T10:21:01.683717+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-56
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/56
+- id: evt-wg-workflows-and-process-integration-issue-55
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/55
   author: mzagar
-  last_modified: '2026-10-23T06:14:16+00:00'
+  last_modified: '2026-10-10T01:10:11+00:00'
 ---
 
 # Overview
-The Parallel Research and Merge reference architecture coordinates multiple subagents researching separate sources concurrently and synthesizing their findings into a single structured report with source citations.[^evt-wg-workflows-and-process-integration-pr-56]
+
+The Parallel Research and Merge reference architecture governs multi-agent workflows where independent subagents concurrently execute targeted information gathering, synthesis, or analysis tasks without direct inter-agent communication, returning artifacts to a centralized coordinator for consolidation [^evt-wg-workflows-and-process-integration-issue-55].
 
 # Architecture / Specification
-The architecture addresses information retrieval across distributed or heterogeneous sources where sequential processing induces latency and shared context windows cause token bloat.[^evt-wg-workflows-and-process-integration-pr-56] The workflow executes through three main phases:
 
-1. **Query Partitioning and Dispatch**: An orchestrator decomposes a compound question into independent research subtasks, initiating concurrent execution branches via [Parallel Fan-Out and Join](../patterns/parallel-fan-out-and-join.md).[^evt-wg-workflows-and-process-integration-pr-56]
-2. **Isolated Source Investigation**: Dedicated subagents conduct investigations within segregated environments governed by [Branch Isolation](../patterns/branch-isolation.md), gathering evidence and citing source records independently.[^evt-wg-workflows-and-process-integration-pr-56]
-3. **Synthesis and Merge**: An aggregation agent combines findings across completed branches, reconciles discrepancies, surfaces missing data points, and compiles the final report.[^evt-wg-workflows-and-process-integration-pr-56]
+The architecture defines distinct execution phases:
+1. **Task Partitioning**: A primary coordinating agent or runtime decomposes an analytical objective into distinct research tasks.
+2. **Isolated Concurrency**: Subagents operate in parallel execution envelopes with isolated context windows and independent tool access, maintaining separation without direct agent-to-agent signaling [^evt-wg-workflows-and-process-integration-issue-55].
+3. **Result Reconciliation**: Completed research outputs are aggregated and merged through deterministic acceptance criteria or synthesizer models, detecting contradictions across concurrent branches.
 
-The architecture relies on [Durable Wait](../patterns/durable-wait.md) for handling long-polling source queries and adheres to [Proposal-Execution Split](../patterns/proposal-execution-split.md) for boundary enforcement.[^evt-wg-workflows-and-process-integration-pr-56]
+# Lifecycle History
 
-[^evt-wg-workflows-and-process-integration-pr-56]: https://github.com/aaif/wg-workflows-and-process-integration/pull/56
+Initiated by the Workflows and Process Integration Working Group following consensus in architectural sync meetings to establish baseline reference architectures for non-communicating parallel subagents prior to complex multi-agent dialog patterns [^evt-wg-workflows-and-process-integration-issue-55].
+
+# References
+
+- [Parallel Fan-Out and Join](../patterns/parallel-fan-out-and-join.md)
+- [Branch Isolation](../patterns/branch-isolation.md)
+- [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md)
+
+[^evt-wg-workflows-and-process-integration-issue-55]: https://github.com/aaif/wg-workflows-and-process-integration/issues/55

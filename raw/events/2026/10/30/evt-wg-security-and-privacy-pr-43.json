@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-43",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#43",
+  "title": "[Report] WG Security & Privacy – October 2026",
+  "timestamp": "2026-10-30T16:49:49Z",
+  "author": "awfrazer",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/43",
+  "summary": "This PR adds the October 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\n\n### Summary for the TC\n\nOctober was the month after the WG's first deliverables shipped. The Best Practices Guide opened to outside contributions and dr...",
+  "pointers": [],
+  "inline_text": "This PR adds the October 2026 monthly report for the Security & Privacy Working Group and indexes it in `reporting/README.md`.\n\n### Summary for the TC\n\nOctober was the month after the WG's first deliverables shipped. The Best Practices Guide opened to outside contributions and drew seven issues and six PRs in its first three weeks, the WG's security and privacy terms merged into the cross-WG taxonomy, threat modeling resumed after the gap analysis, and the alternate-week APAC meeting launched.\n\n### Month at a glance\n\n- The [Best Practices Guide](https://github.com/aaif/wg-security-and-privacy/blob/main/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md) is open to outside contributions, with Fernando and Matthew as mandatory reviewers. It drew seven issues ([#30](https://github.com/aaif/wg-security-and-privacy/issues/30) through [#35](https://github.com/aaif/wg-security-and-privacy/issues/35), [#37](https://github.com/aaif/wg-security-and-privacy/issues/37)) and six PRs ([#36](https://github.com/aaif/wg-security-and-privacy/pull/36), [#38](https://github.com/aaif/wg-security-and-privacy/pull/38) through [#42](https://github.com/aaif/wg-security-and-privacy/pull/42)), all awaiting lead review.\n- The Security and Privacy taxonomy terms merged into the cross-WG taxonomy via [ws-taxonomy-landscape#56](https://github.com/aaif/ws-taxonomy-landscape/pull/56) on 2026-10-26.\n- Threat modeling resumed after the [gap analysis](https://github.com/aaif/wg-security-and-privacy/blob/main/deliverables/DRAFT-agentic-ai-threat-modeling-gap-analysis.md). The framework design phase extends STRIDE and PASTA with MITRE ATLAS and OWASP ASI.\n- The [Design Patterns Catalog](https://github.com/aaif/wg-security-and-privacy/tree/main/workstreams/design-patterns/) picked up its first outside issues ([#27](https://github.com/aaif/wg-security-and-privacy/issues/27), [#29](https://github.com/aaif/wg-security-and-privacy/issues/29)) and follow-up PR [#28](https://github.com/aaif/wg-security-and-privacy/pull/28). A kill switch revocation protocol presented on 2026-10-27 maps to the credential revocation containment in the Kill Switch pattern.\n- The cross-WG review checklist advanced on observability alignment, and Agentic Commerce is now represented through Francesco. A Governance representative is the remaining gap.\n- The alternate-week APAC meeting launched and settled on Mondays at 9 pm Eastern.\n- Primary meeting attendance was 18 and 19 as recorded in LFX (17 and 16 after excluding AI notetakers), in line with September's average of about 19.\n\n### Blockers and risks\n\n- None this month.\n\n### Decisions requested from the TC\n\n- None this month.",
+  "labels": [
+    "monthly-report"
+  ]
+}

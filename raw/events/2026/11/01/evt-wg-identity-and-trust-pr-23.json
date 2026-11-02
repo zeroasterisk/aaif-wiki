@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-23",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#23",
+  "title": "Report/2026 10",
+  "timestamp": "2026-11-01T20:16:25Z",
+  "author": "alperdedeoglu",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/23",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,55 +1,59 @@
 ---
 type: skill
-title: Issue Analysis Skill
-description: Progressively disclosed agent skill providing structured issue review
-  templates, rubric guidance, and prompt injection detection schemas for Flue runtimes.
-resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/AGENTS.md
+title: Issue Analysis
+description: Modular agent skill standardizing first-pass GitHub issue triage, codebase
+  grounding, and precedent retrieval across structured reference analyses.
+resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
 tags:
-- aaif
-- skill
-- triage
-- prompt-injection
+- agent-skills
+- issue-triage
+- reference-corpus
 - flue
+- context-grounding
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:14:28.311731+00:00'
+  at: '2026-11-02T09:48:11.568438+00:00'
 sources:
-- id: evt-submission-analyser-file-a54ff182c7e8-7be29901
-  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/AGENTS.md
+- id: evt-submission-analyser-file-562ca4e251fc-8c9734e5
+  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
   author: Manik Surtani
   last_modified: '2026-08-20T13:34:39+10:00'
-- id: evt-submission-analyser-file-3dc5dd454e08-fa24a9ec
-  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md
+- id: evt-submission-analyser-file-b803fcb7f17e-c4652926
+  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/ci.yml
   author: Manik Surtani
-  last_modified: '2026-08-20T16:59:44+10:00'
-- id: evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4
-  resource: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/TODO.md
-  author: Manik Surtani
-  last_modified: '2026-08-20T17:10:18+10:00'
+  last_modified: '2026-08-20T13:34:39+10:00'
 ---
 
 # Overview
-The Issue Analysis Skill packages reusable triage instructions, analytical rubrics, and formatting templates used by automated review agents such as `../resources/submission-analyser.md` [^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]. Formatted under the Flue 2.0 skill standard, it enforces consistent evaluation of incoming GitHub issues against project context while maintaining context efficiency through progressive disclosure [^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec][^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+
+The Issue Analysis skill (`issue-analysis`) is a modular agent skill executed within the [../resources/submission-analyser.md](../resources/submission-analyser.md) runtime to perform automated first-pass triage and deep technical assessment of GitHub issues [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. It grounds agent reasoning in project-specific historical precedents using an indexed reference corpus of past analyses [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
+
+During execution, the skill balances broad issue interpretation against project conventions by loading relevant historical precedents into model context and preventing prompt injection vulnerabilities from unvetted issue text [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
 
 # Architecture / Specification
 
-## Progressive Disclosure Mechanics
-Mounted via Flue's `useSkill()` hook, the skill presents a single catalog line in the initial system prompt to minimize upfront token consumption [^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]. Full instructions from `SKILL.md` are only loaded into active model context when the runtime invokes `activate_skill` [^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]. Supporting documents, such as output templates and historical review references, remain unread on disk until explicitly queried during analysis [^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec][^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+### Reference Corpus and Precedent Matching
 
-## Asset Structure and Reference Examples
-The skill directory includes:
-- `SKILL.md`: Core evaluation instructions governing triage criteria, tone, and step-by-step workflow [^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
-- `template.md`: Standardized Markdown template formatting the final analytical output [^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
-- `references/`: Corpus of reference analyses illustrating expected evaluations across bug reports, feature proposals, and security vulnerability reports [^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+The skill incorporates an extensible reference directory (`src/skills/issue-analysis/references/`) containing validated hand-written historical assessments [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]:
+- **Metadata Inspection**: The skill reads the YAML frontmatter of every file in the reference corpus without loading full bodies immediately [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. Frontmatter attributes include `issue-number`, `date`, `issue-type`, `severity`, `tags`, and `components` [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
+- **Relevance Retrieval**: The agent matches reporter keywords against `tags` and `components`, selecting the 3–5 most relevant documents to read in full into working context [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
+- **Synthetic vs. Real Baselines**: Synthetic examples (`example: true`) provide structural formatting baselines for unit testing and CI but are explicitly excluded from being cited as legal or operational precedent during actual triage [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
 
-## Adversarial Manipulation Detection
-In addition to technical classification fields, the skill schema mandates explicit reporting attributes for adversarial prompt injection [^evt-submission-analyser-file-a54ff182c7e8-7be29901][^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4]:
-- `injectionSuspected`: Boolean flag set to `true` whenever an issue payload attempts to override system instructions or invoke unauthorized capabilities [^evt-submission-analyser-file-a54ff182c7e8-7be29901][^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
-- `injectionNotes`: Explanatory narrative detailing the suspected manipulation pattern [^evt-submission-analyser-file-a54ff182c7e8-7be29901][^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4].
+### Frontmatter Validation and Build Integration
 
-The agent records these indicators in the output report while proceeding to evaluate any remaining legitimate technical content [^evt-submission-analyser-file-a54ff182c7e8-7be29901].
+Skill metadata and frontmatter constraints are strictly enforced at load time [^evt-submission-analyser-file-b803fcb7f17e-c4652926]:
+- In Flue 2.0, skill loading via `flue run` serves as the primary validation gate, rejecting malformed frontmatter and exiting with code 1 before any model inference or tool dispatch occurs [^evt-submission-analyser-file-b803fcb7f17e-c4652926].
+- Offline verification harnesses test skill mounting and execution paths with zero secrets using mock in-memory providers [^evt-submission-analyser-file-b803fcb7f17e-c4652926].
 
-[^evt-submission-analyser-file-3dc5dd454e08-fa24a9ec]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/DESIGN.md
-[^evt-submission-analyser-file-5c6a1301c6b5-a75aa6c4]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/TODO.md
-[^evt-submission-analyser-file-a54ff182c7e8-7be29901]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/AGENTS.md
+### Data Sanitization and Committing Rules
+
+Because corpus entries are loaded into LLM prompts and quoted in published Google Docs and Discord alerts, contributors must audit candidate reference files prior to committing [^evt-submission-analyser-file-562ca4e251fc-8c9734e5]. The guidelines strictly prohibit committing customer names, internal infrastructure hostnames, credentials, unreleased roadmap commitments, or details under active security embargos [^evt-submission-analyser-file-562ca4e251fc-8c9734e5].
+
+# References
+
+- Harness and runtime environment: [../resources/submission-analyser.md](../resources/submission-analyser.md)
+- Packaging specification: [../standards/agent-skills.md](../standards/agent-skills.md)
+
+[^evt-submission-analyser-file-562ca4e251fc-8c9734e5]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/src/skills/issue-analysis/references/README.md
+[^evt-submission-analyser-file-b803fcb7f17e-c4652926]: https://github.com/aaif/submission-analyser/blob/df50b968b54196c39fa1037cf2e90f359f1ea7ab/.github/workflows/ci.yml

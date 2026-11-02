@@ -1,38 +1,38 @@
 ---
 type: resource
-title: OpenTelemetry for AI Agents
+title: OpenTelemetry for Agentic AI
 description: Reference architecture for vendor-neutral agent telemetry collection,
   OTLP pipelines, and gen_ai semantic conventions.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-OTEL.md
+resource: https://github.com/aaif/wg-observability-and-traceability/pull/67
 tags:
 - observability
 - opentelemetry
+- telemetry
 - tracing
-- otlp
-- metrics
+- genai
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T14:55:28.695732+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-11-02T10:30:09.197993+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-OTEL.md
-  author: Matthew Khouzam
-  last_modified: '2026-08-19T20:04:48+01:00'
+- id: evt-wg-observability-and-traceability-pr-67
+  resource: https://github.com/aaif/wg-observability-and-traceability/pull/67
+  author: StevenMih
+  last_modified: '2026-10-28T17:14:13+00:00'
 ---
 
 # Overview
 
-OpenTelemetry (OTel) provides a vendor-neutral observability framework defining how traces, metrics, and logs are instrumented, collected, processed, and exported across AI agent infrastructure [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a]. Developed as an open standard, OTel spans the full telemetry path from application SDKs through OpenTelemetry Protocol (OTLP) collectors to analytical backends [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a].
-
-Within the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), OTel serves as a primary reference telemetry substrate for standardizing agent spans, tool execution attributes, and LLM gateway interactions [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a].
+OpenTelemetry (OTel) provides the vendor-neutral foundation for distributed tracing, metrics, and structured event logging across agentic AI systems through its GenAI semantic conventions (`semantic-conventions-genai`).[^evt-wg-observability-and-traceability-pr-67] Within the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), work focuses on mapping standard OTel telemetry pipelines to cryptographic audit trails and verifiable execution layers.[^evt-wg-observability-and-traceability-pr-67]
 
 # Architecture / Specification
 
-The OTel reference pipeline separates instrumentation from storage and visualization [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a]:
+Recent technical proposals delineate five architectural seams required to connect standard OTel GenAI telemetry spans with signed evidence and [Action Record](../taxonomy/action-record.md) layers:[^evt-wg-observability-and-traceability-pr-67]
 
-- **Application Instrumentation**: AI agents, LLM gateways, and Model Context Protocol (MCP) servers record spans using standardized `gen_ai.*` semantic conventions [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a].
-- **Transport Protocol (OTLP)**: Telemetry is serialized using Protocol Buffers or JSON over gRPC (port 4317) or HTTP (port 4318) [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a].
-- **OTel Collector Pipeline**: Ingestion receivers forward data through batching, redaction, and sampling processors before routing to configured storage backends via exporter plugins [^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a].
+1. **Span-to-Record Join:** Bi-directional linkage between transient distributed tracing span identifiers and immutable, signed action or evidence record hashes.[^evt-wg-observability-and-traceability-pr-67]
+2. **Decision and Approval Seam:** Recording human and policy gating outcomes, approval checkpoint identifiers, and authorization validity metadata directly alongside invocation spans.[^evt-wg-observability-and-traceability-pr-67]
+3. **Effect Target and Status:** Distinguishing intended execution effects from actual environmental state mutations and post-condition verification statuses across external tools.[^evt-wg-observability-and-traceability-pr-67]
+4. **Evidence Origin:** Propagating witness metadata, cryptographic provenance, and verification vantage points into span attributes as specified in the [Evidence Record Specification](../standards/evidence-record-spec.md).[^evt-wg-observability-and-traceability-pr-67]
+5. **Integrity Without Disclosure:** Providing cryptographic digest verification over span payloads and tool arguments to maintain tamper-evidence without exposing sensitive data in telemetry collectors.[^evt-wg-observability-and-traceability-pr-67]
 
-[^evt-wg-observability-and-traceability-file-1d5077c7f2d1-16c36d9a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-OTEL.md
+[^evt-wg-observability-and-traceability-pr-67]: https://github.com/aaif/wg-observability-and-traceability/pull/67

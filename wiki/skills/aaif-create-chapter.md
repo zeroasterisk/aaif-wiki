@@ -1,37 +1,53 @@
 ---
 type: skill
 title: AAIF Create Chapter Skill
-description: Automated chapter provisioning, backfill reconciliation, four-surface
-  renaming, and design system styling sweep engine managing AAIF community assets.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/design-system-sweep.md
+description: Automated city chapter provisioning engine cloning TemplateCity in Google
+  Drive and rebranding OOXML and slide assets.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md
 tags:
 - skills
 - operations
-- branding
-- automation
+- chapters
+- google-workspace
+- ooxml
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:54:32.103515+00:00'
+  at: '2026-11-02T10:22:52.144306+00:00'
 sources:
-- id: evt-community-events-file-49f05aeb9187-b2c9a601
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/design-system-sweep.md
+- id: evt-community-events-file-d236c244f6dc-0c36b708
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:19:56-07:00'
+  last_modified: '2026-10-11T08:48:58-07:00'
 ---
 
 # Overview
 
-The `aaif-create-chapter` skill orchestrates the end-to-end lifecycle of local AAIF chapters, spanning Google Drive workspace generation, spreadsheet template instantiation, Luma calendar bindings, and continuous visual design conformance [^evt-community-events-file-49f05aeb9187-b2c9a601]. In addition to provisioning new chapter surfaces, the skill hosts the estate-wide design system sweep engine (`restyle_design_system.py`), which audits and conforms existing presentation decks and CRM workbooks to the foundation's official typography and color standards [^evt-community-events-file-49f05aeb9187-b2c9a601].
+The `aaif-create-chapter` skill provisions a new city chapter across the Agentic AI Foundation (AAIF) community estate by cloning the standard `TemplateCity` folder in Google Drive and rebranding its core template assets[^evt-community-events-file-d236c244f6dc-0c36b708]. The skill standardizes file rebranding, geocodes geographic coordinates to update slide graphics, and enforces strict manipulation boundaries to prevent Office Open XML (OOXML) corruption.
 
 # Architecture / Specification
 
-### Design System Sweep Engine (`restyle_design_system.py`)
+## Tooling and Rendering Constraints
 
-The styling engine audits and updates assets across Google Drive folders against the AAIF design token definitions [^evt-community-events-file-49f05aeb9187-b2c9a601]:
-- **Strict Template Scope Isolation**: The sweep selectively targets files whose filenames explicitly match known templates or chapter CRMs (e.g., `<City> CRM.xlsx`) [^evt-community-events-file-49f05aeb9187-b2c9a601]. Active event decks, organizer drafts, and completed event archives are deliberately skipped and cataloged in the audit report to prevent accidental rebranding of localized assets [^evt-community-events-file-49f05aeb9187-b2c9a601].
-- **SpreadsheetML vs. DrawingML Parsing**: Workbook manipulation is constrained to `xl/styles.xml` and theme parts, leaving worksheet values and string tables untouched [^evt-community-events-file-49f05aeb9187-b2c9a601]. The engine accounts for SpreadsheetML syntax requirements (such as 8-digit ARGB hex tokens and explicit `<patternFill>` structures), avoiding the silent styling failures encountered when applying DrawingML rules to spreadsheets [^evt-community-events-file-49f05aeb9187-b2c9a601].
-- **Pre-Change Immutable Archiving**: Prior to committing changes over remote files, the engine generates pristine local backups within `backups/restyle-<UTC>/` [^evt-community-events-file-49f05aeb9187-b2c9a601]. Earliest copies are preserved permanently across runs to guarantee reliable rollbacks [^evt-community-events-file-49f05aeb9187-b2c9a601].
-- **Visual Contrast Repair and Asset Provisioning**: Includes programmatic WCAG AA legibility analysis against newly applied background plates and dynamically distributes chapter-specific agent art without cross-contaminating template icons [^evt-community-events-file-49f05aeb9187-b2c9a601].
+The chapter creation engine operates under strict tooling constraints enforced via Python automation and the Google Workspace CLI (`gws`)[^evt-community-events-file-d236c244f6dc-0c36b708]:
+- **Native Format Preference:** Edits to Google-native formats (`application/vnd.google-apps.*`) occur directly via Docs, Sheets, and Slides APIs[^evt-community-events-file-d236c244f6dc-0c36b708].
+- **Byte-Level OOXML Surgery:** Binary Office files (`.docx`, `.pptx`, `.xlsx`) are unpacked and edited at the ZIP part level to preserve embedded font streams and non-target XML parts[^evt-community-events-file-d236c244f6dc-0c36b708].
+- **Prohibition of Desktop Suites:** Headless office tools such as LibreOffice (`soffice`), `unoconv`, or local desktop suites are forbidden for edits and preview rendering, as font substitution corrupts brand typography and discards unhandled OOXML elements[^evt-community-events-file-d236c244f6dc-0c36b708]. Visual inspection requires exporting temporary files through Google APIs or dedicated rendering scripts[^evt-community-events-file-d236c244f6dc-0c36b708].
 
-[^evt-community-events-file-49f05aeb9187-b2c9a601]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/references/design-system-sweep.md
+## Rebranding and Token Substitution
+
+During provisioning, the engine rebrands specific identifier tokens while leaving per-event placeholders (dates, agendas, speaker rosters, and neighborhood markers) untouched for chapter organizers[^evt-community-events-file-d236c244f6dc-0c36b708]:
+- `San Francisco` / `SAN FRANCISCO` transforms to the new city name matching case[^evt-community-events-file-d236c244f6dc-0c36b708].
+- `SF` abbreviations transform into the full city name in Title Case or uppercase as context dictates[^evt-community-events-file-d236c244f6dc-0c36b708].
+- Luma community slugs and hyperlink targets transform from `aaif-sanfrancisco` to `aaif-<slug>`[^evt-community-events-file-d236c244f6dc-0c36b708].
+- File and directory names carrying these tokens (such as `Attendee CRM.xlsx`) are identically renamed[^evt-community-events-file-d236c244f6dc-0c36b708].
+
+## Geographic Coordinate Mapping
+
+In addition to text transformations, the skill relocates the graphical "you-are-here" dot and `<CITY> · TONIGHT` callout on slide 5 ("THE NETWORK") of `Event Template/Slides.pptx`[^evt-community-events-file-d236c244f6dc-0c36b708]. The engine maps coordinates derived from manual `--lat`/`--lon` parameters or automated Nominatim geocoding onto the world map projection, falling back to San Francisco with an operator warning if coordinates fail to resolve[^evt-community-events-file-d236c244f6dc-0c36b708].
+
+# Lifecycle History
+
+- Merged into `aaif/community-events` repository under `skills/aaif-create-chapter/SKILL.md` replacing legacy manual prompt documents with automated agent skills[^evt-community-events-file-d236c244f6dc-0c36b708].
+
+[^evt-community-events-file-d236c244f6dc-0c36b708]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md

@@ -1,68 +1,35 @@
 ---
 type: resource
-title: Agentic Use Case Classification Schema
-description: Twelve-column taxonomy separating structural design choices into five
-  classification dimensions from seven supporting execution and evidence fields.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
+title: Agentic Use Case Classification Framework
+description: Classification taxonomy defining core architectural dimensions and boundary
+  scopes to categorize real-world agent deployments.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
 tags:
-- workflows
+- taxonomy
 - classification
-- schema
+- workflows
 - use-cases
-- architecture
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:45:03.901065+00:00'
+  at: '2026-11-02T10:32:01.605413+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
-  author: Jodee Varney
-  last_modified: '2026-10-01T07:35:55-07:00'
-- id: evt-wg-workflows-and-process-integration-pr-46
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
-  author: jodeev
-  last_modified: '2026-10-01T14:36:15+00:00'
+- id: evt-wg-workflows-and-process-integration-issue-60
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+  author: mluciano-sbai
+  last_modified: '2026-10-30T20:12:06+00:00'
 ---
 
 # Overview
-
-The Agentic AI Foundation Workflows & Process Integration Working Group defines a standardized twelve-column classification schema for describing and comparing agentic workflows across production deployments [^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]. Developed by the Critical Use Cases Workstream, the schema establishes a common framework to classify implementations in the companion use case inventory [^evt-wg-workflows-and-process-integration-pr-46].
-
-The schema explicitly distinguishes between five core structural dimensions that reflect deliberate architectural choices and seven supporting fields that provide row identification, runtime observations, and empirical deployment evidence [^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]. Workflows are classified against their specific cited implementations rather than abstract use case names, accommodating variations across systems sharing similar functional titles.
+The Agentic Use Case Classification Framework structures real-world agent deployments across standardized architectural dimensions to evaluate workflow orchestration, human oversight, and operational complexity.
 
 # Architecture / Specification
-
-### Classification Dimensions
-
-A classification dimension represents a structural fork in workflow design. The schema standardizes five discrete dimensions [^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]:
-
-1. **Trigger**: The invocation mechanism initiating workflow execution (external system events, scheduled cron routines, or direct human prompting).
-2. **HITL Pattern**: The human-in-the-loop governance structure determining where, if anywhere, human intervention is mandatory before proceeding (e.g., [human approval gates](../patterns/human-approval-gate.md) or checkpoints).
-3. **Agent Count**: The number of distinct reasoning agents deployed, driven by task decomposition, model specialization, or isolated tool privilege boundaries.
-4. **Coordination**: The control mechanism orchestrating multi-agent or multi-step execution, categorized as fixed deterministic code or dynamic runtime model reasoning.
-5. **Workflow Pattern**: The operational execution topology, distinguishing sequential straight-line executions, concurrent branch-and-merge pipelines, or iterative loops retrying against validation gates (such as [bounded convergence loops](../patterns/bounded-convergence-loop.md)).
-
-### Supporting Fields
-
-The remaining seven columns record non-dimensional metadata, observed metrics, and evidentiary rationale [^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]:
-
-- **Duration**: Empirical agent processing time, strictly excluding human approval queue waits and external downstream latency.
-- **Use Case & Description**: Standardized names and descriptive summaries.
-- **Tools & Systems**: Connected external interfaces and host environments.
-- **Key Failure Mode**: Principal breakdown scenarios observed or mitigated.
-- **Preconditions**: Required system states, tokens, or environment baselines.
-- **Notes**: Rationale and verifiable deployment citations.
+The classification framework categorizes production workflows defined in the inventory ([resources/agentic-use-case-inventory](../resources/agentic-use-case-inventory.md)):
+- **Core Dimensions**: Analyzes trigger mechanism, human intervention gates, agent cardinality (single-agent vs. multi-agent), execution determinism (fixed/scripted vs. adaptive), and orchestration topology (sequential pipeline, fan-out/join, or iterative loop).
+- **Boundary Scope (Proposed)**: Evaluates the output destination perimeter across three discrete values: `Same team`, `Across teams`, and `Across companies`.[^evt-wg-workflows-and-process-integration-issue-60]
+- **Architectural Implications**: Workflows crossing team or enterprise boundaries mandate differentiated approval routing, audit logging, and payload validation even when sharing identical triggering and topology primitives.[^evt-wg-workflows-and-process-integration-issue-60]
 
 # Lifecycle History
+- **2026-10**: Issue #60 proposed extending the schema with the `Boundary` dimension to disambiguate routing and handoff requirements across inventory use cases.[^evt-wg-workflows-and-process-integration-issue-60]
 
-The classification schema was developed within the Critical Use Cases Workstream and merged in pull request #46 [^evt-wg-workflows-and-process-integration-pr-46]. As of late 2026, the schema definitions and category groupings are positioned for Working Group review, with formal alignment underway with the Reference Architecture Workstream [^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc].
-
-# References
-
-- Companion catalog: [Agentic Use Case Inventory](../resources/agentic-use-case-inventory.md)
-- Working group: [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md)
-- Architecture guidelines: [Workflow Pattern Template](../guidelines/workflow-pattern-template.md)
-
-[^evt-wg-workflows-and-process-integration-file-6cdd0fb97084-5ba45ebc]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/schema-agentic-use-cases.md
-[^evt-wg-workflows-and-process-integration-pr-46]: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
+[^evt-wg-workflows-and-process-integration-issue-60]: https://github.com/aaif/wg-workflows-and-process-integration/issues/60

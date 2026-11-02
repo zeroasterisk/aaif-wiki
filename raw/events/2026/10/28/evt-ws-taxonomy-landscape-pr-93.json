@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-93",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#93",
+  "title": "Define universal term Capability",
+  "timestamp": "2026-10-28T12:40:26Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/93",
+  "summary": "## Summary\n\n- define the accepted universal term `Capability`\n- add a scope note describing declaration in an identity record and matching during discovery\n- leave category and hierarchy fields deferred\n\n## AI assistance\n\nThe definition and scope note were human-written. Codex wa...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- define the accepted universal term `Capability`\n- add a scope note describing declaration in an identity record and matching during discovery\n- leave category and hierarchy fields deferred\n\n## AI assistance\n\nThe definition and scope note were human-written. Codex was used to create this pull request.",
+  "labels": []
+}

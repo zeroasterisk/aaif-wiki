@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-71",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#71",
+  "title": "docs: add the trace model gaps update (October 14)",
+  "timestamp": "2026-11-02T02:43:16Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/71",
+  "summary": "## Summary\n\nAdds the gaps update for the Agent Behavior Trace Model, reviewed at the October 14 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-GAPS.md`. It is the first cut of the Gap Analysis: seven gaps in how coding agents, agent SDKs and AI gateways use OpenTelemet...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the gaps update for the Agent Behavior Trace Model, reviewed at the October 14 meeting, as `working-documents/AGENT-BEHAVIOR-TRACE-MODEL-GAPS.md`. It is the first cut of the Gap Analysis: seven gaps in how coding agents, agent SDKs and AI gateways use OpenTelemetry, each with named examples and the ongoing OpenTelemetry conversation it belongs to. The text is the version in the WG working document, converted to Markdown, with a status line added.\n\n## Related Issue\n\nUpdates the Gap Analysis & Recommendations deliverable and the October 14 action to share the gaps with the WG ([minutes](https://github.com/aaif/wg-observability-and-traceability/blob/main/meeting-minutes/2026-10-14.md)).\n\n## Review Notes\n\nPlease check that the conversion matches the working document. The link to the evidence-first proposal resolves once that pull request merges.\n\nSuggested review window: 1 week (living documents).\n\n## Follow-ups\n\n- One pull request per gap, so each can be discussed and tracked on its own, as the document's next steps say.\n- Classify each gap as a missing convention, an interpretation issue, non-adoption of an existing convention, or an instrumentation defect, as requested in review of the working document.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}
