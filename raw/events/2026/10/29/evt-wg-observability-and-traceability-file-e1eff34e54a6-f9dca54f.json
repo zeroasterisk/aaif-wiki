@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "meeting-minutes/2026-10-28.md",
+  "title": "2026-10-28.md",
+  "timestamp": "2026-10-29T02:42:30Z",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md",
+  "summary": "feat: add meeting summary for 2026-10-28",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "81dc934a316e97895677257cdc0977f5c3498ea2",
+      "path": "meeting-minutes/2026-10-28.md",
+      "blob_sha": "f9dca54f1a7d9e11e68fc64417185a7c247938ce",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

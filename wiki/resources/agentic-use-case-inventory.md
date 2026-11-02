@@ -1,59 +1,54 @@
 ---
 type: resource
 title: Agentic Use Case Inventory
-description: Production workflow repository classifying real-world agent deployments
-  under verified multi-tiered evidentiary standards.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
+description: Verified production workflow catalog categorizing real-world agent deployments
+  across horizontal business functions and vertical industries under strict evidentiary
+  standards.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/use-case-inventory.md
 tags:
 - workflows
 - use-cases
-- inventory
-- evidence
+- production
+- taxonomy
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:45:03.901065+00:00'
+  at: '2026-11-02T10:13:51.697874+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
+- id: evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/use-case-inventory.md
   author: Jodee Varney
-  last_modified: '2026-10-01T07:36:14-07:00'
-- id: evt-wg-workflows-and-process-integration-pr-46
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
+  last_modified: '2026-10-01T07:35:55-07:00'
+- id: evt-wg-workflows-and-process-integration-pr-41
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/41
   author: jodeev
-  last_modified: '2026-10-01T14:36:15+00:00'
+  last_modified: '2026-10-01T14:35:56+00:00'
 ---
 
 # Overview
+The Agentic Use Case Inventory is a community-maintained catalog of verified real-world agentic workflows developed by the Workflows & Process Integration Working Group's Critical Use Cases Workstream [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae]. Classified against the multi-dimensional schema defined in `../resources/agentic-use-case-classification.md`, the inventory documents working deployments across horizontal business functions and vertical industries to identify recurring workflow shapes, coordination mechanisms, and failure patterns [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
 
-The Agentic Use Case Inventory is a curated repository of production agentic workflows maintained by the Critical Use Cases Workstream within the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md) [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]. Each entry documents an explicit, real-world implementation choice across varied industry verticals, serving as empirical evidence to identify recurring architectural patterns and workflow topologies [^evt-wg-workflows-and-process-integration-pr-46].
-
-Workflows in the inventory are mapped against the five structural dimensions defined in the [Agentic Use Case Classification Schema](../resources/agentic-use-case-classification.md) [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
+The catalog emphasizes pattern diversity over exhaustive coverage, serving as an empirical reference for working group deliverables rather than a ranked list or normative endorsement [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
 
 # Architecture / Specification
 
-### Evidentiary Standard
+## Catalog Structure and Coverage
+Workflows are cataloged across structured dimensions including trigger types, human-in-the-loop (HITL) patterns, agent counts, coordination mechanisms, workflow patterns, failure modes, and operational preconditions [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae]. Coverage spans:
+- **Cross-Industry / Horizontal**: Sales, marketing, customer support, finance & operations, HR & recruiting, and research & intelligence [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
+- **Technology & Engineering**: Software engineering, IT / network operations, software development lifecycle (SDLC), and platform engineering [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
+- **Industry-Specific**: Healthcare, supply chain, legal, education, and real estate [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
 
-To ensure academic and operational rigor, all rows in the inventory must cite publicly accessible, independently verifiable proof of production deployment [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]. Unverifiable claims and personal assertions are explicitly disallowed. The workstream enforces a three-tier source qualification standard [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]:
+## Sourcing and Evidentiary Standards
+The inventory enforces strict evidentiary tiers for entries to eliminate speculative or unverified claims [^evt-wg-workflows-and-process-integration-pr-41]:
+- **Preferred Evidence**: Vendor product documentation or primary announcements citing a named customer production deployment [^evt-wg-workflows-and-process-integration-pr-41].
+- **Acceptable Evidence**: Primary vendor product documentation demonstrating strong feature evidence of production deployment at scale when customer names are proprietary [^evt-wg-workflows-and-process-integration-pr-41].
+- **Unacceptable Sources**: Secondary blog posts, analyst commentary, academic preprints, market projection statistics, or unsubstantiated individual implementer write-ups [^evt-wg-workflows-and-process-integration-pr-41].
 
-1. **Preferred Sources**: Primary vendor product announcements or documentation confirming a named customer deployment operating in production (e.g., enterprise pairings demonstrating live utilization).
-2. **Acceptable Sources**: Vendor product pages detailing explicit feature architectures clearly deployed at scale, even if specific customer identities are omitted.
-3. **Unacceptable Sources**: Secondary blogs, analyst reports, market projection statistics, academic whitepapers, individual implementer blogs, and private knowledge.
-
-Each inventory entry requires at least one verified primary citation, with three independent citations established as the operational target [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]. Technical guides and whitepapers may be used secondarily within classification notes to explain mechanics, provided they directly reference a qualified production vendor [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303].
-
-### Derivation of Workflow Shapes
-
-The inventory enables the automated derivation of recurring workflow shapes by analyzing structural dimension frequencies across domains [^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]. This empirical grounding allows the working group to prioritize reference architecture patterns based on demonstrated industry prevalence rather than speculative designs.
+Each entry targets three primary citations, explicitly recording the source date and handling vendor renames or acquisitions to guard against link rot and reference decay [^evt-wg-workflows-and-process-integration-pr-41]. Entries classified as multi-agent require explicit architectural rationale detailing why the problem is inherently or preferentially suited for multi-agent coordination [^evt-wg-workflows-and-process-integration-pr-41].
 
 # Lifecycle History
+- **Initial Inventory**: Established by the Critical Use Cases Workstream to ground workflow pattern specifications [^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae].
+- **Source Verification & Cleanup**: In PR #41, secondary and speculative citations were excised, approval gate terminology harmonized, multi-agent rationales added, and strict primary-source evidentiary standards instituted [^evt-wg-workflows-and-process-integration-pr-41].
 
-Established under PR #46, the inventory structure and evidentiary rules achieved review readiness for Working Group approval in late 2026, with row-level citations undergoing continuous community verification [^evt-wg-workflows-and-process-integration-pr-46].
-
-# References
-
-- Companion schema: [Agentic Use Case Classification](../resources/agentic-use-case-classification.md)
-- Working group: [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md)
-
-[^evt-wg-workflows-and-process-integration-file-5028db4c24a1-b054a303]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/README.md
-[^evt-wg-workflows-and-process-integration-pr-46]: https://github.com/aaif/wg-workflows-and-process-integration/pull/46
+[^evt-wg-workflows-and-process-integration-file-c10bbaa87c3e-880211ae]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/critical-use-cases/use-case-inventory.md
+[^evt-wg-workflows-and-process-integration-pr-41]: https://github.com/aaif/wg-workflows-and-process-integration/pull/41

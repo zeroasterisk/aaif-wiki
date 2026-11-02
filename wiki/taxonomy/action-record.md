@@ -2,40 +2,40 @@
 type: taxonomy
 title: Action Record
 description: Tamper-evident, content-private, and independently verifiable record
-  proving what an agent executed, requested, or was denied during runtime execution.
-resource: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
+  proving what an agent executed, distinct from operator telemetry and authorization
+  grants.
+resource: https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/reporting/2026-06-report.md
 tags:
 - taxonomy
-- security
-- audit
-- traceability
-- provenance
+- action-record
+- evidence
+- attestation
+- identity
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:51:37.206517+00:00'
+  at: '2026-11-02T09:41:16.242857+00:00'
 sources:
-- id: evt-wg-governance-risk-and-regulatory-issue-9
-  resource: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
-  author: narko4u
-  last_modified: '2026-10-08T03:11:06+00:00'
+- id: evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758
+  resource: https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/reporting/2026-06-report.md
+  author: Alper Dedeoglu
+  last_modified: '2026-08-04T00:23:33+02:00'
 ---
 
 # Overview
-An action record is a tamper-evident, content-private, and verifiable record detailing actions executed, proposed, or denied during an agent's lifecycle. Rather than generic runtime logs or [self-reported](../taxonomy/self-reported.md) operational telemetry, an action record provides cryptographic and architectural guarantees enabling external auditors and systems to verify execution history independently.
+
+An **Action Record** is a tamper-evident, content-private, independently verifiable record proving that an agent executed a specific, consequential action [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758]. Distinct from operational telemetry, audit logs, and identity/authorization tokens, an action record serves as legal and technical evidence for external counterparties, auditors, or adjudicators [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758].
 
 # Architecture / Specification
-Emerging international standards, including ISO/IEC 24970, prEN 18229-1, and IETF draft-sharif-agent-audit-trail, demonstrate structural convergence on the canonical shape of agent audit records[^evt-wg-governance-risk-and-regulatory-issue-9]:
 
-- **Hash-Chaining and Integrity**: Records utilize cryptographic hashing to form immutable chains resistant to retroactive modification[^evt-wg-governance-risk-and-regulatory-issue-9].
-- **Recording-Independence Gradient**: High-trust actions cannot rely solely on the acting agent as the single recorder, requiring independent observer or harness attestation[^evt-wg-governance-risk-and-regulatory-issue-9].
-- **Pre-Execution Capture**: Mandatory pre-execution logging for denied actions, policy halts, and human escalations prior to external side effects[^evt-wg-governance-risk-and-regulatory-issue-9].
-- **Temporal Anchoring**: Incorporation of deterministic local timestamps with support for external timestamp anchoring services[^evt-wg-governance-risk-and-regulatory-issue-9].
-- **Decision Reproducibility Metadata**: Structured payload schemas capturing context, model identifiers, policy constraints, and prompt inputs necessary to reconstruct decisions during audits[^evt-wg-governance-risk-and-regulatory-issue-9].
+Within the [Identity and Trust Working Group](../working-groups/identity-and-trust.md) taxonomy, action records maintain distinct functional boundaries [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758]:
 
-# References
-- [Governance, Risk, and Regulatory Working Group](../working-groups/governance-risk-and-regulatory.md)
-- [Evidence Record Specification](../standards/evidence-record-spec.md)
-- [Attested Isolated Runtime](../patterns/attested-isolated-runtime.md)
+- **Boundary with Observability/Tracing:** Observability telemetry answers *"what is my agent doing?"* for internal operators during development, debugging, and performance monitoring. In contrast, an Action Record answers *"what did this agent verifiably do?"* for counterparties, compliance auditors, or courts [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758].
+- **Boundary with Authorization:** Identity tokens and authorization assertions attest to permissions granted *prior* to execution; Action Records attest to what took place *during or after* execution, binding the agent identity, intent, and delegation proof to the resulting artifact [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758].
+- **Selective Disclosure:** Action records support content privacy, allowing selective redaction or zero-knowledge revelation of sensitive parameters without invalidating third-party cryptographic verification [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758].
 
-[^evt-wg-governance-risk-and-regulatory-issue-9]: https://github.com/aaif/wg-governance-risk-and-regulatory/issues/9
+# Lifecycle History
+
+- **2026-07:** Formalized as a distinct concept within the Identity & Trust WG Taxonomy sub-group [^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758].
+
+[^evt-wg-identity-and-trust-file-a17a580f85c2-1f6ad758]: https://github.com/aaif/wg-identity-and-trust/blob/69e73d0e0a5005d4d44af40ffbd068807169f30f/reporting/2026-06-report.md

@@ -1,69 +1,47 @@
 ---
 type: guideline
-title: Brand Guidelines
-description: Visual identity rules, typography tokens, dual surface palettes, OOXML
-  asset mappings, and contrast constraints governing AAIF community and technical
-  materials.
-resource: https://github.com/aaif/community-events/pull/32
+title: AAIF Brand Guidelines and Design System
+description: Visual identity rules, typography tokens, dual surface palettes, component
+  styling, and agent motif usage policies for AAIF assets.
+resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md
 tags:
-- design
-- brand
-- typography
+- branding
+- design-system
 - tokens
-- ooxml
+- typography
+- guidelines
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:30:20.733533+00:00'
+  at: '2026-11-02T10:34:12.987397+00:00'
 sources:
-- id: evt-community-events-pr-32
-  resource: https://github.com/aaif/community-events/pull/32
-  author: rparundekar
-  last_modified: '2026-09-16T17:47:15+00:00'
-- id: evt-community-events-pr-34
-  resource: https://github.com/aaif/community-events/pull/34
-  author: rparundekar
-  last_modified: '2026-09-16T17:47:07+00:00'
+- id: evt-community-events-file-3dc5dd454e08-bbae69b7
+  resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-01T22:38:32-08:00'
 ---
 
 # Overview
-
-The AAIF Brand Guidelines define the typographic standards, color palette tokens, legibility constraints, and asset formatting rules across digital, printable, and office productivity materials.
-
-The guidelines specify concrete mapping rules for OpenXML (OOXML) documents, ensuring templates and reports rendered in Google Docs or Microsoft Office faithfully implement AAIF design tokens without generating file bloat or legibility failures [^evt-community-events-pr-32] [^evt-community-events-pr-34].
+The AAIF Design System defines the visual standards, typographic hierarchy, token extraction architecture, and rendering constraints across human-facing interfaces, generated reports, slide decks, and community assets [^evt-community-events-file-3dc5dd454e08-bbae69b7]. The design system strictly enforces a flat, monochrome-led identity with two distinct surfaces (white editorial and black plate) and explicitly disallows automated dark-mode inversions [^evt-community-events-file-3dc5dd454e08-bbae69b7].
 
 # Architecture / Specification
 
-### Typographic Tokens and Font Embedding Rules
+## Source of Truth and Token Architecture
+- **Canonical Bundle**: `design/aaif-design-system.html` serves as the authoritative, self-extracting single source of truth containing design tokens, component specifications, agent motif assets, and reference one-pager layouts [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **Generated Token File**: `design/aaif-tokens.css` contains the extracted `:root` token declarations consumed verbatim by report-styling scripts (`report_style.py`). It is regenerated using `scripts/extract_design_tokens.py`, and CI enforces freshness using `--check` [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **Official Assets**: Official vector marks (`assets/aaif-mark.svg`, `assets/aaif-mark-square.svg`, and `assets/aaif-logo-white.svg`) must be used verbatim without redrawing [^evt-community-events-file-3dc5dd454e08-bbae69b7].
 
-- **Display and Theme Typography**: Instrument Sans serves as the universal display and theme font across slides, documents, and headings [^evt-community-events-pr-32].
-- **Monospace Typography**: JetBrains Mono is designated for field labels, table headers, dates, statuses, and code identifiers [^evt-community-events-pr-32] [^evt-community-events-pr-34].
-- **Metric Fallback**: Manrope is retained as the sole embedded metric fallback in document packages for external or offline environments lacking local font availability [^evt-community-events-pr-34].
-- **Font Embedding Policy (`ox.NEVER_EMBED`)**: For cloud-first formats destined for Google Docs, fonts available natively in the service (Instrument Sans and JetBrains Mono) must be declared in `word/fontTable.xml` but stripped from embedded font payloads (`word/fonts/`). Embedding these fonts imposes ~210KB of unnecessary bloat per document [^evt-community-events-pr-34].
+## Typographic and Color Rules
+- **Typeface**: Instrument Sans (OFL) is the exclusive typeface (weights 400, 500, 600, 700) for both display and interface copy; system monospace is reserved strictly for metadata and eyebrows, never body copy [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **Heading Metrics**: Headings are set at weight 500 with tracking `-0.02em` and line height between 1.05 and 1.15; bold weights are avoided except for h5/h6 set at weight 600 [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **Color Roles**: Black (`--accent: var(--ink)`) is the primary action accent; spectrum hues (`--spec-1` through `--spec-10`, e.g., coral as `--spec-8`) serve exclusively as subordinate accents within an individual surface [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **Flat Surface Depth**: Drop shadows are eliminated entirely. Depth is achieved through 1px hairlines, inset strokes, and paper tinting (`--paper` page ground, `--paper-2` section banding, `--paper-3` tinted panels) [^evt-community-events-file-3dc5dd454e08-bbae69b7]. Cards, statistics, tables, and chips maintain square corners (`border-radius: 0`), reserving rounded pills strictly for standalone badges and buttons [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+- **No Dark Mode**: Automated `prefers-color-scheme` overrides are prohibited; components exist exclusively on white editorial or black plate surfaces as explicitly selected by designers [^evt-community-events-file-3dc5dd454e08-bbae69b7].
 
-### Palette Remapping in Office Formats
-
-OOXML documents must map legacy Office palettes (`4472C4`, `ED7D31`) to AAIF neutral and spectrum tokens [^evt-community-events-pr-32]:
-- **Neutrals**: Map greys and borders to `--line-2`, `--ink-4`, and `--ink-3`.
-- **Black Plate**: High-emphasis table headers and slide titles use dark fills with crisp hairline borders.
-- **Spectrum Accents**: Highlights and map pins map to spectrum tokens such as `--spec-3`.
-- **Role-Aware Application**: Color replacement must distinguish structural context—for example, treating a hex color as a filled background plate in a table header versus a hairline border on table cells [^evt-community-events-pr-32].
-
-### Multi-Layer Contrast Resolution
-
-Token conformance alone cannot guarantee legibility: pairing two valid tokens (e.g., light ink on light backgrounds, or dark ink on black plates) produces unreadable artifacts [^evt-community-events-pr-32]. Automated checks must evaluate effective contrast by traversing drawing layers:
-1. Direct shape fill.
-2. Slide background property (`<p:bg>`).
-3. Slide layout background.
-4. Slide master background.
-5. Default canvas white.
-
-Text rendering must ensure sufficient luminosity delta against the resolved background before artifacts pass compliance gates [^evt-community-events-pr-32].
+## Motif Usage Boundaries
+- **Agent Motif Restriction**: The agent bot motif derived from mark primitives is designated solely for empty states, loaders, event graphics, and dividers [^evt-community-events-file-3dc5dd454e08-bbae69b7]. It is strictly prohibited from governance, board, press, or audit documentation [^evt-community-events-file-3dc5dd454e08-bbae69b7].
 
 # Lifecycle History
+Codified in repository design documentation and synchronized via automated token extraction tooling to ensure consistent styling across Python reporting pipelines and OOXML asset generators [^evt-community-events-file-3dc5dd454e08-bbae69b7].
 
-- **PR #32**: Defined token remapping, SpreadsheetML ARGB styling, Word font table pruning, and dynamic slide contrast verification for the OOXML estate [^evt-community-events-pr-32].
-- **PR #34**: Established the `ox.NEVER_EMBED` rule for cloud-hosted Google Docs environments, declaring monospace typefaces while omitting binary font embeds [^evt-community-events-pr-34].
-
-[^evt-community-events-pr-32]: https://github.com/aaif/community-events/pull/32
-[^evt-community-events-pr-34]: https://github.com/aaif/community-events/pull/34
+[^evt-community-events-file-3dc5dd454e08-bbae69b7]: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-73",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#73",
+  "title": "docs: add the liaison roster",
+  "timestamp": "2026-11-02T02:49:14Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/73",
+  "summary": "## Summary\n\nAdds the liaison roster as `LIAISONS.md`, linked from the README. The roster table is the Liaison List from the WG working document, reviewed at WG meetings. It adds the two sections the tracking issue asks for: outbound follow-ups, filled from recent meeting actions,...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds the liaison roster as `LIAISONS.md`, linked from the README. The roster table is the Liaison List from the WG working document, reviewed at WG meetings. It adds the two sections the tracking issue asks for: outbound follow-ups, filled from recent meeting actions, and inbound asks, empty for now.\n\n## Related Issue\n\nCloses the remaining acceptance criteria of #11, which was closed once the roster was established in the working document. Supersedes the placeholder roster in #33.\n\n## Review Notes\n\n- Liudmila Molkova's affiliation is listed as Google, to match the OpenTelemetry GenAI repository's current maintainer list. The working document says Grafana.\n- Empty cells in the working document are written as \"None\".\n- Anyone listed who prefers not to be named can say so here, and their name will be removed.\n\nSuggested review window: 1 week (living documents).\n\n## Follow-ups\n\n- Propose a primary OpenTelemetry GenAI SIG contact for a WG vote.\n- Find owners for the rows marked \"Needs owner\".\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-67",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#67",
+  "title": "docs: propose seams between OTel GenAI telemetry and signed action and evidence records",
+  "timestamp": "2026-10-28T17:14:13Z",
+  "author": "StevenMih",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/67",
+  "summary": "## Summary\n\nAdds `working-documents/OTEL-GENAI-SEAMS-AAC-EVIDENCE-LAYER.md`, a proposal for WG discussion. It lists five seams where OTel GenAI telemetry would need to connect to a signed record of an agent's action and its evidence:\n\n1. Span to record join\n2. Decision and approv...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds `working-documents/OTEL-GENAI-SEAMS-AAC-EVIDENCE-LAYER.md`, a proposal for WG discussion. It lists five seams where OTel GenAI telemetry would need to connect to a signed record of an agent's action and its evidence:\n\n1. Span to record join\n2. Decision and approval\n3. Effect target and status\n4. Evidence origin\n5. Integrity without disclosure\n\nFor each seam it gives why it matters, what is missing in `semantic-conventions-genai` today (checked 2026-10-28), what a record side adds, and the existing OpenTelemetry discussion to join. Seams 2 and 3 are rows already on the shortlist in #60.\n\nDisclosure: I am an author of the AAC and Evidence Layer drafts used as worked references. The document says so and treats them as examples, not the only way to fill a seam.\n\n## Related Issue\n\nUpdates #47. Offered as input to the gap register in #60. Related: #36, #37, #44.\n\n## Review Notes\n\nThe four questions at the end of the document are the discussion asks. Status is \"Proposal, not adopted\".\n\n## Follow-ups\n\nDepending on the WG's answers: evidence for seams 2 and 3 in the gap register, and comments on OTel #386 and #466 for seams 4 and 5.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

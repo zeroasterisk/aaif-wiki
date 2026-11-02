@@ -2,49 +2,49 @@
 type: pattern
 title: Attested Isolated Runtime
 description: Architectural security pattern isolating policy evaluation and evidence
-  signing inside hardware-attested enclaves while keeping primary agent logic outside.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
+  signing inside hardware-attested environments while leaving agent execution outside
+  the trust boundary.
+resource: https://github.com/aaif/wg-security-and-privacy/pull/11
 tags:
+- pattern
 - security
 - confidential-computing
 - tee
 - attestation
-- patterns
+- privacy
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:38:42.139689+00:00'
+  at: '2026-11-02T09:45:14.530544+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
-  author: sagardashora
-  last_modified: '2026-09-30T10:16:03-04:00'
+- id: evt-wg-security-and-privacy-pr-11
+  resource: https://github.com/aaif/wg-security-and-privacy/pull/11
+  author: imran-siddique
+  last_modified: '2026-08-17T19:17:48+00:00'
+- id: evt-wg-security-and-privacy-file-d7a6875f36a3-18be1974
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/meeting-notes/README.md
+  author: Alex Frazer
+  last_modified: '2026-08-13T08:00:29-04:00'
 ---
 
 # Overview
+Attested Isolated Runtime is an architectural security pattern designed for agentic deployments where the host infrastructure operator is situated inside the threat model [^evt-wg-security-and-privacy-pr-11]. The pattern isolates policy evaluation and evidence signing within a hardware-enforced Trusted Execution Environment (TEE), gating data release and sensitive actions on an independent verifier's appraisal while purposefully leaving the agent execution itself outside the trust boundary [^evt-wg-security-and-privacy-pr-11].
 
-The Attested Isolated Runtime pattern isolates runtime policy enforcement, verdict evaluation, and cryptographic evidence signing within a hardware-attested trusted execution environment (TEE), keeping the primary agent workload outside the enclave boundary [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]. By decoupling policy enforcement from operator host privileges, the pattern ensures that relying parties can independently verify execution integrity even when the underlying host, hypervisor, or infrastructure operator is untrusted [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-
-Also known as a TEE-isolated agent runtime, confidential agent execution, or an attested enclave gateway, this pattern addresses scenarios where an agent processes confidential or regulated data in third-party environments [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
+By maintaining the agent outside the isolated boundary, the pattern prevents attacker-manipulated prompt or context flows from expanding the trusted computing base (TCB) [^evt-wg-security-and-privacy-pr-11].
 
 # Architecture / Specification
+The pattern specifies four mandatory architectural elements, each paired with a distinct failure mode if omitted [^evt-wg-security-and-privacy-pr-11]:
 
-The pattern establishes distinct multi-organizational roles and operational constraints across four participants [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]:
+1. **External Agent Boundary**: The policy decision point (PDP) is isolated within the hardware boundary, leaving the agent runtime outside to avoid exposing the TCB to untrusted model inputs [^evt-wg-security-and-privacy-pr-11].
+2. **Internal Key Generation**: Cryptographic signing keys are generated strictly inside the hardware-isolated boundary and bound to tamper-evident action evidence [^evt-wg-security-and-privacy-pr-11].
+3. **Measurement-Sealed Policy**: Operational policy bundles and system configurations are sealed to initial platform measurements and unsealed solely upon successful appraisal [^evt-wg-security-and-privacy-pr-11].
+4. **Independent Verifier Appraisal**: An external verifier appraises per-unit-of-work attestation evidence before releasing sensitive data or authorization tokens [^evt-wg-security-and-privacy-pr-11].
 
-- **Data owner:** Requires that task inputs and context are not exposed during processing [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-- **Agent operator:** Executes the agentic workload across external or hybrid cloud compute [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-- **Infrastructure operator:** Controls the underlying host platform, hypervisors, and scheduling layers [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-- **Relying party:** Evaluates execution integrity and policy adherence without direct inspection capability [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-
-### Core Mechanisms
-
-1. **External Enforcement Separation:** Rather than executing complex LLM harnesses inside constrained TEEs, policy evaluation points are isolated in the enclave while the agent runs outside [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-2. **Enclave Key Generation:** Cryptographic signing keys are generated strictly inside the attested boundary, directly binding evidence artifacts to immutable hardware measurements [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-3. **Policy Sealing:** Governance policies are sealed against hardware launch measurements and unlocked only upon valid appraisal by an attestation verifier [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
-4. **Verifiable Telemetry and Evidence:** Emits signed evidence records per unit of execution, enabling external verification via independent appraisal [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb].
+### Implementation and Neutrality
+The pattern maintains vendor neutrality by supporting diverse hardware attestation environments—including AMD SEV-SNP, Intel TDX, ARM CCA, NVIDIA GPU confidential computing, and TPM 2.0—alongside an explicit software-only fallback mode for testing and non-TEE environments [^evt-wg-security-and-privacy-pr-11]. Standards alignment includes RFC 9334 (RATS architecture), RFC 9711, RFC 8747, IETF SCITT, and SLSA [^evt-wg-security-and-privacy-pr-11].
 
 # Lifecycle History
+Authored by Opaque Systems, the initial draft of the Attested Isolated Runtime pattern was introduced to the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) in July/August 2026 under PR#11 to establish reference architectures for privacy-preserving execution [^evt-wg-security-and-privacy-pr-11][^evt-wg-security-and-privacy-file-d7a6875f36a3-18be1974].
 
-Contributed as an initial design draft within the Security and Privacy Working Group's privacy-preserving execution workstream [^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]. Related runtime isolation approaches and sandboxing tooling include [resources/nono](../resources/nono.md) and related specifications such as [standards/evidence-record-spec](../standards/evidence-record-spec.md) [^evt-wg-security-and-privacy-file-3b2755238b15-1588e821].
-
-[^evt-wg-security-and-privacy-file-d74b6b55d493-0ef833eb]: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-attested-isolated-runtime.md
+[^evt-wg-security-and-privacy-file-d7a6875f36a3-18be1974]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/meeting-notes/README.md
+[^evt-wg-security-and-privacy-pr-11]: https://github.com/aaif/wg-security-and-privacy/pull/11

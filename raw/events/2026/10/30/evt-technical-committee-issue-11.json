@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-technical-committee-issue-11",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/technical-committee",
+  "reference_id": "ISSUE#11",
+  "title": "Open research invitation: interoperable AI agents coordinating access to essential resources",
+  "timestamp": "2026-10-30T21:53:33Z",
+  "author": "patrykbadzsoba-cyber",
+  "url": "https://github.com/aaif/technical-committee/issues/11",
+  "summary": "Hello AAIF Technical Committee and community,\n\nI am sharing an open research and collaboration idea called **LUDZKOŚĆ (HUMANITY)**.\n\n**Central question:** How could interoperable AI agents and existing open infrastructure help people coordinate access to essentials—food, housing,...",
+  "pointers": [],
+  "inline_text": "Hello AAIF Technical Committee and community,\n\nI am sharing an open research and collaboration idea called **LUDZKOŚĆ (HUMANITY)**.\n\n**Central question:** How could interoperable AI agents and existing open infrastructure help people coordinate access to essentials—food, housing, energy, healthcare, repair and transport—with less dependence on purchasing power, while protecting continuity of services, privacy and individual autonomy?\n\nThis is an invitation to examine and test the idea, not a request to disrupt or disable banks, exchanges, payment rails or supply chains. Any transition would need to preserve access to essentials and livelihoods while alternatives are tested and independently evaluated.\n\nPotential areas for collaboration:\n- agent-to-agent discovery and voluntary task coordination;\n- open, auditable resource and capacity registries;\n- privacy-preserving matching of needs to available resources;\n- simulation and verification before real-world deployment;\n- small pilots in surplus food, repair, reuse, shared tools or renewable-energy coordination.\n\nA first practical demonstration should be narrow and measurable: map voluntarily offered resources in one local domain, match one real need to an available resource, complete a consent-based non-monetary exchange where feasible, and publish the evidence, limitations and method.\n\nThe project document is here:\nhttps://www.dropbox.com/scl/fi/y58vdcrr6szsl9rirhyw7/LUDZKO-J-dro-wsparcia-i-architektura-tr-juk-adu.paper?rlkey=rdukxs1z1efkw7a3w584a909d&dl=0\n\nI would value guidance on whether this question fits an existing AAIF working group or public community discussion, and whether any agent-interoperability projects or contributors would be interested in examining a small open pilot.\n\nParticipation is entirely voluntary. Criticism, alternative proposals and a decision not to participate are all welcome.\n\nThank you.",
+  "labels": []
+}

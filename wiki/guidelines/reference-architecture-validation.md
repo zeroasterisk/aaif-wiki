@@ -1,54 +1,54 @@
 ---
 type: guideline
-title: Reference Architecture Use-Case Validation Guide
-description: Evaluation criteria and procedures for validating that an AAIF reference
-  architecture matches real-world agentic workflow use cases.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/ra-use-case-validation-guide.md
+title: Reference Architecture Validation Guide
+description: Standardized evaluation procedures and fit classifications for validating
+  AAIF reference architectures against real-world use cases.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/35
 tags:
-- guideline
 - workflows
+- reference-architectures
+- guidelines
 - validation
-- reference-architecture
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:20:54.323193+00:00'
+  at: '2026-11-02T09:55:29.329353+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/ra-use-case-validation-guide.md
-  author: Mario Zagar
-  last_modified: '2026-09-15T16:19:55-04:00'
-- id: evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/CONTRIBUTING.md
+- id: evt-wg-workflows-and-process-integration-pr-35
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/35
+  author: mzagar
+  last_modified: '2026-09-15T20:19:55+00:00'
+- id: evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/AGENTS.md
   author: Mario Zagar
   last_modified: '2026-09-15T16:19:55-04:00'
 ---
 
 # Overview
-The Reference Architecture Use-Case Validation Guide establishes the standard procedure for evaluating whether an AAIF Reference Architecture (RA) accurately fits a real-world use case documented in the [Agentic Use Case Inventory](../resources/agentic-use-case-inventory.md) [^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64]. The validation process ensures that reference architectures map directly to recognizable practitioner jobs while clarifying boundaries, capability requirements, and failure modes [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
+
+The Reference Architecture Validation Guide defines the standardized process for evaluating an Agentic AI Foundation (AAIF) reference architecture against real-world use cases[^evt-wg-workflows-and-process-integration-pr-35]. It establishes consistent assessment categories, required evidence formats, and operational rules for AI and human contributors documenting architectural fit across production workloads[^evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30].
 
 # Architecture / Specification
-## Purpose of Validation
-Validation assesses whether an RA addresses the core job and primary boundary of a given use case [^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64]. A designation of `Validated` confirms architectural fit; it does not require that an existing production implementation already complies with every secondary technical control (such as specific retry settings, storage backends, or credential hashing) [^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64].
 
-## Validation Procedure
-Validating an RA against a real use case proceeds in three steps [^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64]:
-1. **Analyze Purpose and Boundaries**: Review the RA's job statement, boundaries, checklist, guarantees, and terminal exit states.
-2. **Evaluate Use Case Evidence**: Compare against documented evidence in the Use Case Inventory:
-   - Does the RA solve the primary practitioner job?
-   - Are actor roles clearly separated across agent, workflow engine, human reviewer, and external systems?
-   - Does the use case possess the defining boundary mandated by the RA?
-   - Does the RA address the critical failure, wait, retry, recovery, or escalation paths?
-3. **Formulate Verification Checks**: Construct two to three simple evaluation checks focused on the core job and defining boundaries, recording unambiguous `Yes`, `No`, or `Unknown` determinations [^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64].
+### Validation Classifications
+When comparing a candidate architecture against an operational use case, contributors assign one of four standardized status designations[^evt-wg-workflows-and-process-integration-pr-35]:
+- **Validated**: The real-world use case demonstrably matches all core patterns, capability roles, boundaries, and exit states of the architecture.
+- **Partial**: The use case shares core capability roles and pattern compositions but exhibits structural gaps, such as missing deterministic gates or divergent escalation pathways.
+- **No fit**: The operational constraints, authority models, or boundary requirements fundamentally conflict with the reference architecture.
+- **Candidate**: A proposed use case submitted for evaluation that has not yet completed comparative review against working group evidence standards.
 
-## Distinction Between Architectural Patterns, Reference Architectures, and Scenarios
-Contributors must adhere to the structural boundaries established by the Workflows and Process Integration Working Group [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]:
-- **Patterns**: Solve a single, recurring workflow problem independently (e.g., [Durable Wait](../patterns/durable-wait.md), [Human Approval Gate](../patterns/human-approval-gate.md)).
-- **Reference Architectures**: Comprehensive blueprints addressing complete practitioner jobs, composing multiple patterns, capability roles, boundaries, and exit states (e.g., [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md)).
-- **Scenarios**: Concrete or illustrative domain examples used to validate an architecture; a scenario cannot serve as an architecture name [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
+### Contributor Directives
+As detailed in the workstream contributor rules, validation assessments must rely strictly on verified source evidence rather than speculative interpretations[^evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30]. Evaluators must avoid generating unrequested GitHub issues or pull requests during automated triage, record terminology gaps as open questions rather than novel constructs, and document domain scenarios as validation proofs rather than generic architecture definitions[^evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30].
 
 # Lifecycle History
-Authored under the AAIF Workflows and Process Integration Working Group to accompany the reference architecture templates and contributing guidelines [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4, ^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64].
 
-[^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/CONTRIBUTING.md
-[^evt-wg-workflows-and-process-integration-file-c88ec331f2fd-2adc5f64]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/docs/ra-use-case-validation-guide.md
+- Authored following Workstream Sync #6 to provide a standard output mechanism for validation PRs and issue records[^evt-wg-workflows-and-process-integration-pr-35].
+- Linked directly from contributor guidelines and instructions for AI contributors[^evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30].
+
+# References
+- [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md)
+- [Reference Architecture Template](reference-architecture-template.md)
+- [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md)
+
+[^evt-wg-workflows-and-process-integration-file-cd94574f9d34-a7acfb30]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/AGENTS.md
+[^evt-wg-workflows-and-process-integration-pr-35]: https://github.com/aaif/wg-workflows-and-process-integration/pull/35

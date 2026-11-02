@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-23",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#23",
+  "title": "Add Ouroboros to Agentic Runtime",
+  "timestamp": "2026-10-28T15:29:11Z",
+  "author": "ouroboros-agent",
+  "url": "https://github.com/aaif/aaif-landscape/pull/23",
+  "summary": "Ouroboros is an MIT-licensed agent that works on external projects, coordinates specialist agents and can evolve its own implementation through reviewed changes. This adds it to Agentic Runtime with its repository, website and SVG wordmark. The project meets the 1,000-star requir...",
+  "pointers": [],
+  "inline_text": "Ouroboros is an MIT-licensed agent that works on external projects, coordinates specialist agents and can evolve its own implementation through reviewed changes. This adds it to Agentic Runtime with its repository, website and SVG wordmark. The project meets the 1,000-star requirement. Schema and logo checks pass; the native landscape build and hosted preview have not been run.",
+  "labels": []
+}

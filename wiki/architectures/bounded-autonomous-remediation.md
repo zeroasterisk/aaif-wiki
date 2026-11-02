@@ -2,38 +2,42 @@
 type: architecture
 title: Bounded Autonomous Remediation
 description: Reference architecture governing iterative, autonomous problem resolution
-  within predefined task boundaries, activity units, and convergence budgets.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
+  within predefined task boundaries, budget constraints, and deterministic acceptance
+  gates.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
 tags:
 - architecture
+- reference-architecture
 - remediation
-- workflows
-- runtime
+- deterministic-gate
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:51:37.206517+00:00'
+  at: '2026-11-02T10:14:40.565482+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-49
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
-  author: mzagar
-  last_modified: '2026-10-09T11:27:17+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-43
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
+  author: narko4u
+  last_modified: '2026-10-02T15:00:07+00:00'
 ---
 
 # Overview
-The Bounded Autonomous Remediation reference architecture defines a controlled execution environment where an autonomous agent diagnoses and resolves operational failures within strictly bounded task parameters. It couples iterative exploration with deterministic budgets and safety checkpoints to prevent runaway execution or out-of-scope operational impact.
+
+The Bounded Autonomous Remediation reference architecture defines an operational model for autonomous incident remediation and bug resolution operating within explicit step and cost budgets.[^evt-wg-workflows-and-process-integration-pr-43] The architecture allows agents to iteratively hypothesize, patch, and test candidate solutions, terminating when objective criteria are satisfied or when boundary constraints force escalation.
 
 # Architecture / Specification
-The architecture explicitly differentiates between business-level problem bounds and internal execution units to maintain operational clarity[^evt-wg-workflows-and-process-integration-pr-49]:
 
-- **Business Task**: The bounded business problem or operational incident admitted to and handled by a remediation run (such as resolving a specific deployment alert or failed node)[^evt-wg-workflows-and-process-integration-pr-49]. The business task sets the boundary conditions, blast radius, and target recovery objectives.
-- **Activity**: The granular workflow subunit executed within the context of a business task (such as running a health check command, inspecting logs, or applying a configuration patch)[^evt-wg-workflows-and-process-integration-pr-49].
-- **Convergence Controls**: The run operates under a [bounded convergence loop](../patterns/bounded-convergence-loop.md), ensuring that repeated activity iterations terminate deterministically against strict iteration count and resource budgets.
-- **Gate Separation**: Enforces transition gates such as a [deterministic acceptance gate](../patterns/deterministic-acceptance-gate.md) or [human approval gate](../patterns/human-approval-gate.md) before promoting remediation changes to production systems.
+The architecture relies on [Deterministic acceptance gate](../patterns/deterministic-acceptance-gate.md) checks to validate proposed fixes before applying them to target systems.[^evt-wg-workflows-and-process-integration-pr-43]
 
-# References
-- [Workflow Architecture Principles](../guidelines/workflow-architecture-principles.md)
-- [Single-Agent Human Approval](../architectures/single-agent-human-approval.md)
-- [Proposal-Execution Split](../patterns/proposal-execution-split.md)
+### Minimum Evidence Requirements
+Gate evaluation strength scales with two primary properties of the permitted remediation effect:[^evt-wg-workflows-and-process-integration-pr-43]
+- **Blast radius**: The scope of systems, users, or data impacted if the proposed remediation introduces regressions.
+- **Reversal cost**: The complexity, downtime, or operational cost necessary to roll back or undo the applied modification.
 
-[^evt-wg-workflows-and-process-integration-pr-49]: https://github.com/aaif/wg-workflows-and-process-integration/pull/49
+### Acceptance Invariants
+Regardless of gate strength, three baseline properties hold for every generated acceptance record:[^evt-wg-workflows-and-process-integration-pr-43]
+1. **Determinism of the verdict**: The pass/fail outcome is produced through reproducible, deterministic validation checks rather than subjective or non-deterministic model self-evaluations.
+2. **Binding of verdict to candidate**: The verdict record explicitly binds to the exact patch or candidate artifact evaluated.
+3. **Preservation as execution evidence**: The evaluation record and associated diagnostic outputs are preserved within the execution trace for post-incident auditability.
+
+[^evt-wg-workflows-and-process-integration-pr-43]: https://github.com/aaif/wg-workflows-and-process-integration/pull/43

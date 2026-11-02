@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-3dc5dd454e08-bbae69b7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "DESIGN.md",
+  "title": "DESIGN.md",
+  "timestamp": "2026-11-01T22:38:32-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md",
+  "summary": "fix: address self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "a411604181e6a15dc2278221bc7501c8bb3c49fc",
+      "path": "DESIGN.md",
+      "blob_sha": "bbae69b7a459ffd231c03ac4531de2ce7e273c56",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

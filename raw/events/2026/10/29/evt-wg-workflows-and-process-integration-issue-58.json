@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-58",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#58",
+  "title": "[Use Cases] Change \"pattern\" to \"shapes\"",
+  "timestamp": "2026-10-29T15:37:04Z",
+  "author": "jodeev",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/58",
+  "summary": "## Background\n\nThe Reference Architecture workstream uses \"primitives\" and \"patterns\" with specific meaning: primitives are combined into patterns. The Critical Use Cases artifacts also use \"pattern\" (`Workflow Pattern`, `HITL Pattern`, and \"workflow patterns\" in prose), which co...",
+  "pointers": [],
+  "inline_text": "## Background\n\nThe Reference Architecture workstream uses \"primitives\" and \"patterns\" with specific meaning: primitives are combined into patterns. The Critical Use Cases artifacts also use \"pattern\" (`Workflow Pattern`, `HITL Pattern`, and \"workflow patterns\" in prose), which conflicts with the RA usage and risks readers conflating the two.\n\n## Proposed changes\n\n- Rename the `Workflow Pattern` column and dimension to `Workflow Shape`\n- Rename the `HITL Pattern` column and dimension to `HITL Shape`\n- Remove other uses of \"pattern\" throughout the use case artifacts\n\n## Files affected\n\n- `use-case-inventory.md`: column headers, template, any references in Notes\n- `schema-agentic-use-cases.md`: dimension names, definitions, summary table, open questions\n- `README.md`: prose references to patterns",
+  "labels": []
+}

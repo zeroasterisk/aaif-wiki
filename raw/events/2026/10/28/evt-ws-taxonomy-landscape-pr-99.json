@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-99",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#99",
+  "title": "Define universal term Context pollution",
+  "timestamp": "2026-10-28T12:58:52Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/99",
+  "summary": "## Summary\n\n- define the accepted universal term `Context pollution`\n- leave category and hierarchy fields deferred\n- omit aliases and a scope note\n\n## AI assistance\n\nCodex assisted with drafting the definition and creating this pull request. The contributor reviewed and approved...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- define the accepted universal term `Context pollution`\n- leave category and hierarchy fields deferred\n- omit aliases and a scope note\n\n## AI assistance\n\nCodex assisted with drafting the definition and creating this pull request. The contributor reviewed and approved the final wording.",
+  "labels": []
+}

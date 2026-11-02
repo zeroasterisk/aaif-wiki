@@ -1,42 +1,58 @@
 ---
 type: resource
-title: Universal Recursive Autonomous Co-Founder Engine (URACE)
-description: Blueprint-first agent orchestration specification and recursive runtime
-  loop composed of reusable patterns, cognitive compaction, and rule-graph tracking.
-resource: https://github.com/aaif/project-proposals/issues/60
+title: URACE (Unified Runtime for Autonomous Collaborative Evolution)
+description: Open-source P2P lifecycle control plane and governed runtime for autonomous
+  software evolution, qualification gates, and post-quantum audited code distribution.
+resource: https://github.com/aaif/project-proposals/issues/67
 tags:
-- orchestration
-- specifications
-- patterns
-- proposals
+- runtime
+- p2p
 - governance
+- qualification-gate
+- cryptography
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T11:15:47.474225+00:00'
+  at: '2026-11-02T10:33:38.696754+00:00'
 sources:
-- id: evt-project-proposals-issue-60
-  resource: https://github.com/aaif/project-proposals/issues/60
+- id: evt-project-proposals-issue-67
+  resource: https://github.com/aaif/project-proposals/issues/67
   author: joaoalbertocsjunior
-  last_modified: '2026-10-16T00:44:11+00:00'
+  last_modified: '2026-11-02T05:25:01+00:00'
 ---
 
 # Overview
-The Universal Recursive Autonomous Co-Founder Engine (URACE) is an open-source, blueprint-first agent orchestration and context-governance specification designed to provide a portable alternative to rigid software agent libraries [^evt-project-proposals-issue-60]. Formatted as a single install-as-bootstrap standard document (`URACE.md`), the specification defines 72 independent, reusable structural primitives—spanning authority boundaries, cognitive resumes, and regression gates—released under the CC0 1.0 Universal public domain dedication [^evt-project-proposals-issue-60].
+
+URACE (Unified Runtime for Autonomous Collaborative Evolution) is an open-source, peer-to-peer lifecycle control plane designed to govern autonomous, AI-driven software development and distribution across decentralized networks without central authorities.[^evt-project-proposals-issue-67] It bridges the gap between raw AI code generation and production repositories by enforcing qualification gates, post-quantum cryptographic identity, and tamper-evident audit ledgers.[^evt-project-proposals-issue-67]
 
 # Architecture / Specification
-URACE decouples high-level lifecycle governance from execution mechanics by orchestrating pluggable runtime tools [^evt-project-proposals-issue-60]:
 
-- **Decoupled Execution:** Treats Model Context Protocol (MCP) clients and servers or agent runtimes like [Goose](goose.md) as modular executors tasked with code modifications, while URACE validates systemic boundaries and rule invariants [^evt-project-proposals-issue-60].
-- **Dynamic Context Compaction:** Implements the `urace /compact` lifecycle protocol to progressively compress linear conversation and execution logs into semantic Cognitive Resumes, mitigating [context exhaustion](../taxonomy/context-exhaustion.md) across long recursive loops [^evt-project-proposals-issue-60].
-- **Deterministic Rule-Graph Tracking:** Employs `urace /rules` to map codebase changes against queryable snapshots of active permissions and policy constraints, tracing agent decisions back to explicit human authorizations [^evt-project-proposals-issue-60].
-- **Zero-Dependency Blueprint:** Operates natively within code repositories via bootstrap specifications rather than external runtime dependencies, providing a dynamic counterpart to static repository guidance files [^evt-project-proposals-issue-60].
+### Governed Improvement Loop
+
+URACE coordinates autonomous executors (LLMs or automated agents) through an immutable execution cycle:[^evt-project-proposals-issue-67]
+
+1. **Objective Ingestion**: Practitioners define declarative targets (e.g., latency reduction, test coverage).
+2. **Executor Planning**: AI executors draft structured execution plans and code modifications.
+3. **Qualification Gate**: An automated evaluation harness executes trial tests, safety predicates, and schema constraints. Executors are strictly prohibited from altering governance rules, authority configurations, or evaluation criteria.
+4. **Accepted Operations**: Changes meeting acceptance thresholds are committed to the codebase.
+5. **Immutable Audit Trail**: All decisions, trial evidence, and operations are recorded in an HMAC-chained, cryptographically verifiable ledger.
+
+### P2P Feature Marketplace and Token Economy
+
+Verified improvements can be tokenized, exchanged, or borrowed between peers across a decentralized network using a physics-calibrated token model.[^evt-project-proposals-issue-67] Peer reputation is calculated via Wilson lower-bound scoring based on verified delivery history rather than subjective assertions, providing defense against Sybil attacks and cartel manipulation.[^evt-project-proposals-issue-67]
+
+### Cryptographic Architecture
+
+URACE implements hybrid post-quantum cryptography combining ML-KEM-768 with classical TLS transport, alongside self-signed cryptographic identity certificates and machine-readable `AGENTS.md` interface manifests for zero-configuration executor onboarding.[^evt-project-proposals-issue-67]
 
 # Lifecycle History
-Submitted by joaoalbertocsjunior in March 2026, URACE was proposed to the AAIF as a Growth/Sandbox project to establish standardized, reusable agent blueprint patterns [^evt-project-proposals-issue-60].
+
+- **October 2026**: Submitted to the Agentic AI Foundation as a Growth stage project proposal under the Apache 2.0 license.[^evt-project-proposals-issue-67]
 
 # References
-- GitHub Repository: https://github.com/joaoalbertocsjunior/URACE
-- Proposal Issue: https://github.com/aaif/project-proposals/issues/60
 
-[^evt-project-proposals-issue-60]: https://github.com/aaif/project-proposals/issues/60
+- [Deterministic Acceptance Gate](../patterns/deterministic-acceptance-gate.md)
+- [Project Proposal Process](../policies/project-proposal-process.md)
+- [Project Lifecycle Policy](../policies/project-lifecycle-policy.md)
+
+[^evt-project-proposals-issue-67]: https://github.com/aaif/project-proposals/issues/67

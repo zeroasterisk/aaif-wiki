@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-95",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#95",
+  "title": "Define universal term Agent self-disclosure",
+  "timestamp": "2026-10-28T12:41:08Z",
+  "author": "julianna-ciq",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/95",
+  "summary": "## Summary\n\n- define the accepted universal term `Agent self-disclosure`\n- add an example of an agent identifying itself while completing an online form\n- leave category and hierarchy fields deferred\n\n## AI assistance\n\nThe definition and scope note were human-written. Codex was u...",
+  "pointers": [],
+  "inline_text": "## Summary\n\n- define the accepted universal term `Agent self-disclosure`\n- add an example of an agent identifying itself while completing an online form\n- leave category and hierarchy fields deferred\n\n## AI assistance\n\nThe definition and scope note were human-written. Codex was used to create this pull request.",
+  "labels": []
+}

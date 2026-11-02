@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-identity-and-trust-file-d22b3d6550c3-e2016059",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-10-09T17:44:15+11:00",
+  "author": "Manik Surtani",
+  "url": "https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/charter.md",
+  "summary": "chore: fix dates, formatting",
+  "pointers": [
+    {
+      "repo": "wg-identity-and-trust",
+      "commit_sha": "03635504ad1c4ab99631967b15705bf947f64f1e",
+      "path": "charter.md",
+      "blob_sha": "e20160592916433ecee89c3bbc98e19cbb5cdd99",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-63",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#63",
+  "title": "feat(sync): one site bar across a run's report pages",
+  "timestamp": "2026-11-02T07:03:54Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/63",
+  "summary": "## What\nA sync run draws six pages: `report.html` plus coverage, activity, topics, members and the Slack audit. The run page linked out to the five, and none of them linked back or to each other.\n\n- **`sync.py`** works out the run's page list once (`run_pages`: the run page, then...",
+  "pointers": [],
+  "inline_text": "## What\nA sync run draws six pages: `report.html` plus coverage, activity, topics, members and the Slack audit. The run page linked out to the five, and none of them linked back or to each other.\n\n- **`sync.py`** works out the run's page list once (`run_pages`: the run page, then each selected page-drawing step in pipeline order, labelled by `PAGE_LABEL`). It hands the list to every engine in `AAIF_REPORT_NAV`, the way it already hands over the memo paths, and records it in `run.json`.\n- **`report_style.page()`** draws the list as a sticky top bar. A page that can't know its own file name marks itself current in the browser. Hrefs must be bare sibling `*.html` files; anything else is dropped.\n- **`render_report.py`** draws its own bar from `run.json`, keeping only pages that were actually written, so a step that failed before drawing leaves no dead link. Older `run.json` files without `pages` still get a bar.\n- A standalone audit gets no bar. Print hides the bar, so the PDFs are unchanged.\n\n## Why\nMoving between a run's pages meant using the back button, because every link from the run page was a dead end. `DESIGN.md` rules out patching generated HTML, so the bar lives in the shared page builder.\n\n## Checks\n- `test_report_style.py` (66 passed), `test_sync.py`, `test_render_report.py`: new cases for href filtering, escaping, the env path vs an explicit nav, a malformed env, print hiding, the label table matching `RENDERS_HTML`, pipeline order, a narrowed run, env leakage, and the renderer's written-pages-only rule.\n- Screenshot of a re-rendered run page checked against the design system: flat, hairline, black accent, mono label.\n- pre-commit and `check_no_real_pii.py` clean.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

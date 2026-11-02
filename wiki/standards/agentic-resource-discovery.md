@@ -1,43 +1,44 @@
 ---
 type: standard
-title: Agent Resource Discovery (ARD)
+title: Agentic Resource Discovery Specification
 description: Decentralized discovery, verification, and admission specification enabling
-  agents to find, trust, and instrument capabilities across five lifecycle stages.
-resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
+  agents to find, trust, and verify AI resources via catalogs and dynamic registries.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
 tags:
 - standard
 - discovery
+- registry
 - trust
-- observability
-- otlp
+- spiffe
+- ans
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-19T10:18:17.522815+00:00'
+  at: '2026-11-02T09:38:13.242968+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-issue-49
-  resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
-  author: 91pavan
-  last_modified: '2026-09-02T05:53:28+00:00'
+- id: evt-wg-observability-and-traceability-file-4b349715463d-4901531a
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
+  author: Pavan Sudheendra
+  last_modified: '2026-07-09T16:05:08+01:00'
 ---
 
 # Overview
-Agent Resource Discovery (ARD) is a decentralized specification and lifecycle architecture enabling AI agents to discover, verify, govern, and admit external resources, tools, and skills across system boundaries[^evt-wg-observability-and-traceability-issue-49]. ARD ensures that agent resource acquisition is subject to deterministic trust evaluation, governance checks, and end-to-end telemetry rather than unverified dynamic loading[^evt-wg-observability-and-traceability-issue-49].
-
-Instrumentation and telemetry standards for ARD are reviewed in collaboration with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md).
+The Agentic Resource Discovery (ARD) specification defines a decentralized architecture for discovering, evaluating, and verifying AI tools, capabilities, and agent resources across administrative boundaries[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]. Jointly announced by a multi-vendor consortium of 11 organizations, ARD standardizes how autonomous agents locate trusted endpoints while enforcing provenance and identity guarantees.
 
 # Architecture / Specification
-ARD defines a five-stage capability acquisition lifecycle, each emitting structured telemetry correlated via W3C Trace Context and exported through standard OTLP pipelines[^evt-wg-observability-and-traceability-issue-49]:
+The ARD specification is structured around two core functional components[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]:
 
-1. **Discovery:** The initial search, querying, and identification of prospective external resources or endpoints.
-2. **Provenance:** Tracing the authoring origin, release signature, and supply chain integrity of the discovered capability.
-3. **Governance:** Evaluating environmental policies, runtime constraints, and organizational permission boundaries.
-4. **Trust:** Cryptographic verification, reputation scoring, and attestation checks assessing capability reliability.
-5. **Decision:** Explicit admission, conditional quarantine, or rejection of the resource prior to runtime loading.
+- **Catalog (Static Indexing)**: Declarative, machine-readable manifests enabling offline search, capability indexing, and structural schema inspection.
+- **Registry (Dynamic REST API)**: Active control plane exposing RESTful endpoints for runtime admission, health validation, and dynamic capability lookup.
 
-Admitted resources emit correlation spans linking the admission decision directly to subsequent activation and execution inside runtimes such as [Goose](../resources/goose.md) or proxy layers such as Agent Gateway, ensuring that quarantined capabilities produce zero unauthorized execution spans[^evt-wg-observability-and-traceability-issue-49].
+### Trust and Identification Model
+ARD integrates with decentralized identity and security frameworks to establish cryptographically verifiable discovery:
+
+- **Identity Federation**: Leverages SPIFFE (Secure Production Identity Framework for Everyone) and ANS (Agent Name Service) standards to authenticate agents and resource providers[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+- **Trust Manifests**: Encodes cryptographic attestation and authorization requirements within discovery metadata, enabling consuming agents to verify endpoint integrity prior to execution.
+- **Natural Language Search**: Implements semantic and natural language discovery layers that resolve plain-language agent requests to verified interface contracts[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
 
 # Lifecycle History
-- **September 2026:** PoC validation established export of all five lifecycle stages via OpenTelemetry (OTLP JSON fixtures) and correlation with skill activation in Agent Gateway and Goose[^evt-wg-observability-and-traceability-issue-49].
+- **2026-07-09**: Presented to the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) by Junjie Bu following joint industry announcement; initiated cross-group reviews on identity standards, ANS integration, and telemetry trace correlation[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
 
-[^evt-wg-observability-and-traceability-issue-49]: https://github.com/aaif/wg-observability-and-traceability/issues/49
+[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md

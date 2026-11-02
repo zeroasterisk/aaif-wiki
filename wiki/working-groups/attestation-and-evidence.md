@@ -1,41 +1,41 @@
 ---
 type: working-group
-title: Attestation & Evidence Working Group
-description: Cross-cutting AAIF working group defining standards, witness taxonomies,
-  and portable bundle formats for independently verifiable AI agent actions and decisions.
-resource: https://github.com/aaif/working-group-proposals/issues/6
+title: Attestation and Evidence Working Group
+description: Cross-cutting AAIF working group operating an interim trial to define
+  verification standards, witness taxonomies, and portable attestation bundles.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md
 tags:
 - working-group
 - attestation
 - evidence
 - verification
-- governance
+- trust
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T11:08:56.885758+00:00'
+  at: '2026-11-02T10:31:15.104701+00:00'
 sources:
-- id: evt-working-group-proposals-issue-6
-  resource: https://github.com/aaif/working-group-proposals/issues/6
-  author: StevenMih
-  last_modified: '2026-10-25T15:10:07+00:00'
+- id: evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md
+  author: Pavan Sudheendra
+  last_modified: '2026-10-29T02:42:30+00:00'
 ---
 
 # Overview
-The Attestation & Evidence Working Group (AE-WG) is a proposed cross-cutting technical working group within the Agentic AI Foundation tasked with standardizing how statements about AI agent actions, decisions, authorizations, and outcomes are attested and preserved as independently verifiable evidence.[^evt-working-group-proposals-issue-6]
+
+The Attestation and Evidence Working Group is a cross-cutting AAIF initiative focused on standardizing verification, cryptographic attestation, and evidentiary claims for autonomous agent behaviors.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f] Formed to address critical industry gaps in proof of control and verifiable execution, the group coordinates verification mechanisms across runtime environments, policy engines, and external witness frameworks.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
 
 # Architecture / Specification
-The working group focuses on creating evidence formats that survive across organizational boundaries and allow third parties to independently verify historical agent operations without relying on centralized authorities.[^evt-working-group-proposals-issue-6]
 
-### Primary Workstreams
-- **Bilateral and Multi-Party Attestation**: Protocols ensuring each participant in an interaction cryptographically seals its own observation, deriving consensus or dispute deterministically.[^evt-working-group-proposals-issue-6]
-- **Portable Evidence Bundles**: Self-describing, offline-verifiable data structures declaring their completeness and disclosure boundaries.[^evt-working-group-proposals-issue-6]
-- **Witness and Root-of-Trust Taxonomy**: Structural classification mapping verification mechanisms—such as transparency logs, timestamp authorities, Trusted Execution Environments (TEEs), and Hardware Security Modules (HSMs)—to the guarantees they provide.[^evt-working-group-proposals-issue-6]
+## Organizational Trial Status
 
-### Cross-Group Collaboration
-The AE-WG operates liaisons with sibling AAIF bodies:
-- Sourcing entity identifiers from the [Identity and Trust Working Group](identity-and-trust.md).[^evt-working-group-proposals-issue-6]
-- Consuming runtime telemetry models from the [Observability and Traceability Working Group](observability-and-traceability.md).[^evt-working-group-proposals-issue-6]
-- Mapping evidence classes to compliance mandates defined by the [Governance, Risk, and Regulatory Working Group](governance-risk-and-regulatory.md).[^evt-working-group-proposals-issue-6]
+The initiative operates under a 90-day trial approved to evaluate industry need and determine its permanent institutional structure within the foundation.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f] Following the trial period, leadership will submit formal recommendations to the [Technical Committee](../governance/technical-committee.md) on whether the effort should transition into a permanent workstream, a full Technical Working Group, or a cross-working-group committee.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
 
-[^evt-working-group-proposals-issue-6]: https://github.com/aaif/working-group-proposals/issues/6
+## Cross-Working-Group Liaisons
+
+The attestation effort bridges overlapping verification needs across foundational AAIF domains:[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
+
+- **Security and Privacy**: Aligning with the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) on hardware-attested execution and policy enforcement records.
+- **Observability and Traceability**: Coordinating with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) on causal trace records, execution event attestation, and provenance metadata.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
+
+[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md

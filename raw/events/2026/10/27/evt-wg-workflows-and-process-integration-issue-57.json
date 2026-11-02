@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-57",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#57",
+  "title": "Catalogue scope example: interactive work with an approval-gated save",
+  "timestamp": "2026-10-27T15:52:45Z",
+  "author": "AAkhtanin",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/57",
+  "summary": "Following the validation examples in #36, I'd like to contribute a concrete contrast case: **interactive work with a separately approved final save**.\n\nA user reviews and adjusts photo previews while watching a video. In Radiolaria's [Workspace test](https://github.com/AAkhtanin/...",
+  "pointers": [],
+  "inline_text": "Following the validation examples in #36, I'd like to contribute a concrete contrast case: **interactive work with a separately approved final save**.\n\nA user reviews and adjusts photo previews while watching a video. In Radiolaria's [Workspace test](https://github.com/AAkhtanin/hedgehog-os/blob/800f38c3407b3f4ec93dc943c977ffeecb614881/docs/showcase/radiolaria_os_v01/chapters/09_workspace.md), stopping the audio process leaves photo work intact; only the affected media branch is recomputed, and video continues silently, as permitted by the task. Recovery does not reactivate the expired pre-failure action packet.\n\nSaving the final selection remains a separate approval boundary. A [focused test](https://github.com/AAkhtanin/hedgehog-os/blob/800f38c3407b3f4ec93dc943c977ffeecb614881/tests/test_ephemeral_workspace_v01.py#L432-L468) changes a rating after approval, rejects the old approval and accepts a newly approved result.\n\nThe Single-Agent Process with Human Approval checklist explicitly excludes co-editing and steering during execution. This case shows why that distinction matters: the final SAVE illustrates the approval pattern, while the surrounding interactive work and selective recovery need a broader composition.\n\n**Proposed use:** a scope-comparison example for the catalogue, not a claim that the whole Workspace fits the single-agent RA. The devices are local software services; the failure run and approval interaction are scripted tests.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-46",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#46",
+  "title": "Revise kill switch presentation and discussion notes",
+  "timestamp": "2026-11-02T00:18:58Z",
+  "author": "MarcMolas",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/46",
+  "summary": "Updated the kill switch presentation details, clarifying the protocol's operation, revocation paths, and testing results. Added notes on discussions regarding alignment with OpenID and the need for a public ledger.",
+  "pointers": [],
+  "inline_text": "Updated the kill switch presentation details, clarifying the protocol's operation, revocation paths, and testing results. Added notes on discussions regarding alignment with OpenID and the need for a public ledger.",
+  "labels": []
+}

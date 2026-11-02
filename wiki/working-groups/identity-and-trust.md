@@ -1,44 +1,41 @@
 ---
 type: working-group
 title: Identity and Trust Working Group
-description: AAIF technical working group establishing vendor-neutral architectures,
-  delegation models, attestation formats, and authority verification for autonomous
-  agents.
-resource: https://github.com/aaif/wg-identity-and-trust/pull/17
+description: Technical working group defining vendor-neutral standards, reference
+  architectures, delegation frameworks, and action verification protocols for agentic
+  systems.
+resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
 tags:
-- working-groups
+- governance
+- working-group
 - identity
 - trust
-- attestation
-- authorization
+- delegation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:53:39.874323+00:00'
+  at: '2026-11-02T10:32:51.084396+00:00'
 sources:
-- id: evt-wg-identity-and-trust-pr-17
-  resource: https://github.com/aaif/wg-identity-and-trust/pull/17
-  author: astrogilda
-  last_modified: '2026-10-10T23:53:46+00:00'
+- id: evt-wg-identity-and-trust-file-922f59c26329-928a222f
+  resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
+  author: Dedeoglu
+  last_modified: '2026-11-01T20:45:38+01:00'
 ---
 
 # Overview
 
-The Identity and Trust Working Group establishes vendor-neutral architectures, cryptographic delegation models, attestation standards, and authority verification mechanisms for autonomous agents. The group coordinates identity standards across execution boundaries to ensure verifiability and non-repudiation in multi-agent and human-agent collaborations.
+The Identity and Trust Working Group is an Agentic AI Foundation technical body responsible for defining open standards, architectures, and taxonomies for agent identity, delegation, consent receipts, and verifiable action records [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. Co-chaired by Grant Miller (IBM) and Alper Dedeoğlu (SAP SE), the working group focuses on establishing verifiable boundaries between principals, agent runtimes, and downstream services [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
 # Architecture / Specification
 
-The working group's technical deliverables focus on runtime delegation and dispatch-time authority verification:
+The working group organizes its technical agenda into three specialized sub-working groups [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]:
 
-- **Authority-at-Dispatch Catalogue**: A comparative benchmark evaluating authority verification architectures (including MintID, Proofable, and Alakris reference runs) at the exact moment of tool or task dispatch [^evt-wg-identity-and-trust-pr-17].
-- **Versioned Contract Identifiers**: Trace requirements mandating that execution traces include explicit, versioned contract identifiers; readers reject traces lacking these identifiers [^evt-wg-identity-and-trust-pr-17].
-- **Evidence Freshness Limits**: Explicit limits and age metadata embedded within authority evidence to prevent replay attacks and out-of-date credential utilization [^evt-wg-identity-and-trust-pr-17].
-- **Observer Automation**: Integration with automated readers like `agent-evidence-observer` to run reference test cases and validate traces in CI workflows [^evt-wg-identity-and-trust-pr-17].
+- **Taxonomy Sub-WG:** Coordinates with the cross-cutting `../working-groups/taxonomy-and-landscape.md` workstream to standardize formal definitions for trust, attestation, delegation, and identifiers [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+- **Reference Architecture Sub-WG:** Employs a primitive-first methodology, developing modular core primitives (beginning with the identity primitive draft) that aggregate into concrete use cases and full reference architectures [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+- **Critical Use Cases Sub-WG:** Formulates end-to-end lifecycle models across Internal, B2B, and B2C operational scopes, spanning agent naming, deployment, delegation, per-request authorization, audit/compliance, and principal-attested revocation [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
-# References
+### Functional Requirements & External Inputs
 
-- [Evidence Record Specification](../standards/evidence-record-spec.md)
-- [Agent Behavior Trace Model](../standards/agent-behavior-trace-model.md)
-- [Hardware-Bound Human Authorization](../patterns/hardware-bound-human-authorization.md)
+The group evaluates external industry implementations to refine its technical deliverables, including NVIDIA's Secure Agent Workspace reference design and Uber's agentic identity architecture [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. Key technical requirements under active specification include verifiable delegation hierarchies, dynamic per-request authorization gates, selective disclosure for content-private action records, and tamper-evident revocation mechanics [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
-[^evt-wg-identity-and-trust-pr-17]: https://github.com/aaif/wg-identity-and-trust/pull/17
+[^evt-wg-identity-and-trust-file-922f59c26329-928a222f]: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
