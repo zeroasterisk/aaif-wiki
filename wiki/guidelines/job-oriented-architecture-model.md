@@ -1,40 +1,40 @@
 ---
 type: guideline
 title: Job-Oriented Architecture Model
-description: Architectural framework structuring agent workflows around recognizable
-  practitioner jobs rather than abstract capabilities, evaluating machine-readable
-  Workflow Design Specifications.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
+description: Architectural framework structuring agent workflow reference architectures
+  around recognizable practitioner jobs, patterns, and scenarios.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/CONTRIBUTING.md
 tags:
+- architecture
+- guidelines
+- patterns
 - workflows
-- reference-architecture
-- design-patterns
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:05:17.279542+00:00'
+  at: '2026-11-09T09:55:05.974401+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-issue-28
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
-  author: mzagar
-  last_modified: '2026-09-24T00:09:43+00:00'
+- id: evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/CONTRIBUTING.md
+  author: Mario Zagar
+  last_modified: '2026-09-15T16:19:55-04:00'
 ---
 
 # Overview
 
-The Job-Oriented Architecture Model organizes agentic reference architectures around concrete, recognizable practitioner tasks—such as invoice processing or human-approved operational changes—rather than generic model reasoning capabilities[^evt-wg-workflows-and-process-integration-issue-28]. It establishes a layered composition linking reusable workflow patterns into complete reference architectures validated against real-world scenario evidence[^evt-wg-workflows-and-process-integration-issue-28].
+The Job-Oriented Architecture Model provides the organizing framework for the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) reference architecture workstream, delineating the responsibilities of patterns, reference architectures, scenarios, and decision records [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]. It ensures architectural specifications represent cohesive practitioner roles rather than fragmented implementation recipes [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
 
-# Architecture / Specification
+# Contribution Taxonomy
 
-The architectural model operates as a three-tier hierarchy[^evt-wg-workflows-and-process-integration-issue-28]:
-1. **Reusable Patterns**: Atomic building blocks that resolve one recurring workflow challenge (such as [approval-checkpoint](../patterns/approval-checkpoint.md) or [durable-wait](../patterns/durable-wait.md)).
-2. **Job-Oriented Reference Architectures**: Compositions combining patterns, capability roles, operational boundaries, guarantees, and exit criteria tailored for a defined practitioner role.
-3. **Real-World Scenarios / Use Cases**: Empirical scenarios providing operational evidence to test whether a composed architecture fits the problem space.
+The framework establishes strict boundaries for authoring workflow assets [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]:
 
-The Workflows and Process Integration Working Group is evaluating two long-term north-star directions for this model: maintaining the reference architectures strictly as human-readable knowledgebase guidance (Option A), or standardizing a canonical, schema-valid, machine-readable Workflow Design Specification (WDS) serialized in YAML that renders multiple downstream architectural, diagrammatic, and review views (Option B)[^evt-wg-workflows-and-process-integration-issue-28].
+- **Patterns**: Address a single recurring workflow sub-problem with an independently adoptable solution and testable invariants (e.g., [Durable Wait](../patterns/durable-wait.md), [Human Approval Gate](../patterns/human-approval-gate.md)) [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
+- **Reference Architectures**: The reusable whole addressing a recognizable practitioner job, answering the statement "We are building a ___" [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]. Architectures compose multiple capability roles, boundary controls, pattern invariants, and exit states (e.g., [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md)) [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]. Domain-specific examples do not serve as architecture titles unless the practitioner job itself is inherently domain-specific.
+- **Scenarios**: Concrete or illustrative workflow examples documented in an architecture's worked scenarios and validation records to verify architectural fit without forming standalone architectures [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
+- **Decision Notes**: Formal records capturing structural rationale, evaluated alternatives, and consequences [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
 
-# References
+# Authoring Principles
 
-- Workflows and Process Integration Working Group [Issue #28](https://github.com/aaif/wg-workflows-and-process-integration/issues/28)[^evt-wg-workflows-and-process-integration-issue-28]
+Contributions across all tiers must maintain vendor neutrality, define logical capability requirements prior to naming tools, separate empirical evidence from working group interpretations, explicitly cite cross-cutting concerns owned by other working groups as out of scope, and document genuine gaps as open questions [^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4].
 
-[^evt-wg-workflows-and-process-integration-issue-28]: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
+[^evt-wg-workflows-and-process-integration-file-54e7ca1fd5c5-e33239f4]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/CONTRIBUTING.md

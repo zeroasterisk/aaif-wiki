@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+  "title": "deterministic-acceptance-gate.md",
+  "timestamp": "2026-11-05T08:39:35-08:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+  "summary": "[RA] Clarify business task terminology in bounded remediation (#49)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "774d4e09283835b4b0b5062ad389dc8dc48752b9",
+      "path": "workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md",
+      "blob_sha": "4c010677dffef4ee9db3e1a14f6313cc91db17cd",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

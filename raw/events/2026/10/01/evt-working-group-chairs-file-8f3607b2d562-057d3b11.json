@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-chairs-file-8f3607b2d562-057d3b11",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "skills/aaif-wg-meeting-notes/template.md",
+  "title": "template.md",
+  "timestamp": "2026-10-01T20:34:02-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-meeting-notes/template.md",
+  "summary": "Add AAIF WG meeting notes and monthly report skills",
+  "pointers": [
+    {
+      "repo": "working-group-chairs",
+      "commit_sha": "64a22a2d76dbf349c074cbba3e22d4a509a85e6e",
+      "path": "skills/aaif-wg-meeting-notes/template.md",
+      "blob_sha": "057d3b11f05cfc41b7559ef6b435d1b9dc969ae2",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

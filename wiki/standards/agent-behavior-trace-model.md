@@ -1,69 +1,43 @@
 ---
 type: standard
 title: Agent Behavior Trace Model
-description: Open telemetry and correlation framework capturing causal agent execution,
-  tool invocations, approval gates, and multi-turn conversational intervals across
-  distributed systems.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/71
+description: Vendor-neutral telemetry and correlation specification standardizing
+  OpenTelemetry semantic conventions and execution trace models across agent lifecycles.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/reporting/2026-09-report.md
 tags:
-- observability
+- standard
 - opentelemetry
-- tracing
+- trace
+- observability
 - telemetry
-- agent-behavior
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:33:38.696754+00:00'
+  at: '2026-11-09T10:28:02.902619+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-71
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/71
-  author: mr-lee
-  last_modified: '2026-11-02T02:43:16+00:00'
-- id: evt-wg-observability-and-traceability-pr-72
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/72
-  author: mr-lee
-  last_modified: '2026-11-02T02:43:22+00:00'
+- id: evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/reporting/2026-09-report.md
+  author: Pavan Sudheendra
+  last_modified: '2026-10-27T05:12:49+00:00'
 ---
 
 # Overview
-
-The Agent Behavior Trace Model is an open telemetry and tracing specification developed by the [Observability and Traceability WG](../working-groups/observability-and-traceability.md) to define standard instrumentation, span hierarchies, and semantic conventions for agent execution.[^evt-wg-observability-and-traceability-pr-71] It extends core OpenTelemetry distributed tracing standards to capture autonomous loops, external tool calls, human checkpoints, and execution turns across heterogeneous agent runtimes.[^evt-wg-observability-and-traceability-pr-72]
+The Agent Behavior Trace Model is a vendor-neutral observability specification developed by the [Observability & Traceability Working Group](../working-groups/observability-and-traceability.md)[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869]. It defines shared telemetry data contracts, OpenTelemetry semantic conventions, and correlation identifiers capturing autonomous agent trajectories, multi-turn tool loops, and human-in-the-loop decisions[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
 
 # Architecture / Specification
+### Evidence-Driven Reference Methodology
+Following an analysis of production coding agents and agent SDKs that revealed severe OpenTelemetry GenAI implementation inconsistencies—including conflicting span hierarchies, incompatible session attributes, outdated token usage schemas, and nonexistent approval event structures—the working group adopted an evidence-first empirical approach[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
 
-### OpenTelemetry Integration Gaps
+The specification uses the open-source [Goose](../resources/goose.md) agent runtime as its baseline reference implementation to evaluate four foundational operational questions[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869]:
+1. **Continuity:** Maintaining session identity, thread persistence, and agent identity across long-running, multi-turn executions[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
+2. **Calls and Retries:** Capturing deterministic tool invocations, retries, contextual failovers, and internal model recovery loops[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
+3. **Approvals:** Formally instrumenting human-in-the-loop checkpoints, policy gate evaluations, and credential release events[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
+4. **Effects:** Tracing observable external state changes, tool outputs, and downstream environment mutations[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
 
-The model establishes solutions for seven documented operational gaps observed across coding agents, agent SDKs, and AI gateways using OpenTelemetry semantic conventions:[^evt-wg-observability-and-traceability-pr-71]
-
-1. Missing standard conventions for autonomous multi-step loops.
-2. Inconsistent interpretation of agent-to-agent boundaries and parent-child span linking.
-3. Non-adoption of standard attributes across proprietary model gateway proxies.
-4. Instrumentation defects leading to broken causal graphs during asynchronous delegate dispatch.
-5. Incomplete contextual attribution for tool execution results and transient sandbox side-effects.
-6. Fragmented representation of human-in-the-loop pause and resumption events.
-7. Uncorrelated cost, token usage, and latency attribution across federated subagent swarms.
-
-### Turn and Step Modeling
-
-To align agent execution traces with conversational and operational lifecycles, the model specifies standardized hierarchical intervals for upstream inclusion in the OpenTelemetry GenAI Special Interest Group (SIG):[^evt-wg-observability-and-traceability-pr-72]
-
-- **Turn**: A high-level interaction interval bounded by an incoming trigger or user intent and the delivery of a terminal response or handoff.
-- **Agent Step** (aliased as **Step**): A discrete operational iteration within a turn comprising reasoning, action proposal, and execution dispatch.
-- **Turn Segment**: An OpenTelemetry-specific span unit demarcating streaming chunks or sub-phases within a turn.
-
-Formal inclusion of Turn and Agent Step within shared AAIF vocabularies coordinates through term sheets in the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md).[^evt-wg-observability-and-traceability-pr-72]
+### Implementation & Gap Analysis
+Observed discrepancies between real-world agent telemetry emissions and existing OpenTelemetry conventions are cataloged in an active gap register to formulate concrete upstream extension proposals for OpenTelemetry GenAI working groups[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
 
 # Lifecycle History
+- 2026-09-29: Merged execution plan and shifted deliverable strategy to an empirical evidence-first approach led by Matthew Lee, establishing the Goose baseline capture setup and opening follow-on issues for shared contracts and cross-agent comparison[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869].
 
-- **October 2026**: Added working document gap analysis detailing seven telemetry deficiencies across coding agents and SDKs.[^evt-wg-observability-and-traceability-pr-71]
-- **October 2026**: Formulated turn and agent step proposal (`AGENT-BEHAVIOR-TRACE-MODEL-TURN.md`) scheduled for upstream review with the OpenTelemetry GenAI SIG.[^evt-wg-observability-and-traceability-pr-72]
-
-# References
-
-- [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md)
-- [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md)
-- [OpenTelemetry Reference Architecture](../resources/opentelemetry.md)
-
-[^evt-wg-observability-and-traceability-pr-71]: https://github.com/aaif/wg-observability-and-traceability/pull/71
-[^evt-wg-observability-and-traceability-pr-72]: https://github.com/aaif/wg-observability-and-traceability/pull/72
+[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869]: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/reporting/2026-09-report.md

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+  "title": "bounded-autonomous-remediation.md",
+  "timestamp": "2026-11-05T08:39:35-08:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+  "summary": "[RA] Clarify business task terminology in bounded remediation (#49)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "774d4e09283835b4b0b5062ad389dc8dc48752b9",
+      "path": "workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md",
+      "blob_sha": "d009744ef73088768c2e1b30b1c59363835a8a3c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "AGENTS.md",
+  "title": "AGENTS.md",
+  "timestamp": "2026-10-26T08:52:39-07:00",
+  "author": "leonardog",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/b930afdb296bbce8613943327810e30a7b3d9ba5/AGENTS.md",
+  "summary": "refactor(taxonomy): move data to JSON and validate with Zod",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "b930afdb296bbce8613943327810e30a7b3d9ba5",
+      "path": "AGENTS.md",
+      "blob_sha": "65b1abe37b051a38c551f38539892aef5165d128",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

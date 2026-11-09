@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-24",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#24",
+  "title": "feat: Add NGINX Gateway Fabric",
+  "timestamp": "2026-11-07T23:54:07Z",
+  "author": "alessfg",
+  "url": "https://github.com/aaif/aaif-landscape/pull/24",
+  "summary": "This PR aims to add NGINX Gateway Fabric, NGINX's implementation of the Kubernetes Gateway API (with support for the Inference Extension) into the Gateway & Control Plane subcategory.",
+  "pointers": [],
+  "inline_text": "This PR aims to add NGINX Gateway Fabric, NGINX's implementation of the Kubernetes Gateway API (with support for the Inference Extension) into the Gateway & Control Plane subcategory.",
+  "labels": []
+}

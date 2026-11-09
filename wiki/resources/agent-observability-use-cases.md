@@ -1,49 +1,46 @@
 ---
 type: resource
 title: Agent Observability Use Cases Catalog
-description: Catalog defining multi-category agent observability use cases, cross-cutting
-  telemetry requirements, and legal compliance retention boundaries.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/68
+description: Living catalog categorizing agent observability requirements across debugging,
+  cost, attribution, evaluation, safety, compliance, and multi-agent coordination.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/bbcac36693002be677c403bff7e400c15b23f39d/working-documents/USE-CASES.md
 tags:
 - observability
+- telemetry
 - use-cases
-- compliance
-- gdpr
-- evidence
+- tracing
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:33:38.696754+00:00'
+  at: '2026-11-09T10:33:12.467454+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-68
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/68
-  author: narko4u
-  last_modified: '2026-11-02T06:27:39+00:00'
+- id: evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/bbcac36693002be677c403bff7e400c15b23f39d/working-documents/USE-CASES.md
+  author: Empire Labs Pty Ltd
+  last_modified: '2026-11-04T13:51:19+00:00'
 ---
 
 # Overview
-
-The Agent Observability Use Cases Catalog is a structured reference inventory maintained by the [Observability and Traceability WG](../working-groups/observability-and-traceability.md) outlining operational, security, diagnostic, and compliance requirements for instrumented agent systems.[^evt-wg-observability-and-traceability-pr-68] It documents concrete evaluation profiles and storage invariants needed across enterprise and multi-agent deployments.
+The Agent Observability Use Cases Catalog is a living reference document authored by the AAIF Observability Working Group that establishes a comprehensive taxonomy of practitioner requirements for visibility into agent behavior[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb]. The catalog details what data observability layers must capture across heterogeneous operational environments, evaluates gaps in existing specifications and platforms, and articulates cross-cutting requirements for trustworthy telemetry[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
 
 # Architecture / Specification
+Each use case entry defines practitioner needs, target audiences, required telemetry payloads, and current tooling gaps across nine core functional categories[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb]:
+- **Category A: Debugging and Root Cause Analysis**: Diagnosing unexpected decisions, identifying execution bottlenecks or retry loops, and reproducing agent execution histories[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category B: Cost Management and Optimization**: Measuring token expenditures per session, calculating cost per successful outcome, and eliminating operational waste[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category C: Code Attribution and Provenance**: Tracking line-level AI-generated code, attribution tracing, and security reviewing automated diffs[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category D: Evaluation and Quality Assurance**: Task-level performance benchmarking, automated regression detection, and cross-model comparative scoring[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category E: Safety and Compliance**: Tracking world-altering side effects, verifying authorization scopes, maintaining regulated audit trails, and generating tamper-evident records for dispute resolution[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category F: Multi-Agent Systems**: Distributed trace propagation across agent boundaries and auditing agent-to-agent negotiation protocols[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category G: Operational Monitoring**: Real-time agent health metrics, error rates, and fleet capacity planning[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category H: Research and Improvement**: Uncovering novel failure modes, harvesting fine-tuning datasets, and cross-implementation benchmarking[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+- **Category I: Identity and Ownership**: Resolving agent and principal identities across heterogeneous operational surfaces[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
 
-### Enterprise Audit and Evidence Retention (E4)
+### Cross-Cutting Telemetry Requirements
+The specification defines five non-functional requirements that apply across all cataloged use cases:
+1. **Source and Trust**: Telemetry must explicitly distinguish agent self-reporting from external vantage points (frameworks, gateways, sandboxes, operating systems) and denote cryptographic signing or tamper-evidence metadata without presuming completeness[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+2. **Privacy and Governance**: Fields must incorporate policy tags for data minimization, tenant residency, retention, and redaction; raw credentials and secrets must never be collected[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+3. **Completeness and Sampling**: Telemetry records must indicate sampling decisions and collection gaps, differentiating discardable telemetry from audit-mandated records[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+4. **Schema Evolution**: Events must declare schema, model, tool, and harness versions to ensure long-term interpretability[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
+5. **Correlation and Causality**: Systems must track stable identifiers and causal graph links across asynchronous, queued, and distributed agent sessions rather than relying solely on wall-clock time or strict parent-child span trees[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb].
 
-Use case E4 governs authorization tracing, approval chain provenance, and legal evidence retention for high-consequence agent actions.[^evt-wg-observability-and-traceability-pr-68] To reconcile verifiable audit trails with statutory privacy obligations, the specification deprecates unconditional write-once-read-many (WORM) storage semantics in favor of tamper-evident stores with declared retention bases:[^evt-wg-observability-and-traceability-pr-68]
-
-- **Regulatory Conflict Resolution**: Absolute WORM semantics preclude lawful operation under GDPR Article 17(1) (Right to Erasure) and Article 5(1)(e) (Storage Limitation) when approval records contain identifiable natural persons, given that linkable hashes constitute personal data under Recital 26.[^evt-wg-observability-and-traceability-pr-68]
-- **Tamper-Evident Storage with Declared Retention**: Record integrity must remain verifiable through cryptographic hash-chaining and external timestamps without requiring personal identifiers to be held indefinitely beyond their lawful basis.[^evt-wg-observability-and-traceability-pr-68]
-- **Typed Tombstones**: When personal identifiers or sensitive parameters are removed under policy or data-subject requests, the record must preserve a typed tombstone. This allows downstream verifiers to differentiate between an expired record subjected to policy redaction and an invalid record that omitted mandatory fields at emission.[^evt-wg-observability-and-traceability-pr-68]
-- **EU AI Act Alignment**: Reflects retention floors under EU AI Act Article 19(1) for providers and Article 26(6) for deployers, enforcing bounded retention rather than permanent identifier storage.[^evt-wg-observability-and-traceability-pr-68]
-
-# Lifecycle History
-
-- **October 2026**: Replaced unconditional write-once storage clause in use case E4 with tamper-evident retention with typed tombstones to ensure GDPR and EU AI Act compliance.[^evt-wg-observability-and-traceability-pr-68]
-
-# References
-
-- [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md)
-- [Evidence Record Specification](../standards/evidence-record-spec.md)
-- [Approval Checkpoint Pattern](../patterns/approval-checkpoint.md)
-
-[^evt-wg-observability-and-traceability-pr-68]: https://github.com/aaif/wg-observability-and-traceability/pull/68
+[^evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb]: https://github.com/aaif/wg-observability-and-traceability/blob/bbcac36693002be677c403bff7e400c15b23f39d/working-documents/USE-CASES.md

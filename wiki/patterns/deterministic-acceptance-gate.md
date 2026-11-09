@@ -3,39 +3,30 @@ type: pattern
 title: Deterministic Acceptance Gate
 description: Architectural pattern evaluating candidate agent outputs against explicit,
   repeatable checks and scope rules rather than model self-assessment.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md
 tags:
 - workflow
+- governance
 - pattern
-- evaluation
 - verification
-- acceptance-gate
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T14:59:23.816580+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-11-09T10:33:45.576359+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md
+- id: evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md
   author: Mario Zagar
-  last_modified: '2026-08-28T22:42:47-04:00'
-- id: evt-wg-workflows-and-process-integration-pr-26
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/26
-  author: mzagar
-  last_modified: '2026-08-29T02:42:47+00:00'
-- id: evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md
-  author: Mario Zagar
-  last_modified: '2026-08-28T22:42:47-04:00'
+  last_modified: '2026-11-05T08:39:35-08:00'
 ---
 
 # Overview
 
-The Deterministic Acceptance Gate is an architectural pattern that decides whether an agent-generated candidate result is permitted to advance by applying explicit, repeatable criteria rather than relying on model self-assessment [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658]. In agentic workflows, self-evaluation by the generating model is vulnerable to confident hallucination and unwarranted self-certification; this pattern enforces external verification via test suites, contracts, schema validations, and policy constraints [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
+A Deterministic Acceptance Gate evaluates candidate results using explicit, repeatable checks rather than relying on model self-assessment [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677]. In agent-assisted workflows, models that evaluate their own output are prone to confident but invalid self-certification [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677]. The gate validates candidates against pre-declared criteria—such as unit tests, schema validators, policy rules, and contract suites—alongside task scope constraints before granting workflow progression [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+
+Passing a deterministic gate serves as evidence that a declared acceptance condition was met, not as a general guarantee that the result is globally correct [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677]. The pattern is frequently paired with the [Bounded Convergence Loop](../patterns/bounded-convergence-loop.md), [Proposal/Execution Split](../patterns/proposal-execution-split.md), and [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md) reference architecture [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
 
 # Architecture / Specification
-
-The pattern requires three core capabilities: a deterministic evaluator, a policy/scope validator, and an evidence store [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
 
 ```mermaid
 flowchart TD
@@ -44,17 +35,18 @@ flowchart TD
     G -->|"not accepted or insufficient evidence"| W["Return gate result to workflow control"]
 ```
 
-### Key Invariants
+The candidate result and declared scope are submitted to the gate, which executes deterministic checks and validates policy rules [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677]. Scope validation checks target boundaries (systems, databases, or files), permitted change classes, data access permissions, allowed tool invocations, and external side effects [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
 
-- **Pre-declared Criteria:** Acceptance criteria and allowable scopes are established before candidate evaluation begins [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
-- **Independence:** The evaluator operates strictly independently of the model or agent that produced the candidate [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
-- **Cryptographic/Digest Binding:** Verification evidence is permanently bound to the specific version or digest of the candidate artifact [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
-- **Dual Validation:** A result must pass both deterministic technical checks and scope/policy validation; passing tests alone is insufficient if the change exceeds allowed boundaries [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
-- **Fail-Closed:** Missing, failed, or ambiguous validation results default to non-acceptance [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658].
+Control flow is decoupled from gate evaluation: the gate reports acceptance or non-acceptance with cryptographic or digest-bound evidence, while the enclosing workflow orchestrates downstream retries, escalations, or terminations [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
 
-# Lifecycle History
+### Invariants
 
-Introduced by the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md) as part of the bounded autonomous remediation reference architecture [^evt-wg-workflows-and-process-integration-pr-26] alongside [Bounded Convergence Loop](bounded-convergence-loop.md) and [Proposal/Execution Split](proposal-execution-split.md).
+- **Pre-declared criteria:** Acceptance criteria must be declared prior to candidate evaluation [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Independent evaluation:** The gate must run independently of the generative model or agent that produced the candidate result [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Candidate digest binding:** Acceptance evidence must bind cryptographically or uniquely to the exact evaluated version or digest [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Mandatory scope conjunction:** A result cannot pass if technical checks succeed but policy or scope checks fail [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Fail-closed:** Ambiguous, unexecuted, or failing checks must default to non-acceptance [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Auditability:** The workflow engine must log inputs, evaluation results, and control decisions [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
+- **Authority limits:** Gate authority is strictly bounded to its declared contract; downstream effects require explicit authorization controls [^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677].
 
-[^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-f3be8658]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md
-[^evt-wg-workflows-and-process-integration-pr-26]: https://github.com/aaif/wg-workflows-and-process-integration/pull/26
+[^evt-wg-workflows-and-process-integration-file-970f1ea4eefc-4c010677]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/deterministic-acceptance-gate.md

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-53e532051b05-bb61ada3",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "docs/local-development.md",
+  "title": "local-development.md",
+  "timestamp": "2026-10-26T08:52:39-07:00",
+  "author": "leonardog",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/b930afdb296bbce8613943327810e30a7b3d9ba5/docs/local-development.md",
+  "summary": "refactor(taxonomy): move data to JSON and validate with Zod",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "b930afdb296bbce8613943327810e30a7b3d9ba5",
+      "path": "docs/local-development.md",
+      "blob_sha": "bb61ada3a8beb5f2f7e79a3e8363b5bb711ceaa7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,42 +1,43 @@
 ---
 type: skill
 title: AAIF Clean Data Skill
-description: Operational data normalization and intake hygiene skill enforcing proposal-execution
-  splits, multi-tab verdict filtering, and submission validation.
-resource: https://github.com/aaif/community-events/pull/58
+description: Operational intake data hygiene and normalization skill executing read-only
+  scanning, diff-based proposals, and gated writes across community estate spreadsheets.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md
 tags:
-- skill
 - community
 - operations
+- intake
 - data-hygiene
-- aaif
+- skills
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:19:47.613466+00:00'
+  at: '2026-11-09T10:21:20.246093+00:00'
 sources:
-- id: evt-community-events-pr-58
-  resource: https://github.com/aaif/community-events/pull/58
-  author: rparundekar
-  last_modified: '2026-10-08T18:30:02+00:00'
+- id: evt-community-events-file-f66a78711977-a26d3112
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:19:56-07:00'
+- id: evt-community-events-file-06572a96a58d-9d2d11f7
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CHANGELOG.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:48:58-07:00'
 ---
 
 # Overview
-
-The `aaif-clean-data` skill is an automated operational pipeline and data hygiene utility used across AAIF community intake trackers and event estates.[^evt-community-events-pr-58] It normalizes contributor and applicant submissions, enforces proposal-execution splits across operational spreadsheets, verifies contact identifiers, and manages hygiene flags across multi-role applicant records.[^evt-community-events-pr-58]
+`aaif-clean-data` is an automated data normalization and intake hygiene skill for the AAIF community events estate, functioning as Phase 1 of the broader `aaif-sync` pipeline to sanitize incoming chapter and organizer submissions before downstream processing[^evt-community-events-file-f66a78711977-a26d3112]. It operates under an explicit [proposal-execution split](../patterns/proposal-execution-split.md) by running read-only issue detection, generating structured before-and-after diffs, and committing modifications only upon operator approval[^evt-community-events-file-f66a78711977-a26d3112].
 
 # Architecture / Specification
+The skill interacts with the central community intake sheet through the `gws` command-line interface driven by Python scripts, adhering to native Google Workspace formats or atomic OOXML manipulation while banning desktop office suites like LibreOffice to prevent font degradation and XML schema stripping[^evt-community-events-file-f66a78711977-a26d3112].
 
-## Multi-Tab Verdict Filtering
-Applicant records frequently span multiple role tabs (such as organizer and speaker) with distinct evaluation verdicts.[^evt-community-events-pr-58] To prevent unactionable issue alerts on rejected applicants, the data scanning engine implements unanimous negative verdict suppression:[^evt-community-events-pr-58]
-- **Decided-No Suppression:** The `scan` command skips flagging a submission if and only if every role tab containing the applicant evaluates to a terminal negative status (`Denied`, `Inactive`, or `Duplicate`).[^evt-community-events-pr-58]
-- **Mixed-Verdict Retention:** If an applicant is rejected on one role tab (e.g., organizer Denied) but remains active or prospective on another (e.g., speaker Prospect), issues continue to be flagged for review.[^evt-community-events-pr-58]
-- **Missing Metadata Fallback:** If a role tab lacks standard `Status`, `Timestamp`, or `Email` columns, verdict suppression is disabled for that tab to prevent silent suppression.[^evt-community-events-pr-58]
-- **Live Spreadsheet Formula Synchronization:** The `issues_formula()` helper generated via `install_flags` renders decided-no rows as blank rather than error-flagged, maintaining clean operational views for community organizers.[^evt-community-events-pr-58]
+### Operational Modes
+1. **Scan (`clean.py scan`)**: Default read-only mode detecting formatting anomalies, canonicalizing LinkedIn URLs, collapsing irregular whitespace, and flagging unresolved records such as `City="Other"`, duplicate emails, or missing names[^evt-community-events-file-f66a78711977-a26d3112].
+2. **Apply (`clean.py apply`)**: Gated execution mode consuming an approved `changes.json` payload, applying modifications directly to the source `Form Responses` tab by header name, and logging row-level audit trails in an `Autofixes` column[^evt-community-events-file-f66a78711977-a26d3112].
+3. **Chapter Flags (`clean.py chapter-flags`)**: Formats submitted `Other` city cells with red highlights across role tabs to visually surface rows requiring chapter triage without mutating values or granting automated permissions[^evt-community-events-file-06572a96a58d-9d2d11f7].
 
-# References
+### Estate Sync Dependency
+Because downstream pipeline stages (such as CRM synchronization, Chapters List population, and Google Drive access provisioning) resolve chapters through extracted city records, unresolved cities become invisible omissions rather than explicit errors[^evt-community-events-file-f66a78711977-a26d3112]. `aaif-clean-data` serves as the intake gate guaranteeing all applicants are resolved into their respective roles (`Organizers`, `Hosts`, `Speakers`, `Collaborators`)[^evt-community-events-file-f66a78711977-a26d3112][^evt-community-events-file-06572a96a58d-9d2d11f7].
 
-- Repository: `aaif/community-events` (PR #58)[^evt-community-events-pr-58]
-- Related skills: `../skills/aaif-audit-slack.md`, `../skills/community-event-operations.md`
-
-[^evt-community-events-pr-58]: https://github.com/aaif/community-events/pull/58
+[^evt-community-events-file-06572a96a58d-9d2d11f7]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/CHANGELOG.md
+[^evt-community-events-file-f66a78711977-a26d3112]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-clean-data/WORKFLOW.md

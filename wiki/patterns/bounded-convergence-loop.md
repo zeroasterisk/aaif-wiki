@@ -2,45 +2,35 @@
 type: pattern
 title: Bounded Convergence Loop
 description: Architectural pattern safely iterating an agent-driven task within explicit
-  budget limits until a deterministic acceptance gate passes or a safe terminal outcome
-  occurs.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/bounded-convergence-loop.md
+  budget limits until a deterministic gate passes or defined termination triggers.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/bounded-convergence-loop.md
 tags:
 - workflow
 - pattern
-- remediation
-- loops
 - orchestration
+- remediation
 status: draft
 generated:
-  by: agent:aaif-wiki-curator/gemini-3.7-flash
-  at: '2026-10-10T14:59:23.816580+00:00'
+  by: agent:aaif-wiki-curator/gemini-3.8-flash
+  at: '2026-11-09T10:33:45.576359+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/bounded-convergence-loop.md
+- id: evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/bounded-convergence-loop.md
   author: Mario Zagar
-  last_modified: '2026-08-28T22:42:47-04:00'
-- id: evt-wg-workflows-and-process-integration-pr-26
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/26
-  author: mzagar
-  last_modified: '2026-08-29T02:42:47+00:00'
-- id: evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md
-  author: Mario Zagar
-  last_modified: '2026-08-28T22:42:47-04:00'
+  last_modified: '2026-11-05T08:39:35-08:00'
 ---
 
 # Overview
 
-The Bounded Convergence Loop is an orchestration pattern for multi-attempt agent tasks—such as dependency remediation, type fixing, or documentation corrections—that ensures iterations operate within strict computational budgets and terminate safely [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0]. Rather than granting an agent open-ended execution autonomy or letting it decide when a task is finished, the loop evaluates each candidate attempt against an external [Deterministic Acceptance Gate](deterministic-acceptance-gate.md) [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
+The Bounded Convergence Loop governs iterative agent remediation tasks—such as dependency updates, lint corrections, or documentation fixes—where solutions require repeated attempts [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8]. The pattern provides the benefits of iterative execution without permitting unbounded retries, open-ended objectives, or self-declared completion [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+
+Every candidate iteration must be assessed by an independent [Deterministic Acceptance Gate](../patterns/deterministic-acceptance-gate.md) [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8]. The pattern is used directly within the [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md) reference architecture and interfaces with the [Proposal/Execution Split](../patterns/proposal-execution-split.md) and [Durable Wait](../patterns/durable-wait.md) patterns [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
 
 # Architecture / Specification
 
-The pattern integrates a workflow engine, a bounded agent/tool execution environment, a deterministic gate, a state store, and an audit logger [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
-
 ```mermaid
 flowchart TD
-    A["Admit bounded task"] --> B["Agent attempts permitted work"]
+    A["Admit bounded business task"] --> B["Agent attempts permitted work"]
     B --> G["Deterministic gate evaluates result"]
     G -->|"accepted"| E["Exit to controlled effect"]
     G -->|"not accepted"| C{"Configured retry criteria permit?"}
@@ -48,17 +38,15 @@ flowchart TD
     C -->|"no"| S["Escalate, stop, or fail"]
 ```
 
+The workflow admits an explicitly defined task, restricts agent capabilities to the declared scope, and subjects every output to a deterministic gate [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8]. If non-accepted, retries are evaluated against preconfigured constraints including maximum iteration counters, execution deadlines, and cost allocations [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+
 ### Invariants
 
-- **Explicit Scope and Acceptance:** The problem scope, tool permissions, and completion criteria are locked before the loop starts [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
-- **No Model Self-Convergence:** The agent cannot declare its own success; only the deterministic gate can confirm convergence [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
-- **Mandatory Budgets:** Every loop execution requires an iteration limit and at least one cost or time ceiling [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
-- **Recorded State & Resumption:** Attempt counters, gate outcomes, and terminal escalation reasons are recorded; workflow restarts resume from persisted state without resetting consumed budgets [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
-- **Controlled Downstream Effect:** Upon gate acceptance, the resulting effect is executed through a separate controlled executor rather than direct agent privileges [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0].
+- **Pre-execution constraints:** Task scope, tool access boundaries, and acceptance criteria must be declared before the loop initiates [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+- **External evaluation:** The agent cannot certify its own completion; an external deterministic gate evaluates all candidate results [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+- **Explicit budgets:** Each retry loop requires an explicit iteration cap and at least one time or token/monetary budget limit [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+- **State persistence:** The workflow logs the attempt counter, gate verdicts, and termination reasons, resuming from recorded checkpoints rather than resetting budgets upon restart [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+- **Fail-bounded:** Failed gates terminate strictly in bounded retries, escalations, human intervention, or recorded failure [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
+- **Scope enforcement:** Output passing technical checks but violating scope cannot proceed to side-effect execution [^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8].
 
-# Lifecycle History
-
-Established within the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md) reference architecture workstream as a foundational pattern for bounded autonomous operations [^evt-wg-workflows-and-process-integration-pr-26].
-
-[^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-19da1bf0]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/patterns/bounded-convergence-loop.md
-[^evt-wg-workflows-and-process-integration-pr-26]: https://github.com/aaif/wg-workflows-and-process-integration/pull/26
+[^evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/bounded-convergence-loop.md

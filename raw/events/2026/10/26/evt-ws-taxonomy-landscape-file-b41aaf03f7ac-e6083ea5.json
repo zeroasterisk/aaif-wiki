@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "charter/charter.md",
+  "title": "charter.md",
+  "timestamp": "2026-10-26T08:52:39-07:00",
+  "author": "leonardog",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/b930afdb296bbce8613943327810e30a7b3d9ba5/charter/charter.md",
+  "summary": "refactor(taxonomy): move data to JSON and validate with Zod",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "b930afdb296bbce8613943327810e30a7b3d9ba5",
+      "path": "charter/charter.md",
+      "blob_sha": "e6083ea5cb46d723c73ec96cab199635f4b07510",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

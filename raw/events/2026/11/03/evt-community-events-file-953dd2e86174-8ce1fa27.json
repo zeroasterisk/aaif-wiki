@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-953dd2e86174-8ce1fa27",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "MAINTAINING.md",
+  "title": "MAINTAINING.md",
+  "timestamp": "2026-11-03T22:44:51-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/MAINTAINING.md",
+  "summary": "fix: address second self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f46c3425e92d63c336889819e21e8af88cc4abff",
+      "path": "MAINTAINING.md",
+      "blob_sha": "8ce1fa273d49e40910ec3df7a3722cc6cd4b0ee8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

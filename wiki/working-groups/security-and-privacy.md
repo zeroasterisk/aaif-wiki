@@ -1,46 +1,43 @@
 ---
 type: working-group
 title: Security and Privacy Working Group
-description: Technical working group establishing open threat models, security best
-  practices, design patterns, and cross-cutting attestation frameworks for agentic
-  systems.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
+description: Technical working group establishing open threat models, security design
+  patterns, and operational controls for agentic AI systems.
+resource: https://github.com/aaif/wg-security-and-privacy/pull/43
 tags:
-- governance
 - working-group
 - security
 - privacy
-- attestation
+- threat-modeling
+- aaif
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:51.084396+00:00'
+  at: '2026-11-09T10:29:37.606945+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-faf61688d774-51e9e85a
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
-  author: Marc Molas Carol
-  last_modified: '2026-11-01T19:18:57-05:00'
-- id: evt-wg-security-and-privacy-pr-46
-  resource: https://github.com/aaif/wg-security-and-privacy/pull/46
-  author: MarcMolas
-  last_modified: '2026-11-02T00:18:58+00:00'
+- id: evt-wg-security-and-privacy-pr-43
+  resource: https://github.com/aaif/wg-security-and-privacy/pull/43
+  author: awfrazer
+  last_modified: '2026-10-30T16:49:49+00:00'
 ---
 
 # Overview
 
-The Security and Privacy Working Group is an Agentic AI Foundation technical body tasked with formulating actionable security guidance, reference threat models, cross-working group review checklists, and containment patterns for agentic AI deployments [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]. The group collaborates across AAIF workstreams and external initiatives to maintain unified security baselines for the agent ecosystem [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
+The Security and Privacy Working Group is an AAIF technical body developing vendor-neutral threat models, architectural security patterns, and operational best practices for agentic AI deployments.[^evt-wg-security-and-privacy-pr-43] The working group establishes runtime boundary controls, cross-working-group review criteria, and defensive design patterns addressing agent-specific vulnerabilities such as privilege escalation, context poisoning, and unauthorized tool execution.[^evt-wg-security-and-privacy-pr-43]
 
 # Architecture / Specification
 
-The working group's active deliverables and initiatives include [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]:
+The working group coordinates several foundational security workstreams across the foundation:[^evt-wg-security-and-privacy-pr-43]
 
-- **Design Patterns Catalog:** Standardizing architectural mitigation patterns, notably the `../patterns/kill-switch.md` pattern and its containment models across enterprise CAEP and decentralized zero-knowledge identity fabrics [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-- **Cross-WG Security & Privacy Review Checklist:** Integrating cross-functional review processes with `../working-groups/agentic-commerce.md` and `../working-groups/governance-risk-and-regulatory.md` to establish consistent security evaluation gates [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-- **Attestation & Verification:** Engaging in cross-cutting initiatives, including a 90-day pilot attestation workstream and evaluating runtime execution verification tools such as CIGAR (Context Intelligence Graph Agentic Runtime), Agent Action Capsules, and immutable Merkle root anchoring protocols [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-- **Cross-Ecosystem Alignment:** Coordinating alignment on definitions and identity models with bodies such as the x402 Identity Working Group and the Open Secure AI Alliance to provide unified industry recommendations [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
+- **Best Practices Guide**: A living operational manual detailing runtime hook enforcement, credential boundaries, and network gating; opened to external community contributions in October 2026 under designated maintainer reviews.[^evt-wg-security-and-privacy-pr-43]
+- **Agentic Threat Modeling**: An analytical framework synthesizing STRIDE and PASTA methodologies with MITRE ATLAS and OWASP Artificial Security Intelligence (ASI) matrices to classify agent failure modes.[^evt-wg-security-and-privacy-pr-43]
+- **Design Patterns Catalog**: A library of reusable architectural controls, including the [Kill Switch](../patterns/kill-switch.md) pattern and containment mechanisms for credential revocation protocols.[^evt-wg-security-and-privacy-pr-43]
+- **Cross-WG Security Review Checklist**: Review workflows aligning observability, [Agentic Commerce](../working-groups/agentic-commerce.md), and governance workstreams against unified baseline controls.[^evt-wg-security-and-privacy-pr-43]
 
-### Operational Evolution
+# Lifecycle History
 
-The group is pursuing structural alignment between working group deliverables and core foundation projects, exploring bi-directional feedback loops via automated GitHub issue tracking to alert project builders of recommended architectural requirements and capture breaking changes early [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
+- **2026-10-26**: Merged core security and privacy vocabulary into the foundation-wide cross-WG taxonomy.[^evt-wg-security-and-privacy-pr-43]
+- **2026-10-27**: Reviewed kill switch credential revocation protocol mappings within the design patterns track.[^evt-wg-security-and-privacy-pr-43]
+- **2026-10**: Launched an alternate-week APAC meeting track on Mondays at 9 pm Eastern to support distributed global community participation.[^evt-wg-security-and-privacy-pr-43]
 
-[^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
+[^evt-wg-security-and-privacy-pr-43]: https://github.com/aaif/wg-security-and-privacy/pull/43

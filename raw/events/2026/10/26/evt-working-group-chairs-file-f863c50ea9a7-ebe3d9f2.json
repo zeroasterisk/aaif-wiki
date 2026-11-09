@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "skills/aaif-wg-monthly-report/template.md",
+  "title": "template.md",
+  "timestamp": "2026-10-26T11:07:46-04:00",
+  "author": "Alex Frazer",
+  "url": "https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/template.md",
+  "summary": "Consolidate monthly report skill with #1 and fix TC submission format",
+  "pointers": [
+    {
+      "repo": "working-group-chairs",
+      "commit_sha": "64a22a2d76dbf349c074cbba3e22d4a509a85e6e",
+      "path": "skills/aaif-wg-monthly-report/template.md",
+      "blob_sha": "ebe3d9f20844f0253e0409cdecb7ca1d75add3b7",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

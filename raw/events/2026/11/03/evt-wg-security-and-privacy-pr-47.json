@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-47",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#47",
+  "title": "Added DeepTeam references in Evaluations section",
+  "timestamp": "2026-11-03T13:23:13Z",
+  "author": "mattspiekerman",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/47",
+  "summary": "Per WG meeting on 11/2, we agreed adding references to DeepTeam would be useful as a best practice recommendation given it addresses many considerations both at the evaluation and guardrail layer. I am proposing adding the below verbiage to offer an alternative to some of the poi...",
+  "pointers": [],
+  "inline_text": "Per WG meeting on 11/2, we agreed adding references to DeepTeam would be useful as a best practice recommendation given it addresses many considerations both at the evaluation and guardrail layer. I am proposing adding the below verbiage to offer an alternative to some of the point-solutions.",
+  "labels": []
+}

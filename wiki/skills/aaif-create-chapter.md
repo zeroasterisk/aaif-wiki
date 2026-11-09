@@ -1,53 +1,46 @@
 ---
 type: skill
 title: AAIF Create Chapter Skill
-description: Automated city chapter provisioning engine cloning TemplateCity in Google
-  Drive and rebranding OOXML and slide assets.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md
+description: Automated provisioning skill managing chapter Google Drive asset hierarchies,
+  OOXML presentation rebranding, and web banner rendering.
+resource: https://github.com/aaif/community-events/pull/65
 tags:
+- community-events
+- provisioning
 - skills
-- operations
-- chapters
-- google-workspace
-- ooxml
+- automation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:22:52.144306+00:00'
+  at: '2026-11-09T10:31:06.215058+00:00'
 sources:
-- id: evt-community-events-file-d236c244f6dc-0c36b708
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
+- id: evt-community-events-pr-65
+  resource: https://github.com/aaif/community-events/pull/65
+  author: rparundekar
+  last_modified: '2026-11-03T21:50:00+00:00'
 ---
 
 # Overview
 
-The `aaif-create-chapter` skill provisions a new city chapter across the Agentic AI Foundation (AAIF) community estate by cloning the standard `TemplateCity` folder in Google Drive and rebranding its core template assets[^evt-community-events-file-d236c244f6dc-0c36b708]. The skill standardizes file rebranding, geocodes geographic coordinates to update slide graphics, and enforces strict manipulation boundaries to prevent Office Open XML (OOXML) corruption.
+The AAIF Create Chapter skill automates the provisioning, asset rebranding, and Drive estate configuration for regional AAIF community chapters. It creates isolated chapter directory hierarchies, copies required presentation and governance templates, and executes text and branding transformations across templates to prepare chapters for local organizers.[^evt-community-events-pr-65]
 
 # Architecture / Specification
 
-## Tooling and Rendering Constraints
+Chapter provisioning orchestrates several sequential transformation stages:
 
-The chapter creation engine operates under strict tooling constraints enforced via Python automation and the Google Workspace CLI (`gws`)[^evt-community-events-file-d236c244f6dc-0c36b708]:
-- **Native Format Preference:** Edits to Google-native formats (`application/vnd.google-apps.*`) occur directly via Docs, Sheets, and Slides APIs[^evt-community-events-file-d236c244f6dc-0c36b708].
-- **Byte-Level OOXML Surgery:** Binary Office files (`.docx`, `.pptx`, `.xlsx`) are unpacked and edited at the ZIP part level to preserve embedded font streams and non-target XML parts[^evt-community-events-file-d236c244f6dc-0c36b708].
-- **Prohibition of Desktop Suites:** Headless office tools such as LibreOffice (`soffice`), `unoconv`, or local desktop suites are forbidden for edits and preview rendering, as font substitution corrupts brand typography and discards unhandled OOXML elements[^evt-community-events-file-d236c244f6dc-0c36b708]. Visual inspection requires exporting temporary files through Google APIs or dedicated rendering scripts[^evt-community-events-file-d236c244f6dc-0c36b708].
-
-## Rebranding and Token Substitution
-
-During provisioning, the engine rebrands specific identifier tokens while leaving per-event placeholders (dates, agendas, speaker rosters, and neighborhood markers) untouched for chapter organizers[^evt-community-events-file-d236c244f6dc-0c36b708]:
-- `San Francisco` / `SAN FRANCISCO` transforms to the new city name matching case[^evt-community-events-file-d236c244f6dc-0c36b708].
-- `SF` abbreviations transform into the full city name in Title Case or uppercase as context dictates[^evt-community-events-file-d236c244f6dc-0c36b708].
-- Luma community slugs and hyperlink targets transform from `aaif-sanfrancisco` to `aaif-<slug>`[^evt-community-events-file-d236c244f6dc-0c36b708].
-- File and directory names carrying these tokens (such as `Attendee CRM.xlsx`) are identically renamed[^evt-community-events-file-d236c244f6dc-0c36b708].
-
-## Geographic Coordinate Mapping
-
-In addition to text transformations, the skill relocates the graphical "you-are-here" dot and `<CITY> · TONIGHT` callout on slide 5 ("THE NETWORK") of `Event Template/Slides.pptx`[^evt-community-events-file-d236c244f6dc-0c36b708]. The engine maps coordinates derived from manual `--lat`/`--lon` parameters or automated Nominatim geocoding onto the world map projection, falling back to San Francisco with an operator warning if coordinates fail to resolve[^evt-community-events-file-d236c244f6dc-0c36b708].
+- **Drive Hierarchy Provisioning**: Duplicates chapter workspace templates into target regional directories, provisioning folder trees for banners, decks, and operating documentation.
+- **OOXML Rebranding**: Modifies OpenXML presentation payloads directly to substitute template naming tokens with authorized chapter titles.
+- **Web Banner Rendering**: Rather than copying static template PNG assets—which historically produced city name mismatches across chapter directories—the workflow renders `Web Banner.png` directly from the fourth slide of `Banners/Square Logo.pptx` using `render_web_banner.py` and Google Slides export APIs.[^evt-community-events-pr-65]
+- **Verification Guards**: Asserts that rendered slide text strictly contains "AAIF Community Events" concatenated with the chapter name.[^evt-community-events-pr-65] Generated banners are stamped with the source presentation's `md5Checksum` and chapter name within Drive `appProperties` to ensure idempotency and permit safe re-runs without duplicate exports.[^evt-community-events-pr-65]
+- **Error Handlers**: A failed banner render exits with code 2 during creation and halts dirty resumes, while temporary Slides export copies that fail trashing cleanly trigger operational errors.[^evt-community-events-pr-65]
 
 # Lifecycle History
 
-- Merged into `aaif/community-events` repository under `skills/aaif-create-chapter/SKILL.md` replacing legacy manual prompt documents with automated agent skills[^evt-community-events-file-d236c244f6dc-0c36b708].
+Originally, chapter generation duplicated `Web Banner.png` byte-for-byte from TemplateCity, causing at least 37 chapters to retain default template imagery.[^evt-community-events-pr-65] PR #65 introduced dynamic rendering from slide templates and automated verification stamps across all active chapter estates.[^evt-community-events-pr-65]
 
-[^evt-community-events-file-d236c244f6dc-0c36b708]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-create-chapter/SKILL.md
+# References
+
+- [Community Event Operations](../skills/community-event-operations.md)
+- [AAIF Check Setup](../skills/aaif-check-setup.md)
+
+[^evt-community-events-pr-65]: https://github.com/aaif/community-events/pull/65

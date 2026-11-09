@@ -1,42 +1,35 @@
 ---
 type: resource
-title: Public Agent Skills Repository
-description: Public repository packaging portable agent skills, recipes, prompt templates,
-  and automated CI test harnesses across GitHub Models and Gemini APIs.
-resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
+title: AAIF Public Agent Skills Repository
+description: Public repository packaging portable, reusable agent skills, manifest
+  configurations, and automated validation tests.
+resource: https://github.com/aaif/public-agents/pull/2
 tags:
-- aaif
 - skills
-- recipes
-- prompts
-- testing
+- repository
+- agent-skills
+- packaging
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T09:47:10.930550+00:00'
+  at: '2026-11-09T09:38:48.174844+00:00'
 sources:
-- id: evt-public-agents-file-b33563055168-20a6dfb7
-  resource: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
-  author: Manik Surtani
-  last_modified: '2026-05-11T09:21:58+10:00'
+- id: evt-public-agents-pr-2
+  resource: https://github.com/aaif/public-agents/pull/2
+  author: moezdil
+  last_modified: '2026-06-27T05:21:39+00:00'
 ---
 
 # Overview
-The Public Agent Skills repository (`aaif/public-agents`) is a public AAIF resource providing reusable agent capabilities, recipes, prompt templates, and automated validation actions for agentic workflows[^evt-public-agents-file-b33563055168-20a6dfb7]. It acts as a shared catalog enabling developers to consume standardized [agent skills](../standards/agent-skills.md) and portable multi-turn execution runtimes[^evt-public-agents-file-b33563055168-20a6dfb7].
+
+The `aaif/public-agents` repository is an open catalog managed by the Agentic AI Foundation to package portable, modular agent skills adhering to the [Agent Skills Standard](../standards/agent-skills.md) [^evt-public-agents-pr-2]. It provides tested, vendor-neutral capabilities that can be loaded dynamically across compliant harnesses and runtimes.
 
 # Architecture / Specification
-The repository organizes agent assets into standardized top-level directories and execution pipelines[^evt-public-agents-file-b33563055168-20a6dfb7]:
 
-- **Directory Layout**:
-  - `skills/`: Installable agent skills providing reusable domain knowledge, brand guidance, and tool integration instructions.
-  - `recipes/`: Repeatable task workflows and operational agent runbooks.
-  - `prompts/`: Reusable prompt templates and evaluation queries.
-  - `docs/`: User guides and contribution documentation.
-- **Continuous Integration Test Workflows**:
-  - `copilot-test-action`: Queries the GitHub Models inference catalog and executes test completions via the organization-scoped endpoint using default `GITHUB_TOKEN` authentication.
-  - `gemini-test-action`: Executes direct prompt tests against Google Gemini endpoints (such as `gemini-2.5-flash`), securing credentials via GitHub repository secrets or environment isolation.
+### Repository Layout
 
-# Lifecycle History
-Maintained as an open AAIF asset, the repository integrates standardized Agent Skills definitions with live model verification harnesses in GitHub Actions[^evt-public-agents-file-b33563055168-20a6dfb7].
+While early documentation described planned subdirectories for prompts and recipes, the repository structure focuses strictly on modular skill packages located within the `skills/` directory tree [^evt-public-agents-pr-2]. References to unimplemented structures such as `recipes/`, `prompts/`, and `docs/` have been removed to align documentation with actual repository layout [^evt-public-agents-pr-2].
 
-[^evt-public-agents-file-b33563055168-20a6dfb7]: https://github.com/aaif/public-agents/blob/fcc3ebc4db293e01305373fc9c2f2c46845ee015/README.md
+Skills stored within the catalog undergo automated testing harnesses to verify manifest schemas, parameter handling, and security boundaries before inclusion [^evt-public-agents-pr-2].
+
+[^evt-public-agents-pr-2]: https://github.com/aaif/public-agents/pull/2

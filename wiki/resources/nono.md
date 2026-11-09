@@ -1,37 +1,42 @@
 ---
 type: resource
-title: nono Agent Runtime Sandbox
+title: nono
 description: Open-source agent runtime security tool providing kernel-enforced sandboxing,
-  credential isolation, and deterministic cross-boundary audit logs.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
+  credential isolation, and Sigstore-based instruction verification.
+resource: https://github.com/aaif/project-proposals/issues/61
 tags:
-- runtime
-- sandbox
 - security
-- observability
-- reference-architecture
+- sandbox
+- credentials
+- runtime
+- provenance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:06:09.211306+00:00'
+  at: '2026-11-09T10:24:41.212193+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-52
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
-  author: Salkimmich
-  last_modified: '2026-09-24T03:32:21+00:00'
+- id: evt-project-proposals-issue-61
+  resource: https://github.com/aaif/project-proposals/issues/61
+  author: lukehinds
+  last_modified: '2026-10-17T08:06:23+00:00'
 ---
 
 # Overview
-`nono` is an open-source agent runtime security framework that executes untrusted AI agent workloads inside kernel-enforced sandboxes with strict credential isolation[^evt-wg-observability-and-traceability-pr-52]. Evaluated under the Primitives and Protocol Observability focus group of the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), `nono` serves as a reference architecture satisfying the SAF-M-74 runtime class by providing hardware- and kernel-level process boundaries, credential protection, and cryptographic execution logs[^evt-wg-observability-and-traceability-pr-52].
+
+nono is an open-source agent runtime security tool providing low-latency, kernel-enforced sandboxing, credential isolation, and instruction verification across coding agents, custom frameworks, and Model Context Protocol (MCP) servers.[^evt-project-proposals-issue-61] Created in February 2026 by Luke Hinds, nono was proposed for entry into the [Project Lifecycle](../policies/project-lifecycle-policy.md) as an Agentic AI Foundation Sandbox project sponsored by Sambhav Kothari of Bloomberg.[^evt-project-proposals-issue-61] The tool intercepts execution at the operating system layer to enforce policy boundaries that remain external to the agent's context and control.[^evt-project-proposals-issue-61]
 
 # Architecture / Specification
-`nono` establishes boundary observability and runtime protection across agent-to-gateway and agent-to-tool boundaries[^evt-wg-observability-and-traceability-pr-52]:
-- **Kernel-Enforced Execution Boundary**: Enforces process isolation below Layer 7 to prevent compromised agents or hijacked tools from accessing unauthorized host filesystems or network interfaces[^evt-wg-observability-and-traceability-pr-52].
-- **Cryptographic Audit Hashing**: Emits deterministic execution logs validated against golden test vectors and alpha hashing schemes to prove runtime integrity[^evt-wg-observability-and-traceability-pr-52].
-- **Trace Context Propagation Limitations**: Current runtime realizations do not propagate standard W3C distributed tracing context (`traceparent`, `tracestate`, `baggage`) into sandboxed execution environments by default, requiring explicit environment variable allow-lists and trace identifier mappings on audit records for full OpenTelemetry correlation[^evt-wg-observability-and-traceability-pr-52].
-- **Human-in-the-Loop Integration**: Surfaces runtime evidence records for Agent-to-Human (HITL) checkpoints and authorization delegations[^evt-wg-observability-and-traceability-pr-52].
+
+nono structures agent execution security through layered host-level protections, composable policies, and cryptographic provenance checks:[^evt-project-proposals-issue-61]
+
+- **Kernel-Enforced Sandboxing**: Isolates agent process execution, restricting access to designated filesystem paths, system calls, and network interfaces on Linux and macOS hosts.[^evt-project-proposals-issue-61]
+- **Credential Management & Isolation**: Confines secrets and sensitive tokens away from agent memory, injecting credentials strictly into authorized per-command tool invocations.[^evt-project-proposals-issue-61]
+- **Instruction and Skill Provenance**: Verifies the source-code origin and integrity of policy-covered instruction files—including [AGENTS.md](../standards/agents-md.md) specifications—using Sigstore digital signatures to reject unsigned or tampered prompts at the system access level.[^evt-project-proposals-issue-61]
+- **MCP Server Confinement**: Enforces least-privilege host permissions on MCP server processes, binding their reachable endpoints, local files, and environment variables.[^evt-project-proposals-issue-61]
+- **Host-Network Boundary Division**: Operates at the host boundary, designed to complement network-level reverse proxies and routers such as [agentgateway](../resources/agentgateway.md) by mediating local process capability while relaying egress traffic upstream.[^evt-project-proposals-issue-61]
 
 # Lifecycle History
-Reviewed in the Observability and Traceability Working Group under reference architecture `AAIF-REF-ARCH-NONO`, establishing baseline telemetry rows and identifying downstream OTLP export requirements[^evt-wg-observability-and-traceability-pr-52].
 
-[^evt-wg-observability-and-traceability-pr-52]: https://github.com/aaif/wg-observability-and-traceability/pull/52
+The project originated in February 2026 and utilizes an open governance structure managed by a Maintainer Council, handling architectural changes through nono Enhancement Proposals (NEPs).[^evt-project-proposals-issue-61] In October 2026, nono submitted an application for AAIF Sandbox status under the Apache 2.0 license, citing production adoption across enterprise toolchains including Datadog and Okta, and formal integration with runtimes such as [Goose](../resources/goose.md).[^evt-project-proposals-issue-61]
+
+[^evt-project-proposals-issue-61]: https://github.com/aaif/project-proposals/issues/61

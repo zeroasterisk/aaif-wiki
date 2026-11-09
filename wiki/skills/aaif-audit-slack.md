@@ -1,48 +1,49 @@
 ---
 type: skill
-title: AAIF Audit Slack Skill
-description: Read-only inspection skill auditing community Slack workspace coverage,
-  organizer membership, topic channel vitality, and member spam as phase 8 of the
-  estate sync.
-resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/skills/aaif-audit-slack/SKILL.md
+title: Slack Community Audit
+description: Read-only diagnostic inspection skill auditing AAIF Slack channels, message
+  hygiene, cross-posting, and unsolicited sales pitches.
+resource: https://github.com/aaif/community-events/pull/61
 tags:
-- community
+- skills
 - slack
-- operations
 - audit
-- pipeline
+- community-ops
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:51.084396+00:00'
+  at: '2026-11-09T10:24:04.193516+00:00'
 sources:
-- id: evt-community-events-file-91886a9e0653-92673e4e
-  resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/skills/aaif-audit-slack/SKILL.md
-  author: Rahul Parundekar
-  last_modified: '2026-11-01T11:56:54-08:00'
+- id: evt-community-events-pr-61
+  resource: https://github.com/aaif/community-events/pull/61
+  author: rparundekar
+  last_modified: '2026-10-15T19:42:34+00:00'
 ---
 
 # Overview
 
-The `aaif-audit-slack` skill is a read-only audit engine and independent verification check operating as phase 8 of the AAIF community estate sync pipeline (`../skills/aaif-sync.md`) [^evt-community-events-file-91886a9e0653-92673e4e]. It verifies whether chapters have designated public and organizer channels, confirms that approved organizers occupy appropriate channels, assesses channel clutter and newcomer experience, and generates an integrated HTML diagnostic report [^evt-community-events-file-91886a9e0653-92673e4e].
-
-In accordance with operational hygiene rules, the skill executes from an isolated code path separate from the write engines, adhering to the principle that generation filters cannot validate their own output [^evt-community-events-file-91886a9e0653-92673e4e]. Findings must be remediated at the source (e.g., via `../skills/aaif-clean-data.md`) and verified by re-running the sync pipeline [^evt-community-events-file-91886a9e0653-92673e4e].
+The `aaif-audit-slack` skill provides read-only diagnostic and administrative tooling for inspecting the health, configuration, and conversational integrity of AAIF community Slack workspaces [^evt-community-events-pr-61]. It operates out-of-band from state reconciliation engines like [aaif-sync](../skills/aaif-sync.md), producing terminal-only reports without mutating workspace content or storing untrusted message text on local disks [^evt-community-events-pr-61].
 
 # Architecture / Specification
 
-The skill structures workspace auditing across three core reports, a shared measurement layer, an on-demand spam scanner, and a single consolidated HTML deliverable [^evt-community-events-file-91886a9e0653-92673e4e]:
+## Sales and Spam Detection Engine
 
-| Report / Component | Script | Function | Execution Model |
-|---|---|---|---|
-| Organizers Report | `audit_organizers.py` | Verifies channel presence for every chapter and validates accepted organizer memberships | Phase 8 sync pipeline |
-| Topics Report | `audit_topics.py` | Evaluates activity, discoverability, and overlap across subject-matter channels | Phase 8 sync pipeline |
-| Members Report | `audit_members.py` | Analyzes workspace accessibility, roster composition, and headline counts | Phase 8 sync pipeline |
-| Activity Layer | `audit_activity.py` | Measures human message volumes, latest human message timestamps, and distinct posters | Feeds Topics & Members reports |
-| Spam Inspection | `audit_spam.py` | Detects solicitations, account rentals, and multi-channel message blasts across public threads and token-visible scopes; exits with code 2 on partial lead lists (`INCOMPLETE:`) | On-demand script (manual triage) |
-| Deliverable Engine | `summarize_audits.py` | Compiles an interactive HTML report containing indexed audit sections and a prioritized remediation TL;DR | Pipeline completion output |
+The audit suite includes `skills/aaif-audit-slack/scripts/audit_spam.py`, a specialized inspection script that evaluates public message activity and direct message telemetry to score accounts exhibiting uninvited commercial outreach [^evt-community-events-pr-61]. Scored heuristics include:
 
-### Tooling Invariants
+- Unsolicited service offerings and vendor partnership solicitations [^evt-community-events-pr-61].
+- Direct invitation requests ("DM me") and financial incentives [^evt-community-events-pr-61].
+- LinkedIn account rental propositions [^evt-community-events-pr-61].
+- Cross-posting identical message payloads across three or more public channels [^evt-community-events-pr-61].
+- Promotional pitches posted outside dedicated promotional channels [^evt-community-events-pr-61].
 
-The audit skill strictly enforces Google Workspace environment rules: all Google Drive interactions must pass through the `gws` CLI driven via Python [^evt-community-events-file-91886a9e0653-92673e4e]. Native Docs, Sheets, and Slides APIs are mandatory for editing Google Apps documents, and byte-level OOXML surgery is reserved strictly for non-native files [^evt-community-events-file-91886a9e0653-92673e4e]. Desktop office suites such as LibreOffice, `soffice`, or `unoconv` are strictly prohibited to prevent font substitution, tab stripping, and OOXML schema corruption [^evt-community-events-file-91886a9e0653-92673e4e].
+Shared partner vendor rooms (`ext-*`) and administrative organizer rooms (`*-organizers`) are explicitly excluded from scoring [^evt-community-events-pr-61]. Audit outputs represent lead indicators for human administrative review in the workspace console rather than automated enforcement triggers [^evt-community-events-pr-61].
 
-[^evt-community-events-file-91886a9e0653-92673e4e]: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/skills/aaif-audit-slack/SKILL.md
+## Security and Allowlist Boundaries
+
+The audit tool extends the approved `aaif_events.slack.ALLOWED_METHODS` allowlist with read-only endpoints `conversations.replies` and `search.messages` [^evt-community-events-pr-61]. Untrusted message snippets and user display names are strictly sanitized and bounded inside `<<msg>>` terminal wrappers to prevent log escape and prompt injection vulnerabilities [^evt-community-events-pr-61].
+
+## Slack API Pagination Defenses
+
+Live empirical evaluations revealed that passing the `oldest=` timestamp parameter to Slack's `conversations.history` API occasionally returns empty channel payloads despite active conversations within the queried window [^evt-community-events-pr-61]. To ensure complete audit coverage, the scanner pages sequentially through channels without `oldest` and terminates traversal manually upon encountering the window cutoff [^evt-community-events-pr-61].
+
+[^evt-community-events-pr-61]: https://github.com/aaif/community-events/pull/61

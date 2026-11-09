@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "docs/data-schemas.md",
+  "title": "data-schemas.md",
+  "timestamp": "2026-10-26T08:52:39-07:00",
+  "author": "leonardog",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/b930afdb296bbce8613943327810e30a7b3d9ba5/docs/data-schemas.md",
+  "summary": "refactor(taxonomy): move data to JSON and validate with Zod",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "b930afdb296bbce8613943327810e30a7b3d9ba5",
+      "path": "docs/data-schemas.md",
+      "blob_sha": "6a9550253a2fa40ef0720208ebdb4decf10518d8",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
