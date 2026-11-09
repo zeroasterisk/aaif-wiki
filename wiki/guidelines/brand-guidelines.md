@@ -1,47 +1,39 @@
 ---
 type: guideline
-title: AAIF Brand Guidelines and Design System
+title: Brand Guidelines
 description: Visual identity rules, typography tokens, dual surface palettes, component
-  styling, and agent motif usage policies for AAIF assets.
-resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md
+  styling, and asset discoverability constraints prohibiting manual redrawing of the
+  foundation mark.
+resource: https://github.com/aaif/community-events/pull/41
 tags:
-- branding
-- design-system
-- tokens
-- typography
-- guidelines
+- brand
+- design
+- assets
+- guideline
+- community
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:34:12.987397+00:00'
+  at: '2026-11-09T10:17:35.329762+00:00'
 sources:
-- id: evt-community-events-file-3dc5dd454e08-bbae69b7
-  resource: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md
-  author: Rahul Parundekar
-  last_modified: '2026-11-01T22:38:32-08:00'
+- id: evt-community-events-pr-41
+  resource: https://github.com/aaif/community-events/pull/41
+  author: Suryals
+  last_modified: '2026-10-07T19:22:24+00:00'
 ---
 
 # Overview
-The AAIF Design System defines the visual standards, typographic hierarchy, token extraction architecture, and rendering constraints across human-facing interfaces, generated reports, slide decks, and community assets [^evt-community-events-file-3dc5dd454e08-bbae69b7]. The design system strictly enforces a flat, monochrome-led identity with two distinct surfaces (white editorial and black plate) and explicitly disallows automated dark-mode inversions [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+The Brand Guidelines establish the visual identity system, typographic scales, color tokens, and asset management rules for the Agentic AI Foundation across documentation, presentations, and community materials [^evt-community-events-pr-41]. The guidelines ensure consistent rendering across human and autonomous agent design workflows [^evt-community-events-pr-41].
 
 # Architecture / Specification
 
-## Source of Truth and Token Architecture
-- **Canonical Bundle**: `design/aaif-design-system.html` serves as the authoritative, self-extracting single source of truth containing design tokens, component specifications, agent motif assets, and reference one-pager layouts [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **Generated Token File**: `design/aaif-tokens.css` contains the extracted `:root` token declarations consumed verbatim by report-styling scripts (`report_style.py`). It is regenerated using `scripts/extract_design_tokens.py`, and CI enforces freshness using `--check` [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **Official Assets**: Official vector marks (`assets/aaif-mark.svg`, `assets/aaif-mark-square.svg`, and `assets/aaif-logo-white.svg`) must be used verbatim without redrawing [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+## Asset Discoverability and Inventory
+Official brand assets are maintained in repository `assets/` directories and documented within primary design system inventories [^evt-community-events-pr-41]. To prevent autonomous agents and contributors from misidentifying or reconstructing visual marks, inventories must explicitly document asset filenames and functional purposes in top-level specification tables [^evt-community-events-pr-41]:
+- `aaif-mark.svg`: Designates the complete foundation lockup despite its filename [^evt-community-events-pr-41].
+- Official logo SVGs must be directly reachable via single-hop references from top-level repository specifications [^evt-community-events-pr-41].
 
-## Typographic and Color Rules
-- **Typeface**: Instrument Sans (OFL) is the exclusive typeface (weights 400, 500, 600, 700) for both display and interface copy; system monospace is reserved strictly for metadata and eyebrows, never body copy [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **Heading Metrics**: Headings are set at weight 500 with tracking `-0.02em` and line height between 1.05 and 1.15; bold weights are avoided except for h5/h6 set at weight 600 [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **Color Roles**: Black (`--accent: var(--ink)`) is the primary action accent; spectrum hues (`--spec-1` through `--spec-10`, e.g., coral as `--spec-8`) serve exclusively as subordinate accents within an individual surface [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **Flat Surface Depth**: Drop shadows are eliminated entirely. Depth is achieved through 1px hairlines, inset strokes, and paper tinting (`--paper` page ground, `--paper-2` section banding, `--paper-3` tinted panels) [^evt-community-events-file-3dc5dd454e08-bbae69b7]. Cards, statistics, tables, and chips maintain square corners (`border-radius: 0`), reserving rounded pills strictly for standalone badges and buttons [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-- **No Dark Mode**: Automated `prefers-color-scheme` overrides are prohibited; components exist exclusively on white editorial or black plate surfaces as explicitly selected by designers [^evt-community-events-file-3dc5dd454e08-bbae69b7].
+## Invariant Rules
+- **Never Redraw the Mark**: Contributors and automated agents must never reconstruct, trace, or redraw the AAIF mark from screenshots or raster previews [^evt-community-events-pr-41]. Vector production must source directly from official SVG assets in `assets/` [^evt-community-events-pr-41].
+- **Consistent Token Mapping**: Visual assets must adhere to foundation typographic hierarchies, surface palettes, and dual dark/light theme contrast baselines [^evt-community-events-pr-41].
 
-## Motif Usage Boundaries
-- **Agent Motif Restriction**: The agent bot motif derived from mark primitives is designated solely for empty states, loaders, event graphics, and dividers [^evt-community-events-file-3dc5dd454e08-bbae69b7]. It is strictly prohibited from governance, board, press, or audit documentation [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-
-# Lifecycle History
-Codified in repository design documentation and synchronized via automated token extraction tooling to ensure consistent styling across Python reporting pipelines and OOXML asset generators [^evt-community-events-file-3dc5dd454e08-bbae69b7].
-
-[^evt-community-events-file-3dc5dd454e08-bbae69b7]: https://github.com/aaif/community-events/blob/a411604181e6a15dc2278221bc7501c8bb3c49fc/DESIGN.md
+[^evt-community-events-pr-41]: https://github.com/aaif/community-events/pull/41

@@ -1,38 +1,37 @@
 ---
 type: resource
-title: PostHog Reference Architecture
-description: Reference architecture detailing PostHog's Capture API ingestion, PII
-  sanitization, and session analysis with jurisdiction-specific privacy classifications.
-resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
-tags:
-- observability
-- telemetry
-- privacy
-- compliance
+title: PostHog Agent Telemetry Reference Architecture
+description: Product analytics and session telemetry backend mapping agent behavioral
+  events through direct HTTPS Capture API ingestion and client-side PII sanitization.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:05:17.279542+00:00'
+  at: '2026-11-09T09:47:35.806001+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-issue-55
-  resource: https://github.com/aaif/wg-observability-and-traceability/issues/55
-  author: smcd
-  last_modified: '2026-09-24T01:59:02+00:00'
+- id: evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md
+  author: Matthew Khouzam
+  last_modified: '2026-08-19T20:04:48+01:00'
 ---
 
 # Overview
 
-The PostHog reference architecture evaluates the ingestion pipeline, Capture API mechanics, and session telemetry methods used to track agent interactions and user journeys[^evt-wg-observability-and-traceability-issue-55]. It provides guidance on client-side sanitization, event batching, and privacy-preserving observability patterns[^evt-wg-observability-and-traceability-issue-55].
+PostHog functions as an external agent telemetry sink providing product analytics, adoption metrics, cohort segmentation, and behavioral event collection for AI agent frameworks [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]. Rather than capturing fine-grained distributed execution spans, it focuses on high-level lifecycle events, user onboarding funnels, error telemetry, and aggregate feature usage across desktop and CLI runtimes.
+
+The reference architecture assesses PostHog's role within the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), specifically evaluating privacy preservation boundaries during product event ingestion as exemplified by the [Goose](goose.md) agent runtime.
 
 # Architecture / Specification
 
-The architecture incorporates privacy and jurisdictional telemetry controls:
-- **Installation Identifiers and Pseudonymity**: Addresses the classification of UUID-based installation identifiers. While technical claims describe random UUIDs as anonymous-by-design tracking without PII, regulatory frameworks such as GDPR (Recitals 26 and 30) and UK GDPR classify persistent tracking identifiers as pseudonymous personal data[^evt-wg-observability-and-traceability-issue-55].
-- **Cross-Border Transfers**: Identifies data transfer constraints when telemetry payloads and pseudonymous identifiers are routed to US-based endpoints (such as `us.i.posthog.com`) under international transfer regulations[^evt-wg-observability-and-traceability-issue-55].
-- **Regime-Keyed Classification**: Outlines the requirement for reference architectures to categorize data types (personal data, personal information, PII, none) explicitly against relevant legal regimes rather than relying solely on client-side regex redacting[^evt-wg-observability-and-traceability-issue-55].
+The integration pattern relies on an out-of-band HTTPS telemetry client without requiring heavy dependency SDKs [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]:
+
+- **Client Ingestion Module:** The agent runtime embeds an HTTP telemetry module that writes directly to PostHog's Capture API (`/capture/`). Payloads consist of structured `CaptureEvent` records containing an API project key (`phc_*`), event identifier, pseudonymous `distinct_id` (persisted on disk as a UUID v4), timestamp, and key-value properties.
+- **PII Sanitizer:** Before dispatch, client-side regex filters strip sensitive material including file system paths, authentication keys, email addresses, bearer tokens, and internal UUIDs from event payloads.
+- **Storage Pipeline:** Events ingested by PostHog are buffered via Apache Kafka and persisted into ClickHouse for aggregate query evaluation and user profile correlation.
 
 # References
 
-- Observability and Traceability Working Group [Issue #55](https://github.com/aaif/wg-observability-and-traceability/issues/55)[^evt-wg-observability-and-traceability-issue-55]
+- PostHog Capture API Reference and Ingestion Architecture [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
+- Goose 1.39.0 Telemetry Implementation (`posthog.rs`) [^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]
 
-[^evt-wg-observability-and-traceability-issue-55]: https://github.com/aaif/wg-observability-and-traceability/issues/55
+[^evt-wg-observability-and-traceability-file-d36a782a2588-bde0dd75]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/05-ai-agent-observability/AAIF-REF-ARCH-POSTHOG.md

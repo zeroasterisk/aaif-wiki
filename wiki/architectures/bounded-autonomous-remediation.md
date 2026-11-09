@@ -2,42 +2,53 @@
 type: architecture
 title: Bounded Autonomous Remediation
 description: Reference architecture governing iterative, autonomous problem resolution
-  within predefined task boundaries, budget constraints, and deterministic acceptance
-  gates.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
+  within predefined task bounds, deterministic verification gates, and fail-safe escalation
+  paths.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md
 tags:
 - architecture
-- reference-architecture
+- autonomous-agents
 - remediation
-- deterministic-gate
+- workflows
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:14:40.565482+00:00'
+  at: '2026-11-09T10:33:12.467454+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-43
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
-  author: narko4u
-  last_modified: '2026-10-02T15:00:07+00:00'
+- id: evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md
+  author: Mario Zagar
+  last_modified: '2026-11-05T08:39:35-08:00'
+- id: evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/reporting/2026-09-report.md
+  author: Yaron Schneider
+  last_modified: '2026-11-05T08:38:51-08:00'
 ---
 
 # Overview
-
-The Bounded Autonomous Remediation reference architecture defines an operational model for autonomous incident remediation and bug resolution operating within explicit step and cost budgets.[^evt-wg-workflows-and-process-integration-pr-43] The architecture allows agents to iteratively hypothesize, patch, and test candidate solutions, terminating when objective criteria are satisfied or when boundary constraints force escalation.
+Bounded Autonomous Remediation is a reference architecture designed to autonomously resolve discrete, well-bounded problems without requiring per-attempt human intervention[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e]. It serves as a contrasting companion to the [Single-Agent Process with Human Approval](single-agent-human-approval.md): while it permits autonomous model iterations, it prevents unbounded autonomy and uncontrolled effects by enforcing explicit task boundaries, isolated work areas, independent deterministic acceptance gates, and fail-safe escalation paths[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
 
 # Architecture / Specification
+The architecture applies to business tasks where scope, tools, budgets, and measurable acceptance criteria can be declared in advance, and the resulting external effect is constrained and low-impact or reversible (e.g., opening a remediation pull request or generating reconciliation batches)[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
 
-The architecture relies on [Deterministic acceptance gate](../patterns/deterministic-acceptance-gate.md) checks to validate proposed fixes before applying them to target systems.[^evt-wg-workflows-and-process-integration-pr-43]
+### Composition of Patterns
+The architecture composes three core patterns:
+- [Bounded Convergence Loop](../patterns/bounded-convergence-loop.md): Limits agent retries and token/time budgets to prevent runaway execution loops[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+- [Deterministic Acceptance Gate](../patterns/deterministic-acceptance-gate.md): Employs independent programmatic checks (unit tests, schema validators, lint rules) rather than agent self-evaluation to judge candidate outputs[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+- [Proposal/Execution Split](../patterns/proposal-execution-split.md): Isolates the candidate result from the external executor, preventing direct write actions by the agent[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
 
-### Minimum Evidence Requirements
-Gate evaluation strength scales with two primary properties of the permitted remediation effect:[^evt-wg-workflows-and-process-integration-pr-43]
-- **Blast radius**: The scope of systems, users, or data impacted if the proposed remediation introduces regressions.
-- **Reversal cost**: The complexity, downtime, or operational cost necessary to roll back or undo the applied modification.
+### Qualification Checklist
+To determine if an operational problem fits this architecture, five conditions must be satisfied:
+1. **Pre-declared Problem Bounds**: The task contract, allowed scope, permitted tools/data, and acceptance conditions must be established prior to execution[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+2. **Independent Deterministic Evaluation**: Objective tests, schemas, or reconciliation rules evaluate candidate outputs without relying on model self-judgment[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+3. **Constrained External Effect**: Permitted real-world actions are strictly limited and ideally reversible[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+4. **Fenced Agent Environment**: The agent operates inside an isolated workspace with least-privilege credentials and strict resource limits[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
+5. **Safe Non-Convergence Route**: Budget exhaustion, validation errors, or out-of-scope conditions cleanly halt execution and escalate to human operators[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e].
 
-### Acceptance Invariants
-Regardless of gate strength, three baseline properties hold for every generated acceptance record:[^evt-wg-workflows-and-process-integration-pr-43]
-1. **Determinism of the verdict**: The pass/fail outcome is produced through reproducible, deterministic validation checks rather than subjective or non-deterministic model self-evaluations.
-2. **Binding of verdict to candidate**: The verdict record explicitly binds to the exact patch or candidate artifact evaluated.
-3. **Preservation as execution evidence**: The evaluation record and associated diagnostic outputs are preserved within the execution trace for post-incident auditability.
+# Lifecycle History
+- **2026-08-29**: Architecture PR #26 merged on main[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e].
+- **2026-09-15**: Validation record (PR #37) merged on main[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e].
+- **2026-09-30**: PR #43 (minimum evidence rules based on blast radius and reversibility) and PR #49 (terminology cleanup) remain in active review prior to plenary vote scheduling[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e].
 
-[^evt-wg-workflows-and-process-integration-pr-43]: https://github.com/aaif/wg-workflows-and-process-integration/pull/43
+[^evt-wg-workflows-and-process-integration-file-58dfe42e59bd-d009744e]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/bounded-autonomous-remediation.md
+[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/reporting/2026-09-report.md

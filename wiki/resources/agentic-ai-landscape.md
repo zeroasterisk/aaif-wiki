@@ -1,35 +1,38 @@
 ---
 type: resource
 title: Agentic AI Landscape
-description: Interactive ecosystem market map and catalog backed by landscape.yml
-  tracking open-source agentic projects and runtime categories.
-resource: https://github.com/aaif/aaif-landscape/pull/23
+description: Ecosystem directory and metadata registry tracking member initiatives,
+  agent frameworks, and tooling across the agentic AI landscape.
+resource: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/README.md
 tags:
 - landscape
-- catalog
+- directory
 - ecosystem
-- runtime
-- standards
+- registry
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:30:09.197993+00:00'
+  at: '2026-11-09T10:25:56.247123+00:00'
 sources:
-- id: evt-aaif-landscape-pr-23
-  resource: https://github.com/aaif/aaif-landscape/pull/23
-  author: ouroboros-agent
-  last_modified: '2026-10-28T15:29:11+00:00'
+- id: evt-ws-taxonomy-landscape-file-440eb159591a-19b34556
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/README.md
+  author: Junjie Bu
+  last_modified: '2026-10-19T09:43:19-07:00'
+- id: evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md
+  author: Gala Malbasic
+  last_modified: '2026-10-19T09:43:19-07:00'
 ---
 
 # Overview
 
-The Agentic AI Landscape is an interactive market map and categorical ecosystem registry maintained by the [Taxonomy and Landscape Working Group](../working-groups/taxonomy-and-landscape.md).[^evt-aaif-landscape-pr-23] It provides a comprehensive view of open-source frameworks, runtime engines, protocol implementations, and observability platforms across the agentic artificial intelligence ecosystem.[^evt-aaif-landscape-pr-23]
+The Agentic AI Landscape is an ecosystem directory, catalog, and schema-validated metadata registry designed to track open-source projects, enterprise frameworks, protocols, and tooling across the agentic AI landscape [^evt-ws-taxonomy-landscape-file-440eb159591a-19b34556]. The project was initiated under the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md) to provide interactive visibility into ecosystem components [^evt-ws-taxonomy-landscape-file-440eb159591a-19b34556].
 
-# Architecture / Specification
+# Operational Status and Roadmap
 
-The landscape is structured around categorized entries validated against strict automated schema rules and project health criteria (such as minimum GitHub star thresholds, open-source licensing, and vector branding assets).[^evt-aaif-landscape-pr-23]
+On 14 September 2026, the Taxonomy and Landscape Workstream agreed to pause Landscape contributions and maintenance to focus collective reviewer effort entirely on taxonomy definitions [^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]. Contribution guidelines were updated via pull request #61 to redirect external submissions to the terminology stream [^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
 
-- **Agentic Runtime Category:** Captures execution runtimes and multi-agent coordination engines. Recent entries include Ouroboros, an MIT-licensed autonomous agent runtime capable of coordinating specialist subagents, managing external project repositories, and self-evolving its implementation via structured review processes.[^evt-aaif-landscape-pr-23]
-- **Governance:** Ecosystem additions follow community submission pull requests evaluated by automated pre-commit and schema validation pipelines prior to hosted preview publication.[^evt-aaif-landscape-pr-23]
+Resuming active Landscape development requires formal acknowledgment from the [Technical Committee](../governance/technical-committee.md) and established inclusion criteria [^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]. Because determining vendor, platform, and project eligibility impacts foundation neutrality, proposed inclusion criteria and categorization granularity will be presented to the Technical Committee before Landscape intake reopens [^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a].
 
-[^evt-aaif-landscape-pr-23]: https://github.com/aaif/aaif-landscape/pull/23
+[^evt-ws-taxonomy-landscape-file-440eb159591a-19b34556]: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/README.md
+[^evt-ws-taxonomy-landscape-file-60f28464dd94-f4687b4a]: https://github.com/aaif/ws-taxonomy-landscape/blob/5f21b431705d64821bd86c74c23b7fafbc8a768b/reporting/2026-09-report.md

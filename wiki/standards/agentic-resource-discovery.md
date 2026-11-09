@@ -1,44 +1,44 @@
 ---
 type: standard
-title: Agentic Resource Discovery Specification
+title: Agentic Resource Discovery (ARD)
 description: Decentralized discovery, verification, and admission specification enabling
-  agents to find, trust, and verify AI resources via catalogs and dynamic registries.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
+  agents to find, trust, admit, and observe external resources.
+resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
 tags:
-- standard
 - discovery
-- registry
-- trust
-- spiffe
-- ans
+- governance
+- observability
+- standards
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T09:38:13.242968+00:00'
+  at: '2026-11-09T09:51:54.026492+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-4b349715463d-4901531a
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
-  author: Pavan Sudheendra
-  last_modified: '2026-07-09T16:05:08+01:00'
+- id: evt-wg-observability-and-traceability-issue-49
+  resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
+  author: 91pavan
+  last_modified: '2026-09-02T05:53:28+00:00'
 ---
 
 # Overview
-The Agentic Resource Discovery (ARD) specification defines a decentralized architecture for discovering, evaluating, and verifying AI tools, capabilities, and agent resources across administrative boundaries[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]. Jointly announced by a multi-vendor consortium of 11 organizations, ARD standardizes how autonomous agents locate trusted endpoints while enforcing provenance and identity guarantees.
+Agentic Resource Discovery (ARD) is an open specification defining decentralized discovery, capability negotiation, provenance verification, and policy admission for AI agent resources and external skills. Developed in collaboration with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), ARD establishes observable pipelines spanning gateway boundaries to ensure trusted resource evaluation prior to execution[^evt-wg-observability-and-traceability-issue-49].
 
 # Architecture / Specification
-The ARD specification is structured around two core functional components[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]:
 
-- **Catalog (Static Indexing)**: Declarative, machine-readable manifests enabling offline search, capability indexing, and structural schema inspection.
-- **Registry (Dynamic REST API)**: Active control plane exposing RESTful endpoints for runtime admission, health validation, and dynamic capability lookup.
+## Five-Stage Lifecycle Telemetry
+ARD structures capability discovery and governance through five explicit lifecycle stages observable via standard OpenTelemetry Protocol (OTLP) pipelines[^evt-wg-observability-and-traceability-issue-49]:
+1. **Discovery**: Resolution and retrieval of candidate agent tools, skills, and endpoints across external catalogs or registries.
+2. **Provenance**: Verification of resource origin, cryptographic signatures, and package attestation.
+3. **Governance**: Policy validation ensuring capabilities conform to administrative guardrails and organization boundary rules.
+4. **Trust Evaluation**: Runtime risk assessment and reputation verification.
+5. **Admission Decision**: Formal gating determining whether a capability is admitted, quarantined, or rejected.
 
-### Trust and Identification Model
-ARD integrates with decentralized identity and security frameworks to establish cryptographically verifiable discovery:
-
-- **Identity Federation**: Leverages SPIFFE (Secure Production Identity Framework for Everyone) and ANS (Agent Name Service) standards to authenticate agents and resource providers[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
-- **Trust Manifests**: Encodes cryptographic attestation and authorization requirements within discovery metadata, enabling consuming agents to verify endpoint integrity prior to execution.
-- **Natural Language Search**: Implements semantic and natural language discovery layers that resolve plain-language agent requests to verified interface contracts[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+## Gateway and Runtime Correlation
+To guarantee end-to-end auditability across architectural boundaries, ARD integrates with mediation components like [Agent Gateway](../resources/agentgateway.md) and agent harnesses such as [Goose](../resources/goose.md)[^evt-wg-observability-and-traceability-issue-49]:
+- **W3C Trace Context Propagation**: Propagates trace context headers across gateway discovery evaluations and runtime skill execution to correlate admission decisions directly with subsequent invocations[^evt-wg-observability-and-traceability-issue-49].
+- **Quarantine Observability**: Telemetry emitted for quarantined or rejected capabilities records policy denial decisions without generating spurious downstream execution spans[^evt-wg-observability-and-traceability-issue-49].
 
 # Lifecycle History
-- **2026-07-09**: Presented to the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) by Junjie Bu following joint industry announcement; initiated cross-group reviews on identity standards, ANS integration, and telemetry trace correlation[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+- **Implementation Validation**: Initiated lifecycle observability validation PoC linking Agent Gateway policy enforcement with Goose skill activation spans over standard OTLP JSON fixtures[^evt-wg-observability-and-traceability-issue-49].
 
-[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
+[^evt-wg-observability-and-traceability-issue-49]: https://github.com/aaif/wg-observability-and-traceability/issues/49

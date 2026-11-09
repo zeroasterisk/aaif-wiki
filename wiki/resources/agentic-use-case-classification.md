@@ -1,35 +1,46 @@
 ---
 type: resource
-title: Agentic Use Case Classification Framework
-description: Classification taxonomy defining core architectural dimensions and boundary
-  scopes to categorize real-world agent deployments.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+title: Agentic Use Case Classification Schema
+description: Classification schema defining structural workflow dimensions and evidentiary
+  standards for cataloging production agent deployments.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/58
 tags:
-- taxonomy
+- use-cases
 - classification
 - workflows
-- use-cases
+- schema
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:01.605413+00:00'
+  at: '2026-11-09T10:29:37.606945+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-issue-60
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
-  author: mluciano-sbai
-  last_modified: '2026-10-30T20:12:06+00:00'
+- id: evt-wg-workflows-and-process-integration-issue-58
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/58
+  author: jodeev
+  last_modified: '2026-10-29T15:37:04+00:00'
+- id: evt-wg-workflows-and-process-integration-issue-59
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/59
+  author: jodeev
+  last_modified: '2026-10-29T15:34:57+00:00'
 ---
 
 # Overview
-The Agentic Use Case Classification Framework structures real-world agent deployments across standardized architectural dimensions to evaluate workflow orchestration, human oversight, and operational complexity.
 
-# Architecture / Specification
-The classification framework categorizes production workflows defined in the inventory ([resources/agentic-use-case-inventory](../resources/agentic-use-case-inventory.md)):
-- **Core Dimensions**: Analyzes trigger mechanism, human intervention gates, agent cardinality (single-agent vs. multi-agent), execution determinism (fixed/scripted vs. adaptive), and orchestration topology (sequential pipeline, fan-out/join, or iterative loop).
-- **Boundary Scope (Proposed)**: Evaluates the output destination perimeter across three discrete values: `Same team`, `Across teams`, and `Across companies`.[^evt-wg-workflows-and-process-integration-issue-60]
-- **Architectural Implications**: Workflows crossing team or enterprise boundaries mandate differentiated approval routing, audit logging, and payload validation even when sharing identical triggering and topology primitives.[^evt-wg-workflows-and-process-integration-issue-60]
+The Agentic Use Case Classification Schema establishes a structured categorization framework for analyzing real-world agent deployments within the [Agentic Use Case Inventory](../resources/agentic-use-case-inventory.md).[^evt-wg-workflows-and-process-integration-issue-59] Maintained by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md), the schema provides dimensional metadata to classify autonomy bounds, orchestration topologies, and human-in-the-loop oversight mechanisms.[^evt-wg-workflows-and-process-integration-issue-58]
+
+# Specification
+
+The classification schema structures each documented production use case across key organizational and technical dimensions:[^evt-wg-workflows-and-process-integration-issue-58][^evt-wg-workflows-and-process-integration-issue-59]
+
+- **Workflow Topology and Shape**: Categorizes execution structures (e.g., single-agent loops, parallel fan-out, hierarchical delegation); actively proposed to transition nomenclature from "Workflow Pattern" to "Workflow Shape" to avoid conflation with foundational Reference Architecture patterns and primitives.[^evt-wg-workflows-and-process-integration-issue-58]
+- **HITL Oversight**: Defines interaction boundaries and approval checkpoints; actively proposed to transition from "HITL Pattern" to "HITL Shape".[^evt-wg-workflows-and-process-integration-issue-58]
+- **Evidentiary Citation Standard**: Mandates that every cataloged deployment cite verifiable, publicly accessible primary sources (vendor announcements or production case studies) with publication or retrieval dates.[^evt-wg-workflows-and-process-integration-issue-59]
+- **Link Hygiene and Rot Remediation**: Implements automated link extraction and validation workflows to monitor citation status (200, redirect, 404, or blocked) and flag stale evidence without corrupting evidentiary compliance.[^evt-wg-workflows-and-process-integration-issue-59]
 
 # Lifecycle History
-- **2026-10**: Issue #60 proposed extending the schema with the `Boundary` dimension to disambiguate routing and handoff requirements across inventory use cases.[^evt-wg-workflows-and-process-integration-issue-60]
 
-[^evt-wg-workflows-and-process-integration-issue-60]: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+- **2026-10**: Issue #58 proposed renaming schema pattern dimensions to "shapes" to disambiguate use case metadata from reference architecture patterns.[^evt-wg-workflows-and-process-integration-issue-58]
+- **2026-10**: Issue #59 initiated scheduled CI automation to extract and verify external citation links against link rot.[^evt-wg-workflows-and-process-integration-issue-59]
+
+[^evt-wg-workflows-and-process-integration-issue-58]: https://github.com/aaif/wg-workflows-and-process-integration/issues/58
+[^evt-wg-workflows-and-process-integration-issue-59]: https://github.com/aaif/wg-workflows-and-process-integration/issues/59

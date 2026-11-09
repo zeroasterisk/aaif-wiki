@@ -1,41 +1,45 @@
 ---
 type: working-group
 title: Identity and Trust Working Group
-description: Technical working group defining vendor-neutral standards, reference
-  architectures, delegation frameworks, and action verification protocols for agentic
-  systems.
-resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
+description: Technical working group defining vendor-neutral standards, delegation
+  frameworks, and verification taxonomies for agent identity and authorization.
+resource: https://github.com/aaif/wg-identity-and-trust/issues/22
 tags:
-- governance
 - working-group
 - identity
 - trust
 - delegation
+- aaif
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:51.084396+00:00'
+  at: '2026-11-09T10:29:37.606945+00:00'
 sources:
-- id: evt-wg-identity-and-trust-file-922f59c26329-928a222f
-  resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
-  author: Dedeoglu
-  last_modified: '2026-11-01T20:45:38+01:00'
+- id: evt-wg-identity-and-trust-issue-22
+  resource: https://github.com/aaif/wg-identity-and-trust/issues/22
+  author: MarcMolas
+  last_modified: '2026-10-31T22:24:55+00:00'
 ---
 
 # Overview
 
-The Identity and Trust Working Group is an Agentic AI Foundation technical body responsible for defining open standards, architectures, and taxonomies for agent identity, delegation, consent receipts, and verifiable action records [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. Co-chaired by Grant Miller (IBM) and Alper Dedeoğlu (SAP SE), the working group focuses on establishing verifiable boundaries between principals, agent runtimes, and downstream services [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+The Identity and Trust Working Group is an AAIF technical body establishing vendor-neutral standards, delegation architectures, and verification criteria for autonomous agents, human principals, and interacting services.[^evt-wg-identity-and-trust-issue-22] Its work addresses foundational security primitives, including cryptographic agent identity, multi-hop delegation chains, time-of-use verification, and cascading credential revocation across organizational trust boundaries.[^evt-wg-identity-and-trust-issue-22]
 
 # Architecture / Specification
 
-The working group organizes its technical agenda into three specialized sub-working groups [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]:
+The working group's Reference Architecture v1 standardizes core operational rules governing agentic authority:[^evt-wg-identity-and-trust-issue-22]
 
-- **Taxonomy Sub-WG:** Coordinates with the cross-cutting `../working-groups/taxonomy-and-landscape.md` workstream to standardize formal definitions for trust, attestation, delegation, and identifiers [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
-- **Reference Architecture Sub-WG:** Employs a primitive-first methodology, developing modular core primitives (beginning with the identity primitive draft) that aggregate into concrete use cases and full reference architectures [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
-- **Critical Use Cases Sub-WG:** Formulates end-to-end lifecycle models across Internal, B2B, and B2C operational scopes, spanning agent naming, deployment, delegation, per-request authorization, audit/compliance, and principal-attested revocation [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+- **Time-of-Use Verification**: Mandatory validation of five essential grant elements at the moment of execution rather than relying on self-reported agent assertions.[^evt-wg-identity-and-trust-issue-22]
+- **Separation of Chains**: Structural separation between delegation chains (authorizing specific capabilities) and accountability chains (resolving liability to a verifiable [principal](../taxonomy/principal.md)).[^evt-wg-identity-and-trust-issue-22]
+- **Hop Attenuation**: Monotonic narrowing of permissions across multi-hop delegation paths, preventing authority amplification.[^evt-wg-identity-and-trust-issue-22]
+- **Cascading Revocation**: Time-bounded propagation of revocation events from root authorities through all derived downstream grants.[^evt-wg-identity-and-trust-issue-22]
+- **Privacy-Preserving Accountability**: Relying-party verification that an accountable principal exists at a designated assurance level without exposing the intermediate delegation topology.[^evt-wg-identity-and-trust-issue-22]
 
-### Functional Requirements & External Inputs
+To validate implementations against these invariants, the working group is developing [Delegated-Authority Conformance Cases](../guidelines/delegated-authority-conformance-cases.md) mandating explicit residual disclosure for unaddressed edge cases.[^evt-wg-identity-and-trust-issue-22]
 
-The group evaluates external industry implementations to refine its technical deliverables, including NVIDIA's Secure Agent Workspace reference design and Uber's agentic identity architecture [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. Key technical requirements under active specification include verifiable delegation hierarchies, dynamic per-request authorization gates, selective disclosure for content-private action records, and tamper-evident revocation mechanics [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+# Lifecycle History
 
-[^evt-wg-identity-and-trust-file-922f59c26329-928a222f]: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
+- **2026-10-21**: Published Identity and Trust Reference Architecture v1 establishing normative delegation and revocation invariants.[^evt-wg-identity-and-trust-issue-22]
+- **2026-10-31**: Advanced eight delegated-authority conformance evaluation cases with residual disclosure requirements for addition as an architectural appendix.[^evt-wg-identity-and-trust-issue-22]
+
+[^evt-wg-identity-and-trust-issue-22]: https://github.com/aaif/wg-identity-and-trust/issues/22

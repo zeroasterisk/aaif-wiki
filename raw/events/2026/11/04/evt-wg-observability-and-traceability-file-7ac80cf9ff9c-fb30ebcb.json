@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-7ac80cf9ff9c-fb30ebcb",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "working-documents/USE-CASES.md",
+  "title": "USE-CASES.md",
+  "timestamp": "2026-11-04T13:51:19Z",
+  "author": "Empire Labs Pty Ltd",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/bbcac36693002be677c403bff7e400c15b23f39d/working-documents/USE-CASES.md",
+  "summary": "docs(use-cases): replace write-once clause in E4 with retention basis (#68)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "bbcac36693002be677c403bff7e400c15b23f39d",
+      "path": "working-documents/USE-CASES.md",
+      "blob_sha": "fb30ebcbe71c040d7445dc82a3412b5e195dddb2",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

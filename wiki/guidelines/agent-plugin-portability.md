@@ -1,45 +1,38 @@
 ---
 type: guideline
-title: Agent Plugin and Skill Portability Guidelines
-description: Packaging, capability abstraction, directory resolution, and manifest
-  conventions ensuring interoperability between Agent Plugins v1 and agent runtimes.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
+title: Agent Plugin Portability Guidelines
+description: Packaging conventions, capability abstractions, and authorization boundaries
+  ensuring portable agent plugin execution across diverse host harnesses.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/PORTABILITY.md
 tags:
-- standards
+- plugins
 - portability
-- agent-plugins
-- agent-skills
+- standards
+- manifest
+- authorization
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:13:06.696072+00:00'
+  at: '2026-11-09T10:11:44.946840+00:00'
 sources:
-- id: evt-community-events-file-63a9c44a44ac-37822210
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
+- id: evt-community-events-file-57c4a0921db3-7bd7bd69
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/PORTABILITY.md
   author: Rahul Parundekar
   last_modified: '2026-09-30T18:54:05-07:00'
-- id: evt-community-events-pr-54
-  resource: https://github.com/aaif/community-events/pull/54
-  author: rparundekar
-  last_modified: '2026-10-01T02:01:13+00:00'
 ---
 
 # Overview
-The Agent Plugin Portability guidelines define structural conventions, execution path abstractions, and manifest standards that allow AI agent plugins and skills to operate interchangeably across diverse client runtimes [^evt-community-events-pr-54]. These conventions eliminate proprietary path dependencies, standardize client argument hints, and maintain portable declarative contracts [^evt-community-events-pr-54].
+The Agent Plugin Portability Guidelines establish packaging conventions, capability abstractions, and runtime authorization boundaries ensuring agent plugins operate consistently across diverse client environments such as Codex, Cursor, and Claude Code.[^evt-community-events-file-57c4a0921db3-7bd7bd69] The guidelines ensure skill authors maintain vendor-neutral interoperability while respecting human-in-the-loop governance.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
 
 # Architecture / Specification
-Portable plugin packages adhere to five architectural principles:
+Portable plugins comply with standard manifest declarations, relative path resolutions, and capability-oriented instructions:[^evt-community-events-file-57c4a0921db3-7bd7bd69]
+- **Unified Manifest Structure**: The root `plugin.json` acts as the canonical manifest for shared identity and version metadata across compliant clients, avoiding redundant client-specific config directories when no specialized overlays are required.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
+- **Relative Skill Resolution**: Skill paths within `SKILL.md` files must be relative to the containing skill directory, utilizing `<skill-root>` as a dynamically resolved runtime placeholder rather than an environment variable.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
+- **Capability Abstractions**: Skill instructions must specify functional capabilities (e.g., read bundled files, run subprocesses, inspect web pages, display local files, request human approval) rather than hardcoded client tool primitives.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
+- **Authorization Boundaries**: Loading or invoking a skill does not authorize state mutations. Mutating actions require explicit command-line gates (e.g., `--write`, `--apply`, `--create`) preceded by human review.[^evt-community-events-file-57c4a0921db3-7bd7bd69] Gating flags such as `--i-have-approval` must represent genuine human consent and must never be supplied by an agent autonomously.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
+- **Credential Handling**: Secrets must be injected via runtime environment variables or platform keychains, never passed within prompts, arguments, or tracked files.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
 
-- **Dual-Manifest Packaging**: Plugins ship a root Agent Plugins v1 manifest (`plugin.json`) alongside runtime-specific catalogs (such as Anthropic Claude marketplace manifests) [^evt-community-events-pr-54].
-- **Standardized Directory and Path Placeholders**: Runtime-specific environment variables (such as `${CLAUDE_SKILL_DIR}`) are replaced with client-neutral `<skill-root>` placeholders within documentation, scripts, and invocation examples [^evt-community-events-file-799e4722911d-3d7dbf62] [^evt-community-events-pr-54].
-- **Namespaced Metadata for UI Hints**: Runtime-specific features such as command line argument hints are decoupled from base frontmatter and isolated under namespaced `metadata` blocks, ensuring runtime validation does not fail on unrecognized root properties [^evt-community-events-pr-54].
-- **Contract and Workflow Separation**: Operational procedures are decoupled into two distinct documents: a clean `SKILL.md` declaring interface metadata, tools, and constraints, and an auxiliary `WORKFLOW.md` specifying step-by-step execution procedures [^evt-community-events-pr-54].
-- **Automated Portability Linting**: Manifest compliance, skill frontmatter compatibility declarations, and the absence of vendor-locked execution syntax are verified programmatically via dedicated CI and pre-commit linting tools (`check_manifests.py`, `check_skill_portability.py`) [^evt-community-events-file-63a9c44a44ac-37822210] [^evt-community-events-pr-54].
+# Lifecycle History
+Maintained in alignment with the Agent Plugins standard ([`../standards/agent-plugins.md`](../standards/agent-plugins.md)) and refined through reference implementations in AAIF operational repositories.[^evt-community-events-file-57c4a0921db3-7bd7bd69]
 
-# Related Concepts
-- [Agent Plugins Standard](../standards/agent-plugins.md)
-- [Agent Skills Standard](../standards/agent-skills.md)
-- [Community Events Eval Suite](../resources/community-events-eval-suite.md)
-
-[^evt-community-events-file-63a9c44a44ac-37822210]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
-[^evt-community-events-pr-54]: https://github.com/aaif/community-events/pull/54
+[^evt-community-events-file-57c4a0921db3-7bd7bd69]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/PORTABILITY.md

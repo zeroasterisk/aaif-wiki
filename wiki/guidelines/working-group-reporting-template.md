@@ -1,67 +1,47 @@
 ---
 type: guideline
-title: Working Group Monthly Reporting Guidelines and Template
-description: Standardized cadence, structure, review timeline, and pull request workflow
-  for AAIF working groups reporting monthly to the Technical Committee.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
+title: Working Group Reporting Template Guideline
+description: Standardized reporting template, filing conventions, and required evidence
+  sections for AAIF working groups reporting monthly to the Technical Committee.
+resource: https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/template.md
 tags:
-- guidelines
+- guideline
 - governance
 - reporting
 - technical-committee
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T09:39:03.792256+00:00'
+  at: '2026-11-09T10:26:49.475987+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
+- id: evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2
+  resource: https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/template.md
   author: Alex Frazer
-  last_modified: '2026-07-21T10:11:53-04:00'
-- id: evt-wg-security-and-privacy-file-9677055e316b-27369ef5
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/TEMPLATE.md
+  last_modified: '2026-10-26T11:07:46-04:00'
+- id: evt-working-group-chairs-file-b41d2241e043-0366462a
+  resource: https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/SKILL.md
   author: Alex Frazer
-  last_modified: '2026-07-21T10:11:53-04:00'
-- id: evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/2026-06-report.md
-  author: Alex Frazer
-  last_modified: '2026-07-21T10:11:53-04:00'
+  last_modified: '2026-10-26T11:07:46-04:00'
 ---
 
 # Overview
-The Working Group Monthly Reporting Guidelines define the mandatory format, submission cadence, and review workflow for progress reports delivered by AAIF working groups to the `../governance/technical-committee.md`[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]. These updates maintain asynchronous transparency across working group activities, track deliverable velocity against charter milestones, and surface explicit governance requests requiring Technical Committee review[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d].
+The Working Group Reporting Template defines the canonical document structure and submission protocol for monthly status reports submitted by AAIF working groups to the [Technical Committee](../governance/technical-committee.md) [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2]. Maintained in the `aaif/working-group-chairs` repository and executed via [aaif-wg-monthly-report](../skills/aaif-wg-monthly-report.md), this format ensures asynchronous scannability and verifiable progress tracking across foundation workstreams [^evt-working-group-chairs-file-b41d2241e043-0366462a].
 
 # Architecture / Specification
+Reports must be saved to `reporting/YYYY-MM-report.md` (e.g., `reporting/2026-06-report.md`) and submitted via pull request titled `[Report] <YYYY-MM>` with the `monthly-report` label [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2]. Reports are due on the final business day of the reporting month, initiating a 7-calendar-day TC review window [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
 
-## Cadence and Review Lifecycles
-Monthly reports follow strict scheduling invariants[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]:
-- **Submission Deadline**: Due by the last business day of each reporting calendar month under the naming convention `reporting/YYYY-MM-report.md`[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-- **Review Window**: The Technical Committee review window closes seven calendar days following submission[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-- **Merge Criteria**: The pull request is merged once the Technical Committee liaison signs off or when the seven-day review window elapses without objection, whichever occurs sooner[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-aef0bad9a49f-35abad8d].
+## Required Schema Sections
+- **Frontmatter Metadata**: Captures working group name, reporting period, chair names with affiliations, and submission date [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Summary**: A concise 2–3 sentence executive synopsis [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Progress Against Objectives**: Concrete deliverables tied to charter goals, prior month commitments, or tracked KPIs [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Ecosystem Highlights**: External cross-group engagements such as OWASP, AARM, or MCP [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Blockers and Risks**: Identified impediments with associated impact, dependencies, and owners [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Decisions Needed from the TC**: Explicit, actionable requests with deadlines and recommended motions [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Next Month's Focus**: Top 2–3 prioritized objectives [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
+- **Metrics / Links**: Verified URLs to merged PRs, releases, issues, and dashboard milestones [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
 
-## Document Structure
-Each report implements the canonical template structure[^evt-wg-security-and-privacy-file-9677055e316b-27369ef5]:
-1. **Header Metadata**: Working Group name, reporting period (`Month YYYY`), Chair(s) and affiliations, and submission date (`YYYY-MM-DD`)[^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
-2. **Summary**: High-level two-to-three sentence narrative summarizing overall monthly progress[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
-3. **Progress Against Objectives**: Concise bullet points tying delivered or progressed work directly back to charter deliverables[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-4. **Ecosystem Highlights**: External engagement updates with complementary standards organizations (e.g. OWASP, AARM, MCP ACS)[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
-5. **Blockers and Risks**: Operational, scheduling, or technical risks affecting workstream pacing[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-6. **Decisions Needed from the TC**: Unambiguous, actionable governance questions or mandate requests requiring formal Technical Committee decision[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
-7. **Next Month's Focus**: Top two to three forward-looking priorities[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-8. **Metrics / Links**: Progress against charter Key Performance Indicators across Adoption, Quality, Community, and Timeliness, followed by supporting URLs to pull requests and meeting records[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28][^evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d].
+# Lifecycle History
+- **Standardized**: Merged into `aaif/working-group-chairs` as the authoritative template under `skills/aaif-wg-monthly-report/template.md` [^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2].
 
-## Authoring and Evidence Constraints
-Authors and automated agents preparing reports must observe strict sourcing rules[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]:
-- Every claim must be grounded in repository git history, deliverables indexes, or authoritative meeting minutes[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-- Uncommitted deliverables may only be described as "drafted" or "in progress"[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-- Sections lacking activity must retain headings with explicit "None." or "None this month." placeholders rather than being omitted[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-- Reports are linked in reverse-chronological order within the working group's `reporting/README.md` index table[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
-
-# References
-- Governance policy: `../policies/working-group-lifecycle-policy.md`
-- Technical Committee: `../governance/technical-committee.md`
-- Report synthesis skill: `../skills/aaif-wg-monthly-report.md`
-
-[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
-[^evt-wg-security-and-privacy-file-9677055e316b-27369ef5]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/TEMPLATE.md
-[^evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/2026-06-report.md
+[^evt-working-group-chairs-file-b41d2241e043-0366462a]: https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/SKILL.md
+[^evt-working-group-chairs-file-f863c50ea9a7-ebe3d9f2]: https://github.com/aaif/working-group-chairs/blob/64a22a2d76dbf349c074cbba3e22d4a509a85e6e/skills/aaif-wg-monthly-report/template.md

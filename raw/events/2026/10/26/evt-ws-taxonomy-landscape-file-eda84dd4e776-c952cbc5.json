@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-eda84dd4e776-c952cbc5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": ".github/workflows/validate-taxonomy.yml",
+  "title": "validate-taxonomy.yml",
+  "timestamp": "2026-10-26T08:52:39-07:00",
+  "author": "Leonardo Galesky",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/b930afdb296bbce8613943327810e30a7b3d9ba5/.github/workflows/validate-taxonomy.yml",
+  "summary": "Clean up comments in validate-taxonomy.yml",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "b930afdb296bbce8613943327810e30a7b3d9ba5",
+      "path": ".github/workflows/validate-taxonomy.yml",
+      "blob_sha": "c952cbc5477de938f63c66a77285c9f368b41f6b",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

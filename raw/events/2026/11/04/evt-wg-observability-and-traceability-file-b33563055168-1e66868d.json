@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-file-b33563055168-1e66868d",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-11-04T13:50:31Z",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/blob/bbcac36693002be677c403bff7e400c15b23f39d/README.md",
+  "summary": "docs: add the liaison roster from the WG working document (#73)",
+  "pointers": [
+    {
+      "repo": "wg-observability-and-traceability",
+      "commit_sha": "bbcac36693002be677c403bff7e400c15b23f39d",
+      "path": "README.md",
+      "blob_sha": "1e66868def9e991292021dd90fe79a9bf04ef959",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

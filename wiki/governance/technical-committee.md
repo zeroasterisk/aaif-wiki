@@ -2,55 +2,69 @@
 type: governance
 title: Technical Committee
 description: Governing technical body of the Agentic AI Foundation overseeing technical
-  vision, standards, project lifecycles, and working groups.
-resource: https://github.com/aaif/technical-committee/blob/ac08e71a9073be6cf7f8c77bb0ad913893fe6d87/README.md
+  vision, project lifecycles, working groups, and open agent standards.
+resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md
 tags:
 - governance
-- technical-committee
-- charter
+- tc
 - aaif
+- charter
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:31:15.104701+00:00'
+  at: '2026-11-09T10:24:04.193516+00:00'
 sources:
-- id: evt-technical-committee-file-b33563055168-fc8fa852
-  resource: https://github.com/aaif/technical-committee/blob/ac08e71a9073be6cf7f8c77bb0ad913893fe6d87/README.md
-  author: Christina Harter
-  last_modified: '2026-10-29T12:22:27-07:00'
+- id: evt-technical-committee-file-29954f63e09f-b0f27f04
+  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:14:10+11:00'
+- id: evt-technical-committee-file-b33563055168-8f2953e0
+  resource: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/README.md
+  author: Manik Surtani
+  last_modified: '2026-10-15T16:14:10+11:00'
 ---
 
 # Overview
 
-The AAIF Technical Committee (TC) is the technical governing body of the Agentic AI Foundation, responsible for overseeing technical standards, best practices, and the technical vision of the Foundation.[^evt-technical-committee-file-b33563055168-fc8fa852] The TC operates under the AAIF Technical Charter and manages project admissions, lifecycle stage progressions, and working group reviews across the foundation's ecosystem.[^evt-technical-committee-file-b33563055168-fc8fa852]
+The AAIF Technical Committee (TC) is the technical governing body of the Agentic AI Foundation, operating under the AAIF Governing Board (GB) as part of The Linux Foundation [^evt-technical-committee-file-29954f63e09f-b0f27f04]. Adopted on March 3, 2026, the TC Charter establishes the committee's mandate to define technical vision, review and recommend technical projects, charter and archive working groups, and administer the foundation's project lifecycle policies [^evt-technical-committee-file-29954f63e09f-b0f27f04].
 
 # Architecture / Specification
 
-## Composition and Terms
+## Purpose and Responsibilities
 
-Founding TC members were appointed by the AAIF Governing Board for the term running from March 1, 2026, through December 31, 2026:[^evt-technical-committee-file-b33563055168-fc8fa852]
+The TC assists the Governing Board with technical governance through several primary functions [^evt-technical-committee-file-29954f63e09f-b0f27f04]:
 
-- **David Soria Parra (Chair)** — Anthropic
-- **Caitie McCaffrey (Co-Chair)** — Microsoft
-- **Alan Blount** — Google
-- **Bradley Axen** — Block
-- **James Ward** — Amazon Web Services
-- **Nick Cooper** — OpenAI
-- **Sambhav Kothari** — Bloomberg
-- **Steve Faulkner** — Cloudflare
+- **Project Evaluation and Recommendations:** Reviewing incoming project proposals and recommending qualifying initiatives to the Governing Board for acceptance as Technical Projects [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+- **Lifecycle Administration:** Applying and maintaining the [Project Lifecycle Policy](../policies/project-lifecycle-policy.md), governing transitions across stages (including Sandbox, Growth, and Impact), and defining the [Project Proposal Process](../policies/project-proposal-process.md) [^evt-technical-committee-file-29954f63e09f-b0f27f04] [^evt-technical-committee-file-b33563055168-8f2953e0].
+- **Working Group Oversight:** Establishing, managing, and archiving technical Working Groups under the [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md) and reviewing monthly working group reports [^evt-technical-committee-file-29954f63e09f-b0f27f04] [^evt-technical-committee-file-b33563055168-8f2953e0].
+- **Technical Coordination:** Fostering cross-project collaboration, establishing architectural baselines, and advising the Governing Board on technical resource priorities [^evt-technical-committee-file-29954f63e09f-b0f27f04].
 
-## Governance Authority and Processes
+## Composition and Leadership
 
-The Technical Committee maintains and enforces authoritative governance documents across the AAIF repository estate:[^evt-technical-committee-file-b33563055168-fc8fa852]
+Each Platinum Member of the AAIF is entitled to appoint one representative to the TC [^evt-technical-committee-file-29954f63e09f-b0f27f04]. Foundational voting members appointed by the Governing Board for the term spanning March 1, 2026 through December 31, 2026 include [^evt-technical-committee-file-b33563055168-8f2953e0]:
 
-- **Technical Charter**: Defines TC composition, meeting structure, voting quorums, and formal responsibilities.
-- **Project Lifecycle Policy**: Dictates admission gates and criteria across Sandbox, Growth, and Impact stages (see [Project Lifecycle Policy](../policies/project-lifecycle-policy.md)).[^evt-technical-committee-file-b33563055168-fc8fa852]
-- **Project Proposal Process**: Establishes project intake, legal review, and onboarding workflows (see [Project Proposal Process](../policies/project-proposal-process.md)).[^evt-technical-committee-file-b33563055168-fc8fa852]
-- **Working Group Lifecycle Policy**: Governs proposal, charter approval, annual renewal, and sunsetting of working groups (see [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md)).[^evt-technical-committee-file-b33563055168-fc8fa852]
-- **Working Group Monthly Reporting**: Defines cadence and review workflows for working group operational reporting (see [Working Group Reporting Template](../guidelines/working-group-reporting-template.md)).[^evt-technical-committee-file-b33563055168-fc8fa852]
+- David Soria Parra (Anthropic) – TC Chair
+- Caitie McCaffrey (Microsoft) – TC Co-Chair
+- Alan Blount (Google)
+- Bradley Axen (Block)
+- James Ward (Amazon Web Services)
+- Nick Cooper (OpenAI)
+- Sambhav Kothari (Bloomberg)
+- Steve Faulkner (Cloudflare)
 
-## Project Oversight
+## Decision-Making and Voting Rules
 
-The TC tracks projects across stages, including [Agent Skills](../standards/agent-skills.md) (Impact Stage), Agent Router (Growth Stage), and Agent2Agent / A2A (Growth Stage).[^evt-technical-committee-file-b33563055168-fc8fa852]
+While operating primarily on consensus, formal decisions follow defined procedural rules [^evt-technical-committee-file-29954f63e09f-b0f27f04]:
 
-[^evt-technical-committee-file-b33563055168-fc8fa852]: https://github.com/aaif/technical-committee/blob/ac08e71a9073be6cf7f8c77bb0ad913893fe6d87/README.md
+- **Voting Weight:** Each voting member possesses one vote [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+- **Quorum:** At least 50% of voting members must be present during a meeting to conduct binding votes [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+- **Lazy Consensus:** Routine proposals follow a 7-day silence-as-agreement model, automatically approving actions if no formal objection is registered within seven calendar days [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+- **Electronic Voting:** If an objection arises against a lazy-consensus proposal, electronic approval requires a majority vote across all TC voting members [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+- **Charter Amendments:** Changes to the TC Charter require approval by two-thirds of the TC and final approval by the Governing Board [^evt-technical-committee-file-29954f63e09f-b0f27f04].
+
+## Hosted Technical Projects
+
+The TC oversees prominent foundational open-source agent projects, including Model Context Protocol (MCP) and [goose](../resources/goose.md) at the Impact Stage [^evt-technical-committee-file-b33563055168-8f2953e0].
+
+[^evt-technical-committee-file-29954f63e09f-b0f27f04]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/governance/charter.md
+[^evt-technical-committee-file-b33563055168-8f2953e0]: https://github.com/aaif/technical-committee/blob/684c3d2a07da3a8d55f87647bc125b2fcd5631be/README.md
