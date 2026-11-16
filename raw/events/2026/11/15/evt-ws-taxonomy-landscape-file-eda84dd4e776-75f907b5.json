@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-eda84dd4e776-75f907b5",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": ".github/workflows/validate-taxonomy.yml",
+  "title": "validate-taxonomy.yml",
+  "timestamp": "2026-11-15T16:56:33-08:00",
+  "author": "Matt Lee",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/.github/workflows/validate-taxonomy.yml",
+  "summary": "ci: validate the PR merge ref instead of the PR head",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "719905a88f11ab6846080313dfe4b8c423411235",
+      "path": ".github/workflows/validate-taxonomy.yml",
+      "blob_sha": "75f907b534b0ffaec0ddcbc612027fd79c91da1c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

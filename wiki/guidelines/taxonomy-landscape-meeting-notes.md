@@ -1,72 +1,56 @@
 ---
 type: guideline
-title: Taxonomy and Landscape Meeting Notes Guidelines
-description: Standardized structure, section requirements, and metadata conventions
-  for authoring Taxonomy and Landscape workstream meeting notes.
-resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/TEMPLATES.md
+title: Taxonomy and Landscape Meeting Notes Guideline
+description: Standardized file-naming, structural requirements, table index maintenance,
+  and editorial style rules for authoring Taxonomy and Landscape meeting notes.
+resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/AGENTS.md
 tags:
 - guideline
 - taxonomy
-- landscape
 - meeting-notes
-- templates
+- operations
+- governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T09:37:36.046289+00:00'
+  at: '2026-11-16T09:51:53.045436+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f
-  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/TEMPLATES.md
+- id: evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/AGENTS.md
   author: mindpower
-  last_modified: '2026-06-30T06:18:34-07:00'
+  last_modified: '2026-06-27T21:46:55-07:00'
 ---
 
 # Overview
-The Taxonomy and Landscape Meeting Notes Guidelines define the standardized template and document structure for recording weekly syncs of the Taxonomy and Landscape workstream.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f] Maintained in the workstream repository, the format guarantees consistent tracking of automated meeting summaries, topics, consensus decisions, deliverables, and assigned action items.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
+The Taxonomy and Landscape Meeting Notes Guideline specifies the repository structure, ingestion procedure, editorial style, and index management rules for documenting meetings within the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md) [^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea]. It provides automated agents and human contributors with repeatable instructions for creating uniform records from call recordings, transcripts, and AI-generated summaries.
 
 # Architecture / Specification
 
-## Canonical Markdown Template
-Meeting note documents must adhere to the standardized markdown structure:[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
+## File Naming and Location
+Each meeting's notes must be authored in the `meeting-notes/` directory as `YYYY-MM-DD.md` using the exact date of the meeting (such as `2026-03-17.md`), initialized directly from `TEMPLATE.md` [^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea].
 
-```markdown
-# Taxonomy and Landscape Workstream
+## Ingestion and Assembly Workflow
+Contributors and automated document generation agents must follow an eight-step procedure [^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea]:
+1. Copy `TEMPLATE.md` into the new `YYYY-MM-DD.md` file.
+2. Replace the `YYYY-MM-DD` placeholder in the title with the actual meeting date.
+3. Populate the **Resources** section with links to the recording, transcript, and AI summary.
+4. Detail the discussion points under **Topics Discussed**, keeping each item to 1–2 concise sentences.
+5. Document any formal agreements under **Decisions**; if none occurred, write "None."
+6. Document expected outputs under **Deliverables**; if none occurred, write "None."
+7. Fill in the **Action Items** table with owner name, task description, and due date.
+8. Add a new row to the table in `README.md` directly below the table header to maintain descending chronological order. The row must contain the meeting date, a markdown link labeled "Full notes" referencing the file, and a 1–2 sentence summary of key topics.
 
-## Meeting — YYYY-MM-DD
+## Section Handling Rules
+Sections that have no recorded activity must never be omitted or deleted. The section heading must remain intact with the content set to "None." to guarantee structural consistency across all repository notes [^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea].
 
-## Resources
+## Editorial and Communication Style
+All documentation, commit messages, pull request descriptions, and agent responses across the repository must comply with specific stylistic requirements [^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea]:
+- Format entries as concise bullet points rather than narrative paragraphs.
+- Attribute action items to named individuals whenever possible.
+- Do not use contrastive language.
+- Do not insert horizontal rules for line breaks.
+- Avoid sycophancy or deferential filler.
+- Be direct while avoiding incomplete clauses or fragmented sentence structures.
+- Maintain a neutral, professional tone that remains approachable and playful.
 
-- [AI Summary](link)
-
-## Topics Discussed
-
-- Topic 1
-- Topic 2
-
-## Decisions
-
-- Decision 1
-
-## Deliverables
-
-- Deliverable 1
-
-## Action Items
-
-| Owner | Action | Due |
-|-------|--------|-----|
-| Name  | Task   | Date |
-```
-
-## Section Requirements
-- **Meeting Header:** Level-1 title identifying the workstream followed by a Level-2 header specifying the date in ISO format (`YYYY-MM-DD`).[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-- **Resources:** Direct link to recording or AI summary platforms (such as Zoom LFX).[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-- **Topics Discussed:** Bulleted narrative tracking discussion items, debate points, and presentations.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-- **Decisions:** Explicit record of consensus decisions, procedural resets, and policy agreements.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-- **Deliverables:** Status updates or milestone completions for workstream artifacts.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-- **Action Items:** Structured Markdown table capturing the owner, specific action, and due date.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-
-# Lifecycle History
-The standardized `TEMPLATES.md` specification was ratified in June 2026 to govern all synchronous meeting records published to the workstream repository.[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]
-
-[^evt-ws-taxonomy-landscape-file-32390fa5133a-785f207f]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/TEMPLATES.md
+[^evt-ws-taxonomy-landscape-file-eb9c68e792e7-e45bd7ea]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/meeting-notes/AGENTS.md

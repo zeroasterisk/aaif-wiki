@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-102",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#102",
+  "title": "add(taxonomy): define Reliability",
+  "timestamp": "2026-11-12T09:20:37Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/102",
+  "summary": "Add Reliability as stability of correct results across repeated runs and changing conditions within a declared scope. The scope note names its four dimensions (consistency, robustness, predictability, safety) and separates it from platform availability.\n\nSource: ARWG Deliverable ...",
+  "pointers": [],
+  "inline_text": "Add Reliability as stability of correct results across repeated runs and changing conditions within a declared scope. The scope note names its four dimensions (consistency, robustness, predictability, safety) and separates it from platform availability.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Accuracy (contrast) and Infrastructure.",
+  "labels": []
+}

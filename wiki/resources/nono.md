@@ -1,37 +1,42 @@
 ---
 type: resource
-title: nono Agent Runtime Sandbox
+title: nono
 description: Open-source agent runtime security tool providing kernel-enforced sandboxing,
-  credential isolation, and deterministic cross-boundary audit logs.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
+  credential isolation, and Sigstore-based instruction verification.
+resource: https://github.com/aaif/project-proposals/issues/61
 tags:
-- runtime
-- sandbox
 - security
-- observability
-- reference-architecture
+- sandbox
+- runtime
+- proposal
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:06:09.211306+00:00'
+  at: '2026-11-16T10:35:58.956192+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-52
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/52
-  author: Salkimmich
-  last_modified: '2026-09-24T03:32:21+00:00'
+- id: evt-project-proposals-issue-61
+  resource: https://github.com/aaif/project-proposals/issues/61
+  author: lukehinds
+  last_modified: '2026-10-17T08:06:23+00:00'
 ---
 
 # Overview
-`nono` is an open-source agent runtime security framework that executes untrusted AI agent workloads inside kernel-enforced sandboxes with strict credential isolation[^evt-wg-observability-and-traceability-pr-52]. Evaluated under the Primitives and Protocol Observability focus group of the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), `nono` serves as a reference architecture satisfying the SAF-M-74 runtime class by providing hardware- and kernel-level process boundaries, credential protection, and cryptographic execution logs[^evt-wg-observability-and-traceability-pr-52].
+
+`nono` is an open-source agent runtime security tool designed to isolate agent processes, tools, credentials, and configuration files via kernel-enforced sandboxing with minimal overhead and zero setup.[^evt-project-proposals-issue-61] It applies composable security policies residing outside the agent's direct control to secure coding agents, general-purpose autonomous runtimes, custom agent frameworks, and Model Context Protocol (MCP) servers.[^evt-project-proposals-issue-61]
+
+Created in February 2026 by Luke Hinds, nono was submitted as a Sandbox project proposal to the Agentic AI Foundation with Technical Committee sponsorship from Bloomberg.[^evt-project-proposals-issue-61]
 
 # Architecture / Specification
-`nono` establishes boundary observability and runtime protection across agent-to-gateway and agent-to-tool boundaries[^evt-wg-observability-and-traceability-pr-52]:
-- **Kernel-Enforced Execution Boundary**: Enforces process isolation below Layer 7 to prevent compromised agents or hijacked tools from accessing unauthorized host filesystems or network interfaces[^evt-wg-observability-and-traceability-pr-52].
-- **Cryptographic Audit Hashing**: Emits deterministic execution logs validated against golden test vectors and alpha hashing schemes to prove runtime integrity[^evt-wg-observability-and-traceability-pr-52].
-- **Trace Context Propagation Limitations**: Current runtime realizations do not propagate standard W3C distributed tracing context (`traceparent`, `tracestate`, `baggage`) into sandboxed execution environments by default, requiring explicit environment variable allow-lists and trace identifier mappings on audit records for full OpenTelemetry correlation[^evt-wg-observability-and-traceability-pr-52].
-- **Human-in-the-Loop Integration**: Surfaces runtime evidence records for Agent-to-Human (HITL) checkpoints and authorization delegations[^evt-wg-observability-and-traceability-pr-52].
+
+Nono operates as host-level security infrastructure complementary to network-layer proxies such as `agentgateway`:[^evt-project-proposals-issue-61]
+- **Kernel-Enforced Sandboxing:** Restricts agent file system access, network socket creation, and child process execution according to per-command profiles.
+- **Instruction and Skill Attestation:** Integrates Sigstore cryptographic signatures to verify the provenance and integrity of agent instruction files (such as `AGENTS.md`), blocking tampered or unverified prompt directives at the operating system access layer.[^evt-project-proposals-issue-61]
+- **Credential Protection:** Keeps sensitive API keys, authorization tokens, and secrets isolated from untrusted tool calls and rogue agent workflows.[^evt-project-proposals-issue-61]
+- **Ecosystem Integration:** Enforces least-privilege constraints across runtimes such as [Goose](../resources/goose.md), Claude Code, OpenCode, and frameworks including ADK, Pydantic AI, and LangChain.[^evt-project-proposals-issue-61]
 
 # Lifecycle History
-Reviewed in the Observability and Traceability Working Group under reference architecture `AAIF-REF-ARCH-NONO`, establishing baseline telemetry rows and identifying downstream OTLP export requirements[^evt-wg-observability-and-traceability-pr-52].
 
-[^evt-wg-observability-and-traceability-pr-52]: https://github.com/aaif/wg-observability-and-traceability/pull/52
+- **February 2026:** Initial creation by Luke Hinds.[^evt-project-proposals-issue-61]
+- **October 2026:** Submitted under Issue #61 to the AAIF Technical Committee for entry as an AAIF Sandbox project, sponsored by Sambhav Kothari.[^evt-project-proposals-issue-61]
+
+[^evt-project-proposals-issue-61]: https://github.com/aaif/project-proposals/issues/61

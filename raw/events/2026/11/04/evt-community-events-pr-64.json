@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-64",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#64",
+  "title": "docs(cities): the form no longer offers Tokyo",
+  "timestamp": "2026-11-04T00:51:10Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/64",
+  "summary": "Docstring-only change to `lib/aaif_events/cities.py`.\n\nThe intake form's city dropdown was resynced to the Chapters List on 2026-11-03, so it offers Japan and New Zealand instead of Tokyo and Wellington. The docstring still said the dropdown offered Tokyo. It now says why the fol...",
+  "pointers": [],
+  "inline_text": "Docstring-only change to `lib/aaif_events/cities.py`.\n\nThe intake form's city dropdown was resynced to the Chapters List on 2026-11-03, so it offers Japan and New Zealand instead of Tokyo and Wellington. The docstring still said the dropdown offered Tokyo. It now says why the fold stays: older rows carry the old cities, and an \\\"Other\\\" answer can still type one.\n\nNo behaviour change; library tests pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

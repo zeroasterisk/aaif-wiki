@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-101",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#101",
+  "title": "add(taxonomy): define Accuracy",
+  "timestamp": "2026-11-16T00:57:21Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/101",
+  "summary": "Add Accuracy as a single-run correctness property judged against a declared correctness criterion, with outcome and action accuracy declared in the scope note.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted...",
+  "pointers": [],
+  "inline_text": "Add Accuracy as a single-run correctness property judged against a declared correctness criterion, with outcome and action accuracy declared in the scope note.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Reliability as a contrasting term.",
+  "labels": []
+}

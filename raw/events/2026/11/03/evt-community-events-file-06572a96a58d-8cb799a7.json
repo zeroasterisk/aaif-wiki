@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-06572a96a58d-8cb799a7",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "CHANGELOG.md",
+  "title": "CHANGELOG.md",
+  "timestamp": "2026-11-03T22:34:13-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/CHANGELOG.md",
+  "summary": "docs: each operator creates their own Google file and Slack and Luma keys",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f46c3425e92d63c336889819e21e8af88cc4abff",
+      "path": "CHANGELOG.md",
+      "blob_sha": "8cb799a701054bb7025ddd56abf6b0ad6261d22f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

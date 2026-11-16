@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-76",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#76",
+  "title": "docs: draft agent identity attribution and async trace for #50",
+  "timestamp": "2026-11-14T10:09:49Z",
+  "author": "wlad232",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/76",
+  "summary": "## Summary\n\nProposes attribution fields for agent identity telemetry and shows how a dispatch refusal and a revocation after dispatch would appear across a synthetic asynchronous queue. Separates approved span fields from the deciding party's audit evidence.\n\n## Related Issue\n\nUp...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nProposes attribution fields for agent identity telemetry and shows how a dispatch refusal and a revocation after dispatch would appear across a synthetic asynchronous queue. Separates approved span fields from the deciding party's audit evidence.\n\n## Related Issue\n\nUpdates #50. Cross-references Marc Molas Carol's accountability and redaction proposal in #75 and the span-to-record discussion in #67.\n\n## Review Notes\n\nPlease review the attribute placements, the distinction between refusal and a check that did not run, and what context may pass a trust boundary. Security & Privacy review is requested for the export and baggage rules. The examples specify expected output for an instrumented test.\n\n## Follow-ups\n\nAgree on attribute names and add an instrumented async trace. Incorporate the accountability section with Marc's attribution after review of #75.\n\n## Checklist\n\n- [x] Linked the relevant issue and proposal\n- [x] Documented the next steps\n- [x] Added a draft status and date\n\nPrepared with OpenAI Codex.",
+  "labels": []
+}

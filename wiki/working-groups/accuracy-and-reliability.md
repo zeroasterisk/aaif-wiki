@@ -1,37 +1,43 @@
 ---
 type: working-group
 title: Accuracy and Reliability Working Group
-description: AAIF technical working group establishing failure taxonomies, evaluation
-  benchmarks, and recovery specifications for agent accuracy and operational reliability.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/issues/12
+description: Technical working group defining failure mode taxonomies, evaluation
+  frameworks, reliable architectures, and gap analysis benchmarks for agentic AI.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/16
 tags:
-- accuracy
 - reliability
+- accuracy
+- benchmarks
 - evaluation
-- conformance
+- durable-execution
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:05:17.279542+00:00'
+  at: '2026-11-16T10:45:37.921247+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-issue-12
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/issues/12
-  author: smcd
-  last_modified: '2026-09-24T00:35:03+00:00'
+- id: evt-wg-accuracy-and-reliability-pr-16
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/16
+  author: jayanti-prajapati
+  last_modified: '2026-11-15T15:22:53+00:00'
 ---
 
 # Overview
 
-The Accuracy and Reliability Working Group develops standardized failure taxonomies, evaluation benchmarks, and verification suites to quantify and improve the operational reliability of agentic systems[^evt-wg-accuracy-and-reliability-issue-12]. It defines structured deliverables spanning taxonomy, evaluation harnesses, and recovery mechanisms across varying deployment contexts[^evt-wg-accuracy-and-reliability-issue-12].
+The Accuracy and Reliability Working Group develops evaluation benchmarks, failure mode classifications, and architectural patterns to ensure predictable and recoverable agent execution [^evt-wg-accuracy-and-reliability-pr-16]. Its work centers on benchmarking agent performance, mitigating non-deterministic failure modes, and establishing standards for safe tool execution [^evt-wg-accuracy-and-reliability-pr-16].
 
 # Architecture / Specification
 
-The group is defining key deliverables while addressing boundary and jurisdiction challenges:
-- **Vocabulary Conformance (D6)**: Clarifying self-assessment tests, conformance validation artifacts, and consistency checks to avoid conflation with statutory "conformity assessment" procedures established under EU AI Act Article 43[^evt-wg-accuracy-and-reliability-issue-12].
-- **Quality Thresholds (D4)**: Formulating operational thresholds for accuracy, robustness, and failure recovery while defining jurisdiction scope statements to distinguish technical benchmarks from regulatory presumption-of-conformity standards (such as EU AI Act Article 15 and CEN-CENELEC JTC 21 harmonised standards) and US voluntary guidance like the NIST AI RMF[^evt-wg-accuracy-and-reliability-issue-12].
+The working group structures its outputs around empirical surveys, failure classification schemas, and gap analysis deliverables.
 
-# References
+## Deliverable Tracks
 
-- Accuracy and Reliability Working Group [Issue #12](https://github.com/aaif/wg-accuracy-and-reliability/issues/12)[^evt-wg-accuracy-and-reliability-issue-12]
+- **D1 Benchmark Framework**: Establishes foundational reliability definitions, failure taxonomies, and testing methodologies [^evt-wg-accuracy-and-reliability-pr-16].
+- **D2 Gap Analysis and Benchmark Survey**: Evaluates operational capabilities and tooling gaps across the production agent lifecycle using structured question cards [^evt-wg-accuracy-and-reliability-pr-16].
+- **Side-Effect Safety**: Analyzes guarantees required to enforce exactly-once execution when agent tool calls fail or time out [^evt-wg-accuracy-and-reliability-pr-16].
+- **Durable Execution**: Analyzes patterns such as [Durable Wait](../patterns/durable-wait.md) and state persistence to ensure recoverability following process interruptions [^evt-wg-accuracy-and-reliability-pr-16].
 
-[^evt-wg-accuracy-and-reliability-issue-12]: https://github.com/aaif/wg-accuracy-and-reliability/issues/12
+# Lifecycle History
+
+Deliverable D2 was drafted in PR#16, introducing a modular question-card format across lifecycle stages to track gaps in tooling, side-effect safety, and durable execution [^evt-wg-accuracy-and-reliability-pr-16].
+
+[^evt-wg-accuracy-and-reliability-pr-16]: https://github.com/aaif/wg-accuracy-and-reliability/pull/16

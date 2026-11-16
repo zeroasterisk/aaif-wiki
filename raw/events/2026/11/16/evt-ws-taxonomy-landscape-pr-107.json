@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-107",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#107",
+  "title": "ci: validate the PR merge ref instead of the PR head",
+  "timestamp": "2026-11-16T00:56:34Z",
+  "author": "mr-lee",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/107",
+  "summary": "The `validate` check failed on #90 before any validation ran:\n\n```\n##[error]Dependencies lock file is not found in /home/runner/work/ws-taxonomy-landscape/ws-taxonomy-landscape. Supported file patterns: package-lock.json,npm-shrinkwrap.json,yarn.lock\n```\n\nThe job checks out the P...",
+  "pointers": [],
+  "inline_text": "The `validate` check failed on #90 before any validation ran:\n\n```\n##[error]Dependencies lock file is not found in /home/runner/work/ws-taxonomy-landscape/ws-taxonomy-landscape. Supported file patterns: package-lock.json,npm-shrinkwrap.json,yarn.lock\n```\n\nThe job checks out the PR head sha. #90's branch was cut before #79 added `package.json`, `package-lock.json` and the validator, so the head has none of them and `setup-node` (with `cache: npm`) fails. Any PR branched before #79 hits the same failure.\n\nThis change checks out `refs/pull/<n>/merge` on `pull_request_review`, so the job validates the PR merged into main, which is what would land. `workflow_dispatch` leaves `ref` empty and keeps using the dispatched ref.\n\nIf a PR has merge conflicts, GitHub has no merge ref and checkout fails; the PR has to be rebased before it can be validated.\n\nChecked:\n- `actionlint` passes on the workflow.\n- `npm run check` passes on main (which includes #90), and that tree has the lockfile.",
+  "labels": []
+}

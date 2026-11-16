@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-a54ff182c7e8-b01e6de9",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "AGENTS.md",
+  "title": "AGENTS.md",
+  "timestamp": "2026-11-03T22:34:13-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/AGENTS.md",
+  "summary": "docs: each operator creates their own Google file and Slack and Luma keys",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f46c3425e92d63c336889819e21e8af88cc4abff",
+      "path": "AGENTS.md",
+      "blob_sha": "b01e6de90cc8183a33c3af270404f97320e47ef3",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

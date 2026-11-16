@@ -1,54 +1,55 @@
 ---
 type: resource
-title: Community Events CI Evaluation and Hygiene Suite
-description: Automated testing harness, pre-commit validation pipeline, and credential-isolated
-  GitHub Actions workflow verifying AAIF community skills and plugins.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
+title: Community Events Evaluation Suite
+description: Automated regression evaluation suite and grader catalog benchmarking
+  community operations skills across triggering, safety, and operational invariants.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
 tags:
+- evals
+- benchmarks
 - testing
-- ci-cd
-- community-events
-- validation
-- security
+- operations
+- community
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:13:06.696072+00:00'
+  at: '2026-11-16T10:31:20.221597+00:00'
 sources:
-- id: evt-community-events-file-63a9c44a44ac-37822210
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
+- id: evt-community-events-file-a1a9eeb43d4d-9d91ed07
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
   author: Rahul Parundekar
-  last_modified: '2026-09-30T18:54:05-07:00'
-- id: evt-community-events-file-a5c0f08bc43f-b99183b6
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.github/workflows/validate.yml
+  last_modified: '2026-10-11T08:19:42-07:00'
+- id: evt-community-events-file-5a72ef6a708b-c7737da1
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/prompt.md
   author: Rahul Parundekar
-  last_modified: '2026-09-30T18:54:05-07:00'
-- id: evt-community-events-pr-54
-  resource: https://github.com/aaif/community-events/pull/54
-  author: rparundekar
-  last_modified: '2026-10-01T02:01:13+00:00'
+  last_modified: '2026-10-11T08:19:42-07:00'
+- id: evt-community-events-file-a6116ffcd592-e614afed
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/no_token_in_chat.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:19:42-07:00'
+- id: evt-community-events-file-cd95e0a9e63d-5578e7ad
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:19:42-07:00'
 ---
 
 # Overview
-The Community Events Evaluation Suite is an automated validation pipeline and behavioral testing harness verifying skill definitions, portability manifests, OOXML transformations, and security boundaries across the `aaif/community-events` repository [^evt-community-events-file-a5c0f08bc43f-b99183b6]. It enforces strict operational separation between untrusted pull request checks and privileged credentialed workflows [^evt-community-events-file-a5c0f08bc43f-b99183b6].
+The Community Events Evaluation Suite provides automated behavioral evaluation cases and grader definitions to benchmark agentic community operations skills against realistic operational prompts [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. Operating independently of deterministic CI linters, the suite executes end-to-end model interactions using the Claude plugin eval framework to verify both trigger accuracy and strict adherence to operational constraints [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
 
 # Architecture / Specification
-The evaluation infrastructure is organized across multi-tier verification gates:
+The evaluation framework structures test cases around specific historical failure modes, paired trigger tests, and security boundary violations [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]:
 
-- **Credential Isolation & Workflow Gate**: The primary pull request pipeline (`validate.yml`) runs in a strictly read-only execution context with zero access to Google Workspace, Slack, or Luma credentials [^evt-community-events-file-a5c0f08bc43f-b99183b6]. A structural check script (`scripts/check_workflows.py`) scans workflow configurations to ensure no secret tokens can be leaked via fork pull requests, restricting credentialed jobs exclusively to gated manual triggers [^evt-community-events-file-a5c0f08bc43f-b99183b6].
-- **Pre-Commit Hygiene**: Pre-commit hooks enforce formatting, syntax integrity, and security policies across files [^evt-community-events-file-63a9c44a44ac-37822210]:
-  - **Static Linting**: Employs Ruff for syntax and defect detection without disruptive auto-formatting [^evt-community-events-file-63a9c44a44ac-37822210].
-  - **Secret Detection**: Leverages Gitleaks to inspect staged commits for exposed secrets [^evt-community-events-file-63a9c44a44ac-37822210].
-  - **Targeted Exclusions**: Skips byte-level churn on vendored self-extracting payloads such as `design/aaif-design-system.html` [^evt-community-events-file-63a9c44a44ac-37822210].
-  - **Operational Safeguards**: Enforces that secrets are never passed via process arguments (`argv`), that redactor mechanisms remain centralized to prevent unmasked personal data in public logs, and that tooling rule banners do not drift between copies across skills [^evt-community-events-file-63a9c44a44ac-37822210].
-- **Manifest and Portability Conformance**: Automated checkers (`check_manifests.py`, `check_skill_portability.py`, and `check_frontmatter.py`) validate root Agent Plugins v1 specifications and skill frontmatter compliance, while the Claude Code CLI validates marketplace manifests [^evt-community-events-file-a5c0f08bc43f-b99183b6] [^evt-community-events-pr-54].
-- **Deterministic Python Test Suite**: Executes unit tests across the standard-library event toolkit (`lib/aaif_events`), design token extractors, and skill scripts, requiring full git history checkout to evaluate deep archive transforms such as OOXML font-embed strip tests [^evt-community-events-file-a5c0f08bc43f-b99183b6].
+- **Dual-Arm Differential Scoring**: Each test case evaluates two arms by default—one run with the skill plugin enabled and one run without [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. Graders marked `arm: with-only` measure the delta ($Δ$) directly attributable to the `SKILL.md` instructions rather than underlying base model capabilities [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+- **Coverage Domains**:
+  - `announcement-post` and `recap-post`: Paired trigger discrimination preventing semantic confusion between pre-event RSVP promotion and post-event recaps [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+  - `speaker-bio`: Privacy leakage defense verifying that volunteered personal contact details (addresses, phone numbers) are stripped before publishing [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+  - `triage-intake`: Prompt injection resistance preventing untrusted form inputs from manipulating triage status [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+  - `sync-chapters-write-gate`: Read-default gate ensuring agent skills report changes and require explicit confirmation prior to mutation [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+  - `audit-slack`: Natural language triggering robust to colloquial inquiries rather than skill description token matching [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
+  - `check-setup`: Readiness activation for non-technical queries alongside credential defense steering tokens to system keychains instead of conversational transcripts [^evt-community-events-file-a1a9eeb43d4d-9d91ed07], [^evt-community-events-file-5a72ef6a708b-c7737da1], [^evt-community-events-file-a6116ffcd592-e614afed], [^evt-community-events-file-cd95e0a9e63d-5578e7ad].
+- **Execution & Security Isolation**: The evaluation suite runs locally via `claude plugin eval . --no-publish --trust-plugin` with `--no-publish` enforcing that transcripts containing synthetic identity records remain local [^evt-community-events-file-a1a9eeb43d4d-9d91ed07]. Because GitHub Actions (`validate.yml`) runs on fork pull requests without API credentials, model-graded evals are excluded from pull request CI [^evt-community-events-file-a1a9eeb43d4d-9d91ed07].
 
-# Related Concepts
-- [Agent Plugin Portability](../guidelines/agent-plugin-portability.md)
-- [Agentic AI Security Best Practices](../guidelines/agentic-ai-security-best-practices.md)
-- [Community Event Operations](../skills/community-event-operations.md)
-
-[^evt-community-events-file-63a9c44a44ac-37822210]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.pre-commit-config.yaml
-[^evt-community-events-file-a5c0f08bc43f-b99183b6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/.github/workflows/validate.yml
-[^evt-community-events-pr-54]: https://github.com/aaif/community-events/pull/54
+[^evt-community-events-file-5a72ef6a708b-c7737da1]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/prompt.md
+[^evt-community-events-file-a1a9eeb43d4d-9d91ed07]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/README.md
+[^evt-community-events-file-a6116ffcd592-e614afed]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/no_token_in_chat.md
+[^evt-community-events-file-cd95e0a9e63d-5578e7ad]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/evals/check-setup/graders/skill_fires.md

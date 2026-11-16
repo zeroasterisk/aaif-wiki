@@ -1,36 +1,45 @@
 ---
 type: taxonomy
-title: Workflow Execution Primitives
-description: Foundational vocabulary and structural execution primitives defined by
-  the Workflows and Process Integration Working Group.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/40
+title: Workflow Primitives
+description: Structural vocabulary and modular execution primitives standardizing
+  agent task boundaries, execution steps, budgets, and handoff contracts.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
 tags:
-- taxonomy
 - workflows
-- control-flow
-- determinism
 - primitives
+- taxonomy
+- orchestration
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T09:54:13.451569+00:00'
+  at: '2026-11-16T10:26:49.093110+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-40
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/40
-  author: chaksaray
-  last_modified: '2026-09-08T17:48:26+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-29
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+  author: praneeth2k3
+  last_modified: '2026-10-06T15:45:22+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-54
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/54
+  author: praneeth2k3
+  last_modified: '2026-10-06T03:09:10+00:00'
 ---
 
 # Overview
-Workflow Execution Primitives define the core taxonomy terms and execution concepts standardized by the Workflows and Process Integration Working Group to model deterministic, probabilistic, and hybrid AI agent orchestrations[^evt-wg-workflows-and-process-integration-pr-40]. The vocabulary separates design-time intent from runtime execution dynamics, establishing clear boundaries across control flow sequencing, execution lifecycle states, layer-specific determinism, and responsibility handoffs[^evt-wg-workflows-and-process-integration-pr-40].
+Workflow primitives provide a foundational, composable vocabulary and structural execution building blocks defined by the Workflows and Process Integration Working Group [^evt-wg-workflows-and-process-integration-pr-29]. The catalog standardizes common operational units—such as triggers, agent steps, execution budgets, and handoffs—enabling consistent cross-architecture composition across single-agent and multi-agent reference systems [^evt-wg-workflows-and-process-integration-pr-29].
 
 # Architecture / Specification
+The primitive framework organizes workflow execution across modular categories and boundary contracts [^evt-wg-workflows-and-process-integration-pr-29]:
 
-## Core Execution Terms
-The working group categorizes workflow components into distinct operational layers[^evt-wg-workflows-and-process-integration-pr-40]:
-- **Determinism:** Defined as a property of a specific execution layer—such as Workflow Execution, Control Flow, or an individual Activity—rather than an all-or-nothing property of an entire workflow[^evt-wg-workflows-and-process-integration-pr-40]. This decoupling allows a workflow to enforce strictly deterministic control flow and governance policies while orchestrating non-deterministic, probabilistic model activities[^evt-wg-workflows-and-process-integration-pr-40].
-- **Control Flow:** The logical specification determining execution order, branching conditions, iterations, and concurrency joins[^evt-wg-workflows-and-process-integration-pr-40]. The definition remains neutral regarding whether sequencing logic is fixed at design time or evaluated dynamically by an autonomous agent runtime[^evt-wg-workflows-and-process-integration-pr-40].
-- **Workflow Execution:** An instantiated runtime invocation possessing a continuous lifecycle identity extending from initiation through completion[^evt-wg-workflows-and-process-integration-pr-40]. Dynamic replanning, step retries, and compensation transitions occur within the lifecycle of a single workflow execution without breaking runtime identity[^evt-wg-workflows-and-process-integration-pr-40].
-- **Handoff:** The transfer of operational responsibility, state context, and execution authority between distinct actors or agent sub-processes[^evt-wg-workflows-and-process-integration-pr-40]. The concept bridges workflow orchestration (transfer of responsibility) and observability trace modeling (the observable boundary where delegation occurs)[^evt-wg-workflows-and-process-integration-pr-40].
+- **Primitive Catalog (P1–P19)**: Identifies shared runtime building blocks including `Trigger`, `AgentStep`, `Budget`, and `Handoff` [^evt-wg-workflows-and-process-integration-pr-29]. A subset (P1–P12) specifically defines the core control loop for single-agent systems incorporating human approval checkpoints [^evt-wg-workflows-and-process-integration-pr-54].
+- **Boundary Contracts**: Defines strict invariant contracts across primitive transitions, specifically mandating schema satisfaction for the `AgentStep` boundary and `Handoff` interfaces [^evt-wg-workflows-and-process-integration-pr-29].
+- **Multi-Agent Topologies (T1–T6)**: Standardizes execution network topologies that route inter-agent communication, coordinating with patterns like [parallel-fan-out-and-join](../patterns/parallel-fan-out-and-join.md) and [branch-isolation](../patterns/branch-isolation.md) [^evt-wg-workflows-and-process-integration-pr-29].
 
-[^evt-wg-workflows-and-process-integration-pr-40]: https://github.com/aaif/wg-workflows-and-process-integration/pull/40
+# Lifecycle History
+Originally drafted as part of the foundational taxonomy for the Workflows and Process Integration WG, the primitive set was expanded under draft PR #29 to formalize the P1–P19 catalog, contracts, and multi-agent topologies [^evt-wg-workflows-and-process-integration-pr-29]. PR #54 subsequently mapped primitives P1–P12 directly into the [single-agent-human-approval](../architectures/single-agent-human-approval.md) reference architecture [^evt-wg-workflows-and-process-integration-pr-54].
+
+# References
+- Workflows and Process Integration Working Group: [working-groups/workflows-and-process-integration](../working-groups/workflows-and-process-integration.md)
+- Single-Agent Human Approval: [architectures/single-agent-human-approval](../architectures/single-agent-human-approval.md)
+
+[^evt-wg-workflows-and-process-integration-pr-29]: https://github.com/aaif/wg-workflows-and-process-integration/pull/29
+[^evt-wg-workflows-and-process-integration-pr-54]: https://github.com/aaif/wg-workflows-and-process-integration/pull/54

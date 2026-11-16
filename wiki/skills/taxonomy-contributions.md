@@ -1,52 +1,42 @@
 ---
 type: skill
-title: Taxonomy Contributions
-description: Operational skill and contributor workflow enforcing SKOS-Lite schemas,
-  horizontal indexing rules, and cross-working-group consensus for AAIF glossary terms.
-resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
+title: Taxonomy and Landscape Contributions Skill
+description: Operational agent skill assisting contributors in routing, preparing,
+  and validating schema-conformant terms and landscape entries.
+resource: https://github.com/aaif/public-agents/pull/3
 tags:
 - skills
 - taxonomy
+- landscape
 - contributions
-- governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:18:31.048652+00:00'
+  at: '2026-11-16T10:33:25.457551+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77
-  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
-  author: Julianna Langston
-  last_modified: '2026-10-07T08:37:23-04:00'
-- id: evt-ws-taxonomy-landscape-pr-83
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/83
-  author: julianna-ciq
-  last_modified: '2026-10-07T12:37:24+00:00'
+- id: evt-public-agents-pr-3
+  resource: https://github.com/aaif/public-agents/pull/3
+  author: asish-singh
+  last_modified: '2026-10-11T18:18:20+00:00'
 ---
 
 # Overview
-
-The Taxonomy Contributions skill standardizes the authoring, triage, and submission workflow for new terms added to the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md). It ensures all additions adhere to SKOS-Lite metadata requirements, follow strict formatting invariants, and satisfy foundation governance thresholds [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-
-Contributions are predominantly stewarded by appointed Domain Editors from the technical working groups, ensuring cross-domain consistency across groups like [Security and Privacy](../working-groups/security-and-privacy.md) and [Workflows and Process Integration](../working-groups/workflows-and-process-integration.md).
+The `aaif-taxonomy-contributions` skill guides AI agents and contributors in routing, drafting, and validating terminology proposals and landscape additions for the Common Taxonomy and Landscape workstream (`aaif/ws-taxonomy-landscape`) [^evt-public-agents-pr-3]. It automates pre-drafting validation and normalizes proposals into accepted community schemas [^evt-public-agents-pr-3].
 
 # Architecture / Specification
+The skill consolidates disparate contribution rules across schema definitions, contributing guides, and codebase comments into an executable agent decision model:
 
-## Contributor Workflow
+- **Contribution Routing**: Dispatches proposed additions to the appropriate contribution channel—such as submitting an issue for deferred terminology versus filing a pull request for complete landscape entries—preventing common triage misdirections [^evt-public-agents-pr-3].
+- **Pre-Drafting Collision Checks**: Inspects the target repository for active pull requests or existing taxonomy entries prior to drafting, preventing duplicate term proposals [^evt-public-agents-pr-3].
+- **Pre-Competitive Style Enforcement**: Scans and sanitizes submitted descriptions by stripping ungrounded marketing superlatives (e.g., 'the best open-source platform') to maintain the pre-competitive, objective tone required by landscape schemas [^evt-public-agents-pr-3].
+- **Template and Schema Conformance**: Formats proposals into standardized `Define` issue templates and ensures required metadata fields—including name, homepage URL, pre-competitive description, and member status—conform to schema constraints [^evt-public-agents-pr-3].
+- **Adaptive Context Retrieval**: Instructs agents to dynamically fetch upstream schema documentation before drafting, ensuring graceful adaptation to evolving workstream processes [^evt-public-agents-pr-3].
 
-1. **Propose Term**: Non-delegate contributors coordinate with their respective working group delegate, or attend the weekly taxonomy meeting to advocate for candidate terms [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-2. **Triage Gate**: The candidate term must be logged in the central tracking spreadsheet and receive a formal `KEEP` vote during the weekly workstream meeting before code changes are accepted [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-3. **Authoring Rules**:
-   - **Single-Sentence Definition**: The primary definition field must be exactly one concise sentence [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-   - **Scope Notes**: Extended clarifications, nuances, and concrete usage examples must be placed in the `scopeNote` metadata field [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-   - **Granularity**: Pull requests should ideally encompass exactly one term to facilitate isolated review.
-4. **Review and Veto**:
-   - Requires approval from at least two Domain Editors representing different technical working groups [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-   - Any delegate retains absolute veto power over a proposed term definition [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-5. **Merge**: Merges are executed by workstream maintainers via Git rebase-and-merge, transitioning the tracking record to `FINALIZED` [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
+# Lifecycle History
+Empirical evaluation demonstrated that an agent equipped with `aaif-taxonomy-contributions` executed schema-conformant landscape entries in 6 targeted tool calls compared to 15 exploratory calls required by an unassisted baseline [^evt-public-agents-pr-3].
 
-## Scope Constraints
+# References
+- [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md)
+- [Agentic AI Landscape](../resources/agentic-ai-landscape.md)
 
-The skill strictly rejects pull requests attempting modifications to the ecosystem Landscape, as landscape contributions remain frozen pending formal contribution process adoption [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
-
-[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
+[^evt-public-agents-pr-3]: https://github.com/aaif/public-agents/pull/3

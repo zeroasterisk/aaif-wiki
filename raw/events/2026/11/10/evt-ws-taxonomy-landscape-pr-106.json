@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-106",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#106",
+  "title": "add(taxonomy): define Recoverability",
+  "timestamp": "2026-11-10T10:56:34Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/106",
+  "summary": "Add Recoverability as the operational ability to detect failures, contain impact and return to an acceptable state within bounded cost. The scope note distinguishes it from Reliability dimensions and from Reversibility.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canoni...",
+  "pointers": [],
+  "inline_text": "Add Recoverability as the operational ability to detect failures, contain impact and return to an acceptable state within bounded cost. The scope note distinguishes it from Reliability dimensions and from Reversibility.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Reliability.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-observability-and-traceability-pr-75",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-observability-and-traceability",
+  "reference_id": "PR#75",
+  "title": "docs: agent identity in telemetry, the accountable principal",
+  "timestamp": "2026-11-12T20:50:28Z",
+  "author": "MarcMolas",
+  "url": "https://github.com/aaif/wg-observability-and-traceability/pull/75",
+  "summary": "## Summary\n\nAdds `working-documents/agent-identity-accountability-attributes.md`, a contribution to #50 (agent identity in telemetry): one attribute group, `agent.accountability.*` (result, reference, assurance), what the record behind the reference holds, and four redaction rule...",
+  "pointers": [],
+  "inline_text": "## Summary\n\nAdds `working-documents/agent-identity-accountability-attributes.md`, a contribution to #50 (agent identity in telemetry): one attribute group, `agent.accountability.*` (result, reference, assurance), what the record behind the reference holds, and four redaction rules beside the rule proposed in #50. No row of the agent identity table proposed in #50 is changed.\n\n## Related Issue\n\nUpdates #50, as agreed on the thread on 2026-11-09; it does not close it. The attribute table and the asynchronous trace are @wlad232's: when he opens his PR, this text can be folded into it as a section and this PR closed.\n\n## Review Notes\n\n- The redaction rules (section 4) are co-owned with Security & Privacy, as #50 asks for its sanitisation guidelines. This PR stays in draft until S&P has reviewed them; @npgovintarajan, as author of #50 and S&P liaison, could you say who takes that review?\n- Fit with #67 and open-telemetry/semantic-conventions-genai#239: `agent.accountability.ref` is a span-to-record reference of the kind seam 1 of #67 describes, with two limits: it does not resolve outside the deciding party, and it is not exported outside that party's trust domain. Open question 4 asks whether the table states this as a difference from the `_ref` pattern of open-telemetry/semantic-conventions-genai#490 or adopts its syntax.\n- Open questions for the group are in section 5.\n\nSuggested review window, if different from the defaults: the default for living documents (1 week).\n\n## Follow-ups\n\n- Fold into the attribute-table PR when it is open.\n- S&P review of section 4.\n- Align attribute names and namespace with the OpenTelemetry GenAI conventions before any upstream proposal.\n\n## Checklist\n\n- [x] Linked the relevant issue, meeting note, or action item\n- [ ] Updated issue status or next step if needed\n- [x] Added or updated a freshness/status marker for living documents, if applicable\n\nI founded MintID, an open protocol under the MintID Foundation, and Conectia, which sells ZadQ, a commercial product built on it. Nothing in this PR names or recommends either.\n\nMarc MintID",
+  "labels": []
+}

@@ -1,46 +1,48 @@
 ---
 type: resource
-title: Accuracy and Reliability Survey
+title: Platform-Neutral Accuracy and Reliability Survey
 description: Platform-neutral 16-question survey instrument evaluating real-world
-  AI system deployments, failure modes, error recovery, and accuracy constraints.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
+  AI system deployments, failure modes, accuracy challenges, and operational priorities.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/9
 tags:
+- resources
 - survey
-- evaluation
-- reliability
 - accuracy
-- benchmarks
+- reliability
+- evaluation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:26:35.776719+00:00'
+  at: '2026-11-16T10:19:58.462595+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-pr-14
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
-  author: Jessie1989
-  last_modified: '2026-10-15T21:09:55+00:00'
+- id: evt-wg-accuracy-and-reliability-pr-9
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/9
+  author: Sanjeev-S
+  last_modified: '2026-09-28T06:27:12+00:00'
 ---
 
 # Overview
-The Accuracy and Reliability Survey is an empirical, platform-neutral instrument developed by the [Accuracy and Reliability Working Group](../working-groups/accuracy-and-reliability.md) to gather cross-industry data on operational AI failures, testing methodologies, and reliability blockers[^evt-wg-accuracy-and-reliability-pr-14]. The survey captures quantitative and qualitative metrics across real-world agent deployments without harvesting proprietary or identifying information[^evt-wg-accuracy-and-reliability-pr-14].
+
+The Platform-Neutral Accuracy and Reliability Survey is an empirical research instrument authored by the [Accuracy and Reliability Working Group](../working-groups/accuracy-and-reliability.md) to gather structured data on production agentic AI deployments, operational failure modes, and industry mitigation strategies [^evt-wg-accuracy-and-reliability-pr-9]. Designed to remain independent of any proprietary framework or model vendor, the survey collects standardized responses across engineering teams, operators, and researchers to inform AAIF benchmark profiles and reliability taxonomies.
 
 # Architecture / Specification
 
-## Instrument Structure and Question Ordering
-The 16-question survey assesses production AI systems across distinct evaluation domains[^evt-wg-accuracy-and-reliability-pr-14]:
-- **Demographics and Architecture (Q1–Q4)**: System maturity, organizational footprint, and foundational architecture.
-- **Operational Oversight and Benefits (Q5–Q8)**: Human checking touchpoints, organizational scale, realized benefits, and core operational constraints[^evt-wg-accuracy-and-reliability-pr-14].
-- **Failure Taxonomy and Reliability Factors (Q9–Q16)**: Specific failure rates, quality degradations, error recovery limitations, and cross-industry remediation priorities[^evt-wg-accuracy-and-reliability-pr-14].
+## Survey Structure and Sections
 
-## Accuracy and Reliability Factors (Q10)
-Question 10 evaluates observed deployment degradation factors, incorporating failure dimensions addressing system evolution and operational resilience[^evt-wg-accuracy-and-reliability-pr-14]:
-- **Post-Change Quality Decline**: Degradation triggered by modifications to underlying models, prompts, tool definitions, or harness software versions[^evt-wg-accuracy-and-reliability-pr-14].
-- **Unsafe Error Recovery**: Failures where the agent fails to recover cleanly after runtime errors, leaving behind partial tool mutations, corrupted state, or uncommitted execution fragments[^evt-wg-accuracy-and-reliability-pr-14].
+The survey contains 16 questions organized into five structured sections [^evt-wg-accuracy-and-reliability-pr-9]:
 
-## Consent and Data Governance Protocol
-The intake protocol enforces strict data hygiene[^evt-wg-accuracy-and-reliability-pr-14]:
-- **Anonymity**: No personal names or contact details are collected.
-- **Reporting**: Responses are synthesized and published solely in aggregated benchmarking reports.
-- **Administration**: Stored and governed by AAIF with administrative oversight coordinated via Foundation support channels[^evt-wg-accuracy-and-reliability-pr-14].
+- **Section 1: Eligibility (Q1)**: Filters respondent organizations based on deployment lifecycle stage. Includes an early-exit branch directing ineligible participants to an informative exit page [^evt-wg-accuracy-and-reliability-pr-9].
+- **Section 2: About the System (Q2–Q5)**: Captures architecture topologies, agent autonomy levels, runtime integration patterns, and domain contexts. Q2 supports extensible write-ins via a required free-text field on selection of "Something else", while Q5 is optional [^evt-wg-accuracy-and-reliability-pr-9].
+- **Section 3: Benefits and Challenges (Q6–Q8)**: Assesses observed business benefits versus operational hurdles using 5-point choice matrices that include explicit "Not sure" response anchors [^evt-wg-accuracy-and-reliability-pr-9].
+- **Section 4: Accuracy and Reliability (Q9–Q13)**: Probes specific failure modes, hallucination frequency, deterministic verification approaches, human approval gates, and regression testing practices [^evt-wg-accuracy-and-reliability-pr-9].
+- **Section 5: Future Priorities (Q14–Q16)**: Evaluates organizational roadmap requirements for benchmarking, standardized evaluations, and guardrail architectures. Q16 provides optional qualitative feedback [^evt-wg-accuracy-and-reliability-pr-9].
 
-[^evt-wg-accuracy-and-reliability-pr-14]: https://github.com/aaif/wg-accuracy-and-reliability/pull/14
+## Response Mechanics and Validation
+
+All questions are mandatory with the exception of Q5 and Q16 [^evt-wg-accuracy-and-reliability-pr-9]. The instrument incorporates deterministic branching logic for early screen-outs at Q1, matrix constraint validation, and inline text collection for open-ended category expansions to ensure analytical consistency across deployments [^evt-wg-accuracy-and-reliability-pr-9].
+
+# Lifecycle History
+
+- **August 2026**: Merged complete platform-neutral 16-question specification, response mechanics, and validation flows into the Accuracy and Reliability Working Group repository under PR #9 [^evt-wg-accuracy-and-reliability-pr-9].
+
+[^evt-wg-accuracy-and-reliability-pr-9]: https://github.com/aaif/wg-accuracy-and-reliability/pull/9

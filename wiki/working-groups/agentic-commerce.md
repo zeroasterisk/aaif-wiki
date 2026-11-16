@@ -2,43 +2,40 @@
 type: working-group
 title: Agentic Commerce Working Group
 description: Technical working group establishing vendor-neutral capability maps,
-  protocol gap analyses, and reference flows for autonomous and mediated transactions.
-resource: https://github.com/aaif/wg-agentic-commerce/issues/8
+  protocol gap analyses, and lifecycle specifications for agentic transactions.
+resource: https://github.com/aaif/wg-agentic-commerce/pull/9
 tags:
-- commerce
 - working-group
+- commerce
+- transactions
 - governance
-- retention
+- interoperability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:21:01.683717+00:00'
+  at: '2026-11-16T10:34:59.338946+00:00'
 sources:
-- id: evt-wg-agentic-commerce-issue-8
-  resource: https://github.com/aaif/wg-agentic-commerce/issues/8
-  author: smcd
-  last_modified: '2026-10-09T22:35:12+00:00'
+- id: evt-wg-agentic-commerce-pr-9
+  resource: https://github.com/aaif/wg-agentic-commerce/pull/9
+  author: igrigorik
+  last_modified: '2026-10-13T08:27:46+00:00'
 ---
 
 # Overview
 
-The Agentic Commerce Working Group establishes vendor-neutral capability maps, protocol gap analyses, and reference architectures governing autonomous and agent-assisted commercial transactions. It evaluates commerce-enabling protocols across discovery, identity, cart management, checkout negotiation, and payment settlement to ensure operational safety and regulatory alignment.
+The Agentic Commerce Working Group develops vendor-neutral capability models, protocol evaluations, and transaction lifecycle specifications for autonomous and agent-assisted commercial workflows.[^evt-wg-agentic-commerce-pr-9] The group standardizes transactional boundaries, payment delegation mechanisms, and cross-platform agent purchasing protocols.[^evt-wg-agentic-commerce-pr-9]
 
 # Architecture / Specification
 
-The working group assesses emerging and legacy transaction protocols—including UCP, ACP, AP2, and x402—against standardized operational requirements. Key dimensions under development include:
-- **Buyer Capacity and Verification**: Addressing legal capacity, minor principal delegations, and jurisdiction-specific age validation mandates where an agent transacts without a human present at checkout [^evt-wg-agentic-commerce-issue-8].
-- **Multi-Layer Record Retention**: Specifying data retention obligations across AI safety mandates (such as EU AI Act provider and deployer log retention), personal data protection limits, and financial anti-money laundering (AML) regulatory periods [^evt-wg-agentic-commerce-issue-8].
-- **Delegated Authority and Settlement**: Analyzing boundaries between autonomous decision-making and human authorization checkpoints across payment execution.
+The working group evaluates emerging commercial architectures across four primary functional areas:
+
+- **Commerce Taxonomy**: Defining normative concepts and interaction boundaries for [agent-initiated transactions](../taxonomy/agent-initiated-transaction.md), [agent-in-the-loop transactions](../taxonomy/agent-in-the-loop-transaction.md), and [agentic checkout](../taxonomy/agentic-checkout.md).
+- **Protocol Comparative Analysis**: Conducting technical evaluations of transaction protocols—including onX, the Multi-Party Payment (MPP) protocol, and the Universal Commerce Protocol (UCP)—by analyzing problem scopes, runtime mechanisms, governance structures, and protocol handoff boundaries.[^evt-wg-agentic-commerce-pr-9]
+- **Payment Delegation and Trust**: Establishing verification models and authorization guarantees for [delegated payment](../taxonomy/delegated-payment.md) systems.
+- **Lifecycle State Semantics**: Mapping state machines governing multi-agent commercial negotiations, checkout flows, and settlement reconciliations.
 
 # Lifecycle History
 
-Active discussions within the working group identified structural gaps in protocol scoring frameworks, specifically highlighting that capability maps must capture principal capacity verification and multi-tier evidentiary retention across commercial jurisdictions [^evt-wg-agentic-commerce-issue-8].
+In September 2026, the working group completed deep dives analyzing the August 2026 releases of onX, MPP, and UCP, mapping their architectural overlap, governance states, and handoff points across autonomous commerce workflows.[^evt-wg-agentic-commerce-pr-9]
 
-# References
-
-- [Agentic Checkout](../taxonomy/agentic-checkout.md)
-- [Agent-Initiated Transaction](../taxonomy/agent-initiated-transaction.md)
-- [Delegated Payment](../taxonomy/delegated-payment.md)
-
-[^evt-wg-agentic-commerce-issue-8]: https://github.com/aaif/wg-agentic-commerce/issues/8
+[^evt-wg-agentic-commerce-pr-9]: https://github.com/aaif/wg-agentic-commerce/pull/9

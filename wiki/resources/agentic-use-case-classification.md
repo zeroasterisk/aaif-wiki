@@ -1,35 +1,36 @@
 ---
 type: resource
-title: Agentic Use Case Classification Framework
-description: Classification taxonomy defining core architectural dimensions and boundary
-  scopes to categorize real-world agent deployments.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+title: Agentic Use Case Classification
+description: Multi-dimensional taxonomy and classification schema characterizing agentic
+  AI production deployments across operational patterns and human interaction levels.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/62
 tags:
-- taxonomy
-- classification
 - workflows
+- classification
+- taxonomy
 - use-cases
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:01.605413+00:00'
+  at: '2026-11-16T10:44:45.603116+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-issue-60
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
-  author: mluciano-sbai
-  last_modified: '2026-10-30T20:12:06+00:00'
+- id: evt-wg-workflows-and-process-integration-pr-62
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/62
+  author: jodeev
+  last_modified: '2026-11-12T16:32:21+00:00'
 ---
 
 # Overview
-The Agentic Use Case Classification Framework structures real-world agent deployments across standardized architectural dimensions to evaluate workflow orchestration, human oversight, and operational complexity.
+The Agentic Use Case Classification schema is a standardized evaluation matrix created by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to characterize production agent implementations by operational pattern, automation tier, and risk level[^evt-wg-workflows-and-process-integration-pr-62]. The schema indexes deployed enterprise and community workflows to guide adoption and reference architecture selection[^evt-wg-workflows-and-process-integration-pr-62].
 
 # Architecture / Specification
-The classification framework categorizes production workflows defined in the inventory ([resources/agentic-use-case-inventory](../resources/agentic-use-case-inventory.md)):
-- **Core Dimensions**: Analyzes trigger mechanism, human intervention gates, agent cardinality (single-agent vs. multi-agent), execution determinism (fixed/scripted vs. adaptive), and orchestration topology (sequential pipeline, fan-out/join, or iterative loop).
-- **Boundary Scope (Proposed)**: Evaluates the output destination perimeter across three discrete values: `Same team`, `Across teams`, and `Across companies`.[^evt-wg-workflows-and-process-integration-issue-60]
-- **Architectural Implications**: Workflows crossing team or enterprise boundaries mandate differentiated approval routing, audit logging, and payload validation even when sharing identical triggering and topology primitives.[^evt-wg-workflows-and-process-integration-issue-60]
+The schema classifies agentic deployments through several primary axes:
+- **Interaction Topology**: Single-agent execution versus orchestrated multi-agent topologies such as parallel research or supervisor patterns.
+- **Oversight and Approval**: Presence of deterministic gates, human authorization checkpoints, or unconstrained autonomous iterations.
+- **Action Radius**: Read-only analysis, sandboxed state generation, or direct external side-effect execution across production tool interfaces.
+- **State and Context Lifecycle**: Ephemeral single-turn tasks versus persistent, recoverable conversational and memory sessions.
 
 # Lifecycle History
-- **2026-10**: Issue #60 proposed extending the schema with the `Boundary` dimension to disambiguate routing and handoff requirements across inventory use cases.[^evt-wg-workflows-and-process-integration-issue-60]
+Following review, the Workflows and Process Integration Working Group formally approved the use case classification schema and its initial seed list of reference deployments, removing provisional draft markers from the specification while migrating remaining feature feedback into ongoing tracker issues[^evt-wg-workflows-and-process-integration-pr-62].
 
-[^evt-wg-workflows-and-process-integration-issue-60]: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+[^evt-wg-workflows-and-process-integration-pr-62]: https://github.com/aaif/wg-workflows-and-process-integration/pull/62

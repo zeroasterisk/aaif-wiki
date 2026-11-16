@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-b33563055168-23a10754",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "README.md",
+  "title": "README.md",
+  "timestamp": "2026-11-03T22:44:51-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/README.md",
+  "summary": "fix: address second self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f46c3425e92d63c336889819e21e8af88cc4abff",
+      "path": "README.md",
+      "blob_sha": "23a1075490dfc89a8ad6f8834a492b44ad0e549d",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}
