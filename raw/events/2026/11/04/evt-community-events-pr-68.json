@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-68",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#68",
+  "title": "fix(sync): stop the report calling pending work in sync",
+  "timestamp": "2026-11-04T18:17:19Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/68",
+  "summary": "## Problem\n\nThe sync report said \"in sync\" on steps with work pending, and some of its counts were wrong. Reading the 2026-11-03 report showed:\n\n- Invite read \"in sync\" with room additions pending. Directory and clean did the same.\n- \"No Slack account\" counted each person once pe...",
+  "pointers": [],
+  "inline_text": "## Problem\n\nThe sync report said \"in sync\" on steps with work pending, and some of its counts were wrong. Reading the 2026-11-03 report showed:\n\n- Invite read \"in sync\" with room additions pending. Directory and clean did the same.\n- \"No Slack account\" counted each person once per room pass, so it was about double the real number.\n- A person with two live Slack accounts could be invited under the second one to a room they were already in.\n- Identity ran without name matches, so people on another address looked like they had no Slack account.\n- CRM rows missing from the intake were described as probable test data.\n\n## Fix\n\n- `sync.py`: an exit 0 whose findings start with `apply with --write` or `re-run --write` reads DRIFT. Any other open finding reads the new `needs review`, which leaves the exit code alone. A run that wrote stays WROTE, and PARTIAL still wins.\n- `invite_organizers.py`: counts people, with room additions as a separate tile. Anyone with two live accounts, or with reviewed rows that disagree, is held and not invited. Everyone held is named in the log and on the page. A column id that is no live account is treated as stale, and a deactivated lookup hit gives way to a live column id.\n- `sync.py`: identity runs with `--suggest`. Suggestions are never written automatically.\n- `sync_crm.py`: new wording for rows on the CRM but not the intake.\n\n## Known limit\n\nA person with no usable lookup hit whose reviewed rows disagree stays \"no Slack account\", with a warning in the log. They aren't invited, so it can't cause a wrong invite. Two different held people with the same name show as one in the held count and list; neither is invited.\n\n## Verification\n\n- New tests in `test_sync.py`, `test_invite_organizers.py` and `test_resolve_slack_ids.py`. The affected skill suites and the library tests pass with `gws` off the PATH, and pre-commit is clean.\n- An independent review of the follow-up commits reproduced the invite and labelling defects fixed in the last two commits, and a re-check confirmed those fixes.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n_Generated using wayfare._",
+  "labels": []
+}

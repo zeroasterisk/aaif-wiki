@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-30",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#30",
+  "title": "Delegation evidence across hops: an I&T document",
+  "timestamp": "2026-11-12T20:51:03Z",
+  "author": "MarcMolas",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/30",
+  "summary": "aaif/wg-observability-and-traceability#75 records an accountability check at one hop. Continuity of the same principal across hops needs evidence telemetry cannot carry: a trace value linking two hops would be a correlation handle. The attributes can carry a reference to such evi...",
+  "pointers": [],
+  "inline_text": "aaif/wg-observability-and-traceability#75 records an accountability check at one hop. Continuity of the same principal across hops needs evidence telemetry cannot carry: a trace value linking two hops would be a correlation handle. The attributes can carry a reference to such evidence but cannot define it (open question 5). Could Identity & Trust own a document on delegation evidence across hops, covering what each hop verifies back to an accountable root and how a mapping is recorded where an identifier is translated at a trust boundary?",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-25",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#25",
+  "title": "Operational viewpoint for the reference architecture (ISO/IEC/IEEE 42010)",
+  "timestamp": "2026-11-15T10:54:44Z",
+  "author": "kevinhammond",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/25",
+  "summary": "Summary\n\nA draft operational viewpoint for the reference architecture, following ISO/IEC/IEEE 42010: who acts for whom, how authority and accountability flow, and what the other views must satisfy. It uses the RA v1 taxonomy (§2), with actor-model names in brackets on first use.\n...",
+  "pointers": [],
+  "inline_text": "Summary\n\nA draft operational viewpoint for the reference architecture, following ISO/IEC/IEEE 42010: who acts for whom, how authority and accountability flow, and what the other views must satisfy. It uses the RA v1 taxonomy (§2), with actor-model names in brackets on first use.\n\nDraft (comments welcome): https://docs.google.com/document/d/1sftx00_Vg0SD0zU3vs5eZmP0OhSUl2rMFDe_ZiMC2eY/edit\n\nContents\n\nViewpoint specification: stakeholders, concerns (C1–C6), model kinds, rationale\nOperational view:\nactor model\ndelegation model (attenuation, shared limits, several parents, crossing organisations, finalisation)\ntwelve scenarios (S1–S12)\nthirteen proposed rules (R1–R13)\nComparison with the Security & Privacy Control Surfaces profile (wg-security-and-privacy PR #45)\nOpen questions, correspondences to the other proposed views, and a terminology appendix\n\nRelated work\n\n#13: the eight authority-at-dispatch cases. The scenarios overlap with cases 1, 2, 4, 5 and 8, and S12 is close to the lost-response case. Case 3 (authority unreachable) is a gap in the draft that I plan to close.\n#22: the scenarios could serve as candidate conformance cases for the RA appendix.\nwg-observability-and-traceability #66: property 8 (reused versus renewed authority) matches S12’s rule for replaced root delegations.\n\nAim\n\nThe aim is to clarify the fundamental concepts rather than introduce new terms, except where there is a gap. The longer-term aim is an executable model, in which the rules become checked properties and the scenarios become test cases.\n\nQuestions for the group\n\nIs 42010 the right frame for the reference architecture’s views?\nShould Approver and Auditor become roles in the actor model?\nShould the operational scenarios feed the conformance cases in #22?\nAre the possible improvements listed at the top of the draft the right priorities?\n\nKevin Hammond, Ensurable Systems",
+  "labels": []
+}

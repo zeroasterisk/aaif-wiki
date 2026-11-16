@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-community-events-file-ec8a86dec4ad-ba23000c",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "skills/aaif-create-chapter/references/rename-chapter.md",
+  "title": "rename-chapter.md",
+  "timestamp": "2026-11-03T13:48:31-08:00",
+  "author": "Rahul Parundekar",
+  "url": "https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/references/rename-chapter.md",
+  "summary": "fix: address second self-review findings",
+  "pointers": [
+    {
+      "repo": "community-events",
+      "commit_sha": "f46c3425e92d63c336889819e21e8af88cc4abff",
+      "path": "skills/aaif-create-chapter/references/rename-chapter.md",
+      "blob_sha": "ba23000c99be8f74baa2ee495edf29ce71f9f170",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

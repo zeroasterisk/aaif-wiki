@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-security-and-privacy-pr-49",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "PR#49",
+  "title": "Best practices guide: add C2PA publisher provenance for skills",
+  "timestamp": "2026-11-08T18:42:20Z",
+  "author": "mrappard",
+  "url": "https://github.com/aaif/wg-security-and-privacy/pull/49",
+  "summary": "Section 3.2.2 asks MCP server packages for build-linked provenance through npm provenance, PyPI attestations and cosign. Section 3.2.1 has no matching control for skills, and its only publisher check is the manual \"verify author attribution\" step in Tier 2. This PR adds a cryptog...",
+  "pointers": [],
+  "inline_text": "Section 3.2.2 asks MCP server packages for build-linked provenance through npm provenance, PyPI attestations and cosign. Section 3.2.1 has no matching control for skills, and its only publisher check is the manual \"verify author attribution\" step in Tier 2. This PR adds a cryptographic version of that check.\n\n## Changes\n\n- **Section 3.2.1, Tier 3.** Where a publisher signs its skills, the registry records the signing identity alongside the version and hash pin and verifies it on every update. C2PA Content Credentials is named as the mechanism. It binds SKILL.md to a publisher certificate through a manifest reference in the front matter, and a digest of the other skill files in `metadata` extends the signature to `scripts/`. The paragraph also states three limits. A signature identifies the signer and says nothing about safety. A stripped credential looks unsigned, so the registry has to record that a signature is expected. Generic C2PA validators check SKILL.md alone.\n- **Section 7.** Adds a skill provenance row marked Experimental.\n- **Appendix A.** Adds the C2PA 2.5 specification and the Agent Skills discussion to the source ledger.\n- **`deliverables/README.md`.** Updates the last modified date.\n\n## Status of the mechanism\n\nThe skill binding comes from [agentskills/agentskills#651](https://github.com/agentskills/agentskills/discussions/651), which I wrote. It is a community proposal, and a [working example](https://github.com/Cognitive-Proof/c2pa-skill-example) depends on two unmerged changes, one in c2pa-rs and one in the C2PA specification. The guide text and the table row both mark it as Experimental for that reason. If the group would rather wait until the binding lands in a published specification, I'm happy to trim this to the general \"record and verify the signing identity\" sentence.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-file-dc0b08806fbd-14b411d8",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "workstreams/reference-architectures/patterns/bounded-convergence-loop.md",
+  "title": "bounded-convergence-loop.md",
+  "timestamp": "2026-11-05T08:39:35-08:00",
+  "author": "Mario Zagar",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/patterns/bounded-convergence-loop.md",
+  "summary": "[RA] Clarify business task terminology in bounded remediation (#49)",
+  "pointers": [
+    {
+      "repo": "wg-workflows-and-process-integration",
+      "commit_sha": "774d4e09283835b4b0b5062ad389dc8dc48752b9",
+      "path": "workstreams/reference-architectures/patterns/bounded-convergence-loop.md",
+      "blob_sha": "14b411d8463bfe212efdd438f6fc514befc2f55a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

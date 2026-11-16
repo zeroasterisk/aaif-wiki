@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-28",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#28",
+  "title": "Suggestion: highlight why the Section 4 gaps are more urgent for agents",
+  "timestamp": "2026-11-12T00:42:56Z",
+  "author": "tejaduggaraju",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/28",
+  "summary": "Context\nSection 1.1 of the Agent Identity Primitives v0.1 draft explains why agents differ from humans and conventional workloads, and Section 4 lists nine gaps in current standards. Several of those gaps, such as the informational-only nested `act` claims in RFC 8693 and pull-ba...",
+  "pointers": [],
+  "inline_text": "Context\nSection 1.1 of the Agent Identity Primitives v0.1 draft explains why agents differ from humans and conventional workloads, and Section 4 lists nine gaps in current standards. Several of those gaps, such as the informational-only nested `act` claims in RFC 8693 and pull-based revocation, also exist for services and humans. The draft doesn't say why they become pressing for agents. Section 1.1 mentions that agents spawn subagents and act without a human in the loop, but doesn't connect that to the gaps.\n\nSuggestion\nAdd a short rationale, at the end of 1.1 or the start of Section 4, on why agents amplify these gaps. Possible points:\n- Chain length: agents spawn subagents and call other agents, so delegation chains are longer than the short human-to-service chains the existing standards assumed.\n- Dynamic paths: the chain is decided at runtime by the agent's reasoning, not at design time, so no reviewer has seen it beforehand.\n- Autonomy: with no human in the loop, the window between \"this should stop\" and \"this stopped\" is when harm happens, which raises the cost of pull-based or issuer-local revocation.\n- Unpredictable actions: the resources an agent touches can't be inferred from its code, so verifiable provenance and delegated authority have to stand in for inspection.\n\nQuestions\n- Is the omission deliberate, to keep the draft as a requirements definition?\n- Would a short rationale help readers who ask why existing token exchange and revocation aren't enough for agents?",
+  "labels": []
+}

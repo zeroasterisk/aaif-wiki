@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-104",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#104",
+  "title": "add(taxonomy): define Safety",
+  "timestamp": "2026-11-16T00:57:13Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/104",
+  "summary": "Add Safety as the Reliability dimension covering prohibited, harmful or unauthorized actions under the policies in force. The scope note says it is reported separately from correctness aggregates and excludes the distributed-systems sense.\n\nSource: ARWG Deliverable 1 (terminology...",
+  "pointers": [],
+  "inline_text": "Add Safety as the Reliability dimension covering prohibited, harmful or unauthorized actions under the policies in force. The scope note says it is reported separately from correctness aggregates and excludes the distributed-systems sense.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Reliability.",
+  "labels": []
+}

@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-file-62f724d00262-cc94b3ad",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "taxonomy/README.md",
+  "title": "README.md",
+  "timestamp": "2026-10-28T16:19:04-04:00",
+  "author": "Matthew Khouzam",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/taxonomy/README.md",
+  "summary": "Restore Puter AI assist as model-agnostic (every model selectable)",
+  "pointers": [
+    {
+      "repo": "ws-taxonomy-landscape",
+      "commit_sha": "719905a88f11ab6846080313dfe4b8c423411235",
+      "path": "taxonomy/README.md",
+      "blob_sha": "cc94b3adff620bd59bb707cac6943d9c04a6954f",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

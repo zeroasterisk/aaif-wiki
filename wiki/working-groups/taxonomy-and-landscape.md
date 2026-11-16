@@ -1,66 +1,81 @@
 ---
 type: working-group
-title: Taxonomy and Landscape Workstream
-description: Cross-cutting AAIF workstream harmonizing agentic AI terminology across
-  vertical working groups and maintaining horizontal data schemas.
-resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
+title: Taxonomy & Landscape Workstream
+description: Cross-cutting AAIF workstream harmonizing agentic terminology across
+  working groups and curating an authoritative ecosystem market map.
+resource: https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/charter/charter.md
 tags:
 - governance
 - taxonomy
-- working-group
-- schemas
+- landscape
+- skos
+- workstream
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:18:31.048652+00:00'
+  at: '2026-11-16T10:38:09.419537+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77
-  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
-  author: Julianna Langston
-  last_modified: '2026-10-07T08:37:23-04:00'
-- id: evt-ws-taxonomy-landscape-pr-83
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/83
-  author: julianna-ciq
-  last_modified: '2026-10-07T12:37:24+00:00'
-- id: evt-ws-taxonomy-landscape-pr-89
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/89
-  author: julianna-ciq
-  last_modified: '2026-10-07T12:36:51+00:00'
+- id: evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/charter/charter.md
+  author: leonardog
+  last_modified: '2026-10-26T08:52:39-07:00'
+- id: evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/AGENTS.md
+  author: leonardog
+  last_modified: '2026-10-26T08:52:39-07:00'
+- id: evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/docs/data-schemas.md
+  author: leonardog
+  last_modified: '2026-10-26T08:52:39-07:00'
+- id: evt-ws-taxonomy-landscape-file-53e532051b05-bb61ada3
+  resource: https://github.com/aaif/ws-taxonomy-landscape/blob/719905a88f11ab6846080313dfe4b8c423411235/docs/local-development.md
+  author: leonardog
+  last_modified: '2026-10-26T08:52:39-07:00'
+- id: evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/reporting/2026-09-report.md
+  author: Pavan Sudheendra
+  last_modified: '2026-10-27T05:12:49+00:00'
 ---
 
 # Overview
 
-The Taxonomy and Landscape Workstream is a cross-cutting body within the Agentic AI Foundation (AAIF) tasked with maintaining a shared, horizontal vocabulary across all seven active Technical Working Groups and developing the foundation's ecosystem landscape [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]. While the workstream's charter encompasses both taxonomy and ecosystem market mapping, contributions are currently restricted strictly to taxonomy terms; landscape contribution workflows remain deferred on the future roadmap [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
+The Taxonomy & Landscape Workstream is a cross-cutting Agentic AI Foundation (AAIF) body chartered to curate a shared glossary of agentic AI concepts and maintain an authoritative, CNCF-style ecosystem architecture map.[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5] Chaired by Junjie Bu (Google) and Gala Malbasic (Bloomberg), the workstream acts as a horizontal coordination bridge linking all vertical technical working groups to eliminate terminology silos, prevent duplicate market surveying, and deliver a unified technology blueprint for industry practitioners.[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5]
 
-Operational workflows coordinate with vertical groups such as [Security and Privacy](security-and-privacy.md) and [Workflows and Process Integration](workflows-and-process-integration.md) using automated schema validation and contributor skills like [Taxonomy Contributions](../skills/taxonomy-contributions.md).
+The workstream operates under a federated governance structure where each vertical working group designates Domain Editors who hold review authority over terms relevant to their respective subject matter domains.[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5] While its initial charter encompasses both terminology consolidation and ecosystem landscape mapping, active contribution is strictly limited to the taxonomy repository while the landscape contribution workflow remains in development on the roadmap.[^evt-ws-taxonomy-landscape-file-53e532051b05-bb61ada3]
 
 # Architecture / Specification
 
-## Roles and Governance
+### The Horizontal Index Principle
 
-The workstream structures participation across three functional tiers to maintain data integrity and distribute editorial responsibilities [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]:
+To preserve domain sovereignty and avoid jurisdictional conflict across vertical working groups, the workstream enforces the "Horizontal Index" principle:[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+- **Consolidation over Creation:** The workstream does not author specialized domain definitions from scratch; rather, it ingests, standardizes, and harmonizes glossaries developed by vertical working groups.[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+- **In-Scope Index:** Foundational vocabulary and cross-cutting concepts spanning two or more working groups, along with universal ecosystem taxonomy structures, fall under workstream management.[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+- **Out-of-Scope Payload:** Deep-dive domain whitepapers, specialized internal technical helpers, code-level wire protocol schemas, and low-level protocol designs remain the exclusive purview of their respective vertical groups.[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5]
 
-- **Contributors**: Open to any community participant or external partner to propose terms or raise issues.
-- **Domain Editors**: Nominated technical delegates representing each of the seven active Technical Working Groups. Domain Editors author domain-specific terms, guide definitions, and hold review and veto authority.
-- **Maintainers**: Workstream co-chairs Junjie Bu and Gala Malbasic, who retain repository write access and execute final merges [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
+### SKOS-Lite Data Schema and Deferred Fields Policy
 
-## Term Lifecycle and Review Workflow
+Taxonomy definitions are stored in `taxonomy/taxonomy.json` using a normalized Simple Knowledge Organization System (SKOS) Lite representation:[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]
+- **Core Attributes:** Entries mandate `term` (unique sentence-case string), `aliases` (array of true synonyms), `workgroups` (array of sponsoring working groups), `scopeNote`, `relatedTerms` (`skos:related`), and `contrastsWith`.[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]
+- **Deferred Fields (as of 2026-07-27):** Under workstream consensus, terms are admitted ahead of final definitions to avoid premature rigidity. The `definition` attribute holds a standardized pending placeholder (`Definition pending — term accepted; definition under working group discussion.`), while `category` is initialized to empty string (`""`) and `broaderTerm` is initialized to `null` pending hierarchical mapping between groups.[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]
+- **Workgroup Assignment Rules:** The value `"Universal"` is explicitly disallowed; entries with cross-cutting relevance across all groups use an empty array (`[]`) and document contextual boundaries within `scopeNote`.[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]
 
-Terms undergo a structured intake and consensus lifecycle prior to repository admission [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77], [^evt-ws-taxonomy-landscape-pr-83]:
+### Epistemological Disambiguation Protocol
 
-1. **Intake**: A working group delegate stages a candidate term in the central intake spreadsheet and signals the request in the community communications channel.
-2. **Triage Vote**: Outstanding terms are reviewed during weekly meetings for practical real-world usage, novelty, and working-group ownership. The workstream assigns one of three formal dispositions:
-   - `KEEP`: The term is accepted and authorized for pull request submission.
-   - `CULL`: The term is rejected.
-   - `DEBATE`: The term requires further cross-group deliberation.
-3. **Pull Request Submission**: The owning delegate opens a pull request providing a single-sentence definition and an optional `scopeNote` for context. Pull requests for terms without a prior `KEEP` vote are closed automatically.
-4. **Cross-Group Approval**: Pull requests require approvals from at least two Domain Editors representing distinct Technical Working Groups. Any delegate may exercise veto power.
-5. **Finalization**: Maintainers merge approved pull requests using GitHub's rebase-and-merge strategy, updating the spreadsheet entry to `FINALIZED` [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77].
+When reconciling cross-cutting terminology intersections, contributors and automated systems must apply the Paired Contrast Disambiguation Protocol:[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+1. **Counterpart Disambiguation:** Terms that derive operational clarity by contrast (such as Tool versus Skill or Deterministic versus Agentic workflows) must not be merged into generic catch-all entries.[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+2. **Mandatory Associative Linking:** Each term must link explicitly via `relatedTerms` or `contrastsWith`, and its eventual definition must document boundary differences.[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
+3. **Anti-Erasure Guardrails:** No concept may be deleted or collapsed into an alias without written sign-off from the owning Domain Editor.[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]
 
-## Build and Verification Tooling
+# Lifecycle History
 
-Taxonomy entries are stored in structured JavaScript dictionaries (`taxonomy-data.js`) adhering to a SKOS-Lite schema [^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]. Build verification includes automated schema validation (`tools/validate-taxonomy.mjs`) alongside automated generation and continuous integration verification of human-readable Markdown documentation (`tools/generate-taxonomy-markdown.mjs`) enforced via pre-commit hooks [^evt-ws-taxonomy-landscape-pr-89].
+- **2026-06-21:** Workstream charter approved with weekly synchronization cadence, establishing Junjie Bu and Gala Malbasic as co-chairs.[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5]
+- **2026-07-27:** Workstream established the deferred fields policy (`category`, `broaderTerm`, and `definition` staged as pending) to facilitate broad term intake across foundational groups.[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]
+- **2026-09-28:** Successfully integrated seven core observability concepts (Reasoning, Agent Trajectory, Context Propagation, Context Assembly, Memory Access, Retrieval, and Traceability) from the [Observability & Traceability Working Group](../working-groups/observability-and-traceability.md).[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869]
 
-[^evt-ws-taxonomy-landscape-file-eca12c0a30e2-92c6cc77]: https://github.com/aaif/ws-taxonomy-landscape/blob/6ac90f517a064054d4113b3331c8c06e380258b8/CONTRIBUTING.md
-[^evt-ws-taxonomy-landscape-pr-83]: https://github.com/aaif/ws-taxonomy-landscape/pull/83
-[^evt-ws-taxonomy-landscape-pr-89]: https://github.com/aaif/ws-taxonomy-landscape/pull/89
+# References
+
+[^evt-ws-taxonomy-landscape-file-b41aaf03f7ac-e6083ea5]: AAIF Taxonomy & Landscape Workstream Charter (`charter/charter.md`).
+[^evt-ws-taxonomy-landscape-file-a54ff182c7e8-65b1abe3]: Autonomous Agent & Contributor Guidance (`AGENTS.md`).
+[^evt-ws-taxonomy-landscape-file-8cefa3760c72-6a955025]: Data Schema Specifications & Guidelines (`docs/data-schemas.md`).
+[^evt-ws-taxonomy-landscape-file-53e532051b05-bb61ada3]: Local Development & Git Workflow Guide (`docs/local-development.md`).
+[^evt-wg-observability-and-traceability-file-60f28464dd94-2a91d869]: Observability & Traceability Working Group September 2026 Report (`reporting/2026-09-report.md`).

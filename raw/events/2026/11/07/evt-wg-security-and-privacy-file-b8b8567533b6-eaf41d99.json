@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-wg-security-and-privacy-file-b8b8567533b6-eaf41d99",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/wg-security-and-privacy",
+  "reference_id": "deliverables/DRAFT-agentic-ai-security-best-practices-guide.md",
+  "title": "DRAFT-agentic-ai-security-best-practices-guide.md",
+  "timestamp": "2026-11-07T16:48:53+05:30",
+  "author": "Imran Siddique",
+  "url": "https://github.com/aaif/wg-security-and-privacy/blob/f9fc39165fb5d8eb088f9efec10912f30a5672c9/deliverables/DRAFT-agentic-ai-security-best-practices-guide.md",
+  "summary": "Correct the confidential-computing credential exposure row (#42)",
+  "pointers": [
+    {
+      "repo": "wg-security-and-privacy",
+      "commit_sha": "f9fc39165fb5d8eb088f9efec10912f30a5672c9",
+      "path": "deliverables/DRAFT-agentic-ai-security-best-practices-guide.md",
+      "blob_sha": "eaf41d99459ef724c67860a7400ca5349d07ae04",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

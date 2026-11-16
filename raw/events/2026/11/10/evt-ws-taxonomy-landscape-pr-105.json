@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-105",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#105",
+  "title": "add(taxonomy): define Infrastructure",
+  "timestamp": "2026-11-10T17:33:09Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/105",
+  "summary": "Add Infrastructure as the runtime, orchestration, networking, messaging and data services an agent runs on. The scope note gives the failure-attribution order and separates it from Tool and Harness.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgro...",
+  "pointers": [],
+  "inline_text": "Add Infrastructure as the runtime, orchestration, networking, messaging and data services an agent runs on. The scope note gives the failure-attribution order and separates it from Tool and Harness.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: none (listed as Universal in the sheet). Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Reliability.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-27",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#27",
+  "title": "Withdrawing trust when the top of an accountability chain or a root authority is found untrustworthy",
+  "timestamp": "2026-11-12T00:36:49Z",
+  "author": "tejaduggaraju",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/27",
+  "summary": "Context\nSections 3.2 (Accountability), 3.6 (Revocability) and 4 (Interoperability gaps) of the Agent Identity Primitives v0.1 draft cover who may trigger revocation and how revocation should propagate.\n\nThe draft lists who may trigger revocation: the principal, the responsible pa...",
+  "pointers": [],
+  "inline_text": "Context\nSections 3.2 (Accountability), 3.6 (Revocability) and 4 (Interoperability gaps) of the Agent Identity Primitives v0.1 draft cover who may trigger revocation and how revocation should propagate.\n\nThe draft lists who may trigger revocation: the principal, the responsible party, an accountable party higher in the chain, or the provider. A regulator or legal finding that the ultimate accountable party, or a root authority, can't be trusted would come from outside the chain.\n\nQuestions\n- Who has standing to convey that finding, and how does it reach relying parties?\n- Is the intended remedy that each relying party stops accepting that root, and is there a way to signal it?\n- Is third-party standing to withdraw trust intentionally out of scope?\n\nThis connects to the cross-domain revocation gap in section 4, where no standard pushes revocation to every system that already accepted a credential.",
+  "labels": []
+}

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-issue-26",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "ISSUE#26",
+  "title": "Attestation: where does the evidence for an identity attestation come from, and how do the six types relate?",
+  "timestamp": "2026-11-12T00:46:14Z",
+  "author": "tejaduggaraju",
+  "url": "https://github.com/aaif/wg-identity-and-trust/issues/26",
+  "summary": "Context\nSection 3.4 of the Agent Identity Primitives v0.1 draft describes six attestation types and treats identity attestation as the minimum an agent needs to authenticate to a relying party. Two things seem unclear to us, and we'd like to check whether they are deliberate.\n\n1....",
+  "pointers": [],
+  "inline_text": "Context\nSection 3.4 of the Agent Identity Primitives v0.1 draft describes six attestation types and treats identity attestation as the minimum an agent needs to authenticate to a relying party. Two things seem unclear to us, and we'd like to check whether they are deliberate.\n\n1. Evidence before issuance\nThe draft requires an identity attestation to be signed by a key traceable to a trusted authority, with freshness evidence. It doesn't say what an issuer should verify before signing, i.e. how an agent earns the attestation. In workload identity systems like SPIFFE, workload attestation happens before a credential is issued, and that step is what gives the credential its strength.\n\nThe charter lists secure execution architectures as out of scope for this group. Is the pre-issuance evidence step intentionally out of scope for the primitive?\n\n2. How the six types relate\nThe six types (identity, provenance, software, environment/hardware, approval, intervention) are listed side by side, with no stated relationship. One possible model:\n\n- Provenance gives the approved reference: who built the agent, from what.\n- Software attestation shows the running agent matches that reference.\n- Environment/hardware attestation shows the platform it runs on is genuine.\n- These three are evidence an issuer weighs before signing the identity attestation, which is the signed conclusion relying parties use.\n- Approval and intervention attestations are different in kind. They record human decisions (a principal approving an action, a responsible party changing configuration) and aren't inputs to issuance.\n\nUnder this model, the strength of an identity attestation depends on which evidence stood behind it, which would connect to the declared-versus-observed labelling idea in #5.\n\nQuestions\n- Is the layering above consistent with the group's intent, or are the types meant to be independent?\n- Would a short subsection on how the types combine be useful in the draft?\n\nRelated: #12 (closed), #5.",
+  "labels": []
+}

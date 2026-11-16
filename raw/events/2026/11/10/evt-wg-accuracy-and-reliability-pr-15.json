@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-15",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#15",
+  "title": "chore(report): add October 2026 report",
+  "timestamp": "2026-11-10T12:35:26Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/15",
+  "summary": "(sorry for the delay in submitting the report)",
+  "pointers": [],
+  "inline_text": "(sorry for the delay in submitting the report)",
+  "labels": [
+    "monthly-report"
+  ]
+}

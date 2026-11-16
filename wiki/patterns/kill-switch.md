@@ -1,53 +1,54 @@
 ---
 type: pattern
 title: Kill Switch
-description: Architectural control plane pattern establishing out-of-band credential
-  revocation and containment mechanisms to immediately halt autonomous agent execution.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
+description: Architectural control plane pattern establishing an independent, out-of-band
+  containment loop to halt agent execution, sever network communication, invalidate
+  credentials, and roll back state.
+resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-kill_switch_pattern.md
 tags:
 - security
-- governance
-- runtime-controls
-- revocation
-- pattern
+- containment
+- control-plane
+- fault-tolerance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:32:51.084396+00:00'
+  at: '2026-11-16T10:21:56.668978+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-faf61688d774-51e9e85a
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
-  author: Marc Molas Carol
-  last_modified: '2026-11-01T19:18:57-05:00'
-- id: evt-wg-security-and-privacy-pr-46
-  resource: https://github.com/aaif/wg-security-and-privacy/pull/46
-  author: MarcMolas
-  last_modified: '2026-11-02T00:18:58+00:00'
+- id: evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-kill_switch_pattern.md
+  author: sagardashora
+  last_modified: '2026-09-30T10:16:03-04:00'
+- id: evt-wg-security-and-privacy-pr-26
+  resource: https://github.com/aaif/wg-security-and-privacy/pull/26
+  author: sagardashora
+  last_modified: '2026-09-30T14:16:03+00:00'
+- id: evt-wg-security-and-privacy-issue-27
+  resource: https://github.com/aaif/wg-security-and-privacy/issues/27
+  author: Santoshkumarpuppala
+  last_modified: '2026-09-30T14:27:19+00:00'
 ---
 
 # Overview
-
-The Kill Switch pattern defines an authoritative, out-of-band operational mechanism to instantly revoke credentials, terminate runtime access, or halt execution loops across autonomous agent systems [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]. As autonomous agents interact across heterogeneous environments, relying solely on cooperative in-band halting is insufficient; a robust kill switch enforces containment at identity, network, and harness boundaries [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-
-The pattern addresses containment across both enterprise boundaries—where standards like SPIFFE, RFC 7009, and OpenID Continuous Access Evaluation Profile (CAEP) apply—and open internet environments where identity attestation, decentralized verification, and third-party credential revocation are required [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
+The Kill Switch pattern establishes an independent, out-of-band runtime control plane capable of immediately halting an agent's execution, severing its external network communications, revoking active session credentials, and initiating state rollback outside the agent's internal reasoning loop.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01] Designed for systems architects and safety engineers, the pattern addresses fundamental agentic failure modes where naive OS-level process termination (`SIGKILL`) fails due to model evasion, shutdown resistance, machine-speed runaway feedback loops, credential leakage, or orphaned asynchronous background tasks.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
 
 # Architecture / Specification
+The pattern separates declarative trigger criteria (policies defining when to stop) from technical enforcement architecture, organizing runtime containment into a coordinated three-phase loop: **detect → halt → rollback**.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
 
-The pattern encompasses three primary revocation pathways and enforcement surfaces [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]:
+- **Containment Execution**: Execution termination is managed entirely server-side, isolated from the agent's prompt context and memory to prevent model subversion.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
+- **Network and Tool Denial**: Immediately blocks tool dispatch interfaces, agent-to-agent gateways, and outbound network traffic to prevent lateral movement.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
+- **Credential Revocation**: Automatically invalidates ephemeral tokens, API keys, and session delegations across all distributed components to decommission background scripts and child tasks.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
+- **Reversibility and Rollback**: Reads the in-flight execution log (such as the execution records structured under [Approval Checkpoint](approval-checkpoint.md)) to trigger compensating transactions against external services using both execution and service identifiers.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
 
-1. **Direct Agent or User Revocation:** An agent runtime can self-revoke, or an authenticated principal holding a hardware- or credential-backed token can trigger termination directly through an out-of-band control interface [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-2. **Cascade Revocation:** Revoking a root principal credential automatically invalidates all derived subagent keys, active sessions, and delegated authorization proofs across downstream services [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-3. **Issuer Emergency Revocation:** The authoritative issuer or validator publishes an emergency status root update, forcing verifiers to refuse incoming requests signed by the compromised agent or harness [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-
-### Open Internet and Ledger Distribution
-
-While enterprise systems rely on reachable central identity providers and Continuous Access Evaluation Profile (CAEP) endpoints, open internet deployments face availability risks such as DNS failures or hyperscaler outages [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]. In decentralized architectures, such as the open-source MintID protocol and ZadQ validator ecosystem, agents present short-lived zero-knowledge proofs (e.g., valid for 10 seconds) bound to requests, verified against public ledger status [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
-
-In evaluated benchmarks, ledger-recorded kill switches achieved strict propagation bounds where verifiers systematically refused revoked agents within 245 seconds, with empirical network tests recording revocation refusal between 27.5 and 33.8 seconds [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]. Additionally, kill switch events can integrate directly into Model Context Protocol (MCP) server transports and task loops, barring flagged agents at tool authentication time [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a].
+Working group discussions track an open implementation risk where in-process sidecars or SDK enforcement points receive HTTP 401/403 errors upon policy credential revocation; systems must ensure such rejections are treated as hard refusals and circuit-breaker events rather than failing open as transient network outages.[^evt-wg-security-and-privacy-issue-27]
 
 # Lifecycle History
+Merged into the [Security and Privacy Design Patterns Catalog](../resources/security-and-privacy-design-patterns-catalog.md) as a foundational containment pattern.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01][^evt-wg-security-and-privacy-pr-26] Complements [Attested Isolated Runtime](attested-isolated-runtime.md) for hardened enforcement boundaries and protected credential release.[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
 
-Evaluated within the Security and Privacy Working Group design patterns catalog, with clarification ongoing regarding central identity provider assumptions versus decentralized ledger mechanisms for open internet scenarios [^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a] [^evt-wg-security-and-privacy-pr-46].
+# References
+- Catalog Draft: `workstreams/design-patterns/DRAFT-kill_switch_pattern.md`[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]
+- Working Group Discussion: Issue #27 on credential revocation interaction with circuit breakers[^evt-wg-security-and-privacy-issue-27]
 
-[^evt-wg-security-and-privacy-file-faf61688d774-51e9e85a]: https://github.com/aaif/wg-security-and-privacy/blob/dae0a06fe4da39524d05fdc6cd7a63acf60f3c64/meeting-notes/2026-10-27.md
-[^evt-wg-security-and-privacy-pr-46]: https://github.com/aaif/wg-security-and-privacy/pull/46
+[^evt-wg-security-and-privacy-file-d2691d0f1f64-8e9abf01]: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/workstreams/design-patterns/DRAFT-kill_switch_pattern.md
+[^evt-wg-security-and-privacy-issue-27]: https://github.com/aaif/wg-security-and-privacy/issues/27
+[^evt-wg-security-and-privacy-pr-26]: https://github.com/aaif/wg-security-and-privacy/pull/26

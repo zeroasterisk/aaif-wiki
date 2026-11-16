@@ -1,40 +1,38 @@
 ---
 type: guideline
 title: Job-Oriented Architecture Model
-description: Architectural framework structuring agent workflows around recognizable
-  practitioner jobs rather than abstract capabilities, evaluating machine-readable
-  Workflow Design Specifications.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
+description: Architectural decision framework structuring agent reference architectures
+  around recognizable practitioner jobs rather than raw agent counts.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md
 tags:
+- guideline
+- architecture
 - workflows
-- reference-architecture
-- design-patterns
+- decision-record
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:05:17.279542+00:00'
+  at: '2026-11-16T09:56:55.475973+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-issue-28
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
-  author: mzagar
-  last_modified: '2026-09-24T00:09:43+00:00'
+- id: evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md
+  author: Zayne Turner
+  last_modified: '2026-08-05T23:05:12-04:00'
 ---
 
 # Overview
+The Job-Oriented Architecture Model is an architectural decision framework established by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) that organizes reference architectures around recognizable practitioner jobs rather than structural agent topologies [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]. It decouples the operational need—such as bounded remediation or approval gating—from the agent count, which is treated as an implementation outcome.
 
-The Job-Oriented Architecture Model organizes agentic reference architectures around concrete, recognizable practitioner tasks—such as invoice processing or human-approved operational changes—rather than generic model reasoning capabilities[^evt-wg-workflows-and-process-integration-issue-28]. It establishes a layered composition linking reusable workflow patterns into complete reference architectures validated against real-world scenario evidence[^evt-wg-workflows-and-process-integration-issue-28].
+Under this model, reference architectures represent complete compositions of reusable patterns, operational boundaries, required capabilities, and explicit exit guarantees, while patterns capture independent solutions to recurring workflow problems [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62].
 
 # Architecture / Specification
+The framework defines distinct roles and relationships between architectural artifacts [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]:
+- **Reference Architectures**: Comprehensive specifications matching named practitioner jobs (e.g., [Single-Agent Process with Human Approval](../architectures/single-agent-human-approval.md)). They compose reusable patterns, declare runtime boundaries, and enforce outcome guarantees.
+- **Patterns**: Independently adoptable solutions addressing specific, recurring workflow challenges (e.g., [Human Approval Gate](../patterns/human-approval-gate.md), [Proposal/Execution Split](../patterns/proposal-execution-split.md), [Durable Wait](../patterns/durable-wait.md)). Patterns maintain self-contained invariants and failure modes across multiple architectures.
+- **Structural Typologies**: Classifications such as single-agent and multi-agent serve as internal design characteristics rather than top-level architectural taxonomies.
+- **Scenario Validation**: Use cases and test scenarios validate architectures; mismatches signal missing patterns, variant gaps, or entirely distinct practitioner jobs.
 
-The architectural model operates as a three-tier hierarchy[^evt-wg-workflows-and-process-integration-issue-28]:
-1. **Reusable Patterns**: Atomic building blocks that resolve one recurring workflow challenge (such as [approval-checkpoint](../patterns/approval-checkpoint.md) or [durable-wait](../patterns/durable-wait.md)).
-2. **Job-Oriented Reference Architectures**: Compositions combining patterns, capability roles, operational boundaries, guarantees, and exit criteria tailored for a defined practitioner role.
-3. **Real-World Scenarios / Use Cases**: Empirical scenarios providing operational evidence to test whether a composed architecture fits the problem space.
+### Rationale and Trade-offs
+Practitioners approach workflow integration from operational needs rather than predetermined agent counts [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]. Focusing on recognized practitioner jobs provides clearer operational boundaries and prevents redundant definitions across workflows. This replaces earlier scaffolding that categorized architectures strictly by single-agent versus multi-agent boundaries [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62].
 
-The Workflows and Process Integration Working Group is evaluating two long-term north-star directions for this model: maintaining the reference architectures strictly as human-readable knowledgebase guidance (Option A), or standardizing a canonical, schema-valid, machine-readable Workflow Design Specification (WDS) serialized in YAML that renders multiple downstream architectural, diagrammatic, and review views (Option B)[^evt-wg-workflows-and-process-integration-issue-28].
-
-# References
-
-- Workflows and Process Integration Working Group [Issue #28](https://github.com/aaif/wg-workflows-and-process-integration/issues/28)[^evt-wg-workflows-and-process-integration-issue-28]
-
-[^evt-wg-workflows-and-process-integration-issue-28]: https://github.com/aaif/wg-workflows-and-process-integration/issues/28
+[^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md

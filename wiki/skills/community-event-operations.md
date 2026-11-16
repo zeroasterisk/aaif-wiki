@@ -1,58 +1,35 @@
 ---
 type: skill
-title: Community Event Operations Toolkit
-description: Procedural operations pipeline and runtime infrastructure managing chapter
-  provisioning, credentials resolution, and data directory isolation.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
+title: Community Event Operations
+description: Procedural operations pipeline and shared infrastructure managing chapter
+  provisioning, estate lifecycle automation, and cap constraints.
+resource: https://github.com/aaif/community-events/pull/69
 tags:
 - skills
 - operations
-- runtime
-- plugins
-- portability
+- community
+- automation
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:22:52.144306+00:00'
+  at: '2026-11-16T10:44:45.603116+00:00'
 sources:
-- id: evt-community-events-file-953dd2e86174-aa074a1c
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-pr-60
-  resource: https://github.com/aaif/community-events/pull/60
+- id: evt-community-events-pr-69
+  resource: https://github.com/aaif/community-events/pull/69
   author: rparundekar
-  last_modified: '2026-10-11T15:58:20+00:00'
+  last_modified: '2026-11-12T19:19:20+00:00'
 ---
 
 # Overview
-
-The Community Event Operations Toolkit provides runtime infrastructure, data hygiene, and procedural automation for managing AAIF community chapters, event scheduling, and organizer directories[^evt-community-events-file-953dd2e86174-aa074a1c]. Packaged as a portable [Agent Plugin](../standards/agent-plugins.md) leveraging [Agent Skills](../standards/agent-skills.md), the toolkit operates consistently across [Goose](../resources/goose.md), Claude Desktop, Claude Code, Codex, and Cursor[^evt-community-events-file-953dd2e86174-aa074a1c].
+Community Event Operations provides automated procedures, validation guards, and sync scripts supporting the AAIF city chapter network and event lifecycle[^evt-community-events-pr-69]. It enforces operational governance limits on active chapters while orchestrating Drive folder creation, tracker synchronization, and roster management[^evt-community-events-pr-69].
 
 # Architecture / Specification
-
-## Multi-Client Packaging
-
-The toolkit exposes two integration manifests to maximize client portability[^evt-community-events-file-953dd2e86174-aa074a1c]:
-- A root `plugin.json` adhering to cross-client Agent Plugin standards[^evt-community-events-file-953dd2e86174-aa074a1c].
-- A `.claude-plugin/` directory providing backwards compatibility with Anthropic Claude marketplaces[^evt-community-events-file-953dd2e86174-aa074a1c].
-
-Individual operations are structured as modular skills under `skills/aaif-*`, each loaded through progressive disclosure rules and relative `<skill-root>` path execution to prevent path breakage in isolated cache environments[^evt-community-events-pr-60].
-
-## Data Directory Isolation
-
-To decouple state and audit artifacts from the active working directory or ephemeral plugin cache clones, the engine routes file outputs through `aaif_events.datadir`[^evt-community-events-pr-60]:
-- **Repository Checkout Mode:** Writes reports (`sync-reports/`), backups, and JSON outputs directly to the repository root[^evt-community-events-file-953dd2e86174-aa074a1c].
-- **Installed Plugin Mode:** Diverts state files and backups to `~/Library/Application Support/AAIF` on macOS (or XDG data homes on Linux), ensuring that automatic plugin version updates do not orphan local backup snapshots or overwrite user files[^evt-community-events-file-953dd2e86174-aa074a1c].
-- **Override Control:** Accepts an absolute path via `AAIF_DATA_DIR` while rejecting relative values to safeguard execution integrity[^evt-community-events-file-953dd2e86174-aa074a1c][^evt-community-events-pr-60].
-
-## Operational Pipelines
-
-The operational suite pairs diagnostics ([`aaif-check-setup`](../skills/aaif-check-setup.md)) with chapter estate management ([`aaif-create-chapter`](../skills/aaif-create-chapter.md)), backup snapshots, and CRM synchronization, enforcing strict data normalization and proposal-execution boundaries across all administrative actions[^evt-community-events-file-953dd2e86174-aa074a1c].
+The pipeline coordinates several automated utilities:
+- **Chapter Provisioning Guard**: Enforces global chapter ceilings via `CHAPTER_CAP`, ensuring automated tools like `create_chapter.py` and `sync_chapters.py` do not exceed authorized organizational bandwidth[^evt-community-events-pr-69].
+- **Sync Reconciliation**: Validates accepted organizers against official chapter lists, gating Drive folder generation and Luma feed updates until criteria are satisfied[^evt-community-events-pr-69].
+- **Automated Verification**: Integrates unit and regression suites (`test_chapter_cap`, `test_chapter_health`, `test_sync`) to dynamically calculate expected boundaries and preserve estate integrity[^evt-community-events-pr-69].
 
 # Lifecycle History
+Following the onboarding of chapters in Columbus and Philadelphia that reached the initial 100-chapter ceiling, the operational chapter cap was expanded from 100 to 125 to permit continuous chapter intake without retiring active chapters[^evt-community-events-pr-69].
 
-- Expanded via PR #60 to support non-technical operator execution inside desktop agent environments without local git checkouts or pre-configured shell environments[^evt-community-events-pr-60].
-
-[^evt-community-events-file-953dd2e86174-aa074a1c]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/MAINTAINING.md
-[^evt-community-events-pr-60]: https://github.com/aaif/community-events/pull/60
+[^evt-community-events-pr-69]: https://github.com/aaif/community-events/pull/69

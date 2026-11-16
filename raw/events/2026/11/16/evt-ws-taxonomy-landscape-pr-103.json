@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-pr-103",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "PR#103",
+  "title": "add(taxonomy): define Robustness",
+  "timestamp": "2026-11-16T00:57:07Z",
+  "author": "jordanauge",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/pull/103",
+  "summary": "Add Robustness as the Reliability dimension covering meaning-preserving input rephrasing, shifting conditions and faults. The scope note names the prompt, fault and environment sub-types and the boundary with Recoverability and Security & Privacy.\n\nSource: ARWG Deliverable 1 (ter...",
+  "pointers": [],
+  "inline_text": "Add Robustness as the Reliability dimension covering meaning-preserving input rephrasing, shifting conditions and faults. The scope note names the prompt, fault and environment sub-types and the boundary with Recoverability and Security & Privacy.\n\nSource: ARWG Deliverable 1 (terminology & taxonomy), canonical glossary.\nWorkgroups: Accuracy & Reliability. Term voted KEEP in the taxonomy workstream sheet.\nDefinition is a single sentence; boundaries and qualifiers are in scopeNote.\nFollow-up after merge: link Reliability.",
+  "labels": []
+}

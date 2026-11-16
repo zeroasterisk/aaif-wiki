@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-66",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#66",
+  "title": "docs: split setup into first-time and next-person, drop the helper",
+  "timestamp": "2026-11-04T06:24:30Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/66",
+  "summary": "## What changed\n\n- **README, *Set up once*:** written for the next person, who isn't technical and reuses what AAIF already has. \"Your helper\" is gone. It now has the Goose install command, the `gws` install, moving the connection file into place, and a ready-to-send request to a...",
+  "pointers": [],
+  "inline_text": "## What changed\n\n- **README, *Set up once*:** written for the next person, who isn't technical and reuses what AAIF already has. \"Your helper\" is gone. It now has the Goose install command, the `gws` install, moving the connection file into place, and a ready-to-send request to an AAIF admin.\n- **MAINTAINING.md, *First-time setup*:** new click-through steps for creating the Google client, the Slack app (from a pasted manifest) and the Luma key.\n- **MAINTAINING.md, *Adding the next person*:** the three things to do when someone sends that request.\n- **`aaif-check-setup`:** reports a missing Google connection file instead of recommending a sign-in that can't work, and no longer mentions a helper.\n- **`provision_channels` setup hint and `slack-provisioning.md`:** no longer ask for `channels:join` on a user token, because Slack offers that scope to bot tokens only.\n\n## Decisions\n\n- Later operators share one Slack token, which acts as the person who created it. Confirmed by the maintainer.\n- Admins send the connection file and keys through a password manager or another private channel. This is guidance and nothing enforces it.\n- `MAINTAINING.md` also documents the Slack CLI login (`/slackauthticket`) as a personal, read-only alternative.\n\n## Testing\n\n- `test_check_setup.py` (39 tests), `test_provision_channels.py`, library tests and `pre-commit` pass.\n- `check_setup.py` was run live with an empty `gws` config folder, and the README's move command was run in a throwaway home folder.\n- Every setup instruction in README history was compared against the current docs. Nothing conflicts.\n- **Not tested:** nobody has followed either walkthrough from scratch. The Slack manifest and Google Console links come from vendor docs and have not been run on a fresh account.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

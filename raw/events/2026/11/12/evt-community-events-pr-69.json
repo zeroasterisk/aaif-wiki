@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-69",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#69",
+  "title": "feat(chapters): raise the chapter cap from 100 to 125",
+  "timestamp": "2026-11-12T19:19:20Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/69",
+  "summary": "## Why\nThe Chapters List reached 100 live chapters, which is the cap. Two cities have Accepted organizers and no chapter yet: Columbus and Philadelphia. Both the Drive-folder guard in `create_chapter.py` and the feed-row guard in `sync_chapters.py` refused them. The decision was ...",
+  "pointers": [],
+  "inline_text": "## Why\nThe Chapters List reached 100 live chapters, which is the cap. Two cities have Accepted organizers and no chapter yet: Columbus and Philadelphia. Both the Drive-folder guard in `create_chapter.py` and the feed-row guard in `sync_chapters.py` refused them. The decision was to raise the cap to 125 rather than retire an existing chapter.\n\n## What\n- `CHAPTER_CAP` goes from 100 to 125. The comment records when it was set and when it was raised.\n- `test_chapter_cap.py` computes its expected values from `CHAPTER_CAP` instead of hard-coding 98, 100 and 101.\n- Prose says \"the chapter cap\" instead of \"100-chapter cap\", and \"one short of the cap\" instead of \"99\", so the next change is one line.\n- Left alone: the `aaif-sync-chapters` `description:` still says \"100-chapter cap\". Editing a description needs an eval run first (see `evals/README.md`), and that wording is only a trigger phrase.\n\n## Checks\n`test_chapter_cap`, `test_chapter_health`, `test_sync_chapters`, `test_create_chapter`, `test_sync` and pre-commit on the changed files all pass.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

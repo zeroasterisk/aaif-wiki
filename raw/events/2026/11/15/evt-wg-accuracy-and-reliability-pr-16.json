@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-accuracy-and-reliability-pr-16",
+  "source_type": "pull_request",
+  "lifecycle": "draft",
+  "repository": "aaif/wg-accuracy-and-reliability",
+  "reference_id": "PR#16",
+  "title": "D2: start gap analysis folder (outline + question cards)",
+  "timestamp": "2026-11-15T15:22:53Z",
+  "author": "jayanti-prajapati",
+  "url": "https://github.com/aaif/wg-accuracy-and-reliability/pull/16",
+  "summary": "Starts D2 in GitHub, as discussed with Jordan on Discord, so the outline can be reviewed line by line. It follows the same shape as D1 (#8).\n\n## What's here\n- `D2-gap-analysis-benchmark-survey/README.md`: charter purpose, narrative, and an index of sections and cards.\n- `01`–`10`...",
+  "pointers": [],
+  "inline_text": "Starts D2 in GitHub, as discussed with Jordan on Discord, so the outline can be reviewed line by line. It follows the same shape as D1 (#8).\n\n## What's here\n- `D2-gap-analysis-benchmark-survey/README.md`: charter purpose, narrative, and an index of sections and cards.\n- `01`–`10`: the D2 outline from the running notes (\"High level narrative\" section), lightly edited for Markdown. The consumer/producer trust discussion in §4 is slightly condensed; please check it against the notes.\n- `cards/TEMPLATE.md`: question-card format from the 10 Nov slides.\n- `cards/Q-PRD-02-side-effect-safety.md`: a first card, \"How do I make sure an agent's side effects happen exactly once when tools fail or time out?\" It pairs with Q-PRD-01 (durable execution), listed as a placeholder for Jordan.\n\n## Proposals to discuss (not decided)\n- Answer §6–8 as question cards grouped by lifecycle stage (noted in §6).\n- Merge the two gap vocabularies (§8 categories vs the slides' missing/partial/fragmented/unmeasurable/unadopted), ideally via D1.\n\nDraft so the D2 participants can shape it before anything is merged. cc @jordanauge @Sanjeev-S, and Brian Malone (I couldn't find Brian's GitHub handle).",
+  "labels": []
+}

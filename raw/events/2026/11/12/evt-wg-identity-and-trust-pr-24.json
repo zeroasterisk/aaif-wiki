@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-identity-and-trust-pr-24",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-identity-and-trust",
+  "reference_id": "PR#24",
+  "title": "Add the authority-at-dispatch and portable receipts presentation to the queue",
+  "timestamp": "2026-11-12T06:22:27Z",
+  "author": "chrisjleal",
+  "url": "https://github.com/aaif/wg-identity-and-trust/pull/24",
+  "summary": "Adds one entry to the presentation queue in AGENDA.md, in the same form as #16. The row it presents is on #22; the records are the 2 November packet and the operator-run kit at proofable/docs. Proposed for 12 or 19 November. No other file is changed.",
+  "pointers": [],
+  "inline_text": "Adds one entry to the presentation queue in AGENDA.md, in the same form as #16. The row it presents is on #22; the records are the 2 November packet and the operator-run kit at proofable/docs. Proposed for 12 or 19 November. No other file is changed.",
+  "labels": []
+}

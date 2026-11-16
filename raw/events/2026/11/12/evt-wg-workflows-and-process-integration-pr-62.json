@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-62",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#62",
+  "title": "Remove \"Draft\" and \"Proposed\" language from schema-agentic-use-cases.md",
+  "timestamp": "2026-11-12T16:32:21Z",
+  "author": "jodeev",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/62",
+  "summary": "The schema and initial list of example use cases were formally approved by the WG.\n\nThere was existing language in the schema that should now be removed: use of \"DRAFT\", and \"proposed\". Any open issues against these artifacts are being tracked as issues (or PRs) for future incorp...",
+  "pointers": [],
+  "inline_text": "The schema and initial list of example use cases were formally approved by the WG.\n\nThere was existing language in the schema that should now be removed: use of \"DRAFT\", and \"proposed\". Any open issues against these artifacts are being tracked as issues (or PRs) for future incorporating in these artifacts.\n\n**Changes:**\n* removed `DRAFT STATUS: THIS HAS NOT YET BEEN ALIGNED WITH REF ARCH WORKSTREAM`\n* removed `This work needs to be aligned with the Working Group output from the Reference Architecture Workstream.`\n* removed \"proposed\" throughout",
+  "labels": []
+}

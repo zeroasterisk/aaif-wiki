@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-community-events-pr-67",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/community-events",
+  "reference_id": "PR#67",
+  "title": "docs: each operator creates their own Google file and keys",
+  "timestamp": "2026-11-04T06:47:21Z",
+  "author": "rparundekar",
+  "url": "https://github.com/aaif/community-events/pull/67",
+  "summary": "## What changed\n\n- **README step 3:** each operator creates their own Google connection file. An Internal client only works inside one organization, so a shared file fails across organizations.\n- **README step 5:** the operator asks an admin only for access (Drive, Slack app coll...",
+  "pointers": [],
+  "inline_text": "## What changed\n\n- **README step 3:** each operator creates their own Google connection file. An Internal client only works inside one organization, so a shared file fails across organizations.\n- **README step 5:** the operator asks an admin only for access (Drive, Slack app collaborator, Luma calendar admin), then generates their own Slack token and Luma key.\n- **MAINTAINING.md:** first-time setup now covers only the Slack app and the Luma calendar. *Adding the next person* and *Removing a person* match the new flow.\n- **`aaif-check-setup`:** its fixes point at those steps instead of asking an admin for a file or key.\n\nThis replaces the one-shared-token decision in #66. A Slack user token acts as whoever generated it, so a shared one let its holder search that person's DMs and post as them.\n\n## Testing\n\n- `test_check_setup.py`, library tests and `pre-commit` pass.\n- **Not tested:** the collaborator route for getting a token. Slack's docs confirm a user token belongs to the user who authorizes, but I found no page confirming that a collaborator can get their own token from the app settings page. Confirm this with a real collaborator before merging. If it fails, each operator can create their own app from the manifest.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)",
+  "labels": []
+}

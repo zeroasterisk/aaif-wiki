@@ -1,46 +1,55 @@
 ---
 type: skill
 title: AAIF Backup Skill
-description: Operational backup skill generating immutable, timestamped local snapshots
-  of Google Drive and local files prior to mutating edits.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
+description: Operational backup skill generating immutable, timestamped snapshots
+  of community estate sheets and local operational files.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
 tags:
+- skills
 - operations
-- community-events
 - backup
-- google-workspace
+- data-protection
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:21:58.155291+00:00'
+  at: '2026-11-16T10:33:25.457551+00:00'
 sources:
-- id: evt-community-events-file-91fd6707275c-36b98c09
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
+- id: evt-community-events-file-f922f666d0ff-e2dbe3f7
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:19:56-07:00'
+  last_modified: '2026-10-11T08:48:58-07:00'
+- id: evt-community-events-file-a54ff182c7e8-2d5d5bf6
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
+  author: Rahul Parundekar
+  last_modified: '2026-10-11T08:48:58-07:00'
 ---
 
 # Overview
-
-The `aaif-backup` skill is an operational utility within the AAIF community events toolkit that generates immutable, timestamped local snapshots of critical operations data—such as the Community Intake Ops sheet or arbitrary Google Drive and local files—prior to executing destructive or risky mutations.[^evt-community-events-file-91fd6707275c-36b98c09]
+The `aaif-backup` skill creates automated, immutable, timestamped snapshots of critical operational artifacts across Google Drive and local file systems [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. It protects primary estate registers—such as the Community Intake Ops sheet—against accidental corruption or unrecoverable agent edits while strictly keeping sensitive binary exports out of public version control [^evt-community-events-file-f922f666d0ff-e2dbe3f7][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
 
 # Architecture / Specification
+The backup skill enforces strict storage segregation, naming conventions, and non-destructive recovery workflows:
 
-## Execution and Engine
-The skill is powered by the `scripts/backup.py` engine and accepts an optional Google Drive file ID or local file path as an argument.[^evt-community-events-file-91fd6707275c-36b98c09] By default, it exports the AAIF Community Intake Ops sheet into `.xlsx` format.[^evt-community-events-file-91fd6707275c-36b98c09]
+- **Snapshot Directory Layout**: Snapshots follow a standardized path structure: `backups/<slug>/<UTC-timestamp>.<ext>` (for example, `backups/aaif-community-intake-ops/2026-07-03T142530Z.xlsx`) [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. Each execution appends a new file without overwriting prior captures, establishing an audit-ready chronological version history [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
+- **Environment-Aware Storage Routing**: When run in a git checkout, snapshots are written to the repository's `backups/` directory, which is completely git-ignored except for documentation [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. When executed from an installed plugin harness (such as Goose or Claude Desktop), snapshots automatically route to `~/Library/Application Support/AAIF/backups/` on macOS to persist across plugin version upgrades [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
+- **Execution Interfaces**: The underlying runner `backup.py` supports defaulting to the central Intake Ops spreadsheet or accepting arbitrary target file parameters:
+  ```bash
+  # Default: AAIF Community Intake Ops sheet
+  python3 <toolkit>/skills/aaif-backup/scripts/backup.py
 
-## Storage Conventions
-Every invocation creates a new immutable file without overwriting prior snapshots, establishing a verifiable version history for differential auditing or manual rollback.[^evt-community-events-file-91fd6707275c-36b98c09] Snapshots land using the structured layout:
+  # Arbitrary Drive file ID or local file path
+  python3 <toolkit>/skills/aaif-backup/scripts/backup.py <driveFileId>
+  python3 <toolkit>/skills/aaif-backup/scripts/backup.py ./path/to/file.xlsx
+  ```
+  [^evt-community-events-file-f922f666d0ff-e2dbe3f7]
+- **Safe Restore Protocol**: Restoration is intentionally manual and non-destructive. Operators copy raw cell values back from exported snapshots rather than overwriting sheets entirely, preventing the destruction of operational formulas and conditional formatting [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
 
-```
-<dest>/<slug>/<UTC-timestamp>.<ext>
-```
+# Lifecycle History
+To safeguard privacy across public repositories, binary snapshot files (`.xlsx`, `.docx`, `.pptx`) are banned from source tracking via gitignore filters, and data directory isolation was introduced to prevent accidental mutations inside user workspaces [^evt-community-events-file-a54ff182c7e8-2d5d5bf6][^evt-community-events-file-f922f666d0ff-e2dbe3f7].
 
-The destination defaults to the `backups/` directory within the toolkit's data path, configurable via `--dest`.[^evt-community-events-file-91fd6707275c-36b98c09]
+# References
+- [Agent Plugin Portability Guidelines](../guidelines/agent-plugin-portability.md)
+- [Community Event Operations](../skills/community-event-operations.md)
 
-## Tooling Rules and Prohibitions
-All interactions with Google Drive files are strictly governed by the Google Workspace (`gws`) CLI driven by Python.[^evt-community-events-file-91fd6707275c-36b98c09] Native Google formats (`application/vnd.google-apps.*`) must be modified directly through Google APIs rather than round-tripping through converted Office documents.[^evt-community-events-file-91fd6707275c-36b98c09] Headless desktop office converters like LibreOffice (`soffice`) and `unoconv` are strictly prohibited due to font substitutions and lossy OOXML rendering.[^evt-community-events-file-91fd6707275c-36b98c09]
-
-Prerequisite authentication for `gws` is validated using [aaif-check-setup](aaif-check-setup.md).[^evt-community-events-file-91fd6707275c-36b98c09]
-
-[^evt-community-events-file-91fd6707275c-36b98c09]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
+[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
+[^evt-community-events-file-f922f666d0ff-e2dbe3f7]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
