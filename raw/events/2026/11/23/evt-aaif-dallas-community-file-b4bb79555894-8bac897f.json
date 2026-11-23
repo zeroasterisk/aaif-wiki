@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-b4bb79555894-8bac897f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "infrastructure/static-site.yml",
+  "title": "static-site.yml",
+  "timestamp": "2026-11-23T00:02:12-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/infrastructure/static-site.yml",
+  "summary": "ci: make AWS deployment enterprise compliant",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": "infrastructure/static-site.yml",
+      "blob_sha": "8bac897f057d5d4c82cd5de8710949040382c575",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

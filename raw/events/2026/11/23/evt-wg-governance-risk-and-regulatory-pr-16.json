@@ -1,0 +1,17 @@
+{
+  "event_id": "evt-wg-governance-risk-and-regulatory-pr-16",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-governance-risk-and-regulatory",
+  "reference_id": "PR#16",
+  "title": "[Report] 2026-10",
+  "timestamp": "2026-11-23T01:14:36Z",
+  "author": "snrism",
+  "url": "https://github.com/aaif/wg-governance-risk-and-regulatory/pull/16",
+  "summary": "October 2026 monthly report for the Governance, Risk & Regulatory Alignment Working Group.\n\nTC Asks:\n- Review and merge open charter update #14.\n- Share early feedback on the Phase 2 Gap Analysis Interim Report ahead of moving it to Git in early December.",
+  "pointers": [],
+  "inline_text": "October 2026 monthly report for the Governance, Risk & Regulatory Alignment Working Group.\n\nTC Asks:\n- Review and merge open charter update #14.\n- Share early feedback on the Phase 2 Gap Analysis Interim Report ahead of moving it to Git in early December.",
+  "labels": [
+    "monthly-report"
+  ]
+}

@@ -1,49 +1,43 @@
 ---
 type: standard
-title: Agent Identity Primitives
+title: Agent Identity and Trust Primitives
 description: Draft foundational specification defining attestation models, accountability
-  structures, revocability, and identity standards for autonomous agents.
-resource: https://github.com/aaif/wg-identity-and-trust/issues/26
+  structures, revocability semantics, and authority-at-dispatch verification for autonomous
+  agents.
+resource: https://github.com/aaif/wg-identity-and-trust/pull/17
 tags:
 - identity
-- attestation
-- revocation
-- standards
 - trust
+- attestation
+- authorization
+- credentials
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:44:14.647197+00:00'
+  at: '2026-11-23T10:21:46.728232+00:00'
 sources:
-- id: evt-wg-identity-and-trust-issue-26
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/26
-  author: tejaduggaraju
-  last_modified: '2026-11-12T00:46:14+00:00'
-- id: evt-wg-identity-and-trust-issue-27
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/27
-  author: tejaduggaraju
-  last_modified: '2026-11-12T00:36:49+00:00'
-- id: evt-wg-identity-and-trust-issue-28
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/28
-  author: tejaduggaraju
-  last_modified: '2026-11-12T00:42:56+00:00'
+- id: evt-wg-identity-and-trust-pr-17
+  resource: https://github.com/aaif/wg-identity-and-trust/pull/17
+  author: astrogilda
+  last_modified: '2026-10-10T23:53:46+00:00'
 ---
 
 # Overview
-The Agent Identity Primitives draft specification (v0.1) defines foundational identity, attestation, accountability, and revocation requirements tailored specifically to autonomous AI agents [^evt-wg-identity-and-trust-issue-26] [^evt-wg-identity-and-trust-issue-27]. Developed under the [Identity and Trust Working Group](../working-groups/identity-and-trust.md), the standard addresses structural shortcomings in legacy workload and human identity standards that fail under long, dynamic, and autonomous agent delegation chains [^evt-wg-identity-and-trust-issue-28].
+
+The Agent Identity and Trust Primitives specification defines foundational mechanisms for asserting, verifying, and scoping the identity and authority of autonomous AI agents. It addresses identity provenance across multiple principals, dynamic privilege delegation, and the cryptographic validation of agent authority at point-of-action dispatch.
 
 # Architecture / Specification
-The draft specification establishes four core structural domains:
-- **Agent Differentiation and Risk Amplification**: Section 1.1 highlights why agents exacerbate traditional identity gaps, citing longer delegation chains, dynamic runtime path selection, high operational autonomy without human-in-the-loop oversight, and unpredictable resource access [^evt-wg-identity-and-trust-issue-28].
-- **Accountability and Delegation**: Section 3.2 structures accountability chains across principals, responsible parties, upstream authorities, and intermediate subagents [^evt-wg-identity-and-trust-issue-27].
-- **Attestation Framework**: Section 3.4 outlines six core attestation types: identity, provenance, software, environment/hardware, approval, and intervention [^evt-wg-identity-and-trust-issue-26]. Identity attestation serves as the minimum requirement for authentication, while working group discussions evaluate how provenance, software, and hardware measurements should compose pre-issuance evidence [^evt-wg-identity-and-trust-issue-26].
-- **Revocability and Cross-Domain Gaps**: Section 3.6 defines revocation triggers by principals, providers, and upstream accountable parties [^evt-wg-identity-and-trust-issue-27]. Section 4 documents nine standards interoperability gaps, including cross-domain revocation propagation and RFC 8693 nested token limitations [^evt-wg-identity-and-trust-issue-27] [^evt-wg-identity-and-trust-issue-28].
 
-# References
-- WG Identity and Trust Issue #26 [^evt-wg-identity-and-trust-issue-26]
-- WG Identity and Trust Issue #27 [^evt-wg-identity-and-trust-issue-27]
-- WG Identity and Trust Issue #28 [^evt-wg-identity-and-trust-issue-28]
+### Authority-at-Dispatch Verification
 
-[^evt-wg-identity-and-trust-issue-26]: https://github.com/aaif/wg-identity-and-trust/issues/26
-[^evt-wg-identity-and-trust-issue-27]: https://github.com/aaif/wg-identity-and-trust/issues/27
-[^evt-wg-identity-and-trust-issue-28]: https://github.com/aaif/wg-identity-and-trust/issues/28
+To prevent privilege drift and replay attacks during delegated agent tasks, the specification incorporates an authority-at-dispatch evaluation model [^evt-wg-identity-and-trust-pr-17]:
+
+- **Versioned Contract Identifiers**: Every verifiable execution trace must emit a distinct, versioned delegation contract identifier. Interception and verification engines are configured to refuse trace payloads that omit this binding [^evt-wg-identity-and-trust-pr-17].
+- **Authority Evidence Age and Freshness**: Authority evidence records must encode their generation timestamp and declare operational freshness limits, ensuring stale delegation grants cannot be replayed past their deployed time-to-live [^evt-wg-identity-and-trust-pr-17].
+- **Benchmarked Execution Cases**: The standard references test cases evaluating delegated authority models across heterogeneous implementations to guarantee interoperable verification [^evt-wg-identity-and-trust-pr-17].
+
+# Lifecycle History
+
+- PR #17 introduced reference cases and workflow automation for the authority-at-dispatch comparative catalogue, enforcing contract identifiers and credential age boundaries [^evt-wg-identity-and-trust-pr-17].
+
+[^evt-wg-identity-and-trust-pr-17]: https://github.com/aaif/wg-identity-and-trust/pull/17

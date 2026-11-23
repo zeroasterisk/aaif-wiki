@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-21",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#21",
+  "title": "Create an AI Usage Guide for contributed content",
+  "timestamp": "2026-06-15T21:01:08Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/21",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

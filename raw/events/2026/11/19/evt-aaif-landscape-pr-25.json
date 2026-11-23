@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-landscape-pr-25",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/aaif-landscape",
+  "reference_id": "PR#25",
+  "title": "Add Bub to Agentic Development",
+  "timestamp": "2026-11-19T13:37:19Z",
+  "author": "PsiACE",
+  "url": "https://github.com/aaif/aaif-landscape/pull/25",
+  "summary": "Adds [Bub](https://github.com/bubbuild/bub), a tiny agent runtime composable with plugins, to **Agentic Development** in the **Agentic AI Momentum Watchlist**.\n\nBub is Apache-2.0 licensed and has 1,700+ GitHub stars.",
+  "pointers": [],
+  "inline_text": "Adds [Bub](https://github.com/bubbuild/bub), a tiny agent runtime composable with plugins, to **Agentic Development** in the **Agentic AI Momentum Watchlist**.\n\nBub is Apache-2.0 licensed and has 1,700+ GitHub stars.",
+  "labels": []
+}

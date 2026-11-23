@@ -1,37 +1,56 @@
 ---
 type: skill
-title: AAIF Estate Synchronization
-description: Procedural estate synchronization orchestrator executing reconciliation
-  across Slack and Google Drive community assets.
-resource: https://github.com/aaif/community-events/pull/68
+title: aaif-sync
+description: Procedural estate synchronization orchestrator reconciling community
+  sheets, gating chapter listings to accepted organizers, and rendering unified navigation
+  across run report pages.
+resource: https://github.com/aaif/community-events/pull/62
 tags:
-- skill
-- community-events
+- community
 - operations
 - sync
+- reporting
+- skills
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:42:23.754300+00:00'
+  at: '2026-11-23T10:33:44.152648+00:00'
 sources:
-- id: evt-community-events-pr-68
-  resource: https://github.com/aaif/community-events/pull/68
+- id: evt-community-events-pr-62
+  resource: https://github.com/aaif/community-events/pull/62
   author: rparundekar
-  last_modified: '2026-11-04T18:17:19+00:00'
+  last_modified: '2026-11-02T07:31:04+00:00'
+- id: evt-community-events-pr-63
+  resource: https://github.com/aaif/community-events/pull/63
+  author: rparundekar
+  last_modified: '2026-11-02T07:03:54+00:00'
 ---
 
 # Overview
-The `aaif-sync` skill automates the reconciliation of AAIF community operational states across Google Workspace spreadsheets, Google Drive asset repositories, and Slack organization channels.[^evt-community-events-pr-68] It ensures community rosters, permissions, and directory entries remain synchronized without dropping pending changes or generating erroneous multi-account invites.[^evt-community-events-pr-68]
+
+The `aaif-sync` operational skill synchronizes AAIF community records, Google Drive folders, and chapter listings, enforcing strict organizer validation rules and generating interconnected HTML operational reports [^evt-community-events-pr-62] [^evt-community-events-pr-63].
 
 # Architecture / Specification
-The synchronization framework executes coordinated reconciliation modules:[^evt-community-events-pr-68]
-- **Drift and State Reporting (`sync.py`)**: Classifies sync execution states into `WROTE` for successful write passes, `DRIFT` when pending work requires `--write` execution, and `needs review` for open non-zero findings requiring operator inspection.[^evt-community-events-pr-68]
-- **Organizer Invitations (`invite_organizers.py`)**: Counts unique individuals separately from channel-addition actions, holds invites for personas with conflicting records or multiple active accounts, and treats missing or deactivated accounts safely to prevent duplicate or incorrect invites.[^evt-community-events-pr-68]
-- **Identity Suggestions**: Executes Slack identity lookups with `--suggest`, preventing unverified match writes without human confirmation.[^evt-community-events-pr-68]
-- **CRM Synchronization (`sync_crm.py`)**: Reconciles community intake entries against central CRM records.[^evt-community-events-pr-68]
+
+### Accepted Organizer Gating and Removal Safeguards
+
+Chapter folder creation triggers and public chapter listings are restricted exclusively to locations with accepted organizers [^evt-community-events-pr-62]:
+- **CRM Sync Validation**: The `sync_crm` module lists only cities with an accepted organizer for chapter provisioning, suppressing unverified applicants, pipeline hosts, and AAIF operations staff into anonymous counts [^evt-community-events-pr-62].
+- **Human-Gated Removal**: The `sync_chapters` module flags organizer names listed under non-qualifying status records and proposes their removal [^evt-community-events-pr-62]. To prevent public form submissions from evicting legitimate organizers, standard `--write` runs cannot delete entries; removals require explicit human inspection and the `--apply-removals` flag [^evt-community-events-pr-62].
+- **Stale Cell Protection**: Cells targeted for update are re-read immediately prior to execution, aborting if concurrent external edits are detected [^evt-community-events-pr-62].
+
+### Unified Multi-Page Report Navigation
+
+A full synchronization run generates a six-page report suite consisting of `report.html`, coverage, activity, topics, members, and Slack audit views [^evt-community-events-pr-63]:
+- **Cross-Page Top Bar**: The execution runner (`sync.py`) passes the ordered list of rendered pages via `AAIF_REPORT_NAV` to `report_style.page()`, which renders a sticky, flat, hairline top navigation bar [^evt-community-events-pr-63].
+- **Dead-Link Prevention**: The reporting renderer (`render_report.py`) prunes failed or unwritten pipeline stages to ensure the navigation bar references only valid sibling HTML files [^evt-community-events-pr-63].
+- **Print Isolation**: Top navigation bars are automatically hidden during print styling to preserve standalone PDF exports [^evt-community-events-pr-63].
 
 # References
-- [Community Event Operations](community-event-operations.md)
-- [AAIF Audit Slack](aaif-audit-slack.md)
 
-[^evt-community-events-pr-68]: https://github.com/aaif/community-events/pull/68
+- [`../skills/community-event-operations.md`](../skills/community-event-operations.md)
+- [`../skills/aaif-create-chapter.md`](../skills/aaif-create-chapter.md)
+- [`../guidelines/brand-guidelines.md`](../guidelines/brand-guidelines.md)
+
+[^evt-community-events-pr-62]: https://github.com/aaif/community-events/pull/62
+[^evt-community-events-pr-63]: https://github.com/aaif/community-events/pull/63

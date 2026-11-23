@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-issue-65",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "ISSUE#65",
+  "title": "[RA] Explore a reference architecture for agent-led product development and continuous improvement",
+  "timestamp": "2026-11-19T15:48:31Z",
+  "author": "itafra",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/issues/65",
+  "summary": "As a product manager, I want to describe a customer problem to my personal assistant and have it coordinate the agents needed to deliver a solution to the customer, measure its performance, collect feedback, and improve it.\n\nI provide the problem, desired outcomes, constraints, a...",
+  "pointers": [],
+  "inline_text": "As a product manager, I want to describe a customer problem to my personal assistant and have it coordinate the agents needed to deliver a solution to the customer, measure its performance, collect feedback, and improve it.\n\nI provide the problem, desired outcomes, constraints, and direction. The agents organize and carry out the work, involving me when they need clarification, a decision, or authority beyond their mandate.\n\n**The lifecycle**\n\nThe agents should be able to work through:\n\n1. **Understand the problem:** Gather customer evidence, investigate needs, and define measurable outcomes.\n2. **Develop an approach:** Explore possible solutions, assess feasibility, and address UX, commercial, privacy, and legal considerations.\n3. **Build and validate:** Implement the solution, test it, and validate it with customers.\n4. **Deliver:** Release the solution and support customer adoption.\n5. **Measure and learn:** Observe performance, collect feedback, and assess whether the customer problem is being solved.\n6. **Improve:** Use those findings to revise the solution, revisit assumptions, or recommend changing direction.\n\nThis is an ongoing cycle. Findings after delivery can trigger further discovery, design, implementation, and delivery.\n\n**How the agents collaborate**\n\nMy personal assistant is my main point of contact. It coordinates a changing set of specialist agents, such as researchers, engineers, designers, analysts, pricing specialists, and compliance experts.\n\nThe collaboration develops according to what the agents discover:\n\n- Agents work independently where their tasks allow it.\n- They exchange information and coordinate when their work depends on one another.\n- Findings can trigger new tasks, involve additional specialists, or require earlier work to be revisited.\n- Agents may belong to the same company or to external organizations. For example, a privacy specialist might consult an external legal agent.\n- Agents bring questions and decisions back to me when needed, with enough context for me to respond.\n\n**Proposal for the workstream**\n\nExplore this as a multi-agent reference architecture: define the responsibilities, communication relationships, shared state, authority boundaries, and failure and recovery behavior needed to support this collaboration.",
+  "labels": []
+}

@@ -1,54 +1,42 @@
 ---
 type: architecture
-title: Single-Agent Process with Human Approval
-description: Reference architecture enforcing human authorization before executing
-  protected, irreversible, or policy-governed agent actions.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/reporting/2026-09-report.md
+title: Single Agent Human Approval
+description: Reference architecture enforcing explicit human authorization gates before
+  an agent executes protected, irreversible operations.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
 tags:
-- workflow
 - architecture
-- human-in-the-loop
+- reference-architecture
 - governance
+- approval
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:42:23.754300+00:00'
+  at: '2026-11-23T10:21:12.283283+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/reporting/2026-09-report.md
-  author: Yaron Schneider
-  last_modified: '2026-11-05T08:38:51-08:00'
-- id: evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/single-agent-human-approval.md
-  author: Zayne Turner
-  last_modified: '2026-11-05T08:39:07-08:00'
+- id: evt-wg-workflows-and-process-integration-pr-53
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/53
+  author: zaynelt
+  last_modified: '2026-10-09T18:55:43+00:00'
 ---
 
 # Overview
-The Single-Agent Process with Human Approval reference architecture establishes an enforceable, human-mediated structural separation between probabilistic agent intent and protected system execution.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7] Governed by the [Workflows & Process Integration Working Group](../working-groups/workflows-and-process-integration.md), this architecture standardizes the workflow pattern where an agent prepares a proposed action, a designated human approves or rejects it, and only then may a controlled executor apply the change.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7] It became the working group's second formally voted deliverable in September 2026.[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]
+Single Agent Human Approval is an Agentic AI Foundation reference architecture for workflows where a single autonomous agent plans and proposes actions, but requires an explicit, authenticated human authorization decision before executing protected operations[^evt-wg-workflows-and-process-integration-pr-53]. The architecture implements the [`patterns/proposal-execution-split`](../patterns/proposal-execution-split.md) pattern, ensuring that autonomous reasoning cannot trigger sensitive side effects without passing through an external authorization checkpoint.
+
+The architecture emphasizes separation of authority versus process rather than a requirement for separate deployment topologies, defining capability roles rather than physical node layouts[^evt-wg-workflows-and-process-integration-pr-53].
 
 # Architecture / Specification
-The architecture enforces separation of authority across discrete workflow roles:[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]
-- **Proposer (Agent)**: An agent investigates, computes, and formats a candidate proposal (such as a financial refund or infrastructure change) but lacks capabilities or credentials to trigger external effects directly.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]
-- **Approval Gate & Durable Wait**: Persists the exact proposal payload and suspends execution via [durable wait](../patterns/durable-wait.md) across arbitrarily long human review cycles without losing state or duplicating pending operations.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]
-- **Workflow-Controlled Executor**: An automated component that acts only upon explicit human approval, strictly decoupled from the agent's invocation capabilities.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]
-- **System of Record**: Maintains an immutable audit trace capturing the full proposer intent, approver authorization, and execution outcome.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]
+The Single Agent Human Approval workflow coordinates three primary functional components:
 
-Under working group taxonomy conventions, a "business task" denotes the overall request or problem handled by the workflow, while constituent steps are designated as activities.[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7][^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]
+- **Agent Runtime**: Ingests prompts and tools to generate proposed action payloads. The agent does not possess ambient credentials to execute sensitive actions directly[^evt-wg-workflows-and-process-integration-pr-53].
+- **Human Approval Gate**: Intercepts proposed actions that trigger defined risk thresholds. It surfaces the action payload, provenance, and rationale to an authorized reviewer ([`patterns/human-approval-gate`](../patterns/human-approval-gate.md)).
+- **Execution Engine**: Executes the action only upon receipt of a validated approval token or record ([`patterns/approval-checkpoint`](../patterns/approval-checkpoint.md)).
 
-Composed patterns include:
-- [Proposal/Execution Split](../patterns/proposal-execution-split.md)
-- [Human Approval Gate](../patterns/human-approval-gate.md)
-- [Durable Wait](../patterns/durable-wait.md)
+## Applicability Criteria
+Practitioners evaluate workflow fit using a standard checklist:
 
-# Lifecycle History
-- **2026-09-17**: Voted and approved unanimously at the WG Workflows & Process Integration plenary meeting.[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]
-- **2026-10-02**: Follow-up PR #50 merged, aligning internal terminology to "business task" and "activity".[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]
+1. **Single Proposer**: Exactly one agent produces the proposal that the human evaluates, excluding architectures with peer agent critiques or consensus swarms[^evt-wg-workflows-and-process-integration-pr-53].
+2. **Irreversible Side Effects**: The operation produces non-exhaustive side effects—such as external communication, financial transactions, database mutations, or code deployments—that cannot be safely rolled back automatically[^evt-wg-workflows-and-process-integration-pr-53].
+3. **Human Discretion Required**: Approval cannot be fully delegated to deterministic automated policies due to contextual ambiguity or regulatory governance constraints.
 
-# References
-- [Proposal/Execution Split Pattern](../patterns/proposal-execution-split.md)
-- [Human Approval Gate Pattern](../patterns/human-approval-gate.md)
-- [Bounded Autonomous Remediation](bounded-autonomous-remediation.md)
-
-[^evt-wg-workflows-and-process-integration-file-60f28464dd94-4c7ddd9e]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/reporting/2026-09-report.md
-[^evt-wg-workflows-and-process-integration-file-a4fea1b2d544-2fb150b7]: https://github.com/aaif/wg-workflows-and-process-integration/blob/774d4e09283835b4b0b5062ad389dc8dc48752b9/workstreams/reference-architectures/architectures/single-agent-human-approval.md
+[^evt-wg-workflows-and-process-integration-pr-53]: https://github.com/aaif/wg-workflows-and-process-integration/pull/53

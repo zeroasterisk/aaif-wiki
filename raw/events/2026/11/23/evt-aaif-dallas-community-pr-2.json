@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-dallas-community-pr-2",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "PR#2",
+  "title": "feat: build static Agentic AI Summit site",
+  "timestamp": "2026-11-23T04:53:35Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/aaif-dallas-community/pull/2",
+  "summary": "Implement the JSON-driven React summit experience, community and sponsor pages, Luma registration, content workflows, accessibility tests, and AWS S3/CloudFront deployment.",
+  "pointers": [],
+  "inline_text": "Implement the JSON-driven React summit experience, community and sponsor pages, Luma registration, content workflows, accessibility tests, and AWS S3/CloudFront deployment.",
+  "labels": []
+}

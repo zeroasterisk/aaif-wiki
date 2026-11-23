@@ -1,63 +1,46 @@
 ---
 type: standard
 title: Control Surfaces for Agentic Harnesses
-description: Standardized profile defining administrative harness lifecycle events,
-  external authorization checkpoints, and delegated execution boundaries.
-resource: https://github.com/aaif/wg-security-and-privacy/pull/45
+description: Standardized specification defining administrative harness lifecycle
+  events, external authorization checkpoints, policy decision and enforcement points,
+  and verifiable containment hooks.
+resource: https://github.com/aaif/wg-security-and-privacy/blob/9fdce8acf3b6640e31a08498bcfaa66f53c9c53b/meeting-notes/2026-11-10.md
 tags:
-- standard
 - security
 - harness
-- control-plane
-- authorization
-- policy
+- pdp-pep
+- standard
+- runtime-governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-02T10:31:15.104701+00:00'
+  at: '2026-11-23T10:36:12.042602+00:00'
 sources:
-- id: evt-wg-security-and-privacy-pr-45
-  resource: https://github.com/aaif/wg-security-and-privacy/pull/45
-  author: awfrazer
-  last_modified: '2026-10-29T19:54:21+00:00'
+- id: evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/9fdce8acf3b6640e31a08498bcfaa66f53c9c53b/meeting-notes/2026-11-10.md
+  author: Alex Frazer
+  last_modified: '2026-11-16T11:50:26-05:00'
 ---
 
 # Overview
 
-The Control Surfaces for Agentic Harnesses profile (v0.3) defines the administrative control plane an agentic harness exposes to system operators: the lifecycle events it records and the checkpoints where an external authorization decision gates agent execution.[^evt-wg-security-and-privacy-pr-45] Rather than defining an abstract security model, the specification functions as an interoperable contract realized by client harnesses and policy services, bridging the implementation-independent patterns catalog and operational guides maintained by the [Security and Privacy Working Group](../working-groups/security-and-privacy.md).[^evt-wg-security-and-privacy-pr-45]
+Control Surfaces for Agentic Harnesses is a standard specification initiated within the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) to define predictable, standardized interfaces for execution control and policy interception in agent harnesses such as Claude Code and Cursor.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f] Because diverse harness implementations currently expose ad hoc hooks, this standard provides common contract expectations for operators and tool builders.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
 
 # Architecture / Specification
 
-## Protocol Composition
+The specification standardizes how an external Policy Enforcement Point (PEP) and Policy Decision Point (PDP) integrate across agent execution environments.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f] It defines lifecycle interception hooks across four primary operational surfaces:[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
 
-The profile composes four external standards to govern runtime interactions:[^evt-wg-security-and-privacy-pr-45]
+1. **Agent Harness Environment**: Pre-execution, turn-level, and tool-dispatch interception hooks controlling the local agent loop.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
+2. **Gateway Interceptors**: Ingress and egress traffic policy enforcement handling protocol mediation (such as Model Context Protocol calls).[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
+3. **Identity and Access Layer**: Authorization context validation and token delegation checkpoints (aligned with AuthZEN and related standards).[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
+4. **Execution Sandboxes**: Kernel-level or containerized isolation boundaries enforcing system resource and capability boundaries.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
 
-- **OpenID AuthZEN**: Implements runtime authorization checkpoint decisions and decision record binding.
-- **Agent Plugins Portable Hooks**: Provides canonical lifecycle event naming across tool execution, step transitions, and subagent spawning (see [Agent Plugins](../standards/agent-plugins.md)).
-- **Open Cybersecurity Schema Framework (OCSF)**: Structures structured audit trail records and telemetry payloads.
-- **OAuth Token Exchange**: Enforces monotonic scope narrowing, principal assertion, and delegation lineage across subagent chains.
+### Verifiable Conformance
 
-## Concrete Pattern Realization
+The specification targets machine-verifiable compliance testing, allowing conforming harnesses to validate hook contracts and earn standardized trust badges demonstrating compatibility with external policy engines.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
 
-The specification provides normative implementations for core catalog design patterns:[^evt-wg-security-and-privacy-pr-45]
+# Lifecycle History
 
-- **Approval Checkpoint (Section 8.3 & 8.4)**: Realizes decision binding and decision records (see [Approval Checkpoint](../patterns/approval-checkpoint.md)).
-- **Runtime Policy Enforcement (Section 8)**: Standardizes external Policy Decision Point (PDP) checkpoint queries and timeout/failure semantics (`fail_closed_deny`).
-- **Delegation Constraint & Permission Downgrade (Section 6.2)**: Mandates monotonic narrowing and per-sub-agent scope issuance.
-- **Capability-Based Tool Invocation (Sections 5.3 & 6.2)**: Associates canonical tool identifiers with scope tokens.
-- **Memory Provenance (Section 7)**: Establishes context sources and integrity labels (`untrusted`, `sensitive`), implementing the Rule of Two per session defined in [Agentic AI Security Best Practices](../guidelines/agentic-ai-security-best-practices.md).
-- **Audit Trail (Section 5)**: Defines normative lifecycle event capture.
+- **2026-11**: Introduced by Alex Frazer in the Security and Privacy Working Group under PR #45, synthesizing threat modeling, design pattern deliverables, and runtime policy requirements.[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]
 
-## Pattern Reconciliation Points
-
-The draft highlights specific reconciliation requirements against existing patterns:[^evt-wg-security-and-privacy-pr-45]
-
-- **Approval Checkpoint Alignment**: Reconciles clock skew tolerance, recomputed digests under argument minimization, and error outcome classifications.
-- **Attested Isolated Runtime Alignment**: Evaluates single-use action identifier consumption across persistent restart state versus stateless PDP verification (see [Attested Isolated Runtime](../patterns/attested-isolated-runtime.md)).
-- **Kill Switch Alignment**: Clarifies session binding revocation and cascade lineage mechanics, distinguishing the session authority PDP from downstream identity providers (see [Kill Switch](../patterns/kill-switch.md)).
-
-## Cross-Working-Group Dependencies
-
-Delegation chain architecture and principal assertion link directly to the [Identity and Trust Working Group](../working-groups/identity-and-trust.md), while lifecycle telemetry coordinates with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md).[^evt-wg-security-and-privacy-pr-45]
-
-[^evt-wg-security-and-privacy-pr-45]: https://github.com/aaif/wg-security-and-privacy/pull/45
+[^evt-wg-security-and-privacy-file-6623dd4920c0-d9c3520f]: https://github.com/aaif/wg-security-and-privacy/blob/9fdce8acf3b6640e31a08498bcfaa66f53c9c53b/meeting-notes/2026-11-10.md

@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-25",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#25",
+  "title": "Landscape missing goose, an AAIF hosted project",
+  "timestamp": "2026-07-25T15:10:29Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/25",
+  "summary": "The landscape currently lists MCP under Communication Protocols, but goose, which was donated to the AAIF at launch alongside MCP, is not on the landscape map. Suggesting it be added so the foundation's own hosted projects are fully represented.\n\nProposed entry under Agent Runtim...",
+  "pointers": [],
+  "inline_text": "The landscape currently lists MCP under Communication Protocols, but goose, which was donated to the AAIF at launch alongside MCP, is not on the landscape map. Suggesting it be added so the foundation's own hosted projects are fully represented.\n\nProposed entry under Agent Runtimes, Frameworks and Workflow Orchestration, subcategory Autonomous Agent Frameworks:\n\n```yaml\n- name: goose\n  logo: placeholder.svg\n  homepage_url: https://block.github.io/goose/\n  repo_url: https://github.com/block/goose\n  description: Open-source, extensible AI agent that automates engineering tasks end to end, from planning through code execution, using MCP for tool integration.\n  project: member\n```\n\nI used `project: member` to match how MCP is marked, happy to adjust if hosted projects should carry a different status. If helpful, I can follow up with a pull request adding this entry.",
+  "labels": []
+}

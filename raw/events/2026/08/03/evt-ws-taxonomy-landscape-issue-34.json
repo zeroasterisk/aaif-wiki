@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-34",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#34",
+  "title": "Create ownership model for terms/definitions",
+  "timestamp": "2026-08-03T10:49:52Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/34",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

@@ -1,36 +1,46 @@
 ---
 type: resource
-title: Agentic Use Case Classification
-description: Multi-dimensional taxonomy and classification schema characterizing agentic
-  AI production deployments across operational patterns and human interaction levels.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/62
+title: Agentic Use Case Classification Schema
+description: Classification schema defining structural workflow dimensions and active
+  proposals for cross-boundary interaction categorizations.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
 tags:
-- workflows
 - classification
 - taxonomy
 - use-cases
+- workflows
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:44:45.603116+00:00'
+  at: '2026-11-23T10:30:36.677870+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-pr-62
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/pull/62
-  author: jodeev
-  last_modified: '2026-11-12T16:32:21+00:00'
+- id: evt-wg-workflows-and-process-integration-issue-60
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/issues/60
+  author: mluciano-sbai
+  last_modified: '2026-10-30T20:12:06+00:00'
 ---
 
 # Overview
-The Agentic Use Case Classification schema is a standardized evaluation matrix created by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) to characterize production agent implementations by operational pattern, automation tier, and risk level[^evt-wg-workflows-and-process-integration-pr-62]. The schema indexes deployed enterprise and community workflows to guide adoption and reference architecture selection[^evt-wg-workflows-and-process-integration-pr-62].
+The Agentic Use Case Classification Schema establishes a structured taxonomy for cataloging and analyzing enterprise and horizontal agentic workflows [^evt-wg-workflows-and-process-integration-issue-60]. Developed under the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md), the schema provides structural dimensions to describe agent initiation, autonomy gates, coordination models, and execution linearity.
 
 # Architecture / Specification
-The schema classifies agentic deployments through several primary axes:
-- **Interaction Topology**: Single-agent execution versus orchestrated multi-agent topologies such as parallel research or supervisor patterns.
-- **Oversight and Approval**: Presence of deterministic gates, human authorization checkpoints, or unconstrained autonomous iterations.
-- **Action Radius**: Read-only analysis, sandboxed state generation, or direct external side-effect execution across production tool interfaces.
-- **State and Context Lifecycle**: Ephemeral single-turn tasks versus persistent, recoverable conversational and memory sessions.
+## Established Classification Dimensions
+The core schema organizes agent workflows across five foundational architectural dimensions [^evt-wg-workflows-and-process-integration-issue-60]:
+1. **Trigger / Initiation**: Event-driven versus schedule- or human-initiated workflows.
+2. **Governance Gate**: Autonomy level and presence of human checkpoints (e.g., approval gates).
+3. **Agent Topology**: Single-agent sufficient versus multi-agent coordination models.
+4. **Execution Flexibility**: Fixed or scripted logic versus dynamic path selection.
+5. **Orchestration Pattern**: Sequential pipelines, parallel fan-outs, or iterative convergence loops.
 
-# Lifecycle History
-Following review, the Workflows and Process Integration Working Group formally approved the use case classification schema and its initial seed list of reference deployments, removing provisional draft markers from the specification while migrating remaining feature feedback into ongoing tracker issues[^evt-wg-workflows-and-process-integration-pr-62].
+## Proposed Boundary Dimension
+An open proposal within the working group introduces an organizational boundary dimension to distinguish workflows based on data and approval demarcation [^evt-wg-workflows-and-process-integration-issue-60]:
+- **Same team**: Workflow outputs and operational scopes remain within a single internal team (e.g., automated resume screening).
+- **Across teams**: Workflows cross organizational boundaries requiring external handoffs and inter-department approvals (e.g., access request fulfillment or legal hold notifications).
+- **Across companies**: Workflows negotiate or execute interactions across independent commercial entities (e.g., autonomous inventory reordering).
 
-[^evt-wg-workflows-and-process-integration-pr-62]: https://github.com/aaif/wg-workflows-and-process-integration/pull/62
+This proposed dimension addresses routing, verification, and boundary-crossing constraints that alter workflow governance across entries in the [Agentic Use Case Inventory](./agentic-use-case-inventory.md) [^evt-wg-workflows-and-process-integration-issue-60].
+
+# References
+- [WG Workflows and Process Integration Issue #60](https://github.com/aaif/wg-workflows-and-process-integration/issues/60) [^evt-wg-workflows-and-process-integration-issue-60]
+
+[^evt-wg-workflows-and-process-integration-issue-60]: https://github.com/aaif/wg-workflows-and-process-integration/issues/60

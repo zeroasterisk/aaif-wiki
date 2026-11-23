@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-f6d36ab592c3-3152c916",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "public/images/committee-team/README.md",
+  "title": "README.md",
+  "timestamp": "2026-11-23T01:10:11-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/public/images/committee-team/README.md",
+  "summary": "updated the schedule, organizers, added headshots",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": "public/images/committee-team/README.md",
+      "blob_sha": "3152c916980d7bfd33a1a12c48214a401add07db",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

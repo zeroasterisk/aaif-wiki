@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-aaif-dallas-community-pr-4",
+  "source_type": "pull_request",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "PR#4",
+  "title": "updated the schedule, organizers, added headshots",
+  "timestamp": "2026-11-23T07:13:52Z",
+  "author": "npgovintarajan",
+  "url": "https://github.com/aaif/aaif-dallas-community/pull/4",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

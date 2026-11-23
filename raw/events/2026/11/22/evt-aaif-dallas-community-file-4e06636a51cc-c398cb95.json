@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-4e06636a51cc-c398cb95",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "public/images/partners/README.md",
+  "title": "README.md",
+  "timestamp": "2026-11-22T22:32:04-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/public/images/partners/README.md",
+  "summary": "feat: build static Agentic AI Summit site",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": "public/images/partners/README.md",
+      "blob_sha": "c398cb950480b1d198aed1aec031cb9208123c74",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

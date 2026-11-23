@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-7f6254f34e12-91809500",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "docs/deployment.md",
+  "title": "deployment.md",
+  "timestamp": "2026-11-23T01:10:11-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/docs/deployment.md",
+  "summary": "updated the schedule, organizers, added headshots",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": "docs/deployment.md",
+      "blob_sha": "91809500220e229226d921eeb19135404d2bdc2c",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

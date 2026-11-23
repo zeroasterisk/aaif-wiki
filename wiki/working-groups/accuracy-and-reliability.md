@@ -1,43 +1,45 @@
 ---
 type: working-group
-title: Accuracy and Reliability Working Group
-description: Technical working group defining failure mode taxonomies, evaluation
-  frameworks, reliable architectures, and gap analysis benchmarks for agentic AI.
-resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/16
+title: Accuracy & Reliability Working Group
+description: Technical working group defining evaluation frameworks, failure mode
+  taxonomies, survey instruments, and test reporting standards for agentic AI systems.
+resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/deliverables/arwg-survey.md
 tags:
-- reliability
+- working-groups
 - accuracy
-- benchmarks
+- reliability
 - evaluation
-- durable-execution
+- governance
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:45:37.921247+00:00'
+  at: '2026-11-23T09:58:38.771813+00:00'
 sources:
-- id: evt-wg-accuracy-and-reliability-pr-16
-  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/16
-  author: jayanti-prajapati
-  last_modified: '2026-11-15T15:22:53+00:00'
+- id: evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/deliverables/arwg-survey.md
+  author: Sanjeev Suresh
+  last_modified: '2026-09-16T06:33:27-07:00'
+- id: evt-wg-accuracy-and-reliability-pr-11
+  resource: https://github.com/aaif/wg-accuracy-and-reliability/pull/11
+  author: Rul1an
+  last_modified: '2026-09-16T08:37:29+00:00'
 ---
 
 # Overview
 
-The Accuracy and Reliability Working Group develops evaluation benchmarks, failure mode classifications, and architectural patterns to ensure predictable and recoverable agent execution [^evt-wg-accuracy-and-reliability-pr-16]. Its work centers on benchmarking agent performance, mitigating non-deterministic failure modes, and establishing standards for safe tool execution [^evt-wg-accuracy-and-reliability-pr-16].
+The Accuracy & Reliability Working Group establishes standardized evaluation methods, failure mode classifications, and measurement practices to assess the correctness, predictability, and operational resilience of agentic AI systems[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3]. Represented on the [Taxonomy & Landscape Workstream](taxonomy-and-landscape.md) by Casper Nielsen and Matthew Khouzam, the working group develops empirical surveys, test inventories, and benchmark reporting criteria to support rigorous evaluation across diverse enterprise deployments[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3][^evt-wg-accuracy-and-reliability-pr-11].
 
 # Architecture / Specification
 
-The working group structures its outputs around empirical surveys, failure classification schemas, and gap analysis deliverables.
+### Key Deliverables and Activities
 
-## Deliverable Tracks
-
-- **D1 Benchmark Framework**: Establishes foundational reliability definitions, failure taxonomies, and testing methodologies [^evt-wg-accuracy-and-reliability-pr-16].
-- **D2 Gap Analysis and Benchmark Survey**: Evaluates operational capabilities and tooling gaps across the production agent lifecycle using structured question cards [^evt-wg-accuracy-and-reliability-pr-16].
-- **Side-Effect Safety**: Analyzes guarantees required to enforce exactly-once execution when agent tool calls fail or time out [^evt-wg-accuracy-and-reliability-pr-16].
-- **Durable Execution**: Analyzes patterns such as [Durable Wait](../patterns/durable-wait.md) and state persistence to ensure recoverability following process interruptions [^evt-wg-accuracy-and-reliability-pr-16].
+- **Empirical Industry Survey**: Authored the platform-neutral [Accuracy & Reliability Survey](../resources/accuracy-and-reliability-survey.md), establishing a 16-question practitioner assessment evaluating deployment maturity, failure consequences, and testing needs across production environments[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3].
+- **D1 Deliverable Framework**: Under active development, the D1 workstream specifies testing vocabulary, benchmark inventories, and execution reporting standards[^evt-wg-accuracy-and-reliability-pr-11].
+- **Coverage and Defect-Detection Reporting**: Proposed guidelines for D1 §9.4 mandate clear separation in coverage and mutation testing claims between declared inventories, selected evaluation subsets, fully exercised units, and uncompleted or excluded tests[^evt-wg-accuracy-and-reliability-pr-11]. For mutation analyses, the proposal mandates disaggregating detected, exercised-undetected, and unexercised seeded defects, rather than collapsing errors and timeouts into a single composite metric[^evt-wg-accuracy-and-reliability-pr-11].
 
 # Lifecycle History
 
-Deliverable D2 was drafted in PR#16, introducing a modular question-card format across lifecycle stages to track gaps in tooling, side-effect safety, and durable execution [^evt-wg-accuracy-and-reliability-pr-16].
+The working group operates under the Technical Committee governance, regularly reviewing community feedback on deliverable drafts and coordinating cross-cutting terminology through designated Domain Editors[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3][^evt-wg-accuracy-and-reliability-pr-11].
 
-[^evt-wg-accuracy-and-reliability-pr-16]: https://github.com/aaif/wg-accuracy-and-reliability/pull/16
+[^evt-wg-accuracy-and-reliability-file-0e87c3ebe88a-503ff3e3]: https://github.com/aaif/wg-accuracy-and-reliability/blob/10bc173f00e45d93a8f7038cb0c36a89e3219565/deliverables/arwg-survey.md
+[^evt-wg-accuracy-and-reliability-pr-11]: https://github.com/aaif/wg-accuracy-and-reliability/pull/11

@@ -1,45 +1,65 @@
 ---
 type: skill
-title: aaif-check-setup
-description: Diagnostic agent skill validating local runtime dependencies, Google
-  Workspace credentials, Slack and Luma authentication, and guiding credential remediation
-  without leaking secrets.
-resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-check-setup/SKILL.md
+title: AAIF Check Setup Skill
+description: Diagnostic agent skill validating local dependencies, Google Workspace
+  connection files, Slack user tokens, and Luma credentials across CLI and plugin
+  environments.
+resource: https://github.com/aaif/community-events/pull/66
 tags:
-- aaif
-- skills
+- skill
+- community
+- operations
 - diagnostics
-- environment
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:41:21.780611+00:00'
+  at: '2026-11-23T10:34:28.287156+00:00'
 sources:
-- id: evt-community-events-file-3422d7005bbb-6740e451
-  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-check-setup/SKILL.md
+- id: evt-community-events-pr-66
+  resource: https://github.com/aaif/community-events/pull/66
+  author: rparundekar
+  last_modified: '2026-11-04T06:24:30+00:00'
+- id: evt-community-events-file-06572a96a58d-8cb799a7
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/CHANGELOG.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-03T22:34:13-08:00'
+- id: evt-community-events-file-a54ff182c7e8-b01e6de9
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/AGENTS.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-03T22:34:13-08:00'
+- id: evt-community-events-file-953dd2e86174-8ce1fa27
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/MAINTAINING.md
   author: Rahul Parundekar
   last_modified: '2026-11-03T22:44:51-08:00'
-- id: evt-community-events-pr-67
-  resource: https://github.com/aaif/community-events/pull/67
-  author: rparundekar
-  last_modified: '2026-11-04T06:47:21+00:00'
 ---
 
 # Overview
-
-The `aaif-check-setup` skill is a read-only diagnostic capability within the AAIF community events toolkit that verifies whether a host computer is properly configured to execute operational automations [^evt-community-events-file-3422d7005bbb-6740e451]. It assesses Python 3 availability, plugin installations, Google Workspace (`gws`) CLI tokens and permission scopes, Community Intake sheet access, Slack authorization, Luma calendar keys, and headless Chrome [^evt-community-events-file-3422d7005bbb-6740e451].
+The `aaif-check-setup` skill is a standalone diagnostic utility within the AAIF Community Events Toolkit that executes read-only preflight verification across local software runtimes, API access keys, and cloud service credentials[^evt-community-events-file-06572a96a58d-8cb799a7]. It provides actionable remediation advice when prerequisites are absent, guiding non-technical operators through setup without relying on an external administrative helper[^evt-community-events-pr-66].
 
 # Architecture / Specification
+The skill executes strictly using Python standard library modules to ensure portability when packaged as a standalone archive or deployed inside containerized and desktop agent harnesses like Goose and Claude Desktop[^evt-community-events-file-06572a96a58d-8cb799a7].
 
-The diagnostic engine runs via `python3 <skill-root>/scripts/check_setup.py` under clear boundary invariants [^evt-community-events-file-3422d7005bbb-6740e451]:
+## Verification Scope
+The diagnostic workflow evaluates prerequisites sequentially, surfacing binary pass/fail indicators and plain-text remediation instructions[^evt-community-events-file-06572a96a58d-8cb799a7]:
+- **Runtime Environment:** Confirms Python availability, required packaging structure, and headless Google Chrome installation for browser automation tasks[^evt-community-events-file-06572a96a58d-8cb799a7].
+- **Google Workspace (`gws`):** Validates the presence of the operator's Google connection configuration file and verifies active edit permissions on the central Community Intake Ops spreadsheet, surfacing missing configuration files rather than prompting invalid interactive logins[^evt-community-events-pr-66][^evt-community-events-file-06572a96a58d-8cb799a7].
+- **Slack User Credentials:** Confirms availability of an authorized Slack user token (`xoxp-`) possessing directory read and channel provisioning permissions[^evt-community-events-file-953dd2e86174-8ce1fa27].
+- **Luma API Access:** Checks connectivity and authorization against the community event calendar API[^evt-community-events-file-06572a96a58d-8cb799a7].
 
-- **Non-Destructive Read-Only Operation**: Reads single sheet metadata, calls Slack `auth.test`, and Luma `calendars/get` without performing mutations or leaking raw keys/tokens into execution logs [^evt-community-events-file-3422d7005bbb-6740e451].
-- **Remediation Guidance**: Translates diagnostic failures into non-technical step-by-step resolution paths [^evt-community-events-file-3422d7005bbb-6740e451]. For credential failures, it directs operators to authenticate their personal OAuth configuration and generate individual tokens, avoiding shared administrative token lookups [^evt-community-events-file-3422d7005bbb-6740e451] [^evt-community-events-pr-67].
-- **Workspace Manipulation Isolation**: Verifies `gws` integration, reinforcing policy restrictions that ban third-party rendering suites like LibreOffice (`soffice`) in favor of direct API operations and temporary PDF previews [^evt-community-events-file-3422d7005bbb-6740e451].
+## Credential Resolution Precedence
+To support unprivileged installed plugin runtimes that lack inherited shell environments, credential resolution follows a pinned fallback order[^evt-community-events-file-a54ff182c7e8-b01e6de9]:
+1. Explicit process environment variables.
+2. Repository root `.env` configuration files.
+3. macOS Keychain entries (`aaif-slack-read-token`, `aaif-slack-write-token`, and `luma-api-key`), with per-run caching to mitigate interactive operating system authorization prompts[^evt-community-events-file-06572a96a58d-8cb799a7].
 
 # Lifecycle History
+Originally conceived as an administrative helper-assisted check, `aaif-check-setup` was updated to support independent operator self-service, eliminating references to an external setup assistant and adapting error reporting to account for distinct first-time administrator versus subsequent operator provisioning pathways[^evt-community-events-pr-66][^evt-community-events-file-953dd2e86174-8ce1fa27].
 
-Updated in Pull Request #67 to adjust diagnostic resolution steps away from centralized credential distribution toward individual operator credential provisioning [^evt-community-events-pr-67].
+# References
+- [Community Event Operations](community-event-operations.md)
+- [Agent Plugins Standard](../standards/agent-plugins.md)
 
-[^evt-community-events-file-3422d7005bbb-6740e451]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-check-setup/SKILL.md
-[^evt-community-events-pr-67]: https://github.com/aaif/community-events/pull/67
+[^evt-community-events-file-06572a96a58d-8cb799a7]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/CHANGELOG.md
+[^evt-community-events-file-953dd2e86174-8ce1fa27]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/MAINTAINING.md
+[^evt-community-events-file-a54ff182c7e8-b01e6de9]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/AGENTS.md
+[^evt-community-events-pr-66]: https://github.com/aaif/community-events/pull/66

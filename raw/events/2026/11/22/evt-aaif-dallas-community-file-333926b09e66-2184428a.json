@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-333926b09e66-2184428a",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": ".github/skills/event-api-contracts/SKILL.md",
+  "title": "SKILL.md",
+  "timestamp": "2026-11-22T22:32:04-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/.github/skills/event-api-contracts/SKILL.md",
+  "summary": "feat: build static Agentic AI Summit site",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": ".github/skills/event-api-contracts/SKILL.md",
+      "blob_sha": "2184428aa9fb3f4b25d593129b5520b2898cfeba",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

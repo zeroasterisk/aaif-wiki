@@ -1,54 +1,42 @@
 ---
 type: working-group
 title: Identity and Trust Working Group
-description: Technical working group establishing vendor-neutral standards, delegation
-  models, cryptographic trust roots, and multi-hop operational viewpoints for AI agents.
-resource: https://github.com/aaif/wg-identity-and-trust/issues/25
+description: Technical working group establishing vendor-neutral specifications, attestation
+  models, and delegated authorization frameworks for AI agents across internal, B2B,
+  and B2C interactions.
+resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
 tags:
 - identity
 - trust
 - delegation
-- architecture
-- cryptography
+- attestation
+- working-group
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:45:37.921247+00:00'
+  at: '2026-11-23T10:31:50.972026+00:00'
 sources:
-- id: evt-wg-identity-and-trust-issue-25
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/25
-  author: kevinhammond
-  last_modified: '2026-11-15T10:54:44+00:00'
-- id: evt-wg-identity-and-trust-issue-30
-  resource: https://github.com/aaif/wg-identity-and-trust/issues/30
-  author: MarcMolas
-  last_modified: '2026-11-12T20:51:03+00:00'
+- id: evt-wg-identity-and-trust-file-922f59c26329-928a222f
+  resource: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md
+  author: Dedeoglu
+  last_modified: '2026-11-01T20:45:38+01:00'
 ---
 
 # Overview
-
-The Identity and Trust Working Group establishes vendor-neutral identity primitives, cryptographic attestation mechanisms, and authority delegation frameworks for agentic AI deployments [^evt-wg-identity-and-trust-issue-25]. It defines how agents assert identity, inherit permissions from principals, verify counterparties across institutional trust boundaries, and maintain delegation continuity [^evt-wg-identity-and-trust-issue-25, ^evt-wg-identity-and-trust-issue-30].
+The Identity and Trust Working Group is an AAIF technical body defining vendor-neutral frameworks, attestation models, identity primitives, and authorization boundaries for autonomous agents [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. Co-chaired by Grant Miller (IBM) and Alper Dedeoğlu (SAP SE), the working group focuses on core concepts including agent identity, delegation, action records, and consent receipts across enterprise and open-network boundaries [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
 # Architecture / Specification
+The working group organizes its technical deliverables across three dedicated sub-working groups [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]:
 
-The working group models agent authority, verifiable identity assertions, and multi-party trust topologies.
+- **Taxonomy Sub-WG:** Coordinates with the cross-cutting [Taxonomy and Landscape](../working-groups/taxonomy-and-landscape.md) workstream to formalize definitions for trust, attestation, delegation, and identifiers [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+- **Reference Architecture Sub-WG:** Adopts a bottom-up, primitive-first strategy that authors foundational primitives—commencing with the agent [identity](../taxonomy/identity.md) primitive—before assembling them into composite reference architectures and runtime profiles [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
+- **Critical Use Cases Sub-WG:** Formulates illustrative agent lifecycle models spanning internal, business-to-business (B2B), and business-to-consumer (B2C) topologies across six lifecycle stages: naming, deployment, delegation, access control, audit/compliance, and retirement/revocation [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
-## Reference Architecture Operational Viewpoint
+Core functional requirements established by the working group include verifiable delegation chains, dynamic per-request authorization gates, content-private [action records](../taxonomy/action-record.md) with selective disclosure, and principal-attested credential revocation [^evt-wg-identity-and-trust-file-922f59c26329-928a222f]. The group integrates external industrial architectural patterns into its evaluation pipeline, including NVIDIA's Secure Agent Workspace reference design and Uber's agentic identity model [^evt-wg-identity-and-trust-file-922f59c26329-928a222f].
 
-The working group develops an operational viewpoint based on ISO/IEC/IEEE 42010 to define authority and accountability flow across agent systems [^evt-wg-identity-and-trust-issue-25]:
-- **Actor Model**: Formulates explicit operational roles for interacting entities, evaluating extensions for specialized roles such as Approver and Auditor [^evt-wg-identity-and-trust-issue-25].
-- **Delegation Models**: Governs authority attenuation, shared execution limits, multi-parent delegation graphs, cross-organizational hops, and delegation finalisation [^evt-wg-identity-and-trust-issue-25].
-- **Operational Rules and Scenarios**: Establishes candidate conformance scenarios (S1–S12) and normative rules (R1–R13) to validate authority handling during dispatch, timeout, and delegation replacement [^evt-wg-identity-and-trust-issue-25].
+# References
+- [Agent Identity Primitives](../standards/agent-identity-primitives.md)
+- [Action Record](../taxonomy/action-record.md)
+- [Working Group Lifecycle Policy](../policies/working-group-lifecycle-policy.md)
 
-## Multi-Hop Delegation Evidence
-
-In coordination with the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), the group explores delegation evidence across hops where telemetry cannot carry full proof artifacts [^evt-wg-identity-and-trust-issue-30]:
-- **Verifiable Delegation Roots**: Specifying verification requirements for each intermediary hop back to an accountable root principal [^evt-wg-identity-and-trust-issue-30].
-- **Trust Boundary Translation**: Recording identity mappings where identifiers are translated across distinct organizational or cryptographic boundaries [^evt-wg-identity-and-trust-issue-30].
-
-# Lifecycle History
-
-Discussions in Issue #25 and Issue #30 expanded the working group's scope to formal architectural viewpoints and cross-boundary delegation evidence continuity [^evt-wg-identity-and-trust-issue-25, ^evt-wg-identity-and-trust-issue-30].
-
-[^evt-wg-identity-and-trust-issue-25]: https://github.com/aaif/wg-identity-and-trust/issues/25
-[^evt-wg-identity-and-trust-issue-30]: https://github.com/aaif/wg-identity-and-trust/issues/30
+[^evt-wg-identity-and-trust-file-922f59c26329-928a222f]: https://github.com/aaif/wg-identity-and-trust/blob/03635504ad1c4ab99631967b15705bf947f64f1e/reporting/2026-08-report.md

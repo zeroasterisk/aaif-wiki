@@ -1,38 +1,44 @@
 ---
 type: guideline
 title: Job-Oriented Architecture Model
-description: Architectural decision framework structuring agent reference architectures
-  around recognizable practitioner jobs rather than raw agent counts.
-resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md
+description: Architectural framework organizing agent reference architectures around
+  recognizable practitioner jobs rather than agent topology.
+resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md
 tags:
-- guideline
-- architecture
+- guidelines
 - workflows
-- decision-record
+- architecture
+- patterns
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T09:56:55.475973+00:00'
+  at: '2026-11-23T09:52:14.257124+00:00'
 sources:
-- id: evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62
-  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md
-  author: Zayne Turner
-  last_modified: '2026-08-05T23:05:12-04:00'
+- id: evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424
+  resource: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md
+  author: Mario Zagar
+  last_modified: '2026-08-28T22:42:47-04:00'
 ---
 
 # Overview
-The Job-Oriented Architecture Model is an architectural decision framework established by the [Workflows and Process Integration Working Group](../working-groups/workflows-and-process-integration.md) that organizes reference architectures around recognizable practitioner jobs rather than structural agent topologies [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]. It decouples the operational need—such as bounded remediation or approval gating—from the agent count, which is treated as an implementation outcome.
+The Job-Oriented Architecture Model is an architectural structuring principle defined by the Workflows & Process Integration Working Group that organizes reference architectures around the job a practitioner needs an agentic system to perform[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. While topological metrics such as agent count ("single-agent" versus "multi-agent") provide structural context, they do not communicate the operational objective, behavioral guarantees, or failure boundaries of a workflow[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
 
-Under this model, reference architectures represent complete compositions of reusable patterns, operational boundaries, required capabilities, and explicit exit guarantees, while patterns capture independent solutions to recurring workflow problems [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62].
+Under this framework, reference architectures function as practitioner routing checklists: builders evaluate whether an architecture fits their target use case, whether an adjacent variant applies, or whether individual reusable patterns provide sufficient control[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
 
 # Architecture / Specification
-The framework defines distinct roles and relationships between architectural artifacts [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]:
-- **Reference Architectures**: Comprehensive specifications matching named practitioner jobs (e.g., [Single-Agent Process with Human Approval](../architectures/single-agent-human-approval.md)). They compose reusable patterns, declare runtime boundaries, and enforce outcome guarantees.
-- **Patterns**: Independently adoptable solutions addressing specific, recurring workflow challenges (e.g., [Human Approval Gate](../patterns/human-approval-gate.md), [Proposal/Execution Split](../patterns/proposal-execution-split.md), [Durable Wait](../patterns/durable-wait.md)). Patterns maintain self-contained invariants and failure modes across multiple architectures.
-- **Structural Typologies**: Classifications such as single-agent and multi-agent serve as internal design characteristics rather than top-level architectural taxonomies.
-- **Scenario Validation**: Use cases and test scenarios validate architectures; mismatches signal missing patterns, variant gaps, or entirely distinct practitioner jobs.
 
-### Rationale and Trade-offs
-Practitioners approach workflow integration from operational needs rather than predetermined agent counts [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]. Focusing on recognized practitioner jobs provides clearer operational boundaries and prevents redundant definitions across workflows. This replaces earlier scaffolding that categorized architectures strictly by single-agent versus multi-agent boundaries [^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62].
+## Structural Taxonomy
+The framework establishes explicit definitions distinguishing architectures, patterns, and scenarios[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]:
+- **Reference Architecture**: A complete composition defining reusable patterns, required capabilities, system boundaries, component relationships, guarantees, and exit states for a recognizable practitioner job[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. The architecture's name completes the sentence: *"We're building a ___"*[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
+- **Pattern**: A self-contained solution addressing a single recurring sub-problem that can be adopted independently or composed into multiple reference architectures[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. Each pattern owns its own invariants and failure modes[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
+- **Scenario**: Validation material demonstrating how an architecture behaves under a concrete, real-world use case[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. Scenarios serve strictly as test harnesses and validation benchmarks, not separate architectures[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
 
-[^evt-wg-workflows-and-process-integration-file-f035520d0488-6fefbf62]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/decisions/job-oriented-architecture-model.md
+## Baseline Reference Architectures
+The catalog establishes contrasting reference architectures addressing distinct practitioner jobs[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]:
+- [Single-Agent Process with Human Approval](../architectures/single-agent-human-approval.md): An agent drafts a proposal, an authorized human reviews and approves, and an isolated execution engine performs the protected modification[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. Composes [Proposal/Execution Split](../patterns/proposal-execution-split.md), [Human Approval Gate](../patterns/human-approval-gate.md), and [Durable Wait](../patterns/durable-wait.md)[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
+- [Bounded Autonomous Remediation](../architectures/bounded-autonomous-remediation.md): An agent iterates within a fenced problem boundary, an independent deterministic acceptance gate checks convergence, and bounded effects are committed[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. Composes [Bounded Convergence Loop](../patterns/bounded-convergence-loop.md), [Deterministic Acceptance Gate](../patterns/deterministic-acceptance-gate.md), and [Proposal/Execution Split](../patterns/proposal-execution-split.md)[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
+
+## Architectural Boundary Rules
+Reference architectures must delineate deterministic and model-driven activities, identifying where conventional workflow logic provides repeatable, testable execution versus where open-ended reasoning requires generative models[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]. Inside agent boundaries, deterministic code and ReAct-style iterative reasoning loops are treated as equivalent implementation choices[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424].
+
+[^evt-wg-workflows-and-process-integration-file-7443f6b14b82-702c4424]: https://github.com/aaif/wg-workflows-and-process-integration/blob/3b4d645499620b10b313297e7f365148fa6d0ee1/workstreams/reference-architectures/README.md

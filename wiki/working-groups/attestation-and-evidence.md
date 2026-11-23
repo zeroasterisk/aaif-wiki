@@ -2,29 +2,35 @@
 type: working-group
 title: Attestation and Evidence Working Group
 description: Cross-cutting AAIF working group establishing decentralized standards,
-  evidence classes, and witness verification frameworks for agent actions and decisions.
-resource: https://github.com/aaif/working-group-proposals/issues/6
+  evidence classes, and witness mechanisms for agent verification.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md
+tags:
+- working-group
+- attestation
+- evidence
+- governance
+- verification
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:37:01.936664+00:00'
+  at: '2026-11-23T10:29:46.624102+00:00'
 sources:
-- id: evt-working-group-proposals-issue-6
-  resource: https://github.com/aaif/working-group-proposals/issues/6
-  author: StevenMih
-  last_modified: '2026-10-25T15:10:07+00:00'
+- id: evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md
+  author: Pavan Sudheendra
+  last_modified: '2026-10-29T02:42:30+00:00'
 ---
 
 # Overview
-The Attestation and Evidence Working Group (AE-WG) is a cross-cutting technical working group within the Agentic AI Foundation established to define how statements about AI agent actions, decisions, authorizations, and outcomes are attested and verified across organizational boundaries without central authorities[^evt-working-group-proposals-issue-6]. The working group standardizes evidence classes, portable self-describing bundles, witness models, and offline verification mechanisms to ensure records remain independently checkable across systems[^evt-working-group-proposals-issue-6].
+The Attestation and Evidence Working Group is a cross-cutting AAIF body establishing vendor-neutral standards, evidence models, and witness architectures to verify agent provenance, authority, and runtime actions.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f] It provides foundational verification mechanisms that bridge telemetry traces, identity assertions, and compliance audits.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
 
 # Architecture / Specification
-## Scope and Boundaries
-- **In Scope**: Evidence vocabulary and grading scales; attestation formats for autonomous decisions, actions, and authorizations; commitment-before-observation mechanics; bilateral and multi-party attestation at runtime boundaries; verifiable offline disclosure and request bundles; and obligation mapping in coordination with Governance, Risk, and Regulatory[^evt-working-group-proposals-issue-6].
-- **Out of Scope**: Telemetry transport wire formats (coordinated with [Observability & Traceability](observability-and-traceability.md)), identity credentials (coordinated with [Identity & Trust](identity-and-trust.md)), threat modeling (coordinated with [Security & Privacy](security-and-privacy.md)), payment settlement protocols (coordinated with [Agentic Commerce](agentic-commerce.md)), and foundation-managed central ledgers[^evt-working-group-proposals-issue-6].
+The group focuses on resolving verification gaps across multi-agent environments:
+- **Interim Working Group Trial**: Operating under a 90-day trial initiated in late 2026 to evaluate whether the initiative should transition into a permanent working group, workstream, or cross-working group under the [Technical Committee](../governance/technical-committee.md).[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
+- **Cross-Group Coordination**: Collaborating with [Observability and Traceability](../working-groups/observability-and-traceability.md) and [Security and Privacy](../working-groups/security-and-privacy.md) to integrate tamper-evident logging and signed evidence structures into operational harnesses.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
+- **Proof of Control and Verification**: Partnering with industry groups and projects to develop attestation models for autonomous agent decision-making and cross-domain action validity.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
 
-## Governance and Deliverables
-- **Cross-Group Coordination**: Governed by two co-chairs and seats dedicated liaison representatives from every active AAIF working group under [Technical Committee](../governance/technical-committee.md) oversight[^evt-working-group-proposals-issue-6].
-- **90-Day Roadmap**: Delivers Evidence Vocabulary v0, a witness and root-of-trust matrix (covering logs, cosigners, timestamp authorities, TEEs, and HSMs), evidence requirement analyses for sibling working group use cases, and an Evidence Classes and Gap Analysis 1.0 document for Technical Committee ratification[^evt-working-group-proposals-issue-6].
+# Lifecycle History
+Formed as an interim working group undergoing a 90-day evaluation period as reported to the Observability and Traceability Working Group on October 28, 2026, aimed at formulating long-term recommendations for the Technical Committee.[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]
 
-[^evt-working-group-proposals-issue-6]: https://github.com/aaif/working-group-proposals/issues/6
+[^evt-wg-observability-and-traceability-file-e1eff34e54a6-f9dca54f]: https://github.com/aaif/wg-observability-and-traceability/blob/81dc934a316e97895677257cdc0977f5c3498ea2/meeting-minutes/2026-10-28.md
