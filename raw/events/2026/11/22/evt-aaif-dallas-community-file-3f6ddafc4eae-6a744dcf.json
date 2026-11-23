@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-3f6ddafc4eae-6a744dcf",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": "docs/agents/domain.md",
+  "title": "domain.md",
+  "timestamp": "2026-11-22T22:32:04-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/docs/agents/domain.md",
+  "summary": "feat: build static Agentic AI Summit site",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": "docs/agents/domain.md",
+      "blob_sha": "6a744dcfa6f19dbfece5f702e4f3200829cd5962",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

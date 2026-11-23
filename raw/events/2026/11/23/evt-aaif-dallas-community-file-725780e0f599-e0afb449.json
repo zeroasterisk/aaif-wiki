@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-aaif-dallas-community-file-725780e0f599-e0afb449",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/aaif-dallas-community",
+  "reference_id": ".github/workflows/content-change.yml",
+  "title": "content-change.yml",
+  "timestamp": "2026-11-23T00:02:12-06:00",
+  "author": "Govindaraj Palanisamy",
+  "url": "https://github.com/aaif/aaif-dallas-community/blob/9ee767202ead7d87455fcc04e6638836501625f3/.github/workflows/content-change.yml",
+  "summary": "ci: make AWS deployment enterprise compliant",
+  "pointers": [
+    {
+      "repo": "aaif-dallas-community",
+      "commit_sha": "9ee767202ead7d87455fcc04e6638836501625f3",
+      "path": ".github/workflows/content-change.yml",
+      "blob_sha": "e0afb44991c66a95f2d222cc4e67d8794cf640ce",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

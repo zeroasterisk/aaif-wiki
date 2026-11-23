@@ -1,52 +1,39 @@
 ---
 type: resource
-title: Cross-Boundary Observability Model for Agentic Systems
+title: Cross-Boundary Observability Model
 description: Analytical coordination framework structuring agent observability across
-  LLM primitives, protocol boundaries, and infrastructure layers.
-resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
+  foundational binary encodings, OS kernel tracing, hardware accelerators, network
+  protocols, and agent runtimes.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
 tags:
 - observability
+- tracing
+- architecture
 - telemetry
-- boundaries
-- protocols
-- wg-observability-and-traceability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-10-26T10:49:39.325201+00:00'
+  at: '2026-11-23T10:18:52.085211+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-file-566afac466bc-889ed18a
-  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
-  author: Pavan Sudheendra
-  last_modified: '2026-10-06T04:07:46+01:00'
-- id: evt-wg-observability-and-traceability-pr-25
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/25
-  author: 91pavan
-  last_modified: '2026-10-06T03:07:52+00:00'
+- id: evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md
+  author: Matthew Khouzam
+  last_modified: '2026-10-07T07:18:15+01:00'
 ---
 
 # Overview
-The Cross-Boundary Observability Model for Agentic Systems is a coordination artifact developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) to evaluate telemetry gaps across heterogeneous execution boundaries[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]. Rather than defining a standalone telemetry protocol or competing with existing logging frameworks, the model functions as a common boundary map to assess where interoperability breaks down across standards and implementations, guiding targeted upstream contributions and foundation recommendations[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a][^evt-wg-observability-and-traceability-pr-25].
-
-Contemporary agentic systems span multiple conceptual and physical boundaries where telemetry conventions diverge. While monitoring solutions frequently capture isolated invocations, they routinely lose correlation across multi-step delegations, protocol handoffs, and underlying infrastructure environments. The model formalizes these transitions to illuminate persistent blind spots in cross-system identity, context propagation, provenance, protocol negotiation, and responsibility tracking[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a].
+The Cross-Boundary Observability Model provides a structured bottom-up framework for evaluating observability, profiling, and tracing mechanisms across the full agentic AI execution stack[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]. Developed by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), the framework bridges low-level hardware counters and kernel execution states with high-level agent runtime telemetry and decision logging.
 
 # Architecture / Specification
-The model structures observability analysis into three distinct horizontal layers[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]:
+The model organizes observability into five distinct, bottom-up operational layers[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]:
 
-- **LLM Primitive Layer**: Governs fundamental generative building blocks, including agents, packaged skills, external tools, models, and memory architectures.
-- **Protocol Boundary Layer**: Governs interaction patterns across transport specifications such as the Model Context Protocol (MCP), Agent-to-Agent (A2A), and HTTP/streaming interfaces. Primary interaction points include discovery, capability negotiation, request/response cycles, task delegation, streaming pipelines, cancellation signaling, and structured error handling.
-- **Infrastructure Boundary Layer**: Governs runtime hosting environments, gateways, policy mediation proxies, container runtimes, and physical network fabrics.
-
-### Cross-Boundary Observability Blind Spots
-The framework targets five core operational areas where cross-layer visibility fails[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]:
-1. **Delegation and Hand-offs**: Preserving parent-child causality when tasks are transferred between autonomous agents.
-2. **Context Propagation**: Carrying execution trace baggage, state snapshots, and session context across transport boundaries.
-3. **Provenance and Trust**: Establishing verifiable audit chains that authenticate which models, tools, or inputs produced specific outputs.
-4. **Protocol Negotiation and Failure Modes**: Monitoring dynamic capability mismatches, version negotiations, and unhandled transport exceptions.
-5. **End-to-End Responsibility Chains**: Tracing decision accountability across multi-agent and human-in-the-loop workflows.
+1. **Layer 01: Foundations**: Establishes binary trace encodings and comparative assessment frameworks, including self-describing trace formats like the [Common Trace Format](common-trace-format.md), comparative Linux tracing baselines via [Linux Tracing Comparison](linux-tracing-comparison.md), and multi-format trace correlation engines like [Trace Compass](trace-compass.md).
+2. **Layer 02: Kernel Tracing**: Captures operating system execution, function calls, and hardware performance counters via [FTrace](ftrace.md), [Linux perf](linux-perf.md), and [LTTng](lttng-kernel.md), while tracking driver instrumentation through [Linux Driver Tracing](linux-driver-tracing.md), guest timestamp distortion via [Virtualization Tracing](virtualization-tracing.md), scheduler CFS throttling via [Container Orchestration Tracing](container-orchestration-tracing.md), and runtime syscall detection through [Sysdig](sysdig.md) and [Falco](falco.md).
+3. **Layer 03: Hardware Accelerators**: Instruments GPU kernel dispatches, tensor core utilization, host-to-device memory transfers, and framework-to-hardware correlation across accelerator vendor toolchains.
+4. **Layer 04: Network**: Monitors network protocol interactions, packet capture, and wire-level agent-to-agent mediation.
+5. **Layer 05: AI Agent Observability**: Captures agent runtime state transitions, LLM request/response spans, prompt context windows, and behavioral product analytics emitted directly by agent frameworks.
 
 # Lifecycle History
-Authored as a foundational working document within the Observability and Traceability Working Group to guide the AAIF gap analysis work package and structure comparative landscape assessments[^evt-wg-observability-and-traceability-pr-25].
+The architecture assessments catalog and five-layer narrative structure were documented to standardize technology assessments and provide a unified evaluation lens across system layers[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721].
 
-[^evt-wg-observability-and-traceability-file-566afac466bc-889ed18a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/cross-boundary-observability-model.md
-[^evt-wg-observability-and-traceability-pr-25]: https://github.com/aaif/wg-observability-and-traceability/pull/25
+[^evt-wg-observability-and-traceability-file-69d00b3de313-cc8ae721]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/tracing_landscape/README.md

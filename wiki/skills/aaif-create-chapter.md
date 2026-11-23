@@ -1,49 +1,62 @@
 ---
 type: skill
 title: aaif-create-chapter
-description: Operational provisioning and rebranding skill that creates and renames
-  AAIF city chapters, generates customized Drive assets, and renders localized Web
-  Banners.
-resource: https://github.com/aaif/community-events/pull/65
+description: Operational provisioning and lifecycle skill managing TemplateCity cloning,
+  OOXML rebrand transformations, map dot repositioning, and four-surface chapter renames.
+resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/SKILL.md
 tags:
 - community
-- automation
+- operations
 - skills
-- provisioning
-- google-workspace
+- chapters
+- gws
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:41:03.714942+00:00'
+  at: '2026-11-23T10:33:44.152648+00:00'
 sources:
-- id: evt-community-events-pr-65
-  resource: https://github.com/aaif/community-events/pull/65
-  author: rparundekar
-  last_modified: '2026-11-03T21:50:00+00:00'
+- id: evt-community-events-file-d236c244f6dc-7c3a1e3a
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/SKILL.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-03T13:48:31-08:00'
+- id: evt-community-events-file-ec8a86dec4ad-ba23000c
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/references/rename-chapter.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-03T13:48:31-08:00'
 ---
 
 # Overview
-The `aaif-create-chapter` skill automates the operational provisioning, asset replication, and rebranding required when establishing or renaming an Agentic AI Foundation (AAIF) city chapter [^evt-community-events-pr-65]. It clones templated Google Drive estates, rewrites Open Office XML (OOXML) text representations, and ensures graphical chapter collateral—such as square web banners—accurately reflect local chapter nomenclature [^evt-community-events-pr-65].
+
+The `aaif-create-chapter` operational skill provisions new AAIF city chapters within the Google Drive estate by cloning the standard `TemplateCity` directory, performing deterministic string and asset rebranding, recalculating geographic coordinate indicators, and executing multi-surface chapter renames [^evt-community-events-file-d236c244f6dc-7c3a1e3a] [^evt-community-events-file-ec8a86dec4ad-ba23000c].
 
 # Architecture / Specification
-The provisioning pipeline operates as a sequence of templating, text substitution, raster rendering, and metadata verification steps [^evt-community-events-pr-65]:
 
-## Asset Rebranding and Template Cloning
-When a chapter is initialized, template folders containing presentation decks, sheets, and collateral are cloned. Text modifications to OOXML files replace template placeholders with the official chapter name [^evt-community-events-pr-65].
+### Tooling Invariants and File Handling
 
-## Web Banner Generation Pipeline
-Because graphical assets store text rasterized into image pixels rather than editable OOXML text runs, `Web Banner.png` cannot be rebranded solely via string replacement [^evt-community-events-pr-65]. Chapter banner generation uses `render_web_banner.py` [^evt-community-events-pr-65]:
-- **Slide Source**: Derives the 2000x2000 banner image directly from slide four of the chapter's rebranded presentation deck (`Banners (…)/Square Logo.pptx`) [^evt-community-events-pr-65].
-- **Server-Side Rasterization**: Exports the slide via Google Slides native export API (`slides_export.render_slide_png`) without relying on local headless office suites [^evt-community-events-pr-65].
-- **Content Verification**: Validates that slide text explicitly matches "AAIF Community Events" concatenated with the exact chapter name before rendering, repeating this check on the drawn output [^evt-community-events-pr-65].
-- **Drive Metadata Stamping**: Stamps the uploaded `Web Banner.png` file in Google Drive `appProperties` with the source presentation's `md5Checksum` and chapter name, allowing idempotent re-runs to skip unchanged assets and re-render only when decks change or renames occur [^evt-community-events-pr-65].
-- **Failure Handling**: Clean provisioning writes exit with code 2 if banner generation fails; `rename_chapter` invocations exit with code 1 upon banner render failures [^evt-community-events-pr-65].
+All Google Drive operations are mediated strictly through Python calling the `gws` command-line utility [^evt-community-events-file-d236c244f6dc-7c3a1e3a]. File manipulation follows strict format separation:
+- Native Google Workspace assets (`application/vnd.google-apps.*`) must be modified via the Google Docs, Sheets, or Slides APIs [^evt-community-events-file-d236c244f6dc-7c3a1e3a].
+- Stored Office files (`.docx`, `.pptx`, `.xlsx`) undergo in-memory OOXML zip-part surgery to preserve embedded brand typography and untouched structural elements [^evt-community-events-file-d236c244f6dc-7c3a1e3a].
+- Desktop office tooling such as LibreOffice (`soffice`) and `unoconv` are categorically prohibited for rendering or editing because they substitute system fonts and corrupt proprietary OOXML elements [^evt-community-events-file-d236c244f6dc-7c3a1e3a].
 
-# Lifecycle History
-Previously, binary template copies caused newly created and renamed chapters to retain template city names in their square banners [^evt-community-events-pr-65]. PR #65 introduced dynamic slide export, text validation guards, and Google Drive checksum caching to resolve estate-wide branding inconsistencies [^evt-community-events-pr-65].
+### Rebranding Scope and Map Dot Positioning
+
+Chapter creation replaces the template tokens `San Francisco`, `SF` abbreviation variants, Luma slugs (`aaif-<slug>`), and corresponding file/folder labels, leaving event-specific speaker and scheduling placeholders untouched [^evt-community-events-file-d236c244f6dc-7c3a1e3a]. In addition, the skill repositions the network map marker on slide 5 ("THE NETWORK") of `Event Template/Slides.pptx` to the target city's real geographic coordinates via keyless Nominatim lookups or explicit `--lat`/`--lon` arguments [^evt-community-events-file-d236c244f6dc-7c3a1e3a].
+
+### Four-Surface In-Place Chapter Renaming
+
+When renaming an existing chapter via `scripts/rename_chapter.py`, the skill coordinates updates across four decoupled surfaces [^evt-community-events-file-ec8a86dec4ad-ba23000c]:
+1. **Chapter Folder**: Top-level directory renaming on Google Drive [^evt-community-events-file-ec8a86dec4ad-ba23000c].
+2. **File and Subfolder Names**: Nested file assets and icon directories [^evt-community-events-file-ec8a86dec4ad-ba23000c].
+3. **OOXML Text**: Internal text runs inside `.docx`, `.pptx`, and `.xlsx` document parts [^evt-community-events-file-ec8a86dec4ad-ba23000c].
+4. **Document Metadata**: Standard OOXML core properties (`docProps`) [^evt-community-events-file-ec8a86dec4ad-ba23000c].
+
+Luma slugs are explicitly decoupled from the city name pass to prevent link breakage on live community pages, relationship files (`.rels`) only receive slug changes, and pre-change assets are archived under `backups/rename-<UTC>/` prior to Drive upload [^evt-community-events-file-ec8a86dec4ad-ba23000c].
 
 # References
-- Upstream skill pipeline: [community-event-operations](../skills/community-event-operations.md)
-- Diagnostic verification: [aaif-check-setup](../skills/aaif-check-setup.md)
 
-[^evt-community-events-pr-65]: https://github.com/aaif/community-events/pull/65
+- [`../guidelines/brand-guidelines.md`](../guidelines/brand-guidelines.md)
+- [`../skills/community-event-operations.md`](../skills/community-event-operations.md)
+- [`../skills/aaif-sync.md`](../skills/aaif-sync.md)
+
+[^evt-community-events-file-d236c244f6dc-7c3a1e3a]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/SKILL.md
+[^evt-community-events-file-ec8a86dec4ad-ba23000c]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/skills/aaif-create-chapter/references/rename-chapter.md

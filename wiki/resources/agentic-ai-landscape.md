@@ -1,51 +1,41 @@
 ---
 type: resource
-title: Agentic AI Landscape
-description: Interactive ecosystem catalog and market map tracking open-source and
-  commercial technologies across agent frameworks, protocols, runtimes, and governance
-  tooling.
-resource: https://github.com/aaif/ws-taxonomy-landscape/pull/27
+title: Agentic AI Ecosystem Landscape
+description: Taxonomy catalog and ecosystem landscape mapping agentic frameworks,
+  protocols, security tooling, runtime gateways, and file conventions.
+resource: https://github.com/aaif/ws-taxonomy-landscape/pull/30
 tags:
 - landscape
-- catalog
 - taxonomy
 - ecosystem
+- catalog
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:34:13.154434+00:00'
+  at: '2026-11-23T10:23:07.783010+00:00'
 sources:
-- id: evt-ws-taxonomy-landscape-pr-27
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/27
-  author: thc1006
-  last_modified: '2026-10-12T03:30:56+00:00'
-- id: evt-ws-taxonomy-landscape-pr-28
-  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/28
-  author: thc1006
-  last_modified: '2026-10-12T03:30:59+00:00'
+- id: evt-ws-taxonomy-landscape-pr-30
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/30
+  author: asish-singh
+  last_modified: '2026-10-11T18:18:09+00:00'
+- id: evt-ws-taxonomy-landscape-pr-31
+  resource: https://github.com/aaif/ws-taxonomy-landscape/pull/31
+  author: asish-singh
+  last_modified: '2026-10-11T18:18:13+00:00'
 ---
 
 # Overview
 
-The Agentic AI Landscape is an interactive ecosystem catalog and market map managed by the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md). It provides an authoritative, structured directory of open-source frameworks, commercial platforms, infrastructure services, and emerging standards across the agentic artificial intelligence ecosystem [^evt-ws-taxonomy-landscape-pr-27].
+The Agentic AI Ecosystem Landscape is an open taxonomy and project catalog tracking frameworks, runtime systems, protocols, guardrails, and developer tooling across the agentic technology domain [^evt-ws-taxonomy-landscape-pr-30]. Managed under the Taxonomy & Landscape Working Group, the landscape models industry initiatives according to standard data schemas, objective descriptive criteria, and non-promotional neutral criteria [^evt-ws-taxonomy-landscape-pr-30].
 
 # Architecture / Specification
 
-The landscape data model and publishing pipeline rely on declarative YAML configuration coupled with automated validation and client-side rendering [^evt-ws-taxonomy-landscape-pr-28]:
+Entries in `landscape/landscape.yml` are categorized across primary domains and subcategories governed by strict validation rules:
 
-- **Data Schema (`landscape.yml`)**: Entries are grouped hierarchically into categories and subcategories. Each item defines mandatory fields (`name`, `homepage_url`, `description`, `project`) and optional repository locations (`repo_url`) conforming to foundation schema specifications [^evt-ws-taxonomy-landscape-pr-27].
-- **CI Validation Engine (`validate-landscape.mjs`)**: Automated pull request testing parses catalog files using the same `js-yaml` version and `FAILSAFE_SCHEMA` options as the browser client, enforcing strict type consistency and preventing unquoted string mismatches [^evt-ws-taxonomy-landscape-pr-28].
-- **Denial-of-Service and Boundary Limits**: The validator enforces strict defense-in-depth resource bounds, including a 512 KB file size cap, a 500-item maximum, a 5,000-object/array graph limit, and a 20,000-reference traversal budget [^evt-ws-taxonomy-landscape-pr-28]. It prohibits YAML merge keys, cyclic object aliases, and control characters [^evt-ws-taxonomy-landscape-pr-28].
-- **Symlink Prevention**: An automated pre- and post-assembly check (`check-no-symlinks.sh`) prevents committed symbolic links from exposing runner-local files during artifact packing and deployment via GitHub Pages [^evt-ws-taxonomy-landscape-pr-28].
-- **Browser Client Search**: The client application (`app.js`) executes search highlighting using bounded regular expression walks with Unicode case folding, preventing input injection and avoiding unconstrained string allocations [^evt-ws-taxonomy-landscape-pr-28].
+- **Category Evolution:** Proposals have introduced dedicated subcategories to accommodate emerging architectural patterns [^evt-ws-taxonomy-landscape-pr-30]:
+  - *Gateways & Control Planes:* Established under Agent Runtimes, Frameworks & Workflow Orchestration to classify traffic-mediating and routing infrastructure like [AgentGateway](../resources/agentgateway.md), distinguishing mediation layers from agentic orchestration frameworks and guardrails [^evt-ws-taxonomy-landscape-pr-30].
+  - *Conventions & File Formats:* Structured under Protocols & Discovery Registries to house declarative repository guidelines such as `AGENTS.md`, distinguishing file conventions from network wire protocols like [A2A](../taxonomy/agent-to-agent.md) and [MCP](../resources/agent-mcp-server-boundary.md) [^evt-ws-taxonomy-landscape-pr-30].
+- **Metadata Hygiene:** Projects undergo active URI and repository status verification to ensure canonical domain mappings (e.g., tracking repository migrations across A2A, OpenHands, and CrewAI) and maintain non-redirecting documentation endpoints [^evt-ws-taxonomy-landscape-pr-31].
 
-# Lifecycle History
-
-Originally deployed to map the emerging AI agent tooling ecosystem, the landscape expanded following the creation of the AAIF. Foundational projects donated at launch—including [Goose](../resources/goose.md) and Model Context Protocol—were integrated into member project categories such as Autonomous Agent Frameworks [^evt-ws-taxonomy-landscape-pr-27]. Continued growth prompted hardening of the intake pipeline, introducing strict static validation, parsing limits, and symlink protection to ensure repository integrity and rendering safety [^evt-ws-taxonomy-landscape-pr-28].
-
-# References
-
-- [Taxonomy and Landscape Repository](https://github.com/aaif/ws-taxonomy-landscape)
-
-[^evt-ws-taxonomy-landscape-pr-27]: https://github.com/aaif/ws-taxonomy-landscape/pull/27
-[^evt-ws-taxonomy-landscape-pr-28]: https://github.com/aaif/ws-taxonomy-landscape/pull/28
+[^evt-ws-taxonomy-landscape-pr-30]: https://github.com/aaif/ws-taxonomy-landscape/pull/30
+[^evt-ws-taxonomy-landscape-pr-31]: https://github.com/aaif/ws-taxonomy-landscape/pull/31

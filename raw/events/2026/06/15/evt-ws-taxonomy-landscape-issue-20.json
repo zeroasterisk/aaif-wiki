@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-20",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#20",
+  "title": "Create a Style Guide for terms and definitions",
+  "timestamp": "2026-06-15T21:00:49Z",
+  "author": "malbasic",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/20",
+  "summary": "",
+  "pointers": [],
+  "inline_text": null,
+  "labels": []
+}

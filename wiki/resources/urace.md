@@ -1,44 +1,38 @@
 ---
 type: resource
-title: Universal Recursive Autonomous Co-Founder Engine (URACE)
-description: Architectural blueprint specification and bootstrap runtime standard
-  providing 72 modular building blocks for recursive multi-agent orchestration.
-resource: https://github.com/aaif/project-proposals/issues/60
+title: URACE (Unified Runtime for Autonomous Collaborative Evolution)
+description: Open-source P2P-first lifecycle control plane and execution runtime governing
+  autonomous AI-assisted software improvements.
+resource: https://github.com/aaif/project-proposals/issues/67
 tags:
-- resources
-- orchestration
-- specifications
-- multi-agent
-- blueprints
+- runtime
+- control-plane
+- p2p
+- governance
+- cryptography
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:35:51.444864+00:00'
+  at: '2026-11-23T10:32:44.481487+00:00'
 sources:
-- id: evt-project-proposals-issue-60
-  resource: https://github.com/aaif/project-proposals/issues/60
+- id: evt-project-proposals-issue-67
+  resource: https://github.com/aaif/project-proposals/issues/67
   author: joaoalbertocsjunior
-  last_modified: '2026-10-16T00:44:11+00:00'
+  last_modified: '2026-11-02T05:25:01+00:00'
 ---
 
 # Overview
-
-The Universal Recursive Autonomous Co-Founder Engine (URACE) is a blueprint-first multi-agent orchestration and lifecycle specification designed to coordinate autonomous software development tasks without rigid framework dependencies[^evt-project-proposals-issue-60]. Rather than distributing heavy software libraries, URACE provides an install-as-bootstrap standard (`URACE.md`) containing 72 independent, reusable building blocks spanning architectural patterns, data schemas, authority boundaries, and regression gates[^evt-project-proposals-issue-60].
+URACE (Unified Runtime for Autonomous Collaborative Evolution) is an open-source, peer-to-peer (P2P) lifecycle control plane and execution runtime designed to govern autonomous AI-assisted software evolution.[^evt-project-proposals-issue-67] Proposed for the AAIF Growth lifecycle stage under the Apache 2.0 license, URACE enables AI executors to discover, propose, qualify, and distribute verified code improvements across decentralized networks without central coordination.[^evt-project-proposals-issue-67]
 
 # Architecture / Specification
+URACE provides a governed runtime architecture bridging agent model outputs with production codebases:
 
-## Architectural Blueprint Model
-
-URACE structures multi-agent coordination around reusable specifications that can be derived and embedded natively into target codebases[^evt-project-proposals-issue-60]:
-
-- **Dynamic Context Loop**: Acts as an active runtime loop complementing static repository instruction files (such as `AGENTS.md`), dynamically enforcing protected boundaries, tracking evolutionary state, and validating execution goals[^evt-project-proposals-issue-60].
-- **Executor Decoupling**: Decouples lifecycle logic from execution mechanics, intaking Model Context Protocol (MCP) clients or servers like [goose](../resources/goose.md) as pluggable "Executors" while URACE handles systemic rule verification and state governance[^evt-project-proposals-issue-60].
-- **Token-Preserving Lifecycle Compaction**: Implements a compaction protocol (`urace /compact`) that periodically distills verbose execution logs into a semantic Cognitive Resume, preventing context window exhaustion during prolonged recursive runs[^evt-project-proposals-issue-60].
-- **Deterministic Rule-Graph Tracking**: Maps codebase modifications back to an immutable, queryable snapshot graph of active human permissions (`urace /rules`), establishing clear provenance from agent actions to defined safety constraints[^evt-project-proposals-issue-60].
-- **Zero-Dependency Portability**: Functions through a standalone bootstrap document dedicated to the public domain under CC0 1.0, executing structural primitives natively within any host environment[^evt-project-proposals-issue-60].
+- **Governed Improvement Loop**: Enforces an operational pipeline transitioning objectives to executor plans, qualification gate evaluation, accepted operations, and an immutable HMAC-chained ledger.[^evt-project-proposals-issue-67] AI executors are prevented by schema enforcement from modifying governance rules, authority boundaries, or qualification criteria.[^evt-project-proposals-issue-67]
+- **Decentralized P2P Feature Marketplace**: Facilitates tokenized exchange and borrowing of verified code improvements between network peers using a physics-calibrated token economy with Sybil-resistant reputation scoring based on the Wilson lower-bound algorithm.[^evt-project-proposals-issue-67]
+- **Cryptographic Security**: Employs hybrid post-quantum cryptography combining ML-KEM-768 with classical TLS, alongside self-signed certificates and tamper-evident audit trails.[^evt-project-proposals-issue-67]
+- **Composability**: Exposes an `AGENTS.md` machine-readable onboarding API surface, allowing integration with external agent frameworks as gated executors while generating compatible software provenance records.[^evt-project-proposals-issue-67]
 
 # Lifecycle History
+Originally developed as an independent research and production codebase with 280 source files and 2,677 tests, URACE was submitted to the AAIF Technical Committee in Issue #67 as a candidate for Growth stage adoption under the [Project Lifecycle Policy](../policies/project-lifecycle-policy.md).[^evt-project-proposals-issue-67]
 
-Submitted in March 2026 as project proposal Issue #60 to the AAIF [Technical Committee](../governance/technical-committee.md) seeking Sandbox stage admission under the Foundation's governance umbrella[^evt-project-proposals-issue-60].
-
-[^evt-project-proposals-issue-60]: https://github.com/aaif/project-proposals/issues/60
+[^evt-project-proposals-issue-67]: https://github.com/aaif/project-proposals/issues/67

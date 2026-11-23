@@ -1,35 +1,55 @@
 ---
 type: standard
 title: Agentic Resource Discovery
-description: Decentralized discovery, verification, and admission specification enabling
-  agents to find, trust, and consume tools and skills with lifecycle telemetry.
-resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
+description: Decentralized discovery and verification specification enabling agents
+  to resolve, verify, and bind AI resources via catalogs, registries, and trust manifests.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
 tags:
+- aaif
+- standards
 - discovery
-- security
-- skills
-- telemetry
+- registry
+- catalog
+- spiffe
+- ans
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:05:28.687293+00:00'
+  at: '2026-11-23T09:40:05.409005+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-issue-49
-  resource: https://github.com/aaif/wg-observability-and-traceability/issues/49
-  author: 91pavan
-  last_modified: '2026-09-02T05:53:28+00:00'
+- id: evt-wg-observability-and-traceability-file-4b349715463d-4901531a
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md
+  author: Pavan Sudheendra
+  last_modified: '2026-07-09T16:05:08+01:00'
 ---
 
 # Overview
-Agentic Resource Discovery (ARD) is a decentralized discovery, verification, and admission specification enabling AI agents to locate, evaluate, and invoke tools, context sources, and skills across trust boundaries. The framework standardizes metadata negotiation, cryptographic verification of capabilities, and policy admission pipelines, while providing end-to-end telemetry correlating discovery decisions with downstream skill execution.
+
+Agentic Resource Discovery (ARD) is an open specification for discovering, querying, and cryptographically verifying AI tools, models, and agent capabilities in decentralized environments[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]. Presented by Junjie Bu in coordination with a consortium of ten industry participants, ARD enables autonomous agents to locate compatible external resources dynamically without relying on centralized single points of trust[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
 
 # Architecture / Specification
-The ARD lifecycle model standardizes evaluation stages enforced by mediation gateways and runtime harnesses:
-- **Five-Stage Lifecycle Telemetry:** Enforces observable state transitions covering discovery, provenance verification, governance checking, trust evaluation, and admission decisions[^evt-wg-observability-and-traceability-issue-49]. Each stage emits structured events exportable via standard OpenTelemetry Protocol (OTLP) pipelines[^evt-wg-observability-and-traceability-issue-49].
-- **Skill Activation Correlation:** Bridges discovery and runtime activation by propagating W3C Trace Context between policy intermediaries such as [Agent Gateway](../resources/agentgateway.md) and agent harnesses like [Goose](../resources/goose.md)[^evt-wg-observability-and-traceability-issue-49]. Admitted skills correlate subsequent activation and execution spans back to their governing admission decision, while quarantined skills emit audit events without generating simulated execution spans[^evt-wg-observability-and-traceability-issue-49].
-- **Policy and Namespace Boundaries:** Validates experimental `ard.*` and `gen_ai.skill.*` namespaces across multi-agent environments to verify capability boundaries without requiring vendor-specific observability platforms[^evt-wg-observability-and-traceability-issue-49].
+
+The ARD architecture divides resource location and admission into two complementary planes[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]:
+
+- **Static Catalog**: A statically indexed, declarative publication format that exposes available tools, endpoints, and schemas for offline indexing or cold start discovery[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+- **Dynamic Registry**: A runtime discovery service providing REST APIs and semantic query interfaces, allowing agents to execute natural language queries against operational tool offerings[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+
+## Trust and Verification
+
+ARD incorporates verifiable identity and boundary validation mechanisms to mitigate supply-chain attacks such as tool poisoning:
+
+- **Decentralized Trust Models**: Integrates with SPIFFE (Secure Production Identity Framework for Everyone) and Agent Network Standard (ANS) naming conventions to attest provider identity across administrative domains[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+- **Trust Manifests**: Cryptographically signed attestations accompanying resource registrations that certify provenance, behavioral boundaries, and policy compliance prior to agent invocation[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
 
 # Lifecycle History
-The ARD lifecycle validation was established as a joint proof-of-concept between the LLM Primitives and Protocol Observability Feature Group and the Security workstream, testing cross-boundary admission and execution tracing using [Agent Gateway](../resources/agentgateway.md) and [Goose](../resources/goose.md)[^evt-wg-observability-and-traceability-issue-49].
 
-[^evt-wg-observability-and-traceability-issue-49]: https://github.com/aaif/wg-observability-and-traceability/issues/49
+- **2026-07-09**: Presented to the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md) as a joint specification authored with ten collaborating organizations, initiating review of identity standard overlaps and traceability telemetry requirements[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a].
+
+# References
+
+- Identity and Trust WG: [../working-groups/identity-and-trust.md](../working-groups/identity-and-trust.md)
+- Observability and Traceability WG: [../working-groups/observability-and-traceability.md](../working-groups/observability-and-traceability.md)
+- Agent Network Protocol: [agent-network-protocol.md](agent-network-protocol.md)
+- Agent Identity Primitives: [agent-identity-primitives.md](agent-identity-primitives.md)
+
+[^evt-wg-observability-and-traceability-file-4b349715463d-4901531a]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/meeting-minutes/2026-07-09.md

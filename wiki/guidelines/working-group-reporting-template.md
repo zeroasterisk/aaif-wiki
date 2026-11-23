@@ -1,44 +1,55 @@
 ---
 type: guideline
 title: Working Group Reporting Template
-description: Standardized cadence, structure, review timeline, and pull request workflow
-  for AAIF working groups delivering monthly activity reports to the Technical Committee.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
+description: Standardized monthly reporting template, delivery timeline rules, and
+  pull request review workflow for AAIF working groups reporting to the Technical
+  Committee.
+resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
 tags:
-- governance
+- guidelines
 - reporting
+- governance
 - technical-committee
-- working-groups
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:34:13.154434+00:00'
+  at: '2026-11-23T09:41:02.786572+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-62
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/62
-  author: mr-lee
-  last_modified: '2026-10-12T02:55:00+00:00'
+- id: evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
+  author: Alex Frazer
+  last_modified: '2026-07-21T10:11:53-04:00'
+- id: evt-wg-security-and-privacy-file-9677055e316b-27369ef5
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/TEMPLATE.md
+  author: Alex Frazer
+  last_modified: '2026-07-21T10:11:53-04:00'
+- id: evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/2026-06-report.md
+  author: Alex Frazer
+  last_modified: '2026-07-21T10:11:53-04:00'
 ---
 
 # Overview
+The Working Group Reporting Template defines the canonical structure, delivery cadence, and pull request review workflow for monthly updates submitted by AAIF working groups to the [Technical Committee](../governance/technical-committee.md) [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]. The process provides consistent visibility into charter success metrics, deliverable status, ecosystem engagements, risks, and explicit decision asks requiring committee intervention [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28] [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
 
-The Working Group Reporting Template standardizes how Agentic AI Foundation (AAIF) working groups report operational milestones, technical deliverables, and decisions requiring [Technical Committee](../governance/technical-committee.md) review. Monthly reports ensure cross-workstream visibility, track active deliverables across working groups, and provide a historical record of consensus and governance actions.
+# Cadence and Deadlines
+Working groups submit monthly reports subject to the following rules [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]:
+- **Submission Deadline**: Reports are due by the last business day of the reporting calendar month [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
+- **Review Window**: The Technical Committee review window closes seven calendar days following submission [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
+- **Merge Criteria**: The report pull request is merged once the Technical Committee signs off or when the seven-day review window closes without outstanding questions [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
+- **File Naming and Indexing**: Reports are saved as `reporting/YYYY-MM-report.md` and indexed at the top of the reporting `README.md` table in reverse chronological order [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28].
 
-# Architecture / Specification
+# Specification and Required Sections
+Monthly reports adhere to `reporting/TEMPLATE.md` and must include [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5]:
+- **Metadata Header**: Working group name, reporting period (`Month YYYY`), active chairs, and submission date (`YYYY-MM-DD`) [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Summary**: A two-to-three sentence executive summary highlighting key progress and operational shifts during the period [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Progress Against Objectives**: Deliverables committed or advanced, explicitly referenced against chartered objectives [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Ecosystem Highlights**: External engagement and activities with bodies such as OWASP, AARM, or MCP ACS, or marked "None this month" [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28] [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Blockers and Risks**: Active capacity constraints, dependencies, or delivery risks [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Decisions Needed from the TC**: Explicit, actionable requests requiring formal committee guidance or approval [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Next Month's Focus**: Top two to three technical and organizational priorities [^evt-wg-security-and-privacy-file-9677055e316b-27369ef5].
+- **Metrics / Links**: Status against charter KPIs—Adoption, Quality, Community, and Timeliness—with supporting PRs, meeting notes, and repository links [^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28] [^evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d].
 
-Working groups publish monthly reports into their local repository trees under standardized reporting directories. To allow automated discovery and aggregation across foundation repositories, report pull requests must strictly adhere to intake guidelines [^evt-wg-observability-and-traceability-pr-62]:
-
-- **File Naming**: Report filenames are case-sensitive and follow standardized date formatting (e.g., `YYYY-MM.md`) within the designated reports path [^evt-wg-observability-and-traceability-pr-62].
-- **Pull Request Title**: Pull requests submitting monthly reports must follow the explicit format `[Report] <YYYY-MM>` rather than descriptive or working group names [^evt-wg-observability-and-traceability-pr-62].
-- **Labeling**: Every report submission pull request must be tagged with the `monthly-report` label [^evt-wg-observability-and-traceability-pr-62].
-- **Content Requirements**: Reports detail progress made during the reporting cycle, current roadmap milestones, meeting attendance summaries, cross-group collaborations, and explicit calls for Technical Committee decisions.
-
-# Lifecycle History
-
-Standardization efforts led by working groups, including the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), identified divergence between localized template instructions and the centralized Technical Committee reporting requirements [^evt-wg-observability-and-traceability-pr-62]. In response, reporting templates were updated to align pull request title conventions, label automation requirements, and case-sensitive filename constraints directly with centralized governance documentation [^evt-wg-observability-and-traceability-pr-62].
-
-# References
-
-- [Technical Committee Working Group Reporting Guidelines](https://github.com/aaif/technical-committee/blob/main/working-groups/reporting.md)
-
-[^evt-wg-observability-and-traceability-pr-62]: https://github.com/aaif/wg-observability-and-traceability/pull/62
+[^evt-wg-security-and-privacy-file-33d3ff4f1e08-f33f7a28]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/AGENTS.md
+[^evt-wg-security-and-privacy-file-9677055e316b-27369ef5]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/TEMPLATE.md
+[^evt-wg-security-and-privacy-file-a17a580f85c2-2e81780d]: https://github.com/aaif/wg-security-and-privacy/blob/3a3d0ef5367e0beb6aafa56908ae277a73f133e0/reporting/2026-06-report.md

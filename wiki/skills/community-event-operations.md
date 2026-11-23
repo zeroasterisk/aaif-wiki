@@ -1,35 +1,40 @@
 ---
 type: skill
-title: Community Event Operations
-description: Procedural operations pipeline and shared infrastructure managing chapter
-  provisioning, estate lifecycle automation, and cap constraints.
-resource: https://github.com/aaif/community-events/pull/69
+title: Community Event Operations Toolkit
+description: Standardized agent skill suite and portable plugin runtime managing AAIF
+  chapter provisioning, estate synchronization, event planning, and communications.
+resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/README.md
 tags:
-- skills
-- operations
+- aaif
+- skill
 - community
-- automation
+- operations
+- events
+- goose
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:44:45.603116+00:00'
+  at: '2026-11-23T10:35:22.654393+00:00'
 sources:
-- id: evt-community-events-pr-69
-  resource: https://github.com/aaif/community-events/pull/69
-  author: rparundekar
-  last_modified: '2026-11-12T19:19:20+00:00'
+- id: evt-community-events-file-b33563055168-23a10754
+  resource: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/README.md
+  author: Rahul Parundekar
+  last_modified: '2026-11-03T22:44:51-08:00'
 ---
 
 # Overview
-Community Event Operations provides automated procedures, validation guards, and sync scripts supporting the AAIF city chapter network and event lifecycle[^evt-community-events-pr-69]. It enforces operational governance limits on active chapters while orchestrating Drive folder creation, tracker synchronization, and roster management[^evt-community-events-pr-69].
+The Community Event Operations Toolkit provides packaged agent skills and operational workflows instructing AI assistants—specifically [Goose](../resources/goose.md) or Claude Desktop—how to execute Agentic AI Foundation community operations using AAIF templates, Google Drive folders, Slack workspaces, and Luma calendars [^evt-community-events-file-b33563055168-23a10754]. The toolkit executes administrative, content generation, and chapter lifecycle tasks via plain-English instructions without requiring command-line programming from organizers [^evt-community-events-file-b33563055168-23a10754].
 
 # Architecture / Specification
-The pipeline coordinates several automated utilities:
-- **Chapter Provisioning Guard**: Enforces global chapter ceilings via `CHAPTER_CAP`, ensuring automated tools like `create_chapter.py` and `sync_chapters.py` do not exceed authorized organizational bandwidth[^evt-community-events-pr-69].
-- **Sync Reconciliation**: Validates accepted organizers against official chapter lists, gating Drive folder generation and Luma feed updates until criteria are satisfied[^evt-community-events-pr-69].
-- **Automated Verification**: Integrates unit and regression suites (`test_chapter_cap`, `test_chapter_health`, `test_sync`) to dynamically calculate expected boundaries and preserve estate integrity[^evt-community-events-pr-69].
+The toolkit coordinates multiple specialized operational routines across three primary capability domains [^evt-community-events-file-b33563055168-23a10754]:
+- **Event Communications and Copywriting**: Drafts launch announcements, Luma descriptions, six-slide LinkedIn carousel narratives, speaker invitations, speaker bios, day-of-event presentation slides, RSVP attendee reminders, and post-event recaps. Attendee-facing communications automatically enforce compliance by embedding AAIF [Code of Conduct](../policies/code-of-conduct.md) and Privacy Policy disclosures [^evt-community-events-file-b33563055168-23a10754].
+- **Event Planning and Milestone Tracking**: Schedules chapter events in Google Drive Event Trackers, auto-calculates backward milestone due dates based on the event target date, reschedules cascading tasks upon date revisions, and aggregates RSVP counts and overdue tasks without mutating upstream systems [^evt-community-events-file-b33563055168-23a10754].
+- **Chapter Provisioning and Estate Management**: Reviews pending community intake queues, audits data hygiene (normalizing capitalization, LinkedIn profile formats, and city records), executes full estate synchronization (`aaif-sync`) auditing Drive, Slack, and Luma assets, and handles automated chapter or online series provisioning via template cloning [^evt-community-events-file-b33563055168-23a10754].
 
-# Lifecycle History
-Following the onboarding of chapters in Columbus and Philadelphia that reached the initial 100-chapter ceiling, the operational chapter cap was expanded from 100 to 125 to permit continuous chapter intake without retiring active chapters[^evt-community-events-pr-69].
+# Lifecycle and Safeguards
+The toolkit operates under a strict [Human-Approval Gate](../patterns/human-approval-gate.md) paradigm to guarantee operational safety [^evt-community-events-file-b33563055168-23a10754]:
+- **Approval Checkpoints**: The assistant must explicitly confirm with the operator before executing changes that mutate public state or affect external stakeholders [^evt-community-events-file-b33563055168-23a10754].
+- **Intake Triage Boundary**: While the toolkit aggregates applicant summaries and drafts responses, admissions and acceptance decisions remain strictly with authorized human organizers [^evt-community-events-file-b33563055168-23a10754].
+- **Read-Only Inspection**: Health auditing routines (such as Slack topology checks and RSVP status reports) execute purely read-only data extraction [^evt-community-events-file-b33563055168-23a10754].
 
-[^evt-community-events-pr-69]: https://github.com/aaif/community-events/pull/69
+[^evt-community-events-file-b33563055168-23a10754]: https://github.com/aaif/community-events/blob/f46c3425e92d63c336889819e21e8af88cc4abff/README.md

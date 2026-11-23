@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-ws-taxonomy-landscape-issue-45",
+  "source_type": "issue",
+  "lifecycle": "open",
+  "repository": "aaif/ws-taxonomy-landscape",
+  "reference_id": "ISSUE#45",
+  "title": "Define: Session",
+  "timestamp": "2026-08-22T12:07:55Z",
+  "author": "asish-singh",
+  "url": "https://github.com/aaif/ws-taxonomy-landscape/issues/45",
+  "summary": "Following the 18 August call to bring accepted terms back for definition, and `docs/data-schemas.md` asks for an issue rather than a PR. Same shape as #43. The text is PR ready if that is preferred.\n\n**Term:** Session (existing Universal entry, `definition` currently pending, `wo...",
+  "pointers": [],
+  "inline_text": "Following the 18 August call to bring accepted terms back for definition, and `docs/data-schemas.md` asks for an issue rather than a PR. Same shape as #43. The text is PR ready if that is preferred.\n\n**Term:** Session (existing Universal entry, `definition` currently pending, `workgroups: []`)\n\n## Proposed definition\n\n> A session is a bounded span of agent activity that shares one accumulated working state, beginning when that state is created and ending when it is discarded or handed off.\n\n## Why this wording\n\nThe discriminator is the pairing of a boundary with shared working state, and it names what would make something not a session. Two exchanges between the same user and the same agent that carry no state between them are two sessions, not one. State that deliberately survives the boundary, such as persistent memory or a saved artifact, is not session state, it is what the session leaves behind. A long running process that accumulates nothing is a process, not a session.\n\n## Proposed scopeNote\n\n> The boundary is defined by the lifetime of the working state, not by wall clock time, connection, or user visible conversation. A conversation can span several sessions when state is summarized and reloaded, and one session can serve several conversations. Where the working state lives (model context, harness memory, external store) is an implementation choice and does not change whether something is a session.\n\n## Proposed field values\n\n```\nterm: 'Session'\ncategory: ''                    // unchanged, still deferred\naliases: []\nbroaderTerm: null               // unchanged, still deferred\ndefinition: 'A session is a bounded span of agent activity that shares one accumulated working state, beginning when that state is created and ending when it is discarded or handed off.'\nscopeNote: <as above>\nrelatedTerms: ['Context exhaustion', 'Harness']\ncontrastsWith: []\nworkgroups: []                  // unchanged, Universal\n```\n\n`relatedTerms` points only at terms already in the taxonomy.",
+  "labels": []
+}

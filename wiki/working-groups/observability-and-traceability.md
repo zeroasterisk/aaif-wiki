@@ -1,49 +1,41 @@
 ---
 type: working-group
 title: Observability and Traceability Working Group
-description: Technical working group standardizing agent telemetry, causal execution
-  traces, protocol boundary metrics, and identity accountability attributes.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/75
+description: Technical working group standardizing telemetry models, execution trace
+  formats, agent trajectory schemas, and cross-boundary harness observability.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/42e2b81f3de6120743bf52ac31de5c63cda920a2/meeting-minutes/2026-11-11.md
 tags:
 - observability
+- traceability
 - telemetry
-- tracing
-- identity
-- accountability
+- opentelemetry
+- working-group
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:45:37.921247+00:00'
+  at: '2026-11-23T10:36:12.042602+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-75
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/75
-  author: MarcMolas
-  last_modified: '2026-11-12T20:50:28+00:00'
-- id: evt-wg-observability-and-traceability-pr-76
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/76
-  author: wlad232
-  last_modified: '2026-11-14T10:09:49+00:00'
+- id: evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/42e2b81f3de6120743bf52ac31de5c63cda920a2/meeting-minutes/2026-11-11.md
+  author: Pavan Sudheendra
+  last_modified: '2026-11-12T10:26:18+00:00'
 ---
 
 # Overview
 
-The Observability and Traceability Working Group standardizes vendor-neutral telemetry models, distributed execution tracing, and protocol boundary metrics across agentic AI systems [^evt-wg-observability-and-traceability-pr-75]. Its remit includes defining causal context propagation across tool boundaries, capturing hierarchical agent task execution, and standardizing identity attribution in telemetry streams [^evt-wg-observability-and-traceability-pr-75, ^evt-wg-observability-and-traceability-pr-76].
+The Observability and Traceability Working Group establishes vendor-neutral standards, open telemetry formats, and architectural reference models for monitoring and auditing agentic AI systems.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5] Its scope spans turn-by-turn execution traces, distributed context propagation across multi-agent boundaries, payload attestation signatures, and trajectory interchange formats.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
 
-# Architecture / Specification
+# Active Deliverables and Collaborations
 
-The working group standardizes telemetry interfaces, semantic conventions, and correlation models for agent runtimes and tools.
+The working group drives several core standards and cross-foundation alignment initiatives:[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
 
-## Agent Identity and Accountability Telemetry
+- **Agent Behavior Trace Model**: A standardized schema defining execution context propagation, causal execution tracing, and turn-by-turn agent state transitions, developed in active collaboration with the OpenTelemetry (OTel) GenAI Special Interest Group.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
+- **ATIF v2 Trajectory Standardization**: Collaboration with Google, Harbor, and industry partners to standardize Agent Trajectory Interchange Format (ATIF v2) semantics, establishing mappings between OpenTelemetry traces and autonomous trajectory datasets.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
+- **Agentic Observability White Paper**: Foundational practitioner guide distinguishing established distributed tracing practices from emerging agent-specific paradigms, targeted for review across IETF and IRTF working groups.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
+- **Payload Attestation Signing**: Investigation into non-intrusive signature schemes that validate observation records and execution payloads without breaking trace propagation or modifying OTLP data models.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
 
-Recent working documents develop semantic conventions for agent identity and accountability attribution within distributed traces [^evt-wg-observability-and-traceability-pr-75, ^evt-wg-observability-and-traceability-pr-76]:
-- **Accountability Attribute Group**: Introduces the `agent.accountability.*` attribute namespace, including result, reference, and assurance fields [^evt-wg-observability-and-traceability-pr-75].
-- **Span-to-Record References**: Employs `agent.accountability.ref` to correlate trace spans with audit records, bounded so that references neither resolve outside the deciding authority nor leak beyond its trust domain [^evt-wg-observability-and-traceability-pr-75].
-- **Redaction and Sanitization Rules**: Establishes redaction rules developed jointly with the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) to sanitize identity attributes across trust boundaries [^evt-wg-observability-and-traceability-pr-75, ^evt-wg-observability-and-traceability-pr-76].
-- **Asynchronous Execution Tracing**: Models lifecycle events across asynchronous queues, separating approved span fields from local audit evidence while capturing dispatch refusals and post-dispatch revocations [^evt-wg-observability-and-traceability-pr-76].
+# Cross-Working Group and Standards Coordination
 
-# Lifecycle History
+The group coordinates closely with the [Taxonomy and Landscape Workstream](../working-groups/taxonomy-and-landscape.md) on defining foundational execution primitives such as "turn" and "step", with the emerging Attestation and Evidence working group, and with external standards bodies including the IETF, OpenTelemetry, and Cloud Security Alliance.[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]
 
-Draft proposals PR#75 and PR#76 extended the group's agent identity telemetry track (Issue #50), establishing attribution schemas and asynchronous trace semantics aligned with OpenTelemetry GenAI semantic conventions [^evt-wg-observability-and-traceability-pr-75, ^evt-wg-observability-and-traceability-pr-76].
-
-[^evt-wg-observability-and-traceability-pr-75]: https://github.com/aaif/wg-observability-and-traceability/pull/75
-[^evt-wg-observability-and-traceability-pr-76]: https://github.com/aaif/wg-observability-and-traceability/pull/76
+[^evt-wg-observability-and-traceability-file-a09ec8b0fa09-bfbbd7a5]: https://github.com/aaif/wg-observability-and-traceability/blob/42e2b81f3de6120743bf52ac31de5c63cda920a2/meeting-minutes/2026-11-11.md

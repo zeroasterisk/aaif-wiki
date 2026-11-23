@@ -1,38 +1,66 @@
 ---
 type: resource
-title: Agent Observability Prior Work Landscape
-description: Comparative landscape survey evaluating specifications, platforms, and
-  hosted protocols across agent telemetry, identity cards, and runtime mediation.
-resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
+title: Prior Work in Agent Observability
+description: Comparative landscape survey analyzing open specifications, industry
+  standards, protocols, and platforms across agent observability and telemetry.
+resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/PRIOR-WORK.md
 tags:
 - observability
-- landscape
+- telemetry
 - prior-work
+- landscape
+- opentelemetry
 - standards
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:13:40.113419+00:00'
+  at: '2026-11-23T10:08:29.691110+00:00'
 sources:
-- id: evt-wg-observability-and-traceability-pr-31
-  resource: https://github.com/aaif/wg-observability-and-traceability/pull/31
-  author: narko4u
-  last_modified: '2026-09-19T04:53:51+00:00'
+- id: evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853
+  resource: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/PRIOR-WORK.md
+  author: Pavan Sudheendra
+  last_modified: '2026-09-26T04:52:07+01:00'
 ---
 
 # Overview
-The agent observability prior work landscape evaluates emerging open specifications, commercial platforms, and hosted foundational protocols to identify architectural coverage and unaddressed gaps across agentic telemetry.[^evt-wg-observability-and-traceability-pr-31] Maintained by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md), the survey documents how projects handle execution tracing, capability boundaries, identity verification, and runtime governance.[^evt-wg-observability-and-traceability-pr-31]
 
-Recent additions evaluate hosted foundation projects including [A2A](../taxonomy/agent-to-agent.md) and [agentgateway](agentgateway.md), identifying key strengths in runtime traffic control and exposing an unclaimed evidence layer gap across agent communications.[^evt-wg-observability-and-traceability-pr-31]
+Prior Work in Agent Observability is a living landscape survey maintained by the [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md)[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853]. It surveys existing specifications, data formats, open-source platforms, and academic research relevant to agentic telemetry, providing a common foundation for AAIF standards like the [Agent Behavior Trace Model](../standards/agent-behavior-trace-model.md)[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
 
 # Architecture / Specification
-The landscape framework categorizes agent runtime tools across scope, maturity, licensing, and key technical capabilities.[^evt-wg-observability-and-traceability-pr-31]
 
-## Hosted Project Additions
-- **A2A**: Joined the foundation in August 2026 to serve as the agent-to-agent interoperability layer.[^evt-wg-observability-and-traceability-pr-31] It introduces signed agent cards for discovery and capability declaration, though verifying signed card claims against actual runtime behavior remains an unresolved challenge.[^evt-wg-observability-and-traceability-pr-31]
-- **agentgateway**: Joined the foundation in June 2026 to mediate traffic and enforce policies across Model Context Protocol (MCP) and A2A communications, providing deployment options across major cloud marketplaces.[^evt-wg-observability-and-traceability-pr-31]
+### Landscape Refresh Highlights (June–August 2026)
 
-## Evidence Layer Gap
-A critical gap identified across surveyed technologies is the missing evidence layer.[^evt-wg-observability-and-traceability-pr-31] While transport mediation and signed declarations establish perimeter identity, existing frameworks lack verifiable mechanisms linking runtime tool execution, agent identity claims, and non-repudiable audit logs.[^evt-wg-observability-and-traceability-pr-31]
+The landscape reflects significant specification maturation and protocol consolidation across industry bodies[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853]:
 
-[^evt-wg-observability-and-traceability-pr-31]: https://github.com/aaif/wg-observability-and-traceability/pull/31
+- **OpenTelemetry GenAI Standards Repository**: OpenTelemetry established a dedicated repository (`open-telemetry/semantic-conventions-genai`) for GenAI semantic conventions, standardizing explicit spans for `create-agent`, `invoke-agent`, `invoke-workflow`, `execute-tool`, and `plan`[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **Open Cybersecurity Schema Framework (OCSF)**: OCSF Schema 1.9 introduced an agent-specific profile defining AI Operation, AI Agent, Delegation, and Record Integrity classes, enabling normalized security event logging for agent actions and delegated authority[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **OWASP Agent Observability Standard (AOS)**: AOS separated its specification surface into distinct Instrument, Trace, and Inspect specifications, establishing mappings for OpenTelemetry, OCSF, and AgBOM software supply-chain standards (CycloneDX/SPDX/SWID)[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **AGNTCY Observe**: The AGNTCY Observe SDK (`v1.0.43`) provides protocol-level telemetry interception across A2A, SLIM, and MCP with distributed trace recomposition over multi-agent boundaries[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **Agent-to-Agent (A2A) Protocol**: Following its accession to AAIF in August 2026, A2A v1.0 standardizes signed agent cards, cross-vendor task delegation, and nested step trace extensions[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **Environment-Derived Instrumentation**: OTel eBPF instrumentation (including OBI) provides kernel-level, unforgeable network and execution signals that complement framework-emitted telemetry[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **Focused Attribution Formats**: Specialized formats like Cursor Agent Trace (v0.1.0) remain focused on narrow AI code attribution within developer tools[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+
+### Comparative Matrix
+
+| Initiative | Scope | Maturity | Format / License | Primary Focus |
+|---|---|---|---|---|
+| **OTel GenAI SemConv** | LLM, agent, workflow, tool, MCP spans/events | Active Development | Open (Apache 2.0) | Broad multi-vendor runtime telemetry |
+| **OWASP AOS** | Security, auditing, AgBOM mapping | Draft / Active | Open | Compliance, guardrail violation auditing |
+| **OCSF (v1.9)** | AI agent identity, delegation, integrity | Production Schema | Open | Security incident and audit evidence |
+| **AGNTCY Observe** | Multi-agent context propagation | SDK v1.0.43 | Open (Apache 2.0) | Cross-agent protocol boundary reconstruction |
+| **Agent Trace (Cursor)** | Source code attribution | RFC v0.1.0 | Open (CC BY 4.0) | Line-level IDE code generation provenance |
+| **Monocle (LF AI & Data)**| GenAI framework auto-instrumentation | v0.8.4 | Open (Apache 2.0) | Non-intrusive trace wrapper generation |
+
+# Lifecycle History
+
+- **2026-03-15**: Initial landscape survey drafted by the AAIF Observability Working Group[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+- **2026-08-13**: Comprehensive refresh capturing dedicated OTel GenAI repository separation, OCSF 1.9 AI Agent profile, A2A AAIF accession, and AOS multi-part specifications[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853].
+
+# References
+
+- [Observability and Traceability Working Group](../working-groups/observability-and-traceability.md)
+- [Agent Behavior Trace Model](../standards/agent-behavior-trace-model.md)
+- [Agent-MCP Server Boundary](../resources/agent-mcp-server-boundary.md)
+- [Agntcy](../resources/agntcy.md)
+
+[^evt-wg-observability-and-traceability-file-dcf5c1ecc194-085a2853]: https://github.com/aaif/wg-observability-and-traceability/blob/ecdd24bcbb59140ce89b608a8ddf815a38140a2b/working-documents/PRIOR-WORK.md

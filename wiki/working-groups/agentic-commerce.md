@@ -2,40 +2,46 @@
 type: working-group
 title: Agentic Commerce Working Group
 description: Technical working group establishing vendor-neutral capability maps,
-  protocol gap analyses, and lifecycle specifications for agentic transactions.
-resource: https://github.com/aaif/wg-agentic-commerce/pull/9
+  protocol alignments, buyer capacity verification, and dispute standards for autonomous
+  commercial transactions.
+resource: https://github.com/aaif/wg-agentic-commerce/issues/8
 tags:
 - working-group
 - commerce
-- transactions
+- payments
+- identity
 - governance
-- interoperability
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:34:59.338946+00:00'
+  at: '2026-11-23T10:21:46.728232+00:00'
 sources:
-- id: evt-wg-agentic-commerce-pr-9
-  resource: https://github.com/aaif/wg-agentic-commerce/pull/9
-  author: igrigorik
-  last_modified: '2026-10-13T08:27:46+00:00'
+- id: evt-wg-agentic-commerce-issue-8
+  resource: https://github.com/aaif/wg-agentic-commerce/issues/8
+  author: smcd
+  last_modified: '2026-10-09T22:35:12+00:00'
 ---
 
 # Overview
 
-The Agentic Commerce Working Group develops vendor-neutral capability models, protocol evaluations, and transaction lifecycle specifications for autonomous and agent-assisted commercial workflows.[^evt-wg-agentic-commerce-pr-9] The group standardizes transactional boundaries, payment delegation mechanisms, and cross-platform agent purchasing protocols.[^evt-wg-agentic-commerce-pr-9]
+The Agentic Commerce Working Group standardizes protocols, capability maps, and transaction lifecycle models for autonomous and semi-autonomous commercial interactions. Its scope spans identity delegation, checkout flows, payment settlement interfaces, and dispute arbitration across agent-to-merchant and agent-to-agent transactions.
+
+Workstreams include the comparative evaluation of emerging commerce specifications against legal frameworks governing principal capacity and statutory data retention [^evt-wg-agentic-commerce-issue-8].
 
 # Architecture / Specification
 
-The working group evaluates emerging commercial architectures across four primary functional areas:
+### Capability Mapping and Protocol Evaluation
 
-- **Commerce Taxonomy**: Defining normative concepts and interaction boundaries for [agent-initiated transactions](../taxonomy/agent-initiated-transaction.md), [agent-in-the-loop transactions](../taxonomy/agent-in-the-loop-transaction.md), and [agentic checkout](../taxonomy/agentic-checkout.md).
-- **Protocol Comparative Analysis**: Conducting technical evaluations of transaction protocols—including onX, the Multi-Party Payment (MPP) protocol, and the Universal Commerce Protocol (UCP)—by analyzing problem scopes, runtime mechanisms, governance structures, and protocol handoff boundaries.[^evt-wg-agentic-commerce-pr-9]
-- **Payment Delegation and Trust**: Establishing verification models and authorization guarantees for [delegated payment](../taxonomy/delegated-payment.md) systems.
-- **Lifecycle State Semantics**: Mapping state machines governing multi-agent commercial negotiations, checkout flows, and settlement reconciliations.
+The working group benchmarks emerging commerce protocols against enterprise and regulatory requirements, prioritizing two missing protocol dimensions [^evt-wg-agentic-commerce-issue-8]:
+
+1. **Buyer Legal Capacity and Age**: Commercial protocols currently lack standardized attributes asserting principal capacity or minor status. Because delegation from minors may be legally void or voidable, and age-restricted goods require legal verification of the [Principal](../taxonomy/principal.md) rather than the autonomous agent, protocol identity layers must explicitly support verifiable capacity attestations [^evt-wg-agentic-commerce-issue-8].
+2. **Layered Record Retention Matrix**: Autonomous transactions distribute recordkeeping across new intermediary entities. The group is drafting a multi-layered retention model encompassing:
+   - *AI Governance Layer*: Mandated six-month log retention for high-risk deployments under Article 19 and Article 26(6) of the EU AI Act [^evt-wg-agentic-commerce-issue-8].
+   - *Personal Data Layer*: Data protection storage limitations defining statutory retention ceilings [^evt-wg-agentic-commerce-issue-8].
+   - *Financial Compliance Layer*: Anti-money laundering and electronic funds transfer preservation periods (e.g., five years under the US Bank Secrecy Act and EU AMLD, and two years under Regulation E) [^evt-wg-agentic-commerce-issue-8].
 
 # Lifecycle History
 
-In September 2026, the working group completed deep dives analyzing the August 2026 releases of onX, MPP, and UCP, mapping their architectural overlap, governance states, and handoff points across autonomous commerce workflows.[^evt-wg-agentic-commerce-pr-9]
+- Issue #8 opened discussion on protocol capability scorecards, highlighting gaps in capacity verification and cross-jurisdictional transaction log retention duties [^evt-wg-agentic-commerce-issue-8].
 
-[^evt-wg-agentic-commerce-pr-9]: https://github.com/aaif/wg-agentic-commerce/pull/9
+[^evt-wg-agentic-commerce-issue-8]: https://github.com/aaif/wg-agentic-commerce/issues/8

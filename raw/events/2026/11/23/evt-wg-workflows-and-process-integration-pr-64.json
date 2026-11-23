@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-wg-workflows-and-process-integration-pr-64",
+  "source_type": "pull_request",
+  "lifecycle": "open",
+  "repository": "aaif/wg-workflows-and-process-integration",
+  "reference_id": "PR#64",
+  "title": "[Report] 2026-10",
+  "timestamp": "2026-11-23T04:29:24Z",
+  "author": "yaron2",
+  "url": "https://github.com/aaif/wg-workflows-and-process-integration/pull/64",
+  "summary": "October report.",
+  "pointers": [],
+  "inline_text": "October report.",
+  "labels": []
+}

@@ -1,9 +1,9 @@
 ---
 type: resource
 title: Security and Privacy Design Patterns Catalog
-description: Architectural catalog defining reusable, implementation-independent security
-  and privacy design patterns for autonomous agentic systems.
-resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/reporting/2026-09-report.md
+description: Architectural catalog defining vendor-neutral, reusable design patterns
+  addressing recurring security and privacy challenges in agentic AI deployments.
+resource: https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/README.md
 tags:
 - security
 - privacy
@@ -13,31 +13,33 @@ tags:
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:29:55.745427+00:00'
+  at: '2026-11-23T10:27:22.448719+00:00'
 sources:
-- id: evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1
-  resource: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/reporting/2026-09-report.md
+- id: evt-wg-security-and-privacy-file-d7a6875f36a3-a722423c
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/README.md
   author: Alex Frazer
-  last_modified: '2026-10-09T08:54:25-06:00'
-- id: evt-wg-security-and-privacy-pr-25
-  resource: https://github.com/aaif/wg-security-and-privacy/pull/25
-  author: awfrazer
-  last_modified: '2026-10-09T14:54:26+00:00'
+  last_modified: '2026-10-19T09:09:02-04:00'
+- id: evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93
+  resource: https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/2026-10-13.md
+  author: Alex Frazer
+  last_modified: '2026-10-19T09:09:02-04:00'
 ---
 
 # Overview
-The Security and Privacy Design Patterns Catalog is an architectural resource curated by the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) documenting reusable, implementation-neutral design patterns for securing agent systems.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
-
-Led by Sagar Dashora and Dan Kommatas, the catalog provides standardized design templates and reference specifications that address critical agentic risks such as runaway execution, unverified actions, and compromised runtime environments.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
+The Security and Privacy Design Patterns Catalog is an open, vendor-neutral repository of reusable architectural patterns maintained by the [Security and Privacy Working Group](../working-groups/security-and-privacy.md) [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93]. The catalog equips system designers, platform engineers, and security architects with standardized mitigations for vulnerabilities that emerge when autonomous or semi-autonomous software agents invoke external tools, process untrusted instructions, and delegate execution authority [^evt-wg-security-and-privacy-file-d7a6875f36a3-a722423c].
 
 # Architecture / Specification
-The catalog establishes a uniform pattern structure and incorporates initial foundational patterns:
-- **Pattern Template**: Standardized schema ensuring consistency across problem statements, architectural diagrams, threat mappings, and implementation tradeoffs.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
-- **[Approval Checkpoint](../patterns/approval-checkpoint.md)**: Cryptographically or policy-bound authorization gates for high-impact actions.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
-- **[Kill Switch](../patterns/kill-switch.md)**: Independent, out-of-band containment mechanisms to immediately halt rogue or misbehaving agent processes.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
-- **[Attested Isolated Runtime](../patterns/attested-isolated-runtime.md)**: Hardware-attested, isolated execution boundaries safeguarding policy evaluation and secret handling.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
+Patterns within the catalog are structured around common operational surfaces and threat boundaries in agent harnesses. Each pattern defines concrete invariants, component responsibilities, failure modes, and implementation guidance.
+
+Key design patterns actively developed and merged into the main repository include [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93]:
+- **[Approval Checkpoint](../patterns/approval-checkpoint.md)**: A runtime authorization checkpoint binding human or policy approval records to exact execution payloads and parameter hashes before privileged actions take place [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93].
+- **[Attested Isolated Runtime](../patterns/attested-isolated-runtime.md)**: An architectural security pattern isolating policy evaluation and cryptographic evidence generation within a hardware-attested or isolated environment [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93].
+- **[Kill Switch](../patterns/kill-switch.md)**: An out-of-band operational control plane mechanism capable of immediately revoking agent delegation, terminating execution loops, and isolating impacted systems during containment events [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93].
 
 # Lifecycle History
-The catalog landing page and its first three architectural pattern drafts merged into `main` on 2026-09-30 via PR #26.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1] Subsequent work includes follow-up refinements and the development of memory-related security patterns.[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]
+- **2026-07-21**: Design patterns catalog structural framework drafted and submitted for architecture guidance review [^evt-wg-security-and-privacy-file-d7a6875f36a3-a722423c].
+- **2026-09-01**: Initial review of kill-switch and containment pattern proposals [^evt-wg-security-and-privacy-file-d7a6875f36a3-a722423c].
+- **2026-10-13**: Working group merged initial baseline drafts of the approval checkpoint, attested runtime isolation, and kill switch patterns to the main catalog [^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93].
 
-[^evt-wg-security-and-privacy-file-60f28464dd94-24e4fdf1]: https://github.com/aaif/wg-security-and-privacy/blob/22c3f9a2cdac4fcf092502fa06154b08b4df09b8/reporting/2026-09-report.md
+[^evt-wg-security-and-privacy-file-d7a6875f36a3-a722423c]: https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/README.md
+[^evt-wg-security-and-privacy-file-e3f78aaae09b-daf59b93]: https://github.com/aaif/wg-security-and-privacy/blob/a322f52eea70e3bc7c3a0e7d08007fc309ac4dc8/meeting-notes/2026-10-13.md

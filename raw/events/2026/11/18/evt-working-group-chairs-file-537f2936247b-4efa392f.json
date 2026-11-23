@@ -1,0 +1,23 @@
+{
+  "event_id": "evt-working-group-chairs-file-537f2936247b-4efa392f",
+  "source_type": "repo_file",
+  "lifecycle": "merged",
+  "repository": "aaif/working-group-chairs",
+  "reference_id": "scripts/wg-toolkit/README.md",
+  "title": "README.md",
+  "timestamp": "2026-11-18T18:00:48Z",
+  "author": "Pavan Sudheendra",
+  "url": "https://github.com/aaif/working-group-chairs/blob/8f87f60854c20fc6acf909767ed9ab6199ed644a/scripts/wg-toolkit/README.md",
+  "summary": "Merge pull request #3 from aaif/feat/wg-toolkit",
+  "pointers": [
+    {
+      "repo": "working-group-chairs",
+      "commit_sha": "8f87f60854c20fc6acf909767ed9ab6199ed644a",
+      "path": "scripts/wg-toolkit/README.md",
+      "blob_sha": "4efa392f1db9c41e746a4488c7b869729f769c7a",
+      "status": "present"
+    }
+  ],
+  "inline_text": null,
+  "labels": []
+}

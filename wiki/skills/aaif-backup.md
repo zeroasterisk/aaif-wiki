@@ -1,55 +1,34 @@
 ---
 type: skill
-title: AAIF Backup Skill
+title: aaif-backup
 description: Operational backup skill generating immutable, timestamped snapshots
-  of community estate sheets and local operational files.
-resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
+  of AAIF Google Drive and local files prior to state mutations.
+resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
 tags:
 - skills
 - operations
-- backup
-- data-protection
+- backups
+- community-events
 status: draft
 generated:
   by: agent:aaif-wiki-curator/gemini-3.8-flash
-  at: '2026-11-16T10:33:25.457551+00:00'
+  at: '2026-11-23T10:22:46.900652+00:00'
 sources:
-- id: evt-community-events-file-f922f666d0ff-e2dbe3f7
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
+- id: evt-community-events-file-91fd6707275c-36b98c09
+  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
   author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
-- id: evt-community-events-file-a54ff182c7e8-2d5d5bf6
-  resource: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
-  author: Rahul Parundekar
-  last_modified: '2026-10-11T08:48:58-07:00'
+  last_modified: '2026-10-11T08:19:56-07:00'
 ---
 
 # Overview
-The `aaif-backup` skill creates automated, immutable, timestamped snapshots of critical operational artifacts across Google Drive and local file systems [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. It protects primary estate registers—such as the Community Intake Ops sheet—against accidental corruption or unrecoverable agent edits while strictly keeping sensitive binary exports out of public version control [^evt-community-events-file-f922f666d0ff-e2dbe3f7][^evt-community-events-file-a54ff182c7e8-2d5d5bf6].
+`aaif-backup` is an operational agent skill designed to capture versioned, immutable snapshots of critical AAIF operational data prior to high-risk administrative mutations.[^evt-community-events-file-91fd6707275c-36b98c09] By default, it targets the AAIF Community Intake Ops spreadsheet, writing point-in-time archives to local storage without overwriting past backups.[^evt-community-events-file-91fd6707275c-36b98c09]
 
 # Architecture / Specification
-The backup skill enforces strict storage segregation, naming conventions, and non-destructive recovery workflows:
+- **Immutable Versioning**: Every snapshot is saved under `<dest>/<slug>/<UTC-timestamp>.<ext>`, ensuring a non-destructive audit history for diffing or rolling back records.[^evt-community-events-file-91fd6707275c-36b98c09] Existing backups are never overwritten.
+- **Drive and Local Target Support**: The skill accepts local files directly or Google Drive file IDs. Google Drive native files are exported to standardized Office formats (`application/vnd.google-apps.spreadsheet` to `.xlsx`, Docs to `.docx`, Slides to `.pptx`).[^evt-community-events-file-91fd6707275c-36b98c09]
+- **Tooling Constraints**: Drive file operations must strictly utilize the `gws` CLI driven by Python; headless document converters like LibreOffice or `soffice` are banned to preserve native OOXML parts and brand typography.[^evt-community-events-file-91fd6707275c-36b98c09]
+- **Pre-execution Verification**: Remote backups require authenticated Google Workspace sessions validated via `gws`, verified before execution alongside [AAIF Check Setup](../skills/aaif-check-setup.md).[^evt-community-events-file-91fd6707275c-36b98c09]
 
-- **Snapshot Directory Layout**: Snapshots follow a standardized path structure: `backups/<slug>/<UTC-timestamp>.<ext>` (for example, `backups/aaif-community-intake-ops/2026-07-03T142530Z.xlsx`) [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. Each execution appends a new file without overwriting prior captures, establishing an audit-ready chronological version history [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
-- **Environment-Aware Storage Routing**: When run in a git checkout, snapshots are written to the repository's `backups/` directory, which is completely git-ignored except for documentation [^evt-community-events-file-f922f666d0ff-e2dbe3f7]. When executed from an installed plugin harness (such as Goose or Claude Desktop), snapshots automatically route to `~/Library/Application Support/AAIF/backups/` on macOS to persist across plugin version upgrades [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
-- **Execution Interfaces**: The underlying runner `backup.py` supports defaulting to the central Intake Ops spreadsheet or accepting arbitrary target file parameters:
-  ```bash
-  # Default: AAIF Community Intake Ops sheet
-  python3 <toolkit>/skills/aaif-backup/scripts/backup.py
+Related operational patterns include [Clean Data](../skills/aaif-clean-data.md) and [Community Event Operations](../skills/community-event-operations.md).
 
-  # Arbitrary Drive file ID or local file path
-  python3 <toolkit>/skills/aaif-backup/scripts/backup.py <driveFileId>
-  python3 <toolkit>/skills/aaif-backup/scripts/backup.py ./path/to/file.xlsx
-  ```
-  [^evt-community-events-file-f922f666d0ff-e2dbe3f7]
-- **Safe Restore Protocol**: Restoration is intentionally manual and non-destructive. Operators copy raw cell values back from exported snapshots rather than overwriting sheets entirely, preventing the destruction of operational formulas and conditional formatting [^evt-community-events-file-f922f666d0ff-e2dbe3f7].
-
-# Lifecycle History
-To safeguard privacy across public repositories, binary snapshot files (`.xlsx`, `.docx`, `.pptx`) are banned from source tracking via gitignore filters, and data directory isolation was introduced to prevent accidental mutations inside user workspaces [^evt-community-events-file-a54ff182c7e8-2d5d5bf6][^evt-community-events-file-f922f666d0ff-e2dbe3f7].
-
-# References
-- [Agent Plugin Portability Guidelines](../guidelines/agent-plugin-portability.md)
-- [Community Event Operations](../skills/community-event-operations.md)
-
-[^evt-community-events-file-a54ff182c7e8-2d5d5bf6]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/AGENTS.md
-[^evt-community-events-file-f922f666d0ff-e2dbe3f7]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/backups/README.md
+[^evt-community-events-file-91fd6707275c-36b98c09]: https://github.com/aaif/community-events/blob/f9238daa9a574849f49e30e1ce9a5c03458594b9/skills/aaif-backup/SKILL.md
